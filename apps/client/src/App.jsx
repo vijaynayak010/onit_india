@@ -15,7 +15,6 @@ import { AuthProvider } from "./contexts/AuthContext.jsx";
 import { NotificationProvider } from "./contexts/NotificationContext.jsx";
 import AppAuth0Provider from "./components/shared/AppAuth0Provider.jsx";
 import GatedRoute from "./components/GatedRoute.jsx";
-import SiteGate from "./components/SiteGate.jsx";
 import "./pages/public/publicPages.css";
 import TestModeBadge from "./test-mode/components/TestModeBadge.jsx";
 
@@ -280,9 +279,7 @@ function App() {
         <AuthProvider>
           <NotificationProvider>
             <ScrollToTop />
-            <SiteGate>
-              <MainContent />
-            </SiteGate>
+            <MainContent />
             <TestModeBadge />
           </NotificationProvider>
         </AuthProvider>

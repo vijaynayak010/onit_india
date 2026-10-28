@@ -33,6 +33,8 @@ export function isLocalEnvironment() {
     hostname.endsWith('.local') ||
     hostname.startsWith('192.168.') ||
     hostname.startsWith('10.') ||
+    hostname.endsWith('.vercel.app') ||
+    hostname.includes('vercel.app') ||
     import.meta.env.DEV
   );
 }
