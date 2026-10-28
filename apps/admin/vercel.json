@@ -1,0 +1,18 @@
+{
+  "buildCommand": "npm install && npm run build",
+  "outputDirectory": "dist",
+  "rewrites": [
+    {
+      "source": "/api-onitindia/:path*",
+      "destination": "https://wcnwjjyw3er242onl66k4ljnei0xqykl.lambda-url.ap-south-1.on.aws/:path*"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "https://onitindia.com/api/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

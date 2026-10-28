@@ -1,0 +1,196 @@
+/* Chroma Grid – React Bits exact effect
+   https://reactbits.dev/components/chroma-grid
+   - Global spotlight: cursor-follow circle (rest of grid dimmed/grayscale)
+   - Per-card: hover border color + radial glow at mouse
+*/
+
+.chroma-grid-root {
+  --r: 220px;
+  --x: 50%;
+  --y: 50%;
+}
+
+.chroma-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  backdrop-filter: grayscale(1) brightness(0.78);
+  -webkit-backdrop-filter: grayscale(1) brightness(0.78);
+  background: rgba(0, 0, 0, 0.001);
+  mask-image: radial-gradient(
+    circle var(--r) at var(--x) var(--y),
+    transparent 0%,
+    transparent 15%,
+    rgba(0, 0, 0, 0.1) 30%,
+    rgba(0, 0, 0, 0.22) 45%,
+    rgba(0, 0, 0, 0.35) 60%,
+    rgba(0, 0, 0, 0.5) 75%,
+    rgba(0, 0, 0, 0.68) 88%,
+    white 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    circle var(--r) at var(--x) var(--y),
+    transparent 0%,
+    transparent 15%,
+    rgba(0, 0, 0, 0.1) 30%,
+    rgba(0, 0, 0, 0.22) 45%,
+    rgba(0, 0, 0, 0.35) 60%,
+    rgba(0, 0, 0, 0.5) 75%,
+    rgba(0, 0, 0, 0.68) 88%,
+    white 100%
+  );
+}
+
+.chroma-fade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+  backdrop-filter: grayscale(1) brightness(0.78);
+  -webkit-backdrop-filter: grayscale(1) brightness(0.78);
+  background: rgba(0, 0, 0, 0.001);
+  mask-image: radial-gradient(
+    circle var(--r) at var(--x) var(--y),
+    white 0%,
+    white 15%,
+    rgba(255, 255, 255, 0.9) 30%,
+    rgba(255, 255, 255, 0.78) 45%,
+    rgba(255, 255, 255, 0.65) 60%,
+    rgba(255, 255, 255, 0.5) 75%,
+    rgba(255, 255, 255, 0.32) 88%,
+    transparent 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    circle var(--r) at var(--x) var(--y),
+    white 0%,
+    white 15%,
+    rgba(255, 255, 255, 0.9) 30%,
+    rgba(255, 255, 255, 0.78) 45%,
+    rgba(255, 255, 255, 0.65) 60%,
+    rgba(255, 255, 255, 0.5) 75%,
+    rgba(255, 255, 255, 0.32) 88%,
+    transparent 100%
+  );
+  opacity: 1;
+  transition: opacity 0.25s ease;
+}
+
+.chroma-card {
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+  --spotlight-color: rgba(255, 255, 255, 0.3);
+  --card-border: transparent;
+  --card-gradient: linear-gradient(145deg, #4f46e5, #000);
+  width: 100%;
+  min-width: 0;
+}
+
+.chroma-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--mouse-x) var(--mouse-y),
+    var(--spotlight-color),
+    transparent 70%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 2;
+  border-radius: 20px;
+}
+
+.chroma-card:hover::before {
+  opacity: 1;
+}
+
+.chroma-card:hover {
+  border-color: var(--card-border);
+}
+
+.chroma-img-wrapper {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  padding: 10px;
+  box-sizing: border-box;
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+.chroma-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+.chroma-info {
+  position: relative;
+  z-index: 1;
+  padding: 0.75rem 1rem;
+  color: #fff;
+  font-family: system-ui, sans-serif;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  row-gap: 0.25rem;
+  column-gap: 0.75rem;
+}
+
+.chroma-info .handle {
+  color: #aaa;
+}
+
+/* Compact 3×3 grid – smaller cards */
+.chroma-grid-compact {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 640px) {
+  .chroma-grid-compact {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .chroma-grid-compact {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.chroma-card-compact .chroma-img-wrapper {
+  padding: 6px;
+}
+
+.chroma-card-compact .chroma-img-wrapper img {
+  border-radius: 8px;
+}
+
+.chroma-card-compact .chroma-info {
+  padding: 0.5rem 0.6rem;
+  font-size: 0.875rem;
+  row-gap: 0.125rem;
+  column-gap: 0.4rem;
+}
+
+.chroma-card-compact .chroma-info span:first-child {
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.chroma-card-compact .chroma-info .handle {
+  font-size: 0.7rem;
+}
+
+.chroma-card-compact .chroma-info .text-sm {
+  font-size: 0.7rem;
+}
+
+.chroma-card-compact::before {
+  border-radius: 14px;
+}

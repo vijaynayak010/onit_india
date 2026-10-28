@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /api-onitindia/
+
+Sitemap: https://www.onitindia.com/sitemap.xml

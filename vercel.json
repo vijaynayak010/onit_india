@@ -1,0 +1,198 @@
+{
+    "version": 2,
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "builds": [
+        {
+            "src": "package.json",
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "apps/client/dist"
+            }
+        },
+        {
+            "src": "apps/server/server.js",
+            "use": "@vercel/node",
+            "config": {
+                "includeFiles": ["apps/client/dist/index.html"]
+            }
+        }
+    ],
+    "redirects": [
+        {
+            "source": "/home",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/index.html",
+            "destination": "/",
+            "permanent": true
+        }
+    ],
+    "headers": [
+        {
+            "source": "/.well-known/assetlinks.json",
+            "headers": [{ "key": "Content-Type", "value": "application/json" }]
+        },
+        {
+            "source": "/.well-known/apple-app-site-association",
+            "headers": [{ "key": "Content-Type", "value": "application/json" }]
+        },
+        {
+            "source": "/assets/:path*",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=31536000, immutable"
+                }
+            ]
+        },
+        {
+            "source": "/admin/:path*",
+            "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+        },
+        {
+            "source": "/provider/:path*",
+            "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+        },
+        {
+            "source": "/performer/:path*",
+            "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+        },
+        {
+            "source": "/dev/:path*",
+            "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+        },
+        {
+            "source": "/domains/:domain/:subdomain",
+            "headers": [{ "key": "X-Robots-Tag", "value": "noindex, follow" }]
+        },
+        {
+            "source": "/auth",
+            "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+        },
+        {
+            "source": "/providerlogin",
+            "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+        },
+        {
+            "source": "/performerlogin",
+            "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+        },
+        {
+            "source": "/otp",
+            "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+        },
+        {
+            "source": "/admin-login",
+            "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+        },
+        {
+            "source": "/admin-dashboard",
+            "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+        },
+        {
+            "source": "/add-post",
+            "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+        },
+        {
+            "source": "/contact/thank-you",
+            "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+        },
+        {
+            "source": "/careers/thank-you",
+            "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+        }
+    ],
+    "rewrites": [
+        {
+            "source": "/.well-known/apple-app-site-association",
+            "destination": "/api/app-links/apple"
+        },
+        {
+            "source": "/s/:code",
+            "destination": "/api/share-page?code=:code"
+        },
+        {
+            "source": "/verify-invoice",
+            "destination": "/api/invoice-page"
+        },
+        {
+            "source": "/api-onitindia/:path*",
+            "destination": "https://wcnwjjyw3er242onl66k4ljnei0xqykl.lambda-url.ap-south-1.on.aws/:path*"
+        },
+        {
+            "source": "/auth0/:path*",
+            "destination": "https://dev-jdesmpayywayutew.us.auth0.com/:path*"
+        },
+        {
+            "source": "/api/:path*",
+            "destination": "/apps/server/server.js"
+        },
+        {
+            "source": "/provider/:path*",
+            "destination": "/200"
+        },
+        {
+            "source": "/performer/:path*",
+            "destination": "/200"
+        },
+        {
+            "source": "/admin/:path*",
+            "destination": "/200"
+        },
+        {
+            "source": "/dev/:path*",
+            "destination": "/200"
+        },
+        {
+            "source": "/domains/:domain/:subdomain",
+            "destination": "/200"
+        },
+        {
+            "source": "/policies/:slug",
+            "destination": "/200"
+        },
+        {
+            "source": "/auth",
+            "destination": "/200"
+        },
+        {
+            "source": "/providerlogin",
+            "destination": "/200"
+        },
+        {
+            "source": "/performerlogin",
+            "destination": "/200"
+        },
+        {
+            "source": "/otp",
+            "destination": "/200"
+        },
+        {
+            "source": "/admin-login",
+            "destination": "/200"
+        },
+        {
+            "source": "/admin-dashboard",
+            "destination": "/200"
+        },
+        {
+            "source": "/add-post",
+            "destination": "/200"
+        },
+        {
+            "source": "/contact/thank-you",
+            "destination": "/200"
+        },
+        {
+            "source": "/careers/thank-you",
+            "destination": "/200"
+        },
+        {
+            "source": "/deletion",
+            "destination": "/200"
+        }
+    ]
+}

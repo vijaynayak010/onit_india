@@ -1,0 +1,22 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.onitconsumer.india",
+      "sha256_cert_fingerprints": [
+        "39:9E:8F:A9:76:DD:82:25:2C:90:2A:A9:E1:72:CC:5A:92:A4:3D:1E:6F:11:5F:E6:EB:99:6E:DB:DE:F4:13:66"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.onitapp.india",
+      "sha256_cert_fingerprints": [
+        "C2:7F:C3:99:A3:2D:97:F8:D6:04:74:BE:B5:83:DC:5C:8E:77:00:A2:B3:EE:47:08:1A:B5:2A:DA:3E:32:98:5C"
+      ]
+    }
+  }
+]

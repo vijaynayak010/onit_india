@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+/* tailwind-v4-fix */
+@theme {
+  --color-primary: #ffffff;
+  --color-primary-light: #f8fafc;
+  --color-accent: #059669;
+  /* emerald-600 */
+  --color-accent-hover: #047857;
+  /* emerald-700 */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+    font-family: var(--font-sans);
+  }
+
+  /* Global Premium Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #059669;
+    /* slate-200 */
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #cbd5e1;
+    /* slate-300 */
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-accent text-white px-4 py-2 rounded-lg font-medium transition-colors hover:bg-accent-hover;
+  }
+
+  .card {
+    @apply bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden;
+  }
+}
