@@ -189,7 +189,7 @@ const PerformerReferPage = () => {
                       <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/20">
                         <Gift size={20} strokeWidth={2.2} className="text-white" />
                       </div>
-                      <h3 className="text-lg font-black text-white">Invite & Earn</h3>
+                      <h3 className="text-lg font-medium text-white">Invite & Earn</h3>
                     </div>
                     <p className="mb-6 text-[13px] font-medium text-[#EFFBFB]/80 max-w-lg">
                       When a friend you invite completes their first verified task, you both get wallet credit instantly.
@@ -286,7 +286,7 @@ const PerformerReferPage = () => {
                       <div className={`flex h-8 w-8 items-center justify-center rounded-lg ${bg}`}>
                         <Icon size={16} strokeWidth={2.2} className={color} />
                       </div>
-                      <p className="text-[22px] font-black tabular-nums text-gray-900 leading-none">{value}</p>
+                      <p className="text-[22px] font-medium tabular-nums text-gray-900 leading-none">{value}</p>
                       <p className="text-[11px] font-semibold text-gray-400">{label}</p>
                     </div>
                   ))}
@@ -309,7 +309,7 @@ const PerformerReferPage = () => {
                   <section className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-6 shadow-[var(--shadow-sm)]">
                     <div className="flex flex-wrap items-center justify-between gap-3">
                       <div>
-                        <h3 className="text-base font-bold text-gray-900">Referral Rewards</h3>
+                        <h3 className="text-base font-medium text-gray-900">Referral Rewards</h3>
                         <p className="mt-1 text-xs font-semibold text-gray-500">Your milestone rewards and their current status.</p>
                       </div>
                       <div className="rounded-full bg-[#EFFBFB] px-3 py-1.5 text-xs font-bold text-[#10605F]">
@@ -347,7 +347,7 @@ const PerformerReferPage = () => {
                 <section className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-6 shadow-[var(--shadow-sm)]">
                   <div className="flex flex-wrap items-center justify-between gap-3">
                     <div>
-                      <h3 className="text-base font-bold text-gray-900">Referral Activity</h3>
+                      <h3 className="text-base font-medium text-gray-900">Referral Activity</h3>
                       <p className="mt-1 text-xs font-semibold text-gray-500">Status of your most recent referrals.</p>
                     </div>
                     <span className="text-xs font-bold text-gray-500">{activity.length} shown</span>
@@ -363,7 +363,7 @@ const PerformerReferPage = () => {
                               {item.initials || "U"}
                             </div>
                             <div className="min-w-0 flex-1">
-                              <p className="truncate text-sm font-bold text-gray-900">{item.name || item.email || "Referred user"}</p>
+                              <p className="truncate text-sm font-medium text-gray-900">{item.name || item.email || "Referred user"}</p>
                               <p className="mt-0.5 text-xs font-semibold text-gray-500">{item.activityText || (completed ? "Completed first task" : "Waiting for first task")}</p>
                             </div>
                             {completed && Number(item.pointsEarned || 0) > 0 && (
@@ -385,7 +385,7 @@ const PerformerReferPage = () => {
 
                 {/* Step Process Timeline */}
                 <div className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-6 shadow-[var(--shadow-sm)]">
-                  <h3 className="text-base font-bold text-gray-900 mb-6 flex items-center gap-2">
+                  <h3 className="text-base font-medium text-gray-900 mb-6 flex items-center gap-2">
                     <HelpCircle className="h-5 w-5 text-[#10605F]" strokeWidth={2} />
                     How Referrals Work
                   </h3>
@@ -395,7 +395,7 @@ const PerformerReferPage = () => {
                       <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#DFF7F6] text-sm font-black text-[#10605F]">
                         1
                       </div>
-                      <h4 className="text-sm font-bold text-gray-900 mt-2">Send Invitation</h4>
+                      <h4 className="text-sm font-medium text-gray-900 mt-2">Send Invitation</h4>
                       <p className="text-xs font-semibold leading-relaxed text-gray-500">
                         Share your custom code or link with other skilled performers (cleaning workers, repairers, technicians).
                       </p>
@@ -406,7 +406,7 @@ const PerformerReferPage = () => {
                       <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#DFF7F6] text-sm font-black text-[#10605F]">
                         2
                       </div>
-                      <h4 className="text-sm font-bold text-gray-900 mt-2">They Complete a Task</h4>
+                      <h4 className="text-sm font-medium text-gray-900 mt-2">They Complete a Task</h4>
                       <p className="text-xs font-semibold leading-relaxed text-gray-500">
                         Once they register, pass KYC verification, and successfully complete their first customer booking.
                       </p>
@@ -417,7 +417,7 @@ const PerformerReferPage = () => {
                       <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#DFF7F6] text-sm font-black text-[#10605F]">
                         3
                       </div>
-                      <h4 className="text-sm font-bold text-gray-900 mt-2">Get Paid Cash Credit</h4>
+                      <h4 className="text-sm font-medium text-gray-900 mt-2">Get Paid Cash Credit</h4>
                       <p className="text-xs font-semibold leading-relaxed text-gray-500">
                         Milestone rewards are instantly credited to your wallet as claimable cash. No caps or limits on referrals!
                       </p>

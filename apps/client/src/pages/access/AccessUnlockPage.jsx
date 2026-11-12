@@ -27,7 +27,7 @@ const AccessUnlockPage = () => {
                 <div className="w-16 h-16 bg-[#16a34a] rounded-2xl flex items-center justify-center text-white text-[32px] mb-8 animate-bounce">
                     🛡️
                 </div>
-                <h1 className="text-[24px] font-black text-gray-900 mb-2">Access Granted</h1>
+                <h1 className="text-[24px] font-medium text-gray-900 mb-2">Access Granted</h1>
                 <p className="text-[14px] font-bold text-gray-400">Developer proxy unlocked. Redirecting...</p>
 
                 <div className="mt-8 flex gap-2">

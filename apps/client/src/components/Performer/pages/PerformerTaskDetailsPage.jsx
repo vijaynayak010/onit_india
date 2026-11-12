@@ -88,7 +88,7 @@ function InterestStatusModal({ state, taskTitle, onClose, onPrimary, onSecondary
                 >
                     {isSuccess ? <CheckCircle2 size={42} strokeWidth={2.2} /> : <AlertCircle size={40} strokeWidth={2.2} />}
                 </div>
-                <h2 className="text-2xl font-extrabold tracking-tight text-slate-950">{config.title}</h2>
+                <h2 className="text-xl sm:text-2xl font-heading font-medium tracking-tight text-slate-950">{config.title}</h2>
                 <p className="mx-auto mt-3 max-w-md text-[15px] font-medium leading-7 text-slate-500">{config.body}</p>
                 {taskTitle ? (
                     <div className="mx-auto mt-6 flex max-w-md items-center gap-3 rounded-2xl border border-slate-100 bg-slate-50 px-4 py-3 text-left">
@@ -124,7 +124,7 @@ function InterestStatusModal({ state, taskTitle, onClose, onPrimary, onSecondary
 
 function SectionTitle({ children }) {
     return (
-        <h2 className="mb-3 text-[15px] font-bold tracking-tight text-[var(--color-text)]">
+        <h2 className="mb-3 text-sm sm:text-base font-heading font-medium tracking-tight text-[var(--color-text)]">
             {children}
         </h2>
     );
@@ -142,7 +142,7 @@ function FileRow({ name, size, type, url }) {
                 <FileText size={18} strokeWidth={2.2} />
             </div>
             <div className="min-w-0 flex-1">
-                <p className="truncate text-[13px] font-bold text-[var(--color-text)]">{name}</p>
+                <p className="truncate text-[13px] font-medium text-[var(--color-text)]">{name}</p>
                 <p className="text-[11px] font-semibold text-[var(--color-text-muted)]">{size}</p>
             </div>
             {url ? (
@@ -173,7 +173,7 @@ function SummaryMetric({ icon, label, value, highlight = false }) {
             </span>
             <span className="min-w-0">
                 <span className={`block text-[11px] font-semibold ${highlight ? 'text-white/75' : 'text-[var(--color-text-muted)]'}`}>{label}</span>
-                <span className={`mt-0.5 block truncate text-[17px] font-extrabold tabular-nums ${highlight ? 'text-white' : 'text-[var(--color-text)]'}`}>{value}</span>
+                <span className={`mt-0.5 block truncate text-[17px] font-medium tabular-nums ${highlight ? 'text-white' : 'text-[var(--color-text)]'}`}>{value}</span>
             </span>
         </div>
     );
@@ -467,7 +467,7 @@ const PerformerTaskDetailsPage = () => {
         return (
             <div className="flex min-h-screen flex-col items-center justify-center bg-[var(--color-bg)] p-6">
                 <AlertCircle size={48} className="mb-4 text-red-500" />
-                <h2 className="mb-2 text-2xl font-bold text-[var(--color-text)]">Task Not Found</h2>
+                <h2 className="mb-2 text-2xl font-medium text-[var(--color-text)]">Task Not Found</h2>
                 <p className="mb-8 text-[var(--color-text-muted)]">The task you&apos;re looking for doesn&apos;t exist or has been removed.</p>
                 <button
                     type="button"
@@ -493,12 +493,12 @@ const PerformerTaskDetailsPage = () => {
                         <div className="mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-[var(--color-primary)] shadow-[var(--shadow-md)]">
                             <CheckCircle2 size={48} className="text-white" strokeWidth={2} />
                         </div>
-                        <h1 className="text-[26px] font-bold tracking-tight text-[var(--color-text)]">
+                        <h1 className="text-[26px] font-medium tracking-tight text-[var(--color-text)]">
                             You&apos;re In!
                         </h1>
                         <p className="mt-2 max-w-sm text-[14px] font-medium leading-relaxed text-[var(--color-text-muted)]">
                             You&apos;ve accepted the invitation for{' '}
-                            <span className="font-bold text-[var(--color-text)]">&apos;{viewModel.title}&apos;</span>.
+                            <span className="font-medium text-[var(--color-text)]">&apos;{viewModel.title}&apos;</span>.
                         </p>
 
                         <div className="mt-8 w-full rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4 text-left">
@@ -517,7 +517,7 @@ const PerformerTaskDetailsPage = () => {
                             <button
                                 type="button"
                                 onClick={() => navigate('/performer/dashboard')}
-                                className="w-full rounded-xl bg-[var(--color-primary)] py-3.5 text-[15px] font-bold text-white shadow-[var(--shadow-sm)] transition hover:bg-[var(--color-primary-hover)]"
+                                className="w-full rounded-xl bg-[var(--color-primary)] py-3.5 text-[15px] font-medium text-white shadow-[var(--shadow-sm)] transition hover:bg-[var(--color-primary-hover)]"
                             >
                                 Back to Dashboard
                             </button>
@@ -612,7 +612,7 @@ const PerformerTaskDetailsPage = () => {
                                     </span>
                                 </div>
 
-                                <h1 className="mt-5 max-w-3xl text-3xl font-extrabold leading-tight tracking-tight text-[var(--color-text)] sm:text-[34px]">
+                                <h1 className="mt-5 max-w-3xl text-2xl sm:text-3xl font-heading font-medium leading-tight tracking-tight text-[var(--color-text)]">
                                     {viewModel.title}
                                 </h1>
 
@@ -726,7 +726,7 @@ const PerformerTaskDetailsPage = () => {
                                     <ShieldCheck size={20} strokeWidth={2.2} />
                                 </span>
                                 <div>
-                                    <h2 className="text-[17px] font-extrabold tracking-tight text-[var(--color-text)]">{actionTitle}</h2>
+                                    <h2 className="text-[17px] font-medium tracking-tight text-[var(--color-text)]">{actionTitle}</h2>
                                     <p className="mt-1 text-[12px] font-medium leading-5 text-[var(--color-text-muted)]">{actionDescription}</p>
                                 </div>
                             </div>
@@ -786,7 +786,7 @@ const PerformerTaskDetailsPage = () => {
                         </article>
 
                         <article className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-5 shadow-[var(--shadow-sm)]">
-                            <h2 className="mb-4 text-[15px] font-bold text-[var(--color-text)]">About the client</h2>
+                            <h2 className="mb-4 text-[15px] font-medium text-[var(--color-text)]">About the client</h2>
 
                             <div className="flex items-start gap-3">
                                 <button
@@ -818,7 +818,7 @@ const PerformerTaskDetailsPage = () => {
 
                                 <div className="min-w-0 flex-1">
                                     <div className="flex flex-wrap items-center gap-2">
-                                        <h3 className="truncate text-[15px] font-bold text-[var(--color-text)]">{viewModel.client.name}</h3>
+                                        <h3 className="truncate text-[15px] font-medium text-[var(--color-text)]">{viewModel.client.name}</h3>
                                         {viewModel.client.verified ? (
                                             <span className="rounded-md bg-[var(--color-primary-subtle)] px-2 py-0.5 text-[10px] font-bold text-[var(--color-primary)]">
                                                 Verified

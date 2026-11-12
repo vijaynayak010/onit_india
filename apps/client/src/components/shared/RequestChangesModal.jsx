@@ -62,7 +62,7 @@ const RequestChangesModal = ({ isOpen, onClose, item, onSubmit }) => {
           className="relative flex max-h-[90vh] w-full max-w-lg flex-col overflow-hidden rounded-[1.75rem] border border-[var(--color-border)] bg-white shadow-2xl"
         >
           <div className="flex items-center justify-between border-b border-[var(--color-border)] px-6 py-5">
-            <h2 className="text-xl font-bold text-[var(--color-text)]">Request Changes</h2>
+            <h2 className="text-xl font-medium text-[var(--color-text)]">Request Changes</h2>
             {!submitting && (
               <button
                 type="button"
@@ -144,7 +144,7 @@ const RequestChangesModal = ({ isOpen, onClose, item, onSubmit }) => {
                   {files.map((file, index) => (
                     <div key={`${file.name}-${file.lastModified}-${index}`} className="flex items-center gap-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2.5">
                       <Paperclip className="h-4 w-4 shrink-0 text-amber-600" />
-                      <span className="min-w-0 flex-1 truncate text-sm font-semibold text-[var(--color-text)]">{file.name}</span>
+                      <span className="min-w-0 flex-1 truncate text-sm font-medium text-[var(--color-text)]">{file.name}</span>
                       <button
                         type="button"
                         disabled={submitting}

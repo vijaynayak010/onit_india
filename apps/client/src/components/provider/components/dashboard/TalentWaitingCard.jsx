@@ -16,7 +16,7 @@ const TalentWaitingCard = ({ performers = [], availableCount, embedded = false }
               <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--color-primary-subtle)] text-[var(--color-primary)]">
                 <Users className="h-4.5 w-4.5" strokeWidth={2.25} />
               </div>
-              <h2 className="text-lg font-extrabold tracking-tight text-[var(--color-text)]">
+              <h2 className="text-base sm:text-lg font-heading font-medium tracking-tight text-[var(--color-text)]">
                 Talent waiting for new tasks
               </h2>
               <LiveChip label="Open" />

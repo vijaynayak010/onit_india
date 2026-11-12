@@ -16,7 +16,7 @@ const StatCard = ({ label, amount, tone }) => {
   return (
     <div className={`flex flex-1 flex-col rounded-2xl px-4 py-3.5 ${tones[tone]}`}>
       <span className="text-[11px] font-bold uppercase tracking-wide opacity-80">{label}</span>
-      <span className="mt-1 text-[17px] font-black tabular-nums">₹{formatINR(amount)}</span>
+      <span className="mt-1 text-[17px] font-medium tabular-nums">₹{formatINR(amount)}</span>
     </div>
   );
 };
@@ -96,7 +96,7 @@ const PerformerWalletEarningsView = ({ paths = DEFAULT_PATHS, title = "Wallet" }
                 <p className="text-[11px] font-bold uppercase tracking-widest text-gray-400">
                   Available balance
                 </p>
-                <p className="mt-1 text-4xl font-black tabular-nums leading-none text-gray-900">
+                <p className="mt-1 text-4xl font-medium tabular-nums leading-none text-gray-900">
                   ₹{formatINR(wallet.balance)}
                 </p>
               </div>
@@ -118,7 +118,7 @@ const PerformerWalletEarningsView = ({ paths = DEFAULT_PATHS, title = "Wallet" }
 
           <section className="mb-8">
             <div className="mb-3 flex items-center justify-between">
-              <h2 className="text-[15px] font-bold text-gray-900">Payout account</h2>
+              <h2 className="text-[15px] font-medium text-gray-900">Payout account</h2>
               <button
                 type="button"
                 onClick={() => navigate(paths.banks)}
@@ -132,7 +132,7 @@ const PerformerWalletEarningsView = ({ paths = DEFAULT_PATHS, title = "Wallet" }
 
           <section>
             <div className="mb-3 flex items-center justify-between">
-              <h2 className="text-[15px] font-bold text-gray-900">Recent activity</h2>
+              <h2 className="text-[15px] font-medium text-gray-900">Recent activity</h2>
               <button
                 type="button"
                 onClick={() => navigate(paths.transactions)}

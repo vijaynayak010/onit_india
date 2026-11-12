@@ -202,7 +202,7 @@ const TaskPerformersPage = () => {
                     </div>
                     <div className="min-w-0">
                         <div className="flex items-center gap-1.5 min-w-0">
-                            <h3 className="text-[15px] font-bold leading-tight text-[var(--color-text)] truncate">{p.displayName || "User"}</h3>
+                            <h3 className="text-[15px] font-medium leading-tight text-[var(--color-text)] truncate">{p.displayName || "User"}</h3>
                             {p.kycStatus === "VERIFIED" && (
                                 <ShieldCheck className="h-3.5 w-3.5 shrink-0 text-[var(--color-primary)]" strokeWidth={2.5} />
                             )}
@@ -308,7 +308,7 @@ const TaskPerformersPage = () => {
                                     Talent marketplace
                                 </span>
                             </div>
-                            <h1 className="text-2xl font-extrabold tracking-tight text-[var(--color-text)] sm:text-3xl">Find the right performer</h1>
+                            <h1 className="text-2xl font-medium tracking-tight text-[var(--color-text)] sm:text-3xl">Find the right performer</h1>
                         </div>
                         <button 
                             onClick={() => setShowAdvancedFilters(!showAdvancedFilters)}
@@ -431,7 +431,7 @@ const TaskPerformersPage = () => {
                         <div className="h-24 w-24 rounded-[var(--radius-3xl)] bg-[#EFFBFB] flex items-center justify-center text-[var(--color-primary)] mb-6 shadow-inner ring-1 ring-emerald-100">
                             <Search className="h-10 w-10" />
                         </div>
-                        <h2 className="text-2xl font-bold text-[var(--color-text)]">No matches found</h2>
+                        <h2 className="text-2xl font-medium text-[var(--color-text)]">No matches found</h2>
                         <p className="text-[var(--color-text-muted)] mt-2 max-w-xs mx-auto font-medium">We couldn't find any performers matching your current filters. Try relaxing your search or category.</p>
                         <button onClick={() => { setActiveFilter("All"); setSearchQuery(""); setMinRating(0); setExperienceFilter("All"); setSelectedSkill(null); }} className="mt-8 px-8 py-3 rounded-full bg-[var(--color-primary)] font-bold text-white shadow-[var(--shadow-glow)] hover:bg-[var(--color-primary-hover)] transition">Clear everything</button>
                     </div>
@@ -447,7 +447,7 @@ const TaskPerformersPage = () => {
                             <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
                                 <div>
                                     <div className="flex items-center gap-3">
-                                        <h2 className="text-xl font-bold text-[var(--color-text)] sm:text-2xl">{section.category}</h2>
+                                        <h2 className="text-xl font-medium text-[var(--color-text)] sm:text-2xl">{section.category}</h2>
                                         <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-bold text-slate-500">{section.count}</span>
                                     </div>
                                     <p className="mt-1 text-[13px] font-medium text-[var(--color-text-subtle)]">Top professionals in this category</p>

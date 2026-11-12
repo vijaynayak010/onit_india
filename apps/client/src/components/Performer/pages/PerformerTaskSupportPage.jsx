@@ -99,7 +99,7 @@ const PerformerTaskSupportPage = () => {
           <button
             type="button"
             onClick={() => navigate(`/performer/active-task/${id}`)}
-            className="flex items-center gap-1.5 text-[18px] font-bold text-[var(--color-text)] transition hover:opacity-80"
+            className="flex items-center gap-1.5 text-[18px] font-medium text-[var(--color-text)] transition hover:opacity-80"
           >
             <ChevronLeft size={22} strokeWidth={2.5} />
             Support
@@ -131,7 +131,7 @@ const PerformerTaskSupportPage = () => {
                 <FileText size={22} strokeWidth={2.2} />
               </div>
               <div className="min-w-0 flex-1">
-                <h2 className="truncate text-[15px] font-bold text-[var(--color-text)]">
+                <h2 className="truncate text-[15px] font-medium text-[var(--color-text)]">
                   {taskTitle}
                 </h2>
                 <p className="mt-0.5 truncate text-[12px] font-medium text-[var(--color-text-muted)]">
@@ -151,7 +151,7 @@ const PerformerTaskSupportPage = () => {
               </div>
             </motion.article>
 
-            <h3 className="mb-4 text-[17px] font-bold text-[var(--color-text)]">
+            <h3 className="mb-4 text-[17px] font-medium text-[var(--color-text)]">
               How can we help you?
             </h3>
 
@@ -171,7 +171,7 @@ const PerformerTaskSupportPage = () => {
                       <Icon size={22} className={cat.iconColor} strokeWidth={2.2} />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-[14px] font-bold text-[var(--color-text)]">
+                      <p className="text-[14px] font-medium text-[var(--color-text)]">
                         {cat.title}
                       </p>
                       <p className="mt-0.5 text-[12px] font-medium leading-snug text-[var(--color-text-muted)]">
@@ -189,7 +189,7 @@ const PerformerTaskSupportPage = () => {
                   <Headphones size={22} strokeWidth={2.2} />
                 </div>
                 <div>
-                  <p className="text-[15px] font-bold text-[var(--color-text)]">
+                  <p className="text-[15px] font-medium text-[var(--color-text)]">
                     Live Chat Support
                   </p>
                   <p className="text-[12px] font-medium text-[var(--color-text-muted)]">

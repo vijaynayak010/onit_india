@@ -51,7 +51,7 @@ export default function VerificationSection() {
           <div style={{ display: "inline" }}>
             <h2
               style={{
-                fontFamily: "Outfit, sans-serif",
+                fontFamily: "Poppins, sans-serif",
                 fontWeight: 600,
                 fontSize: "clamp(28px, 3.5vw, 41.832px)",
                 lineHeight: "clamp(34px, 4.5vw, 48px)",
@@ -102,7 +102,7 @@ export default function VerificationSection() {
 
           <p
             style={{
-              fontFamily: "Manrope, sans-serif",
+              fontFamily: "Poppins, sans-serif",
               fontWeight: 400,
               fontSize: "clamp(14px, 1.6vw, 17px)",
               lineHeight: "26px",
@@ -152,7 +152,7 @@ export default function VerificationSection() {
                   >
                     <span
                       style={{
-                        fontFamily: "Manrope, sans-serif",
+                        fontFamily: "Poppins, sans-serif",
                         fontSize: 16,
                         lineHeight: "24px",
                         color: "#009966",
@@ -163,7 +163,7 @@ export default function VerificationSection() {
                   </div>
                   <span
                     style={{
-                      fontFamily: "Manrope, sans-serif",
+                      fontFamily: "Poppins, sans-serif",
                       fontWeight: 400,
                       fontSize: 12.8,
                       lineHeight: "19px",
@@ -176,7 +176,7 @@ export default function VerificationSection() {
 
                 <h3
                   style={{
-                    fontFamily: "Outfit, sans-serif",
+                    fontFamily: "Poppins, sans-serif",
                     fontWeight: 400,
                     fontSize: 15,
                     lineHeight: "22px",
@@ -188,7 +188,7 @@ export default function VerificationSection() {
                 </h3>
                 <p
                   style={{
-                    fontFamily: "Manrope, sans-serif",
+                    fontFamily: "Poppins, sans-serif",
                     fontWeight: 400,
                     fontSize: 13,
                     lineHeight: "21px",
@@ -237,7 +237,7 @@ export default function VerificationSection() {
               >
                 <span
                   style={{
-                    fontFamily: "Manrope, sans-serif",
+                    fontFamily: "Poppins, sans-serif",
                     fontWeight: 700,
                     fontSize: 16,
                     lineHeight: "24px",
@@ -250,7 +250,7 @@ export default function VerificationSection() {
               <div>
                 <p
                   style={{
-                    fontFamily: "Manrope, sans-serif",
+                    fontFamily: "Poppins, sans-serif",
                     fontWeight: 700,
                     fontSize: 13,
                     lineHeight: "20px",
@@ -262,7 +262,7 @@ export default function VerificationSection() {
                 </p>
                 <p
                   style={{
-                    fontFamily: "Manrope, sans-serif",
+                    fontFamily: "Poppins, sans-serif",
                     fontWeight: 400,
                     fontSize: 11,
                     lineHeight: "16px",
@@ -288,7 +288,7 @@ export default function VerificationSection() {
             >
               <span
                 style={{
-                  fontFamily: "Manrope, sans-serif",
+                  fontFamily: "Poppins, sans-serif",
                   fontWeight: 700,
                   fontSize: 11,
                   lineHeight: "16px",
@@ -305,7 +305,7 @@ export default function VerificationSection() {
         <motion.p
           {...fadeUp(0.2)}
           style={{
-            fontFamily: "Manrope, sans-serif",
+            fontFamily: "Poppins, sans-serif",
             fontWeight: 400,
             fontSize: 13,
             lineHeight: "20px",

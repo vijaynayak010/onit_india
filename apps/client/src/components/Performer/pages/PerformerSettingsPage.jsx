@@ -124,12 +124,12 @@ const PerformerSettingsPage = () => {
                         className="h-14 w-14 rounded-2xl object-cover ring-2 ring-emerald-500/20"
                       />
                     ) : (
-                      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#10605F] text-lg font-black text-white shadow-sm">
+                      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#10605F] text-lg font-medium text-white shadow-sm">
                         {initials}
                       </div>
                     )}
                     <div className="min-w-0 flex-1">
-                      <p className="truncate text-[16px] font-bold text-[var(--color-text)]">{displayName}</p>
+                      <p className="truncate text-[16px] font-medium text-[var(--color-text)]">{displayName}</p>
                       <p className="truncate text-xs font-medium text-[var(--color-text-muted)]">{email}</p>
                       <span className="mt-1 inline-flex items-center gap-1 rounded-full bg-[#EFFBFB] px-2.5 py-0.5 text-[11px] font-bold text-[#10605F]">
                         Active Performer
@@ -152,13 +152,13 @@ const PerformerSettingsPage = () => {
 
                 {/* Account Verification Card */}
                 <div>
-                  <h2 className="mb-3 ml-1 text-base font-bold text-[var(--color-text)]">Account verification</h2>
+                  <h2 className="mb-3 ml-1 text-base font-medium text-[var(--color-text)]">Account verification</h2>
                   <div className="overflow-hidden rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-6 shadow-[var(--shadow-sm)] transition hover:shadow-md">
                     <div className="flex flex-col items-center text-center pb-6 border-b border-[var(--color-border)]/60">
                       <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[var(--color-primary-subtle)] text-[var(--color-primary)] mb-4 shadow-inner">
                         <ShieldCheck size={32} strokeWidth={2} />
                       </div>
-                      <h3 className="text-base font-extrabold text-[var(--color-text)]">Verification Status</h3>
+                      <h3 className="text-base font-medium text-[var(--color-text)]">Verification Status</h3>
                       <p
                         className={`mt-2 inline-flex items-center gap-1.5 rounded-full px-4 py-1 text-xs font-black uppercase tracking-wider ${
                           kycStatus === "VERIFIED"
@@ -198,7 +198,7 @@ const PerformerSettingsPage = () => {
               <div className="flex-1 grid grid-cols-1 gap-8 md:grid-cols-2">
                 {/* 1. SECURITY & AUTHENTICATION */}
                 <div className="md:col-span-2">
-                  <h2 className="mb-3 ml-1 text-sm font-bold uppercase tracking-wider text-[var(--color-text-subtle)]">
+                  <h2 className="mb-3 ml-1 text-sm font-medium uppercase tracking-wider text-[var(--color-text-subtle)]">
                     Security & Authentication
                   </h2>
                   <div className="overflow-hidden rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] shadow-[var(--shadow-sm)] transition hover:shadow-md">
@@ -229,7 +229,7 @@ const PerformerSettingsPage = () => {
 
                 {/* 2. SUPPORT & POLICIES */}
                 <div className="md:col-span-2">
-                  <h2 className="mb-3 ml-1 text-sm font-bold uppercase tracking-wider text-[var(--color-text-subtle)]">
+                  <h2 className="mb-3 ml-1 text-sm font-medium uppercase tracking-wider text-[var(--color-text-subtle)]">
                     Support & Policies
                   </h2>
                   <div className="overflow-hidden rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] shadow-[var(--shadow-sm)] transition hover:shadow-md">
@@ -259,7 +259,7 @@ const PerformerSettingsPage = () => {
 
                 {/* 3. ACCOUNT ACTIONS (DANGER ZONE) */}
                 <div className="md:col-span-2">
-                  <h2 className="mb-3 ml-1 text-sm font-bold uppercase tracking-wider text-[var(--color-text-subtle)]">
+                  <h2 className="mb-3 ml-1 text-sm font-medium uppercase tracking-wider text-[var(--color-text-subtle)]">
                     Account Actions
                   </h2>
                   <div className="overflow-hidden rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] shadow-[var(--shadow-sm)] transition hover:shadow-md">

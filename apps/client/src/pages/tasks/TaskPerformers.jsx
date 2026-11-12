@@ -84,7 +84,7 @@ function Task_Performers() {
       <main className="max-w-4xl mx-auto px-6 md:px-20 py-10 md:py-14">
         {/* Hero */}
         <header className="mb-12">
-          <h1 className="text-3xl md:text-4xl lg:text-[2.25rem] font-bold text-[var(--color-primary)] mb-3 tracking-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-[2.25rem] font-medium text-[var(--color-primary)] mb-3 tracking-tight">
             Earn by Completing Tasks on FirstDoer
           </h1>
           <p className="text-lg font-medium text-gray-700 mb-4">
@@ -120,7 +120,7 @@ function Task_Performers() {
 
         {/* Who Can Join */}
         <section className="mb-12 rounded-2xl border border-gray-200 bg-gray-50/50 p-6 md:p-8" aria-labelledby="who-can-join-heading">
-            <h2 id="who-can-join-heading" className="text-xl font-semibold text-[var(--color-primary)] mb-3">
+            <h2 id="who-can-join-heading" className="text-xl font-medium text-[var(--color-primary)] mb-3">
               Who Can Join as a Performer
             </h2>
             <p className="text-gray-600 leading-relaxed mb-4">
@@ -156,7 +156,7 @@ function Task_Performers() {
 
         {/* Types of Tasks */}
         <section className="mb-12" aria-labelledby="types-of-tasks-heading">
-            <h2 id="types-of-tasks-heading" className="text-xl font-semibold text-[var(--color-primary)] mb-3">
+            <h2 id="types-of-tasks-heading" className="text-xl font-medium text-[var(--color-primary)] mb-3">
               Types of Tasks Available
             </h2>
             <p className="text-gray-600 leading-relaxed mb-4">
@@ -170,7 +170,7 @@ function Task_Performers() {
                   <div className="w-10 h-10 rounded-lg bg-[var(--color-primary)] text-white flex items-center justify-center">
                     <Briefcase size={20} strokeWidth={2} />
                   </div>
-                  <h3 className="font-semibold text-gray-900">Business and Operational Tasks</h3>
+                  <h3 className="font-medium text-gray-900">Business and Operational Tasks</h3>
                 </div>
                 <ul className="flex flex-wrap gap-2 text-sm text-gray-600">
                   {["Lead generation and research", "Data entry and spreadsheet organization", "Market and competitor research", "CRM updates and administrative support"].map((item) => (
@@ -186,7 +186,7 @@ function Task_Performers() {
                   <div className="w-10 h-10 rounded-lg bg-[var(--color-primary)] text-white flex items-center justify-center">
                     <Image size={20} strokeWidth={2} />
                   </div>
-                  <h3 className="font-semibold text-gray-900">Content and Creative Work</h3>
+                  <h3 className="font-medium text-gray-900">Content and Creative Work</h3>
                 </div>
                 <ul className="flex flex-wrap gap-2 text-sm text-gray-600">
                   {["Graphic design and visual content", "Video editing and short-form content creation", "Social media post design", "Presentation and document formatting"].map((item) => (
@@ -202,7 +202,7 @@ function Task_Performers() {
                   <div className="w-10 h-10 rounded-lg bg-[var(--color-primary)] text-white flex items-center justify-center">
                     <Cpu size={20} strokeWidth={2} />
                   </div>
-                  <h3 className="font-semibold text-gray-900">Data and Technical Tasks</h3>
+                  <h3 className="font-medium text-gray-900">Data and Technical Tasks</h3>
                 </div>
                 <ul className="flex flex-wrap gap-2 text-sm text-gray-600">
                   {["Website updates and basic technical fixes", "Data processing and organization", "Automation or workflow support"].map((item) => (
@@ -221,7 +221,7 @@ function Task_Performers() {
 
         {/* Flexible Work */}
         <section className="mb-12 rounded-2xl border border-gray-200 bg-gray-50/50 p-6 md:p-8" aria-labelledby="flexible-work-heading">
-            <h2 id="flexible-work-heading" className="text-xl font-semibold text-[var(--color-primary)] mb-3 flex items-center gap-2">
+            <h2 id="flexible-work-heading" className="text-xl font-medium text-[var(--color-primary)] mb-3 flex items-center gap-2">
               <Clock size={22} />
               Flexible Work That Fits Your Schedule
             </h2>
@@ -254,7 +254,7 @@ function Task_Performers() {
 
         {/* Build Your Reputation */}
         <section className="mb-12 rounded-2xl border border-gray-200 bg-gray-50/50 p-6 md:p-8" aria-labelledby="reputation-heading">
-            <h2 id="reputation-heading" className="text-xl font-semibold text-[var(--color-primary)] mb-3 flex items-center gap-2">
+            <h2 id="reputation-heading" className="text-xl font-medium text-[var(--color-primary)] mb-3 flex items-center gap-2">
               <Award size={22} />
               Build Your Reputation Through Execution
             </h2>
@@ -286,7 +286,7 @@ function Task_Performers() {
 
         {/* How to Start Earning */}
         <section className="mb-12" aria-labelledby="how-to-start-heading">
-            <h2 id="how-to-start-heading" className="text-xl font-semibold text-[var(--color-primary)] mb-4">
+            <h2 id="how-to-start-heading" className="text-xl font-medium text-[var(--color-primary)] mb-4">
               How to Start Earning on FirstDoer
             </h2>
             <p className="text-gray-600 leading-relaxed mb-6">
@@ -307,7 +307,7 @@ function Task_Performers() {
                       <span className="text-xs font-semibold uppercase tracking-wider text-[var(--color-primary)]">
                         Step {item.step}
                       </span>
-                      <h3 className="text-lg font-semibold text-gray-900 mt-1 mb-1">
+                      <h3 className="text-lg font-medium text-gray-900 mt-1 mb-1">
                         {item.title}
                       </h3>
                       <p className="text-gray-600 text-sm leading-relaxed">
@@ -322,7 +322,7 @@ function Task_Performers() {
 
         {/* Growing Opportunities */}
         <section className="mb-12" aria-labelledby="growing-opportunities-heading">
-            <h2 id="growing-opportunities-heading" className="text-xl font-semibold text-[var(--color-primary)] mb-3">
+            <h2 id="growing-opportunities-heading" className="text-xl font-medium text-[var(--color-primary)] mb-3">
               Growing Opportunities on the Platform
             </h2>
             <p className="text-gray-600 leading-relaxed mb-4">
@@ -335,7 +335,7 @@ function Task_Performers() {
 
         {/* Final CTA */}
         <section className="p-5 sm:p-8 rounded-2xl bg-[var(--color-primary)] text-white text-center" aria-labelledby="final-cta-heading">
-            <h2 id="final-cta-heading" className="text-xl md:text-2xl font-semibold mb-2">
+            <h2 id="final-cta-heading" className="text-xl md:text-2xl font-medium mb-2">
               Join the FirstDoer Performer Network
             </h2>
             <p className="text-white/90 mb-4 max-w-xl mx-auto">

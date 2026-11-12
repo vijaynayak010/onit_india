@@ -2,7 +2,7 @@ import React from "react";
 
 function OracleLogo() {
   return (
-    <div className="font-['Inter'] text-[30px] font-semibold leading-none tracking-[-1.8px] text-[#EA1B22]">
+    <div className="font-sans text-[26px] sm:text-[30px] font-semibold leading-none tracking-[-1.5px] text-[#EA1B22]">
       ORACLE
     </div>
   );
@@ -10,12 +10,12 @@ function OracleLogo() {
 
 function MorpheusLogo() {
   return (
-    <div className="flex items-center gap-3">
-      <span className="relative flex h-[28px] w-[28px] items-center justify-center overflow-hidden rounded-full bg-[#3DB5E6]">
+    <div className="flex items-center gap-2.5 sm:gap-3">
+      <span className="relative flex h-[26px] w-[26px] sm:h-[28px] sm:w-[28px] items-center justify-center overflow-hidden rounded-full bg-[#3DB5E6]">
         <span className="absolute left-0 top-0 h-full w-1/2 bg-[#D8292F]" />
-        <span className="relative h-[13px] w-[15px] rounded-t-full border-[4px] border-white border-b-0" />
+        <span className="relative h-[12px] w-[14px] rounded-t-full border-[3px] border-white border-b-0" />
       </span>
-      <span className="font-['Inter'] text-[16px] font-semibold uppercase tracking-[2px] text-[#3DB5E6]">
+      <span className="font-sans text-[14px] sm:text-[16px] font-semibold uppercase tracking-[2px] text-[#3DB5E6]">
         MORPHEUS
       </span>
     </div>
@@ -24,7 +24,7 @@ function MorpheusLogo() {
 
 function SamsungLogo() {
   return (
-    <div className="font-['Inter'] text-[28px] font-extrabold uppercase leading-none tracking-[1.2px] text-[#1428A0]">
+    <div className="font-sans text-[24px] sm:text-[28px] font-bold uppercase leading-none tracking-[1.2px] text-[#1428A0]">
       SAMSUNG
     </div>
   );
@@ -38,8 +38,8 @@ function MondayLogo() {
         <span className="h-[9px] w-[6px] rotate-[32deg] rounded-full bg-[#FFCC00]" />
         <span className="h-[6px] w-[6px] rounded-full bg-[#00CA72]" />
       </span>
-      <span className="font-['Inter'] text-[21px] font-bold leading-none text-[#333333]">monday</span>
-      <span className="font-['Inter'] text-[13px] font-medium leading-none text-[#333333]">.com</span>
+      <span className="font-sans text-[18px] sm:text-[21px] font-bold leading-none text-[#333333]">monday</span>
+      <span className="font-sans text-[12px] sm:text-[13px] font-medium leading-none text-[#333333]">.com</span>
     </div>
   );
 }
@@ -47,14 +47,14 @@ function MondayLogo() {
 function SegmentLogo() {
   return (
     <div className="flex items-center gap-2 text-[#4FB58B]">
-      <svg className="h-[28px] w-[28px]" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+      <svg className="h-[24px] w-[24px] sm:h-[28px] sm:w-[28px]" viewBox="0 0 28 28" fill="none" aria-hidden="true">
         <path d="M7 9.5C8.8 6.4 12.1 4.5 15.9 4.5H21" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
         <path d="M21 18.5C19.2 21.6 15.9 23.5 12.1 23.5H7" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
         <path d="M5 14H18" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
         <path d="M10 9.5H23" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
         <path d="M5 18.5H18" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" />
       </svg>
-      <span className="font-['Inter'] text-[28px] font-semibold leading-none tracking-[-1px]">segment</span>
+      <span className="font-sans text-[24px] sm:text-[28px] font-semibold leading-none tracking-[-1px]">segment</span>
     </div>
   );
 }
@@ -70,7 +70,7 @@ const logos = [
 export default function Partner() {
   return (
     <section
-      className="relative h-[357px] w-full overflow-hidden bg-white"
+      className="relative min-h-[280px] w-full overflow-hidden bg-white py-12 sm:py-16"
       aria-labelledby="trusted-companies-heading"
     >
       <div
@@ -82,17 +82,17 @@ export default function Partner() {
         aria-hidden="true"
       />
 
-      <div className="absolute left-1/2 top-[119px] flex w-full max-w-[884px] -translate-x-1/2 flex-col items-center gap-9 px-6">
+      <div className="relative mx-auto flex w-full max-w-[960px] flex-col items-center gap-7 px-4 sm:px-6">
         <h2
           id="trusted-companies-heading"
-          className="font-['Manrope'] text-[22px] font-bold leading-[30px] text-black max-md:text-center max-md:text-[19px]"
+          className="text-center font-sans text-[18px] sm:text-[22px] font-bold leading-[28px] sm:leading-[30px] text-black"
         >
           Trusted By Over 100+ Startups and freelance business
         </h2>
 
-        <div className="flex h-[29px] w-full items-center justify-center gap-[49.56px] max-lg:gap-8 max-md:h-auto max-md:flex-wrap max-md:gap-x-8 max-md:gap-y-6">
+        <div className="flex w-full flex-wrap items-center justify-center gap-x-8 gap-y-6 sm:gap-10 lg:gap-12">
           {logos.map(({ name, component: Logo }) => (
-            <div key={name} className="flex h-[29px] min-w-[137px] items-center justify-center" aria-label={name}>
+            <div key={name} className="flex min-w-[110px] sm:min-w-[130px] items-center justify-center opacity-85 transition-opacity hover:opacity-100" aria-label={name}>
               <Logo />
             </div>
           ))}

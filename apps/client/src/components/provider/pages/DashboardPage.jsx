@@ -60,17 +60,17 @@ const fadeUp = {
 function SectionHeader({ eyebrow, title, description, action, divider = true }) {
   return (
     <div
-      className={`flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between ${divider ? "mb-6 border-b border-[var(--color-border)]/80 pb-5" : "mb-0"}`}
+      className={`flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between ${divider ? "mb-5 sm:mb-6 border-b border-[var(--color-border)]/80 pb-4 sm:pb-5" : "mb-0"}`}
     >
       <div className="min-w-0">
         {eyebrow ? (
-          <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--color-primary)]">
+          <p className="mb-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--color-primary)]">
             {eyebrow}
           </p>
         ) : null}
-        <h2 className="text-xl font-bold tracking-tight text-[var(--color-text)] sm:text-2xl">{title}</h2>
+        <h2 className="text-lg sm:text-xl md:text-2xl font-heading font-medium tracking-tight text-[var(--color-text)]">{title}</h2>
         {description ? (
-          <p className="mt-1.5 max-w-2xl text-sm leading-relaxed text-[var(--color-text-muted)]">{description}</p>
+          <p className="mt-1 max-w-2xl text-xs sm:text-sm leading-relaxed text-[var(--color-text-muted)]">{description}</p>
         ) : null}
       </div>
       {action ? <div className="shrink-0">{action}</div> : null}
@@ -257,7 +257,7 @@ const DashboardPage = () => {
                     <span className="inline-flex rounded bg-[var(--color-primary)]/10 px-2.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-[var(--color-primary)]">
                       Active Category Filter
                     </span>
-                    <h4 className="text-sm font-black text-[var(--color-text)] mt-0.5">
+                    <h4 className="text-sm font-medium text-[var(--color-text)] mt-0.5">
                       {selectedDomain.title}
                     </h4>
                   </div>
@@ -299,17 +299,17 @@ const DashboardPage = () => {
             
 
             <section aria-labelledby="dash-stats-heading">
-              <div className="mb-4 flex items-center justify-between gap-3">
-                <h2 id="dash-stats-heading" className="text-sm font-bold uppercase tracking-wide text-[var(--color-text-muted)]">
+              <div className="mb-3 sm:mb-4 flex items-center justify-between gap-3">
+                <h2 id="dash-stats-heading" className="text-xs sm:text-sm font-heading font-medium uppercase tracking-wide text-[var(--color-text-muted)]">
                   Key metrics
                 </h2>
-                <span className="text-xs font-medium text-[var(--color-text-subtle)]">Last 30 days context</span>
+                <span className="text-[11px] sm:text-xs font-medium text-[var(--color-text-subtle)]">Last 30 days context</span>
               </div>
 
               {loading && !cachedStats ? (
                 <SkeletonStats />
               ) : (
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4 sm:gap-4 lg:gap-5">
                   {stats.map((s, i) => {
                     const Icon = s.Icon;
                     return (
@@ -317,20 +317,20 @@ const DashboardPage = () => {
                         key={i}
                         {...fadeUp}
                         transition={{ duration: 0.35, delay: 0.05 * i, ease: [0.22, 1, 0.36, 1] }}
-                        className="group relative overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-5 shadow-[var(--shadow-sm)] transition hover:border-[var(--color-primary)]/25 hover:shadow-[var(--shadow-md)]"
+                        className="group relative overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-4 sm:p-5 shadow-[var(--shadow-sm)] transition hover:border-[var(--color-primary)]/25 hover:shadow-[var(--shadow-md)]"
                       >
                         <div className="absolute right-0 top-0 h-24 w-24 translate-x-8 -translate-y-8 rounded-full bg-[var(--color-primary)]/[0.04] transition group-hover:bg-[var(--color-primary)]/[0.08]" />
                         <div
-                          className={`relative mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl ${s.iconBg} ${s.accent}`}
+                          className={`relative mb-3 inline-flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl ${s.iconBg} ${s.accent}`}
                         >
                           <Icon className="h-5 w-5" strokeWidth={2.25} aria-hidden />
                         </div>
-                        <p className="relative mb-1 text-xs font-semibold uppercase tracking-wide text-[var(--color-text-muted)]">
+                        <p className="relative mb-1 text-[11px] sm:text-xs font-medium uppercase tracking-wide text-[var(--color-text-muted)]">
                           {s.label}
                         </p>
-                        <p className="relative mb-1 text-3xl font-black tracking-tight text-[var(--color-text)]">{s.value}</p>
+                        <p className="relative mb-1 text-2xl sm:text-3xl font-heading font-medium tracking-tight text-[var(--color-text)]">{s.value}</p>
                         {s.change ? (
-                          <p className="relative flex items-center gap-1.5 text-xs font-semibold text-[var(--color-primary)]">
+                          <p className="relative flex items-center gap-1.5 text-xs font-medium text-[var(--color-primary)]">
                             {s.trend === "up" ? (
                               <TrendingUp className="h-3.5 w-3.5 shrink-0" strokeWidth={2.5} aria-hidden />
                             ) : null}
@@ -383,10 +383,10 @@ const DashboardPage = () => {
                     filteredPerformers.map((p, i) => (
                       <article
                         key={p.id || i}
-                        className="min-w-[288px] max-w-[288px] shrink-0 rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-[var(--shadow-sm)] ring-1 ring-black/[0.03] transition hover:-translate-y-0.5 hover:border-[var(--color-primary)]/25 hover:shadow-[var(--shadow-lg)]"
+                        className="min-w-[260px] sm:min-w-[288px] max-w-[288px] shrink-0 rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface)] p-4 sm:p-6 shadow-[var(--shadow-sm)] ring-1 ring-black/[0.03] transition hover:-translate-y-0.5 hover:border-[var(--color-primary)]/25 hover:shadow-[var(--shadow-lg)]"
                       >
-                        <div className="mb-4 flex gap-3.5">
-                          <div className="h-12 w-12 shrink-0 overflow-hidden rounded-xl border border-[var(--color-border-subtle)] ring-1 ring-black/[0.04]">
+                        <div className="mb-3.5 sm:mb-4 flex gap-3 sm:gap-3.5">
+                          <div className="h-11 w-11 sm:h-12 sm:w-12 shrink-0 overflow-hidden rounded-xl border border-[var(--color-border-subtle)] ring-1 ring-black/[0.04]">
                             <img
                               src={p.avatar || `https://ui-avatars.com/api/?name=${p.person}&background=random`}
                               alt={p.person}
@@ -394,7 +394,7 @@ const DashboardPage = () => {
                             />
                           </div>
                           <div className="min-w-0">
-                            <h3 className="line-clamp-1 text-sm font-bold text-[var(--color-text)]">{p.person}</h3>
+                            <h3 className="line-clamp-1 text-sm font-heading font-medium text-[var(--color-text)]">{p.person}</h3>
                             <p className="line-clamp-1 text-xs font-medium text-[var(--color-text-subtle)]">{p.name}</p>
                             <div className="mt-1 flex items-center gap-1 text-amber-500">
                               {[1, 2, 3, 4, 5].map((star) => (
@@ -411,24 +411,24 @@ const DashboardPage = () => {
                             </div>
                           </div>
                         </div>
-                        <p className="mb-4 line-clamp-2 text-xs font-medium leading-relaxed text-[var(--color-text-muted)] h-[32px]">
+                        <p className="mb-3 sm:mb-4 line-clamp-2 text-xs font-medium leading-relaxed text-[var(--color-text-muted)] h-[32px]">
                           {p.bio}
                         </p>
-                        <div className="mb-4 flex flex-wrap gap-2 h-[20px] overflow-hidden">
+                        <div className="mb-3 sm:mb-4 flex flex-wrap gap-1.5 sm:gap-2 h-[20px] overflow-hidden">
                           {(p.skills || []).slice(0, 3).map((skill, idx) => (
-                            <span key={idx} className="rounded-full bg-[var(--color-border-subtle)] px-2 py-0.5 text-[10px] font-bold uppercase tracking-tight text-[var(--color-text-muted)]">
+                            <span key={idx} className="rounded-full bg-[var(--color-border-subtle)] px-2 py-0.5 text-[10px] font-medium uppercase tracking-tight text-[var(--color-text-muted)]">
                               {skill}
                             </span>
                           ))}
                         </div>
-                        <div className="flex items-center justify-between gap-2 border-t border-[var(--color-border)]/80 pt-4">
-                          <span className="rounded-full bg-[var(--color-primary-subtle)] px-3 py-1 text-[10px] font-bold text-[var(--color-primary)]">
+                        <div className="flex items-center justify-between gap-2 border-t border-[var(--color-border)]/80 pt-3.5 sm:pt-4">
+                          <span className="rounded-full bg-[var(--color-primary-subtle)] px-2.5 sm:px-3 py-1 text-[10px] font-medium text-[var(--color-primary)]">
                             {p.tasks}
                           </span>
                           <button
                             type="button"
                             onClick={() => navigate(`/provider/task-performer-profile/${p.id}`, { state: { tasker: p } })}
-                            className="rounded-full bg-[var(--color-primary)] px-4 py-2 text-[11px] font-bold text-white shadow-[var(--shadow-xs)] transition hover:bg-[var(--color-primary-hover)] whitespace-nowrap"
+                            className="rounded-full bg-[var(--color-primary)] px-3.5 sm:px-4 py-2 text-[11px] font-medium text-white shadow-[var(--shadow-xs)] transition hover:bg-[var(--color-primary-hover)] whitespace-nowrap min-h-[36px]"
                           >
                             View Profile
                           </button>
@@ -478,7 +478,7 @@ const DashboardPage = () => {
                       <BookOpen className="absolute bottom-3 left-3 h-6 w-6 text-[var(--color-primary)]/40" strokeWidth={1.5} aria-hidden />
                     </div>
                     <div className="p-3.5">
-                      <h3 className="text-[12px] font-bold leading-snug text-[var(--color-text)]">
+                      <h3 className="text-[12px] font-medium leading-snug text-[var(--color-text)]">
                         tips to create the perfect
                         <br />
                         task

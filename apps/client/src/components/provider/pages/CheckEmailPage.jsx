@@ -24,7 +24,7 @@ const CheckEmailPage = () => {
         <AuthLayout illustrationSrc={gmailImage}>
             <div className="w-full max-w-[450px] bg-white border border-[#86efac] rounded-[2rem] p-8 sm:p-12 shadow-[0_0_15px_rgba(22,163,74,0.05)]">
 
-                <h2 className="text-[26px] font-bold text-center text-gray-900 mb-6">
+                <h2 className="text-[26px] font-medium text-center text-gray-900 mb-6">
                     Check your email
                 </h2>
 

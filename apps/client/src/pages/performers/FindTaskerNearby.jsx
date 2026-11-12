@@ -257,7 +257,7 @@ export default function FindTaskerNearby() {
           <motion.h2
             id="find-taskers-heading"
             variants={itemVariants}
-            className="mt-4 text-2xl font-extrabold tracking-tight text-[var(--color-text)] sm:text-3xl md:text-4xl lg:text-[2.25rem]"
+            className="mt-4 text-2xl font-medium tracking-tight text-[var(--color-text)] sm:text-3xl md:text-4xl lg:text-[2.25rem]"
           >
             Find Performers Nearby You
           </motion.h2>
@@ -411,7 +411,7 @@ export default function FindTaskerNearby() {
                         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-xl border border-[var(--color-border)] bg-white px-4 py-3.5 shadow-sm transition hover:border-[var(--color-primary)]/30 hover:shadow-md">
                           <div className="min-w-0 flex-1">
                             <div className="flex flex-wrap items-center gap-2">
-                              <p className="truncate text-sm font-semibold text-[var(--color-text)]">
+                              <p className="truncate text-sm font-medium text-[var(--color-text)]">
                                 {t.name}
                               </p>
                               <span className="inline-flex items-center rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-emerald-700">
@@ -498,7 +498,7 @@ export default function FindTaskerNearby() {
                 <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-primary-muted)] text-[var(--color-primary)] mb-4">
                   <LogIn size={24} />
                 </span>
-                <h3 className="text-lg font-bold text-[var(--color-text)] mb-2">
+                <h3 className="text-lg font-medium text-[var(--color-text)] mb-2">
                   Please login to continue
                 </h3>
                 <p className="text-sm text-[var(--color-text-muted)] mb-6">

@@ -127,7 +127,7 @@ export default function FreelancingIndiaPage() {
               <p className="mb-4 text-sm font-bold uppercase tracking-[0.18em] text-[var(--color-primary)]">
                 Freelance and task-based work
               </p>
-              <h1 className="text-4xl font-black tracking-tight text-slate-950 sm:text-6xl">
+              <h1 className="text-4xl font-medium tracking-tight text-slate-950 sm:text-6xl">
                 Freelancing in India, built around work that gets completed
               </h1>
               <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-700 sm:text-xl">
@@ -148,7 +148,7 @@ export default function FreelancingIndiaPage() {
         <section className="px-6 py-16 sm:py-20">
           <div className="mx-auto max-w-6xl">
             <div className="max-w-3xl">
-              <h2 className="text-3xl font-black tracking-tight sm:text-4xl">A practical route into independent work</h2>
+              <h2 className="text-3xl font-medium tracking-tight sm:text-4xl">A practical route into independent work</h2>
               <p className="mt-4 text-lg leading-8 text-slate-600">
                 Freelancing gives people the freedom to work independently, choose the skills they offer, and collaborate with different clients. It also gives businesses flexible access to talent without creating a permanent role for every need. The difficult part is often not the work itself; it is finding the right match, agreeing on scope, coordinating delivery, and verifying completion.
               </p>
@@ -163,7 +163,7 @@ export default function FreelancingIndiaPage() {
                   <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-50 text-[var(--color-primary)]">
                     {React.createElement(benefit.icon, { size: 22 })}
                   </div>
-                  <h3 className="text-xl font-bold">{benefit.title}</h3>
+                  <h3 className="text-xl font-medium">{benefit.title}</h3>
                   <p className="mt-2 leading-7 text-slate-600">{benefit.copy}</p>
                 </article>
               ))}
@@ -175,7 +175,7 @@ export default function FreelancingIndiaPage() {
           <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2">
             <div>
               <p className="text-sm font-bold uppercase tracking-[0.18em] text-emerald-400">For freelancers and performers</p>
-              <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">Turn useful skills into completed work</h2>
+              <h2 className="mt-3 text-3xl font-medium tracking-tight sm:text-4xl">Turn useful skills into completed work</h2>
               <p className="mt-5 text-lg leading-8 text-slate-300">
                 Create an accurate profile, select the categories you can deliver confidently, and focus on clear communication and dependable execution. Each successful task can help you build experience, proof of work, and a stronger reputation.
               </p>
@@ -191,7 +191,7 @@ export default function FreelancingIndiaPage() {
 
             <div>
               <p className="text-sm font-bold uppercase tracking-[0.18em] text-blue-400">For clients and businesses</p>
-              <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">Hire for the outcome you need</h2>
+              <h2 className="mt-3 text-3xl font-medium tracking-tight sm:text-4xl">Hire for the outcome you need</h2>
               <p className="mt-5 text-lg leading-8 text-slate-300">
                 Use freelance talent when a task needs specialist attention, extra capacity, or fast execution. A good brief explains the result, context, format, deadline, and quality standard so performers can respond accurately.
               </p>
@@ -209,7 +209,7 @@ export default function FreelancingIndiaPage() {
 
         <section className="px-6 py-16 sm:py-20">
           <div className="mx-auto max-w-6xl">
-            <h2 className="text-3xl font-black tracking-tight sm:text-4xl">Popular freelance and task categories</h2>
+            <h2 className="text-3xl font-medium tracking-tight sm:text-4xl">Popular freelance and task categories</h2>
             <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-600">
               Explore focused service and domain pages to understand the kinds of outcomes you can request or deliver.
             </p>
@@ -226,11 +226,11 @@ export default function FreelancingIndiaPage() {
 
         <section className="border-y border-slate-200 bg-slate-50 px-6 py-16 sm:py-20">
           <div className="mx-auto max-w-4xl">
-            <h2 className="text-3xl font-black tracking-tight sm:text-4xl">Freelancing questions</h2>
+            <h2 className="text-3xl font-medium tracking-tight sm:text-4xl">Freelancing questions</h2>
             <div className="mt-8 space-y-4">
               {faqs.map(({ question, answer }) => (
                 <details key={question} className="group rounded-2xl border border-slate-200 bg-white p-5 open:shadow-sm">
-                  <summary className="cursor-pointer list-none pr-8 text-lg font-bold marker:content-none">{question}</summary>
+                  <summary className="cursor-pointer list-none pr-8 text-lg font-medium marker:content-none">{question}</summary>
                   <p className="mt-3 leading-7 text-slate-600">{answer}</p>
                 </details>
               ))}
@@ -240,7 +240,7 @@ export default function FreelancingIndiaPage() {
 
         <section className="px-6 py-16 text-center sm:py-20">
           <div className="mx-auto max-w-3xl rounded-3xl bg-[var(--color-primary)] px-6 py-12 text-white sm:px-12">
-            <h2 className="text-3xl font-black tracking-tight sm:text-4xl">Ready to move from intent to execution?</h2>
+            <h2 className="text-3xl font-medium tracking-tight sm:text-4xl">Ready to move from intent to execution?</h2>
             <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-emerald-50">
               Join as a performer to find task-based freelance opportunities, or post the work you need and connect with skilled talent.
             </p>

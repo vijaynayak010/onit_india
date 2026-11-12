@@ -220,7 +220,7 @@ const JobDetailModal = ({ role, onClose, onApply }) => {
                 <span className="text-[var(--color-text-subtle)]">·</span>
                 <span className="text-xs text-[var(--color-text-subtle)]">{role.location}</span>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-[var(--color-text)] mb-4 pr-10">
+              <h3 className="text-xl sm:text-2xl font-medium text-[var(--color-text)] mb-4 pr-10">
                 {role.title}
               </h3>
               <p className="text-[var(--color-text-muted)] text-sm sm:text-base leading-relaxed mb-6">
@@ -248,7 +248,7 @@ const JobDetailModal = ({ role, onClose, onApply }) => {
               {/* Application process - moved up so it's visible without scrolling */}
               {role.applicationProcess?.length > 0 && (
                 <div className="mb-6">
-                  <h4 className="flex items-center gap-2 text-base font-bold text-[var(--color-text)] mb-3">
+                  <h4 className="flex items-center gap-2 text-base font-medium text-[var(--color-text)] mb-3">
                     <List size={18} className="text-[var(--color-primary)]" />
                     How to apply – Process
                   </h4>
@@ -268,7 +268,7 @@ const JobDetailModal = ({ role, onClose, onApply }) => {
               {/* Requirements */}
               {role.requirements?.length > 0 && (
                 <div className="mb-6">
-                  <h4 className="flex items-center gap-2 text-base font-bold text-[var(--color-text)] mb-3">
+                  <h4 className="flex items-center gap-2 text-base font-medium text-[var(--color-text)] mb-3">
                     <FileText size={18} className="text-[var(--color-primary)]" />
                     Requirements
                   </h4>
@@ -283,7 +283,7 @@ const JobDetailModal = ({ role, onClose, onApply }) => {
               {/* Responsibilities */}
               {role.responsibilities?.length > 0 && (
                 <div className="mb-6">
-                  <h4 className="text-base font-bold text-[var(--color-text)] mb-3">Responsibilities</h4>
+                  <h4 className="text-base font-medium text-[var(--color-text)] mb-3">Responsibilities</h4>
                   <ul className="list-disc list-inside text-[var(--color-text-muted)] text-sm space-y-1.5">
                     {role.responsibilities.map((item, i) => (
                       <li key={i}>{item}</li>
@@ -502,7 +502,7 @@ const ApplicationFormModal = ({ role, onClose, onSubmit }) => {
               <X size={20} />
             </button>
 
-            <h3 className="text-xl font-bold text-[var(--color-text)] mb-1 pr-10">
+            <h3 className="text-xl font-medium text-[var(--color-text)] mb-1 pr-10">
               Apply for {role.title}
             </h3>
             <p className="text-sm text-[var(--color-text-muted)] mb-6">
@@ -683,21 +683,21 @@ const Careers = () => {
       </div>
 
       {/* Extra space below fixed chrome (global pt-28 / md:pt-32) without stacking huge pt-* like before */}
-      <section className="relative z-10 pt-5 sm:pt-6 md:pt-7 pb-16 px-4 sm:px-6 lg:px-8">
+      <section className="relative z-10 pt-5 sm:pt-6 md:pt-7 pb-16 px-4 sm:px-6 md:px-12 lg:px-20">
         <div className="mx-auto w-full max-w-6xl">
           {/* Hero header */}
           <motion.header
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="text-center pb-12 md:pb-16"
+            className="text-center pb-10 sm:pb-12 md:pb-16"
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight text-[var(--color-text)]">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-medium leading-[1.1] tracking-tight text-[var(--color-text)]">
               Careers at{" "}
               <span className="text-[var(--color-text)]">On</span>
               <span className="text-[var(--color-primary)]">IT</span> INDIA
             </h1>
-            <p className="mx-auto mt-4 sm:mt-6 max-w-2xl text-sm sm:text-base md:text-lg text-[var(--color-text-muted)] leading-relaxed px-2">
+            <p className="mx-auto mt-3 sm:mt-4 md:mt-6 max-w-2xl text-sm sm:text-base md:text-lg text-[var(--color-text-muted)] leading-relaxed px-2">
               We are building a hyperlocal task and opportunity platform that connects people who need help with those ready to help—instantly, locally, and with low commission.
             </p>
             {/* Currently hiring strip */}
@@ -705,7 +705,7 @@ const Careers = () => {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.4 }}
-              className="mt-8 inline-flex flex-wrap items-center justify-center gap-2 rounded-2xl border border-[var(--color-primary)]/30 bg-[var(--color-primary-subtle)]/80 px-5 py-3 text-sm font-medium text-[var(--color-text)]"
+              className="mt-6 sm:mt-8 inline-flex flex-wrap items-center justify-center gap-2 rounded-2xl border border-[var(--color-primary)]/30 bg-[var(--color-primary-subtle)]/80 px-4 sm:px-5 py-2.5 sm:py-3 text-xs sm:text-sm font-medium text-[var(--color-text)]"
             >
               <Briefcase size={18} className="text-[var(--color-primary)] flex-shrink-0" />
               {loading ? (
@@ -714,9 +714,9 @@ const Careers = () => {
                 <span className="text-[var(--color-text-subtle)]">No positions currently open. Check back later!</span>
               ) : openPositions.length === 2 ? (
                 <>
-                  <span className="font-semibold text-[var(--color-primary)]">{openPositions[0].title}</span>
+                  <span className="font-medium text-[var(--color-primary)]">{openPositions[0].title}</span>
                   <span className="text-[var(--color-text-subtle)]"> and </span>
-                  <span className="font-semibold text-[var(--color-primary)]">{openPositions[1].title}</span>
+                  <span className="font-medium text-[var(--color-primary)]">{openPositions[1].title}</span>
                 </>
               ) : (
                 openPositions.map((role, i) => (
@@ -727,7 +727,7 @@ const Careers = () => {
                       ) : (
                         <span className="text-[var(--color-text-subtle)]">, </span>
                       ))}
-                    <span className="font-semibold text-[var(--color-primary)]">{role.title}</span>
+                    <span className="font-medium text-[var(--color-primary)]">{role.title}</span>
                   </React.Fragment>
                 ))
               )}
@@ -735,22 +735,22 @@ const Careers = () => {
           </motion.header>
 
           {/* Open positions */}
-          <section className="mb-16 md:mb-20">
-            <h2 className="text-xl sm:text-2xl font-bold text-[var(--color-text)] mb-8">
+          <section className="mb-12 sm:mb-16 md:mb-20">
+            <h2 className="text-xl sm:text-2xl font-heading font-medium text-[var(--color-text)] mb-6 sm:mb-8">
               Open positions
             </h2>
             {loading ? (
-              <div className="flex justify-center p-12">
+              <div className="flex justify-center p-8 sm:p-12">
                 <div className="animate-spin h-8 w-8 border-4 border-[var(--color-primary)] border-t-transparent flex-shrink-0 rounded-full" />
               </div>
             ) : openPositions.length === 0 ? (
-              <div className="text-center p-12 bg-white rounded-2xl border border-[var(--color-border)] shadow-[var(--shadow-sm)]">
+              <div className="text-center p-8 sm:p-12 bg-white rounded-2xl border border-[var(--color-border)] shadow-[var(--shadow-sm)]">
                 <Briefcase size={40} className="mx-auto text-[var(--color-text-subtle)] mb-4" />
-                <h3 className="text-lg font-bold text-[var(--color-text)] mb-2">No open positions</h3>
-                <p className="text-[var(--color-text-muted)]">We are not currently actively hiring for any roles, but we're always looking for great talent. Feel free to reach out to support@firstdoer.com.</p>
+                <h3 className="text-lg font-heading font-medium text-[var(--color-text)] mb-2">No open positions</h3>
+                <p className="text-[var(--color-text-muted)] text-sm sm:text-base">We are not currently actively hiring for any roles, but we're always looking for great talent. Feel free to reach out to support@firstdoer.com.</p>
               </div>
             ) : (
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 {openPositions.map((role, index) => (
                   <motion.article
                     key={role.id || index}
@@ -761,7 +761,7 @@ const Careers = () => {
                     className="group overflow-hidden rounded-2xl border border-[var(--color-border)] bg-white shadow-[var(--shadow-lg)] ring-2 ring-transparent ring-offset-2 ring-offset-[var(--color-surface)] transition-all duration-300 hover:shadow-[0_20px_45px_-12px_rgba(0,0,0,0.1),0_0_60px_-16px_rgba(5,150,105,0.08)] hover:ring-[var(--color-primary)]/20"
                   >
                     <div className="h-1.5 bg-gradient-to-r from-emerald-600 via-teal-400 to-cyan-500" />
-                    <div className="p-6 sm:p-8">
+                    <div className="p-4 sm:p-6 md:p-8">
                       <div className="flex flex-wrap items-center gap-2 mb-3">
                         <span className="text-xs font-semibold uppercase tracking-wider text-[var(--color-primary)] bg-[var(--color-primary-muted)] px-2.5 py-1 rounded-lg">
                           {role.department}
@@ -770,7 +770,7 @@ const Careers = () => {
                         <span className="text-[var(--color-text-subtle)]">·</span>
                         <span className="text-xs text-[var(--color-text-subtle)]">{role.location}</span>
                       </div>
-                      <h3 className="text-xl sm:text-2xl font-bold text-[var(--color-text)] mb-3 group-hover:text-[var(--color-primary)] transition-colors">
+                      <h3 className="text-xl sm:text-2xl font-heading font-medium text-[var(--color-text)] mb-3 group-hover:text-[var(--color-primary)] transition-colors">
                         {role.title}
                       </h3>
                       <p className="text-[var(--color-text-muted)] text-sm sm:text-base leading-relaxed mb-2">
@@ -790,7 +790,7 @@ const Careers = () => {
                       <button
                         type="button"
                         onClick={() => setSelectedRole(role)}
-                        className="inline-flex items-center gap-2 text-[var(--color-primary)] font-semibold text-sm hover:gap-3 transition-all"
+                        className="inline-flex items-center gap-2 text-[var(--color-primary)] font-medium text-sm hover:gap-3 transition-all min-h-[44px]"
                       >
                         View details & apply <ArrowRight size={16} />
                       </button>
@@ -801,8 +801,8 @@ const Careers = () => {
             )}          </section>
 
           {/* Why join us */}
-          <section className="mb-16 md:mb-20">
-            <h2 className="text-xl sm:text-2xl font-bold text-[var(--color-text)] mb-8">
+          <section className="mb-12 sm:mb-16 md:mb-20">
+            <h2 className="text-xl sm:text-2xl font-heading font-medium text-[var(--color-text)] mb-6 sm:mb-8">
               Why join us
             </h2>
             <ul className="grid sm:grid-cols-2 gap-4">
@@ -839,7 +839,7 @@ const Careers = () => {
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--color-primary-muted)]">
                   <CheckCircle size={20} className="text-[var(--color-primary)]" />
                 </div>
-                <h2 className="text-lg sm:text-xl font-bold text-[var(--color-text)]">
+                <h2 className="text-lg sm:text-xl font-medium text-[var(--color-text)]">
                   How to apply
                 </h2>
               </div>

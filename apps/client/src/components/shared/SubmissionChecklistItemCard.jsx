@@ -22,7 +22,7 @@ const SubmissionChecklistItemCard = ({ item, onRequestChanges, onApprove, approv
             <CheckCircle2 className="h-5 w-5" strokeWidth={2.5} />
           </div>
           <div className="min-w-0">
-            <h4 className="text-base font-bold text-[var(--color-text)]">{text}</h4>
+            <h4 className="text-base font-medium text-[var(--color-text)]">{text}</h4>
             <span
               className={`mt-2 inline-flex rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wide ${
                 completed
@@ -75,7 +75,7 @@ const SubmissionChecklistItemCard = ({ item, onRequestChanges, onApprove, approv
             ) : (
               <div key={file?.id || url} className="flex items-center gap-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)]/70 px-4 py-3">
                 <FileText className="h-5 w-5 shrink-0 text-[var(--color-primary)]" strokeWidth={2} />
-                <a href={url} target="_blank" rel="noopener noreferrer" className="truncate text-sm font-bold text-[var(--color-text)] hover:text-[var(--color-primary)] hover:underline">
+                <a href={url} target="_blank" rel="noopener noreferrer" className="truncate text-sm font-medium text-[var(--color-text)] hover:text-[var(--color-primary)] hover:underline">
                   {name}
                 </a>
               </div>

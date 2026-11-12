@@ -55,7 +55,7 @@ const ConfirmModal = ({ open, title, message, confirmLabel = "Confirm", onConfir
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={onClose} />
       <div className="relative z-10 w-full max-w-sm rounded-3xl bg-white p-7 shadow-2xl">
-        <h3 className="text-[17px] font-black leading-snug text-slate-900">{title}</h3>
+        <h3 className="text-[17px] font-medium leading-snug text-slate-900">{title}</h3>
         <p className="mt-2.5 text-[13px] leading-relaxed text-slate-500">{message}</p>
         <div className="mt-6 flex items-center justify-end gap-3">
           <button
@@ -543,13 +543,13 @@ const MyTasksPage = () => {
         {/* Tabs + list */}
         <div className="overflow-hidden rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)]/95 shadow-[var(--shadow-sm)] backdrop-blur-sm">
           <div className="border-b border-[var(--color-border)] bg-[var(--color-border-subtle)]/40 px-4 sm:px-6">
-            <div className="flex flex-wrap items-center gap-6 sm:gap-10">
+            <div className="flex items-center gap-4 sm:gap-8 overflow-x-auto scrollbar-hide">
               {TASK_TABS.map((tab) => (
                 <button
                   key={tab}
                   type="button"
                   onClick={() => handleTabChange(tab)}
-                  className={`relative pb-4 pt-5 text-[15px] font-bold transition-colors sm:text-[16px] ${activeTab === tab
+                  className={`relative shrink-0 pb-3.5 pt-4 text-[14px] font-heading font-medium transition-colors sm:text-[15px] ${activeTab === tab
                     ? "text-[var(--color-text)]"
                     : "text-[var(--color-text-subtle)] hover:text-[var(--color-text-muted)]"
                     }`}
@@ -724,7 +724,7 @@ const StatCard = ({ label, value, accent, icon }) => (
     <div className="flex items-start justify-between gap-3">
       <div>
         <p className="text-[11px] font-semibold uppercase tracking-wide text-[var(--color-text-muted)]">{label}</p>
-        <p className="mt-1 text-3xl font-black tracking-tight text-[var(--color-text)]">{value}</p>
+        <p className="mt-1 text-3xl font-medium tracking-tight text-[var(--color-text)]">{value}</p>
       </div>
       <div
         className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${accent} text-white shadow-[var(--shadow-xs)] ring-1 ring-black/[0.06]`}
@@ -740,7 +740,7 @@ const StatCard = ({ label, value, accent, icon }) => (
 const ActiveTaskCard = ({ task, onClick }) => (
   <div className="flex h-full flex-col rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-[var(--shadow-xs)] ring-1 ring-black/[0.03] transition hover:-translate-y-0.5 hover:border-[var(--color-primary)]/25 hover:shadow-[var(--shadow-lg)]">
     <div className="mb-5 flex items-center gap-4">
-      <div className="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-2xl bg-[var(--color-primary)] text-[15px] font-bold text-white shadow-[var(--shadow-glow)] overflow-hidden">
+      <div className="flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-2xl bg-[var(--color-primary)] text-[15px] font-medium text-white shadow-[var(--shadow-glow)] overflow-hidden">
         {task.avatars[0] && (task.avatars[0].startsWith('http') || task.avatars[0].includes('/')) ? (
           <img src={task.avatars[0]} alt="avatar" className="h-full w-full object-cover" />
         ) : (
@@ -748,7 +748,7 @@ const ActiveTaskCard = ({ task, onClick }) => (
         )}
       </div>
       <div className="min-w-0">
-        <h4 className="text-[15px] font-bold text-[var(--color-text)] transition group-hover:text-[var(--color-primary)]">
+        <h4 className="text-[15px] font-medium text-[var(--color-text)] transition group-hover:text-[var(--color-primary)]">
           {task.title}
         </h4>
         <p className="text-xs font-semibold text-[var(--color-text-subtle)]">{task.company}</p>
@@ -831,12 +831,12 @@ const PendingTaskCard = ({ task, onClick }) => (
         className="h-14 w-14 rounded-2xl object-cover shadow-[var(--shadow-xs)] ring-1 ring-black/[0.06]"
       />
       <div className="min-w-0">
-        <h4 className="text-[15px] font-bold text-[var(--color-text)] truncate">{task.title}</h4>
+        <h4 className="text-[15px] font-medium text-[var(--color-text)] truncate">{task.title}</h4>
         <div className="mt-1 flex flex-wrap items-center gap-1.5 text-amber-500">
           <Star className="h-3.5 w-3.5 fill-current" strokeWidth={0} />
           <span className="text-xs font-bold">{task.rating}</span>
           <span className="text-[var(--color-text-subtle)]">·</span>
-          <span className="text-xs font-semibold text-[var(--color-text-muted)]">Performer: {task.name}</span>
+          <span className="text-xs font-medium text-[var(--color-text-muted)]">Performer: {task.name}</span>
           {task.filesCount > 0 && (
             <>
               <span className="text-[var(--color-text-subtle)]">·</span>
@@ -863,11 +863,11 @@ const PendingTaskCard = ({ task, onClick }) => (
     <div className="mb-6 grid grid-cols-2 gap-4 border-t border-[var(--color-border)] pt-5">
       <div>
         <p className="text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-subtle)]">Paid</p>
-        <p className="text-lg font-black text-[var(--color-text)]">₹{task.paid}</p>
+        <p className="text-lg font-medium text-[var(--color-text)]">₹{task.paid}</p>
       </div>
       <div className="text-right">
         <p className="text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-subtle)]">Remaining</p>
-        <p className="text-lg font-black text-[var(--color-primary)]">₹{task.remaining}</p>
+        <p className="text-lg font-medium text-[var(--color-primary)]">₹{task.remaining}</p>
       </div>
     </div>
 
@@ -900,11 +900,11 @@ const CompletedTaskCard = ({ task, onClick }) => (
           className="h-14 w-14 shrink-0 rounded-full border-2 border-[var(--color-primary-subtle)] object-cover shadow-sm"
         />
         <div className="min-w-0">
-          <h4 className="text-[15px] font-bold text-[var(--color-text)] truncate">{task.title}</h4>
-          <p className="text-xs font-semibold text-[var(--color-text-subtle)]">Performer: {task.name}</p>
+          <h4 className="text-[15px] font-medium text-[var(--color-text)] truncate">{task.title}</h4>
+          <p className="text-xs font-medium text-[var(--color-text-subtle)]">Performer: {task.name}</p>
         </div>
       </div>
-      <div className="shrink-0 text-xl font-black text-[var(--color-text)]">₹{task.price}</div>
+      <div className="shrink-0 text-xl font-medium text-[var(--color-text)]">₹{task.price}</div>
     </div>
 
     <div className="mb-6 flex items-start gap-2 rounded-xl border border-[var(--color-primary)]/20 bg-[var(--color-primary-subtle)]/80 p-3 text-[var(--color-primary)]">
@@ -939,11 +939,11 @@ const DraftTaskCard = ({ task, onPublish, onView, onDelete, isPublishing = false
     </div>
 
     <div className="mb-4 flex items-center gap-3">
-      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-amber-100 text-amber-700 text-[13px] font-black">
+      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-amber-100 text-amber-700 text-[13px] font-medium">
         {(task.title || "T").substring(0, 2).toUpperCase()}
       </div>
       <div className="min-w-0">
-        <h4 className="truncate text-[15px] font-bold text-[var(--color-text)]">{task.title || "Untitled Task"}</h4>
+        <h4 className="truncate text-[15px] font-medium text-[var(--color-text)]">{task.title || "Untitled Task"}</h4>
         <p className="text-xs font-semibold text-[var(--color-text-subtle)]">{task.category || "General"}</p>
       </div>
     </div>
@@ -1037,7 +1037,7 @@ const InterestTaskCard = ({ task, onClick, onNavigateDetails, onCancel, onDelete
 
       {/* Title */}
       <div className="px-5 pt-3">
-        <h3 className="line-clamp-2 text-[15px] font-black leading-snug tracking-tight text-slate-900">
+        <h3 className="line-clamp-2 text-[15px] font-medium leading-snug tracking-tight text-slate-900">
           {task.title || "Untitled Task"}
         </h3>
         {task.description && (
@@ -1097,7 +1097,7 @@ const InterestTaskCard = ({ task, onClick, onNavigateDetails, onCancel, onDelete
         {/* Budget row */}
         <div className="mb-3">
           <p className="text-[9px] font-black uppercase tracking-[0.12em] text-slate-400">Budget</p>
-          <p className="text-[18px] font-black leading-none tracking-tight text-slate-900">
+          <p className="text-[18px] font-medium leading-none tracking-tight text-slate-900">
             ₹{task.priceAmount ? Number(task.priceAmount).toLocaleString("en-IN") : "0"}
           </p>
         </div>

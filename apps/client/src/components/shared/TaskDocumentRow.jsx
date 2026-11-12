@@ -19,7 +19,7 @@ const TaskDocumentRow = ({ file }) => {
       </div>
 
       <div className="min-w-0 flex-1">
-        <h4 className="truncate text-[15px] font-bold text-[var(--color-text)]">{fileName}</h4>
+        <h4 className="truncate text-[15px] font-medium text-[var(--color-text)]">{fileName}</h4>
         <p className="mt-0.5 text-[13px] font-medium text-[var(--color-text-subtle)]">
           {formatFileSize(file.sizeBytes)}
           <span className="mx-1.5 text-[var(--color-border)]">•</span>

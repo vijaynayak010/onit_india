@@ -331,7 +331,7 @@ const ConfirmAndPayPage = () => {
             <main className="max-w-7xl mx-auto px-6 py-12">
                 {/* Page Header */}
                 <div className="text-center mb-16">
-                    <h1 className="text-[34px] font-extrabold text-[#0f172a] mb-2 tracking-tight">Confirm & Pay</h1>
+                    <h1 className="text-[34px] font-medium text-[#0f172a] mb-2 tracking-tight">Confirm & Pay</h1>
                     <p className="text-[#64748b] font-medium text-[16px]">Review your hiring details and complete payment.</p>
                 </div>
 
@@ -353,12 +353,12 @@ const ConfirmAndPayPage = () => {
                                                 className="w-full h-full object-cover"
                                             />
                                         ) : (
-                                            <span className="text-3xl font-bold text-slate-300">{performer?.person?.charAt(0) || 'P'}</span>
+                                            <span className="text-3xl font-medium text-slate-300">{performer?.person?.charAt(0) || 'P'}</span>
                                         )}
                                     </div>
                                     <div className="pt-1">
-                                        <h2 className="text-[24px] font-bold text-[#0f172a] mb-0.5">{performer?.person || "Ananya"}</h2>
-                                        <p className="text-[15px] font-semibold text-[#16a34a] mb-2.5">{performer?.name || "Web Designer"}</p>
+                                        <h2 className="text-[24px] font-medium text-[#0f172a] mb-0.5">{performer?.person || "Ananya"}</h2>
+                                        <p className="text-[15px] font-medium text-[#16a34a] mb-2.5">{performer?.name || "Web Designer"}</p>
                                         <div className="flex items-center gap-1.5 mb-4">
                                             <div className="flex text-amber-400 gap-0.5">
                                                 <Star size={14} fill="currentColor" />
@@ -382,16 +382,16 @@ const ConfirmAndPayPage = () => {
                                 </div>
                                 <div className="text-right pt-1">
                                     {performer?.rate ? (
-                                        <p className="text-[24px] font-bold text-[#0f172a]">{performer.rate}</p>
+                                        <p className="text-[24px] font-medium text-[#0f172a]">{performer.rate}</p>
                                     ) : null}
                                 </div>
                             </div>
                         </div>
 
                         {/* Task Details Card */}
-                        <div className="bg-white border border-[#f1f5f9] rounded-[2rem] p-8 shadow-sm">
-                            <p className="text-[12px] font-bold text-[#94a3b8] uppercase tracking-[0.1em] mb-6">TASK DETAILS</p>
-                            <h3 className="text-[24px] font-bold text-[#0f172a] mb-3">{title}</h3>
+                        <div className="bg-white border border-[#f1f5f9] rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-8 shadow-sm">
+                            <p className="text-[11px] font-bold text-[#94a3b8] uppercase tracking-[0.1em] mb-4 sm:mb-6">TASK DETAILS</p>
+                            <h3 className="text-xl sm:text-2xl font-heading font-medium text-[#0f172a] mb-3">{title}</h3>
                             <p className="text-[16px] font-medium text-[#64748b] leading-relaxed mb-10">
                                 {description}
                             </p>
@@ -399,19 +399,19 @@ const ConfirmAndPayPage = () => {
                             <div className="grid grid-cols-2 gap-y-8 gap-x-12">
                                 <div>
                                     <p className="text-[13px] font-bold text-[#94a3b8] mb-1.5">Task Budget</p>
-                                    <p className="text-[16px] font-bold text-[#0f172a]">₹{basePrice}</p>
+                                    <p className="text-[16px] font-medium text-[#0f172a]">₹{basePrice}</p>
                                 </div>
                                 <div>
                                     <p className="text-[13px] font-bold text-[#94a3b8] mb-1.5">Estimated Delivery</p>
-                                    <p className="text-[16px] font-bold text-[#0f172a]">{deadline}</p>
+                                    <p className="text-[16px] font-medium text-[#0f172a]">{deadline}</p>
                                 </div>
                                 <div>
                                     <p className="text-[13px] font-bold text-[#94a3b8] mb-1.5">Category</p>
-                                    <p className="text-[16px] font-bold text-[#0f172a]">{category}</p>
+                                    <p className="text-[16px] font-medium text-[#0f172a]">{category}</p>
                                 </div>
                                 <div>
                                     <p className="text-[13px] font-bold text-[#94a3b8] mb-1.5">Service Tier</p>
-                                    <p className="text-[16px] font-bold text-[#16a34a]">FirstDoer Verified</p>
+                                    <p className="text-[16px] font-medium text-[#16a34a]">FirstDoer Verified</p>
                                 </div>
                             </div>
 
@@ -434,16 +434,16 @@ const ConfirmAndPayPage = () => {
 
                     {/* Right Column: Payment Summary */}
                     <div className="lg:col-span-5">
-                        <div className="bg-white border border-[#f1f5f9] rounded-[2rem] p-8 shadow-sm sticky top-24">
-                            <p className="text-[12px] font-bold text-[#94a3b8] uppercase tracking-[0.1em] mb-8">PAYMENT SUMMARY</p>
+                        <div className="bg-white border border-[#f1f5f9] rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-8 shadow-sm lg:sticky lg:top-24">
+                            <p className="text-[11px] font-bold text-[#94a3b8] uppercase tracking-[0.1em] mb-6 sm:mb-8">PAYMENT SUMMARY</p>
 
                             <div className="space-y-6 mb-8">
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-3">
                                         <Layout size={18} className="text-[#64748b]" />
-                                        <span className="text-[16px] font-bold text-[#0f172a]">Base Task Fee</span>
+                                        <span className="text-[16px] font-medium text-[#0f172a]">Base Task Fee</span>
                                     </div>
-                                    <span className="text-[16px] font-bold text-[#0f172a]">₹ {basePrice}</span>
+                                    <span className="text-[16px] font-medium text-[#0f172a]">₹ {basePrice}</span>
                                 </div>
 
                                 <div className="pl-8 space-y-4">
@@ -455,7 +455,7 @@ const ConfirmAndPayPage = () => {
                                                     Service commission {commissionRate ? `(${commissionRate}%)` : ""}
                                                 </span>
                                             </div>
-                                            <span className="text-[15px] font-bold text-[#0f172a]">
+                                            <span className="text-[15px] font-medium text-[#0f172a]">
                                                 {pricingLoading ? "Calculating..." : `₹ ${formatMoney(commissionAmount)}`}
                                             </span>
                                         </div>
@@ -468,7 +468,7 @@ const ConfirmAndPayPage = () => {
                                                     Platform fee
                                                 </span>
                                             </div>
-                                            <span className="text-[15px] font-bold text-[#0f172a]">
+                                            <span className="text-[15px] font-medium text-[#0f172a]">
                                                 {pricingLoading ? "Calculating..." : `₹ ${formatMoney(platformFeeAmount)}`}
                                             </span>
                                         </div>
@@ -481,7 +481,7 @@ const ConfirmAndPayPage = () => {
                                                     Coupon discount
                                                 </span>
                                             </div>
-                                            <span className="text-[15px] font-bold text-[#16a34a]">- ₹ {formatMoney(couponDiscount)}</span>
+                                            <span className="text-[15px] font-medium text-[#16a34a]">- ₹ {formatMoney(couponDiscount)}</span>
                                         </div>
                                     )}
                                 </div>
@@ -573,7 +573,7 @@ const ConfirmAndPayPage = () => {
                                         className="mt-1 h-4 w-4 accent-[#16a34a]"
                                     />
                                     <span className="min-w-0 flex-1">
-                                        <span className="flex items-center gap-2 text-[15px] font-black text-[#0f172a]">
+                                        <span className="flex items-center gap-2 text-[15px] font-medium text-[#0f172a]">
                                             <CircleDollarSign size={18} className="text-[#16a34a]" />
                                             Pay using wallet
                                         </span>
@@ -590,8 +590,8 @@ const ConfirmAndPayPage = () => {
 
                                 <div className="pt-6 border-t border-[#f1f5f9]">
                                     <div className="flex items-center justify-between">
-                                        <span className="text-[17px] font-black text-[#0f172a]">Total Amount</span>
-                                        <span className="text-[20px] font-black text-[#16a34a]">
+                                        <span className="text-[17px] font-medium text-[#0f172a]">Total Amount</span>
+                                        <span className="text-[20px] font-medium text-[#16a34a]">
                                             {pricingLoading ? "Calculating..." : `₹ ${formatMoney(totalAmount)}`}
                                         </span>
                                     </div>
@@ -617,7 +617,7 @@ const ConfirmAndPayPage = () => {
 
 
                             <button
-                                className={`w-full ${isProcessing ? 'bg-slate-100 text-slate-400' : 'bg-[#16a34a] hover:bg-[#15803d] text-white'} py-5 rounded-full text-[19px] font-black transition-all shadow-lg active:scale-[0.98] mb-6 flex items-center justify-center gap-3`}
+                                className={`w-full ${isProcessing ? 'bg-slate-100 text-slate-400' : 'bg-[#16a34a] hover:bg-[#15803d] text-white'} py-5 rounded-full text-[19px] font-medium transition-all shadow-lg active:scale-[0.98] mb-6 flex items-center justify-center gap-3`}
                                 onClick={handlePayment}
                                 disabled={isProcessing || pricingLoading || !breakdown}
                             >
@@ -689,13 +689,13 @@ const ConfirmAndPayPage = () => {
                                         value={couponCode}
                                         onChange={(event) => setCouponCode(event.target.value.toUpperCase())}
                                         placeholder="Enter coupon code"
-                                        className="min-w-0 flex-1 rounded-2xl border border-transparent bg-white px-5 py-4 text-[15px] font-bold uppercase tracking-wide text-[#0f172a] outline-none shadow-sm transition focus:border-[#16a34a]"
+                                        className="min-w-0 flex-1 rounded-2xl border border-transparent bg-white px-5 py-4 text-[15px] font-medium uppercase tracking-wide text-[#0f172a] outline-none shadow-sm transition focus:border-[#16a34a]"
                                         disabled={pricingLoading || isProcessing}
                                     />
                                     <button
                                         type="button"
                                         onClick={() => handleApplyCoupon()}
-                                        className="rounded-2xl bg-[#16a34a] px-6 py-4 text-[15px] font-black text-white shadow-sm transition hover:bg-[#15803d] disabled:opacity-50"
+                                        className="rounded-2xl bg-[#16a34a] px-6 py-4 text-[15px] font-medium text-white shadow-sm transition hover:bg-[#15803d] disabled:opacity-50"
                                         disabled={pricingLoading || isProcessing || !couponCode.trim()}
                                     >
                                         Apply
@@ -709,7 +709,7 @@ const ConfirmAndPayPage = () => {
                                                 <Check size={16} strokeWidth={3} />
                                             </div>
                                             <div>
-                                                <p className="text-[15px] font-black text-[#15803d]">{couponMessage}</p>
+                                                <p className="text-[15px] font-medium text-[#15803d]">{couponMessage}</p>
                                                 {couponDiscount > 0 && (
                                                     <p className="text-[13px] font-semibold text-[#16a34a]">You saved ₹{formatMoney(couponDiscount)}</p>
                                                 )}
@@ -735,7 +735,7 @@ const ConfirmAndPayPage = () => {
                                     </div>
                                 ) : applicableCoupons.length === 0 ? (
                                     <div className="rounded-[1.75rem] bg-white px-6 py-10 text-center shadow-sm">
-                                        <p className="text-[16px] font-black text-[#0f172a]">No coupons available</p>
+                                        <p className="text-[16px] font-medium text-[#0f172a]">No coupons available</p>
                                         <p className="mt-2 text-[14px] font-semibold text-[#64748b]">
                                             New offers will show here when they are available for this payment.
                                         </p>
@@ -755,15 +755,15 @@ const ConfirmAndPayPage = () => {
                                                     }`}
                                                 >
                                                     <div className="mb-4 flex flex-wrap items-center gap-3">
-                                                        <span className="rounded-xl border-2 border-dashed border-[#16a34a] px-3 py-1.5 text-[15px] font-black uppercase tracking-wide text-[#15803d]">
+                                                        <span className="rounded-xl border-2 border-dashed border-[#16a34a] px-3 py-1.5 text-[15px] font-medium uppercase tracking-wide text-[#15803d]">
                                                             {coupon.code}
                                                         </span>
-                                                        <span className="text-[15px] font-black text-[#16a34a]">
+                                                        <span className="text-[15px] font-medium text-[#16a34a]">
                                                             {couponDiscountLabel(coupon)}
                                                         </span>
                                                     </div>
-                                                    <h3 className="text-[20px] font-black text-[#273244]">{couponTitleLabel(coupon)}</h3>
-                                                    <p className="mt-2 text-[15px] font-semibold text-[#64748b]">
+                                                    <h3 className="text-[20px] font-medium text-[#273244]">{couponTitleLabel(coupon)}</h3>
+                                                    <p className="mt-2 text-[15px] font-medium text-[#64748b]">
                                                         {couponTermsLabel(coupon)}
                                                     </p>
                                                     {coupon.description && coupon.minOrderValue > 0 && (
@@ -775,7 +775,7 @@ const ConfirmAndPayPage = () => {
                                                             type="button"
                                                             onClick={() => handleApplyCoupon(coupon.code)}
                                                             disabled={pricingLoading || isProcessing || isApplied}
-                                                            className={`rounded-full px-6 py-4 text-[16px] font-black transition ${
+                                                            className={`rounded-full px-6 py-4 text-[16px] font-medium transition ${
                                                                 isApplied
                                                                     ? "bg-[#eef2f7] text-[#64748b]"
                                                                     : "bg-[#16a34a] text-white hover:bg-[#15803d]"
@@ -786,7 +786,7 @@ const ConfirmAndPayPage = () => {
                                                         <button
                                                             type="button"
                                                             onClick={() => handleCopyCoupon(coupon.code)}
-                                                            className="flex items-center gap-2 rounded-full border border-[#e2e8f0] bg-white px-5 py-4 text-[15px] font-black text-[#273244] transition hover:border-[#16a34a]"
+                                                            className="flex items-center gap-2 rounded-full border border-[#e2e8f0] bg-white px-5 py-4 text-[15px] font-medium text-[#273244] transition hover:border-[#16a34a]"
                                                         >
                                                             <Copy size={17} />
                                                             {isCopied ? "Copied" : "Copy"}
@@ -824,7 +824,7 @@ const ConfirmAndPayPage = () => {
                                         <ShieldCheck size={40} className="text-[#16a34a]" />
                                     </div>
                                 </div>
-                                <h2 className="text-[28px] font-black text-slate-900 mb-2">Processing Secure Payment</h2>
+                                <h2 className="text-[28px] font-medium text-slate-900 mb-2">Processing Secure Payment</h2>
                                 <p className="text-slate-400 font-bold max-w-[320px]">Verifying transaction and assigning performer. Please stay on this page.</p>
                             </>
                         ) : (
@@ -837,9 +837,9 @@ const ConfirmAndPayPage = () => {
                                 >
                                     <Check size={52} className="text-white" strokeWidth={4} />
                                 </Motion.div>
-                                <h2 className="text-[34px] font-black text-slate-900 mb-3 tracking-tight">Payment Successful!</h2>
+                                <h2 className="text-[34px] font-medium text-slate-900 mb-3 tracking-tight">Payment Successful!</h2>
                                 <div className="flex flex-col items-center gap-2 mb-12">
-                                    <p className="text-[19px] font-bold text-slate-600">
+                                    <p className="text-[19px] font-medium text-slate-600">
                                         Task <span className="text-[#10605F]">ASSIGNED</span> to {performer?.person}
                                     </p>
                                     <div className="px-4 py-1.5 bg-[#EFFBFB] text-[#10605F] rounded-full text-[12px] font-black uppercase tracking-wider">

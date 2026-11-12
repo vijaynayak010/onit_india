@@ -53,7 +53,7 @@ function CategoryCard({ title, img, to, delay = 0 }) {
             top: 20,
             left: 20,
             right: 16,
-            fontFamily: "Outfit, sans-serif",
+            fontFamily: "Poppins, sans-serif",
             fontWeight: 700,
             fontSize: "clamp(17px, 1.6vw, 22px)",
             lineHeight: 1.25,
@@ -143,7 +143,7 @@ export default function ExploreCategoriesSection() {
             >
               <span
                 style={{
-                  fontFamily: "Manrope, sans-serif",
+                  fontFamily: "Poppins, sans-serif",
                   fontWeight: 700,
                   fontSize: 10,
                   letterSpacing: "0.12em",
@@ -159,7 +159,7 @@ export default function ExploreCategoriesSection() {
             {/* Heading */}
             <h2
               style={{
-                fontFamily: "Outfit, sans-serif",
+                fontFamily: "Poppins, sans-serif",
                 fontWeight: 600,
                 fontSize: "clamp(26px, 2.8vw, 40px)",
                 lineHeight: 1.15,
@@ -175,7 +175,7 @@ export default function ExploreCategoriesSection() {
             {/* Subtitle */}
             <p
               style={{
-                fontFamily: "Manrope, sans-serif",
+                fontFamily: "Poppins, sans-serif",
                 fontWeight: 400,
                 fontSize: "clamp(13px, 1.3vw, 15px)",
                 lineHeight: 1.65,
@@ -193,7 +193,7 @@ export default function ExploreCategoriesSection() {
                 display: "inline-flex",
                 alignItems: "center",
                 gap: 6,
-                fontFamily: "Manrope, sans-serif",
+                fontFamily: "Poppins, sans-serif",
                 fontWeight: 700,
                 fontSize: 13,
                 color: "#009966",

@@ -32,7 +32,7 @@ function GooglePlayBadge({ href }) {
       <div style={{ display: "flex", flexDirection: "column" }}>
         <span
           style={{
-            fontFamily: "Manrope, sans-serif",
+            fontFamily: "Poppins, sans-serif",
             fontWeight: 400,
             fontSize: 7,
             lineHeight: "10px",
@@ -44,7 +44,7 @@ function GooglePlayBadge({ href }) {
         </span>
         <span
           style={{
-            fontFamily: "Manrope, sans-serif",
+            fontFamily: "Poppins, sans-serif",
             fontWeight: 700,
             fontSize: 11,
             lineHeight: "14px",
@@ -76,7 +76,7 @@ function AppRow({ title, subtitle, href, borderBottom = false }) {
       <div>
         <p
           style={{
-            fontFamily: "Manrope, sans-serif",
+            fontFamily: "Poppins, sans-serif",
             fontWeight: 700,
             fontSize: 11,
             lineHeight: "16px",
@@ -88,7 +88,7 @@ function AppRow({ title, subtitle, href, borderBottom = false }) {
         </p>
         <p
           style={{
-            fontFamily: "Manrope, sans-serif",
+            fontFamily: "Poppins, sans-serif",
             fontWeight: 400,
             fontSize: 8,
             lineHeight: "12px",
@@ -139,7 +139,7 @@ export default function FinalCtaSection() {
           {/* Eyebrow */}
           <p
             style={{
-              fontFamily: "Manrope, sans-serif",
+              fontFamily: "Poppins, sans-serif",
               fontWeight: 700,
               fontSize: 9,
               lineHeight: "14px",
@@ -155,7 +155,7 @@ export default function FinalCtaSection() {
           {/* Heading */}
           <h2
             style={{
-              fontFamily: "Outfit, sans-serif",
+              fontFamily: "Poppins, sans-serif",
               fontWeight: 400,
               fontSize: "clamp(32px, 4.5vw, 54.98px)",
               lineHeight: "clamp(38px, 5vw, 57px)",
@@ -171,7 +171,7 @@ export default function FinalCtaSection() {
           {/* Subtext */}
           <p
             style={{
-              fontFamily: "Manrope, sans-serif",
+              fontFamily: "Poppins, sans-serif",
               fontWeight: 400,
               fontSize: 15,
               lineHeight: "22px",
@@ -203,7 +203,7 @@ export default function FinalCtaSection() {
                 background: "#009966",
                 borderRadius: 999,
                 textDecoration: "none",
-                fontFamily: "Manrope, sans-serif",
+                fontFamily: "Poppins, sans-serif",
                 fontWeight: 700,
                 fontSize: 13,
                 lineHeight: "20px",
@@ -224,7 +224,7 @@ export default function FinalCtaSection() {
                 border: "0.8px solid #40504A",
                 borderRadius: 999,
                 textDecoration: "none",
-                fontFamily: "Manrope, sans-serif",
+                fontFamily: "Poppins, sans-serif",
                 fontWeight: 700,
                 fontSize: 12,
                 lineHeight: "18px",
@@ -256,7 +256,7 @@ export default function FinalCtaSection() {
           <div>
             <p
               style={{
-                fontFamily: "Manrope, sans-serif",
+                fontFamily: "Poppins, sans-serif",
                 fontWeight: 700,
                 fontSize: 9,
                 lineHeight: "14px",
@@ -270,7 +270,7 @@ export default function FinalCtaSection() {
             </p>
             <h3
               style={{
-                fontFamily: "Outfit, sans-serif",
+                fontFamily: "Poppins, sans-serif",
                 fontWeight: 400,
                 fontSize: 27,
                 lineHeight: "40px",
@@ -283,7 +283,7 @@ export default function FinalCtaSection() {
             </h3>
             <p
               style={{
-                fontFamily: "Manrope, sans-serif",
+                fontFamily: "Poppins, sans-serif",
                 fontWeight: 400,
                 fontSize: 11,
                 lineHeight: "16px",

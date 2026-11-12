@@ -163,7 +163,7 @@ const SettingsPage = () => {
           <div className={`w-full ${activeTab === "ratings" || activeTab === "reviews" ? "max-w-5xl" : "mx-auto max-w-6xl"}`}>
             {!hidePageIntro ? (
               <header className="mb-8 border-b border-[var(--color-border)] pb-8">
-                <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">{meta.label}</h1>
+                <h1 className="text-2xl font-medium tracking-tight sm:text-3xl">{meta.label}</h1>
                 <p className="mt-1 max-w-2xl text-sm font-medium text-[var(--color-text-muted)]">{meta.description}</p>
               </header>
             ) : null}

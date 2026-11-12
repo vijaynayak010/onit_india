@@ -45,7 +45,7 @@ const DomainSelectSheet = ({ open, options, selected, onChange, onClose, onDone 
             aria-labelledby="domain-sheet-title"
           >
             <div className="flex items-center justify-between border-b border-gray-100 px-5 py-4">
-              <h2 id="domain-sheet-title" className="text-[17px] font-bold text-gray-900">
+              <h2 id="domain-sheet-title" className="text-[17px] font-medium text-gray-900">
                 Select Domains
               </h2>
               <button
@@ -100,7 +100,7 @@ const DomainSelectSheet = ({ open, options, selected, onChange, onClose, onDone 
                 type="button"
                 onClick={onDone}
                 disabled={!canDone}
-                className={`w-full rounded-full py-4 text-[15px] font-bold transition ${
+                className={`w-full rounded-full py-4 text-[15px] font-medium transition ${
                   canDone
                     ? "bg-[#10605F] text-white shadow-md hover:bg-[#00925f]"
                     : "bg-gray-200 text-gray-500"

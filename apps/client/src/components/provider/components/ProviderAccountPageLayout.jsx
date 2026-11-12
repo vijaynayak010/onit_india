@@ -12,8 +12,8 @@ const ProviderAccountPageLayout = ({ title, subtitle, children }) => (
 
       <main className={accountMainClass} style={accountMainStyle}>
         <div className="mx-auto w-full max-w-5xl">
-          <header className="mb-8 border-b border-[var(--color-border)] pb-6">
-            <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">{title}</h1>
+          <header className="mb-6 border-b border-[var(--color-border)] pb-4 sm:mb-8 sm:pb-6">
+            <h1 className="text-2xl font-heading font-medium tracking-tight text-gray-900 sm:text-3xl">{title}</h1>
             {subtitle ? (
               <p className="mt-1 text-sm font-medium text-gray-500">{subtitle}</p>
             ) : null}

@@ -17,7 +17,7 @@ const formatMarkdown = (text) => {
         // H1 Heading
         if (trimmed.startsWith("# ")) {
             return (
-                <h1 key={idx} className="text-2xl sm:text-3xl font-black text-slate-900 mt-8 mb-4 border-b pb-2 tracking-tight">
+                <h1 key={idx} className="text-2xl sm:text-3xl font-heading font-medium text-slate-900 mt-6 sm:mt-8 mb-3 sm:mb-4 border-b pb-2 tracking-tight">
                     {trimmed.replace("# ", "")}
                 </h1>
             );
@@ -26,7 +26,7 @@ const formatMarkdown = (text) => {
         // H2 Heading
         if (trimmed.startsWith("## ")) {
             return (
-                <h2 key={idx} className="text-xl sm:text-2xl font-bold text-slate-800 mt-6 mb-3">
+                <h2 key={idx} className="text-lg sm:text-xl md:text-2xl font-heading font-medium text-slate-800 mt-5 sm:mt-6 mb-2 sm:mb-3">
                     {trimmed.replace("## ", "")}
                 </h2>
             );
@@ -35,7 +35,7 @@ const formatMarkdown = (text) => {
         // H3 Heading
         if (trimmed.startsWith("### ")) {
             return (
-                <h3 key={idx} className="text-lg font-bold text-slate-800 mt-4 mb-2">
+                <h3 key={idx} className="text-base sm:text-lg font-heading font-medium text-slate-800 mt-4 mb-2">
                     {trimmed.replace("### ", "")}
                 </h3>
             );
@@ -144,7 +144,7 @@ const PolicyPage = () => {
                 <Navbar />
                 <div className="flex-grow flex items-center justify-center p-6 text-center">
                     <div className="max-w-md space-y-4">
-                        <h2 className="text-2xl font-black text-slate-800">Policy Page Not Found</h2>
+                        <h2 className="text-2xl font-medium text-slate-800">Policy Page Not Found</h2>
                         <p className="text-slate-500 text-sm">We couldn't retrieve the policy document you requested. It might have been relocated or updated.</p>
                         <Link 
                             to="/" 
@@ -170,12 +170,12 @@ const PolicyPage = () => {
             <Navbar />
 
             {/* Content Body Container */}
-            <main className="flex-grow py-12 px-4 sm:px-6 lg:px-8">
-                <div className="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden">
+            <main className="flex-grow py-8 sm:py-12 px-4 sm:px-6 md:px-12 lg:px-20">
+                <div className="max-w-4xl mx-auto bg-white rounded-2xl sm:rounded-3xl border border-slate-100 shadow-sm overflow-hidden">
                     {/* Page Header */}
-                    <div className="p-6 sm:p-10 border-b border-slate-100 bg-slate-50/50">
+                    <div className="p-4 sm:p-6 md:p-8 lg:p-10 border-b border-slate-100 bg-slate-50/50">
                         <div className="space-y-1.5">
-                            <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+                            <h1 className="text-2xl sm:text-3xl font-heading font-medium text-slate-900 tracking-tight">
                                 {pageData.title}
                             </h1>
                             <div className="flex items-center gap-3 text-xs text-slate-400 font-bold uppercase tracking-wider">
@@ -186,7 +186,7 @@ const PolicyPage = () => {
                     </div>
 
                     {/* Policy Content View */}
-                    <div className="p-6 sm:p-10 prose prose-slate max-w-none">
+                    <div className="p-4 sm:p-6 md:p-8 lg:p-10 prose prose-slate max-w-none text-sm sm:text-base leading-relaxed">
                         {currentContent.trim() ? (
                             formatMarkdown(currentContent)
                         ) : (

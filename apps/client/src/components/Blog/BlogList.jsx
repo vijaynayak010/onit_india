@@ -112,7 +112,7 @@ const CategorySectionIntro = ({ category }) => {
       transition={{ duration: 0.3 }}
       className="mb-8 md:mb-10 p-6 md:p-8 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-elevated)]"
     >
-      <h2 className="text-xl md:text-2xl font-bold text-[var(--color-text)] tracking-tight mb-2">
+      <h2 className="text-xl md:text-2xl font-medium text-[var(--color-text)] tracking-tight mb-2">
         {meta.title}
       </h2>
       <p className="text-[var(--color-text-muted)] text-sm md:text-base leading-relaxed max-w-2xl">
@@ -209,8 +209,8 @@ const BlogCard = React.forwardRef(({ post, onClick, isAdmin, onDelete, index }, 
       </div>
     </div>
 
-    <div className="flex flex-col flex-1 p-5 md:p-6">
-      <div className="flex items-center gap-3 text-xs font-semibold text-[var(--color-text-muted)] mb-3 uppercase tracking-wider">
+    <div className="flex flex-col flex-1 p-4 sm:p-5 md:p-6">
+      <div className="flex items-center gap-2.5 sm:gap-3 text-xs font-semibold text-[var(--color-text-muted)] mb-2.5 sm:mb-3 uppercase tracking-wider">
         <time dateTime={post.date}>{formatDate(post.date)}</time>
         <span className="w-1 h-1 rounded-full bg-[var(--color-border)]" aria-hidden />
         <span className="flex items-center gap-1.5">
@@ -218,11 +218,11 @@ const BlogCard = React.forwardRef(({ post, onClick, isAdmin, onDelete, index }, 
         </span>
       </div>
 
-      <h2 className="text-lg md:text-xl font-bold text-[var(--color-text)] mb-2 leading-tight group-hover:text-[var(--color-primary)] transition-colors line-clamp-3">
+      <h2 className="text-base sm:text-lg md:text-xl font-heading font-medium text-[var(--color-text)] mb-2 leading-snug group-hover:text-[var(--color-primary)] transition-colors line-clamp-3">
         {post.title}
       </h2>
 
-      <p className="text-[var(--color-text-muted)] line-clamp-2 md:line-clamp-3 text-sm leading-relaxed flex-1">
+      <p className="text-[var(--color-text-muted)] line-clamp-2 md:line-clamp-3 text-xs sm:text-sm leading-relaxed flex-1">
         {post.description}
       </p>
 
@@ -316,10 +316,10 @@ function BlogList() {
       />
 
       {/* App shell already clears fixed marquee + nav — avoid stacking large pt-* here */}
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-5 sm:pt-6 md:pt-7 pb-20 md:pb-28">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-12 lg:px-20 pt-5 sm:pt-6 md:pt-7 pb-16 sm:pb-20 md:pb-28">
 
         {/* Page masthead */}
-        <header className="mb-12 md:mb-16">
+        <header className="mb-10 sm:mb-12 md:mb-16">
           <div className="flex flex-col gap-6 md:gap-8">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div className="flex items-center gap-3">
@@ -336,10 +336,10 @@ function BlogList() {
             </div>
 
             <div className="max-w-2xl">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[var(--color-text)] leading-[1.15]">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-medium tracking-tight text-[var(--color-text)] leading-[1.15]">
                 Insights on the future of work
               </h1>
-              <p className="mt-3 md:mt-4 text-base md:text-lg text-[var(--color-text-muted)] leading-relaxed">
+              <p className="mt-2.5 sm:mt-3 md:mt-4 text-sm sm:text-base md:text-lg text-[var(--color-text-muted)] leading-relaxed">
                 Thought leadership on task-based economies, execution platforms, and coordination infrastructure from the FirstDoer team.
               </p>
             </div>
@@ -356,16 +356,16 @@ function BlogList() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
               aria-label="Featured article"
-              className="mb-16 md:mb-20"
+              className="mb-12 sm:mb-16 md:mb-20"
             >
               <button
                 type="button"
                 onClick={() => navigate(`/blog/${featuredBlog._id}`)}
                 className="w-full text-left group block"
               >
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center bg-[var(--color-surface-elevated)] rounded-2xl border border-[var(--color-border)] p-6 md:p-10 lg:p-12 shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:border-[var(--color-border)] transition-all duration-300 overflow-hidden">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center bg-[var(--color-surface-elevated)] rounded-2xl border border-[var(--color-border)] p-4 sm:p-6 md:p-8 lg:p-10 shadow-[var(--shadow-sm)] hover:shadow-[var(--shadow-md)] hover:border-[var(--color-border)] transition-all duration-300 overflow-hidden">
                   <div className="order-2 lg:order-1 flex flex-col justify-center">
-                    <div className="flex items-center gap-3 mb-4">
+                    <div className="flex items-center gap-3 mb-3 sm:mb-4">
                       <span className="px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-widest bg-[var(--color-primary)] text-white">
                         Featured
                       </span>
@@ -374,10 +374,10 @@ function BlogList() {
                       </span>
                     </div>
 
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[var(--color-text)] leading-[1.2] mb-3 group-hover:text-[var(--color-primary)] transition-colors">
+                    <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-heading font-medium tracking-tight text-[var(--color-text)] leading-[1.2] mb-3 group-hover:text-[var(--color-primary)] transition-colors">
                       {featuredBlog.title}
                     </h2>
-                    <p className="text-sm md:text-lg text-[var(--color-text-muted)] leading-relaxed line-clamp-3 mb-6">
+                    <p className="text-xs sm:text-sm md:text-base text-[var(--color-text-muted)] leading-relaxed line-clamp-3 mb-5 sm:mb-6">
                       {featuredBlog.description}
                     </p>
 
@@ -423,7 +423,7 @@ function BlogList() {
         {/* Articles section (by category or all) */}
         <section aria-label={activeCategory === "All" ? "All articles" : `${activeCategory} articles`}>
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
-            <h2 className="text-lg font-bold text-[var(--color-text)] uppercase tracking-wider">
+            <h2 className="text-lg font-medium text-[var(--color-text)] uppercase tracking-wider">
               {activeCategory === "All" ? "All articles" : activeCategory}
             </h2>
             <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 no-scrollbar">
@@ -467,7 +467,7 @@ function BlogList() {
                 <div className="w-14 h-14 rounded-2xl bg-[var(--color-border-subtle)] flex items-center justify-center mx-auto mb-4 text-[var(--color-text-subtle)]">
                   <Search size={24} />
                 </div>
-                <h3 className="text-lg font-bold text-[var(--color-text)]">No articles found</h3>
+                <h3 className="text-lg font-medium text-[var(--color-text)]">No articles found</h3>
                 <p className="text-[var(--color-text-muted)] mt-1 max-w-sm mx-auto">
                   Try a different search term or category.
                 </p>

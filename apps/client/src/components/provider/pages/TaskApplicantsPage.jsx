@@ -157,7 +157,7 @@ const TaskApplicantsPage = () => {
                                 <span className="h-2 w-2 rounded-full bg-[#10605F] animate-pulse"></span>
                                 Performers Interested
                             </div>
-                            <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight leading-tight">
+                            <h1 className="text-2xl sm:text-3xl font-medium text-slate-900 tracking-tight leading-tight">
                                 {taskData?.title || (loading ? "Loading Task Details..." : "Untitled Task")}
                             </h1>
                         </div>
@@ -221,7 +221,7 @@ const TaskApplicantsPage = () => {
                                     </motion.div>
                                 </div>
 
-                                <h3 className="text-2xl font-black text-slate-900 tracking-tight mb-2">Loading Interested Performers</h3>
+                                <h3 className="text-2xl font-medium text-slate-900 tracking-tight mb-2">Loading Interested Performers</h3>
 
                                 {/* Dynamic scouting log updates */}
                                 <div className="h-6 overflow-hidden relative w-full flex justify-center mb-10">
@@ -284,7 +284,7 @@ const TaskApplicantsPage = () => {
                             >
                                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-200">
                                     <div className="flex items-center gap-3">
-                                        <h3 className="text-xl font-black text-slate-900 tracking-tight">
+                                        <h3 className="text-xl font-medium text-slate-900 tracking-tight">
                                             Performers interested
                                         </h3>
                                         <span className="px-2.5 py-1 rounded-lg text-[11px] font-black tracking-wider bg-[#10605F] text-white">
@@ -318,7 +318,7 @@ const TaskApplicantsPage = () => {
                                                     <div className="w-20 h-20 bg-slate-50 border border-slate-100 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-inner animate-pulse">
                                                         <User className="w-10 h-10 text-slate-300" />
                                                     </div>
-                                                    <h4 className="text-2xl font-black text-slate-900 mb-2">No performers interested yet</h4>
+                                                    <h4 className="text-2xl font-medium text-slate-900 mb-2">No performers interested yet</h4>
                                                     <p className="text-slate-400 font-bold max-w-sm mx-auto">
                                                         Top ranked performers for this category are shown below while you wait.
                                                     </p>
@@ -327,7 +327,7 @@ const TaskApplicantsPage = () => {
                                                 {suggested.length > 0 ? (
                                                     <div className="space-y-4">
                                                         <div className="flex items-center gap-3">
-                                                            <h3 className="text-lg font-black text-slate-900">Top ranked performers</h3>
+                                                            <h3 className="text-lg font-medium text-slate-900">Top ranked performers</h3>
                                                             <span className="px-2.5 py-1 rounded-lg text-[11px] font-black tracking-wider bg-indigo-500 text-white">
                                                                 {suggested.length}
                                                             </span>
@@ -344,7 +344,7 @@ const TaskApplicantsPage = () => {
                                                                 />
                                                                 <div className="flex-1 min-w-0">
                                                                     <div className="flex flex-wrap items-center gap-2">
-                                                                        <h4 className="text-lg font-bold text-slate-900">{s.displayName}</h4>
+                                                                        <h4 className="text-lg font-medium text-slate-900">{s.displayName}</h4>
                                                                         <span className="inline-flex items-center gap-1 text-xs font-bold text-amber-600">
                                                                             <Star size={12} fill="currentColor" />
                                                                             {s.ratingAvg || "5"}
@@ -435,7 +435,7 @@ const PerformerCard = ({ performer, type, taskId, taskData, navigate, onReject, 
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                 ) : (
-                    <div className="w-full h-full bg-slate-100 flex items-center justify-center text-slate-400 font-black text-2xl uppercase">
+                    <div className="w-full h-full bg-slate-100 flex items-center justify-center text-slate-400 font-medium text-2xl uppercase">
                         {performer.person?.charAt(0)}
                     </div>
                 )}
@@ -444,7 +444,7 @@ const PerformerCard = ({ performer, type, taskId, taskData, navigate, onReject, 
             {/* Performer Details */}
             <div className="flex-1 min-w-0 pr-8 sm:pr-14">
                 {/* Professional Title */}
-                <h4 className="text-xl font-bold text-slate-800 tracking-tight leading-tight">
+                <h4 className="text-xl font-medium text-slate-800 tracking-tight leading-tight">
                     {performer.name || "Web Designer"}
                 </h4>
 

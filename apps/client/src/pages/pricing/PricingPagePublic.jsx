@@ -21,7 +21,7 @@ const PricingPagePublic = () => {
             ← Back to Home
           </Link>
           <header className="border-b border-gray-200 pb-8 mb-10">
-            <h1 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-4">
+            <h1 className="text-3xl md:text-4xl font-medium text-[var(--color-primary)] mb-4">
               Pricing &amp; Fees
             </h1>
             <p className="text-gray-600 text-base md:text-lg leading-relaxed">
@@ -33,7 +33,7 @@ const PricingPagePublic = () => {
 
           <div className="grid gap-6 md:grid-cols-2 mb-10">
             <div className="rounded-2xl border border-[var(--color-primary)]/15 bg-[var(--color-primary)]/5 p-6">
-              <h2 className="text-xl font-bold text-[var(--color-primary)] mb-2">
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-2">
                 For task posters
               </h2>
               <p className="text-gray-600 text-sm leading-relaxed mb-3">
@@ -48,7 +48,7 @@ const PricingPagePublic = () => {
             </div>
 
             <div className="rounded-2xl border border-[var(--color-primary)]/15 bg-[var(--color-primary)]/5 p-6">
-              <h2 className="text-xl font-bold text-[var(--color-primary)] mb-2">
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-2">
                 For task performers
               </h2>
               <p className="text-gray-600 text-sm leading-relaxed mb-3">
@@ -65,7 +65,7 @@ const PricingPagePublic = () => {
           </div>
 
           <div className="rounded-2xl bg-gray-50 border border-gray-200 p-6 mb-10">
-            <h2 className="text-lg md:text-xl font-bold text-[var(--color-primary)] mb-3">
+            <h2 className="text-lg md:text-xl font-medium text-[var(--color-primary)] mb-3">
               Secure payment flow
             </h2>
             <ol className="list-decimal pl-5 space-y-2 text-sm text-gray-600">
@@ -78,7 +78,7 @@ const PricingPagePublic = () => {
           </div>
 
           <div className="rounded-2xl border-2 border-amber-200 bg-amber-50/50 p-6 mb-10">
-            <h2 className="text-lg md:text-xl font-bold text-[var(--color-primary)] mb-3">
+            <h2 className="text-lg md:text-xl font-medium text-[var(--color-primary)] mb-3">
               ⚠️ Platform fees
             </h2>
             <p className="text-gray-700 text-sm leading-relaxed mb-2">

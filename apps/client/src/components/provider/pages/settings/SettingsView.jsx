@@ -46,7 +46,7 @@ const SettingRowDanger = ({ icon: Icon, label, onClick }) => (
 
 const Section = ({ title, children }) => (
   <section className="space-y-3">
-    <h2 className="px-1 text-xs font-bold uppercase tracking-[0.18em] text-[var(--color-text-subtle)]">{title}</h2>
+    <h2 className="px-1 text-xs font-medium uppercase tracking-[0.18em] text-[var(--color-text-subtle)]">{title}</h2>
     <div className="overflow-hidden rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] shadow-[var(--shadow-sm)]">
       <div className="px-2">{children}</div>
     </div>

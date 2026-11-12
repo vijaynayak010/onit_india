@@ -315,7 +315,7 @@ export default function TaskMatchingFlow({ onComplete }) {
           >
             <div className="flex items-center gap-3 mb-6">
               <Briefcase size={28} className="text-[var(--color-primary)]" />
-              <h2 className="text-2xl font-bold text-[var(--color-text)]">
+              <h2 className="text-2xl font-medium text-[var(--color-text)]">
                 What's your project idea?
               </h2>
             </div>
@@ -386,7 +386,7 @@ export default function TaskMatchingFlow({ onComplete }) {
           >
             <div className="flex items-center gap-3 mb-6">
               <Smartphone size={28} className="text-[var(--color-primary)]" />
-              <h2 className="text-2xl font-bold text-[var(--color-text)]">
+              <h2 className="text-2xl font-medium text-[var(--color-text)]">
                 What type of project?
               </h2>
             </div>
@@ -447,7 +447,7 @@ export default function TaskMatchingFlow({ onComplete }) {
           >
             <div className="flex items-center gap-3 mb-6">
               <FileText size={28} className="text-[var(--color-primary)]" />
-              <h2 className="text-2xl font-bold text-[var(--color-text)]">
+              <h2 className="text-2xl font-medium text-[var(--color-text)]">
                 Tell us more details
               </h2>
             </div>
@@ -519,7 +519,7 @@ export default function TaskMatchingFlow({ onComplete }) {
           >
             <div className="flex items-center gap-3 mb-6">
               <DollarSign size={28} className="text-[var(--color-primary)]" />
-              <h2 className="text-2xl font-bold text-[var(--color-text)]">
+              <h2 className="text-2xl font-medium text-[var(--color-text)]">
                 Budget & Timeline
               </h2>
             </div>
@@ -603,7 +603,7 @@ export default function TaskMatchingFlow({ onComplete }) {
             <div className="mb-6">
               <Loader size={64} className="text-[var(--color-primary)] animate-spin mx-auto" />
             </div>
-            <h2 className="text-2xl font-bold text-[var(--color-text)] mb-3">
+            <h2 className="text-2xl font-medium text-[var(--color-text)] mb-3">
               Finding the best match for you...
             </h2>
             <p className="text-[var(--color-text-muted)]">
@@ -621,7 +621,7 @@ export default function TaskMatchingFlow({ onComplete }) {
             className="space-y-4"
           >
             <div className="bg-gradient-to-r from-[var(--color-primary)] to-[#083B3A] rounded-2xl p-6 text-white mb-6">
-              <h2 className="text-2xl font-bold mb-2">
+              <h2 className="text-2xl font-medium mb-2">
                 🎉 We found {matchedSpecialists.length} perfect matches!
               </h2>
               <p className="text-white/90">
@@ -638,14 +638,14 @@ export default function TaskMatchingFlow({ onComplete }) {
                 className="bg-white rounded-2xl border-2 border-[var(--color-border)] p-6 shadow-[var(--shadow-lg)] hover:shadow-[var(--shadow-xl)] hover:border-[var(--color-primary)]/30 transition"
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[var(--color-primary)] to-[#083B3A] flex items-center justify-center text-white text-xl font-bold flex-shrink-0">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[var(--color-primary)] to-[#083B3A] flex items-center justify-center text-white text-xl font-medium flex-shrink-0">
                     {specialist.avatar}
                   </div>
                   
                   <div className="flex-1">
                     <div className="flex items-start justify-between mb-2">
                       <div>
-                        <h3 className="text-xl font-bold text-[var(--color-text)]">
+                        <h3 className="text-xl font-medium text-[var(--color-text)]">
                           {specialist.name}
                         </h3>
                         <p className="text-[var(--color-text-muted)]">

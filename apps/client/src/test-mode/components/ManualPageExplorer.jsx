@@ -170,7 +170,7 @@ export default function ManualPageExplorer() {
             <div>
               <div className="flex items-center gap-2">
                 <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                <h1 className="text-base font-black tracking-wider uppercase text-white">
+                <h1 className="text-base font-medium tracking-wider uppercase text-white">
                   Manual Page Explorer
                 </h1>
                 <span className="rounded-md bg-emerald-500/10 px-2 py-0.5 text-[10px] font-black text-emerald-400 border border-emerald-500/20">
@@ -209,31 +209,31 @@ export default function ManualPageExplorer() {
         <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-6">
           <div className="rounded-2xl border border-zinc-800/80 bg-zinc-900/60 p-4">
             <span className="text-[10px] font-black tracking-wider uppercase text-zinc-400">Total Routes</span>
-            <div className="text-2xl font-black text-white mt-1">{stats.total}</div>
+            <div className="text-2xl font-medium text-white mt-1">{stats.total}</div>
             <div className="text-[11px] text-zinc-500 mt-0.5">Discovered paths</div>
           </div>
 
           <div className="rounded-2xl border border-zinc-800/80 bg-zinc-900/60 p-4">
             <span className="text-[10px] font-black tracking-wider uppercase text-emerald-400">Passed</span>
-            <div className="text-2xl font-black text-emerald-400 mt-1">{stats.pass}</div>
+            <div className="text-2xl font-medium text-emerald-400 mt-1">{stats.pass}</div>
             <div className="text-[11px] text-zinc-500 mt-0.5">Verified clean</div>
           </div>
 
           <div className="rounded-2xl border border-zinc-800/80 bg-zinc-900/60 p-4">
             <span className="text-[10px] font-black tracking-wider uppercase text-rose-400">Failed</span>
-            <div className="text-2xl font-black text-rose-400 mt-1">{stats.fail}</div>
+            <div className="text-2xl font-medium text-rose-400 mt-1">{stats.fail}</div>
             <div className="text-[11px] text-zinc-500 mt-0.5">Issues logged</div>
           </div>
 
           <div className="rounded-2xl border border-zinc-800/80 bg-zinc-900/60 p-4">
             <span className="text-[10px] font-black tracking-wider uppercase text-amber-400">Blocked</span>
-            <div className="text-2xl font-black text-amber-400 mt-1">{stats.blocked}</div>
+            <div className="text-2xl font-medium text-amber-400 mt-1">{stats.blocked}</div>
             <div className="text-[11px] text-zinc-500 mt-0.5">Prerequisites</div>
           </div>
 
           <div className="rounded-2xl border border-zinc-800/80 bg-zinc-900/60 p-4 col-span-2 sm:col-span-1">
             <span className="text-[10px] font-black tracking-wider uppercase text-cyan-400">Coverage</span>
-            <div className="text-2xl font-black text-cyan-400 mt-1">{stats.percentage}%</div>
+            <div className="text-2xl font-medium text-cyan-400 mt-1">{stats.percentage}%</div>
             <div className="text-[11px] text-zinc-500 mt-0.5">{stats.tested} / {stats.total} tested</div>
           </div>
         </div>
@@ -342,7 +342,7 @@ export default function ManualPageExplorer() {
                     {/* Route Details */}
                     <div className="flex-1">
                       <div className="flex items-center gap-2 flex-wrap">
-                        <span className="text-sm font-black text-white">{route.name}</span>
+                        <span className="text-sm font-medium text-white">{route.name}</span>
                         <span className="rounded-md bg-zinc-800 px-2 py-0.5 text-[10px] font-bold text-zinc-300 border border-zinc-700">
                           {route.module}
                         </span>

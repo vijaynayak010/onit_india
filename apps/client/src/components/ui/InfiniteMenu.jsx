@@ -971,7 +971,7 @@ export default function InfiniteMenu({ items = [], scale = 1.0 }) {
             className={`
           select-none
           absolute
-          font-black
+          font-medium
           [font-size:4rem]
           left-[1.6em]
           top-1/2

@@ -74,7 +74,7 @@ export default function HomeOnitDifferenceSection() {
           className="relative z-10 flex w-full max-w-[640px] flex-col items-start xl:absolute xl:left-6 xl:top-[64px] 2xl:left-[82px]"
           style={titleStyle}
         >
-          <h2 className="shrink-0 font-['Montserrat',Inter,sans-serif] text-[40px] font-bold leading-[1.08] tracking-[-0.04em] sm:text-[54px] xl:text-[64px]">
+          <h2 className="shrink-0 font-['Montserrat',Poppins, sans-serif] text-[40px] font-medium leading-[1.08] tracking-[-0.04em] sm:text-[54px] xl:text-[64px]">
             What Makes On<span className="text-[#009966]">IT</span>
             <br />
             Different
@@ -112,7 +112,7 @@ export default function HomeOnitDifferenceSection() {
                   </picture>
                 </div>
                 <div className="flex w-full flex-col items-start gap-2">
-                  <h3 className="font-['Outfit',Inter,sans-serif] text-[24px] font-bold leading-[160%] text-white">
+                  <h3 className="font-['Poppins', Poppins, sans-serif] text-[24px] font-medium leading-[160%] text-white">
                     {card.title}
                   </h3>
                   <p className="font-['Inter',sans-serif] text-[16px] font-normal leading-6 text-white">

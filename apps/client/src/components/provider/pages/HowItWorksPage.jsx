@@ -27,7 +27,7 @@ const HowItWorksPage = () => {
     return (
         <div className="min-h-screen bg-white text-zinc-900 font-sans">
             <div className="max-w-5xl mx-auto px-6 py-12">
-                <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">
+                <h1 className="text-3xl md:text-4xl font-medium tracking-tight mb-4">
                     How On<span className="text-green-600">IT</span> Works
                 </h1>
                 <p className="text-zinc-600 text-base md:text-lg leading-relaxed mb-8">
@@ -45,14 +45,14 @@ const HowItWorksPage = () => {
                             <div className="text-xs font-semibold uppercase tracking-[0.16em] text-zinc-500 mb-1">
                                 {s.step}
                             </div>
-                            <h2 className="text-lg font-semibold mb-2">{s.title}</h2>
+                            <h2 className="text-lg font-medium mb-2">{s.title}</h2>
                             <p className="text-sm text-zinc-600 leading-relaxed">{s.desc}</p>
                         </div>
                     ))}
                 </div>
 
                 <div className="mt-10 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-500 px-6 py-6 text-white">
-                    <h2 className="text-xl font-bold mb-2">Ready to get started?</h2>
+                    <h2 className="text-xl font-medium mb-2">Ready to get started?</h2>
                     <p className="text-sm md:text-base mb-3">
                         Post your first task in minutes and connect with pre‑vetted task
                         performers in your city.

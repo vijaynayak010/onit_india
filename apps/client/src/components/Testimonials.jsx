@@ -56,7 +56,7 @@ function TestimonialCard({ item }) {
           style={item.imgPosition ? { objectPosition: item.imgPosition } : undefined}
         />
         <div>
-          <p className="font-semibold text-[var(--color-text)] text-sm sm:text-base">{item.name}</p>
+          <p className="font-medium text-[var(--color-text)] text-sm sm:text-base">{item.name}</p>
           <p className="text-[var(--color-text-subtle)] text-xs sm:text-sm">{item.profession}</p>
         </div>
       </div>
@@ -86,7 +86,7 @@ function Testimonials() {
 
       {/* Heading */}
       <div className="text-center mb-6 md:mb-10 px-6">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--color-text)]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-[var(--color-text)]">
             Real Stories from <span className="text-[var(--color-primary)]">FirstDoer</span>
           </h2>
         <p className="text-[var(--color-text-muted)] mt-3 sm:mt-4 text-base sm:text-lg">

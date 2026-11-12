@@ -36,7 +36,7 @@ export default function HomeTalentOpportunityCta() {
   return (
     <section className="bg-white px-5 py-16 sm:px-8 lg:px-0 lg:py-[120px]">
       <div className="mx-auto w-full max-w-[1240px]">
-        <h2 className="max-w-[620px] font-['Manrope',Inter,sans-serif] text-[46px] font-bold leading-[1.08] text-[#090909] sm:text-[56px] lg:text-[72px]">
+        <h2 className="max-w-[620px] font-['Poppins', Poppins, sans-serif] text-[46px] font-medium leading-[1.08] text-[#090909] sm:text-[56px] lg:text-[72px]">
           One platform
           <br />
           for everyone.
@@ -48,21 +48,21 @@ export default function HomeTalentOpportunityCta() {
               key={opportunity.role}
               className={`flex min-h-[251px] flex-col items-start justify-between rounded-[28px] border p-8 sm:p-9 ${opportunity.cardClass}`}
             >
-              <div className="flex items-center gap-2 font-['Manrope',Inter,sans-serif] text-[14px] font-medium leading-[19px]">
+              <div className="flex items-center gap-2 font-['Poppins', Poppins, sans-serif] text-[14px] font-medium leading-[19px]">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#009966]" aria-hidden="true" />
                 {opportunity.eyebrow}
               </div>
 
               <div className="flex flex-col items-start gap-6">
                 <div className="flex flex-col items-start gap-3">
-                  <p className={`font-['Manrope',Inter,sans-serif] text-[12px] font-bold uppercase leading-4 ${opportunity.mutedClass}`}>
+                  <p className={`font-['Poppins', Poppins, sans-serif] text-[12px] font-bold uppercase leading-4 ${opportunity.mutedClass}`}>
                     {opportunity.kicker}
                   </p>
                   <div className="flex flex-col items-start gap-1.5">
-                    <h3 className="font-['Manrope',Inter,sans-serif] text-[30px] font-bold leading-[120%] sm:text-[32px]">
+                    <h3 className="font-['Poppins', Poppins, sans-serif] text-[30px] font-medium leading-[120%] sm:text-[32px]">
                       {opportunity.title}
                     </h3>
-                    <p className={`font-['Manrope',Inter,sans-serif] text-[15px] font-normal leading-[140%] ${opportunity.mutedClass}`}>
+                    <p className={`font-['Poppins', Poppins, sans-serif] text-[15px] font-normal leading-[140%] ${opportunity.mutedClass}`}>
                       {opportunity.description}
                     </p>
                   </div>
@@ -71,7 +71,7 @@ export default function HomeTalentOpportunityCta() {
                 <button
                   type="button"
                   onClick={() => handleAction(opportunity.role)}
-                  className={`flex h-[43px] items-center justify-center rounded-full px-6 font-['Manrope',Inter,sans-serif] text-[14px] font-bold leading-[19px] transition-colors ${opportunity.actionClass}`}
+                  className={`flex h-[43px] items-center justify-center rounded-full px-6 font-['Poppins', Poppins, sans-serif] text-[14px] font-bold leading-[19px] transition-colors ${opportunity.actionClass}`}
                 >
                   {opportunity.action}
                 </button>

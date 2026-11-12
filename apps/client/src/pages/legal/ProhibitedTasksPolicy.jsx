@@ -29,7 +29,7 @@ const ProhibitedTasksPolicy = () => (
           ← Back to Home
         </Link>
         <header className="border-b border-gray-200 pb-8 mb-10">
-          <h1 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-4">
+          <h1 className="text-3xl md:text-4xl font-medium text-[var(--color-primary)] mb-4">
             Prohibited Tasks Policy
           </h1>
           <p className="text-gray-600 text-sm md:text-base">
@@ -42,7 +42,7 @@ const ProhibitedTasksPolicy = () => (
 
         <div className="space-y-8 text-gray-700 leading-relaxed">
           <section>
-            <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">1. Prohibited Categories</h2>
+            <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">1. Prohibited Categories</h2>
             <p className="mb-4">The following categories of tasks are <strong>strictly prohibited</strong> on FirstDoer. Posting, accepting, or completing such tasks is a violation of our terms.</p>
             <ul className="list-disc pl-6 space-y-2">
               {PROHIBITED.map((item, i) => (
@@ -52,7 +52,7 @@ const ProhibitedTasksPolicy = () => (
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">2. Enforcement</h2>
+            <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">2. Enforcement</h2>
             <p>FirstDoer retains <strong>absolute discretion</strong> in enforcing this policy. We may:</p>
             <ul className="list-disc pl-6 space-y-1 mt-2">
               <li>Remove any task that falls within or appears to fall within a prohibited category</li>
@@ -63,12 +63,12 @@ const ProhibitedTasksPolicy = () => (
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">3. Other Rules</h2>
+            <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">3. Other Rules</h2>
             <p>Task providers and performers must also follow our general <Link to="/task-guidelines" className="text-[var(--color-primary)] font-medium hover:underline">Task Guidelines &amp; Posting Rules</Link> (e.g. lawful and safe tasks, accurate descriptions). Violations of those guidelines can also lead to task removal and account action.</p>
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">4. Full Terms</h2>
+            <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">4. Full Terms</h2>
             <p>This page is a summary. The full rules are in our <Link to="/terms-and-conditions" className="text-[var(--color-primary)] font-medium hover:underline">Terms and Conditions</Link> (including Section 7 on Prohibited or Restricted Tasks). By using the platform, you agree to those terms.</p>
           </section>
         </div>

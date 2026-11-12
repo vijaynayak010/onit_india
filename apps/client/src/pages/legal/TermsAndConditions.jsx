@@ -13,38 +13,38 @@ const TermsAndConditions = () => {
         canonical="https://www.firstdoer.com/terms-and-conditions"
       />
 
-      <section className="pt-24 pb-16 px-6 md:px-20">
+      <section className="pt-24 sm:pt-28 pb-12 sm:pb-16 px-4 sm:px-6 md:px-12 lg:px-20">
         <div className="max-w-4xl mx-auto">
           {/* Back link */}
           <Link
             to="/"
-            className="inline-flex items-center text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] font-medium text-sm mb-8"
+            className="inline-flex items-center text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] font-medium text-sm mb-6 sm:mb-8"
           >
             ← Back to Home
           </Link>
 
           {/* Header */}
-          <header className="border-b border-gray-200 pb-8 mb-10">
-            <h1 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-4">
+          <header className="border-b border-gray-200 pb-6 sm:pb-8 mb-8 sm:mb-10">
+            <h1 className="text-3xl sm:text-4xl font-heading font-medium text-[var(--color-primary)] mb-3 tracking-tight">
               FirstDoer – TERMS OF USE & PLATFORM AGREEMENT
             </h1>
-            <p className="text-gray-600 text-sm md:text-base">
+            <p className="text-gray-600 text-xs sm:text-sm">
               <strong>Effective From:</strong> 01 March 2026
             </p>
-            <p className="text-gray-600 text-sm md:text-base mt-1">
+            <p className="text-gray-600 text-xs sm:text-sm mt-1">
               <strong>Platform Name:</strong> FirstDoer
             </p>
-            <p className="text-gray-600 text-sm md:text-base mt-1">
+            <p className="text-gray-600 text-xs sm:text-sm mt-1">
               <strong>Operated By:</strong> Uday Gedam (Founder of FirstDoer)
             </p>
-            <p className="text-gray-600 text-sm md:text-base mt-1">
+            <p className="text-gray-600 text-xs sm:text-sm mt-1">
               <strong>Correspondence Address:</strong> Tailors Colony, Adilabad, Telangana, India
             </p>
           </header>
 
-          <div className="space-y-10 text-justify leading-relaxed">
+          <div className="space-y-8 sm:space-y-10 leading-relaxed text-sm sm:text-base">
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">1. INTRODUCTION</h2>
+              <h2 className="text-lg sm:text-xl font-heading font-medium text-[var(--color-primary)] mb-2 sm:mb-3">1. INTRODUCTION</h2>
               <p>
                 Welcome to FirstDoer ("FirstDoer", "we", "us", or "our").
               </p>
@@ -57,7 +57,7 @@ const TermsAndConditions = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">2. PLATFORM ROLE (INTERMEDIARY STATUS)</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">2. PLATFORM ROLE (INTERMEDIARY STATUS)</h2>
               <p>
                 FirstDoer operates solely as a technology intermediary marketplace that connects independent users.
               </p>
@@ -70,7 +70,7 @@ const TermsAndConditions = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">3. DEFINITIONS</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">3. DEFINITIONS</h2>
               <p className="mb-2">For the purposes of these Terms:</p>
               <ul className="list-disc pl-6 space-y-1">
                 <li><strong>"User"</strong> means any individual or entity accessing or using the Platform.</li>
@@ -82,7 +82,7 @@ const TermsAndConditions = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">4. ELIGIBILITY & ACCOUNT RULES</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">4. ELIGIBILITY & ACCOUNT RULES</h2>
               <p>
                 Users must be at least eighteen (18) years of age and legally competent under applicable Indian law.
               </p>
@@ -95,7 +95,7 @@ const TermsAndConditions = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">5. IDENTITY VERIFICATION (MANDATORY)</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">5. IDENTITY VERIFICATION (MANDATORY)</h2>
               <p>
                 Identity verification is mandatory in order to:
               </p>
@@ -113,7 +113,7 @@ const TermsAndConditions = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">6. TASK GUIDELINES & USER RESPONSIBILITIES</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">6. TASK GUIDELINES & USER RESPONSIBILITIES</h2>
               <h3 className="text-lg font-medium text-[var(--color-primary)] mt-4 mb-2">6.1 Responsibilities of Task Providers</h3>
               <p>Task Providers shall:</p>
               <ul className="list-disc pl-6 mt-2 space-y-1">
@@ -133,7 +133,7 @@ const TermsAndConditions = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">7. PROHIBITED OR RESTRICTED TASKS</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">7. PROHIBITED OR RESTRICTED TASKS</h2>
               <p className="mb-2">The following categories of Tasks are strictly prohibited:</p>
               <ul className="list-disc pl-6 space-y-1">
                 <li>Illegal or unlawful activities</li>
@@ -152,7 +152,7 @@ const TermsAndConditions = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">8. PAYMENTS, ESCROW & PLATFORM FEES</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">8. PAYMENTS, ESCROW & PLATFORM FEES</h2>
               <p>
                 Payments for Tasks may be collected prior to commencement and held until Task completion or dispute resolution.
               </p>
@@ -168,7 +168,7 @@ const TermsAndConditions = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">9. OFF-PLATFORM TRANSACTIONS</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">9. OFF-PLATFORM TRANSACTIONS</h2>
               <p>
                 Users shall not move payments or transactions outside the FirstDoer Platform.
               </p>
@@ -181,7 +181,7 @@ const TermsAndConditions = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">10. RATINGS, REVIEWS & CONTENT</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">10. RATINGS, REVIEWS & CONTENT</h2>
               <p>
                 Users may submit ratings and reviews following Task completion.
               </p>
@@ -194,7 +194,7 @@ const TermsAndConditions = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">11. SUSPENSION & TERMINATION</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">11. SUSPENSION & TERMINATION</h2>
               <p>
                 FirstDoer may suspend or terminate User accounts in cases involving:
               </p>
@@ -210,7 +210,7 @@ const TermsAndConditions = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">12. INDEPENDENT CONTRACTOR STATUS</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">12. INDEPENDENT CONTRACTOR STATUS</h2>
               <p>
                 Task Performers act as independent contractors and not as employees, agents, or representatives of FirstDoer.
               </p>
@@ -220,7 +220,7 @@ const TermsAndConditions = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">13. DISCLAIMER OF WARRANTIES</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">13. DISCLAIMER OF WARRANTIES</h2>
               <p>
                 The Platform is provided on an "as is" and "as available" basis.
               </p>
@@ -238,7 +238,7 @@ const TermsAndConditions = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">14. LIMITATION OF LIABILITY</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">14. LIMITATION OF LIABILITY</h2>
               <p>
                 To the maximum extent permitted by law, FirstDoer shall not be liable for any indirect, incidental, special, or consequential damages.
               </p>
@@ -248,7 +248,7 @@ const TermsAndConditions = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">15. INDEMNIFICATION</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">15. INDEMNIFICATION</h2>
               <p>
                 Users agree to indemnify, defend, and hold harmless FirstDoer and its operator from and against any claims, losses, damages, liabilities, or expenses arising from:
               </p>
@@ -261,21 +261,21 @@ const TermsAndConditions = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">16. FORCE MAJEURE</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">16. FORCE MAJEURE</h2>
               <p>
                 FirstDoer shall not be liable for any delay or failure in performance resulting from events beyond its reasonable control, including but not limited to internet outages, payment gateway failures, governmental actions, or natural disasters.
               </p>
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">17. COMMUNICATION CONSENT</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">17. COMMUNICATION CONSENT</h2>
               <p>
                 Users consent to receive transactional, security, and service-related communications via email, SMS, phone calls, WhatsApp, and in-app notifications, subject to applicable law.
               </p>
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">18. DISPUTE RESOLUTION</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">18. DISPUTE RESOLUTION</h2>
               <p>
                 All disputes arising out of or relating to these Terms shall be resolved through binding arbitration in accordance with the Arbitration and Conciliation Act, 1996.
               </p>
@@ -289,14 +289,14 @@ const TermsAndConditions = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">19. GOVERNING LAW</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">19. GOVERNING LAW</h2>
               <p>
                 These Terms shall be governed by and construed in accordance with the laws of India.
               </p>
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">20. POLICY HIERARCHY & CHANGES</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">20. POLICY HIERARCHY & CHANGES</h2>
               <p>
                 These Terms shall prevail over any conflicting platform policies unless expressly stated otherwise.
               </p>
@@ -306,7 +306,7 @@ const TermsAndConditions = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">21. STARTUP-SAFE ADDITIONAL PROTECTIONS</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">21. STARTUP-SAFE ADDITIONAL PROTECTIONS</h2>
               <p>
                 FirstDoer may use automated systems or artificial intelligence for matching, categorization, fraud detection, and recommendations. Such outputs are advisory only.
               </p>
@@ -325,7 +325,7 @@ const TermsAndConditions = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">22. CONTACT & GRIEVANCE REDRESSAL</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">22. CONTACT & GRIEVANCE REDRESSAL</h2>
               <p className="mb-2">
                 <strong>Grievance Contact:</strong> Uday Gedam<br />
                 <strong>Email:</strong> support@firstdoer.com
@@ -344,7 +344,7 @@ const TermsAndConditions = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">23. DATA PRIVACY & DIGITAL PERSONAL DATA COMPLIANCE</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">23. DATA PRIVACY & DIGITAL PERSONAL DATA COMPLIANCE</h2>
               <p>
                 FirstDoer collects, processes, and stores User data solely for purposes including:
               </p>
@@ -364,7 +364,7 @@ const TermsAndConditions = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">24. NO EMPLOYMENT OR CONTROL RELATIONSHIP (EXPANDED)</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">24. NO EMPLOYMENT OR CONTROL RELATIONSHIP (EXPANDED)</h2>
               <p>
                 Task Performers retain full discretion over:
               </p>
@@ -383,7 +383,7 @@ const TermsAndConditions = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">25. AI SYSTEMS & AUTOMATED RECOMMENDATIONS</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">25. AI SYSTEMS & AUTOMATED RECOMMENDATIONS</h2>
               <p>
                 FirstDoer may use automated systems or artificial intelligence tools to:
               </p>
@@ -399,7 +399,7 @@ const TermsAndConditions = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">26. HYPERLOCAL & PHYSICAL TASK LIABILITY DISCLAIMER</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">26. HYPERLOCAL & PHYSICAL TASK LIABILITY DISCLAIMER</h2>
               <p>
                 For Tasks involving physical or on-ground activities, Users acknowledge that FirstDoer:
               </p>
@@ -414,7 +414,7 @@ const TermsAndConditions = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">27. TAXATION & REGULATORY RESPONSIBILITY</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">27. TAXATION & REGULATORY RESPONSIBILITY</h2>
               <p>
                 Users are solely responsible for:
               </p>
@@ -429,7 +429,7 @@ const TermsAndConditions = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">28. FRAUD PREVENTION & COMPLIANCE MONITORING</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">28. FRAUD PREVENTION & COMPLIANCE MONITORING</h2>
               <p>
                 FirstDoer reserves the right to:
               </p>

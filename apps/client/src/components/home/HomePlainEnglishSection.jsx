@@ -150,7 +150,7 @@ function PerformerMatchRow({ performer, delay, prefersReducedMotion }) {
     <div className="grid w-full grid-cols-[150px_1fr_36px] items-center gap-0">
       <div className="flex min-w-0 items-center gap-2">
         <img src={portraitForPerformer(performer.initials)} alt="" className="h-8 w-8 shrink-0 rounded-full border border-white/20 object-cover" />
-        <span className="truncate font-['IBM_Plex_Mono',monospace] text-[13px] font-bold leading-[17px] text-white">
+        <span className="truncate font-['IBM_Plex_Mono',monospace] text-[13px] font-medium leading-[17px] text-white">
           {profile.name}
         </span>
       </div>
@@ -194,18 +194,18 @@ function OutputCard({ prefersReducedMotion, scenario, onComplete }) {
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.55, ease: "easeOut", delay: 0.4 }}
     >
-      <motion.h3 className="text-[20px] font-bold leading-6 text-white" {...reveal(0.12)}>
+      <motion.h3 className="text-[20px] font-medium leading-6 text-white" {...reveal(0.12)}>
         {scenario.title}
       </motion.h3>
 
       <motion.div className="flex w-full items-start justify-between gap-5" {...reveal(0.34)}>
         <div className="flex flex-col items-start gap-1.5">
           <span className="text-[10px] font-bold uppercase leading-3 text-[#8F9088]">Est. Budget</span>
-          <span className="text-[18px] font-bold leading-[22px] text-[#009966]">{scenario.budget}</span>
+          <span className="text-[18px] font-medium leading-[22px] text-[#009966]">{scenario.budget}</span>
         </div>
         <div className="flex flex-col items-start gap-1.5">
           <span className="text-[10px] font-bold uppercase leading-3 text-[#8F9088]">Duration</span>
-          <span className="text-[18px] font-bold leading-[22px] text-[#009966]">{scenario.duration}</span>
+          <span className="text-[18px] font-medium leading-[22px] text-[#009966]">{scenario.duration}</span>
         </div>
       </motion.div>
 
@@ -357,7 +357,7 @@ export default function HomePlainEnglishSection({ className = "" }) {
             <div className="h-1 w-full bg-[#272724]" />
           </div>
 
-          <h2 className="text-[42px] font-extrabold leading-[1.08] sm:text-[56px]">
+          <h2 className="text-[42px] font-medium leading-[1.08] sm:text-[56px]">
             {headlineLines.map((line, index) => (
               <motion.span
                 key={line}

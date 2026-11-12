@@ -134,7 +134,7 @@ const StudentChallenge = () => {
 
                 {/* Main Heading */}
                 <div className="text-center mb-8 md:mb-16">
-                    <h2 className="text-2xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+                    <h2 className="text-2xl md:text-5xl font-medium text-slate-900 tracking-tight">
                         Challenges for <span className="text-green-600">Students</span>
                     </h2>
                     <p className="text-slate-500 max-w-2xl mx-auto mt-4 text-sm md:text-lg">
@@ -185,7 +185,7 @@ const StudentChallenge = () => {
                                         </div>
                                     </div>
 
-                                    <h3 className="text-lg md:text-3xl font-extrabold text-slate-900 mb-2 md:mb-4 leading-tight">
+                                    <h3 className="text-lg md:text-3xl font-medium text-slate-900 mb-2 md:mb-4 leading-tight">
                                         {challenge.heading}
                                     </h3>
 

@@ -67,7 +67,7 @@ function VideoAttachment({ label = "Reels_Draft_v1.mp4", duration = "0:47", heig
           position: "absolute",
           bottom: 7,
           left: 10,
-          fontFamily: "Manrope, sans-serif",
+          fontFamily: "Poppins, sans-serif",
           fontWeight: 500,
           fontSize: 9.5,
           color: "rgba(255,255,255,0.6)",
@@ -84,7 +84,7 @@ function VideoAttachment({ label = "Reels_Draft_v1.mp4", duration = "0:47", heig
           background: "rgba(0,0,0,0.55)",
           borderRadius: 4,
           padding: "2px 6px",
-          fontFamily: "Manrope, sans-serif",
+          fontFamily: "Poppins, sans-serif",
           fontWeight: 600,
           fontSize: 9.5,
           color: "#FFF",
@@ -105,18 +105,18 @@ function Bubble({ initials, name, time, text, bg, textBg, color }) {
       <div style={{
         width: 28, height: 28, borderRadius: "50%", background: bg,
         display: "flex", alignItems: "center", justifyContent: "center",
-        fontFamily: "Manrope, sans-serif", fontWeight: 700, fontSize: 9,
+        fontFamily: "Poppins, sans-serif", fontWeight: 700, fontSize: 9,
         color, flexShrink: 0,
       }}>{initials}</div>
       <div style={{ flex: 1 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 4 }}>
-          <span style={{ fontFamily: "Manrope, sans-serif", fontWeight: 600, fontSize: 11.5, color: "#0B1110" }}>{name}</span>
-          <span style={{ fontFamily: "Manrope, sans-serif", fontSize: 10, color: "#A8B4B0" }}>{time}</span>
+          <span style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600, fontSize: 11.5, color: "#0B1110" }}>{name}</span>
+          <span style={{ fontFamily: "Poppins, sans-serif", fontSize: 10, color: "#A8B4B0" }}>{time}</span>
         </div>
         <div style={{
           background: textBg, borderRadius: "2px 8px 8px 8px",
           padding: "8px 12px",
-          fontFamily: "Manrope, sans-serif", fontWeight: 400,
+          fontFamily: "Poppins, sans-serif", fontWeight: 400,
           fontSize: 12, lineHeight: "18px", color: "#0B1110",
         }}>{text}</div>
       </div>
@@ -150,7 +150,7 @@ function ConversationPanel() {
         border: "0.8px solid #E8EDEB",
         padding: "8px 12px",
       }}>
-        <span style={{ fontFamily: "Manrope, sans-serif", fontSize: 12, color: "#A8B4B0", flex: 1 }}>
+        <span style={{ fontFamily: "Poppins, sans-serif", fontSize: 12, color: "#A8B4B0", flex: 1 }}>
           Reply to Ananya...
         </span>
         <div style={{
@@ -183,8 +183,8 @@ function ProgressPanel() {
       {/* Progress bar row */}
       <div style={{ marginBottom: 18 }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 7 }}>
-          <span style={{ fontFamily: "Manrope, sans-serif", fontWeight: 600, fontSize: 11, color: "#0B1110" }}>Overall progress</span>
-          <span style={{ fontFamily: "Manrope, sans-serif", fontWeight: 700, fontSize: 11, color: "#009966" }}>{pct}%</span>
+          <span style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600, fontSize: 11, color: "#0B1110" }}>Overall progress</span>
+          <span style={{ fontFamily: "Poppins, sans-serif", fontWeight: 700, fontSize: 11, color: "#009966" }}>{pct}%</span>
         </div>
         <div style={{ height: 6, background: "#E8EDEB", borderRadius: 999, overflow: "hidden" }}>
           <motion.div
@@ -196,7 +196,7 @@ function ProgressPanel() {
         </div>
       </div>
 
-      <p style={{ fontFamily: "Manrope, sans-serif", fontWeight: 600, fontSize: 10, color: "#68726F", textTransform: "uppercase", letterSpacing: "0.6px", margin: "0 0 14px" }}>
+      <p style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600, fontSize: 10, color: "#68726F", textTransform: "uppercase", letterSpacing: "0.6px", margin: "0 0 14px" }}>
         Task activity
       </p>
       {TIMELINE_STEPS.map((step, i) => (
@@ -221,11 +221,11 @@ function ProgressPanel() {
           </div>
           <div>
             <p style={{
-              fontFamily: "Manrope, sans-serif", fontWeight: step.done ? 500 : 600,
+              fontFamily: "Poppins, sans-serif", fontWeight: step.done ? 500 : 600,
               fontSize: 12, color: step.done ? "#0B1110" : "#009966", margin: 0, lineHeight: "18px",
             }}>{step.label}</p>
             {step.time && (
-              <p style={{ fontFamily: "Manrope, sans-serif", fontSize: 10, color: "#68726F", margin: "2px 0 0" }}>
+              <p style={{ fontFamily: "Poppins, sans-serif", fontSize: 10, color: "#68726F", margin: "2px 0 0" }}>
                 {step.time}
               </p>
             )}
@@ -255,16 +255,16 @@ function DeliverablesPanel() {
   return (
     <div>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 10 }}>
-        <p style={{ fontFamily: "Manrope, sans-serif", fontWeight: 600, fontSize: 10, color: "#68726F", textTransform: "uppercase", letterSpacing: "0.6px", margin: 0 }}>
+        <p style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600, fontSize: 10, color: "#68726F", textTransform: "uppercase", letterSpacing: "0.6px", margin: 0 }}>
           Submitted work
         </p>
-        <span style={{ fontFamily: "Manrope, sans-serif", fontSize: 10, color: "#009966", fontWeight: 600 }}>v3 · Final</span>
+        <span style={{ fontFamily: "Poppins, sans-serif", fontSize: 10, color: "#009966", fontWeight: 600 }}>v3 · Final</span>
       </div>
       <VideoAttachment label="Final_Reels_v3.mp4" duration="1:22" height={116} />
 
       {/* Rating */}
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", margin: "12px 0 10px" }}>
-        <span style={{ fontFamily: "Manrope, sans-serif", fontWeight: 500, fontSize: 12, color: "#0B1110" }}>Rate this delivery</span>
+        <span style={{ fontFamily: "Poppins, sans-serif", fontWeight: 500, fontSize: 12, color: "#0B1110" }}>Rate this delivery</span>
         <StarRating value={0} />
       </div>
 
@@ -272,7 +272,7 @@ function DeliverablesPanel() {
       <div style={{
         background: "#F5F7F6", borderRadius: 10, border: "0.8px solid #E8EDEB",
         padding: "9px 12px",
-        fontFamily: "Manrope, sans-serif", fontWeight: 400, fontSize: 12,
+        fontFamily: "Poppins, sans-serif", fontWeight: 400, fontSize: 12,
         color: "#A8B4B0", lineHeight: "18px",
       }}>
         Leave feedback for the performer...
@@ -284,7 +284,7 @@ function DeliverablesPanel() {
           all: "unset", cursor: "pointer", flex: 1,
           background: "#009966", borderRadius: 10,
           padding: "10px 0", textAlign: "center",
-          fontFamily: "Manrope, sans-serif", fontWeight: 700, fontSize: 12.5, color: "#FFF",
+          fontFamily: "Poppins, sans-serif", fontWeight: 700, fontSize: 12.5, color: "#FFF",
         }}>
           Approve & close task
         </button>
@@ -292,7 +292,7 @@ function DeliverablesPanel() {
           all: "unset", cursor: "pointer",
           padding: "10px 16px",
           border: "0.8px solid #E0E6E3", borderRadius: 10,
-          fontFamily: "Manrope, sans-serif", fontWeight: 600, fontSize: 12, color: "#68726F",
+          fontFamily: "Poppins, sans-serif", fontWeight: 600, fontSize: 12, color: "#68726F",
         }}>
           Request revision
         </button>
@@ -353,7 +353,7 @@ export default function PostOptionsSection() {
           >
             <h2
               style={{
-                fontFamily: "Outfit, sans-serif",
+                fontFamily: "Poppins, sans-serif",
                 fontWeight: 600,
                 fontSize: "clamp(28px, 3.5vw, 41.8px)",
                 lineHeight: 1.15,
@@ -366,7 +366,7 @@ export default function PostOptionsSection() {
             </h2>
             <p
               style={{
-                fontFamily: "Manrope, sans-serif",
+                fontFamily: "Poppins, sans-serif",
                 fontWeight: 400,
                 fontSize: "clamp(13px, 1.4vw, 15px)",
                 lineHeight: 1.7,
@@ -412,7 +412,7 @@ export default function PostOptionsSection() {
                     <div style={{ padding: "14px 16px", flex: 1, textAlign: "left" }}>
                       <p
                         style={{
-                          fontFamily: "Manrope, sans-serif",
+                          fontFamily: "Poppins, sans-serif",
                           fontWeight: 600,
                           fontSize: 13.5,
                           lineHeight: "20px",
@@ -434,7 +434,7 @@ export default function PostOptionsSection() {
                       >
                         <p
                           style={{
-                            fontFamily: "Manrope, sans-serif",
+                            fontFamily: "Poppins, sans-serif",
                             fontWeight: 400,
                             fontSize: 12,
                             lineHeight: "18px",
@@ -482,7 +482,7 @@ export default function PostOptionsSection() {
                   <div>
                     <h3
                       style={{
-                        fontFamily: "Outfit, sans-serif",
+                        fontFamily: "Poppins, sans-serif",
                         fontWeight: 600,
                         fontSize: 17,
                         color: "#0B1110",
@@ -503,7 +503,7 @@ export default function PostOptionsSection() {
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
-                          fontFamily: "Manrope, sans-serif",
+                          fontFamily: "Poppins, sans-serif",
                           fontWeight: 700,
                           fontSize: 8,
                           color: "#6B5BD6",
@@ -513,7 +513,7 @@ export default function PostOptionsSection() {
                       </div>
                       <span
                         style={{
-                          fontFamily: "Manrope, sans-serif",
+                          fontFamily: "Poppins, sans-serif",
                           fontWeight: 500,
                           fontSize: 11.5,
                           color: "#68726F",
@@ -527,7 +527,7 @@ export default function PostOptionsSection() {
                       <span
                         style={{
                           marginLeft: 4,
-                          fontFamily: "Manrope, sans-serif",
+                          fontFamily: "Poppins, sans-serif",
                           fontSize: 10.5,
                           color: "#A8B4B0",
                         }}
@@ -540,7 +540,7 @@ export default function PostOptionsSection() {
                     style={{
                       background: "#E8F7F1",
                       color: "#009966",
-                      fontFamily: "Manrope, sans-serif",
+                      fontFamily: "Poppins, sans-serif",
                       fontWeight: 600,
                       fontSize: 10.5,
                       padding: "4px 11px",
@@ -566,7 +566,7 @@ export default function PostOptionsSection() {
                           cursor: "pointer",
                           padding: "0 2px 11px",
                           marginRight: 22,
-                          fontFamily: "Manrope, sans-serif",
+                          fontFamily: "Poppins, sans-serif",
                           fontWeight: isActive ? 600 : 500,
                           fontSize: 13,
                           color: isActive ? "#009966" : "#68726F",

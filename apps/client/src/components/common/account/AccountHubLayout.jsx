@@ -3,7 +3,7 @@ import { ChevronRight } from "lucide-react";
 
 export const AccountHubProfileCard = ({ avatar, name, subtitle, onClick }) => (
   <section className="space-y-3">
-    <h2 className="px-1 text-sm font-bold text-gray-900">Profile</h2>
+    <h2 className="px-1 text-sm font-medium text-gray-900">Profile</h2>
     <button
       type="button"
       onClick={onClick}
@@ -15,7 +15,7 @@ export const AccountHubProfileCard = ({ avatar, name, subtitle, onClick }) => (
         className="h-14 w-14 shrink-0 rounded-full object-cover ring-2 ring-gray-50"
       />
       <div className="min-w-0 flex-1">
-        <p className="truncate text-base font-extrabold text-gray-900">{name}</p>
+        <p className="truncate text-base font-medium text-gray-900">{name}</p>
         <p className="mt-0.5 truncate text-sm font-medium text-gray-500">{subtitle}</p>
       </div>
       <ChevronRight size={18} className="shrink-0 text-gray-300" strokeWidth={2} />
@@ -25,7 +25,7 @@ export const AccountHubProfileCard = ({ avatar, name, subtitle, onClick }) => (
 
 export const AccountHubSection = ({ title, children, className = "" }) => (
   <section className={`space-y-3 ${className}`}>
-    <h2 className="px-1 text-sm font-bold text-gray-900">{title}</h2>
+    <h2 className="px-1 text-sm font-medium text-gray-900">{title}</h2>
     <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm">
       {children}
     </div>

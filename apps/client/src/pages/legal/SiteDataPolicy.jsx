@@ -26,7 +26,7 @@ const SiteDataPolicy = () => {
           </Link>
 
           <header className="border-b border-gray-200 pb-8 mb-10">
-            <h1 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-4">
+            <h1 className="text-3xl md:text-4xl font-medium text-[var(--color-primary)] mb-4">
               Cookie Policy
             </h1>
             <p className="text-gray-600 text-sm md:text-base">
@@ -45,7 +45,7 @@ const SiteDataPolicy = () => {
 
           <div className="space-y-8 text-gray-700 leading-relaxed">
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">
                 1. What are cookies?
               </h2>
               <p>
@@ -57,7 +57,7 @@ const SiteDataPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">
                 2. How we use cookies
               </h2>
               <p className="mb-3">We use cookies for the following purposes:</p>
@@ -83,7 +83,7 @@ const SiteDataPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">
                 3. Third-party cookies
               </h2>
               <p>
@@ -95,7 +95,7 @@ const SiteDataPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">
                 4. Your choices
               </h2>
               <p className="mb-3">
@@ -119,7 +119,7 @@ const SiteDataPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">
                 5. Updates
               </h2>
               <p>
@@ -130,7 +130,7 @@ const SiteDataPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">
                 6. Contact
               </h2>
               <p>

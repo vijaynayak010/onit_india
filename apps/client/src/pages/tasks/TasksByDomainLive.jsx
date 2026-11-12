@@ -122,7 +122,7 @@ export default function TasksByDomainLive() {
             <Radio size={14} strokeWidth={2.5} />
             Live on OnIT
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--color-text)] tracking-tight mb-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-[var(--color-text)] tracking-tight mb-2">
             See what’s getting posted right now
           </h2>
           <p className="text-base text-[var(--color-text-muted)] max-w-lg mx-auto">
@@ -164,7 +164,7 @@ export default function TasksByDomainLive() {
                   {current.domain}
                 </motion.span>
               </div>
-              <p className="text-lg sm:text-xl md:text-2xl font-semibold text-[var(--color-text)] leading-snug pr-2 min-h-[2.5rem]">
+              <p className="text-lg sm:text-xl md:text-2xl font-medium text-[var(--color-text)] leading-snug pr-2 min-h-[2.5rem]">
                 {display}
                 <motion.span
                   animate={{ opacity: [1, 0.3] }}

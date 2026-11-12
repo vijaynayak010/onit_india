@@ -47,7 +47,7 @@ const SharedChangePasswordPage = ({ backRoute, forgotPasswordRoute }) => {
               </button>
 
               <header className="mb-10 border-b border-[var(--color-border)] pb-8">
-                <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">Change password</h1>
+                <h1 className="text-2xl font-medium tracking-tight sm:text-3xl">Change password</h1>
                 <p className="mt-1 max-w-xl text-sm font-medium text-[var(--color-text-muted)]">
                   Use a strong password you don&apos;t use elsewhere. You&apos;ll stay signed in on this device after updating.
                 </p>
@@ -66,7 +66,7 @@ const SharedChangePasswordPage = ({ backRoute, forgotPasswordRoute }) => {
 
             <div className="flex w-full flex-1 justify-center lg:justify-start">
               <div className="w-full max-w-md rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-6 shadow-[var(--shadow-md)] sm:p-8">
-                <h2 className="mb-6 text-center text-lg font-bold text-[var(--color-text)] sm:text-xl">Update password</h2>
+                <h2 className="mb-6 text-center text-lg font-medium text-[var(--color-text)] sm:text-xl">Update password</h2>
 
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="space-y-2">

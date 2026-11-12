@@ -11,7 +11,7 @@ export default function TrustedBySection() {
       {/* heading */}
       <p
         style={{
-          fontFamily: "Outfit, sans-serif",
+          fontFamily: "Poppins, sans-serif",
           fontWeight: 400,
           fontSize: "clamp(22px, 3vw, 36px)",
           lineHeight: "1.25",
@@ -31,7 +31,7 @@ export default function TrustedBySection() {
           <span
             key={name}
             style={{
-              fontFamily: "Manrope, sans-serif",
+              fontFamily: "Poppins, sans-serif",
               fontWeight: 500,
               fontSize: 18,
               lineHeight: "27px",

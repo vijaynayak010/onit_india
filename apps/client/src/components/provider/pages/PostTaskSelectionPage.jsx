@@ -73,7 +73,7 @@ const PostTaskSelectionPage = () => {
           transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
           className="mb-8 text-center sm:mb-12"
         >
-          <h1 className="mb-3 text-4xl font-extrabold text-[var(--color-text)] sm:text-[46px]">
+          <h1 className="mb-3 text-4xl font-medium text-[var(--color-text)] sm:text-[46px]">
             Post a Task
           </h1>
           <p className="mx-auto max-w-xl text-lg font-medium leading-relaxed text-[var(--color-text-muted)] sm:text-xl">
@@ -98,7 +98,7 @@ const PostTaskSelectionPage = () => {
                 >
                   <Icon className="h-8 w-8" strokeWidth={2.25} aria-hidden />
                 </div>
-                <h2 className="relative mb-3 text-3xl font-extrabold text-[var(--color-text)] sm:text-[32px]">
+                <h2 className="relative mb-3 text-3xl font-medium text-[var(--color-text)] sm:text-[32px]">
                   {opt.title}
                 </h2>
                 <p className="relative mb-4 text-xl font-medium text-[var(--color-text-muted)]">{opt.subtitle}</p>
@@ -122,8 +122,8 @@ const PostTaskSelectionPage = () => {
           transition={{ duration: 0.45, delay: 0.35 }}
           className="mt-12 max-w-lg text-center sm:mt-16"
         >
-          <p className="text-3xl font-bold text-[var(--color-text-muted)]">Not sure which to choose?</p>
-          <p className="mt-4 text-2xl font-semibold leading-relaxed text-[var(--color-text-muted)]">
+          <p className="text-3xl font-medium text-[var(--color-text-muted)]">Not sure which to choose?</p>
+          <p className="mt-4 text-2xl font-medium leading-relaxed text-[var(--color-text-muted)]">
             Use AI for quick posting, Manual for full customization.
           </p>
         </motion.div>

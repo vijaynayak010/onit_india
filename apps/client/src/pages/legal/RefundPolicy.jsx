@@ -13,36 +13,36 @@ const RefundPolicy = () => {
         canonical="https://www.firstdoer.com/refund-policy"
       />
 
-      <section className="pt-24 pb-16 px-6 md:px-20">
+      <section className="pt-24 sm:pt-28 pb-12 sm:pb-16 px-4 sm:px-6 md:px-12 lg:px-20">
         <div className="max-w-4xl mx-auto">
           <Link
             to="/"
-            className="inline-flex items-center text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] font-medium text-sm mb-8"
+            className="inline-flex items-center text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] font-medium text-sm mb-6 sm:mb-8"
           >
             ← Back to Home
           </Link>
 
-          <header className="border-b border-gray-200 pb-8 mb-10">
-            <h1 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-4">
+          <header className="border-b border-gray-200 pb-6 sm:pb-8 mb-8 sm:mb-10">
+            <h1 className="text-3xl sm:text-4xl font-heading font-medium text-[var(--color-primary)] mb-3 tracking-tight">
               FirstDoer – REFUND & CANCELLATION POLICY
             </h1>
-            <p className="text-gray-600 text-sm md:text-base">
+            <p className="text-gray-600 text-xs sm:text-sm">
               <strong>Effective Date:</strong> 01 March 2026
             </p>
-            <p className="text-gray-600 mt-4">
+            <p className="text-gray-600 text-sm sm:text-base mt-3 sm:mt-4 leading-relaxed">
               This Refund & Cancellation Policy ("Policy") governs cancellations, refunds, disputes, failed transactions, chargebacks, and payment reversals on the FirstDoer platform.
             </p>
-            <p className="text-gray-600 mt-2">
+            <p className="text-gray-600 text-sm sm:text-base mt-2 leading-relaxed">
               This Policy forms an integral part of the FirstDoer Terms & Conditions and applies to all users of the platform.
             </p>
-            <p className="text-gray-600 mt-2">
+            <p className="text-gray-600 text-sm sm:text-base mt-2 leading-relaxed">
               By using FirstDoer, you agree to this Policy.
             </p>
           </header>
 
-          <div className="space-y-10 text-justify leading-relaxed">
+          <div className="space-y-8 sm:space-y-10 leading-relaxed text-sm sm:text-base">
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">1. ROLE OF FirstDoer</h2>
+              <h2 className="text-lg sm:text-xl font-heading font-medium text-[var(--color-primary)] mb-2 sm:mb-3">1. ROLE OF FirstDoer</h2>
               <p>
                 FirstDoer is a technology-enabled marketplace platform connecting independent users.
               </p>
@@ -61,7 +61,7 @@ const RefundPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">2. PLATFORM FEES (NON-REFUNDABLE)</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">2. PLATFORM FEES (NON-REFUNDABLE)</h2>
               <p>FirstDoer may charge a Platform Fee for:</p>
               <ul className="list-disc pl-6 mt-2 space-y-1">
                 <li>Access to the marketplace</li>
@@ -82,7 +82,7 @@ const RefundPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">3. CANCELLATION BY TASK PROVIDER</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">3. CANCELLATION BY TASK PROVIDER</h2>
               <h3 className="text-lg font-medium text-[var(--color-primary)] mt-4 mb-2">A. Before Task Acceptance</h3>
               <p>If a task is cancelled before a Task Performer accepts:</p>
               <ul className="list-disc pl-6 mt-2 space-y-1">
@@ -121,7 +121,7 @@ const RefundPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">4. CANCELLATION BY TASK PERFORMER</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">4. CANCELLATION BY TASK PERFORMER</h2>
               <h3 className="text-lg font-medium text-[var(--color-primary)] mt-2 mb-2">Before Work Starts</h3>
               <p>
                 The task amount may be refunded to the Task Provider.
@@ -144,7 +144,7 @@ const RefundPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">5. DISPUTES & ESCROW PROTECTION</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">5. DISPUTES & ESCROW PROTECTION</h2>
               <p>
                 FirstDoer may use an escrow mechanism for payment protection.
               </p>
@@ -171,7 +171,7 @@ const RefundPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">6. NON-REFUNDABLE SCENARIOS</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">6. NON-REFUNDABLE SCENARIOS</h2>
               <p>
                 Refunds will generally not be provided in situations including but not limited to:
               </p>
@@ -191,7 +191,7 @@ const RefundPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">7. OFF-PLATFORM PAYMENTS</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">7. OFF-PLATFORM PAYMENTS</h2>
               <p>Payments conducted outside FirstDoer:</p>
               <ul className="list-disc pl-6 mt-2 space-y-1">
                 <li>Are not eligible for refunds</li>
@@ -204,7 +204,7 @@ const RefundPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">8. FAILED OR DUPLICATE TRANSACTIONS</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">8. FAILED OR DUPLICATE TRANSACTIONS</h2>
               <p>In case of:</p>
               <ul className="list-disc pl-6 mt-2 space-y-1">
                 <li>Failed payment</li>
@@ -223,7 +223,7 @@ const RefundPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">9. REFUND PROCESSING TIMELINE</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">9. REFUND PROCESSING TIMELINE</h2>
               <p>If a refund is approved:</p>
               <ul className="list-disc pl-6 mt-2 space-y-1">
                 <li>Processing time: 5–7 business days</li>
@@ -235,7 +235,7 @@ const RefundPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">10. CHARGEBACKS & PAYMENT REVERSALS</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">10. CHARGEBACKS & PAYMENT REVERSALS</h2>
               <p>
                 Users must not initiate chargebacks or payment reversals without first raising a dispute on FirstDoer.
               </p>
@@ -254,7 +254,7 @@ const RefundPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">11. FORCE MAJEURE</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">11. FORCE MAJEURE</h2>
               <p>
                 Refund obligations may be delayed or suspended due to events beyond reasonable control, including:
               </p>
@@ -268,7 +268,7 @@ const RefundPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">12. FINAL AUTHORITY</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">12. FINAL AUTHORITY</h2>
               <p>
                 All refund and cancellation decisions are governed by:
               </p>
@@ -283,7 +283,7 @@ const RefundPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">13. CONTACT & SUPPORT</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">13. CONTACT & SUPPORT</h2>
               <p className="mb-2">
                 For refund or cancellation queries:
               </p>

@@ -97,7 +97,7 @@ const RatingsReceivedPage = () => {
         </button>
 
         <header className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Ratings Received</h1>
+          <h1 className="text-3xl font-medium text-gray-900">Ratings Received</h1>
           <p className="text-gray-500 mt-1">All ratings from your clients</p>
         </header>
 
@@ -131,7 +131,7 @@ const RatingsReceivedPage = () => {
         </div>
 
         <div>
-          <h2 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-4">Recent Ratings</h2>
+          <h2 className="text-sm font-medium uppercase tracking-wider text-gray-500 mb-4">Recent Ratings</h2>
           <div className="space-y-4">
             {recentRatings.map((review, index) => (
               <div key={index} className="bg-white p-5 rounded-2xl shadow-sm border border-gray-200">
@@ -141,7 +141,7 @@ const RatingsReceivedPage = () => {
                       {review.initial}
                     </div>
                     <div>
-                      <p className="font-bold text-gray-800">{review.name}</p>
+                      <p className="font-medium text-gray-800">{review.name}</p>
                       <p className="text-sm text-gray-500">{review.service}</p>
                     </div>
                   </div>

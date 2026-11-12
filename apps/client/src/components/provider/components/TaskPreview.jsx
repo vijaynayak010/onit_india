@@ -20,7 +20,7 @@ export default function TaskPreview({ taskData, onUseTask, onRegenerate }) {
       {/* Header with gradient */}
       <div className="bg-gradient-to-r from-[var(--color-primary)] to-[#083B3A] px-6 py-4">
         <div className="flex items-center justify-between">
-          <h3 className="text-lg font-bold text-white flex items-center gap-2">
+          <h3 className="text-lg font-medium text-white flex items-center gap-2">
             <CheckCircle size={20} />
             AI Generated Task
           </h3>
@@ -41,10 +41,10 @@ export default function TaskPreview({ taskData, onUseTask, onRegenerate }) {
 
         {/* Title */}
         <div>
-          <label className="block text-xs font-semibold text-[var(--color-text-subtle)] uppercase tracking-wide mb-2">
+          <label className="block text-xs font-medium text-[var(--color-text-subtle)] uppercase tracking-wide mb-2">
             Task Title
           </label>
-          <h4 className="text-xl font-bold text-[var(--color-text)]">
+          <h4 className="text-xl font-medium text-[var(--color-text)]">
             {taskData.title}
           </h4>
         </div>
@@ -87,7 +87,7 @@ export default function TaskPreview({ taskData, onUseTask, onRegenerate }) {
                 Budget Range
               </label>
             </div>
-            <p className="text-lg font-bold text-[var(--color-text)]">
+            <p className="text-lg font-medium text-[var(--color-text)]">
               {taskData.budget_range}
             </p>
           </div>
@@ -100,7 +100,7 @@ export default function TaskPreview({ taskData, onUseTask, onRegenerate }) {
                 Estimated Time
               </label>
             </div>
-            <p className="text-lg font-bold text-[var(--color-text)]">
+            <p className="text-lg font-medium text-[var(--color-text)]">
               {taskData.estimated_time}
             </p>
           </div>
@@ -122,7 +122,7 @@ export default function TaskPreview({ taskData, onUseTask, onRegenerate }) {
             <div className="flex items-start gap-2 mb-3">
               <HelpCircle size={18} className="text-yellow-600 flex-shrink-0 mt-0.5" />
               <div>
-                <h5 className="font-semibold text-yellow-900 mb-1">
+                <h5 className="font-medium text-yellow-900 mb-1">
                   Clarification Needed
                 </h5>
                 <p className="text-sm text-yellow-700">

@@ -14,7 +14,7 @@ const InfoCard = ({ icon: Icon, title, description, cardBg, iconBg, iconColor })
       <Icon size={20} className={iconColor} strokeWidth={2.5} />
     </div>
     <div className="min-w-0 text-left">
-      <h3 className="text-[15px] font-bold text-gray-900">{title}</h3>
+      <h3 className="text-[15px] font-medium text-gray-900">{title}</h3>
       <p className="mt-1 text-sm leading-relaxed text-gray-600">{description}</p>
     </div>
   </div>
@@ -48,7 +48,7 @@ const SwitchToPerformerPage = () => {
                 </div>
               </div>
 
-              <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
+              <h1 className="text-2xl font-medium tracking-tight text-gray-900 sm:text-3xl">
                 Become a Performer
               </h1>
               <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-gray-600 sm:text-base">

@@ -35,7 +35,7 @@ const ConfirmWithdrawalModal = ({
             aria-labelledby="confirm-withdrawal-title"
           >
             <div className="mb-5 flex items-center justify-between">
-              <h2 id="confirm-withdrawal-title" className="text-[18px] font-bold text-gray-900">
+              <h2 id="confirm-withdrawal-title" className="text-[18px] font-medium text-gray-900">
                 Confirm withdrawal
               </h2>
               <button
@@ -67,7 +67,7 @@ const ConfirmWithdrawalModal = ({
               type="button"
               onClick={onConfirm}
               disabled={loading}
-              className="mt-5 w-full rounded-2xl bg-[#10605F] py-4 text-[15px] font-bold text-white shadow-md transition hover:bg-[#00925f] disabled:opacity-60"
+              className="mt-5 w-full rounded-2xl bg-[#10605F] py-4 text-[15px] font-medium text-white shadow-md transition hover:bg-[#00925f] disabled:opacity-60"
             >
               {loading ? "Processing…" : "Confirm withdrawal"}
             </button>

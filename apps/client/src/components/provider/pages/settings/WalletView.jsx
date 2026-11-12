@@ -43,7 +43,7 @@ const WalletView = ({ onAddMoney, onWithdraw, onViewTransactions }) => {
           <span className="h-2 w-2 rounded-full bg-[var(--color-primary)]" />
           <span className="text-xs font-bold uppercase tracking-wide text-[var(--color-text-muted)]">Available balance</span>
         </div>
-        <p className="text-4xl font-bold tabular-nums tracking-tight text-[var(--color-text)]">₹{balance.toLocaleString()}</p>
+        <p className="text-4xl font-medium tabular-nums tracking-tight text-[var(--color-text)]">₹{balance.toLocaleString()}</p>
         <p className="mt-1 text-xs font-semibold text-[var(--color-text-subtle)]">Last updated just now</p>
 
         <div className="mt-6 grid grid-cols-2 gap-3">
@@ -67,7 +67,7 @@ const WalletView = ({ onAddMoney, onWithdraw, onViewTransactions }) => {
       </div>
 
       <section>
-        <h3 className="text-base font-bold text-[var(--color-text)]">Linked payment methods</h3>
+        <h3 className="text-base font-medium text-[var(--color-text)]">Linked payment methods</h3>
         <p className="mt-1 text-sm font-semibold text-[var(--color-text-muted)]">Your payment details are stored securely.</p>
 
         <div className="mt-4 overflow-hidden rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] shadow-[var(--shadow-sm)]">
@@ -81,13 +81,13 @@ const WalletView = ({ onAddMoney, onWithdraw, onViewTransactions }) => {
             >
               <div className="flex items-center gap-3">
                 <div
-                  className="flex h-9 w-9 items-center justify-center rounded-xl text-[10px] font-bold text-white"
+                  className="flex h-9 w-9 items-center justify-center rounded-xl text-[10px] font-medium text-white"
                   style={{ backgroundColor: item.color }}
                 >
                   {item.name.charAt(0)}
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-[var(--color-text)]">{item.name}</p>
+                  <p className="text-sm font-medium text-[var(--color-text)]">{item.name}</p>
                   <p className="text-xs font-semibold text-[var(--color-text-subtle)]">{item.sub}</p>
                 </div>
               </div>
@@ -123,7 +123,7 @@ const WalletView = ({ onAddMoney, onWithdraw, onViewTransactions }) => {
 
       <section>
         <div className="mb-4 flex items-center justify-between gap-4">
-          <h3 className="text-base font-bold text-[var(--color-text)]">Recent transactions</h3>
+          <h3 className="text-base font-medium text-[var(--color-text)]">Recent transactions</h3>
           <button
             type="button"
             onClick={onViewTransactions}
@@ -150,7 +150,7 @@ const WalletView = ({ onAddMoney, onWithdraw, onViewTransactions }) => {
                 >
                   {tx.type === "CREDIT" ? "+" : "−"} ₹{tx.amount.toLocaleString()}
                 </span>
-                <span className="text-sm font-semibold text-[var(--color-text)]">
+                <span className="text-sm font-medium text-[var(--color-text)]">
                   {tx.relatedTask?.title || tx.type.charAt(0) + tx.type.slice(1).toLowerCase()}
                 </span>
               </div>

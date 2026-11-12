@@ -46,7 +46,7 @@ const DeclineInvitationSheet = ({
 
             <h2
               id="decline-invitation-title"
-              className="text-[20px] font-bold tracking-tight text-[var(--color-text)]"
+              className="text-[20px] font-medium tracking-tight text-[var(--color-text)]"
             >
               Decline Invitation?
             </h2>

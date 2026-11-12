@@ -48,7 +48,7 @@ export default function HomeTestimonialsSection() {
   return (
     <section className="bg-[#111210] px-5 py-16 text-white sm:px-8 lg:px-[104px] lg:py-[110px]">
       <div className="mx-auto flex w-full max-w-[1232px] flex-col gap-10 lg:gap-14">
-        <h2 className="font-['Outfit',Inter,sans-serif] text-[36px] font-bold leading-[125%] text-white sm:text-[42px] lg:text-[48px] lg:leading-[60px]">
+        <h2 className="font-['Poppins', Poppins, sans-serif] text-[36px] font-medium leading-[125%] text-white sm:text-[42px] lg:text-[48px] lg:leading-[60px]">
           What people say about us.
         </h2>
 
@@ -65,10 +65,10 @@ export default function HomeTestimonialsSection() {
                   transition={transition}
                   className="absolute inset-x-0 top-0 w-full"
                 >
-                  <p className="font-['Outfit',Inter,sans-serif] text-[29px] font-semibold leading-[1.27] text-white sm:text-[32px] lg:text-[34px] lg:leading-[43px]">
+                  <p className="font-['Poppins', Poppins, sans-serif] text-[29px] font-medium leading-[1.27] text-white sm:text-[32px] lg:text-[34px] lg:leading-[43px]">
                     {featured.quote}
                   </p>
-                  <p className="mt-6 font-['DM_Sans',Inter,sans-serif] text-[14px] font-medium leading-[18px] text-[#8E908A]">
+                  <p className="mt-6 font-['DM_Sans',Poppins, sans-serif] text-[14px] font-medium leading-[18px] text-[#8E908A]">
                     - {featured.author}
                   </p>
                 </motion.article>
@@ -86,10 +86,10 @@ export default function HomeTestimonialsSection() {
                     index === 0 ? "pb-10" : "border-t border-[#262723] pt-10"
                   }`}
                 >
-                  <p className="font-['DM_Sans',Inter,sans-serif] text-[15px] font-normal leading-5 text-[#8E908A]">
+                  <p className="font-['DM_Sans',Poppins, sans-serif] text-[15px] font-normal leading-5 text-[#8E908A]">
                     {testimonial.quote}
                   </p>
-                  <p className="mt-3 font-['DM_Sans',Inter,sans-serif] text-[12px] font-medium leading-4 text-[#8E908A]/70">
+                  <p className="mt-3 font-['DM_Sans',Poppins, sans-serif] text-[12px] font-medium leading-4 text-[#8E908A]/70">
                     - {testimonial.author}
                   </p>
                 </button>

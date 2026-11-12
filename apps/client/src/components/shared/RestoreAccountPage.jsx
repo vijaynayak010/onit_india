@@ -61,7 +61,7 @@ const RestoreAccountPage = ({ appLabel = "Provider", dashboardPath = "/provider/
           <ShieldCheck className="h-8 w-8 text-[var(--color-primary)]" strokeWidth={2} />
         </div>
 
-        <h1 className="text-center text-2xl font-black text-[var(--color-text)]">
+        <h1 className="text-center text-2xl font-medium text-[var(--color-text)]">
           Restore your account
         </h1>
         <p className="mt-3 text-center text-sm font-medium leading-relaxed text-[var(--color-text-muted)]">

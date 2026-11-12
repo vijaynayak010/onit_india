@@ -285,7 +285,7 @@ const ActiveTaskChat = ({
     return (
       <div className="flex min-h-[300px] flex-col items-center justify-center text-center p-8 text-[var(--color-text-subtle)]">
         <AlertCircle className="h-10 w-10 mb-4 opacity-40" />
-        <p className="font-bold text-lg">No Performer Assigned yet</p>
+        <p className="font-medium text-lg">No Performer Assigned yet</p>
         <p className="text-xs font-semibold max-w-sm mt-1">
           Once a performer is hired and claims this task, you will be able to message them directly here.
         </p>
@@ -316,7 +316,7 @@ const ActiveTaskChat = ({
             <span className="absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-white bg-emerald-500 animate-pulse" />
           </div>
           <div className="min-w-0">
-            <h3 className="truncate text-base font-extrabold text-[var(--color-text)]" title={taskTitle || "Task conversation"}>
+            <h3 className="truncate text-base font-medium text-[var(--color-text)]" title={taskTitle || "Task conversation"}>
               {taskTitle || "Task conversation"}
             </h3>
             <p className="truncate text-xs font-semibold text-[var(--color-text-muted)]">

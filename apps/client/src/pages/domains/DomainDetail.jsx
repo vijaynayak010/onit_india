@@ -16,7 +16,7 @@ const DomainDetail = () => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#f3f4f6] px-4">
         <div className="max-w-xl text-center">
-          <h1 className="text-2xl font-semibold mb-4">Domain not found</h1>
+          <h1 className="text-2xl font-medium mb-4">Domain not found</h1>
           <Link
             to="/#domain"
             className="inline-flex items-center text-green-600 hover:text-green-700 font-medium"
@@ -42,7 +42,7 @@ const DomainDetail = () => {
   const canonicalPath = `/domains/${slug}`;
 
   return (
-    <div className="min-h-screen bg-[#f3f4f6] pt-[100px] pb-16 px-4 sm:px-6 md:px-12 lg:px-24">
+    <div className="min-h-screen bg-[#f8fafc] pt-24 sm:pt-28 pb-16 px-4 sm:px-6 md:px-12 lg:px-20 font-sans">
       <SEO
         title={pageTitle}
         description={pageDescription}
@@ -59,19 +59,19 @@ const DomainDetail = () => {
       <div className="max-w-5xl mx-auto">
         <Link
           to="/#domain"
-          className="inline-flex items-center text-green-600 hover:text-green-700 font-medium mb-6"
+          className="inline-flex items-center text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] font-medium mb-6 transition-colors"
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
           Back to Explore Domains
         </Link>
 
-        <div className="bg-white rounded-3xl shadow-md border border-green-100 overflow-hidden">
-          <div className="p-6 sm:p-8 md:p-10 grid gap-8 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] items-start">
+        <div className="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
+          <div className="p-5 sm:p-8 md:p-10 grid gap-8 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] items-start">
             <div>
-              <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-medium text-gray-900 mb-3 font-heading leading-tight">
                 {domain.title}
               </h1>
-              <p className="text-gray-700 text-base sm:text-lg mb-6">
+              <p className="text-gray-700 text-base sm:text-lg mb-6 leading-relaxed">
                 {domain.description}
               </p>
 
@@ -79,7 +79,7 @@ const DomainDetail = () => {
                 <p className="font-semibold text-gray-900">
                   What you can get done in this domain:
                 </p>
-                <ul className="list-disc list-inside space-y-1">
+                <ul className="list-disc list-inside space-y-1.5 text-slate-600">
                   <li>Post specific tasks related to {domain.title.toLowerCase()}.</li>
                   <li>Connect with vetted performers who specialize in this area.</li>
                   <li>Track progress and manage communication from your dashboard.</li>
@@ -89,7 +89,7 @@ const DomainDetail = () => {
             </div>
 
             <div className="space-y-4">
-              <div className="rounded-2xl overflow-hidden bg-slate-100 border border-green-100">
+              <div className="rounded-2xl overflow-hidden bg-slate-100 border border-slate-200">
                 {domain.animation ? (
                   <div className="w-full h-56 sm:h-64 bg-white flex items-center justify-center">
                     <iframe
@@ -118,7 +118,7 @@ const DomainDetail = () => {
 
               <Link
                 to="/auth"
-                className="block text-center w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-xl transition-colors"
+                className="block text-center w-full bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white font-semibold py-3.5 rounded-xl transition-all shadow-sm hover:shadow active:scale-[0.98]"
               >
                 Start a task in this domain
               </Link>
@@ -133,21 +133,21 @@ const DomainDetail = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="mt-10 sm:mt-12 md:mt-14"
           >
-            <div className="bg-white rounded-3xl shadow-md border border-slate-100 px-5 sm:px-7 md:px-10 py-6 sm:py-8 md:py-10">
+            <div className="bg-white rounded-3xl shadow-sm border border-slate-200 px-5 sm:px-7 md:px-10 py-6 sm:py-8 md:py-10">
               <div className="max-w-3xl mb-6 sm:mb-8">
-                <p className="text-xs uppercase tracking-widest text-green-600 font-semibold mb-1">
+                <p className="text-xs uppercase tracking-widest text-[var(--color-primary)] font-semibold mb-1">
                   {subDomainConfig.label}
                 </p>
-                <h2 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-2">
+                <h2 className="text-xl sm:text-2xl font-medium text-gray-900 mb-2 font-heading">
                   Complete sub-domain coverage
                 </h2>
-                <p className="text-gray-700 text-sm sm:text-base">
+                <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
                   The work in this domain is organized into clear sub-domains. Each section below
                   represents a well-defined scope of work you can delegate to FirstDoer.
                 </p>
               </div>
 
-              <div className="grid gap-5 md:gap-6 sm:grid-cols-2">
+              <div className="grid gap-4 sm:gap-5 md:gap-6 sm:grid-cols-2">
                 {subDomainConfig.subDomains.map((block, index) => (
                   <motion.div
                     key={block.title}
@@ -155,14 +155,14 @@ const DomainDetail = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.2 }}
                     transition={{ duration: 0.35, delay: (index % 4) * 0.05 }}
-                    className="h-full rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 via-white to-slate-50 shadow-sm hover:shadow-md transition-all p-4 sm:p-5 flex flex-col"
+                    className="h-full rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-50 via-white to-slate-50 shadow-xs hover:shadow-md transition-all p-4 sm:p-5 flex flex-col"
                   >
                     <div className="flex items-start justify-between gap-3 mb-3">
                       <div className="flex items-center gap-2">
-                        <span className="inline-flex items-center justify-center h-7 w-7 rounded-full bg-green-600 text-white text-xs font-semibold">
+                        <span className="inline-flex items-center justify-center h-7 w-7 rounded-full bg-[var(--color-primary)] text-white text-xs font-semibold">
                           {String(index + 1).padStart(2, "0")}
                         </span>
-                        <h3 className="text-sm sm:text-base font-semibold text-gray-900">
+                        <h3 className="text-sm sm:text-base font-medium text-gray-900 font-heading">
                           {block.title}
                         </h3>
                       </div>
@@ -175,10 +175,10 @@ const DomainDetail = () => {
                       <ul className="text-xs sm:text-sm text-gray-700 space-y-1.5 max-h-40 overflow-y-auto pr-1 custom-scrollbar">
                         {block.items.map((item) => (
                           <li key={item} className="flex gap-2">
-                            <span className="mt-1 h-1.5 w-1.5 rounded-full bg-green-500 flex-shrink-0" />
+                            <span className="mt-1 h-1.5 w-1.5 rounded-full bg-[var(--color-primary-accent)] flex-shrink-0" />
                             <Link
                               to={`/domains/${slug}/${slugifyItem(item)}`}
-                              className="text-green-700 hover:text-green-800 hover:underline"
+                              className="text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] hover:underline"
                             >
                               {item}
                             </Link>

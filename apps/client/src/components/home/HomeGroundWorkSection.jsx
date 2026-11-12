@@ -22,7 +22,7 @@ export default function HomeGroundWorkSection() {
   return (
     <section className="overflow-hidden bg-white py-[55px] max-md:px-4">
       <div className="ml-[61px] flex h-[294px] w-[2167px] items-center gap-[50px] max-lg:ml-6 max-md:ml-0 max-md:h-auto max-md:w-full max-md:flex-col max-md:items-start max-md:gap-8">
-        <h2 className="flex h-[96px] w-[255px] shrink-0 flex-col justify-center font-['Inter'] text-[40px] font-semibold leading-[48px] tracking-normal text-black">
+        <h2 className="flex h-[96px] w-[255px] shrink-0 flex-col justify-center font-['Inter'] text-[40px] font-medium leading-[48px] tracking-normal text-black">
           <span className="block h-12 w-[87px]">OUR</span>
           <span className="block h-12 w-[255px] whitespace-nowrap">Ground Work</span>
         </h2>

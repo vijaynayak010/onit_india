@@ -82,7 +82,7 @@ const BanksDetailsView = () => {
             <Shield size={22} strokeWidth={2} />
           </div>
           <div className="min-w-0 flex-1">
-            <h3 className="text-base font-bold text-[var(--color-text)]">Payout & verification</h3>
+            <h3 className="text-base font-medium text-[var(--color-text)]">Payout & verification</h3>
             <p className="mt-1 text-sm font-semibold leading-relaxed text-[var(--color-text-muted)]">
               Linked accounts are used for withdrawals and refunds. Keep at least one verified bank account active.
             </p>
@@ -93,14 +93,14 @@ const BanksDetailsView = () => {
       {showAddForm && (
         <div className="rounded-[var(--radius-2xl)] border border-[var(--color-primary)]/30 bg-white p-6 shadow-xl">
           <div className="mb-6 flex items-center justify-between">
-            <h3 className="text-lg font-bold">Add Bank Account</h3>
+            <h3 className="text-lg font-medium">Add Bank Account</h3>
             <button onClick={() => setShowAddForm(false)} className="text-slate-400 hover:text-slate-600">
               <X size={20} />
             </button>
           </div>
           <form onSubmit={handleAddBank} className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-1.5">
-              <label className="text-xs font-bold uppercase text-slate-500">Bank Name</label>
+              <label className="text-xs font-medium uppercase text-slate-500">Bank Name</label>
               <input
                 required
                 className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm outline-none focus:border-[var(--color-primary)]"
@@ -110,7 +110,7 @@ const BanksDetailsView = () => {
               />
             </div>
             <div className="space-y-1.5">
-              <label className="text-xs font-bold uppercase text-slate-500">Account Holder Name</label>
+              <label className="text-xs font-medium uppercase text-slate-500">Account Holder Name</label>
               <input
                 required
                 className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm outline-none focus:border-[var(--color-primary)]"
@@ -153,7 +153,7 @@ const BanksDetailsView = () => {
 
       <div className="space-y-4">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <h3 className="text-sm font-bold text-[var(--color-text)]">Saved bank accounts</h3>
+          <h3 className="text-sm font-medium text-[var(--color-text)]">Saved bank accounts</h3>
           {!showAddForm && (
             <button
               type="button"

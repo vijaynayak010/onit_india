@@ -492,7 +492,7 @@ const PerformerActiveTaskExecutionPage = () => {
         return (
             <div className="flex min-h-screen items-center justify-center bg-[var(--color-surface)] pt-[80px]">
                 <div className="max-w-md rounded-2xl border border-red-100 bg-red-50 p-8 text-center text-red-600 shadow-sm">
-                    <h2 className="mb-2 text-xl font-bold">Failed to load task</h2>
+                    <h2 className="mb-2 text-xl font-medium">Failed to load task</h2>
                     <p className="mb-6 text-sm font-medium">{error}</p>
                     <button
                         onClick={() => navigate("/performer/my-tasks")}
@@ -572,7 +572,7 @@ const PerformerActiveTaskExecutionPage = () => {
                                         <Hash className="h-3 w-3" strokeWidth={2.5} />
                                         Task #{taskData.id}
                                     </div>
-                                    <h1 className="text-xl font-bold leading-snug tracking-tight text-[var(--color-text)] sm:text-2xl">
+                                    <h1 className="text-lg sm:text-xl md:text-2xl font-heading font-medium leading-snug tracking-tight text-[var(--color-text)]">
                                         {taskData.title}
                                     </h1>
                                 </div>
@@ -596,7 +596,7 @@ const PerformerActiveTaskExecutionPage = () => {
                                 {taskData.category}
                             </span>
                             <div className="rounded-2xl bg-[var(--color-primary)] px-8 py-3 text-center shadow-[var(--shadow-glow)] sm:text-left">
-                                <span className="text-2xl font-black tracking-tight text-white">₹{taskData.price}</span>
+                                <span className="text-xl sm:text-2xl font-heading font-medium tracking-tight text-white">₹{taskData.price}</span>
                             </div>
                         </div>
                     </div>
@@ -607,8 +607,8 @@ const PerformerActiveTaskExecutionPage = () => {
                         <section className="rounded-[var(--radius-xl)] border border-[var(--color-primary)]/25 bg-[var(--color-primary)] p-5 text-white shadow-[var(--shadow-sm)] sm:p-6">
                             <div className="flex items-start justify-between gap-4">
                                 <div>
-                                    <p className="text-[11px] font-black uppercase tracking-[0.18em] text-white/70">Next action</p>
-                                    <h2 className="mt-2 text-xl font-black tracking-tight sm:text-2xl">
+                                    <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-white/70">Next action</p>
+                                    <h2 className="mt-2 text-lg sm:text-xl md:text-2xl font-heading font-medium tracking-tight text-white">
                                         {nextActionableId ? "Submit your next checklist item" : taskData.status === "SUBMITTED" ? "Waiting for provider review" : "Keep your task moving"}
                                     </h2>
                                     <p className="mt-2 max-w-xl text-sm font-medium leading-relaxed text-white/80">
@@ -630,9 +630,9 @@ const PerformerActiveTaskExecutionPage = () => {
                             <div className="flex items-center justify-between gap-3">
                                 <div>
                                     <p className="text-[11px] font-black uppercase tracking-[0.18em] text-[var(--color-text-subtle)]">Execution overview</p>
-                                    <p className="mt-2 text-lg font-black text-[var(--color-text)]">{completedCount} of {totalCount || 0} steps complete</p>
+                                    <p className="mt-2 text-lg font-medium text-[var(--color-text)]">{completedCount} of {totalCount || 0} steps complete</p>
                                 </div>
-                                <span className="text-2xl font-black text-[var(--color-primary)]">{progressPercentage}%</span>
+                                <span className="text-2xl font-medium text-[var(--color-primary)]">{progressPercentage}%</span>
                             </div>
                             <div className="mt-4 h-2.5 overflow-hidden rounded-full bg-[var(--color-border-subtle)]">
                                 <div className="h-full rounded-full bg-[var(--color-primary)] transition-all duration-500" style={{ width: `${progressPercentage}%` }} />
@@ -657,7 +657,7 @@ const PerformerActiveTaskExecutionPage = () => {
                                     <Clock className="h-5 w-5" strokeWidth={2.5} />
                                 </div>
                                 <div className="space-y-1">
-                                    <h3 className="text-base font-bold text-amber-900">Waiting for Provider's Confirmation</h3>
+                                    <h3 className="text-base font-medium text-amber-900">Waiting for Provider's Confirmation</h3>
                                     <p className="max-w-xl text-[13px] font-medium leading-relaxed text-amber-700/80">
                                         The client has been notified of your interest. Please wait for them to confirm the task terms and finalize payment before you start the execution.
                                     </p>
@@ -680,7 +680,7 @@ const PerformerActiveTaskExecutionPage = () => {
                                     key={tab.id}
                                     type="button"
                                     onClick={() => setActiveTab(tab.id)}
-                                    className={`relative shrink-0 pb-3 text-[15px] font-bold transition-colors sm:text-[16px] ${activeTab === tab.id
+                                    className={`relative shrink-0 pb-3 text-[15px] font-medium transition-colors sm:text-[16px] ${activeTab === tab.id
                                         ? "text-[var(--color-text)]"
                                         : "text-[var(--color-text-subtle)] hover:text-[var(--color-text-muted)]"
                                         }`}
@@ -739,15 +739,15 @@ const PerformerActiveTaskExecutionPage = () => {
                                         ].map((stat, i) => (
                                             <div key={i} className={`p-4 rounded-2xl border border-transparent shadow-sm ${stat.bg}`}>
                                                 <p className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1">{stat.label}</p>
-                                                <p className={`text-[15px] font-black ${stat.color}`}>{stat.value}</p>
+                                                <p className={`text-[15px] font-medium ${stat.color}`}>{stat.value}</p>
                                             </div>
                                         ))}
                                     </div>
 
                                     <div className="rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 sm:p-8">
-                                        <h3 className="mb-4 text-xs font-bold uppercase tracking-widest text-[var(--color-text-subtle)]">Full Task Details</h3>
+                                        <h3 className="mb-4 text-xs font-medium uppercase tracking-widest text-[var(--color-text-subtle)]">Full Task Details</h3>
                                         <div className="prose prose-sm max-w-none prose-slate">
-                                            <p className="text-[15px] font-semibold leading-relaxed text-[var(--color-text-muted)] whitespace-pre-wrap">
+                                            <p className="text-[15px] font-medium leading-relaxed text-[var(--color-text-muted)] whitespace-pre-wrap">
                                                 {loading ? "Loading details..." : taskData.description || "No specific details provided yet."}
                                             </p>
                                         </div>
@@ -755,7 +755,7 @@ const PerformerActiveTaskExecutionPage = () => {
 
                                     {taskData.skills && taskData.skills.length > 0 && (
                                         <div>
-                                            <h3 className="mb-4 text-xs font-bold uppercase tracking-widest text-[var(--color-text-subtle)]">Required Skills</h3>
+                                            <h3 className="mb-4 text-xs font-medium uppercase tracking-widest text-[var(--color-text-subtle)]">Required Skills</h3>
                                             <div className="flex flex-wrap gap-2">
                                                 {taskData.skills.map((skill, i) => (
                                                     <span key={i} className="rounded-full bg-white px-4 py-1.5 text-xs font-bold text-[var(--color-text-muted)] border border-[var(--color-border)] shadow-sm">
@@ -771,7 +771,7 @@ const PerformerActiveTaskExecutionPage = () => {
                                             <div className="flex items-start gap-4 text-blue-800">
                                                 <Info className="mt-0.5 h-5 w-5 shrink-0" strokeWidth={2.25} />
                                                 <div>
-                                                    <h4 className="text-sm font-bold uppercase tracking-wider">Note to Performer</h4>
+                                                    <h4 className="text-sm font-medium uppercase tracking-wider">Note to Performer</h4>
                                                     <p className="mt-1 text-[13px] font-medium leading-relaxed opacity-80">
                                                         Once the client confirms your proposal and finalizes the payment, you will gain access to the **Task Checklist** and **Execution Updates** areas to begin your work.
                                                     </p>
@@ -802,13 +802,13 @@ const PerformerActiveTaskExecutionPage = () => {
                                                     <FileText className="h-5 w-5 text-[var(--color-text)]" strokeWidth={2.25} />
                                                 </div>
                                                 <div>
-                                                    <h3 className="text-lg font-bold tracking-tight text-[var(--color-text)]">Submission Checklist</h3>
+                                                    <h3 className="text-lg font-medium tracking-tight text-[var(--color-text)]">Submission Checklist</h3>
                                                     <p className="mt-1 text-[11px] font-semibold uppercase tracking-wider text-[var(--color-text-subtle)]">
                                                         {completedCount} of {totalCount} completed
                                                     </p>
                                                 </div>
                                             </div>
-                                            <span className="text-3xl font-black leading-none text-[var(--color-primary)]">{progressPercentage}%</span>
+                                            <span className="text-3xl font-medium leading-none text-[var(--color-primary)]">{progressPercentage}%</span>
                                         </div>
                                         <div className="h-2.5 w-full overflow-hidden rounded-full bg-[var(--color-border-subtle)]">
                                             <Motion.div
@@ -845,7 +845,7 @@ const PerformerActiveTaskExecutionPage = () => {
                                                     </div>
                                                     <div className="min-w-0">
                                                         <h4
-                                                            className={`text-sm font-bold ${item.checked ? "text-[var(--color-text)]" : "text-[var(--color-text-subtle)]"
+                                                            className={`text-sm font-medium ${item.checked ? "text-[var(--color-text)]" : "text-[var(--color-text-subtle)]"
                                                                 }`}
                                                         >
                                                             {item.text}
@@ -891,11 +891,11 @@ const PerformerActiveTaskExecutionPage = () => {
                                     className="space-y-10"
                                 >
                                     <div className="space-y-4">
-                                        <label className="text-lg font-bold tracking-tight text-[var(--color-text)] sm:text-xl">What did you do?</label>
+                                        <label className="text-lg font-medium tracking-tight text-[var(--color-text)] sm:text-xl">What did you do?</label>
                                         <div className="overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-surface)]">
                                             <textarea
                                                 placeholder="Briefly describe the work you completed, tools used, and any important notes for the task provider."
-                                                className="min-h-[140px] w-full resize-none bg-transparent p-6 text-[15px] font-semibold text-[var(--color-text)] placeholder:text-[var(--color-text-subtle)] outline-none"
+                                                className="min-h-[140px] w-full resize-none bg-transparent p-6 text-[15px] font-medium text-[var(--color-text)] placeholder:text-[var(--color-text-subtle)] outline-none"
                                                 value={submissionNotes}
                                                 onChange={(e) => setSubmissionNotes(e.target.value)}
                                             />
@@ -908,7 +908,7 @@ const PerformerActiveTaskExecutionPage = () => {
                                     {/* Progress Slider (0 to 100) */}
                                     <div className="space-y-4">
                                         <div className="flex items-center justify-between">
-                                            <label className="text-lg font-bold tracking-tight text-[var(--color-text)] sm:text-xl">Update Progress</label>
+                                            <label className="text-lg font-medium tracking-tight text-[var(--color-text)] sm:text-xl">Update Progress</label>
                                             <span className="rounded-full bg-[var(--color-primary-subtle)] px-3 py-1 text-xs font-black uppercase tracking-wider text-[var(--color-primary)]">
                                                 {progressVal}% Completed
                                             </span>
@@ -929,18 +929,18 @@ const PerformerActiveTaskExecutionPage = () => {
                                     </div>
 
                                     <div className="space-y-4">
-                                        <label className="text-lg font-bold tracking-tight text-[var(--color-text)] sm:text-xl">Upload your work</label>
+                                        <label className="text-lg font-medium tracking-tight text-[var(--color-text)] sm:text-xl">Upload your work</label>
                                         <input
                                             type="text"
                                             placeholder="Paste live link/GitHub/Drive link"
-                                            className="h-14 w-full rounded-[var(--radius-xl)] border-2 border-[var(--color-border)] bg-white px-6 text-[15px] font-semibold text-[var(--color-text)] placeholder:text-[var(--color-text-subtle)] outline-none transition focus:border-[var(--color-primary)]/40"
+                                            className="h-14 w-full rounded-[var(--radius-xl)] border-2 border-[var(--color-border)] bg-white px-6 text-[15px] font-medium text-[var(--color-text)] placeholder:text-[var(--color-text-subtle)] outline-none transition focus:border-[var(--color-primary)]/40"
                                             value={workLink}
                                             onChange={(e) => setWorkLink(e.target.value)}
                                         />
                                     </div>
 
                                     <div className="space-y-4">
-                                        <label className="text-lg font-bold tracking-tight text-[var(--color-text)] sm:text-xl">Upload documents</label>
+                                        <label className="text-lg font-medium tracking-tight text-[var(--color-text)] sm:text-xl">Upload documents</label>
                                         <label className="flex cursor-pointer flex-col items-center justify-center gap-4 rounded-[var(--radius-xl)] border-2 border-dashed border-[var(--color-border)] bg-[var(--color-surface)]/80 p-12 transition hover:border-[var(--color-primary)]/35 hover:bg-white">
                                             <input
                                                 type="file"
@@ -954,7 +954,7 @@ const PerformerActiveTaskExecutionPage = () => {
                                                 ) : (
                                                     <Upload className="h-5 w-5" strokeWidth={2.25} />
                                                 )}
-                                                <span className="text-[15px] font-bold">
+                                                <span className="text-[15px] font-medium">
                                                     {uploading ? "Uploading..." : "Upload files"}
                                                 </span>
                                             </div>
@@ -965,7 +965,7 @@ const PerformerActiveTaskExecutionPage = () => {
 
                                     {/* Performer's Update History Log */}
                                     <div className="mt-12 space-y-6 border-t border-[var(--color-border)] pt-10">
-                                        <h3 className="text-lg font-black tracking-tight text-[var(--color-text)] sm:text-xl">
+                                        <h3 className="text-lg font-medium tracking-tight text-[var(--color-text)] sm:text-xl">
                                             Update History
                                         </h3>
                                         <div className="space-y-6">
@@ -1082,7 +1082,7 @@ const PerformerActiveTaskExecutionPage = () => {
                 <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                     <button
                         type="button"
-                        className="rounded-full border-2 border-[var(--color-border)] bg-white px-8 py-3.5 text-[15px] font-bold text-[var(--color-text-muted)] shadow-[var(--shadow-xs)] transition hover:bg-var(--color-border-subtle) active:scale-[0.98]"
+                        className="rounded-full border-2 border-[var(--color-border)] bg-white px-8 py-3.5 text-[15px] font-medium text-[var(--color-text-muted)] shadow-[var(--shadow-xs)] transition hover:bg-var(--color-border-subtle) active:scale-[0.98]"
                         onClick={() => navigate(-1)}
                     >
                         Go back
@@ -1092,7 +1092,7 @@ const PerformerActiveTaskExecutionPage = () => {
                             <button
                                 type="button"
                                 onClick={() => setShowReviewModal(true)}
-                                className="rounded-full border-2 border-amber-500 bg-white px-8 py-3.5 text-[15px] font-bold text-amber-600 shadow-sm transition hover:bg-amber-50 active:scale-[0.98]"
+                                className="rounded-full border-2 border-amber-500 bg-white px-8 py-3.5 text-[15px] font-medium text-amber-600 shadow-sm transition hover:bg-amber-50 active:scale-[0.98]"
                             >
                                 Review Client
                             </button>
@@ -1101,7 +1101,7 @@ const PerformerActiveTaskExecutionPage = () => {
                             type="button"
                             disabled={submitting || !taskData?.assignmentId || ["COMPLETED", "SUBMITTED"].includes(taskData.status?.toUpperCase()) || (totalCount > 0 && completedCount < totalCount)}
                             onClick={handlePostUpdate}
-                            className="rounded-full border-2 border-[var(--color-primary)] bg-white px-8 py-3.5 text-[15px] font-bold text-[var(--color-primary)] shadow-sm transition hover:bg-[var(--color-primary-subtle)]/20 active:scale-[0.98] disabled:opacity-50"
+                            className="rounded-full border-2 border-[var(--color-primary)] bg-white px-8 py-3.5 text-[15px] font-medium text-[var(--color-primary)] shadow-sm transition hover:bg-[var(--color-primary-subtle)]/20 active:scale-[0.98] disabled:opacity-50"
                         >
                             {submitting ? "Posting..." : "Post Update"}
                         </button>
@@ -1109,7 +1109,7 @@ const PerformerActiveTaskExecutionPage = () => {
                             type="button"
                             disabled={submitting || !taskData?.assignmentId || ["COMPLETED", "SUBMITTED"].includes(taskData.status?.toUpperCase())}
                             onClick={handleSubmitTask}
-                            className="rounded-full bg-[var(--color-primary)] px-10 py-3.5 text-[15px] font-bold text-white shadow-[var(--shadow-glow)] transition hover:bg-[var(--color-primary-hover)] active:scale-[0.98] disabled:opacity-50"
+                            className="rounded-full bg-[var(--color-primary)] px-10 py-3.5 text-[15px] font-medium text-white shadow-[var(--shadow-glow)] transition hover:bg-[var(--color-primary-hover)] active:scale-[0.98] disabled:opacity-50"
                         >
                             {submitting ? "Submitting..." : taskData.status === "SUBMITTED" ? "Submitted for review" : totalCount > 0 && completedCount < totalCount ? "Complete checklist first" : "Submit for review"}
                         </button>

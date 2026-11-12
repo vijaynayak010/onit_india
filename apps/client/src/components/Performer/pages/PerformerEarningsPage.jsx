@@ -43,7 +43,7 @@ const MetricCard = ({ label, value, helper, icon: Icon, tone = "emerald" }) => {
       <div className="flex items-start justify-between gap-4">
         <div>
           <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-gray-400">{label}</p>
-          <p className="mt-4 text-2xl font-black tabular-nums text-gray-900">{value}</p>
+          <p className="mt-3 sm:mt-4 text-2xl sm:text-3xl font-heading font-medium tabular-nums text-gray-900">{value}</p>
           {helper ? <p className="mt-2 text-xs font-medium text-gray-500">{helper}</p> : null}
         </div>
         <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full ${tones[tone]}`}>
@@ -81,7 +81,7 @@ const EmptyTransactions = () => (
     <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#EFFBFB] text-[#10605F]">
       <Wallet size={24} strokeWidth={2.3} />
     </div>
-    <h3 className="mt-4 text-lg font-bold text-gray-900">No transactions found</h3>
+    <h3 className="mt-4 text-lg font-medium text-gray-900">No transactions found</h3>
     <p className="mt-1 max-w-sm text-sm font-medium text-gray-500">
       Earnings and withdrawals will appear here when payment activity starts.
     </p>
@@ -205,7 +205,7 @@ const PerformerEarningsPage = () => {
                     </span>
                     Available Balance
                   </div>
-                  <p className="mt-4 text-4xl font-black leading-none tracking-tight text-gray-900">
+                  <p className="mt-4 text-4xl font-medium leading-none tracking-tight text-gray-900">
                     ₹{formatINR(wallet.balance)}
                   </p>
                   <p className="mt-4 flex items-center gap-2 text-sm font-medium text-gray-500">
@@ -242,7 +242,7 @@ const PerformerEarningsPage = () => {
                   <section className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm">
                     <div className="flex flex-col gap-4 border-b border-gray-100 p-5 lg:flex-row lg:items-center lg:justify-between">
                       <div>
-                        <h2 className="text-base font-bold text-gray-900">Transaction History</h2>
+                        <h2 className="text-base font-medium text-gray-900">Transaction History</h2>
                         <p className="mt-0.5 text-sm font-medium text-gray-400">
                           {transactions.length} transaction{transactions.length === 1 ? "" : "s"}
                         </p>
@@ -355,7 +355,7 @@ const PerformerEarningsPage = () => {
 
                   <aside className="space-y-4">
                     <section className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
-                      <h2 className="text-base font-bold text-gray-900">Payout Account</h2>
+                      <h2 className="text-base font-medium text-gray-900">Payout Account</h2>
                       <div className="mt-4">
                         <PayoutAccountCard method={payoutMethod} showChange={false} />
                       </div>
@@ -383,7 +383,7 @@ const PerformerEarningsPage = () => {
                           <Clock3 size={15} strokeWidth={2.4} />
                         </span>
                         <div>
-                          <h3 className="text-sm font-bold">Processing Time</h3>
+                          <h3 className="text-sm font-medium">Processing Time</h3>
                           <p className="mt-1 text-xs font-medium leading-relaxed">
                             Withdrawals are usually processed within 1-2 business days.
                           </p>
@@ -397,7 +397,7 @@ const PerformerEarningsPage = () => {
                           <ShieldCheck size={17} strokeWidth={2.4} />
                         </span>
                         <div>
-                          <h3 className="text-sm font-bold text-gray-900">Verified payouts</h3>
+                          <h3 className="text-sm font-medium text-gray-900">Verified payouts</h3>
                           <p className="mt-1 text-xs font-medium leading-relaxed text-gray-500">
                             Keep your bank details verified to avoid withdrawal delays.
                           </p>

@@ -164,7 +164,7 @@ function TestiCard({ t, qColor }) {
           top: 126,
           width: 260,
           margin: 0,
-          fontFamily: "Manrope, sans-serif",
+          fontFamily: "Poppins, sans-serif",
           fontWeight: 400,
           fontSize: 14,
           lineHeight: "24px",
@@ -202,7 +202,7 @@ function TestiCard({ t, qColor }) {
         >
           <span
             style={{
-              fontFamily: "Outfit, sans-serif",
+              fontFamily: "Poppins, sans-serif",
               fontWeight: 700,
               fontSize: 14,
               color: "rgba(255,255,255,0.85)",
@@ -217,7 +217,7 @@ function TestiCard({ t, qColor }) {
         <div style={{ position: "absolute", left: 53, top: -0.45 }}>
           <p
             style={{
-              fontFamily: "Outfit, sans-serif",
+              fontFamily: "Poppins, sans-serif",
               fontWeight: 700,
               fontSize: 15,
               lineHeight: "22px",
@@ -230,7 +230,7 @@ function TestiCard({ t, qColor }) {
           </p>
           <p
             style={{
-              fontFamily: "Manrope, sans-serif",
+              fontFamily: "Poppins, sans-serif",
               fontWeight: 400,
               fontSize: 10.4,
               lineHeight: "16px",
@@ -248,7 +248,7 @@ function TestiCard({ t, qColor }) {
           <div style={{ position: "absolute", left: 196.48, top: 9.55 }}>
             <span
               style={{
-                fontFamily: "Outfit, sans-serif",
+                fontFamily: "Poppins, sans-serif",
                 fontWeight: 700,
                 fontSize: 16,
                 lineHeight: "24px",
@@ -294,7 +294,7 @@ export default function TestimonialsSection() {
       <div style={{ textAlign: "center", marginBottom: 72, padding: "0 8px" }}>
         <p
           style={{
-            fontFamily: "Manrope, sans-serif",
+            fontFamily: "Poppins, sans-serif",
             fontWeight: 700,
             fontSize: 11,
             lineHeight: "16px",
@@ -310,7 +310,7 @@ export default function TestimonialsSection() {
         <div style={{ position: "relative", display: "inline-block", marginTop: 18 }}>
           <h2
             style={{
-              fontFamily: "Outfit, sans-serif",
+              fontFamily: "Poppins, sans-serif",
               fontWeight: 600,
               fontSize: "clamp(28px, 4vw, 47.808px)",
               lineHeight: "clamp(34px, 5vw, 55px)",

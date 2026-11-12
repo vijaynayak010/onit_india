@@ -129,7 +129,7 @@ const ProfileView = ({ onEditClick, onAddOrgClick }) => {
           </div>
           <div>
             <p className="text-sm font-semibold text-[var(--color-text-muted)]">Profile photo</p>
-            <p className="mt-1 text-lg font-bold text-[var(--color-text)]">
+            <p className="mt-1 text-lg font-medium text-[var(--color-text)]">
               {user?.username || user?.name || (user?.email ? user.email.split('@')[0] : "Provider")}
             </p>
           </div>
@@ -151,7 +151,7 @@ const ProfileView = ({ onEditClick, onAddOrgClick }) => {
       </div>
 
       <section>
-        <h2 className="mb-4 text-lg font-bold text-[var(--color-text)]">Organization details</h2>
+        <h2 className="mb-4 text-lg font-medium text-[var(--color-text)]">Organization details</h2>
         <div className="flex flex-col gap-6 rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-8 shadow-[var(--shadow-sm)] sm:flex-row sm:items-center sm:justify-between">
           <div className="flex min-w-0 flex-1 items-center gap-6">
             <div className="flex h-24 w-28 shrink-0 items-center justify-center rounded-2xl border border-[var(--color-border)] bg-[var(--color-border-subtle)]/50 p-4">
@@ -162,7 +162,7 @@ const ProfileView = ({ onEditClick, onAddOrgClick }) => {
               />
             </div>
             <div className="min-w-0">
-              <p className="text-lg font-bold text-[var(--color-text)]">
+              <p className="text-lg font-medium text-[var(--color-text)]">
                 {user?.organization || "No organization added yet"}
               </p>
               <p className="mt-1 text-sm font-semibold text-[var(--color-text-muted)]">
@@ -183,7 +183,7 @@ const ProfileView = ({ onEditClick, onAddOrgClick }) => {
         </div>
 
         <div className="mt-6">
-          <h3 className="mb-3 text-sm font-bold text-[var(--color-text)]">Job Descriptions for Tasks</h3>
+          <h3 className="mb-3 text-sm font-medium text-[var(--color-text)]">Job Descriptions for Tasks</h3>
 
           {loadingTemplates ? (
             <div className="flex items-center justify-center py-10 text-gray-400">
@@ -221,7 +221,7 @@ const ProfileView = ({ onEditClick, onAddOrgClick }) => {
                       <Trash2 size={14} strokeWidth={2.25} />
                     </button>
                   </div>
-                  <h4 className="pr-16 text-sm font-extrabold text-gray-900">{job.title}</h4>
+                  <h4 className="pr-16 text-sm font-medium text-gray-900">{job.title}</h4>
                   {job.category ? (
                     <p className="mt-0.5 text-[11px] font-semibold text-[#10605F]">{job.category}</p>
                   ) : null}

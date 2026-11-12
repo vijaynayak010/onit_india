@@ -274,7 +274,7 @@ export default function HearFromUsersSection() {
           >
             <h2
               style={{
-                fontFamily: "'Outfit', sans-serif",
+                fontFamily: "'Poppins', sans-serif",
                 fontWeight: 700,
                 fontSize: "clamp(28px, 3.2vw, 44px)",
                 lineHeight: "115%",

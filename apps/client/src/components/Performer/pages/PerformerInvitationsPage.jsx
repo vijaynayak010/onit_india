@@ -39,7 +39,7 @@ const PerformerInvitationsPage = () => {
             <PerformerHeader activePage="invitations" />
             <main className="mx-auto w-full max-w-3xl px-4 py-8 sm:px-6 lg:px-8">
                 <header className="mb-6">
-                    <h1 className="text-2xl font-bold text-[var(--color-text)]">Invitations</h1>
+                    <h1 className="text-2xl font-medium text-[var(--color-text)]">Invitations</h1>
                     <p className="mt-1 text-sm text-[var(--color-text-muted)]">Tasks providers have personally invited you to work on.</p>
                 </header>
 
@@ -82,7 +82,7 @@ const PerformerInvitationsPage = () => {
                                     >
                                         <div className="flex items-start justify-between gap-3">
                                             <div className="min-w-0">
-                                                <h2 className="truncate text-base font-bold text-[var(--color-text)]">
+                                                <h2 className="truncate text-base font-medium text-[var(--color-text)]">
                                                     {task.title || 'Untitled Task'}
                                                 </h2>
                                                 <p className="mt-0.5 text-xs text-[var(--color-text-muted)]">

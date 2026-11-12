@@ -382,7 +382,7 @@ const PostTaskManualPage = () => {
     ), [formData.category]);
 
     const fieldBase =
-        "w-full rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3 text-[15px] font-semibold text-[var(--color-text)] outline-none transition placeholder:text-[var(--color-text-subtle)] focus:border-[var(--color-primary)]/50 focus:ring-2 focus:ring-[var(--color-primary)]/15 h-12";
+        "w-full rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3 text-[15px] font-medium text-[var(--color-text)] outline-none transition placeholder:text-[var(--color-text-subtle)] focus:border-[var(--color-primary)]/50 focus:ring-2 focus:ring-[var(--color-primary)]/15 h-12";
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -645,7 +645,7 @@ const PostTaskManualPage = () => {
                                 <CheckCircle2 size={15} strokeWidth={2.4} />
                                 Ready to publish
                             </div>
-                            <h1 className="text-3xl font-black tracking-[-0.03em] text-slate-950 sm:text-4xl">Review your task</h1>
+                            <h1 className="text-3xl font-medium tracking-[-0.03em] text-slate-950 sm:text-4xl">Review your task</h1>
                             <p className="mt-2 max-w-xl text-sm font-medium leading-6 text-slate-500">Check the brief, work journey, and payment before making the task visible to performers.</p>
                         </div>
                         <button
@@ -666,12 +666,12 @@ const PostTaskManualPage = () => {
                                     <span className="text-slate-300">/</span>
                                     <span className="text-slate-500">{selectedServiceLabel}</span>
                                 </div>
-                                <h2 className="mt-5 max-w-3xl text-2xl font-black leading-tight tracking-[-0.025em] text-slate-950 sm:text-3xl">{formData.title}</h2>
+                                <h2 className="mt-5 max-w-3xl text-2xl font-medium leading-tight tracking-[-0.025em] text-slate-950 sm:text-3xl">{formData.title}</h2>
                                 <p className="mt-4 max-w-3xl whitespace-pre-wrap text-[15px] font-medium leading-7 text-slate-600">{formData.description}</p>
 
                                 {formData.additionalDetails ? (
                                     <div className="mt-6 rounded-xl bg-slate-50 p-4 sm:p-5">
-                                        <h3 className="text-sm font-extrabold text-slate-900">Additional details</h3>
+                                        <h3 className="text-sm font-medium text-slate-900">Additional details</h3>
                                         <p className="mt-2 whitespace-pre-wrap text-sm font-medium leading-6 text-slate-600">{formData.additionalDetails}</p>
                                     </div>
                                 ) : null}
@@ -688,7 +688,7 @@ const PostTaskManualPage = () => {
                             <section className="px-5 py-7 sm:px-8 sm:py-8">
                                 <div className="flex items-start justify-between gap-4">
                                     <div>
-                                        <h3 className="text-lg font-black tracking-tight text-slate-950">Work journey</h3>
+                                        <h3 className="text-lg font-medium tracking-tight text-slate-950">Work journey</h3>
                                         <p className="mt-1 text-sm font-medium text-slate-500">The performer completes these checkpoints in order.</p>
                                     </div>
                                     <span className="shrink-0 text-sm font-black tabular-nums text-[#10605F]">{checklist.length} {checklist.length === 1 ? "step" : "steps"}</span>
@@ -700,7 +700,7 @@ const PostTaskManualPage = () => {
                                             {index < checklist.length - 1 ? <span className="absolute left-[18px] top-10 h-[calc(100%+8px)] w-px bg-[#DFF7F6]" aria-hidden /> : null}
                                             <span className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#10605F] text-xs font-black text-white shadow-[0_5px_14px_rgba(16,96,95,0.2)]">{index + 1}</span>
                                             <div className="min-w-0 pb-2 pt-1">
-                                                <p className="text-sm font-extrabold text-slate-900">{item.title}</p>
+                                                <p className="text-sm font-medium text-slate-900">{item.title}</p>
                                                 {item.note ? <p className="mt-1 text-sm font-medium leading-6 text-slate-500">{item.note}</p> : <p className="mt-1 text-xs font-medium text-slate-400">No additional requirement</p>}
                                             </div>
                                         </li>
@@ -710,7 +710,7 @@ const PostTaskManualPage = () => {
 
                             {conditions.length > 0 ? (
                                 <section className="border-t border-slate-100 px-5 py-7 sm:px-8">
-                                    <h3 className="text-lg font-black tracking-tight text-slate-950">Rules to follow</h3>
+                                    <h3 className="text-lg font-medium tracking-tight text-slate-950">Rules to follow</h3>
                                     <div className="mt-4 grid gap-3 sm:grid-cols-2">
                                         {conditions.map((item) => (
                                             <div key={item} className="flex items-start gap-3 rounded-xl border border-[#29ADAC]/20 bg-[#EFFBFB]/60 p-4">
@@ -724,7 +724,7 @@ const PostTaskManualPage = () => {
 
                             {attachedFiles.length > 0 ? (
                                 <section className="border-t border-slate-100 px-5 py-7 sm:px-8">
-                                    <h3 className="text-lg font-black tracking-tight text-slate-950">Attachments</h3>
+                                    <h3 className="text-lg font-medium tracking-tight text-slate-950">Attachments</h3>
                                     <div className="mt-4 grid gap-3 sm:grid-cols-2">
                                         {attachedFiles.map((file) => (
                                             <div key={file} className="flex min-w-0 items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
@@ -741,7 +741,7 @@ const PostTaskManualPage = () => {
                             <section className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_12px_36px_rgba(15,23,42,0.07)]">
                                 <div className="bg-[#10605F] px-6 py-6 text-white">
                                     <p className="text-xs font-bold text-[#EFFBFB]">Task budget</p>
-                                    <p className="mt-1 text-3xl font-black tracking-tight">₹{Number(formData.budget || 0).toLocaleString("en-IN")}</p>
+                                    <p className="mt-1 text-3xl font-medium tracking-tight">₹{Number(formData.budget || 0).toLocaleString("en-IN")}</p>
                                     <p className="mt-1 text-xs font-semibold text-[#EFFBFB]">{formData.budgetType} payment</p>
                                 </div>
                                 <div className="space-y-5 p-6">
@@ -795,7 +795,7 @@ const PostTaskManualPage = () => {
                             <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--color-primary-subtle)] text-[var(--color-primary)]">
                                 <Phone size={22} strokeWidth={2.25} />
                             </div>
-                            <h2 className="text-xl font-bold tracking-tight text-[var(--color-text)]">One last step</h2>
+                            <h2 className="text-xl font-medium tracking-tight text-[var(--color-text)]">One last step</h2>
                             <p className="mt-1 text-sm font-medium text-[var(--color-text-muted)]">
                                 Add your phone number so performers can reach you. We only ask once.
                             </p>
@@ -807,7 +807,7 @@ const PostTaskManualPage = () => {
                                     onChange={(e) => setPhoneInput(e.target.value)}
                                     onKeyDown={(e) => e.key === "Enter" && handleSavePhoneAndPost()}
                                     autoFocus
-                                    className="w-full bg-transparent text-[15px] font-semibold text-[var(--color-text)] outline-none placeholder:text-[var(--color-text-subtle)]"
+                                    className="w-full bg-transparent text-[15px] font-medium text-[var(--color-text)] outline-none placeholder:text-[var(--color-text-subtle)]"
                                 />
                             </div>
                             <div className="mt-5 flex gap-3">
@@ -838,7 +838,7 @@ const PostTaskManualPage = () => {
                             <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-50 text-amber-700">
                                 <Tag size={22} strokeWidth={2.25} />
                             </div>
-                            <h2 id="service-required-title" className="text-xl font-bold tracking-tight text-[var(--color-text)]">Choose an approved service</h2>
+                            <h2 id="service-required-title" className="text-xl font-medium tracking-tight text-[var(--color-text)]">Choose an approved service</h2>
                             <p className="mt-1 text-sm font-medium leading-relaxed text-[var(--color-text-muted)]">
                                 This task needs an approved service before it can be published. Go back to task editing to select one.
                             </p>
@@ -888,8 +888,8 @@ const PostTaskManualPage = () => {
                         <Sparkles className="h-3.5 w-3.5" strokeWidth={2.5} />
                         Manual posting
                     </div>
-                    <h1 className="text-3xl font-bold tracking-tight text-[var(--color-text)] sm:text-[32px]">Post a task in minutes</h1>
-                    <p className="mt-2 max-w-2xl text-[15px] font-medium text-[var(--color-text-muted)]">
+                    <h1 className="text-2xl sm:text-3xl font-heading font-medium tracking-tight text-[var(--color-text)]">Post a task in minutes</h1>
+                    <p className="mt-2 max-w-2xl text-sm sm:text-[15px] font-medium text-[var(--color-text-muted)]">
                         Add the details below so we can match you with the right performers.
                     </p>
                 </div>
@@ -899,7 +899,7 @@ const PostTaskManualPage = () => {
                     className="overflow-hidden rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] shadow-[var(--shadow-md)] ring-1 ring-black/[0.04]"
                 >
                     <div className="border-b border-[var(--color-border)] bg-[var(--color-border-subtle)]/50 px-6 py-5 sm:px-8">
-                        <h2 className="text-lg font-bold text-[var(--color-text)]">Task details</h2>
+                        <h2 className="text-lg font-heading font-medium text-[var(--color-text)]">Task details</h2>
                         <p className="mt-1 text-sm font-medium text-[var(--color-text-subtle)]">
                             Required fields must be completed before you can continue.
                         </p>
@@ -907,7 +907,7 @@ const PostTaskManualPage = () => {
 
                     <div className="space-y-6 p-6 sm:p-8">
                         <div className="space-y-1.5">
-                            <label htmlFor="title" className="text-sm font-bold text-[var(--color-text)]">
+                            <label htmlFor="title" className="text-sm font-medium text-[var(--color-text)]">
                                 Task title
                             </label>
                             <input
@@ -1240,14 +1240,14 @@ const PostTaskManualPage = () => {
                                     <div className="min-w-0 border-b border-[var(--color-border)] bg-gradient-to-br from-[var(--color-primary-subtle)]/65 via-white to-white p-5 sm:p-7 lg:border-b-0 lg:border-r">
                                         <div className="mb-6 flex items-center justify-between gap-3">
                                             <div>
-                                                <p className="text-[10px] font-black uppercase tracking-[0.16em] text-[var(--color-primary)]">Editing checkpoint</p>
-                                                <h4 className="mt-1 text-xl font-black tracking-tight text-[var(--color-text)]">Step {selectedChecklistIndex + 1}</h4>
+                                                <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--color-primary)]">Editing checkpoint</p>
+                                                <h4 className="mt-1 text-lg sm:text-xl font-heading font-medium tracking-tight text-[var(--color-text)]">Step {selectedChecklistIndex + 1}</h4>
                                             </div>
-                                            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-primary)] text-sm font-black text-white shadow-[var(--shadow-glow)]">{selectedChecklistIndex + 1}</span>
+                                            <span className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-[var(--color-primary)] text-sm font-bold text-white shadow-[var(--shadow-glow)]">{selectedChecklistIndex + 1}</span>
                                         </div>
                                         <div className="space-y-5">
                                             <label className="block">
-                                                <span className="mb-2 block text-xs font-black uppercase tracking-wider text-[var(--color-text-subtle)]">Checkpoint title</span>
+                                                <span className="mb-2 block text-xs font-medium uppercase tracking-wider text-[var(--color-text-subtle)]">Checkpoint title</span>
                                                 <input
                                                     value={checklist[selectedChecklistIndex]?.title || ""}
                                                     onChange={(event) => updateChecklistItem(selectedChecklistIndex, "title", event.target.value)}
@@ -1295,7 +1295,7 @@ const PostTaskManualPage = () => {
                                                         <span className={`absolute -left-5 flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-black ${selectedChecklistIndex === index ? "bg-[var(--color-primary)] text-white" : "bg-white text-[var(--color-text-subtle)] ring-1 ring-[var(--color-border)]"}`}>{index + 1}</span>
                                                         <GripVertical className="h-4 w-4 shrink-0 cursor-grab text-[var(--color-text-subtle)] active:cursor-grabbing" aria-hidden />
                                                         <span className="min-w-0 flex-1">
-                                                            <span className="block truncate text-sm font-bold text-[var(--color-text)]">{item.title}</span>
+                                                            <span className="block truncate text-sm font-medium text-[var(--color-text)]">{item.title}</span>
                                                             {item.note ? <span className="mt-0.5 block truncate text-[11px] font-medium text-[var(--color-text-muted)]">{item.note}</span> : <span className="mt-0.5 block text-[11px] font-medium text-[var(--color-text-subtle)]">Add description</span>}
                                                         </span>
                                                     </button>
@@ -1344,11 +1344,11 @@ const PostTaskManualPage = () => {
                         </div>
                     </div>
 
-                    <div className="flex items-center justify-between border-t border-[var(--color-border)] bg-[var(--color-border-subtle)]/30 px-6 py-6 sm:px-8">
-                        <span className="text-xs font-bold text-[var(--color-text-subtle)]">Confirm details in next step</span>
+                    <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[var(--color-border)] bg-[var(--color-border-subtle)]/30 px-6 py-5 sm:px-8 sm:py-6">
+                        <span className="text-xs font-medium text-[var(--color-text-subtle)]">Confirm details in next step</span>
                         <button
                             type="submit"
-                            className="rounded-full bg-[var(--color-primary)] px-12 py-3.5 text-[15px] font-bold text-white shadow-[var(--shadow-glow)] transition hover:bg-[var(--color-primary-hover)] active:scale-[0.98]"
+                            className="w-full sm:w-auto rounded-full bg-[var(--color-primary)] px-8 sm:px-12 py-3.5 text-[15px] font-medium text-white shadow-[var(--shadow-glow)] transition hover:bg-[var(--color-primary-hover)] active:scale-[0.98]"
                         >
                             Review & Preview
                         </button>

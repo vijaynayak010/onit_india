@@ -13,7 +13,7 @@ const Toggle = ({ options = [], activeOption, onChange }) => {
                     type="button"
                     role="tab"
                     aria-selected={activeOption === option.value}
-                    className={`rounded-full px-6 py-2.5 text-[15px] font-bold transition-all select-none sm:px-9 ${
+                    className={`rounded-full px-6 py-2.5 text-[15px] font-medium transition-all select-none sm:px-9 ${
                         activeOption === option.value
                             ? "bg-[var(--color-primary)] text-white shadow-[var(--shadow-sm)]"
                             : "text-[var(--color-text-muted)] hover:text-[var(--color-text)]"

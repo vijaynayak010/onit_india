@@ -53,18 +53,18 @@ const NoTasksYetModal = ({ open, onClose, performer, onPostTask }) => {
               <X className="h-5 w-5" />
             </button>
 
-            <h2 id="no-tasks-modal-title" className="pr-8 text-xl font-extrabold text-[var(--color-text)]">
+            <h2 id="no-tasks-modal-title" className="pr-8 text-xl font-medium text-[var(--color-text)]">
               No Tasks Yet
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-[var(--color-text-muted)]">
               You haven&apos;t posted any task yet. Please post a task to invite{" "}
-              <span className="font-bold text-[var(--color-text)]">{name}</span> as a performer.
+              <span className="font-medium text-[var(--color-text)]">{name}</span> as a performer.
             </p>
 
             <div className="mt-5 flex items-center gap-3 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
               <img src={avatar} alt={name} className="h-12 w-12 rounded-full object-cover ring-2 ring-white" />
               <div className="min-w-0 flex-1">
-                <p className="truncate font-bold text-[var(--color-text)]">{name}</p>
+                <p className="truncate font-medium text-[var(--color-text)]">{name}</p>
                 <p className="truncate text-xs font-medium text-[var(--color-text-muted)]">{profession}</p>
               </div>
               <div className="flex items-center gap-1 rounded-full bg-amber-50 px-2.5 py-1 text-xs font-bold text-amber-700">
@@ -76,7 +76,7 @@ const NoTasksYetModal = ({ open, onClose, performer, onPostTask }) => {
             <button
               type="button"
               onClick={handlePostTask}
-              className="mt-6 w-full rounded-full bg-[var(--color-primary)] py-3.5 text-[15px] font-bold text-white shadow-[0_4px_16px_-4px_rgba(16,96,95,0.45)] transition hover:bg-[var(--color-primary-hover)] active:scale-[0.98]"
+              className="mt-6 w-full rounded-full bg-[var(--color-primary)] py-3.5 text-[15px] font-medium text-white shadow-[0_4px_16px_-4px_rgba(16,96,95,0.45)] transition hover:bg-[var(--color-primary-hover)] active:scale-[0.98]"
             >
               Post a Task
             </button>

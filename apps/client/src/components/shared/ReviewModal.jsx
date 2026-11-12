@@ -68,7 +68,7 @@ const ReviewModal = ({ isOpen, onClose, onSubmit, targetName, role }) => {
                 >
                   <CheckCircle2 size={48} strokeWidth={2.5} />
                 </motion.div>
-                <h3 className="text-2xl font-black text-slate-900">Thank You!</h3>
+                <h3 className="text-2xl font-medium text-slate-900">Thank You!</h3>
                 <p className="font-bold text-slate-400">Your feedback has been shared.</p>
               </motion.div>
             )}
@@ -88,8 +88,8 @@ const ReviewModal = ({ isOpen, onClose, onSubmit, targetName, role }) => {
             <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600">
               <Star size={32} fill="currentColor" />
             </div>
-            <h2 className="text-3xl font-black text-slate-900">Rate your experience</h2>
-            <p className="mt-2 text-lg font-bold text-slate-400">
+            <h2 className="text-3xl font-medium text-slate-900">Rate your experience</h2>
+            <p className="mt-2 text-lg font-medium text-slate-400">
               How was working with <span className="text-emerald-600">{targetName || "the performer"}</span>?
             </p>
           </div>
@@ -143,7 +143,7 @@ const ReviewModal = ({ isOpen, onClose, onSubmit, targetName, role }) => {
                   onChange={(e) => setComment(e.target.value)}
                   disabled={isSubmitting}
                   placeholder={`Tell us what was great or how they can improve...`}
-                  className="min-h-[120px] w-full resize-none bg-transparent p-5 text-[15px] font-semibold text-slate-800 placeholder:text-slate-300 outline-none"
+                  className="min-h-[120px] w-full resize-none bg-transparent p-5 text-[15px] font-medium text-slate-800 placeholder:text-slate-300 outline-none"
                 />
               </div>
             </div>
@@ -152,7 +152,7 @@ const ReviewModal = ({ isOpen, onClose, onSubmit, targetName, role }) => {
             <button
               type="submit"
               disabled={isSubmitting || rating === 0}
-              className="flex w-full items-center justify-center gap-3 rounded-[1.25rem] bg-slate-900 py-5 text-lg font-black text-white shadow-xl transition hover:bg-slate-800 active:scale-[0.98] disabled:opacity-30"
+              className="flex w-full items-center justify-center gap-3 rounded-[1.25rem] bg-slate-900 py-5 text-lg font-medium text-white shadow-xl transition hover:bg-slate-800 active:scale-[0.98] disabled:opacity-30"
             >
               {isSubmitting ? (
                 <>

@@ -13,38 +13,38 @@ const PrivacyPolicy = () => {
         canonical="https://www.firstdoer.com/privacy-policy"
       />
 
-      <section className="pt-24 pb-16 px-6 md:px-20">
+      <section className="pt-24 sm:pt-28 pb-12 sm:pb-16 px-4 sm:px-6 md:px-12 lg:px-20">
         <div className="max-w-4xl mx-auto">
           {/* Back link */}
           <Link
             to="/"
-            className="inline-flex items-center text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] font-medium text-sm mb-8"
+            className="inline-flex items-center text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] font-medium text-sm mb-6 sm:mb-8"
           >
             ← Back to Home
           </Link>
 
           {/* Header */}
-          <header className="border-b border-gray-200 pb-8 mb-10">
-            <h1 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-4">
+          <header className="border-b border-gray-200 pb-6 sm:pb-8 mb-8 sm:mb-10">
+            <h1 className="text-3xl sm:text-4xl font-heading font-medium text-[var(--color-primary)] mb-3 tracking-tight">
               FirstDoer – PRIVACY POLICY
             </h1>
-            <p className="text-gray-600 text-sm md:text-base">
+            <p className="text-gray-600 text-xs sm:text-sm">
               <strong>Effective Date:</strong> 01 March 2026
             </p>
-            <p className="text-gray-600 text-sm md:text-base mt-4">
+            <p className="text-gray-600 text-sm sm:text-base mt-3 sm:mt-4 leading-relaxed">
               FirstDoer is a technology-enabled task marketplace connecting individuals and businesses for digital and future hyperlocal task execution.
             </p>
-            <p className="text-gray-600 text-sm md:text-base mt-2">
+            <p className="text-gray-600 text-sm sm:text-base mt-2 leading-relaxed">
               This Privacy Policy explains how FirstDoer collects, processes, stores, shares, and safeguards personal data when users access or use the platform.
             </p>
-            <p className="text-gray-600 text-sm md:text-base mt-2">
+            <p className="text-gray-600 text-sm sm:text-base mt-2 leading-relaxed">
               By accessing or using FirstDoer, you consent to the practices described in this Privacy Policy.
             </p>
           </header>
 
-          <div className="space-y-10 text-justify leading-relaxed">
+          <div className="space-y-8 sm:space-y-10 leading-relaxed text-sm sm:text-base">
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">1. ROLE OF FirstDoer</h2>
+              <h2 className="text-lg sm:text-xl font-heading font-medium text-[var(--color-primary)] mb-2 sm:mb-3">1. ROLE OF FirstDoer</h2>
               <p>
                 FirstDoer operates solely as an intermediary platform connecting independent users.
               </p>
@@ -57,7 +57,7 @@ const PrivacyPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">2. INFORMATION WE COLLECT</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">2. INFORMATION WE COLLECT</h2>
               <p className="mb-2">We may collect the following categories of information:</p>
               <ul className="list-disc pl-6 space-y-1">
                 <li>Mobile number (for OTP authentication)</li>
@@ -83,7 +83,7 @@ const PrivacyPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">3. PAYMENT INFORMATION</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">3. PAYMENT INFORMATION</h2>
               <p>
                 FirstDoer collects transaction references, timestamps, and payment status.
               </p>
@@ -100,7 +100,7 @@ const PrivacyPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">4. PURPOSE OF DATA PROCESSING</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">4. PURPOSE OF DATA PROCESSING</h2>
               <p className="mb-2">Personal data is processed for the following purposes:</p>
               <ul className="list-disc pl-6 space-y-1">
                 <li>User authentication</li>
@@ -118,7 +118,7 @@ const PrivacyPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">5. USER VISIBILITY</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">5. USER VISIBILITY</h2>
               <p>
                 Task Providers and Task Performers may view limited profile and task-related information necessary for task execution.
               </p>
@@ -128,7 +128,7 @@ const PrivacyPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">6. DATA SHARING</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">6. DATA SHARING</h2>
               <p className="mb-2">Personal data may be shared with:</p>
               <ul className="list-disc pl-6 space-y-1">
                 <li>Payment processors</li>
@@ -147,14 +147,14 @@ const PrivacyPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">7. CROSS-BORDER PROCESSING</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">7. CROSS-BORDER PROCESSING</h2>
               <p>
                 Data may be stored and processed in India or other jurisdictions where service providers operate, subject to reasonable safeguards and compliance with applicable Indian law.
               </p>
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">8. DATA RETENTION</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">8. DATA RETENTION</h2>
               <p className="mb-2">
                 Personal data is retained only for as long as necessary for:
               </p>
@@ -170,7 +170,7 @@ const PrivacyPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">9. USER RIGHTS (Digital Personal Data Protection Act, 2023)</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">9. USER RIGHTS (Digital Personal Data Protection Act, 2023)</h2>
               <p className="mb-2">
                 Subject to applicable law, users may:
               </p>
@@ -186,7 +186,7 @@ const PrivacyPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">10. SECURITY MEASURES</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">10. SECURITY MEASURES</h2>
               <p className="mb-2">
                 FirstDoer implements reasonable technical and organizational safeguards, including:
               </p>
@@ -202,7 +202,7 @@ const PrivacyPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">11. DATA BREACH RESPONSE</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">11. DATA BREACH RESPONSE</h2>
               <p>
                 In the event of a confirmed data breach, appropriate containment measures will be initiated promptly.
               </p>
@@ -212,7 +212,7 @@ const PrivacyPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">12. COMMUNICATION CONSENT</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">12. COMMUNICATION CONSENT</h2>
               <p className="mb-2">
                 Users consent to receive service-related communications via:
               </p>
@@ -229,7 +229,7 @@ const PrivacyPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">13. CHILDREN'S DATA</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">13. CHILDREN'S DATA</h2>
               <p>
                 FirstDoer is intended for individuals aged 18 years or older.
               </p>
@@ -239,7 +239,7 @@ const PrivacyPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">14. CHANGES TO THIS POLICY</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">14. CHANGES TO THIS POLICY</h2>
               <p>
                 This Privacy Policy may be updated periodically.
               </p>
@@ -249,7 +249,7 @@ const PrivacyPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">15. CONTACT & GRIEVANCE REDRESSAL</h2>
+              <h2 className="text-xl font-medium text-[var(--color-primary)] mb-3">15. CONTACT & GRIEVANCE REDRESSAL</h2>
               <p className="mb-2">
                 For privacy-related questions or grievances:
               </p>

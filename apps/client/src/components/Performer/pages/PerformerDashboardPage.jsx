@@ -209,7 +209,7 @@ function SectionShell({ title, subtitle, actionLabel, onAction, children }) {
     <section className="space-y-4">
       <div className="flex items-end justify-between gap-4">
         <div>
-          <h2 className="text-[20px] font-semibold leading-tight text-slate-950">{title}</h2>
+          <h2 className="text-lg sm:text-xl font-heading font-medium leading-tight text-slate-950">{title}</h2>
           {subtitle ? <p className="mt-1 text-[13px] font-medium text-slate-400">{subtitle}</p> : null}
         </div>
         {actionLabel ? (
@@ -230,7 +230,7 @@ function TaskCard({ task, onOpen }) {
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
           <p className="truncate text-[11px] font-semibold text-slate-400">{task.client}</p>
-          <button type="button" onClick={onOpen} className="mt-1 line-clamp-2 text-left text-[16px] font-semibold leading-snug text-slate-950 hover:text-[var(--color-primary)]">
+          <button type="button" onClick={onOpen} className="mt-1 line-clamp-2 text-left text-[15px] sm:text-[16px] font-heading font-medium leading-snug text-slate-950 hover:text-[var(--color-primary)]">
             {task.title}
           </button>
         </div>
@@ -250,7 +250,7 @@ function TaskCard({ task, onOpen }) {
         <span>{task.posted}</span>
       </div>
       <div className="mt-auto flex items-end justify-between gap-4 pt-4">
-        <p className="text-[17px] font-semibold text-slate-950">{task.budget}</p>
+        <p className="text-[17px] font-medium text-slate-950">{task.budget}</p>
         <button
           type="button"
           onClick={onOpen}
@@ -496,7 +496,7 @@ const PerformerDashboardPage = () => {
                 <div className="mb-3 flex h-8 w-8 items-center justify-center rounded-full bg-white/20">
                   <Wallet size={18} strokeWidth={1.9} />
                 </div>
-                <h1 className="text-[20px] font-bold leading-tight">Earn with Confidence</h1>
+                <h1 className="text-xl sm:text-2xl font-heading font-medium leading-tight text-white">Earn with Confidence</h1>
                 <p className="mt-2 text-[15px] font-medium leading-relaxed text-white/95">Transparent payouts with the full task amount shown before you apply</p>
                 <button type="button" onClick={() => navigate("/performer/find-tasks")} className="mt-3 inline-flex w-fit items-center gap-1 border-b border-white pb-0.5 text-[14px] font-semibold">
                   Get Started
@@ -515,7 +515,7 @@ const PerformerDashboardPage = () => {
             <section className="rounded-[16px] border border-slate-100 bg-white p-7 shadow-[0_0_2px_rgba(15,23,42,0.14)]">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <h2 className="text-[15px] font-semibold text-slate-950">Get Started on FirstDoer</h2>
+                  <h2 className="text-[15px] font-medium text-slate-950">Get Started on FirstDoer</h2>
                   <p className="mt-1 text-[11px] font-medium text-slate-400">Complete these steps to unlock your full earning potential.</p>
                 </div>
                 <span className="rounded-full bg-[#EFFBFB] px-3 py-1 text-[11px] font-semibold text-[var(--color-primary)]">{onboardingProgress.done}/3 Done</span>
@@ -535,7 +535,7 @@ const PerformerDashboardPage = () => {
                           {isDone ? "Done" : isNext ? "Next" : `Step ${index + 1}`}
                         </span>
                       </div>
-                      <h3 className="mt-3 text-[13px] font-semibold text-slate-950">{step.title}</h3>
+                      <h3 className="mt-3 text-[13px] font-medium text-slate-950">{step.title}</h3>
                       <p className="mt-1 min-h-[32px] text-[11px] font-medium leading-[15px] text-slate-400">{step.body}</p>
                       <button type="button" onClick={() => navigate(step.path)} className={`mt-4 h-[30px] w-full rounded-full text-[11px] font-semibold ${isNext ? "bg-[var(--color-primary)] text-white" : "bg-slate-50 text-slate-500"}`}>
                         {isDone ? "Completed" : step.cta}
@@ -585,7 +585,7 @@ const PerformerDashboardPage = () => {
                             <Icon size={17} strokeWidth={2} />
                           </div>
                         )}
-                        <h3 className="mt-4 text-[13px] font-semibold text-slate-950">{skill.label}</h3>
+                        <h3 className="mt-4 text-[13px] font-medium text-slate-950">{skill.label}</h3>
                         <p className="mt-2 text-[10px] font-medium text-slate-400">{skill.count} open tasks</p>
                         <span className="mt-3 inline-flex items-center gap-1 text-[11px] font-semibold text-[var(--color-primary)]">
                           Explore <ChevronRight size={12} />
@@ -603,13 +603,13 @@ const PerformerDashboardPage = () => {
 
           <section className="rounded-[16px] border border-slate-100 bg-white p-6 shadow-[0_1px_2px_rgba(15,23,42,0.05)]">
             <div className="mb-5">
-              <h2 className="text-[17px] font-semibold text-slate-950">Performance Ranking</h2>
+              <h2 className="text-base sm:text-lg font-heading font-medium text-slate-950">Performance Ranking</h2>
               <p className="mt-1 text-[12px] font-medium text-slate-400">Your standing among FirstDoer performers.</p>
             </div>
             <div className="grid gap-4 lg:grid-cols-[1fr_435px]">
               <div className="rounded-[12px] bg-slate-50 p-5">
                 <p className="text-[12px] font-semibold text-slate-400">Current Rank</p>
-                <h3 className="mt-5 text-[16px] font-semibold text-slate-950">{rankLabel}</h3>
+                <h3 className="mt-5 text-[16px] font-medium text-slate-950">{rankLabel}</h3>
                 <p className="mt-1 text-[11px] font-medium text-slate-400">
                   {rankLabel === "Unranked"
                     ? `${rankCategory}. Complete your first task to enter the FirstDoer ranking.`
@@ -626,7 +626,7 @@ const PerformerDashboardPage = () => {
                       <button key={performer.id || performer.displayName} type="button" onClick={() => navigate("/performer/leaderboard")} className="rounded-[12px] border border-slate-100 bg-slate-50 p-4 text-center transition hover:border-[#29ADAC]/20 hover:bg-white">
                         <img src={performer.avatar} alt="" className="mx-auto h-12 w-12 rounded-full object-cover" />
                         <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.03em] text-slate-300">Rank #{performer.rank || index + 1}</p>
-                        <h3 className="mt-2 truncate text-[12px] font-semibold text-slate-700">{performer.displayName}</h3>
+                        <h3 className="mt-2 truncate text-[12px] font-medium text-slate-700">{performer.displayName}</h3>
                         <p className="mt-1 truncate text-[10px] font-medium text-slate-400">{performer.profession || performer.domain}</p>
                         <div className="mt-3 h-1 rounded-full bg-[#DFF7F6]" />
                         <p className="mt-2 text-[9px] font-medium text-slate-400">Score {performer.rankingScore ?? 0}</p>
@@ -640,7 +640,7 @@ const PerformerDashboardPage = () => {
                             <Icon size={17} strokeWidth={2} />
                           </div>
                           <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.03em] text-slate-300">Step {index + 1}</p>
-                          <h3 className="mt-2 text-[11px] font-semibold text-slate-600">{step.title}</h3>
+                          <h3 className="mt-2 text-[11px] font-medium text-slate-600">{step.title}</h3>
                           <p className="mt-1 text-[10px] font-medium text-slate-400">{step.body}</p>
                           <div className="mt-3 h-1 overflow-hidden rounded-full bg-slate-200">
                             <div className={`h-full rounded-full ${step.completed ? "w-full bg-[var(--color-primary)]" : "w-0"}`} />
@@ -655,7 +655,7 @@ const PerformerDashboardPage = () => {
 
           <section className="rounded-[20px] border border-slate-100 bg-white p-7 shadow-[0_1px_2px_rgba(15,23,42,0.06)]">
             <div>
-              <h2 className="text-[19px] font-semibold text-slate-950">How FirstDoer Works</h2>
+              <h2 className="text-[19px] font-medium text-slate-950">How FirstDoer Works</h2>
               <p className="mt-1 text-[12px] font-medium text-slate-400">Three steps to earning securely</p>
             </div>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
@@ -666,9 +666,9 @@ const PerformerDashboardPage = () => {
                     <div className={`flex h-[38px] w-[38px] items-center justify-center rounded-[15px] ${item.bg} ${item.color}`}>
                       <Icon size={17} strokeWidth={2} />
                     </div>
-                    <h3 className="mt-5 text-[13px] font-semibold text-slate-700">{item.title}</h3>
+                    <h3 className="mt-5 text-[13px] font-medium text-slate-700">{item.title}</h3>
                     <p className="mt-1 text-[11px] font-medium leading-relaxed text-slate-400">{item.body}</p>
-                    <span className="absolute right-5 top-4 text-[45px] font-bold leading-none text-slate-100">0{index + 1}</span>
+                    <span className="absolute right-5 top-4 text-[45px] font-medium leading-none text-slate-100">0{index + 1}</span>
                   </article>
                 );
               })}

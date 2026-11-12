@@ -17,7 +17,7 @@ const ComingSoonPage = () => {
                     animate={{ opacity: 1, y: 0 }}
                     className="flex flex-col items-center mb-12"
                 >
-                    <div className="text-[42px] font-black text-black tracking-tighter leading-none">
+                    <div className="text-[42px] font-medium text-black tracking-tighter leading-none">
                         On<span className="text-[#16a34a]">IT</span>
                     </div>
                     <span className="text-[10px] font-black text-gray-300 tracking-[0.5em] uppercase mt-2">
@@ -31,10 +31,10 @@ const ComingSoonPage = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.1 }}
                 >
-                    <h1 className="text-[54px] md:text-[72px] font-black text-gray-900 leading-none tracking-tighter mb-8 italic">
+                    <h1 className="text-[54px] md:text-[72px] font-medium text-gray-900 leading-none tracking-tighter mb-8 italic">
                         Something <span className="text-[#16a34a]">Big</span> is Coming.
                     </h1>
-                    <p className="text-[18px] font-bold text-gray-400 mb-12 leading-relaxed">
+                    <p className="text-[18px] font-medium text-gray-400 mb-12 leading-relaxed">
                         We're building the future of micro-tasks and hyperlocal execution. 
                         Our team is working hard to bring you a premium experience. 
                         Stay tuned, we're almost there!

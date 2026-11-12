@@ -57,7 +57,7 @@ const StatusBadge = ({ status }) => {
           <Icon className="h-6 w-6" strokeWidth={2.5} />
         </div>
         <div>
-          <h3 className="text-lg font-bold tracking-tight">{current.label}</h3>
+          <h3 className="text-base sm:text-lg font-heading font-medium tracking-tight">{current.label}</h3>
           <p className="mt-1 text-sm font-medium opacity-90">{current.desc}</p>
         </div>
       </div>
@@ -196,7 +196,7 @@ const PerformerKycPage = () => {
                   <div className="lg:col-span-2">
                     <div className="overflow-hidden rounded-[var(--radius-3xl)] border border-[var(--color-border)] bg-white shadow-[var(--shadow-sm)]">
                       <div className="border-b border-[var(--color-border)] bg-[var(--color-surface)] px-6 py-5">
-                        <h2 className="flex items-center gap-2.5 text-[17px] font-bold text-[var(--color-text)]">
+                        <h2 className="flex items-center gap-2.5 text-[17px] font-medium text-[var(--color-text)]">
                           <Upload size={18} className="text-[var(--color-primary)]" />
                           {kycStep === 1 ? "Step 1 — Government ID" : "Step 2 — Selfie with ID"}
                         </h2>
@@ -251,7 +251,7 @@ const PerformerKycPage = () => {
                               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-[var(--color-primary-subtle)] text-[var(--color-primary)]">
                                 <FileText size={32} />
                               </div>
-                              <p className="max-w-[200px] truncate text-sm font-bold text-[var(--color-text)]">
+                              <p className="max-w-[200px] truncate text-sm font-medium text-[var(--color-text)]">
                                 {(kycStep === 2 ? selfieFile : idFile).name}
                               </p>
                               <p className="mt-1 text-xs text-[var(--color-text-muted)]">
@@ -324,7 +324,7 @@ const PerformerKycPage = () => {
 
                   <div className="space-y-6">
                     <div className="rounded-[var(--radius-3xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-6 shadow-[var(--shadow-sm)]">
-                      <h3 className="mb-4 text-sm font-black uppercase tracking-wider text-[var(--color-text-subtle)]">Why Verify?</h3>
+                      <h3 className="mb-4 text-sm font-medium uppercase tracking-wider text-[var(--color-text-subtle)]">Why Verify?</h3>
                       <ul className="space-y-4">
                         {[
                           { text: "Unlimited Withdrawals", icon: CheckCircle2 },
@@ -341,7 +341,7 @@ const PerformerKycPage = () => {
                     </div>
 
                     <div className="rounded-[var(--radius-3xl)] border border-amber-100 bg-amber-50/50 p-6">
-                      <h3 className="flex items-center gap-2 text-sm font-bold text-amber-800">
+                      <h3 className="flex items-center gap-2 text-sm font-medium text-amber-800">
                         <Info size={16} />
                         Important Note
                       </h3>
@@ -355,7 +355,7 @@ const PerformerKycPage = () => {
                 {kycData.submissions?.length > 0 && (
                   <div className="rounded-[var(--radius-3xl)] border border-[var(--color-border)] bg-white shadow-[var(--shadow-sm)]">
                     <div className="border-b border-[var(--color-border)] bg-[var(--color-surface)] px-6 py-5">
-                      <h2 className="text-[17px] font-bold text-[var(--color-text)]">Submission History</h2>
+                      <h2 className="text-[17px] font-medium text-[var(--color-text)]">Submission History</h2>
                     </div>
                     <div className="divide-y divide-[var(--color-border)]">
                       {kycData.submissions.map((sub, i) => (

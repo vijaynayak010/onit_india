@@ -41,35 +41,35 @@ const CommunityIndexPage = () => (
       }}
     />
 
-    <section className="pt-24 pb-16 px-6 md:px-20 bg-gradient-to-b from-[var(--color-primary)]/5 to-white">
+    <section className="pt-24 sm:pt-28 pb-12 sm:pb-16 px-4 sm:px-6 md:px-12 lg:px-20 bg-gradient-to-b from-[var(--color-primary)]/5 to-white">
       <div className="max-w-3xl mx-auto text-center">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--color-primary)] mb-4 leading-tight">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-medium text-[var(--color-primary)] mb-3 sm:mb-4 leading-tight">
           Community &amp; Growth
         </h1>
-        <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+        <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
           Success stories, top performers, and examples of completed tasks. Real activity from the FirstDoer platform.
         </p>
       </div>
     </section>
 
-    <section className="py-16 px-6 md:px-20">
+    <section className="py-10 sm:py-16 px-4 sm:px-6 md:px-12 lg:px-20">
       <div className="max-w-4xl mx-auto">
-        <div className="grid gap-6 md:grid-cols-1">
+        <div className="grid gap-4 sm:gap-6 md:grid-cols-1">
           {COMMUNITY_LINKS.map((item) => (
             <Link
               key={item.slug}
               to={`/community/${item.slug}`}
-              className="group flex gap-4 rounded-xl border border-[var(--color-primary)]/15 bg-white p-6 hover:border-[var(--color-primary)]/30 hover:shadow-md transition-all"
+              className="group flex gap-3.5 sm:gap-4 rounded-xl border border-[var(--color-primary)]/15 bg-white p-4 sm:p-6 hover:border-[var(--color-primary)]/30 hover:shadow-md transition-all items-start"
             >
-              <div className="shrink-0 w-12 h-12 rounded-xl bg-[var(--color-primary)]/10 text-[var(--color-primary)] flex items-center justify-center group-hover:bg-[var(--color-primary)]/20 transition-colors">
-                <item.icon size={24} />
+              <div className="shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[var(--color-primary)]/10 text-[var(--color-primary)] flex items-center justify-center group-hover:bg-[var(--color-primary)]/20 transition-colors">
+                <item.icon size={22} />
               </div>
               <div className="flex-1 min-w-0">
-                <h2 className="font-semibold text-[var(--color-primary)] mb-1 group-hover:underline text-lg">
+                <h2 className="font-heading font-medium text-[var(--color-primary)] mb-1 group-hover:underline text-base sm:text-lg">
                   {item.title}
                 </h2>
-                <p className="text-gray-600 text-sm">{item.description}</p>
-                <span className="inline-flex items-center gap-1 text-[var(--color-primary)] font-medium text-sm mt-2">
+                <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">{item.description}</p>
+                <span className="inline-flex items-center gap-1 text-[var(--color-primary)] font-medium text-xs sm:text-sm mt-2 min-h-[32px]">
                   View
                   <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
                 </span>

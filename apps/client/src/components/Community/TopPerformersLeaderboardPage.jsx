@@ -40,7 +40,7 @@ const TopPerformersLeaderboardPage = () => (
             <div className="w-12 h-12 rounded-xl bg-[var(--color-primary)]/10 flex items-center justify-center">
               <Award size={24} className="text-[var(--color-primary)]" />
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)]">
+            <h1 className="text-3xl md:text-4xl font-medium text-[var(--color-primary)]">
               Top Performers Leaderboard
             </h1>
           </div>

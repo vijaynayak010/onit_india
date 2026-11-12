@@ -124,7 +124,7 @@ const ReviewCard = ({ review }) => (
     <div className="flex items-start justify-between gap-3">
       <div className="flex items-center gap-3">
         <div
-          className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white ${review.avatarColor}`}
+          className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-sm font-medium text-white ${review.avatarColor}`}
         >
           {review.name.charAt(0)}
         </div>
@@ -204,34 +204,34 @@ const ReviewsView = () => {
           <div className="mb-2 flex h-9 w-9 items-center justify-center rounded-xl bg-violet-50 text-violet-600">
             <MessageCircle size={18} strokeWidth={2.25} />
           </div>
-          <p className="text-2xl font-extrabold text-gray-900">{SUMMARY.reviewsGiven}</p>
+          <p className="text-2xl font-medium text-gray-900">{SUMMARY.reviewsGiven}</p>
           <p className="text-xs font-semibold text-gray-500">Reviews Given</p>
         </div>
         <div className="rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
           <div className="mb-2 flex h-9 w-9 items-center justify-center rounded-xl bg-[#EFFBFB] text-[#10605F]">
             <ThumbsUp size={18} strokeWidth={2.25} />
           </div>
-          <p className="text-2xl font-extrabold text-gray-900">{SUMMARY.wouldRehire}</p>
+          <p className="text-2xl font-medium text-gray-900">{SUMMARY.wouldRehire}</p>
           <p className="text-xs font-semibold text-gray-500">Would Re-hire</p>
         </div>
         <div className="rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
           <div className="mb-2 flex h-9 w-9 items-center justify-center rounded-xl bg-amber-50 text-amber-600">
             <Star size={18} strokeWidth={2.25} />
           </div>
-          <p className="text-2xl font-extrabold text-gray-900">{SUMMARY.avgGiven}★</p>
+          <p className="text-2xl font-medium text-gray-900">{SUMMARY.avgGiven}★</p>
           <p className="text-xs font-semibold text-gray-500">Avg Given</p>
         </div>
       </div>
 
       {showPending ? (
         <section>
-          <h3 className="mb-3 text-xs font-extrabold uppercase tracking-wider text-orange-500">
+          <h3 className="mb-3 text-xs font-medium uppercase tracking-wider text-orange-500">
             Awaiting Your Review
           </h3>
           <div className="rounded-2xl border border-orange-100 bg-orange-50/40 p-5">
             <div className="mb-4 flex items-center justify-between gap-3">
               <div>
-                <p className="font-extrabold text-gray-900">{PENDING_REVIEW.name}</p>
+                <p className="font-medium text-gray-900">{PENDING_REVIEW.name}</p>
                 <p className="text-sm font-medium text-gray-500">{PENDING_REVIEW.role}</p>
               </div>
               <span className="rounded-full bg-orange-100 px-3 py-1 text-xs font-bold text-orange-600">
@@ -268,7 +268,7 @@ const ReviewsView = () => {
 
       {activeFilter !== "Pending" ? (
         <section>
-          <h3 className="mb-4 text-xs font-extrabold uppercase tracking-wider text-violet-600">
+          <h3 className="mb-4 text-xs font-medium uppercase tracking-wider text-violet-600">
             {filteredReviews.length} Reviews
           </h3>
           <div className="space-y-4">

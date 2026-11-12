@@ -38,7 +38,7 @@ const g3 = `${CDN}/campus/g3.webp`;
 
 const SectionTitle = ({ title, subtitle }) => (
     <div className="text-center max-w-3xl mx-auto mb-16">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
+        <h2 className="text-4xl md:text-5xl font-medium text-gray-900 mb-4">
             {title}
         </h2>
         <p className="text-lg text-gray-500">{subtitle}</p>
@@ -165,7 +165,7 @@ export default function CampusDetail() {
                         transition={{ duration: 0.8 }}
                         className="relative z-10 max-w-4xl mx-auto"
                     >
-                        <h1 className="text-3xl md:text-6xl lg:text-8xl font-black text-slate-900 leading-[0.9] tracking-tighter mb-4 lg:mb-8 drop-shadow-sm">
+                        <h1 className="text-3xl md:text-6xl lg:text-8xl font-medium text-slate-900 leading-[0.9] tracking-tighter mb-4 lg:mb-8 drop-shadow-sm">
                             On<span className="text-transparent bg-clip-text bg-green-600 to-emerald-500">IT</span>
                             <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-500">
@@ -384,7 +384,7 @@ export default function CampusDetail() {
                                     visual: (
                                         <div className="bg-white p-4 md:p-6 rounded-2xl shadow-xl border border-slate-100 w-full max-w-sm mx-auto relative transform rotate-[-2deg] hover:rotate-0 transition-transform duration-500">
                                             <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
-                                                <div className="w-12 h-12 md:w-16 md:h-16 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-lg md:text-xl">
+                                                <div className="w-12 h-12 md:w-16 md:h-16 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-medium text-lg md:text-xl">
                                                     AV
                                                 </div>
                                                 <div>
@@ -413,7 +413,7 @@ export default function CampusDetail() {
                                     desc: "Select the types of tasks you want to see—from coding and design to research and marketing.",
                                     visual: (
                                         <div className="bg-white p-6 rounded-2xl shadow-xl border border-slate-100 w-full max-w-sm mx-auto relative transform rotate-[2deg] hover:rotate-0 transition-transform duration-500">
-                                            <h4 className="font-bold text-slate-800 mb-4">
+                                            <h4 className="font-medium text-slate-800 mb-4">
                                                 I'm interested in:
                                             </h4>
                                             <div className="flex flex-wrap gap-2">
@@ -470,7 +470,7 @@ export default function CampusDetail() {
                                     desc: "Payments are held in escrow and released instantly to your wallet upon task completion.",
                                     visual: (
                                         <div className="bg-gradient-to-br from-green-500 to-green-600 h-[220px] md:h-[280px] rounded-2xl shadow-xl w-full max-w-sm mx-auto text-white text-center transform rotate-[-2deg] hover:rotate-0 transition-transform duration-500">
-                                            <div className="text-3xl md:text-4xl font-bold pt-6 md:pt-10 mb-1">
+                                            <div className="text-3xl md:text-4xl font-medium pt-6 md:pt-10 mb-1">
                                                 ₹ 2,500
                                             </div>
                                             <div className="text-green-100 text-xs md:text-sm mb-4 md:mb-6 mt-6 md:mt-10">
@@ -493,10 +493,10 @@ export default function CampusDetail() {
 
                                     {/* Text Side */}
                                     <div className="flex-1 text-center md:text-left">
-                                        <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white border border-slate-200 text-xl font-bold text-slate-900 mb-6 shadow-sm">
+                                        <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white border border-slate-200 text-xl font-medium text-slate-900 mb-6 shadow-sm">
                                             {item.step}
                                         </div>
-                                        <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">
+                                        <h3 className="text-3xl md:text-4xl font-medium text-slate-900 mb-4 leading-tight">
                                             {item.title}
                                         </h3>
                                         <p className="text-lg text-slate-600 leading-relaxed max-w-md mx-auto md:mx-0">
@@ -653,7 +653,7 @@ export default function CampusDetail() {
                                             <div className="w-16 h-16 bg-green-100 rounded-full mx-auto mt-10 flex items-center justify-center text-green-600 mb-4">
                                                 <Check className="w-8 h-8" />
                                             </div>
-                                            <div className="text-xl font-bold text-slate-900  mb-1">
+                                            <div className="text-xl font-medium text-slate-900  mb-1">
                                                 Success Your Task Done!
                                             </div>
                                             <div className="flex justify-center gap-1 text-yellow-400 mb-4">
@@ -677,10 +677,10 @@ export default function CampusDetail() {
 
                                     {/* Text Side */}
                                     <div className="flex-1 text-center md:text-left">
-                                        <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white border border-slate-200 text-xl font-bold text-slate-900 mb-6 shadow-sm">
+                                        <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white border border-slate-200 text-xl font-medium text-slate-900 mb-6 shadow-sm">
                                             {item.step}
                                         </div>
-                                        <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">
+                                        <h3 className="text-3xl md:text-4xl font-medium text-slate-900 mb-4 leading-tight">
                                             {item.title}
                                         </h3>
                                         <p className="text-lg text-slate-600 leading-relaxed max-w-md mx-auto md:mx-0">
@@ -844,7 +844,7 @@ export default function CampusDetail() {
                                 <div className="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center mb-6 text-green-600 group-hover:scale-110 transition-transform">
                                     <Star size={28} fill="currentColor" />
                                 </div>
-                                <div className="text-5xl font-black text-white mb-2">10+</div>
+                                <div className="text-5xl font-medium text-white mb-2">10+</div>
                                 <div className="text-sm text-white font-bold tracking-wide uppercase">
                                     Internship Roles
                                 </div>
@@ -855,7 +855,7 @@ export default function CampusDetail() {
                                 <div className="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center mb-6 text-green-600 group-hover:scale-110 transition-transform">
                                     <Check size={28} strokeWidth={3} />
                                 </div>
-                                <div className="text-5xl font-black text-white mb-2">80+</div>
+                                <div className="text-5xl font-medium text-white mb-2">80+</div>
                                 <div className="text-sm text-white font-bold tracking-wide uppercase">
                                     Tasks Delivered
                                 </div>
@@ -864,7 +864,7 @@ export default function CampusDetail() {
 
                         {/* CENTER COLUMN (Headline) */}
                         <div className="lg:col-span-6 text-center z-10 hidden lg:block">
-                            <h2 className="text-5xl md:text-7xl lg:text-7xl font-black text-slate-900 leading-[0.85] tracking-tighter mb-8 drop-shadow-sm">
+                            <h2 className="text-5xl md:text-7xl lg:text-7xl font-medium text-slate-900 leading-[0.85] tracking-tighter mb-8 drop-shadow-sm">
                                 EARLY
                                 <br />
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-500">
@@ -885,7 +885,7 @@ export default function CampusDetail() {
                                 <div className="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center mb-6 text-green-600 group-hover:scale-110 transition-transform">
                                     <Users size={28} strokeWidth={3} />
                                 </div>
-                                <div className="text-5xl font-black text-white mb-2">200+</div>
+                                <div className="text-5xl font-medium text-white mb-2">200+</div>
                                 <div className="text-sm text-white font-bold tracking-wide uppercase">
                                     Students Onboarded
                                 </div>
@@ -896,7 +896,7 @@ export default function CampusDetail() {
                                 <div className="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center mb-6 text-green-600 group-hover:scale-110 transition-transform">
                                     <Zap size={28} fill="currentColor" />
                                 </div>
-                                <div className="text-5xl font-black text-white mb-2">High</div>
+                                <div className="text-5xl font-medium text-white mb-2">High</div>
                                 <div className="text-sm text-white font-bold tracking-wide uppercase">
                                     Campus Interest
                                 </div>
@@ -913,7 +913,7 @@ export default function CampusDetail() {
                                 <div className="w-8 h-8 bg-green-50 rounded-lg flex items-center justify-center mb-2 text-green-600 mx-auto">
                                     <Star size={16} fill="currentColor" />
                                 </div>
-                                <div className="text-2xl font-black text-white mb-0.5">10+</div>
+                                <div className="text-2xl font-medium text-white mb-0.5">10+</div>
                                 <div className="text-[9px] text-white/80 font-bold tracking-wider uppercase leading-tight">
                                     Internship
                                     <br />
@@ -926,7 +926,7 @@ export default function CampusDetail() {
                                 <div className="w-8 h-8 bg-green-50 rounded-lg flex items-center justify-center mb-2 text-green-600 mx-auto">
                                     <Users size={16} strokeWidth={3} />
                                 </div>
-                                <div className="text-2xl font-black text-white mb-0.5">200+</div>
+                                <div className="text-2xl font-medium text-white mb-0.5">200+</div>
                                 <div className="text-[9px] text-white/80 font-bold tracking-wider uppercase leading-tight">
                                     Students
                                     <br />
@@ -937,7 +937,7 @@ export default function CampusDetail() {
 
                         {/* Center Headline (Mobile) */}
                         <div className="text-center z-10 py-2">
-                            <h2 className="text-4xl font-black text-slate-900 leading-[0.85] tracking-tighter mb-2 drop-shadow-sm">
+                            <h2 className="text-4xl font-medium text-slate-900 leading-[0.85] tracking-tighter mb-2 drop-shadow-sm">
                                 EARLY
                                 <br />
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-500">
@@ -956,7 +956,7 @@ export default function CampusDetail() {
                                 <div className="w-8 h-8 bg-green-50 rounded-lg flex items-center justify-center mb-2 text-green-600 mx-auto">
                                     <Check size={16} strokeWidth={3} />
                                 </div>
-                                <div className="text-2xl font-black text-white mb-0.5">80+</div>
+                                <div className="text-2xl font-medium text-white mb-0.5">80+</div>
                                 <div className="text-[9px] text-white/80 font-bold tracking-wider uppercase leading-tight">
                                     Tasks
                                     <br />
@@ -969,7 +969,7 @@ export default function CampusDetail() {
                                 <div className="w-8 h-8 bg-green-50 rounded-lg flex items-center justify-center mb-2 text-green-600 mx-auto">
                                     <Zap size={16} fill="currentColor" />
                                 </div>
-                                <div className="text-2xl font-black text-white mb-0.5">High</div>
+                                <div className="text-2xl font-medium text-white mb-0.5">High</div>
                                 <div className="text-[9px] text-white/80 font-bold tracking-wider uppercase leading-tight">
                                     Campus
                                     <br />
@@ -1001,7 +1001,7 @@ const MarqueeRow = ({ items }) => (
                     </div>
                 </div>
                 <div className="relative z-10">
-                    <h4 className="text-base md:text-2xl font-bold text-slate-900 mb-1.5 md:mb-3 group-hover/card:text-green-700 transition-colors">
+                    <h4 className="text-base md:text-2xl font-medium text-slate-900 mb-1.5 md:mb-3 group-hover/card:text-green-700 transition-colors">
                         {card.title}
                     </h4>
                     <p className="text-slate-500 leading-relaxed text-xs md:text-base font-medium">

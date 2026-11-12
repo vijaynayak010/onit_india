@@ -17,7 +17,7 @@ const Pill = ({ children }) => (
 );
 
 const SectionHeading = ({ children }) => (
-  <h3 className="text-[11px] font-bold text-[var(--color-text-muted)] uppercase tracking-widest mb-4 border-b border-[var(--color-border)] pb-2">
+  <h3 className="text-[11px] font-medium text-[var(--color-text-muted)] uppercase tracking-widest mb-4 border-b border-[var(--color-border)] pb-2">
     {children}
   </h3>
 );
@@ -40,7 +40,7 @@ const AuthorCard = ({ author, date }) => (
 
 const Callout = ({ children }) => (
   <div className="my-8 p-5 rounded-xl bg-[var(--color-primary-subtle)] border-l-4 border-[var(--color-primary)]">
-    <h4 className="flex items-center gap-2 text-sm font-bold text-[var(--color-text)] mb-2 uppercase tracking-wide">
+    <h4 className="flex items-center gap-2 text-sm font-medium text-[var(--color-text)] mb-2 uppercase tracking-wide">
       <Check size={14} className="text-[var(--color-primary)]" strokeWidth={3} />
       Key Highlight
     </h4>
@@ -97,7 +97,7 @@ function BlogPost() {
         </div>
       ) : (
         <div className="text-center max-w-md">
-          <h1 className="text-xl font-bold text-[var(--color-text)] mb-2">{error}</h1>
+          <h1 className="text-xl font-medium text-[var(--color-text)] mb-2">{error}</h1>
           <p className="text-[var(--color-text-muted)] text-sm mb-6">The article may have been moved or removed.</p>
           <button
             type="button"
@@ -144,15 +144,15 @@ function BlogPost() {
         />
       )}
 
-      <main className="max-w-[1040px] mx-auto px-4 md:px-6 pt-5 sm:pt-6 md:pt-7 pb-12 md:pb-16 lg:pb-20">
+      <main className="max-w-[1040px] mx-auto px-4 sm:px-6 md:px-12 lg:px-20 pt-5 sm:pt-6 md:pt-7 pb-12 sm:pb-16 lg:pb-20">
 
         {/* HEADER GRID */}
-        <header className="mb-8 md:mb-16">
-          <div className="flex flex-col gap-4 md:gap-6 max-w-3xl">
+        <header className="mb-6 sm:mb-8 md:mb-16">
+          <div className="flex flex-col gap-3 sm:gap-4 md:gap-6 max-w-3xl">
             <button
               type="button"
               onClick={() => navigate("/blog")}
-              className="group inline-flex items-center gap-2 text-xs md:text-sm font-semibold text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors mb-2"
+              className="group inline-flex items-center gap-2 text-xs md:text-sm font-semibold text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors mb-2 min-h-[44px]"
             >
               <span className="w-8 h-8 rounded-lg bg-[var(--color-surface-elevated)] border border-[var(--color-border)] flex items-center justify-center group-hover:border-[var(--color-primary)] group-hover:text-[var(--color-primary)] transition-colors shadow-[var(--shadow-xs)]">
                 <ArrowLeft size={14} />
@@ -166,14 +166,14 @@ function BlogPost() {
 
             <motion.h1
               initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-              className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.15] text-[var(--color-text)]"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-medium tracking-tight leading-[1.15] text-[var(--color-text)]"
             >
               {post.title}
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-              className="text-base md:text-xl text-[var(--color-text-muted)] leading-relaxed max-w-2xl font-medium"
+              className="text-sm sm:text-base md:text-xl text-[var(--color-text-muted)] leading-relaxed max-w-2xl font-medium"
             >
               {post.description?.split('.')[0]}.
             </motion.p>
@@ -233,7 +233,7 @@ function BlogPost() {
           <article className="lg:col-span-9 lg:pl-12 order-1 lg:order-2">
             {/* Intro Paragraph */}
             <div className="prose prose-sm md:prose-base lg:prose-lg max-w-none
-                    prose-headings:text-[var(--color-text)] prose-headings:font-bold prose-headings:tracking-tight
+                    prose-headings:text-[var(--color-text)] prose-headings:font-medium prose-headings:tracking-tight
                     prose-p:text-[var(--color-text-muted)] prose-p:leading-8 prose-p:font-medium
                     prose-a:text-[var(--color-primary)] prose-a:no-underline prose-a:font-semibold hover:prose-a:underline
                     prose-img:rounded-xl prose-img:border prose-img:border-[var(--color-border)]
@@ -289,7 +289,7 @@ function BlogPost() {
 
                     // Render
                     if (isHeader) {
-                      elements.push(<h3 key={`h3-${index}`} className="text-xl md:text-2xl font-bold text-[var(--color-text)] mt-10 md:mt-14 mb-4 md:mb-5 tracking-tight">{trimmed}</h3>);
+                      elements.push(<h3 key={`h3-${index}`} className="text-xl md:text-2xl font-medium text-[var(--color-text)] mt-10 md:mt-14 mb-4 md:mb-5 tracking-tight">{trimmed}</h3>);
                     } else {
                       paragraphCount++;
                       elements.push(<p key={`p-${index}`} className="mb-4 md:mb-6 leading-7 md:leading-8 text-[var(--color-text-muted)]">{trimmed.replace(highlight || "xyz_impossible", "").trim() || trimmed}</p>);
@@ -329,7 +329,7 @@ function BlogPost() {
             </div>
             {/* Internal links */}
             <nav className="mt-12 pt-8 border-t border-[var(--color-border)]" aria-label="Explore FirstDoer">
-              <h3 className="text-xs font-bold text-[var(--color-text-muted)] uppercase tracking-widest mb-4">Explore FirstDoer</h3>
+              <h3 className="text-xs font-medium text-[var(--color-text-muted)] uppercase tracking-widest mb-4">Explore FirstDoer</h3>
               <ul className="flex flex-wrap gap-x-4 gap-y-2 text-sm">
                 <li><Link to="/" className="text-[var(--color-primary)] font-semibold hover:underline">Home</Link></li>
                 <li><Link to="/what-is-onit-india" className="text-[var(--color-primary)] font-semibold hover:underline">What is FirstDoer</Link></li>

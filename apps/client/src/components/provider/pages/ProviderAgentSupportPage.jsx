@@ -252,7 +252,7 @@ const ProviderAgentSupportPage = () => {
             <Headphones className="h-3.5 w-3.5" strokeWidth={2.5} />
             Support
           </div>
-          <h1 className="text-3xl font-bold tracking-tight text-[var(--color-text)] sm:text-[32px]">
+          <h1 className="text-3xl font-medium tracking-tight text-[var(--color-text)] sm:text-[32px]">
             {meta.title}
           </h1>
           <p className="mt-2 max-w-2xl text-[15px] font-medium text-[var(--color-text-muted)]">
@@ -268,7 +268,7 @@ const ProviderAgentSupportPage = () => {
               <Headphones size={20} strokeWidth={2.2} />
             </div>
             <div className="min-w-0 flex-1">
-              <p className="text-[15px] font-bold text-[var(--color-text)]">FirstDoer Buddy</p>
+              <p className="text-[15px] font-medium text-[var(--color-text)]">FirstDoer Buddy</p>
               <p className="flex items-center gap-1.5 text-[12px] font-medium text-[var(--color-text-muted)]">
                 <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-primary)]" />
                 Online · Avg. reply under 5 min

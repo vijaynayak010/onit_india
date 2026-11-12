@@ -28,8 +28,8 @@ const TaskCategories = () => {
         className="border-b border-gray-200 bg-white"
         aria-label="Breadcrumb"
       >
-        <div className="max-w-4xl mx-auto px-6 md:px-20 py-4 md:py-4">
-          <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm md:text-[0.9375rem]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20 py-3.5 sm:py-4">
+          <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs sm:text-sm md:text-[0.9375rem]">
             <li>
               <Link
                 to="/"
@@ -54,26 +54,26 @@ const TaskCategories = () => {
         </div>
       </nav>
 
-      <main className="max-w-4xl mx-auto px-6 md:px-20 py-10 md:py-14">
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20 py-8 sm:py-10 md:py-14 font-sans">
         {/* Hero */}
-        <header className="mb-12">
-          <h1 className="text-3xl md:text-4xl lg:text-[2.25rem] font-bold text-[var(--color-primary)] mb-3 tracking-tight">
+        <header className="mb-10 sm:mb-12">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.25rem] font-medium text-[var(--color-primary)] mb-3 tracking-tight font-heading leading-tight">
             Tasks You Can Get Done on FirstDoer
           </h1>
-          <p className="text-lg text-gray-600 leading-relaxed max-w-2xl mb-8">
+          <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-2xl mb-6 sm:mb-8">
             From lead generation to video editing—get real work done by vetted performers. Post your task, get matched, and move forward without the hiring hassle.
           </p>
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             <Link
               to="/"
-              className="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white font-semibold px-5 py-3 rounded-full hover:bg-[#003d35] transition-colors shadow-md hover:shadow-lg"
+              className="inline-flex items-center justify-center gap-2 bg-[var(--color-primary)] text-white font-semibold px-5 py-3 rounded-full hover:bg-[var(--color-primary-hover)] transition-colors shadow-md hover:shadow-lg min-h-[44px]"
             >
               <Plus size={18} strokeWidth={2.5} />
               Post a task
             </Link>
             <Link
               to="/task-performers"
-              className="inline-flex items-center gap-2 border-2 border-[var(--color-primary)] text-[var(--color-primary)] font-semibold px-5 py-3 rounded-full hover:bg-[var(--color-primary)]/5 transition-colors"
+              className="inline-flex items-center justify-center gap-2 border-2 border-[var(--color-primary)] text-[var(--color-primary)] font-semibold px-5 py-3 rounded-full hover:bg-[var(--color-primary)]/5 transition-colors min-h-[44px]"
             >
               Join as a performer
               <ArrowRight size={18} strokeWidth={2.5} />
@@ -114,15 +114,15 @@ const TaskCategories = () => {
                     to={`/tasks/${cat.id}`}
                     className="group flex h-full rounded-2xl border border-gray-200 bg-gray-50/50 overflow-hidden hover:border-[var(--color-primary)]/25 hover:bg-white hover:shadow-md transition-all duration-200"
                   >
-                    <article className="p-6 md:p-6 flex flex-col h-full w-full">
-                      <div className="flex items-start gap-4">
-                        <span className="flex-shrink-0 w-10 h-10 rounded-xl bg-[var(--color-primary)] text-white flex items-center justify-center text-sm font-bold">
+                    <article className="p-4 sm:p-6 flex flex-col h-full w-full">
+                      <div className="flex items-start gap-3 sm:gap-4">
+                        <span className="flex-shrink-0 w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[var(--color-primary)] text-white flex items-center justify-center text-xs sm:text-sm font-bold">
                           {index + 1}
                         </span>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
-                            <Icon size={20} className="text-[var(--color-primary)] flex-shrink-0" aria-hidden />
-                            <h3 className="text-lg font-semibold text-gray-900 group-hover:text-[var(--color-primary)] transition-colors">
+                            <Icon size={18} className="text-[var(--color-primary)] flex-shrink-0" aria-hidden />
+                            <h3 className="text-base sm:text-lg font-medium text-gray-900 group-hover:text-[var(--color-primary)] transition-colors font-heading">
                               {cat.title}
                             </h3>
                           </div>
@@ -161,7 +161,7 @@ const TaskCategories = () => {
 
         {/* Bottom CTA */}
         <section className="mt-14 p-6 md:p-8 rounded-2xl bg-[var(--color-primary)] text-white text-center" aria-label="Call to action">
-          <h2 className="text-xl md:text-2xl font-semibold mb-2">
+          <h2 className="text-xl md:text-2xl font-medium mb-2">
             Ready to get your next task done?
           </h2>
           <p className="text-white/90 mb-6 max-w-xl mx-auto text-sm md:text-base">

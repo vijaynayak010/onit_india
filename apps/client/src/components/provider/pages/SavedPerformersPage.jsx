@@ -42,19 +42,19 @@ const SavedPerformerCard = ({ performer, onRemove }) => {
         {performer.user?.profilePicUrl ? (
           <img src={avatar} alt={name} className="h-14 w-14 shrink-0 rounded-full object-cover" />
         ) : (
-          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-blue-600 text-lg font-bold text-white">
+          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-blue-600 text-lg font-medium text-white">
             {getInitials(name)}
           </div>
         )}
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2">
-            <h2 className="text-base font-extrabold text-gray-900">{name}</h2>
+            <h2 className="text-base font-medium text-gray-900">{name}</h2>
             <span className="inline-flex items-center gap-1 text-sm font-bold text-gray-800">
               <Star size={14} className="fill-amber-400 text-amber-400" strokeWidth={0} />
               {Number(rating).toFixed(rating % 1 === 0 ? 0 : 1)}
             </span>
           </div>
-          <p className="mt-0.5 text-sm font-semibold text-gray-700">{title}</p>
+          <p className="mt-0.5 text-sm font-medium text-gray-700">{title}</p>
           <p className="mt-0.5 text-xs font-medium text-gray-400">{completed} completed tasks</p>
         </div>
       </div>
@@ -141,7 +141,7 @@ const SavedPerformersPage = () => {
       ) : performers.length === 0 ? (
         <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-gray-200 bg-white py-20 text-center">
           <Users className="mb-4 h-12 w-12 text-gray-300" strokeWidth={1.5} />
-          <p className="text-lg font-bold text-gray-700">No saved performers yet</p>
+          <p className="text-lg font-medium text-gray-700">No saved performers yet</p>
           <p className="mt-2 max-w-sm text-sm text-gray-500">
             Bookmark performers while browsing to quickly assign them to future tasks.
           </p>

@@ -94,7 +94,7 @@ const RatingsView = () => {
       <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
           <div className="shrink-0 text-left">
-            <p className="text-5xl font-extrabold text-gray-900">{finalRating.toFixed(1)}</p>
+            <p className="text-5xl font-medium text-gray-900">{finalRating.toFixed(1)}</p>
             <div className="mt-1 flex justify-start">
               <StarRating rating={Math.round(finalRating)} size={20} />
             </div>
@@ -119,7 +119,7 @@ const RatingsView = () => {
       </div>
 
       <div>
-        <h2 className="mb-4 text-xs font-extrabold uppercase tracking-wider text-gray-400">Recent Ratings</h2>
+        <h2 className="mb-4 text-xs font-medium uppercase tracking-wider text-gray-400">Recent Ratings</h2>
         <div className="space-y-4">
           {reviews.map((r, index) => {
             const name = r.reviewer?.displayName || r.reviewer?.email?.split("@")[0] || "Client";
@@ -148,7 +148,7 @@ const RatingsView = () => {
                       {initial}
                     </div>
                     <div>
-                      <p className="font-extrabold text-gray-900">{name}</p>
+                      <p className="font-medium text-gray-900">{name}</p>
                       <p className="text-sm font-medium text-gray-500">{service}</p>
                     </div>
                   </div>

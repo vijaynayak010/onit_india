@@ -137,7 +137,7 @@ const PerformerBankDetailsPage = () => {
                                         <ChevronLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
                                         <span className="text-[14px] font-bold">Back to Banks Details</span>
                                     </button>
-                                    <h2 className="text-[17px] font-bold text-gray-900 mb-4">Enter your UPI ID</h2>
+                                    <h2 className="text-[17px] font-medium text-gray-900 mb-4">Enter your UPI ID</h2>
                                     <div className="relative mb-2">
                                         <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                                             <div className="bg-[var(--color-primary)] text-white text-[10px] font-bold px-1.5 py-0.5 rounded-[4px] tracking-wider">UPI</div>
@@ -165,7 +165,7 @@ const PerformerBankDetailsPage = () => {
                                         <ChevronLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
                                         <span className="text-[14px] font-bold">Back to Banks Details</span>
                                     </button>
-                                    <h2 className="text-[20px] font-bold text-gray-900 mb-8">Enter Card Details</h2>
+                                    <h2 className="text-[20px] font-medium text-gray-900 mb-8">Enter Card Details</h2>
                                     <div className="space-y-6 max-w-[700px]">
                                         <div>
                                             <label className="text-[13px] font-bold text-gray-400 mb-2 block">Card Number</label>
@@ -199,7 +199,7 @@ const PerformerBankDetailsPage = () => {
                                             </div>
                                         </div>
                                         <div>
-                                            <label className="text-[13px] font-bold text-gray-400 mb-2 block">Card Holder's Name</label>
+                                            <label className="text-[13px] font-medium text-gray-400 mb-2 block">Card Holder's Name</label>
                                             <input type="text" placeholder="Priyanka Fabyani" value={cardData.name} onChange={(e) => setCardData({...cardData, name: e.target.value})} className="w-full pl-4 pr-12 py-3.5 border border-[var(--color-border)] rounded-[12px] text-[15px] font-medium text-gray-800 placeholder:text-gray-300 focus:outline-none focus:border-[var(--color-primary)] focus:ring-4 focus:ring-[var(--color-primary)]/10 transition-all" />
                                         </div>
                                         <button onClick={() => { setVerificationType('card'); handleAddMethod(); }} className="w-full py-4 bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] active:scale-[0.99] transition-all text-white font-bold text-[16px] rounded-[14px] mt-4 shadow-sm">Add Card</button>
@@ -211,14 +211,14 @@ const PerformerBankDetailsPage = () => {
                                         <ChevronLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
                                         <span className="text-[14px] font-bold">Back to Banks Details</span>
                                     </button>
-                                    <h2 className="text-[20px] font-bold text-gray-900 mb-8">Enter Bank Details</h2>
+                                    <h2 className="text-[20px] font-medium text-gray-900 mb-8">Enter Bank Details</h2>
                                     <div className="space-y-6 max-w-[700px]">
                                         <div>
-                                            <label className="text-[13px] font-bold text-gray-400 mb-2 block">Account Holder Name</label>
+                                            <label className="text-[13px] font-medium text-gray-400 mb-2 block">Account Holder Name</label>
                                             <input type="text" placeholder="Enter name as per bank record" value={bankData.holderName} onChange={(e) => setBankData({...bankData, holderName: e.target.value})} className="w-full pl-4 pr-12 py-3.5 border border-[var(--color-border)] rounded-[12px] text-[15px] font-medium text-gray-800 placeholder:text-gray-300 focus:outline-none focus:border-[var(--color-primary)] focus:ring-4 focus:ring-[var(--color-primary)]/10 transition-all" />
                                         </div>
                                         <div>
-                                            <label className="text-[13px] font-bold text-gray-400 mb-2 block">Bank Name</label>
+                                            <label className="text-[13px] font-medium text-gray-400 mb-2 block">Bank Name</label>
                                             <div className="relative">
                                                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                                                     <Landmark size={20} className="text-[var(--color-primary)]" />
@@ -245,7 +245,7 @@ const PerformerBankDetailsPage = () => {
                                         <ChevronLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
                                         <span className="text-[14px] font-bold">Back to Banks Details</span>
                                     </button>
-                                    <h2 className="text-[20px] font-bold text-gray-900 mb-8">Link Digital Wallet</h2>
+                                    <h2 className="text-[20px] font-medium text-gray-900 mb-8">Link Digital Wallet</h2>
                                     <div className="space-y-6 max-w-[700px]">
                                         <div>
                                             <label className="text-[13px] font-bold text-gray-400 mb-2 block">Select Provider</label>
@@ -274,7 +274,7 @@ const PerformerBankDetailsPage = () => {
                                         <div className="w-16 h-16 bg-black rounded-2xl flex items-center justify-center mb-4">
                                             <div className="text-white font-black text-xs">CRED</div>
                                         </div>
-                                        <h2 className="text-[20px] font-bold text-gray-900">Link CRED pay</h2>
+                                        <h2 className="text-[20px] font-medium text-gray-900">Link CRED pay</h2>
                                         <p className="text-sm text-gray-500 mt-2">Win cashback on every withdrawal through CRED</p>
                                     </div>
                                     <div className="space-y-6 max-w-[500px] mx-auto">
@@ -296,7 +296,7 @@ const PerformerBankDetailsPage = () => {
 
                                     <div className="flex flex-col md:flex-row gap-6 w-full">
                                         <div className="flex flex-1 flex-col rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-6 shadow-[var(--shadow-sm)]">
-                                            <h3 className="text-[17px] font-bold text-gray-900 mb-4">UPI Links</h3>
+                                            <h3 className="text-[17px] font-medium text-gray-900 mb-4">UPI Links</h3>
                                             <div className="space-y-3 mb-5">
                                                 {payoutMethods.filter(m => m.type === 'UPI').length > 0 ? (
                                                     payoutMethods.filter(m => m.type === 'UPI').map(method => (
@@ -324,7 +324,7 @@ const PerformerBankDetailsPage = () => {
                                         </div>
 
                                         <div className="flex flex-1 flex-col rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-6 shadow-[var(--shadow-sm)]">
-                                            <h3 className="text-[17px] font-bold text-gray-900 mb-4">More Payment Options</h3>
+                                            <h3 className="text-[17px] font-medium text-gray-900 mb-4">More Payment Options</h3>
                                             <div className="space-y-3 mb-5">
                                                 <div onClick={() => setIsAddingWallet(true)} className="flex items-center justify-between p-3.5 bg-[var(--color-primary-subtle)]/50 rounded-[16px] group cursor-pointer hover:bg-[var(--color-primary-subtle)]/70 transition-colors">
                                                     <div className="flex items-center gap-4">
@@ -364,29 +364,29 @@ const PerformerBankDetailsPage = () => {
                                     </div>
 
                                     <div className="w-full rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-6 shadow-[var(--shadow-sm)]">
-                                        <h3 className="text-[16.5px] font-bold text-gray-900 mb-2">Secure Payment Methods</h3>
+                                        <h3 className="text-[16.5px] font-medium text-gray-900 mb-2">Secure Payment Methods</h3>
                                         <p className="text-[13px] font-medium text-gray-500">All your payment information is encrypted and secure. You can add or remove payment methods at any time.</p>
                                     </div>
 
                                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pb-10">
                                         <div className="relative h-[120px] overflow-hidden rounded-2xl bg-gradient-to-br from-[var(--color-primary-subtle)] to-[#DFF7F6]/80 p-6 shadow-[var(--shadow-sm)]">
                                             <div className="relative z-10 flex h-full flex-col justify-between">
-                                                <h4 className="text-[13px] font-bold text-[var(--color-text-muted)]">Total linked methods</h4>
-                                                <p className="text-[36px] font-black tabular-nums text-[var(--color-text)]">{payoutMethods.length}</p>
+                                                <h4 className="text-[13px] font-medium text-[var(--color-text-muted)]">Total linked methods</h4>
+                                                <p className="text-[36px] font-medium tabular-nums text-[var(--color-text)]">{payoutMethods.length}</p>
                                             </div>
                                             <CreditCard size={26} className="absolute right-6 top-6 text-[var(--color-primary)]" strokeWidth={1.5} />
                                         </div>
                                         <div className="relative h-[120px] overflow-hidden rounded-2xl border border-[var(--color-primary)]/25 bg-[var(--color-surface-elevated)] p-6 shadow-[var(--shadow-sm)]">
                                             <div className="relative z-10 flex h-full flex-col justify-between text-left">
-                                                <h4 className="text-[13px] font-bold text-[var(--color-text-muted)]">UPI accounts</h4>
-                                                <p className="text-[36px] font-black tabular-nums text-[var(--color-text)]">{payoutMethods.filter(m => m.type === 'UPI').length}</p>
+                                                <h4 className="text-[13px] font-medium text-[var(--color-text-muted)]">UPI accounts</h4>
+                                                <p className="text-[36px] font-medium tabular-nums text-[var(--color-text)]">{payoutMethods.filter(m => m.type === 'UPI').length}</p>
                                             </div>
                                             <div className="absolute right-6 top-6 rounded border-2 border-[var(--color-primary)] px-1.5 py-0.5 text-[9px] font-black tracking-wide text-[var(--color-primary)]">UPI</div>
                                         </div>
                                         <div className="relative h-[120px] overflow-hidden rounded-2xl bg-gradient-to-br from-[#EFFBFB] to-slate-100 p-6 shadow-[var(--shadow-sm)]">
                                             <div className="relative z-10 flex h-full flex-col justify-between">
-                                                <h4 className="text-[13px] font-bold text-[var(--color-text-muted)]">Primary method</h4>
-                                                <p className="text-lg font-black leading-tight text-[var(--color-text)]">
+                                                <h4 className="text-[13px] font-medium text-[var(--color-text-muted)]">Primary method</h4>
+                                                <p className="text-lg font-medium leading-tight text-[var(--color-text)]">
                                                     {payoutMethods.length > 0 ? (payoutMethods[0].type === 'UPI' ? payoutMethods[0].details?.upiId : payoutMethods[0].type) : 'None'}
                                                 </p>
                                             </div>

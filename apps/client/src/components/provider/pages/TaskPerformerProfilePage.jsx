@@ -359,7 +359,7 @@ const TaskPerformerProfilePage = () => {
             <div className="min-h-screen bg-[var(--color-surface)] pb-24 pt-[80px] flex items-center justify-center">
                 <div className="text-center max-w-md px-6">
                     <AlertCircle className="h-16 w-16 text-red-500 mx-auto mb-4" />
-                    <h2 className="text-2xl font-bold text-[var(--color-text)]">{error || "Profile not found"}</h2>
+                    <h2 className="text-2xl font-medium text-[var(--color-text)]">{error || "Profile not found"}</h2>
                     <button onClick={() => navigate(-1)} className="mt-6 font-bold text-[var(--color-primary)] hover:underline">Go back</button>
                 </div>
             </div>
@@ -457,8 +457,8 @@ const TaskPerformerProfilePage = () => {
                                             <p className="mb-1 text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--color-primary)]">
                                                 {tasker.kycStatus === "VERIFIED" ? "Verified Performer" : "Top rated"}
                                             </p>
-                                            <h1 className="text-2xl font-extrabold tracking-tight text-[var(--color-text)] sm:text-3xl">{displayName}</h1>
-                                            <p className="mt-1 text-[15px] font-semibold text-[var(--color-text-muted)]">{tasker.profession || "Expert Tasker"}</p>
+                                            <h1 className="text-2xl font-medium tracking-tight text-[var(--color-text)] sm:text-3xl">{displayName}</h1>
+                                            <p className="mt-1 text-[15px] font-medium text-[var(--color-text-muted)]">{tasker.profession || "Expert Tasker"}</p>
                                             <div className="mt-3 flex flex-wrap items-center gap-2">
                                                 <div className="flex items-center gap-1 text-amber-500">
                                                     <Star className="h-5 w-5 fill-current" strokeWidth={0} />
@@ -476,7 +476,7 @@ const TaskPerformerProfilePage = () => {
                                             >
                                                 <div className="flex items-center gap-2 text-[var(--color-primary)]">
                                                     <Icon className="h-4 w-4 shrink-0" strokeWidth={2.25} />
-                                                    <span className="text-lg font-black text-[var(--color-text)] truncate">{value}</span>
+                                                    <span className="text-lg font-medium text-[var(--color-text)] truncate">{value}</span>
                                                 </div>
                                                 <p className="mt-1 text-[11px] font-semibold uppercase tracking-wide text-[var(--color-text-subtle)]">{label}</p>
                                             </div>
@@ -521,13 +521,13 @@ const TaskPerformerProfilePage = () => {
                                     className="space-y-6"
                                 >
                                     <div className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-white p-6 shadow-[var(--shadow-sm)] sm:p-8">
-                                        <h2 className="mb-4 text-xl font-bold text-[var(--color-text)]">Overview</h2>
+                                        <h2 className="mb-4 text-xl font-medium text-[var(--color-text)]">Overview</h2>
                                         <p className="whitespace-pre-wrap text-[15px] font-medium leading-[1.75] text-[var(--color-text-muted)]">
                                             {tasker.bio || "This performer has not provided a bio yet. They are a dedicated member of the FirstDoer professional network, committed to high-quality work and client satisfaction."}
                                         </p>
                                     </div>
                                     <div className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-6 shadow-[var(--shadow-sm)] sm:p-8">
-                                        <h2 className="mb-5 text-xl font-bold text-[var(--color-text)]">Skills</h2>
+                                        <h2 className="mb-5 text-xl font-medium text-[var(--color-text)]">Skills</h2>
                                         <div className="flex flex-wrap gap-2">
                                             {(tasker.skills?.length > 0 ? tasker.skills : ["Dedicated", "Professional", "Timely"]).map((skill) => (
                                                 <span
@@ -561,7 +561,7 @@ const TaskPerformerProfilePage = () => {
                                                     </div>
                                                 )}
                                                 <div className="p-5">
-                                                    <h3 className="font-bold text-[var(--color-text)] group-hover:text-[var(--color-primary)]">{item.title}</h3>
+                                                    <h3 className="font-medium text-[var(--color-text)] group-hover:text-[var(--color-primary)]">{item.title}</h3>
                                                     <p className="mt-2 line-clamp-2 text-xs font-medium text-[var(--color-text-subtle)]">{item.description}</p>
                                                     {item.link && (
                                                         <a href={item.link} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-[var(--color-primary)] hover:underline">
@@ -655,25 +655,25 @@ const TaskPerformerProfilePage = () => {
                                     className="space-y-4"
                                 >
                                     <div className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-white p-6 shadow-[var(--shadow-sm)]">
-                                        <h2 className="mb-5 text-xl font-bold text-[var(--color-text)]">Activity Summary</h2>
+                                        <h2 className="mb-5 text-xl font-medium text-[var(--color-text)]">Activity Summary</h2>
                                         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
                                             <div className="rounded-[var(--radius-xl)] bg-[var(--color-primary-subtle)]/60 p-4 text-center">
-                                                <p className="text-2xl font-black text-[var(--color-primary)]">{displayCompletedCount}</p>
+                                                <p className="text-2xl font-medium text-[var(--color-primary)]">{displayCompletedCount}</p>
                                                 <p className="mt-1 text-[12px] font-semibold text-[var(--color-text-subtle)]">Tasks Completed</p>
                                             </div>
                                             <div className="rounded-[var(--radius-xl)] bg-amber-50 p-4 text-center">
-                                                <p className="text-2xl font-black text-amber-600">{displayRatingAvg || "—"}</p>
+                                                <p className="text-2xl font-medium text-amber-600">{displayRatingAvg || "—"}</p>
                                                 <p className="mt-1 text-[12px] font-semibold text-[var(--color-text-subtle)]">Avg Rating</p>
                                             </div>
                                             <div className="rounded-[var(--radius-xl)] bg-blue-50 p-4 text-center col-span-2 sm:col-span-1">
-                                                <p className="text-2xl font-black text-blue-600">{displayRatingCount}</p>
+                                                <p className="text-2xl font-medium text-blue-600">{displayRatingCount}</p>
                                                 <p className="mt-1 text-[12px] font-semibold text-[var(--color-text-subtle)]">Total Reviews</p>
                                             </div>
                                         </div>
                                     </div>
                                     {reviews.length > 0 && (
                                         <div className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-white p-6 shadow-[var(--shadow-sm)]">
-                                            <h2 className="mb-4 text-xl font-bold text-[var(--color-text)]">Latest Feedback</h2>
+                                            <h2 className="mb-4 text-xl font-medium text-[var(--color-text)]">Latest Feedback</h2>
                                             <div className="space-y-3">
                                                 {reviews.slice(0, 3).map(review => (
                                                     <div key={review.id} className="flex items-start gap-3 rounded-[var(--radius-xl)] border border-[var(--color-border)]/60 p-3">
@@ -712,7 +712,7 @@ const TaskPerformerProfilePage = () => {
                                 {displayRate ? (
                                     <>
                                         <p className="text-[11px] font-bold uppercase tracking-widest text-[var(--color-primary)]">Hiring rate</p>
-                                        <p className="mt-2 text-2xl font-black text-[var(--color-text)]">{displayRate}</p>
+                                        <p className="mt-2 text-2xl font-medium text-[var(--color-text)]">{displayRate}</p>
                                     </>
                                 ) : null}
                                 <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1.5 text-[13px] font-bold text-[var(--color-primary)] shadow-[var(--shadow-xs)] ring-1 ring-[var(--color-primary)]/15 mx-auto">
@@ -731,7 +731,7 @@ const TaskPerformerProfilePage = () => {
                                 {contextTask && (
                                     <div className="mt-4 mx-auto max-w-[240px] rounded-2xl border border-[var(--color-primary)]/20 bg-[var(--color-primary-subtle)]/50 p-3.5 text-left shadow-[var(--shadow-sm)] backdrop-blur-md">
                                         <p className="text-[10px] font-extrabold uppercase tracking-widest text-[var(--color-primary)]">{isInterestContext ? "Applied for task" : "Hiring for task"}</p>
-                                        <p className="mt-1 text-xs font-bold text-[var(--color-text)] truncate">{contextTask.title}</p>
+                                        <p className="mt-1 text-xs font-medium text-[var(--color-text)] truncate">{contextTask.title}</p>
                                         <div className="mt-2 flex items-center justify-between">
                                             <span className="text-[11px] font-black text-[var(--color-primary)]">₹{contextTask.priceAmount || contextTask.budget || contextTask.price}</span>
                                             <span className="rounded-full bg-[#10605F]/10 px-2 py-0.5 text-[9px] font-extrabold text-[var(--color-primary)] uppercase">Active</span>
@@ -747,7 +747,7 @@ const TaskPerformerProfilePage = () => {
                                         whileTap={interestId && contextTask ? { scale: 0.98 } : undefined}
                                         disabled={!interestId || !contextTask || interestLoading || loadingContextTask}
                                         onClick={handleHireInterestedPerformer}
-                                        className="relative flex w-full items-center justify-center gap-2.5 overflow-hidden rounded-full bg-[var(--color-primary)] py-4 text-[15px] font-extrabold text-white shadow-[0_4px_20px_rgba(16,96,95,0.35)] transition disabled:cursor-not-allowed disabled:bg-[var(--color-border-subtle)] disabled:text-[var(--color-text-subtle)] disabled:shadow-none"
+                                        className="relative flex w-full items-center justify-center gap-2.5 overflow-hidden rounded-full bg-[var(--color-primary)] py-4 text-[15px] font-medium text-white shadow-[0_4px_20px_rgba(16,96,95,0.35)] transition disabled:cursor-not-allowed disabled:bg-[var(--color-border-subtle)] disabled:text-[var(--color-text-subtle)] disabled:shadow-none"
                                     >
                                         <span className="pointer-events-none absolute inset-0 rounded-full bg-white/10 opacity-0 transition hover:opacity-100" />
                                         <Zap className="h-5 w-5 shrink-0" strokeWidth={2.5} fill="currentColor" />
@@ -764,7 +764,7 @@ const TaskPerformerProfilePage = () => {
                                             whileHover={{ scale: 1.02 }}
                                             whileTap={{ scale: 0.98 }}
                                             onClick={openHireModal}
-                                            className="relative flex w-full items-center justify-center gap-2.5 overflow-hidden rounded-full bg-[var(--color-primary)] py-4 text-[15px] font-extrabold text-white shadow-[0_4px_20px_rgba(16,96,95,0.35)] transition"
+                                            className="relative flex w-full items-center justify-center gap-2.5 overflow-hidden rounded-full bg-[var(--color-primary)] py-4 text-[15px] font-medium text-white shadow-[0_4px_20px_rgba(16,96,95,0.35)] transition"
                                         >
                                             <span className="pointer-events-none absolute inset-0 bg-white/10 opacity-0 transition hover:opacity-100 rounded-full" />
                                             <Zap className="h-5 w-5 shrink-0" strokeWidth={2.5} fill="currentColor" />
@@ -812,7 +812,7 @@ const TaskPerformerProfilePage = () => {
                             {/* Header */}
                             <div className="flex items-center justify-between border-b border-[var(--color-border)] px-6 py-4">
                                 <div>
-                                    <h2 className="text-lg font-extrabold text-[var(--color-text)]">Select a Task to Hire For</h2>
+                                    <h2 className="text-lg font-medium text-[var(--color-text)]">Select a Task to Hire For</h2>
                                     <p className="text-[12px] font-medium text-[var(--color-text-subtle)] mt-0.5">
                                         Hiring <span className="font-bold text-[var(--color-primary)]">{displayName}</span>
                                     </p>
@@ -856,7 +856,7 @@ const TaskPerformerProfilePage = () => {
                                         >
                                             <div className="flex items-start justify-between gap-3">
                                                 <div className="min-w-0">
-                                                    <p className="font-bold text-[14px] text-[var(--color-text)] truncate">{task.title || 'Untitled Task'}</p>
+                                                    <p className="font-medium text-[14px] text-[var(--color-text)] truncate">{task.title || 'Untitled Task'}</p>
                                                     <p className="text-[12px] text-[var(--color-text-subtle)] mt-0.5 line-clamp-1">{task.description || 'No description'}</p>
                                                 </div>
                                                 <div className="shrink-0 text-right">

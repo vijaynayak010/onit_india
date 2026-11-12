@@ -180,7 +180,7 @@ const RequirePhoneVerification = ({ children }) => {
                             {step === "PHONE_ENTRY" ? <Phone className="w-6 h-6" /> : <ShieldCheck className="w-6 h-6" />}
                         </div>
 
-                        <h2 className="text-2xl font-extrabold text-zinc-900 mb-2">
+                        <h2 className="text-2xl font-medium text-zinc-900 mb-2">
                             {step === "PHONE_ENTRY" ? "Add Phone Number" : "Verify Phone Number"}
                         </h2>
                         <p className="text-[14px] text-zinc-500 mb-8 leading-relaxed font-medium">
@@ -210,7 +210,7 @@ const RequirePhoneVerification = ({ children }) => {
                                                 maxLength={10}
                                                 value={phoneNumber}
                                                 onChange={(e) => setPhoneNumber(e.target.value.replace(/\D/g, ""))}
-                                                className="w-full h-14 pl-14 pr-4 bg-zinc-50 border border-zinc-200 rounded-2xl text-zinc-900 font-bold text-lg focus:bg-white focus:border-[var(--color-primary)] focus:ring-4 focus:ring-[var(--color-primary)]/10 transition-all outline-none"
+                                                className="w-full h-14 pl-14 pr-4 bg-zinc-50 border border-zinc-200 rounded-2xl text-zinc-900 font-medium text-lg focus:bg-white focus:border-[var(--color-primary)] focus:ring-4 focus:ring-[var(--color-primary)]/10 transition-all outline-none"
                                                 placeholder="98765 43210"
                                                 autoFocus
                                             />
@@ -238,7 +238,7 @@ const RequirePhoneVerification = ({ children }) => {
                                                 onChange={(e) => handleOtpChange(i, e.target.value)}
                                                 onKeyDown={(e) => handleOtpKeyDown(i, e)}
                                                 disabled={isSubmitting}
-                                                className={`w-14 h-14 sm:w-16 sm:h-16 text-center text-2xl font-bold rounded-2xl border-2 transition-all outline-none ${digit ? "border-[var(--color-primary)] bg-[var(--color-primary-subtle)] text-[var(--color-primary)]" : "border-zinc-200 bg-zinc-50 text-zinc-900"} focus:border-[var(--color-primary)] focus:bg-[var(--color-primary-subtle)] focus:ring-4 focus:ring-[var(--color-primary)]/10`}
+                                                className={`w-14 h-14 sm:w-16 sm:h-16 text-center text-2xl font-medium rounded-2xl border-2 transition-all outline-none ${digit ? "border-[var(--color-primary)] bg-[var(--color-primary-subtle)] text-[var(--color-primary)]" : "border-zinc-200 bg-zinc-50 text-zinc-900"} focus:border-[var(--color-primary)] focus:bg-[var(--color-primary-subtle)] focus:ring-4 focus:ring-[var(--color-primary)]/10`}
                                             />
                                         ))}
                                     </div>

@@ -29,7 +29,7 @@ const AuthLayout = ({ children, illustrationSrc }) => {
                             <Sparkles className="h-3 w-3" strokeWidth={2.5} />
                             FirstDoer
                         </p>
-                        <h2 className="mt-4 max-w-[22ch] text-[clamp(1.35rem,2.2vw,1.75rem)] font-extrabold leading-[1.2] tracking-tight text-[var(--color-text)]">
+                        <h2 className="mt-4 max-w-[22ch] text-[clamp(1.35rem,2.2vw,1.75rem)] font-medium leading-[1.2] tracking-tight text-[var(--color-text)]">
                             India&apos;s task execution workspace
                         </h2>
                         <p className="mt-2.5 max-w-sm text-[13px] font-medium leading-relaxed text-[var(--color-text-muted)] lg:text-[14px]">

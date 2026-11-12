@@ -194,12 +194,12 @@ const PerformerLeaderboardPage = () => {
                   <div className="flex items-center gap-4">
                     <img src={avatarFor(myRow)} alt="" className="h-14 w-14 rounded-full object-cover ring-2 ring-white" />
                     <div>
-                      <p className="text-xl font-bold text-[var(--color-text)]">{myRow.displayName}</p>
+                      <p className="text-xl font-medium text-[var(--color-text)]">{myRow.displayName}</p>
                       <p className="text-sm font-semibold text-[var(--color-text-muted)]">{myRow.profession}</p>
                     </div>
                   </div>
                   <div className="text-right">
-                    <p className="text-3xl font-black tabular-nums text-[var(--color-text)]">
+                    <p className="text-3xl font-medium tabular-nums text-[var(--color-text)]">
                       {myRank != null ? `#${myRank}` : "—"}
                     </p>
                     <p className="text-xs font-bold uppercase tracking-wide text-[var(--color-text-subtle)]">
@@ -242,8 +242,8 @@ const PerformerLeaderboardPage = () => {
                           {p.podiumRank}
                         </div>
                       </div>
-                      <h3 className="text-base font-bold text-[var(--color-text)]">{p.name}{p.isMe ? " (You)" : ""}</h3>
-                      <p className={`mt-0.5 text-xs font-semibold uppercase tracking-wider ${p.isMe ? "text-[var(--color-primary)]" : "text-sky-600"}`}>{p.title}</p>
+                      <h3 className="text-base font-medium text-[var(--color-text)]">{p.name}{p.isMe ? " (You)" : ""}</h3>
+                      <p className={`mt-0.5 text-xs font-medium uppercase tracking-wider ${p.isMe ? "text-[var(--color-primary)]" : "text-sky-600"}`}>{p.title}</p>
                       <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-sky-50 px-4 py-2 text-xs font-bold uppercase tracking-wider text-sky-700 ring-1 ring-sky-200/80">
                         <Gem className="h-4 w-4 text-sky-600" strokeWidth={2} />
                         Score {p.score} · {p.tasks} tasks
@@ -256,7 +256,7 @@ const PerformerLeaderboardPage = () => {
 
             <section aria-label="Ranks 4 through 10" className="mb-12 overflow-hidden rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] shadow-[var(--shadow-sm)] lg:mb-16">
               <div className="flex flex-col gap-2 border-b border-[var(--color-border)] bg-[var(--color-primary-subtle)]/35 px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
-                <h2 className="text-lg font-bold text-[var(--color-text)]">Top performers</h2>
+                <h2 className="text-lg font-medium text-[var(--color-text)]">Top performers</h2>
                 <span className="text-xs font-semibold text-[var(--color-text-muted)]">
                   {category ? `${category} category` : "Overall"} · top 10
                 </span>
@@ -289,7 +289,7 @@ const PerformerLeaderboardPage = () => {
                               <div className="flex items-center gap-4">
                                 <img src={row.img} alt="" className="h-12 w-12 rounded-full object-cover border-2 border-[var(--color-border)]" />
                                 <div>
-                                  <p className="font-bold">{row.name}{row.isMe ? " (You)" : ""}</p>
+                                  <p className="font-medium">{row.name}{row.isMe ? " (You)" : ""}</p>
                                   <p className="text-[10px] font-semibold uppercase tracking-wider text-[var(--color-text-subtle)]">{row.joined}</p>
                                 </div>
                               </div>
@@ -350,7 +350,7 @@ const PerformerLeaderboardPage = () => {
                   </div>
                   <div className="min-w-0">
                     <p className="text-[10px] font-bold uppercase tracking-wide text-[var(--color-text-subtle)]">{stat.label}</p>
-                    <p className="mt-1 truncate text-2xl font-bold tabular-nums tracking-tight text-[var(--color-text)] sm:text-3xl">{stat.value}</p>
+                    <p className="mt-1 truncate text-2xl font-medium tabular-nums tracking-tight text-[var(--color-text)] sm:text-3xl">{stat.value}</p>
                   </div>
                 </div>
               ))}

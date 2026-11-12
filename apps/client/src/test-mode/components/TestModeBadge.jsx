@@ -109,7 +109,7 @@ export default function TestModeBadge() {
           <div className="flex items-center justify-between pb-3 border-b border-zinc-800">
             <div className="flex items-center gap-2">
               <ShieldCheck className="h-4 w-4 text-emerald-400" />
-              <h2 className="text-xs font-black tracking-wider uppercase text-zinc-100">
+              <h2 className="text-xs font-medium tracking-wider uppercase text-zinc-100">
                 Frontend Test Mode
               </h2>
             </div>

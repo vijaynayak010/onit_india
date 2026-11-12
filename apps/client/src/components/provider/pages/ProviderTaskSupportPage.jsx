@@ -83,7 +83,7 @@ const ProviderTaskSupportPage = ({ kind = "need-help" }) => {
           <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--color-primary-subtle)] text-[var(--color-primary)]">
             <Icon className="h-7 w-7" />
           </div>
-          <h1 className="text-2xl font-black text-[var(--color-text)]">{copy.title}</h1>
+          <h1 className="text-2xl font-medium text-[var(--color-text)]">{copy.title}</h1>
           <p className="mt-3 text-sm font-semibold leading-relaxed text-[var(--color-text-muted)]">{copy.body}</p>
 
           {kind === "performer-issues" ? (

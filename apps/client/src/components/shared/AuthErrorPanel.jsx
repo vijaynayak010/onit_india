@@ -65,7 +65,7 @@ const AuthErrorPanel = ({ detail, onDismiss, defaultOpen = true }) => {
               <span className="text-[10px] font-bold text-red-600">HTTP {detail.status}</span>
             ) : null}
           </div>
-          <p className="text-sm font-bold text-red-900">{detail.title}</p>
+          <p className="text-sm font-medium text-red-900">{detail.title}</p>
           <p className="mt-1 text-[13px] font-semibold leading-relaxed text-red-800">
             {detail.userMessage}
           </p>

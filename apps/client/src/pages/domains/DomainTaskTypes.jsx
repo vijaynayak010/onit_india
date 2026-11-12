@@ -159,7 +159,7 @@ function DomainTaskTypes() {
             <Star size={16} aria-hidden />
             Tasks by domain & the flow
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--color-text)] font-['Neue Montreal'] mb-3">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-[var(--color-text)] font-sans mb-3">
             What you can post in each domain
           </h2>
           <p className="text-lg sm:text-xl text-[var(--color-text-muted)] max-w-2xl mx-auto">
@@ -199,7 +199,7 @@ function DomainTaskTypes() {
                       <Icon size={20} className="sm:w-6 sm:h-6" strokeWidth={2} aria-hidden />
                     </div>
                     <div>
-                      <h3 className="text-base sm:text-lg font-bold text-[var(--color-text)]">
+                      <h3 className="text-base sm:text-lg font-medium text-[var(--color-text)]">
                         {domain.title}
                       </h3>
                       <p className="text-sm text-[var(--color-text-muted)] mt-0.5">
@@ -261,7 +261,7 @@ function DomainTaskTypes() {
           className="relative"
         >
           <div className="text-center mb-8 md:mb-10">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--color-text)] font-['Neue Montreal'] mb-2">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-[var(--color-text)] font-sans mb-2">
               The flow: from post to done
             </h2>
             <p className="text-[var(--color-text-muted)] max-w-xl mx-auto">
@@ -289,7 +289,7 @@ function DomainTaskTypes() {
                         {item.step}
                       </span>
                     </div>
-                    <h3 className="font-bold text-[var(--color-text)] text-base sm:text-lg mb-1">
+                    <h3 className="font-medium text-[var(--color-text)] text-base sm:text-lg mb-1">
                       {item.title}
                     </h3>
                     <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">

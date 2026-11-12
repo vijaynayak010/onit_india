@@ -128,7 +128,7 @@ function CategoryCard({ item, direction, isInView, prefersReducedMotion, motionL
         </div>
 
         <div className="relative z-10 mt-6 max-w-[340px]">
-          <h3 className="max-w-[180px] text-[16px] font-semibold leading-5 text-[#0A0A0A]">
+          <h3 className="max-w-[180px] text-[16px] font-medium leading-5 text-[#0A0A0A]">
             {item.title}
           </h3>
           <p className={`mt-[5px] max-w-[340px] text-[12px] leading-4 ${item.descriptionClassName}`}>
@@ -152,7 +152,7 @@ function PostTaskTile({ postTaskHref, isInView, prefersReducedMotion, motionLock
       {...motionProps}
     >
       <article className="relative isolate flex h-full min-h-[195px] overflow-hidden rounded-[20px] bg-[#F3F6FA] p-6 shadow-[0_1px_3px_rgba(0,0,0,0.06)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(15,23,42,0.10)]">
-        <span className="relative z-10 inline-flex h-[34px] min-w-[82px] items-center justify-center rounded-full bg-[#419B6D] px-7 text-[16px] font-semibold text-white">
+        <span className="relative z-10 inline-flex h-[34px] min-w-[82px] items-center justify-center rounded-full bg-[#419B6D] px-7 text-[16px] font-medium text-white">
           Post
         </span>
         <div aria-hidden="true" className="absolute bottom-[-42px] right-[-4px] h-[180px] w-[220px]">
@@ -161,7 +161,7 @@ function PostTaskTile({ postTaskHref, isInView, prefersReducedMotion, motionLock
             return (
               <span
                 key={`${char}-${index}`}
-                className="absolute left-1/2 top-1/2 origin-[0_88px] font-sans text-[18px] font-bold text-[#030213]"
+                className="absolute left-1/2 top-1/2 origin-[0_88px] font-sans text-[18px] font-medium text-[#030213]"
                 style={{ transform: `rotate(${angle}deg) translateY(-88px)` }}
               >
                 {char}
@@ -228,7 +228,7 @@ export default function HomeTaskCategoriesShowcase({
       <div className="mt-10 flex justify-center">
         <Link
           to={browseHref}
-          className="inline-flex min-h-[52px] items-center justify-center gap-4 rounded-full bg-[#419B6D] px-9 text-[15px] font-semibold tracking-wide text-white transition hover:bg-[#348459] focus:outline-none focus:ring-4 focus:ring-[#419B6D]/20"
+          className="inline-flex min-h-[52px] items-center justify-center gap-4 rounded-full bg-[#419B6D] px-9 text-[15px] font-medium tracking-wide text-white transition hover:bg-[#348459] focus:outline-none focus:ring-4 focus:ring-[#419B6D]/20"
         >
           Browse all categories
           <ArrowRight size={20} strokeWidth={2.2} />

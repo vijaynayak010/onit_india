@@ -5,7 +5,7 @@ const AddOrgForm = ({ onSave, onCancel }) => {
   return (
     <div className="mx-auto w-full max-w-3xl space-y-8">
       <div>
-        <h2 className="text-2xl font-bold text-[var(--color-text)]">Add organization</h2>
+        <h2 className="text-2xl font-medium text-[var(--color-text)]">Add organization</h2>
         <p className="mt-2 text-sm font-semibold text-[var(--color-text-muted)]">
           Used when you post tasks on behalf of a business or brand.
         </p>
@@ -35,7 +35,7 @@ const AddOrgForm = ({ onSave, onCancel }) => {
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         <div>
-          <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-[var(--color-text-subtle)]">
+          <label className="mb-2 block text-xs font-medium uppercase tracking-wide text-[var(--color-text-subtle)]">
             Organization name
           </label>
           <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-border-subtle)]/40 px-4 py-3.5">
@@ -72,7 +72,7 @@ const AddOrgForm = ({ onSave, onCancel }) => {
       </div>
 
       <div>
-        <h3 className="mb-4 text-lg font-bold text-[var(--color-text)]">Contact information</h3>
+        <h3 className="mb-4 text-lg font-medium text-[var(--color-text)]">Contact information</h3>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <div>
             <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-[var(--color-text-subtle)]">Contact number</label>

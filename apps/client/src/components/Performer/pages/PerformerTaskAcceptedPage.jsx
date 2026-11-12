@@ -33,7 +33,7 @@ const PerformerTaskAcceptedPage = () => {
                         >
                             <Bell size={40} className="text-white" />
                         </motion.div>
-                        <h1 className="text-[32px] sm:text-[36px] font-black text-white mb-2 tracking-tight leading-tight">Task Provider Notified</h1>
+                        <h1 className="text-[32px] sm:text-[36px] font-medium text-white mb-2 tracking-tight leading-tight">Task Provider Notified</h1>
                         <p className="text-white/80 font-bold text-[15px] sm:text-[16px]">Your interest has been successfully shared with the client</p>
                         
                         {/* Decorative background elements */}
@@ -49,7 +49,7 @@ const PerformerTaskAcceptedPage = () => {
                                     <Bell size={24} />
                                 </div>
                                 <div className="space-y-1">
-                                    <h3 className="text-[18px] font-black text-gray-900">Task Provider Notified</h3>
+                                    <h3 className="text-[18px] font-medium text-gray-900">Task Provider Notified</h3>
                                     <p className="text-[14px] font-bold text-gray-400">The task provider has been notified that you are interested in this task.</p>
                                 </div>
                             </div>
@@ -60,7 +60,7 @@ const PerformerTaskAcceptedPage = () => {
                                 </div>
                                 <div className="flex-1 space-y-1">
                                     <div className="flex items-center justify-between">
-                                        <h3 className="text-[18px] font-black text-gray-900 font-sans">Waiting for Provider's Confirmation</h3>
+                                        <h3 className="text-[18px] font-medium text-gray-900 font-sans">Waiting for Provider's Confirmation</h3>
                                         <span className="bg-amber-50 text-amber-500 text-[11px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest border border-amber-100">Pending</span>
                                     </div>
                                     <p className="text-[14px] font-bold text-gray-400">Please wait for the provider (client) to confirm the task details before final commencement.</p>
@@ -85,7 +85,7 @@ const PerformerTaskAcceptedPage = () => {
                         <div className="flex items-start gap-3">
                             <Info size={18} className="text-indigo-500 mt-0.5" />
                             <div className="space-y-3">
-                                <h4 className="text-[14px] font-black text-indigo-900 uppercase tracking-widest">How it works</h4>
+                                <h4 className="text-[14px] font-medium text-indigo-900 uppercase tracking-widest">How it works</h4>
                                 <ul className="space-y-2">
                                     {[
                                         "The provider reviews your profile and interest",

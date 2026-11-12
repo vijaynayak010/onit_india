@@ -50,7 +50,7 @@ const ForProvidersPage = () => {
       {/* Hero */}
       <section className="pt-24 pb-16 px-6 md:px-20 bg-gradient-to-b from-[#10605F]/5 to-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#10605F] mb-4 leading-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-medium text-[#10605F] mb-4 leading-tight">
             Post work. Get it executed.
           </h1>
           <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
@@ -78,7 +78,7 @@ const ForProvidersPage = () => {
       {/* Benefits */}
       <section className="py-16 px-6 md:px-20 border-t border-gray-100">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#10605F] mb-10 text-center">
+          <h2 className="text-2xl md:text-3xl font-medium text-[#10605F] mb-10 text-center">
             Why post tasks on firstDoer
           </h2>
           <div className="grid gap-6 md:grid-cols-2">
@@ -91,7 +91,7 @@ const ForProvidersPage = () => {
                   <item.icon size={24} />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-[#10605F] mb-1.5">
+                  <h3 className="font-medium text-[#10605F] mb-1.5">
                     {item.title}
                   </h3>
                   <p className="text-gray-600 text-sm leading-relaxed">{item.description}</p>
@@ -105,7 +105,7 @@ const ForProvidersPage = () => {
       {/* How it works */}
       <section className="py-16 px-6 md:px-20 bg-gray-50/50">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#10605F] mb-4 text-center">
+          <h2 className="text-2xl md:text-3xl font-medium text-[#10605F] mb-4 text-center">
             How it works
           </h2>
           <p className="text-gray-600 text-center mb-8">
@@ -131,7 +131,7 @@ const ForProvidersPage = () => {
       <section className="py-16 px-6 md:px-20">
         <div className="max-w-3xl mx-auto text-center">
           <div className="rounded-2xl bg-[#0D1210] text-white p-6 sm:p-8 md:p-10 border border-[#10605F]/30">
-            <h2 className="text-xl md:text-2xl font-bold mb-3">
+            <h2 className="text-xl md:text-2xl font-medium mb-3">
               Ready to get work done?
             </h2>
             <p className="text-[#C6F0F0] mb-6">

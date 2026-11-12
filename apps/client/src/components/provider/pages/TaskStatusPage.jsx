@@ -216,7 +216,7 @@ const TaskStatusPage = () => {
                 <ShieldCheck className="h-8 w-8" strokeWidth={2} />
               )}
             </div>
-            <h2 className="text-xl font-extrabold text-[var(--color-text)]">
+            <h2 className="text-xl font-medium text-[var(--color-text)]">
               {isReviewFailed ? "Task Needs Changes" : "Task Under Review"}
             </h2>
             <p className="mt-2 max-w-md text-sm font-medium text-[var(--color-text-muted)]">
@@ -234,7 +234,7 @@ const TaskStatusPage = () => {
               <span className={`h-1.5 w-1.5 rounded-full ${isReviewFailed ? "bg-red-500" : "bg-amber-500"}`} />
               {isReviewFailed ? "Review Failed" : "In Review"}
             </span>
-            <p className="mt-4 text-sm font-bold text-[var(--color-text)]">{title}</p>
+            <p className="mt-4 text-sm font-medium text-[var(--color-text)]">{title}</p>
           </div>
         </div>
 
@@ -244,7 +244,7 @@ const TaskStatusPage = () => {
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--color-primary-subtle)] text-[var(--color-primary)]">
                 <Bell className="h-5 w-5" />
               </div>
-              <h3 className="text-base font-extrabold text-[var(--color-text)]">What&apos;s happening</h3>
+              <h3 className="text-base font-medium text-[var(--color-text)]">What&apos;s happening</h3>
             </div>
             <ul className="space-y-3">
               {[
@@ -267,7 +267,7 @@ const TaskStatusPage = () => {
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-50 text-red-600">
                   <FileText className="h-5 w-5" strokeWidth={2} />
                 </div>
-                <h3 className="text-base font-extrabold text-[var(--color-text)]">Review Comments</h3>
+                <h3 className="text-base font-medium text-[var(--color-text)]">Review Comments</h3>
               </div>
               {reviewComments.length > 0 ? (
                 <div className="space-y-2">
@@ -299,7 +299,7 @@ const TaskStatusPage = () => {
         ) : null}
 
         <div className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-white p-5 shadow-[var(--shadow-sm)]">
-          <h3 className="mb-5 text-base font-extrabold text-[var(--color-text)]">Progress</h3>
+          <h3 className="mb-5 text-base font-medium text-[var(--color-text)]">Progress</h3>
           <div className="flex items-start gap-2">
             <ProgressStep label="Task Created" state="done" />
             <div className="mt-5 h-0.5 flex-1 bg-[var(--color-primary)]" />

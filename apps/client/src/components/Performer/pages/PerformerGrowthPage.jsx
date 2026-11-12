@@ -126,7 +126,7 @@ export default function PerformerGrowthPage() {
                   <div className="flex flex-wrap items-center justify-between gap-3">
                     <div>
                       <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#7EDEDD]">Today’s practice</p>
-                      <h2 className="mt-2 text-xl font-bold">{dailyQuiz.quiz.title}</h2>
+                      <h2 className="mt-2 text-xl font-medium">{dailyQuiz.quiz.title}</h2>
                       <p className="mt-1 text-sm text-slate-300">
                         {dailyQuiz.quiz.questions?.length || 0} questions · {dailyQuiz.quiz.timeLimitSeconds ? Math.ceil(dailyQuiz.quiz.timeLimitSeconds / 60) : 1} min total · {dailyQuiz.quiz.attemptsRemaining} attempts left
                       </p>
@@ -143,7 +143,7 @@ export default function PerformerGrowthPage() {
               )}
               {!progress?.access?.length && (
                 <div className="mb-5 rounded-2xl border border-gray-200 bg-white p-5">
-                  <h2 className="font-bold text-gray-900">Choose a category to begin</h2>
+                  <h2 className="font-medium text-gray-900">Choose a category to begin</h2>
                   <p className="mt-1 text-sm text-gray-600">Add your skills and category in your profile to see your growth plan.</p>
                   <button type="button" onClick={() => navigate("/performer/profile")} className="mt-3 text-sm font-semibold text-[#10605F]">Complete profile →</button>
                 </div>
@@ -164,7 +164,7 @@ export default function PerformerGrowthPage() {
               </div>
               {categoryResources.length > 0 && (
                 <section className="mt-9">
-                  <h2 className="mb-4 text-xl font-bold text-gray-950">Learn and practice</h2>
+                  <h2 className="mb-4 text-xl font-medium text-gray-950">Learn and practice</h2>
                   <div className="grid gap-5 lg:grid-cols-2">
                     {categoryResources.map((resource) => (
                       <PerformerLearningCard key={resource.id} resource={resource} onUpdated={load} />

@@ -38,7 +38,7 @@ function StatChip({ label, value, icon: Icon }) {
       {Icon && (
         <Icon size={15} strokeWidth={2.2} className="text-[#10605F]" />
       )}
-      <p className="text-[15px] font-black text-gray-900">
+      <p className="text-[15px] font-medium text-gray-900">
         {value}
       </p>
       <p
@@ -55,7 +55,7 @@ function StatChip({ label, value, icon: Icon }) {
 function Section({ title, children }) {
   return (
     <div className="space-y-2">
-      <p className="px-1 text-[11px] font-black uppercase tracking-widest text-[var(--color-text-subtle)]">
+      <p className="px-1 text-[11px] font-medium uppercase tracking-widest text-[var(--color-text-subtle)]">
         {title}
       </p>
       <div className="overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-elevated)] shadow-sm">
@@ -135,7 +135,7 @@ function WalletCard({ balance, onTabChange }) {
             className="text-[#7EDEDD] transition group-hover:translate-x-0.5"
           />
         </div>
-        <p className="mt-2 text-3xl font-black text-white">
+        <p className="mt-2 text-3xl font-medium text-white">
           ₹{(balance || 0).toLocaleString("en-IN")}
         </p>
         <p className="mt-1 text-[11px] font-semibold text-[#7EDEDD]">
@@ -274,7 +274,7 @@ const ProviderAccountHubView = ({ onTabChange: _onTabChange }) => {
                   className="h-16 w-16 rounded-2xl object-cover ring-2 ring-[#29ADAC]/30"
                 />
               ) : (
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#DFF7F6] text-xl font-black text-[#10605F] ring-2 ring-[#29ADAC]/30">
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#DFF7F6] text-xl font-medium text-[#10605F] ring-2 ring-[#29ADAC]/30">
                   {initials}
                 </div>
               )}
@@ -285,7 +285,7 @@ const ProviderAccountHubView = ({ onTabChange: _onTabChange }) => {
               )}
             </div>
             <div className="min-w-0 flex-1">
-              <p className="truncate text-[17px] font-black text-gray-900">{displayName}</p>
+              <p className="truncate text-[17px] font-medium text-gray-900">{displayName}</p>
               <p className="truncate text-[12px] font-medium text-[#10605F]/70">{email}</p>
               <div className="mt-1.5">
                 <RatingBadge rating={rating} total={reviewCount} />

@@ -115,7 +115,7 @@ const ReferEarnView = () => {
               <Gift size={28} strokeWidth={2} />
             </div>
             <div className="min-w-0 flex-1">
-              <h3 className="text-xl font-black text-[var(--color-text)]">Refer & Earn Rewards</h3>
+              <h3 className="text-xl font-medium text-[var(--color-text)]">Refer & Earn Rewards</h3>
               <p className="mt-1 text-sm font-medium leading-relaxed text-[var(--color-text-muted)]">
                 Share your referral links. When a referred user signs up and completes their first task, you both unlock milestone credits and wallet rewards.
               </p>
@@ -150,7 +150,7 @@ const ReferEarnView = () => {
                 Your Referral Code
               </label>
               <div className="flex flex-wrap items-center justify-between gap-3">
-                <code className="font-mono text-xl font-black tracking-widest text-[var(--color-primary)]">
+                <code className="font-mono text-xl font-medium tracking-widest text-[var(--color-primary)]">
                   {code}
                 </code>
                 <button
@@ -241,7 +241,7 @@ const ReferEarnView = () => {
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-6 shadow-[var(--shadow-sm)]">
           <Users className="mb-3 text-[var(--color-primary)]" size={24} strokeWidth={2} />
-          <p className="text-2xl font-bold tabular-nums text-[var(--color-text)]">
+          <p className="text-2xl font-medium tabular-nums text-[var(--color-text)]">
             {successfulReferrals}
           </p>
           <p className="mt-1 text-sm font-semibold text-[var(--color-text-muted)]">
@@ -250,7 +250,7 @@ const ReferEarnView = () => {
         </div>
         <div className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-6 shadow-[var(--shadow-sm)]">
           <Gift className="mb-3 text-[var(--color-primary)]" size={24} strokeWidth={2} />
-          <p className="text-2xl font-bold tabular-nums text-[var(--color-text)]">
+          <p className="text-2xl font-medium tabular-nums text-[var(--color-text)]">
             ₹{Number(totalEarned).toLocaleString("en-IN")}
           </p>
           <p className="mt-1 text-sm font-semibold text-[var(--color-text-muted)]">

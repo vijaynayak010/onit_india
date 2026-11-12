@@ -253,7 +253,7 @@ const PerformerTaskAgreementPage = () => {
             <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-[var(--color-primary)] text-white">
               <CheckCircle2 className="h-10 w-10" strokeWidth={2} />
             </div>
-            <h2 className="text-2xl font-bold text-[var(--color-text)]">Task Accepted!</h2>
+            <h2 className="text-2xl font-medium text-[var(--color-text)]">Task Accepted!</h2>
             <p className="mt-2 text-[15px] font-medium text-[var(--color-text-muted)]">
               Redirecting you to your task dashboard…
             </p>
@@ -269,7 +269,7 @@ const PerformerTaskAgreementPage = () => {
                 <ShieldCheck className="h-3.5 w-3.5" strokeWidth={2.5} />
                 Task Agreement
               </div>
-              <h1 className="text-2xl font-bold tracking-tight text-[var(--color-text)] sm:text-3xl">
+              <h1 className="text-2xl sm:text-3xl font-heading font-medium tracking-tight text-[var(--color-text)]">
                 {view.title}
               </h1>
               <p className="mt-1.5 text-[15px] font-medium text-[var(--color-text-muted)]">
@@ -359,7 +359,7 @@ const PerformerTaskAgreementPage = () => {
                 type="button"
                 onClick={handleAccept}
                 disabled={isAccepting || isDeclining}
-                className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-[var(--color-primary)] px-6 py-3.5 text-[15px] font-bold text-white shadow-[var(--shadow-glow)] transition hover:bg-[var(--color-primary-hover)] disabled:opacity-60"
+                className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-[var(--color-primary)] px-6 py-3.5 text-[15px] font-medium text-white shadow-[var(--shadow-glow)] transition hover:bg-[var(--color-primary-hover)] disabled:opacity-60"
               >
                 {isAccepting ? (
                   <Loader2 className="h-5 w-5 animate-spin" />
@@ -373,7 +373,7 @@ const PerformerTaskAgreementPage = () => {
                 type="button"
                 onClick={handleDecline}
                 disabled={isAccepting || isDeclining}
-                className="flex items-center justify-center gap-2 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-elevated)] px-6 py-3.5 text-[15px] font-bold text-[var(--color-text-subtle)] transition hover:border-red-200 hover:bg-red-50 hover:text-red-500 disabled:opacity-60"
+                className="flex items-center justify-center gap-2 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-elevated)] px-6 py-3.5 text-[15px] font-medium text-[var(--color-text-subtle)] transition hover:border-red-200 hover:bg-red-50 hover:text-red-500 disabled:opacity-60"
               >
                 {isDeclining && <Loader2 className="h-4 w-4 animate-spin" />}
                 {isDeclining ? "Declining…" : "Decline"}

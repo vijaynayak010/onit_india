@@ -269,7 +269,7 @@ const PerformerTaskInvitationPage = () => {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center bg-[var(--color-bg)] p-6">
         <AlertCircle size={44} className="mb-3 text-red-500" />
-        <h2 className="mb-2 text-xl font-bold text-[var(--color-text)]">
+        <h2 className="mb-2 text-xl font-medium text-[var(--color-text)]">
           {loadError || "Invitation not found"}
         </h2>
         <button
@@ -296,17 +296,17 @@ const PerformerTaskInvitationPage = () => {
             <div className="mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-[var(--color-primary)] shadow-[var(--shadow-md)]">
               <Check size={48} className="text-white" strokeWidth={3} />
             </div>
-            <h1 className="text-[26px] font-bold tracking-tight text-[var(--color-text)]">
+            <h1 className="text-[26px] font-medium tracking-tight text-[var(--color-text)]">
               You&apos;re In!
             </h1>
             <p className="mt-2 max-w-sm text-[14px] font-medium leading-relaxed text-[var(--color-text-muted)]">
               You&apos;ve accepted the invitation for{" "}
-              <span className="font-bold text-[var(--color-text)]">&apos;{view.title}&apos;</span>.
+              <span className="font-medium text-[var(--color-text)]">&apos;{view.title}&apos;</span>.
             </p>
 
             <article className="mt-8 w-full rounded-2xl border border-[var(--color-border)] bg-white p-5 text-left shadow-[var(--shadow-sm)]">
               <div className="flex items-start justify-between gap-3">
-                <h2 className="text-[17px] font-bold text-[var(--color-text)]">{view.title}</h2>
+                <h2 className="text-[17px] font-medium text-[var(--color-text)]">{view.title}</h2>
                 <span className="shrink-0 rounded-full bg-amber-50 px-3 py-1 text-[11px] font-bold text-amber-600">
                   Pending Payment
                 </span>
@@ -345,7 +345,7 @@ const PerformerTaskInvitationPage = () => {
               <button
                 type="button"
                 onClick={() => navigate("/performer/dashboard")}
-                className="w-full rounded-xl bg-[var(--color-primary)] py-3.5 text-[15px] font-bold text-white shadow-[var(--shadow-sm)] transition hover:bg-[var(--color-primary-hover)]"
+                className="w-full rounded-xl bg-[var(--color-primary)] py-3.5 text-[15px] font-medium text-white shadow-[var(--shadow-sm)] transition hover:bg-[var(--color-primary-hover)]"
               >
                 Back To Home
               </button>
@@ -368,7 +368,7 @@ const PerformerTaskInvitationPage = () => {
         <button
           type="button"
           onClick={() => navigate(-1)}
-          className="mb-5 flex items-center gap-1.5 text-[17px] font-bold text-[var(--color-text)] transition hover:opacity-80"
+          className="mb-5 flex items-center gap-1.5 text-[17px] font-medium text-[var(--color-text)] transition hover:opacity-80"
         >
           <ChevronLeft size={22} strokeWidth={2.5} />
           Task Invitation
@@ -380,7 +380,7 @@ const PerformerTaskInvitationPage = () => {
           className="rounded-2xl border border-[var(--color-border)] bg-white p-5 shadow-[var(--shadow-sm)] sm:p-6"
         >
           <div className="flex items-start justify-between gap-3">
-            <h1 className="text-[22px] font-bold leading-snug tracking-tight text-[var(--color-text)]">
+            <h1 className="text-[22px] font-medium leading-snug tracking-tight text-[var(--color-text)]">
               {view.title}
             </h1>
             <span className="shrink-0 rounded-lg border border-[var(--color-primary)] px-2.5 py-1 text-[11px] font-bold text-[var(--color-primary)]">
@@ -418,7 +418,7 @@ const PerformerTaskInvitationPage = () => {
               {view.clientInitials}
             </div>
             <div className="min-w-0 flex-1">
-              <p className="truncate text-[15px] font-bold text-[var(--color-text)]">
+              <p className="truncate text-[15px] font-medium text-[var(--color-text)]">
                 {view.clientName}
               </p>
               {view.clientTitle && (
@@ -463,7 +463,7 @@ const PerformerTaskInvitationPage = () => {
               setDeclineOpen(true);
             }}
             disabled={isAccepting}
-            className="flex-1 rounded-xl border border-[var(--color-border)] bg-white py-3.5 text-[15px] font-bold text-[var(--color-text)] transition hover:bg-gray-50 disabled:opacity-60"
+            className="flex-1 rounded-xl border border-[var(--color-border)] bg-white py-3.5 text-[15px] font-medium text-[var(--color-text)] transition hover:bg-gray-50 disabled:opacity-60"
           >
             Decline
           </button>
@@ -471,7 +471,7 @@ const PerformerTaskInvitationPage = () => {
             type="button"
             onClick={handleAccept}
             disabled={isAccepting}
-            className="flex-[1.4] rounded-xl bg-[var(--color-primary)] py-3.5 text-[15px] font-bold text-white shadow-[var(--shadow-sm)] transition hover:bg-[var(--color-primary-hover)] disabled:opacity-60"
+            className="flex-[1.4] rounded-xl bg-[var(--color-primary)] py-3.5 text-[15px] font-medium text-white shadow-[var(--shadow-sm)] transition hover:bg-[var(--color-primary-hover)] disabled:opacity-60"
           >
             {isAccepting ? "Accepting…" : "Accept Invitation"}
           </button>

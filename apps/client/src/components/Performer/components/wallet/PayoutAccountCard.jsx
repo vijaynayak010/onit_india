@@ -12,7 +12,7 @@ const PayoutAccountCard = ({ method, onChange, showChange = true }) => {
           <Landmark size={20} strokeWidth={2.2} />
         </div>
         <div className="min-w-0 flex-1">
-          <p className="text-[15px] font-bold text-gray-900">{info.name}</p>
+          <p className="text-[15px] font-medium text-gray-900">{info.name}</p>
           <p className="text-[13px] font-medium text-gray-500">{info.detail}</p>
         </div>
         {info.verified && (

@@ -140,7 +140,7 @@ export default function ChromaGrid({
             <img src={c.image} alt={c.title} />
           </div>
           <div className="chroma-info">
-            <span className="font-semibold text-white">{c.title}</span>
+            <span className="font-medium text-white">{c.title}</span>
             {c.handle && <span className="handle text-sm">{c.handle}</span>}
             {c.subtitle && (
               <span className="text-sm text-white/80 col-span-2">

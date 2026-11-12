@@ -128,7 +128,7 @@ const NotificationBell = () => {
                                                         <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[var(--color-primary)]" />
                                                     )}
                                                     <div className="min-w-0 flex-1">
-                                                        <p className={`truncate text-[13px] ${!n.isRead ? 'font-bold text-gray-900' : 'font-semibold text-gray-700'}`}>
+                                                        <p className={`truncate text-[13px] ${!n.isRead ? 'font-medium text-gray-900' : 'font-semibold text-gray-700'}`}>
                                                             {title}
                                                         </p>
                                                         {body && (

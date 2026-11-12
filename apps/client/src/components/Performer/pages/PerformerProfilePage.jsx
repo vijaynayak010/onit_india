@@ -106,7 +106,7 @@ function SectionCard({ title, subtitle, icon: Icon, action, children }) {
             </div>
           )}
           <div>
-            <h3 className="text-[15px] font-bold text-slate-900">{title}</h3>
+            <h3 className="text-[15px] font-medium text-slate-900">{title}</h3>
             {subtitle && <p className="text-[12px] font-medium text-slate-500">{subtitle}</p>}
           </div>
         </div>
@@ -132,7 +132,7 @@ const ModalShell = ({ title, subtitle, children, onClose, onSave, saveLabel = "S
       <div className="w-full max-w-lg overflow-hidden rounded-3xl bg-white shadow-2xl animate-in fade-in zoom-in-95 duration-150">
         <div className="flex items-center justify-between border-b border-slate-100 px-6 py-4.5">
           <div>
-            <h3 className="text-base font-extrabold text-slate-900">{title}</h3>
+            <h3 className="text-base font-medium text-slate-900">{title}</h3>
             {subtitle && <p className="mt-0.5 text-xs font-medium text-slate-500">{subtitle}</p>}
           </div>
           <button
@@ -173,7 +173,7 @@ const ProjectCard = ({ project, onRemove }) => (
       <Link2 size={16} strokeWidth={2.2} />
     </div>
     <div className="min-w-0 flex-1">
-      <p className="text-[13.5px] font-bold text-slate-900 leading-tight">{project.title}</p>
+      <p className="text-[13.5px] font-medium text-slate-900 leading-tight">{project.title}</p>
       {project.url && (
         <a
           href={project.url}
@@ -204,7 +204,7 @@ const CertCard = ({ cert, onRemove }) => (
       <Award size={16} strokeWidth={2.2} />
     </div>
     <div className="min-w-0 flex-1">
-      <p className="text-[13.5px] font-bold text-slate-900 leading-tight">{cert.title}</p>
+      <p className="text-[13.5px] font-medium text-slate-900 leading-tight">{cert.title}</p>
       {cert.issuer && (
         <p className="mt-1 text-[11.5px] font-medium text-slate-500">{cert.issuer}</p>
       )}
@@ -637,7 +637,7 @@ const PerformerProfilePage = () => {
               {/* Avatar & Identity */}
               <div className="flex items-center gap-4.5">
                 <div className="relative shrink-0">
-                  <div className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-2xl bg-[#10605F] text-2xl font-black text-white shadow-md ring-4 ring-white">
+                  <div className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-2xl bg-[#10605F] text-2xl font-medium text-white shadow-md ring-4 ring-white">
                     {uploadingAvatar ? (
                       <Loader2 size={24} className="animate-spin text-white" />
                     ) : profile.avatarUrl && !profile.avatarUrl.includes("gravatar.com/avatar/000") ? (
@@ -671,7 +671,7 @@ const PerformerProfilePage = () => {
 
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-2">
-                    <h2 className="truncate text-lg font-black text-slate-900 sm:text-xl">
+                    <h2 className="truncate text-lg font-medium text-slate-900 sm:text-xl">
                       {profile.fullName || "Performer"}
                     </h2>
                     {profile.phoneVerified && (
@@ -780,7 +780,7 @@ const PerformerProfilePage = () => {
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-slate-700">
+                    <label className="text-xs font-medium text-slate-700">
                       Professional Title
                     </label>
                     <input
@@ -1233,7 +1233,7 @@ const PerformerProfilePage = () => {
         >
           <div className="space-y-3.5">
             <div className="space-y-1">
-              <label className="text-xs font-bold text-slate-700">Project Title *</label>
+              <label className="text-xs font-medium text-slate-700">Project Title *</label>
               <input
                 type="text"
                 value={draftProject.title}
@@ -1266,7 +1266,7 @@ const PerformerProfilePage = () => {
         >
           <div className="space-y-3.5">
             <div className="space-y-1">
-              <label className="text-xs font-bold text-slate-700">Certification Name *</label>
+              <label className="text-xs font-medium text-slate-700">Certification Name *</label>
               <input
                 type="text"
                 value={draftCertification.title}

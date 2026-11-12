@@ -132,7 +132,7 @@ const TaskTemplatesPage = () => {
           <section className="mt-8">
             <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
               <div>
-                <h2 className="text-xl font-black text-[var(--color-text)]">
+                <h2 className="text-xl font-medium text-[var(--color-text)]">
                   {selectedCategory ? `${selectedCategory} templates` : "Task templates"}
                 </h2>
                 <p className="mt-1 text-sm font-semibold text-[var(--color-text-muted)]">
@@ -187,7 +187,7 @@ const TaskTemplatesPage = () => {
                         <img src={template.imageUrl} alt="" className="h-full w-full object-cover" />
                       </div>
                     ) : null}
-                    <h3 className="line-clamp-2 text-base font-black leading-snug text-[var(--color-text)]">{template.title}</h3>
+                    <h3 className="line-clamp-2 text-base font-medium leading-snug text-[var(--color-text)]">{template.title}</h3>
                     <p className="mt-3 line-clamp-3 text-sm font-medium leading-relaxed text-[var(--color-text-muted)]">{template.description}</p>
                     <div className="mt-4 flex flex-wrap gap-2">
                       {(template.skills || []).slice(0, 3).map((skill) => (

@@ -33,7 +33,7 @@ const SelectCard = ({
         <Icon size={compact ? 20 : 22} strokeWidth={2} />
       </div>
     )}
-    <span className={`font-bold text-gray-900 ${compact ? "text-[13px] leading-snug" : "text-[14px]"}`}>
+    <span className={`font-semibold text-gray-900 ${compact ? "text-[13px] leading-snug" : "text-[14px]"}`}>
       {label}
     </span>
     {sublabel && (

@@ -49,7 +49,7 @@ export function FindWorkBySkills({ onSkillSelect }) {
     <section aria-labelledby="find-work-by-skills">
       <h2
         id="find-work-by-skills"
-        className="mb-4 text-[17px] font-bold tracking-tight text-gray-900"
+        className="mb-4 text-[17px] font-medium tracking-tight text-gray-900"
       >
         Find Work By Skills
       </h2>
@@ -93,7 +93,7 @@ export function FindWorkBySkills({ onSkillSelect }) {
                       <Icon size={22} strokeWidth={2} />
                     </div>
                   )}
-                  <span className="text-center text-[12px] font-bold leading-tight text-gray-800">
+                  <span className="text-center text-[12px] font-semibold leading-tight text-gray-800">
                     {skill.label}
                   </span>
                 </button>
@@ -140,14 +140,14 @@ export function PerformanceRankingCard({ onViewRanking }) {
     <section aria-labelledby="performance-ranking">
       <h2
         id="performance-ranking"
-        className="mb-4 text-[17px] font-bold tracking-tight text-gray-900"
+        className="mb-4 text-[17px] font-medium tracking-tight text-gray-900"
       >
         Performance Ranking
       </h2>
 
       <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm">
         <div className="px-5 py-5">
-          <h3 className="text-[16px] font-bold text-slate-800">
+          <h3 className="text-[16px] font-medium text-slate-800">
             {loading ? "Loading…" : rankLabel && rankLabel !== "Unranked" ? rankLabel : "Build Your Reputation"}
           </h3>
           <p className="mt-2 text-[13px] font-medium leading-relaxed text-gray-500">

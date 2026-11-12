@@ -15,7 +15,7 @@ const NotFoundPage = () => {
       <section className="flex-1 pt-32 pb-16 px-6 md:px-20 flex items-center justify-center">
         <div className="max-w-xl mx-auto text-center">
           <p className="text-6xl md:text-8xl font-black text-[var(--color-primary)]/10 mb-4">404</p>
-          <h1 className="text-2xl md:text-3xl font-bold text-[var(--color-primary)] mb-3">
+          <h1 className="text-2xl md:text-3xl font-medium text-[var(--color-primary)] mb-3">
             Page not found
           </h1>
           <p className="text-gray-600 mb-8">

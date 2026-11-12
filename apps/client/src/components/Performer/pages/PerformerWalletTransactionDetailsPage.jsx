@@ -58,15 +58,15 @@ const PerformerWalletTransactionDetailsPage = () => {
                                     <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#2BA960] shadow-sm">
                                         <Wallet size={16} strokeWidth={2.5} />
                                     </div>
-                                    <h2 className="text-[32px] font-bold text-[#2BA960] leading-none tracking-tight">₹{transaction.amount}</h2>
+                                    <h2 className="text-[32px] font-medium text-[#2BA960] leading-none tracking-tight">₹{transaction.amount}</h2>
                                 </div>
-                                <p className="text-[15px] font-bold text-[#4B5563] mb-6 pl-11">{transaction.type}</p>
+                                <p className="text-[15px] font-medium text-[#4B5563] mb-6 pl-11">{transaction.type}</p>
 
                                 <div className="bg-white rounded-[12px] border border-[#E5E7EB] p-4 flex items-center justify-between shadow-sm">
                                     <div className="flex items-center gap-3">
                                         <img src={transaction.from.avatar} alt={transaction.from.name ? `Sender: ${transaction.from.name}` : "Sender"} className="w-10 h-10 rounded-full object-cover border border-[#E5E7EB]" />
                                         <div>
-                                            <p className="text-[14px] font-bold text-[#1F2937] leading-tight">{transaction.from.name}</p>
+                                            <p className="text-[14px] font-medium text-[#1F2937] leading-tight">{transaction.from.name}</p>
                                             <p className="text-[11px] font-medium text-[#6B7280] mt-0.5">{transaction.from.role}</p>
                                         </div>
                                     </div>
@@ -77,7 +77,7 @@ const PerformerWalletTransactionDetailsPage = () => {
                                     </div>
                                     <div className="flex items-center gap-3">
                                         <div className="text-right">
-                                            <p className="text-[14px] font-bold text-[#1F2937] leading-tight">{transaction.to.name}</p>
+                                            <p className="text-[14px] font-medium text-[#1F2937] leading-tight">{transaction.to.name}</p>
                                             <p className="text-[11px] font-medium text-[#6B7280] mt-0.5">{transaction.to.role}</p>
                                         </div>
                                         <img src={transaction.to.avatar} alt={transaction.to.name ? `Recipient: ${transaction.to.name}` : "Recipient"} className="w-10 h-10 rounded-full object-cover border border-[#E5E7EB]" />
@@ -89,7 +89,7 @@ const PerformerWalletTransactionDetailsPage = () => {
                             <div className="grid grid-cols-2 gap-6">
                                 {/* Transaction Info */}
                                 <div>
-                                    <h3 className="text-[16px] font-bold text-[#1F2937] mb-3">Transaction info</h3>
+                                    <h3 className="text-[16px] font-medium text-[#1F2937] mb-3">Transaction info</h3>
                                     <div className="bg-white rounded-[12px] border border-[#E5E7EB] p-5 space-y-4 shadow-sm">
                                         <div className="flex justify-between items-center">
                                             <span className="text-[13px] font-medium text-[#6B7280]">Date & Time</span>
@@ -110,7 +110,7 @@ const PerformerWalletTransactionDetailsPage = () => {
 
                                 {/* Task & Reason */}
                                 <div>
-                                    <h3 className="text-[16px] font-bold text-[#1F2937] mb-3">Task & Reason</h3>
+                                    <h3 className="text-[16px] font-medium text-[#1F2937] mb-3">Task & Reason</h3>
                                     <div className="bg-white rounded-[12px] border border-[#E5E7EB] p-5 space-y-4 shadow-sm h-[134px]">
                                         <div className="flex justify-between items-start gap-4">
                                             <span className="text-[13px] font-bold text-[#1F2937] min-w-[50px]">Task</span>
@@ -128,11 +128,11 @@ const PerformerWalletTransactionDetailsPage = () => {
 
                             {/* Payment Method Details */}
                             <div>
-                                <h3 className="text-[16px] font-bold text-[#1F2937] mb-3">Payment Method</h3>
+                                <h3 className="text-[16px] font-medium text-[#1F2937] mb-3">Payment Method</h3>
                                 <div className="bg-white rounded-[12px] border border-[#E5E7EB] p-5 shadow-sm">
                                     <div className="flex items-center gap-2 mb-2">
                                         <Wallet size={16} strokeWidth={2.5} className="text-[#4B5563]" />
-                                        <span className="text-[16px] font-bold text-[#1F2937]">₹ {transaction.amount}</span>
+                                        <span className="text-[16px] font-medium text-[#1F2937]">₹ {transaction.amount}</span>
                                     </div>
                                     <p className="text-[13px] font-medium text-[#6B7280]">
                                         Refunded <span className="font-bold text-[#2BA960]">₹{transaction.amount}</span> to your wallet balance
@@ -142,7 +142,7 @@ const PerformerWalletTransactionDetailsPage = () => {
 
                             {/* Comments */}
                             <div>
-                                <h3 className="text-[16px] font-bold text-[#1F2937] mb-3">Comments</h3>
+                                <h3 className="text-[16px] font-medium text-[#1F2937] mb-3">Comments</h3>
                                 <div className="bg-[#F4FDF8] rounded-[12px] p-5 border border-[#2BA960]/10">
                                     <p className="text-[13px] font-medium text-[#1F2937] whitespace-pre-line leading-relaxed">
                                         {transaction.comments}

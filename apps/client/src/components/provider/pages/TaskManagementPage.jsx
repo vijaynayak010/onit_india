@@ -92,7 +92,7 @@ const TaskManagementPage = () => {
                 </span>
               )}
             </div>
-            <h1 className="text-2xl font-black leading-tight text-[var(--color-text)] sm:text-3xl">
+            <h1 className="text-2xl font-medium leading-tight text-[var(--color-text)] sm:text-3xl">
               {task.title || 'Untitled Task'}
             </h1>
             <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold text-[var(--color-text-muted)]">
@@ -117,7 +117,7 @@ const TaskManagementPage = () => {
         {/* Description */}
         {task.description && (
           <section className="rounded-3xl border border-[var(--color-border)] bg-white p-6 shadow-[var(--shadow-xs)] sm:p-8">
-            <h2 className="mb-4 text-base font-black text-[var(--color-text)]">Description</h2>
+            <h2 className="mb-4 text-base font-medium text-[var(--color-text)]">Description</h2>
             <p className="whitespace-pre-line text-sm leading-relaxed text-[var(--color-text-muted)]">{task.description}</p>
           </section>
         )}
@@ -125,12 +125,12 @@ const TaskManagementPage = () => {
         {/* Checklist */}
         {checklist.length > 0 && (
           <section className="rounded-3xl border border-[var(--color-border)] bg-white p-6 shadow-[var(--shadow-xs)] sm:p-8">
-            <h2 className="mb-5 text-base font-black text-[var(--color-text)]">Checklist</h2>
+            <h2 className="mb-5 text-base font-medium text-[var(--color-text)]">Checklist</h2>
             <ul className="space-y-3">
               {checklist.map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-primary)]" strokeWidth={2.5} />
-                  <span className="text-sm font-semibold text-[var(--color-text)]">
+                  <span className="text-sm font-medium text-[var(--color-text)]">
                     {typeof item === 'string' ? item : item?.title || item?.task || String(item)}
                   </span>
                 </li>
@@ -142,7 +142,7 @@ const TaskManagementPage = () => {
         {/* Skills */}
         {skills.length > 0 && (
           <section className="rounded-3xl border border-[var(--color-border)] bg-white p-6 shadow-[var(--shadow-xs)] sm:p-8">
-            <h2 className="mb-4 text-base font-black text-[var(--color-text)]">Required Skills</h2>
+            <h2 className="mb-4 text-base font-medium text-[var(--color-text)]">Required Skills</h2>
             <div className="flex flex-wrap gap-2">
               {skills.map((s, i) => (
                 <span key={i} className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border)] bg-[var(--color-surface-elevated)] px-3 py-1.5 text-xs font-bold text-[var(--color-text-muted)]">
@@ -157,7 +157,7 @@ const TaskManagementPage = () => {
         {/* Files */}
         {files.length > 0 && (
           <section className="rounded-3xl border border-[var(--color-border)] bg-white p-6 shadow-[var(--shadow-xs)] sm:p-8">
-            <h2 className="mb-4 text-base font-black text-[var(--color-text)]">Attachments</h2>
+            <h2 className="mb-4 text-base font-medium text-[var(--color-text)]">Attachments</h2>
             <ul className="space-y-2">
               {files.map((f) => (
                 <li key={f.id}>

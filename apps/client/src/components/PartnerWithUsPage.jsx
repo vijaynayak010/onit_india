@@ -43,7 +43,7 @@ const PartnerWithUsPage = () => {
             <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#10605F]/10 text-[#10605F] mb-4">
               <Users size={28} />
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold text-[#10605F] mb-4">
+            <h1 className="text-3xl md:text-4xl font-medium text-[#10605F] mb-4">
               Partner with us
             </h1>
             <p className="text-gray-600 text-lg leading-relaxed">
@@ -52,7 +52,7 @@ const PartnerWithUsPage = () => {
           </header>
 
           <div className="space-y-8 mb-12">
-            <h2 className="text-xl font-semibold text-[#10605F]">
+            <h2 className="text-xl font-medium text-[#10605F]">
               Who we partner with
             </h2>
             <div className="grid gap-6 md:grid-cols-1">
@@ -65,7 +65,7 @@ const PartnerWithUsPage = () => {
                     <item.icon size={24} />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-[#10605F] mb-1">
+                    <h3 className="font-medium text-[#10605F] mb-1">
                       {item.title}
                     </h3>
                     <p className="text-gray-600 text-sm">{item.description}</p>
@@ -76,7 +76,7 @@ const PartnerWithUsPage = () => {
           </div>
 
           <div className="rounded-2xl bg-[#0D1210] text-white p-8 md:p-10 border border-[#10605F]/30">
-            <h2 className="text-xl font-bold mb-3">Get in touch</h2>
+            <h2 className="text-xl font-medium mb-3">Get in touch</h2>
             <p className="text-[#C6F0F0] mb-6 max-w-xl">
               Tell us about your organisation and partnership goals. Our team will get back to you promptly to explore how we can collaborate.
             </p>

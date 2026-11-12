@@ -129,7 +129,7 @@ function Domains() {
         <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-primary)] mb-2">
           Categories
         </p>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-800 font-['Neue Montreal'] mb-3">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-slate-800 font-sans mb-3">
           Explore Domains on <span className="text-slate-900">On<span className="text-[var(--color-primary)]">IT</span> INDIA</span>
         </h2>
         <p className="text-slate-500 max-w-xl mx-auto text-sm sm:text-base leading-relaxed">
@@ -205,7 +205,7 @@ function Domains() {
                   {/* Card Body */}
                   <div className="p-4 flex flex-col justify-between flex-1">
                     <div>
-                      <h3 className="text-slate-900 font-bold text-sm sm:text-base mb-1.5 leading-snug tracking-tight group-hover/card:text-[var(--color-primary)] transition-colors duration-200 min-h-[44px] flex items-center">
+                      <h3 className="text-slate-900 font-medium text-sm sm:text-base mb-1.5 leading-snug tracking-tight group-hover/card:text-[var(--color-primary)] transition-colors duration-200 min-h-[44px] flex items-center">
                         {domain.title}
                       </h3>
                       <p className="text-slate-500 text-[11px] sm:text-xs leading-relaxed mb-4 line-clamp-2 min-h-[32px]">

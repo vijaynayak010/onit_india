@@ -14,15 +14,15 @@ const ContactThankYouPage = () => {
         canonical="https://www.firstdoer.com/contact/thank-you"
         noindex
       />
-      <section className="pt-24 pb-16 px-6 md:px-20 flex items-center justify-center min-h-[60vh]">
+      <section className="pt-24 sm:pt-28 pb-12 sm:pb-16 px-4 sm:px-6 md:px-12 lg:px-20 flex items-center justify-center min-h-[60vh]">
         <div className="max-w-lg mx-auto text-center">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[var(--color-primary-subtle)] text-[var(--color-primary)] mb-6">
-            <CheckCircle size={36} />
+          <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[var(--color-primary-subtle)] text-[var(--color-primary)] mb-5 sm:mb-6">
+            <CheckCircle size={32} />
           </div>
-          <h1 className="text-2xl md:text-3xl font-bold text-[var(--color-primary)] mb-3">
+          <h1 className="text-2xl sm:text-3xl font-heading font-medium text-[var(--color-primary)] mb-2 sm:mb-3">
             Thank you for reaching out
           </h1>
-          <p className="text-gray-600 mb-8">
+          <p className="text-gray-600 mb-6 sm:mb-8 text-sm sm:text-base leading-relaxed">
             We’ve received your message and will get back to you as soon as we
             can. If your query is urgent, please mention it in a follow-up
             email to{" "}
@@ -34,17 +34,17 @@ const ContactThankYouPage = () => {
             </a>
             .
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <Link
               to="/"
-              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[var(--color-primary)] text-white font-semibold hover:bg-[var(--color-primary-hover)] transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[var(--color-primary)] text-white font-medium hover:bg-[var(--color-primary-hover)] transition-colors min-h-[44px]"
             >
               <ArrowLeft size={18} />
               Back to Home
             </Link>
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full border-2 border-[var(--color-primary)] text-[var(--color-primary)] font-semibold hover:bg-[var(--color-primary)]/5 transition-colors"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full border-2 border-[var(--color-primary)] text-[var(--color-primary)] font-medium hover:bg-[var(--color-primary)]/5 transition-colors min-h-[44px]"
             >
               <Mail size={18} />
               Send another message

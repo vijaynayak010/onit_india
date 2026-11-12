@@ -67,7 +67,7 @@ const CompletedTasksExamplesPage = () => (
             <div className="w-12 h-12 rounded-xl bg-[var(--color-primary)]/10 flex items-center justify-center">
               <CheckSquare size={24} className="text-[var(--color-primary)]" />
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)]">
+            <h1 className="text-3xl md:text-4xl font-medium text-[var(--color-primary)]">
               Completed Tasks Examples
             </h1>
           </div>
@@ -81,7 +81,7 @@ const CompletedTasksExamplesPage = () => (
             const Icon = CATEGORY_ICONS[group.icon] || FileText;
             return (
               <section key={group.category}>
-                <h2 className="text-lg font-bold text-[var(--color-primary)] mb-4 flex items-center gap-2">
+                <h2 className="text-lg font-medium text-[var(--color-primary)] mb-4 flex items-center gap-2">
                   <Icon size={20} />
                   {group.category}
                 </h2>

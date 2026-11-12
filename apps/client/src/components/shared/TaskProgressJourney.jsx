@@ -16,7 +16,7 @@ const TaskProgressJourney = ({ items = [], nextActionableId, completedCount = 0 
                         <Sparkles className="h-4 w-4" strokeWidth={2.5} />
                         Task journey
                     </div>
-                    <h3 className="mt-1 text-lg font-bold tracking-tight text-[var(--color-text)]">
+                    <h3 className="mt-1 text-lg font-medium tracking-tight text-[var(--color-text)]">
                         {completedCount === total ? "Journey complete!" : `${completedCount} of ${total} checkpoints cleared`}
                     </h3>
                 </div>
@@ -50,7 +50,7 @@ const TaskProgressJourney = ({ items = [], nextActionableId, completedCount = 0 
                                     {complete ? <Check className="h-5 w-5" strokeWidth={3} /> : index + 1}
                                 </div>
                                 <div className="min-w-0 pt-0.5">
-                                    <p className="line-clamp-2 text-sm font-bold leading-snug text-[var(--color-text)]">{item.text || item.title}</p>
+                                    <p className="line-clamp-2 text-sm font-medium leading-snug text-[var(--color-text)]">{item.text || item.title}</p>
                                     <div className={`mt-1 flex items-center gap-1 text-[10px] font-black uppercase tracking-wider ${
                                         complete ? "text-emerald-700" : current ? "text-[var(--color-primary)]" : "text-[var(--color-text-subtle)]"
                                     }`}>

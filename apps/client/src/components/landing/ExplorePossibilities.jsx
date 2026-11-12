@@ -58,7 +58,7 @@ export default function ExplorePossibilities() {
         <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between lg:gap-12 mb-16 lg:mb-20">
           <h2
             style={{
-              fontFamily: "'Outfit', sans-serif",
+              fontFamily: "'Poppins', sans-serif",
               fontWeight: 800,
               fontSize: "clamp(36px, 4.5vw, 56px)",
               lineHeight: "105%",
@@ -131,7 +131,7 @@ export default function ExplorePossibilities() {
                   {/* Number */}
                   <span
                     style={{
-                      fontFamily: "'Outfit', sans-serif",
+                      fontFamily: "'Poppins', sans-serif",
                       fontWeight: 400,
                       fontSize: 24,
                       lineHeight: "30px",
@@ -148,7 +148,7 @@ export default function ExplorePossibilities() {
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                       <span
                         style={{
-                          fontFamily: "'Outfit', sans-serif",
+                          fontFamily: "'Poppins', sans-serif",
                           fontWeight: isActive ? 600 : 400,
                           fontSize: 28,
                           lineHeight: "29px",
@@ -185,7 +185,7 @@ export default function ExplorePossibilities() {
                     >
                       <p
                         style={{
-                          fontFamily: "'DM Sans', sans-serif",
+                          fontFamily: "'Poppins', sans-serif",
                           fontWeight: 400,
                           fontSize: 14.08,
                           lineHeight: "22px",

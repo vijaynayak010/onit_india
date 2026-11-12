@@ -117,7 +117,7 @@ const ExploreTalentPage = () => {
                     <img src={avatar} alt={p.displayName} className="h-14 w-14 shrink-0 rounded-full object-cover ring-2 ring-gray-50" />
                     <div className="min-w-0">
                       <div className="flex flex-wrap items-center gap-2">
-                        <h3 className="truncate text-base font-extrabold text-[var(--color-text)]">
+                        <h3 className="truncate text-base font-medium text-[var(--color-text)]">
                           {p.displayName || "Performer"}
                         </h3>
                         <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-2 py-0.5 text-[11px] font-bold text-amber-700">

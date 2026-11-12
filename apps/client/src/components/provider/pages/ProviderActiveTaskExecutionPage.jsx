@@ -600,7 +600,7 @@ const ProviderActiveTaskExecutionPage = () => {
             className="fixed bottom-6 right-6 top-[100px] z-50 flex w-[380px] flex-col overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] shadow-2xl"
           >
             <div className="flex items-center justify-between border-b border-[var(--color-border)] bg-[var(--color-surface-elevated)] px-5 py-3">
-              <h2 className="text-base font-bold text-[var(--color-text)]">Task Chat</h2>
+              <h2 className="text-base font-medium text-[var(--color-text)]">Task Chat</h2>
               <button
                 onClick={() => setShowChatSidebar(false)}
                 className="rounded-full p-1.5 hover:bg-[var(--color-border-subtle)] text-[var(--color-text-subtle)] transition"
@@ -693,7 +693,7 @@ const ProviderActiveTaskExecutionPage = () => {
                     <Hash className="h-3 w-3" strokeWidth={2.5} />
                     Task #{(taskData?.id || id)?.substring(0, 8).toUpperCase()}
                   </div>
-                  <h1 className="text-xl font-bold leading-snug tracking-tight text-[var(--color-text)] sm:text-2xl">
+                  <h1 className="text-lg sm:text-xl md:text-2xl font-heading font-medium leading-snug tracking-tight text-[var(--color-text)]">
                     {taskData?.title || "Loading..."}
                   </h1>
                 </div>
@@ -727,7 +727,7 @@ const ProviderActiveTaskExecutionPage = () => {
                 {taskData?.category}
               </span>
               <div className="rounded-2xl bg-[var(--color-primary)] px-8 py-3 text-center shadow-[var(--shadow-glow)] sm:text-left">
-                <span className="text-2xl font-black tracking-tight text-white">₹{taskData?.price || 0}</span>
+                <span className="text-2xl font-medium tracking-tight text-white">₹{taskData?.price || 0}</span>
               </div>
             </div>
           </div>
@@ -737,8 +737,8 @@ const ProviderActiveTaskExecutionPage = () => {
           <section className="rounded-[var(--radius-xl)] border border-[var(--color-primary)]/25 bg-[var(--color-primary)] p-5 text-white shadow-[var(--shadow-sm)] sm:p-6">
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="text-[11px] font-black uppercase tracking-[0.18em] text-white/70">Next action</p>
-                <h2 className="mt-2 text-xl font-black tracking-tight sm:text-2xl">
+                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-white/70">Next action</p>
+                <h2 className="mt-2 text-lg sm:text-xl md:text-2xl font-heading font-medium tracking-tight text-white">
                   {pendingReviewCount > 0 || taskData?.assignmentStatus === "SUBMITTED" ? "Review the performer’s submission" : checklistExistsOnServer && !isChecklistApproved ? "Review the task checklist" : "Keep the task moving"}
                 </h2>
                 <p className="mt-2 max-w-xl text-sm font-medium leading-relaxed text-white/80">
@@ -760,9 +760,9 @@ const ProviderActiveTaskExecutionPage = () => {
             <div className="flex items-center justify-between gap-3">
               <div>
                 <p className="text-[11px] font-black uppercase tracking-[0.18em] text-[var(--color-text-subtle)]">Delivery overview</p>
-                <p className="mt-2 text-lg font-black text-[var(--color-text)]">{completedCount} of {totalCount || 0} steps approved</p>
+                <p className="mt-2 text-lg font-medium text-[var(--color-text)]">{completedCount} of {totalCount || 0} steps approved</p>
               </div>
-              <span className="text-2xl font-black text-[var(--color-primary)]">{progressPercentage}%</span>
+              <span className="text-2xl font-medium text-[var(--color-primary)]">{progressPercentage}%</span>
             </div>
             <div className="mt-4 h-2.5 overflow-hidden rounded-full bg-[var(--color-border-subtle)]">
               <div className="h-full rounded-full bg-[var(--color-primary)] transition-all duration-500" style={{ width: `${progressPercentage}%` }} />
@@ -783,7 +783,7 @@ const ProviderActiveTaskExecutionPage = () => {
                   key={tab.id}
                   type="button"
                   onClick={() => setActiveTab(tab.id)}
-                  className={`relative shrink-0 pb-3 text-[15px] font-bold transition-colors sm:text-[16px] ${activeTab === tab.id
+                  className={`relative shrink-0 pb-3 text-[15px] font-medium transition-colors sm:text-[16px] ${activeTab === tab.id
                     ? "text-[var(--color-text)]"
                     : "text-[var(--color-text-subtle)] hover:text-[var(--color-text-muted)]"
                     }`}
@@ -832,12 +832,12 @@ const ProviderActiveTaskExecutionPage = () => {
             {loading ? (
               <div className="flex flex-col items-center justify-center py-20 text-[var(--color-text-muted)] animate-pulse">
                 <LayoutGrid className="h-12 w-12 mb-4 opacity-20" />
-                <p className="font-bold text-lg">Loading task details...</p>
+                <p className="font-medium text-lg">Loading task details...</p>
               </div>
             ) : error ? (
               <div className="flex flex-col items-center justify-center py-20 text-red-500">
                 <AlertCircle className="h-12 w-12 mb-4" />
-                <p className="font-bold text-lg">{error}</p>
+                <p className="font-medium text-lg">{error}</p>
                 <button
                   onClick={() => window.location.reload()}
                   className="mt-4 px-6 py-2 bg-[var(--color-primary)] text-white rounded-full font-bold shadow-md"
@@ -865,15 +865,15 @@ const ProviderActiveTaskExecutionPage = () => {
                       ].map((stat, i) => (
                         <div key={i} className={`p-4 rounded-2xl border border-transparent shadow-sm ${stat.bg}`}>
                           <p className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1">{stat.label}</p>
-                          <p className={`text-[15px] font-black ${stat.color}`}>{stat.value}</p>
+                          <p className={`text-[15px] font-medium ${stat.color}`}>{stat.value}</p>
                         </div>
                       ))}
                     </div>
 
                     <div className="rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 sm:p-8">
-                      <h3 className="mb-4 text-xs font-bold uppercase tracking-widest text-[var(--color-text-subtle)]">Full Task Details</h3>
+                      <h3 className="mb-4 text-xs font-medium uppercase tracking-widest text-[var(--color-text-subtle)]">Full Task Details</h3>
                       <div className="prose prose-sm max-w-none prose-slate">
-                        <p className="text-[15px] font-semibold leading-relaxed text-[var(--color-text-muted)] whitespace-pre-wrap">
+                        <p className="text-[15px] font-medium leading-relaxed text-[var(--color-text-muted)] whitespace-pre-wrap">
                           {taskData?.submission?.description || "No specific details provided yet."}
                         </p>
                       </div>
@@ -881,7 +881,7 @@ const ProviderActiveTaskExecutionPage = () => {
 
                     {taskData?.skills && taskData.skills.length > 0 && (
                       <div>
-                        <h3 className="mb-4 text-xs font-bold uppercase tracking-widest text-[var(--color-text-subtle)]">Required Skills</h3>
+                        <h3 className="mb-4 text-xs font-medium uppercase tracking-widest text-[var(--color-text-subtle)]">Required Skills</h3>
                         <div className="flex flex-wrap gap-2">
                           {taskData.skills.map((skill, i) => (
                             <span key={i} className="rounded-full bg-white px-4 py-1.5 text-xs font-bold text-[var(--color-text-muted)] border border-[var(--color-border)] shadow-sm">
@@ -914,13 +914,13 @@ const ProviderActiveTaskExecutionPage = () => {
                             <FileText className="h-5 w-5 text-[var(--color-text)]" strokeWidth={2.25} />
                           </div>
                           <div>
-                            <h3 className="text-lg font-bold tracking-tight text-[var(--color-text)]">Submission Checklist</h3>
+                            <h3 className="text-lg font-medium tracking-tight text-[var(--color-text)]">Submission Checklist</h3>
                             <p className="mt-1 text-[11px] font-semibold uppercase tracking-wider text-[var(--color-text-subtle)]">
                               {completedCount} of {totalCount} goals achieved
                             </p>
                           </div>
                         </div>
-                        <span className="text-3xl font-black leading-none text-[var(--color-primary)]">{progressPercentage}%</span>
+                        <span className="text-3xl font-medium leading-none text-[var(--color-primary)]">{progressPercentage}%</span>
                       </div>
                       <div className="h-2.5 w-full overflow-hidden rounded-full bg-[var(--color-border-subtle)]">
                         <motion.div
@@ -940,7 +940,7 @@ const ProviderActiveTaskExecutionPage = () => {
                             onChange={(e) => setNewItemText(e.target.value)}
                             onKeyDown={(e) => e.key === "Enter" && addChecklistItem()}
                             placeholder="Add a new requirement or milestone..."
-                            className="min-w-0 flex-1 bg-transparent px-2 text-[15px] font-semibold text-[var(--color-text)] placeholder:text-[var(--color-text-subtle)] outline-none"
+                            className="min-w-0 flex-1 bg-transparent px-2 text-[15px] font-medium text-[var(--color-text)] placeholder:text-[var(--color-text-subtle)] outline-none"
                           />
                           <button
                             type="button"
@@ -1005,7 +1005,7 @@ const ProviderActiveTaskExecutionPage = () => {
                               </div>
                               <div className="min-w-0">
                                 <h4
-                                  className={`text-sm font-bold ${item.checked ? "text-[var(--color-text)]" : "text-[var(--color-text-subtle)]"
+                                  className={`text-sm font-medium ${item.checked ? "text-[var(--color-text)]" : "text-[var(--color-text-subtle)]"
                                     }`}
                                 >
                                   {item.text}
@@ -1058,7 +1058,7 @@ const ProviderActiveTaskExecutionPage = () => {
                   >
                     <div className="space-y-4">
                       <div className="flex flex-wrap items-center justify-between gap-3">
-                        <label className="text-lg font-bold tracking-tight text-[var(--color-text)] sm:text-xl">
+                        <label className="text-lg font-medium tracking-tight text-[var(--color-text)] sm:text-xl">
                           Performer&apos;s Update
                         </label>
                         <span className="rounded-full bg-[var(--color-primary-subtle)] px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-[var(--color-primary)]">
@@ -1134,7 +1134,7 @@ const ProviderActiveTaskExecutionPage = () => {
                             </div>
                           ))
                         ) : (
-                          <p className="pl-0 text-[15px] font-semibold leading-relaxed text-[var(--color-text-muted)] sm:pl-1 italic">
+                          <p className="pl-0 text-[15px] font-medium leading-relaxed text-[var(--color-text-muted)] sm:pl-1 italic">
                             {taskData?.performer === "No Performer"
                               ? "Waiting for a performer to be assigned. Once assigned, their updates and submissions will appear here."
                               : "No progress updates posted by the performer yet."}
@@ -1145,7 +1145,7 @@ const ProviderActiveTaskExecutionPage = () => {
                     </div>
 
                     <div className="space-y-4">
-                      <label className="text-lg font-bold tracking-tight text-[var(--color-text)] sm:text-xl">Work Evidence Link</label>
+                      <label className="text-lg font-medium tracking-tight text-[var(--color-text)] sm:text-xl">Work Evidence Link</label>
                       {taskData?.submission?.link && taskData.submission.link !== "No link provided" && taskData.submission.link !== "No link" ? (
                         <a
                           href={taskData.submission.link.startsWith('http') ? taskData.submission.link : `https://${taskData.submission.link}`}
@@ -1191,7 +1191,7 @@ const ProviderActiveTaskExecutionPage = () => {
                           <Upload className="h-6 w-6" strokeWidth={2.25} />
                         </div>
                         <div>
-                          <p className="text-2xl font-black text-[var(--color-text)]">{taskData?.submission?.files || 0}</p>
+                          <p className="text-2xl font-medium text-[var(--color-text)]">{taskData?.submission?.files || 0}</p>
                           <p className="text-[12px] font-bold uppercase tracking-widest text-[var(--color-text-subtle)]">
                             Files Attached
                           </p>
@@ -1202,7 +1202,7 @@ const ProviderActiveTaskExecutionPage = () => {
                           <Clock className="h-6 w-6" strokeWidth={2.25} />
                         </div>
                         <div>
-                          <p className="text-2xl font-black text-[var(--color-text)]">
+                          <p className="text-2xl font-medium text-[var(--color-text)]">
                             {taskUpdates.length > 0
                               ? (() => {
                                 const h = Math.floor((Date.now() - new Date(taskUpdates[0].createdAt).getTime()) / 3600000);
@@ -1253,7 +1253,7 @@ const ProviderActiveTaskExecutionPage = () => {
         <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <button
             type="button"
-            className="rounded-full border-2 border-[var(--color-border)] bg-white px-8 py-3.5 text-[15px] font-bold text-[var(--color-text-muted)] shadow-[var(--shadow-xs)] transition hover:bg-[var(--color-border-subtle)] active:scale-[0.98]"
+            className="rounded-full border-2 border-[var(--color-border)] bg-white px-8 py-3.5 text-[15px] font-medium text-[var(--color-text-muted)] shadow-[var(--shadow-xs)] transition hover:bg-[var(--color-border-subtle)] active:scale-[0.98]"
             onClick={() => navigate(-1)}
           >
             Go Back
@@ -1279,7 +1279,7 @@ const ProviderActiveTaskExecutionPage = () => {
                       type="button"
                       disabled={approving}
                       onClick={handleRequestRevision}
-                      className="rounded-full bg-amber-50 px-8 py-3.5 text-[15px] font-bold text-amber-800 transition hover:bg-amber-100 active:scale-[0.98] disabled:opacity-50"
+                      className="rounded-full bg-amber-50 px-8 py-3.5 text-[15px] font-medium text-amber-800 transition hover:bg-amber-100 active:scale-[0.98] disabled:opacity-50"
                     >
                       Request Revision
                     </button>
@@ -1288,7 +1288,7 @@ const ProviderActiveTaskExecutionPage = () => {
                     type="button"
                     disabled={approving || !canApprove || checklistBlocksCompletion}
                     onClick={handleApproveTask}
-                    className="rounded-full bg-[var(--color-primary)] px-10 py-3.5 text-[15px] font-bold text-white shadow-[var(--shadow-glow)] transition hover:bg-[var(--color-primary-hover)] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="rounded-full bg-[var(--color-primary)] px-10 py-3.5 text-[15px] font-medium text-white shadow-[var(--shadow-glow)] transition hover:bg-[var(--color-primary-hover)] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {label}
                   </button>

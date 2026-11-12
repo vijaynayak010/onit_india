@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ChevronDown, LogOut, Search, Settings, UserRound } from "lucide-react";
+import { ChevronDown, LogOut, Menu, Search, Settings, UserRound, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useAuth } from "../../../contexts/AuthContext";
 import NotificationBell from "../../shared/NotificationBell";
@@ -21,6 +21,8 @@ const PerformerHeader = ({ activePage = "dashboard" }) => {
   const navigate = useNavigate();
   const dropdownRef = useRef(null);
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileSearch, setMobileSearch] = useState("");
   const displayName = user?.displayName || user?.name || user?.username || user?.email?.split("@")[0] || "User";
 
   const initials = useMemo(() => {
@@ -48,7 +50,7 @@ const PerformerHeader = ({ activePage = "dashboard" }) => {
               <path d="M11 2.5c-4.7 0-8.5 3.8-8.5 8.5s3.8 8.5 8.5 8.5c3.4 0 5.6-2.4 8-8.5 2.4-6.1 4.6-8.5 8-8.5" stroke="#29ADAC" strokeWidth="3" strokeLinecap="round" />
               <path d="M19 19.5c4.7 0 8.5-3.8 8.5-8.5S23.7 2.5 19 2.5c-3.4 0-5.6 2.4-8 8.5" stroke="#4CCDCC" strokeWidth="3" strokeLinecap="round" />
             </svg>
-            <span className="text-xl font-bold tracking-tight text-[#0D1210]">firstDoer</span>
+            <span className="text-xl font-medium tracking-tight text-[#0D1210]">firstDoer</span>
           </button>
 
           <div className="flex min-w-0 items-center gap-3 sm:gap-6">
@@ -110,8 +112,104 @@ const PerformerHeader = ({ activePage = "dashboard" }) => {
                 ) : null}
               </AnimatePresence>
             </div>
+
+            {/* Mobile hamburger button */}
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen((open) => !open)}
+              className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-700 transition hover:bg-slate-100 lg:hidden"
+              aria-label="Toggle performer navigation menu"
+              aria-expanded={mobileMenuOpen}
+            >
+              {mobileMenuOpen ? <X size={20} strokeWidth={2.2} /> : <Menu size={20} strokeWidth={2.2} />}
+            </button>
           </div>
         </div>
+
+        {/* Mobile Navigation Drawer */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.24, ease: "easeInOut" }}
+              className="overflow-hidden border-b border-slate-200 bg-white/98 shadow-xl backdrop-blur-md lg:hidden"
+            >
+              <div className="flex flex-col gap-3 px-5 py-4">
+                {/* Search in mobile drawer */}
+                <div className="flex h-11 items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-3.5">
+                  <Search size={16} className="text-slate-400 shrink-0" />
+                  <input
+                    type="search"
+                    value={mobileSearch}
+                    onChange={(e) => setMobileSearch(e.target.value)}
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter" && mobileSearch.trim()) {
+                        navigate(`/performer/find-tasks?q=${encodeURIComponent(mobileSearch.trim())}`);
+                        setMobileMenuOpen(false);
+                      }
+                    }}
+                    placeholder="Search tasks, skills..."
+                    className="min-w-0 flex-1 bg-transparent text-sm font-medium outline-none placeholder:text-slate-400"
+                  />
+                </div>
+
+                {/* Navigation links */}
+                <nav className="flex flex-col gap-1 py-1">
+                  {navLinks.map((link) => {
+                    const isActive =
+                      activePage === link.key ||
+                      ((activePage === "account" || activePage === "settings") && link.key === "account") ||
+                      (activePage === "dashboard" && link.key === "dashboard");
+                    return (
+                      <button
+                        key={link.key}
+                        type="button"
+                        onClick={() => {
+                          navigate(link.path);
+                          setMobileMenuOpen(false);
+                        }}
+                        className={`flex h-11 w-full items-center rounded-xl px-4 text-left text-sm transition ${
+                          isActive
+                            ? "bg-[rgba(16,96,95,0.12)] font-heading font-medium text-[var(--color-primary)]"
+                            : "font-medium text-slate-700 hover:bg-slate-50"
+                        }`}
+                      >
+                        {link.name}
+                      </button>
+                    );
+                  })}
+                </nav>
+
+                {/* User quick footer */}
+                <div className="flex items-center justify-between border-t border-slate-100 pt-3">
+                  <div className="flex items-center gap-2.5">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--color-primary)] text-xs font-bold text-white">
+                      {initials}
+                    </div>
+                    <div className="min-w-0">
+                      <p className="truncate text-xs font-heading font-medium text-slate-800">{displayName}</p>
+                      <p className="text-[10px] font-medium text-slate-400">Performer</p>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      logout();
+                      navigate("/");
+                      setMobileMenuOpen(false);
+                    }}
+                    className="flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-medium text-red-600 hover:bg-red-50"
+                  >
+                    <LogOut size={14} />
+                    <span>Logout</span>
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
 
       <aside className="fixed left-0 top-[93px] z-[90] hidden h-[calc(100vh-93px)] w-[220px] flex-col bg-[#fafafa] px-4 py-7 lg:flex">

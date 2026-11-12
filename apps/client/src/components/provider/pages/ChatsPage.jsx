@@ -275,7 +275,7 @@ function ChatCard({
 
       <div className="min-w-0 flex-1">
         <div className="mb-0.5 flex items-center justify-between gap-2">
-          <span className="truncate text-base font-extrabold text-gray-900" title={primaryTitle}>
+          <span className="truncate text-base font-medium text-gray-900" title={primaryTitle}>
             {primaryTitle}
           </span>
           <div className="flex shrink-0 items-center gap-1">
@@ -612,7 +612,7 @@ function ChatConfirmModal({ type, onConfirm, onCancel }) {
         <div className={`mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl ${cfg.iconBg}`}>
           <Icon size={26} className={cfg.iconColor} strokeWidth={2.25} />
         </div>
-        <h3 className="text-center text-lg font-extrabold text-gray-900">{cfg.title}</h3>
+        <h3 className="text-center text-lg font-medium text-gray-900">{cfg.title}</h3>
         <p className="mt-2 text-center text-sm leading-relaxed text-gray-500">{cfg.desc}</p>
         <div className="mt-6 flex gap-3">
           <button
@@ -1550,21 +1550,7 @@ const ChatsPage = () => {
       >
         {/* ── LEFT PANEL: Chat List ── */}
         <div
-          style={{
-            width: showChatPane ? "0px" : "100%",
-            maxWidth: 420,
-            flexShrink: 0,
-            display: "flex",
-            flexDirection: "column",
-            background: "#fff",
-            borderRight: "1px solid #f0f0f0",
-            overflow: "hidden",
-            // On md+ always show left panel
-            ...(typeof window !== "undefined" && window.innerWidth >= 768
-              ? { width: 380, display: "flex" }
-              : {}),
-          }}
-          className="chat-list-panel"
+          className={`chat-list-panel ${showChatPane ? "hidden md:flex" : "flex"} w-full md:w-[380px] md:max-w-[380px] shrink-0 flex-col bg-white border-r border-gray-100 overflow-hidden`}
         >
           {/* Header */}
           <div className="px-4 pb-3 pt-4">
@@ -1576,7 +1562,7 @@ const ChatsPage = () => {
                   className="flex items-center gap-1 rounded-lg py-1.5 pl-1 pr-2 text-gray-800 transition hover:bg-gray-100"
                 >
                   <ChevronLeft size={22} strokeWidth={2.25} />
-                  <span className="min-w-[1.25rem] text-lg font-bold">{selectedIds.length}</span>
+                  <span className="min-w-[1.25rem] text-lg font-medium">{selectedIds.length}</span>
                 </button>
                 <div className="flex items-center gap-2">
                   {[
@@ -1608,7 +1594,7 @@ const ChatsPage = () => {
                   >
                     <ChevronLeft size={20} />
                   </button>
-                  <h2 className="text-xl font-extrabold text-gray-900">Chat</h2>
+                  <h2 className="text-xl font-medium text-gray-900">Chat</h2>
                 </div>
                 <button
                   type="button"
@@ -1734,15 +1720,7 @@ const ChatsPage = () => {
 
         {/* ── RIGHT PANEL: Chat / Support ── */}
         <div
-          style={{
-            flex: 1,
-            minWidth: 0,
-            display: "flex",
-            flexDirection: "column",
-            background: "#f9fafb",
-            overflow: "hidden",
-          }}
-          className={`chat-detail-panel${showChatPane ? " show" : ""}`}
+          className={`chat-detail-panel ${showChatPane ? "flex" : "hidden md:flex"} flex-1 min-w-0 flex-col bg-[#f9fafb] overflow-hidden`}
         >
           <AnimatePresence mode="wait">
             {activeChat === null ? (

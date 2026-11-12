@@ -124,7 +124,7 @@ function BriefPreviewCard({ brief, animKey, onPostTask }) {
 
       {/* browser chrome */}
       <div
-        className="flex items-center justify-between px-7"
+        className="flex items-center justify-between px-4 sm:px-7"
         style={{
           height: 56,
           background: "rgba(249,252,250,0.82)",
@@ -132,18 +132,18 @@ function BriefPreviewCard({ brief, animKey, onPostTask }) {
           backdropFilter: "blur(12px)",
         }}
       >
-        <span style={{ fontFamily: "Manrope, sans-serif", fontSize: 12, color: "#7A8380" }}>
+        <span style={{ fontFamily: "Poppins, sans-serif", fontSize: 12, color: "#7A8380" }}>
           ▢ firstdoer.com/post-task
         </span>
-        <div className="flex items-center gap-7">
+        <div className="flex items-center gap-4 sm:gap-7">
           <span
             className="rounded-full px-3 py-1"
-            style={{ fontFamily: "Manrope, sans-serif", fontSize: 12, fontWeight: 500, color: "#009966", border: "0.8px solid #D9EEE7" }}
+            style={{ fontFamily: "Poppins, sans-serif", fontSize: 12, fontWeight: 500, color: "#009966", border: "0.8px solid #D9EEE7" }}
           >
             Brief
           </span>
           {["Budget", "Timeline", "Performers"].map((t) => (
-            <span key={t} style={{ fontFamily: "Manrope, sans-serif", fontSize: 12, color: "#7A8380" }}>{t}</span>
+            <span key={t} style={{ fontFamily: "Poppins, sans-serif", fontSize: 12, color: "#7A8380" }}>{t}</span>
           ))}
         </div>
       </div>
@@ -152,20 +152,20 @@ function BriefPreviewCard({ brief, animKey, onPostTask }) {
       <div className="flex flex-col md:flex-row">
         {/* left — typewriter */}
         <div
-          className="flex flex-col px-6 py-8 md:px-[50px] md:py-[54px] w-full md:w-[47%] border-b md:border-b-0 md:border-r"
+          className="flex flex-col px-4 py-6 sm:px-6 sm:py-8 md:px-[50px] md:py-[54px] w-full md:w-[47%] border-b md:border-b-0 md:border-r"
           style={{ borderColor: "#E4E9E7" }}
         >
-          <span style={{ fontFamily: "Manrope, sans-serif", fontSize: 12, letterSpacing: "0.72px", color: "#65706D" }}>
+          <span style={{ fontFamily: "Poppins, sans-serif", fontSize: 12, letterSpacing: "0.72px", color: "#65706D" }}>
             YOUR REQUEST
           </span>
           <h3
             className="mt-[22px]"
             style={{
-              fontFamily: "Outfit, sans-serif",
-              fontSize: "clamp(18px, 2.2vw, 26px)",
-              fontWeight: 400,
+              fontFamily: "Poppins, sans-serif",
+              fontSize: "clamp(17px, 2.2vw, 24px)",
+              fontWeight: 500,
               lineHeight: "1.36",
-              letterSpacing: "-0.91px",
+              letterSpacing: "-0.5px",
               color: "#0B1110",
               minHeight: "3.6em",
             }}
@@ -186,13 +186,13 @@ function BriefPreviewCard({ brief, animKey, onPostTask }) {
               />
             )}
           </h3>
-          <span className="mt-auto" style={{ fontFamily: "Manrope, sans-serif", fontSize: 13, color: "#87908D" }}>
+          <span className="mt-auto" style={{ fontFamily: "Poppins, sans-serif", fontSize: 13, color: "#87908D" }}>
             Structured by FirstDoer AI
           </span>
         </div>
 
         {/* right — staggered rows */}
-        <div className="flex flex-col px-6 py-6 md:px-[48px] md:py-[44px] w-full md:w-[53%]">
+        <div className="flex flex-col px-4 py-6 sm:px-6 sm:py-6 md:px-[48px] md:py-[44px] w-full md:w-[53%]">
           <div className="flex-1">
             {rows.map(({ label, value }, i) => (
               <motion.div
@@ -203,7 +203,7 @@ function BriefPreviewCard({ brief, animKey, onPostTask }) {
                 className="flex items-center"
                 style={{ height: 48, borderBottom: "0.8px solid #E4E9E7" }}
               >
-                <span className="shrink-0" style={{ width: 125, fontFamily: "Manrope, sans-serif", fontSize: 13, color: "#79817F" }}>
+                <span className="shrink-0" style={{ width: 125, fontFamily: "Poppins, sans-serif", fontSize: 13, color: "#79817F" }}>
                   {label}
                 </span>
                 <motion.span
@@ -211,7 +211,7 @@ function BriefPreviewCard({ brief, animKey, onPostTask }) {
                   initial={{ opacity: 0 }}
                   animate={isDone ? { opacity: 1 } : { opacity: 0 }}
                   transition={{ delay: 0.1 + i * 0.13, duration: 0.22 }}
-                  style={{ fontFamily: "Manrope, sans-serif", fontSize: 13, fontWeight: 500, color: "#0B1110" }}
+                  style={{ fontFamily: "Poppins, sans-serif", fontSize: 13, fontWeight: 500, color: "#0B1110" }}
                 >
                   {value}
                 </motion.span>
@@ -237,22 +237,22 @@ function BriefPreviewCard({ brief, animKey, onPostTask }) {
                     border: "1.6px solid #FFFFFF", color: "#23433A",
                     marginLeft: i === 0 ? 0 : -7,
                     position: "relative", zIndex: AVATARS.length - i,
-                    fontFamily: "Manrope, sans-serif",
+                    fontFamily: "Poppins, sans-serif",
                   }}
                 >
                   {av.initials}
                 </div>
               ))}
             </div>
-            <span className="ml-3 md:ml-4" style={{ fontFamily: "Manrope, sans-serif", fontSize: 12, color: "#7A8380" }}>
+            <span className="ml-3 md:ml-4 text-xs" style={{ fontFamily: "Poppins, sans-serif", fontSize: 12, color: "#7A8380" }}>
               3 verified performers matched
             </span>
             <div className="ml-auto">
               <button
                 type="button"
                 onClick={onPostTask}
-                className="rounded-full px-[22px] text-white transition hover:bg-[#008055]"
-                style={{ background: "#009966", height: 42, fontFamily: "Manrope, sans-serif", fontSize: 12, fontWeight: 700 }}
+                className="rounded-full px-[22px] text-white transition hover:bg-[#008055] min-h-[42px]"
+                style={{ background: "#009966", height: 42, fontFamily: "Poppins, sans-serif", fontSize: 12, fontWeight: 600 }}
               >
                 Post Task
               </button>
@@ -344,10 +344,10 @@ export default function HomeExecutionHero({ className = "" }) {
           <div className="flex h-full items-center justify-center px-4 md:px-6">
             <div className="flex w-full items-center" style={{ maxWidth: 1280 }}>
               <Link to="/" className="relative shrink-0" style={{ width: 92, height: 32 }}>
-                <span style={{ position: "absolute", left: 0, top: -0.6, fontFamily: "Outfit, sans-serif", fontWeight: 700, fontSize: 21, lineHeight: "32px", letterSpacing: "-0.7px", color: "#0B1110" }}>
+                <span style={{ position: "absolute", left: 0, top: -0.6, fontFamily: "Poppins, sans-serif", fontWeight: 700, fontSize: 20, lineHeight: "32px", letterSpacing: "-0.5px", color: "#0B1110" }}>
                   FirstDoer
                 </span>
-                <span style={{ position: "absolute", left: 52.67, top: 13.4, fontFamily: "Outfit, sans-serif", fontWeight: 500, fontSize: 9, lineHeight: "14px", letterSpacing: "3px", color: "#77817E" }}>
+                <span style={{ position: "absolute", left: 52.67, top: 13.4, fontFamily: "Poppins, sans-serif", fontWeight: 500, fontSize: 8.5, lineHeight: "14px", letterSpacing: "2.5px", color: "#77817E" }}>
                   INDIA
                 </span>
               </Link>
@@ -356,7 +356,7 @@ export default function HomeExecutionHero({ className = "" }) {
                 <div className="flex items-center gap-10">
                   {NAV_ITEMS.map((item) => (
                     <Link key={item.label} to={item.to} className="transition hover:text-[#009966]"
-                      style={{ fontFamily: "Manrope, sans-serif", fontSize: 14, color: "#0B1110", lineHeight: "21px" }}>
+                      style={{ fontFamily: "Poppins, sans-serif", fontSize: 14, color: "#0B1110", lineHeight: "21px" }}>
                       {item.label}
                     </Link>
                   ))}
@@ -366,19 +366,19 @@ export default function HomeExecutionHero({ className = "" }) {
               <div className="flex shrink-0 items-center gap-3 md:gap-6 ml-auto lg:ml-0">
                 {hasRestoredSession ? (
                   <Link to={dashboardPath} className="hidden md:block max-w-[160px] truncate transition hover:text-[#009966]"
-                    style={{ fontFamily: "Manrope, sans-serif", fontSize: 14, color: "#0B1110", lineHeight: "21px" }}>
+                    style={{ fontFamily: "Poppins, sans-serif", fontSize: 14, color: "#0B1110", lineHeight: "21px" }}>
                     {sessionName}
                   </Link>
                 ) : (
                   <Link to="/auth" className="hidden md:block transition hover:text-[#009966]"
-                    style={{ fontFamily: "Manrope, sans-serif", fontSize: 14, color: "#0B1110", lineHeight: "21px" }}>
+                    style={{ fontFamily: "Poppins, sans-serif", fontSize: 14, color: "#0B1110", lineHeight: "21px" }}>
                     Login
                   </Link>
                 )}
                 <Link
                   to={hasRestoredSession ? primaryAction.path : "/auth"}
                   className="inline-flex items-center rounded-full text-white transition hover:bg-[#008055]"
-                  style={{ background: "#009966", padding: "13px 22px", fontFamily: "Manrope, sans-serif", fontWeight: 700, fontSize: 13, lineHeight: "20px" }}
+                  style={{ background: "#009966", padding: "11px 22px", fontFamily: "Poppins, sans-serif", fontWeight: 600, fontSize: 13, lineHeight: "20px" }}
                 >
                   {hasRestoredSession ? primaryAction.label : "Post a Task"}
                 </Link>
@@ -389,27 +389,27 @@ export default function HomeExecutionHero({ className = "" }) {
 
         {/* ── hero copy ───────────────────────────────────────────────── */}
         <div className="flex flex-col items-center px-4" style={{ paddingTop: "clamp(48px, 8vw, 112px)" }}>
-          <p style={{ fontFamily: "Manrope, sans-serif", fontSize: 12, letterSpacing: "0.72px", color: "#65706D", lineHeight: "18px", textAlign: "center" }}>
+          <p style={{ fontFamily: "Poppins, sans-serif", fontSize: 12, letterSpacing: "0.72px", color: "#65706D", lineHeight: "18px", textAlign: "center" }}>
             Made in India · Only verified performers
           </p>
 
           <div className="relative mt-[26px] text-center">
-            <h1 style={{ fontFamily: "Outfit, sans-serif", fontWeight: 600, fontSize: "clamp(32px, 5.5vw, 62px)", letterSpacing: "clamp(-1.5px, -0.35vw, -3.73px)", color: "#0B1110", lineHeight: "1.08", display: "inline" }}>
+            <h1 style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600, fontSize: "clamp(30px, 5.2vw, 58px)", letterSpacing: "-1.5px", color: "#0B1110", lineHeight: "1.1", display: "inline" }}>
               Post work. Get it{" "}
             </h1>
             <span className="relative inline-block">
-              <span style={{ fontFamily: "Outfit, sans-serif", fontWeight: 600, fontSize: "clamp(32px, 5.5vw, 62px)", letterSpacing: "clamp(-1.5px, -0.35vw, -3.73px)", color: "#009966", lineHeight: "1.08" }}>
+              <span style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600, fontSize: "clamp(30px, 5.2vw, 58px)", letterSpacing: "-1.5px", color: "#009966", lineHeight: "1.1" }}>
                 executed.
               </span>
               <span className="absolute" style={{ height: 5, bottom: 2, left: 14, right: 0, background: "#009966", opacity: 0.18, borderRadius: 999, transform: "rotate(-1deg)" }} />
             </span>
           </div>
 
-          <p className="mt-[14px] text-center" style={{ fontFamily: "Manrope, sans-serif", fontSize: 18, lineHeight: "30px", color: "#68726F", maxWidth: 509 }}>
+          <p className="mt-[14px] text-center text-sm sm:text-base md:text-lg" style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.6", color: "#68726F", maxWidth: 509 }}>
             One platform to get marketing, design, and development work done by verified performers.
           </p>
 
-          <div className="mt-10 px-6" style={{ width: "100%", maxWidth: 720 }}>
+          <div className="mt-8 sm:mt-10 px-4 sm:px-6" style={{ width: "100%", maxWidth: 720 }}>
             <div className="flex items-center" style={{ background: "rgba(255,255,255,0.2)", border: "0.8px solid #EFFAF5", boxShadow: "0px 1px 2px rgba(9,30,23,0.04), 0px 10px 30px rgba(9,30,23,0.07)", borderRadius: 999, padding: "8px 10px" }}>
               <input
                 type="text"
@@ -417,26 +417,26 @@ export default function HomeExecutionHero({ className = "" }) {
                 onChange={(e) => setTaskText(e.target.value)}
                 onKeyDown={(e) => { if (e.key === "Enter") handlePost(); }}
                 placeholder="Describe your task, e.g. Design a logo for my startup"
-                className="flex-1 bg-transparent focus:outline-none"
-                style={{ fontFamily: "Manrope, sans-serif", fontSize: 14, color: "rgba(23,32,30,0.5)", padding: "0 21px", lineHeight: "46px" }}
+                className="flex-1 bg-transparent focus:outline-none text-xs sm:text-sm"
+                style={{ fontFamily: "Poppins, sans-serif", color: "rgba(23,32,30,0.7)", padding: "0 16px", lineHeight: "46px" }}
               />
-              <button type="button" onClick={handlePost} className="shrink-0 rounded-full text-white transition hover:bg-[#008055]"
-                style={{ background: "#009966", height: 46, minWidth: 148, fontFamily: "Manrope, sans-serif", fontSize: 13, fontWeight: 700 }}>
+              <button type="button" onClick={handlePost} className="shrink-0 rounded-full text-white transition hover:bg-[#008055] min-h-[44px]"
+                style={{ background: "#009966", height: 46, minWidth: 130, fontFamily: "Poppins, sans-serif", fontSize: 13, fontWeight: 600 }}>
                 Post Task
               </button>
             </div>
           </div>
 
           <div className="mt-6 flex flex-wrap items-center justify-center gap-2 px-4">
-            <span style={{ fontFamily: "Manrope, sans-serif", fontSize: 12, color: "#7A8380" }}>Perfect for</span>
+            <span style={{ fontFamily: "Poppins, sans-serif", fontSize: 12, color: "#7A8380" }}>Perfect for</span>
             {["Startups", "Agencies", "Growing brands"].map((chip) => (
-              <span key={chip} style={{ fontFamily: "Manrope, sans-serif", fontSize: 12, fontWeight: 500, color: "#202624", border: "0.8px solid #EBEFED", borderRadius: 999, padding: "6px 12px", lineHeight: "18px" }}>
+              <span key={chip} style={{ fontFamily: "Poppins, sans-serif", fontSize: 12, fontWeight: 500, color: "#202624", border: "0.8px solid #EBEFED", borderRadius: 999, padding: "6px 12px", lineHeight: "18px" }}>
                 {chip}
               </span>
             ))}
           </div>
 
-          <p className="mt-4 text-center" style={{ fontFamily: "Manrope, sans-serif", fontSize: 12, color: "#89918F", lineHeight: "18px" }}>
+          <p className="mt-4 text-center" style={{ fontFamily: "Poppins, sans-serif", fontSize: 12, color: "#89918F", lineHeight: "18px" }}>
             Free to post. No credit card required.
           </p>
         </div>
@@ -445,7 +445,7 @@ export default function HomeExecutionHero({ className = "" }) {
         <div className="flex flex-col items-center px-4 md:px-6" style={{ paddingBottom: "clamp(48px, 8vw, 104px)" }}>
           {/* category tabs */}
           <div
-            className="flex items-end justify-center gap-9 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            className="flex items-end justify-center gap-4 sm:gap-6 md:gap-9 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             style={{ width: "100%", maxWidth: 1024, marginTop: 40 }}
           >
             {TABS.map((tab) => {
@@ -455,10 +455,9 @@ export default function HomeExecutionHero({ className = "" }) {
                   key={tab.id}
                   type="button"
                   onClick={() => handleTabClick(tab.id)}
-                  className="relative shrink-0 flex flex-col pb-[14px] transition"
+                  className="relative shrink-0 flex flex-col pb-[14px] transition text-xs sm:text-sm"
                   style={{
-                    fontFamily: "Manrope, sans-serif",
-                    fontSize: 14,
+                    fontFamily: "Poppins, sans-serif",
                     color: active ? "#111716" : "#717A77",
                     lineHeight: "21px",
                     whiteSpace: "nowrap",

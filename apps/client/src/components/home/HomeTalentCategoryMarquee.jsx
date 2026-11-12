@@ -17,10 +17,10 @@ export default function HomeTalentCategoryMarquee() {
     <section className="bg-white px-5 py-16 sm:px-8 lg:px-0 lg:py-[72px]">
       <div className="relative mx-auto h-[370px] w-full max-w-[1240px] overflow-hidden rounded-[24px] bg-[#05151C] px-5 py-10 sm:px-10 lg:h-[459px] lg:px-16 lg:py-12">
         <div className="mx-auto flex max-w-[1024px] flex-col items-center gap-1 text-center">
-          <h2 className="font-['Montserrat',Inter,sans-serif] text-[28px] font-bold leading-[120%] text-white sm:text-[34px] lg:text-[38px]">
+          <h2 className="font-['Montserrat',Poppins, sans-serif] text-[28px] font-medium leading-[120%] text-white sm:text-[34px] lg:text-[38px]">
             Millions of Job Categories
           </h2>
-          <p className="font-['Montserrat',Inter,sans-serif] text-[28px] font-bold italic leading-[120%] text-[#108A4E] sm:text-[34px] lg:text-[38px]">
+          <p className="font-['Montserrat',Poppins, sans-serif] text-[28px] font-medium italic leading-[120%] text-[#108A4E] sm:text-[34px] lg:text-[38px]">
             are Waiting for You!
           </p>
         </div>

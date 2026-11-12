@@ -51,7 +51,7 @@ const PerformerSearchResultsPage = () => {
             
             <main className="mx-auto w-full max-w-7xl flex-1 px-5 pb-12 pt-32 sm:px-8 lg:px-10 lg:pt-36">
                 <div className="mb-10">
-                    <h1 className="text-[28px] font-black text-gray-900 mb-2">Search Results</h1>
+                    <h1 className="text-[28px] font-medium text-gray-900 mb-2">Search Results</h1>
                     <p className="text-[14px] font-bold text-gray-400">We found <span className="text-[#16a34a]">{displayTasks.length} tasks</span> matching your criteria</p>
                 </div>
 
@@ -99,7 +99,7 @@ const PerformerSearchResultsPage = () => {
                                 <div className="flex justify-between items-center mb-3">
                                     <h3 
                                         onClick={() => navigate(`/performer/task/${task.id}`)}
-                                        className="text-[18px] font-black text-gray-900 leading-tight group-hover:text-[#16a34a] transition-colors cursor-pointer hover:underline"
+                                        className="text-[18px] font-medium text-gray-900 leading-tight group-hover:text-[#16a34a] transition-colors cursor-pointer hover:underline"
                                     >
                                         {task.title}
                                     </h3>
@@ -109,7 +109,7 @@ const PerformerSearchResultsPage = () => {
                                     </div>
                                 </div>
                                 
-                                <p className="text-[24px] font-black text-gray-900 mb-6">{task.price}</p>
+                                <p className="text-[24px] font-medium text-gray-900 mb-6">{task.price}</p>
                                 
                                 <div className="flex items-center gap-2 mb-8 text-gray-400">
                                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
@@ -134,7 +134,7 @@ const PerformerSearchResultsPage = () => {
                         ))
                     ) : (
                         <div className="col-span-full py-32 text-center text-gray-400 border-2 border-dashed border-gray-100 rounded-[40px]">
-                            <p className="text-[18px] font-bold mb-2">No tasks found</p>
+                            <p className="text-[18px] font-medium mb-2">No tasks found</p>
                             <p className="text-[14px]">Try adjusting your search filters or check back later.</p>
                         </div>
                     )}

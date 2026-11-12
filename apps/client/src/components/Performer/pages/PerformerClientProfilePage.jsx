@@ -85,7 +85,7 @@ function ClientStatBox({ label, value, tone }) {
     };
     return (
         <div className={`flex flex-1 flex-col rounded-xl border px-4 py-4 ${tones[tone]}`}>
-            <span className="text-[22px] font-bold tabular-nums leading-none">{value}</span>
+            <span className="text-[22px] font-medium tabular-nums leading-none">{value}</span>
             <span className="mt-2 text-[11px] font-semibold opacity-80">{label}</span>
         </div>
     );
@@ -95,7 +95,7 @@ function CategoryProgressRow({ name, percent }) {
     return (
         <div>
             <div className="mb-1.5 flex items-center justify-between text-[13px]">
-                <span className="font-semibold text-[var(--color-text)]">{name}</span>
+                <span className="font-medium text-[var(--color-text)]">{name}</span>
                 <span className="font-bold text-[var(--color-text-muted)]">{percent}%</span>
             </div>
             <div className="h-2 overflow-hidden rounded-full bg-[var(--color-border-subtle)]">
@@ -447,7 +447,7 @@ const PerformerClientProfilePage = () => {
                                         className="h-20 w-20 rounded-full border-2 border-white object-cover shadow-sm"
                                     />
                                 ) : (
-                                    <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-sky-500 to-blue-700 text-xl font-bold text-white">
+                                    <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-sky-500 to-blue-700 text-xl font-medium text-white">
                                         {viewModel.initials}
                                     </div>
                                 )}
@@ -458,7 +458,7 @@ const PerformerClientProfilePage = () => {
                                 ) : null}
                             </div>
 
-                            <h1 className="text-[20px] font-bold text-[var(--color-text)]">{viewModel.name}</h1>
+                            <h1 className="text-[20px] font-medium text-[var(--color-text)]">{viewModel.name}</h1>
                             <p className="mt-1 text-[13px] font-medium text-[var(--color-text-muted)]">{viewModel.subtitle}</p>
 
                             <div className="mt-3 flex items-center justify-center gap-2">
@@ -504,7 +504,7 @@ const PerformerClientProfilePage = () => {
                         </article>
 
                         <section>
-                            <h2 className="mb-3 text-[14px] font-bold text-[var(--color-text)]">Trust Indicators</h2>
+                            <h2 className="mb-3 text-[14px] font-medium text-[var(--color-text)]">Trust Indicators</h2>
                             <div className="grid grid-cols-2 gap-3">
                                 <TrustIndicator icon={IndianRupee} label="On-time payments" value={viewModel.trust.payments} tone="green" />
                                 <TrustIndicator icon={Package} label="On-time delivery" value={viewModel.trust.delivery} tone="blue" />
@@ -540,7 +540,7 @@ const PerformerClientProfilePage = () => {
                                 {activeTab === 'overview' && (
                                     <div className="space-y-6">
                                         <section>
-                                            <h2 className="mb-3 text-[15px] font-bold text-[var(--color-text)]">About</h2>
+                                            <h2 className="mb-3 text-[15px] font-medium text-[var(--color-text)]">About</h2>
                                             <p className="text-[14px] font-medium leading-relaxed text-[var(--color-text-muted)]">
                                                 {viewModel.about || 'No description available for this client yet.'}
                                             </p>
@@ -549,7 +549,7 @@ const PerformerClientProfilePage = () => {
                                         <section>
                                             <div className="mb-3 flex items-center gap-2">
                                                 <TrendingUp size={16} className="text-[var(--color-primary)]" />
-                                                <h2 className="text-[15px] font-bold text-[var(--color-text)]">Client Stats</h2>
+                                                <h2 className="text-[15px] font-medium text-[var(--color-text)]">Client Stats</h2>
                                             </div>
                                             <div className="flex flex-col gap-3 sm:flex-row">
                                                 <ClientStatBox label="Tasks Posted" value={viewModel.stats.tasksPosted} tone="green" />
@@ -559,7 +559,7 @@ const PerformerClientProfilePage = () => {
                                         </section>
 
                                         <section>
-                                            <h2 className="mb-4 text-[15px] font-bold text-[var(--color-text)]">Preferred Categories</h2>
+                                            <h2 className="mb-4 text-[15px] font-medium text-[var(--color-text)]">Preferred Categories</h2>
                                             {viewModel.preferredCategories.length > 0 ? (
                                                 <div className="space-y-4">
                                                     {viewModel.preferredCategories.map((cat) => (
@@ -578,7 +578,7 @@ const PerformerClientProfilePage = () => {
                                 {activeTab === 'reviews' && (
                                     <div>
                                         <div className="mb-4 flex items-center justify-between">
-                                            <h2 className="text-[15px] font-bold text-[var(--color-text)]">Reviews</h2>
+                                            <h2 className="text-[15px] font-medium text-[var(--color-text)]">Reviews</h2>
                                             <span className="text-[12px] font-semibold text-[var(--color-text-muted)]">
                                                 {viewModel.reviewsCount} reviews
                                             </span>
@@ -654,7 +654,7 @@ const PerformerClientProfilePage = () => {
                                 {activeTab === 'posted' && (
                                     <div>
                                         <div className="mb-4 flex items-center justify-between">
-                                            <h2 className="text-[15px] font-bold text-[var(--color-text)]">Posted Tasks</h2>
+                                            <h2 className="text-[15px] font-medium text-[var(--color-text)]">Posted Tasks</h2>
                                             <span className="text-[12px] font-semibold text-[var(--color-text-muted)]">
                                                 {postedTasks.length} tasks
                                             </span>
@@ -670,7 +670,7 @@ const PerformerClientProfilePage = () => {
                                                         className="flex w-full items-start justify-between gap-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-4 text-left transition hover:border-[var(--color-primary)]/30"
                                                     >
                                                         <div className="min-w-0">
-                                                            <p className="truncate text-[14px] font-bold text-[var(--color-text)]">
+                                                            <p className="truncate text-[14px] font-medium text-[var(--color-text)]">
                                                                 {task.title || 'Untitled Task'}
                                                             </p>
                                                             <p className="mt-1 text-[12px] font-medium text-[var(--color-text-muted)]">

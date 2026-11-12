@@ -152,7 +152,7 @@ function PerformerCard({ p }) {
         >
           <span
             style={{
-              fontFamily: "Outfit, sans-serif",
+              fontFamily: "Poppins, sans-serif",
               fontWeight: 700,
               fontSize: 72,
               color: "rgba(255,255,255,0.55)",
@@ -194,7 +194,7 @@ function PerformerCard({ p }) {
         >
           <span
             style={{
-              fontFamily: "Manrope, sans-serif",
+              fontFamily: "Poppins, sans-serif",
               fontWeight: 400,
               fontSize: 7,
               lineHeight: "10px",
@@ -218,7 +218,7 @@ function PerformerCard({ p }) {
       >
         <span
           style={{
-            fontFamily: "Outfit, sans-serif",
+            fontFamily: "Poppins, sans-serif",
             fontWeight: 400,
             fontSize: 18,
             lineHeight: "27px",
@@ -242,7 +242,7 @@ function PerformerCard({ p }) {
               position: "absolute",
               left: 3.5,
               top: 1,
-              fontFamily: "Manrope, sans-serif",
+              fontFamily: "Poppins, sans-serif",
               fontWeight: 400,
               fontSize: 8,
               lineHeight: "12px",
@@ -258,7 +258,7 @@ function PerformerCard({ p }) {
       <div style={{ padding: "7px 11px 0" }}>
         <p
           style={{
-            fontFamily: "Manrope, sans-serif",
+            fontFamily: "Poppins, sans-serif",
             fontWeight: 400,
             fontSize: 10,
             lineHeight: "16px",
@@ -287,7 +287,7 @@ function PerformerCard({ p }) {
             >
               <span
                 style={{
-                  fontFamily: "Manrope, sans-serif",
+                  fontFamily: "Poppins, sans-serif",
                   fontWeight: 700,
                   fontSize: 12,
                   lineHeight: "18px",
@@ -299,7 +299,7 @@ function PerformerCard({ p }) {
               </span>
               <span
                 style={{
-                  fontFamily: "Manrope, sans-serif",
+                  fontFamily: "Poppins, sans-serif",
                   fontWeight: 400,
                   fontSize: 6,
                   lineHeight: "9px",
@@ -348,7 +348,7 @@ export default function PerformersSection() {
           <div>
             <h2
               style={{
-                fontFamily: "Outfit, sans-serif",
+                fontFamily: "Poppins, sans-serif",
                 fontWeight: 600,
                 fontSize: "clamp(26px, 3.5vw, 41.832px)",
                 lineHeight: "clamp(32px, 4.5vw, 48px)",
@@ -380,7 +380,7 @@ export default function PerformersSection() {
             </h2>
             <p
               style={{
-                fontFamily: "Manrope, sans-serif",
+                fontFamily: "Poppins, sans-serif",
                 fontWeight: 400,
                 fontSize: 16,
                 lineHeight: "24px",

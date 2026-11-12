@@ -31,7 +31,7 @@ const Team = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
                     >
-                        <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 mb-4 font-sans">
+                        <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-slate-900 mb-4 font-sans">
                             Our <span className="text-[var(--color-primary)]">Ground</span> Work
                         </h2>
                     </motion.div>

@@ -99,7 +99,7 @@ const PerformerSavedTasksPage = () => {
                         <p className="text-xs font-bold uppercase tracking-wider text-[var(--color-primary)]">
                           {task.category || "General"}
                         </p>
-                        <h2 className="mt-1 truncate text-lg font-bold text-[var(--color-text)]">
+                        <h2 className="mt-1 truncate text-lg font-medium text-[var(--color-text)]">
                           {task.title || "Untitled task"}
                         </h2>
                         {task.locationCity || task.city ? (

@@ -375,7 +375,7 @@ const PerformerMyTasksPage = () => {
                 >
                   <div className="min-w-0">
                     <p className="text-[11px] font-bold uppercase tracking-wide text-[var(--color-text-subtle)]">{stat.label}</p>
-                    <p className="mt-1 text-2xl font-bold tabular-nums tracking-tight text-[var(--color-text)]">{stat.value}</p>
+                    <p className="mt-1 text-2xl font-medium tabular-nums tracking-tight text-[var(--color-text)]">{stat.value}</p>
                   </div>
                   <div
                     className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ring-1 ${toneRing[stat.tone] || toneRing.primary}`}
@@ -542,7 +542,7 @@ const PerformerMyTasksPage = () => {
                                 Pending Review
                               </span>
                             </div>
-                            <h2 className="text-lg font-bold leading-snug text-[var(--color-text)]">{task.company}</h2>
+                            <h2 className="text-lg font-medium leading-snug text-[var(--color-text)]">{task.company}</h2>
                           </div>
                           <div className="flex flex-1 flex-col p-5">
                             <div className="mb-4 flex items-center gap-3">
@@ -605,7 +605,7 @@ const PerformerMyTasksPage = () => {
                           {task.priority}
                         </span>
                       </div>
-                      <h2 className="text-lg font-bold leading-snug text-[var(--color-text)]">{task.company}</h2>
+                      <h2 className="text-lg font-medium leading-snug text-[var(--color-text)]">{task.company}</h2>
                     </div>
 
                     <div className="flex flex-1 flex-col p-5">

@@ -100,7 +100,7 @@ const AddJobDescriptionModal = ({ isOpen, onClose, onSave, initialData = null, s
             </div>
 
             <div className="flex items-center justify-between border-b border-gray-100 px-4 py-2.5">
-              <h2 id="add-job-description-title" className="text-base font-bold text-gray-900">
+              <h2 id="add-job-description-title" className="text-base font-medium text-gray-900">
                 {initialData ? "Edit Job Description" : "Add Job Description"}
               </h2>
               <button
@@ -120,7 +120,7 @@ const AddJobDescriptionModal = ({ isOpen, onClose, onSave, initialData = null, s
                     <Type size={14} />
                   </div>
                   <div className="w-full min-w-0">
-                    <label className="text-[10px] font-semibold uppercase tracking-wide text-gray-500">
+                    <label className="text-[10px] font-medium uppercase tracking-wide text-gray-500">
                       Job Title *
                     </label>
                     <input
@@ -153,7 +153,7 @@ const AddJobDescriptionModal = ({ isOpen, onClose, onSave, initialData = null, s
               </div>
 
               <div className="mt-4">
-                <h3 className="mb-2 text-[10px] font-bold uppercase tracking-wider text-gray-400">Category</h3>
+                <h3 className="mb-2 text-[10px] font-medium uppercase tracking-wider text-gray-400">Category</h3>
                 <div className="flex flex-wrap gap-1.5">
                   {categories.map((cat) => (
                     <button
@@ -174,7 +174,7 @@ const AddJobDescriptionModal = ({ isOpen, onClose, onSave, initialData = null, s
               </div>
 
               <div className="mt-4">
-                <h3 className="mb-2 text-[10px] font-bold uppercase tracking-wider text-gray-400">Duration</h3>
+                <h3 className="mb-2 text-[10px] font-medium uppercase tracking-wider text-gray-400">Duration</h3>
                 <div className="space-y-0.5 rounded-xl border border-gray-200 bg-white p-1.5">
                   {durations.map((dur) => (
                     <label

@@ -24,7 +24,7 @@ const ChangePasswordPage = () => {
         <AuthLayout illustrationSrc={changePassImage}>
             <div className="w-full max-w-[420px] bg-white border border-[#86efac] rounded-[2rem] p-8 sm:p-10 shadow-[0_0_15px_rgba(22,163,74,0.05)]">
 
-                <h2 className="text-[22px] font-bold text-center text-gray-900 mb-8 mt-2">
+                <h2 className="text-[22px] font-medium text-center text-gray-900 mb-8 mt-2">
                     Change Password
                 </h2>
 

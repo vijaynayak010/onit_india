@@ -26,7 +26,7 @@ const DraftTaskCard = ({ task, onView }) => {
     <article className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm transition hover:shadow-md">
       <div className="mb-3 flex items-start justify-between gap-3">
         <div className="min-w-0">
-          <h2 className="text-base font-extrabold text-gray-900">{title}</h2>
+          <h2 className="text-base font-medium text-gray-900">{title}</h2>
           <p className="mt-1 text-sm font-semibold text-blue-600">{category}</p>
         </div>
         <span className="shrink-0 rounded-full bg-blue-50 px-3 py-1 text-xs font-bold text-blue-600">
@@ -100,7 +100,7 @@ const DraftTasksPage = () => {
       ) : tasks.length === 0 ? (
         <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-gray-200 bg-white py-20 text-center">
           <ClipboardList className="mb-4 h-12 w-12 text-gray-300" strokeWidth={1.5} />
-          <p className="text-lg font-bold text-gray-700">No draft tasks</p>
+          <p className="text-lg font-medium text-gray-700">No draft tasks</p>
           <p className="mt-2 max-w-sm text-sm text-gray-500">
             Tasks you save without publishing will appear here.
           </p>

@@ -105,7 +105,7 @@ const PerformerWalletWithdrawView = ({ paths = DEFAULT_PATHS }) => {
         <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-[#DFF7F6] text-[#10605F]">
           <CheckCircle2 size={40} strokeWidth={2} />
         </div>
-        <h1 className="text-[22px] font-bold text-gray-900">Withdrawal initiated</h1>
+        <h1 className="text-[22px] font-medium text-gray-900">Withdrawal initiated</h1>
         <p className="mx-auto mt-2 max-w-xs text-[14px] font-medium text-gray-500">
           Your withdrawal request has been submitted successfully.
         </p>
@@ -126,7 +126,7 @@ const PerformerWalletWithdrawView = ({ paths = DEFAULT_PATHS }) => {
         <button
           type="button"
           onClick={() => navigate(paths.transactions)}
-          className="mt-8 w-full rounded-2xl bg-[#10605F] py-4 text-[15px] font-bold text-white shadow-md hover:bg-[#00925f]"
+          className="mt-8 w-full rounded-2xl bg-[#10605F] py-4 text-[15px] font-medium text-white shadow-md hover:bg-[#00925f]"
         >
           View transaction history
         </button>
@@ -151,7 +151,7 @@ const PerformerWalletWithdrawView = ({ paths = DEFAULT_PATHS }) => {
         actions={
           <div className="text-right">
             <span className="text-xs font-medium text-gray-500">Available to withdraw</span>
-            <div className="text-lg font-black text-[#10605F]">₹{formatINR(balance)}</div>
+            <div className="text-lg font-medium text-[#10605F]">₹{formatINR(balance)}</div>
           </div>
         }
       />
@@ -170,7 +170,7 @@ const PerformerWalletWithdrawView = ({ paths = DEFAULT_PATHS }) => {
                 inputMode="numeric"
                 value={amount ? `₹ ${formatINR(amount)}` : "₹ 0"}
                 onChange={handleAmountChange}
-                className="w-full max-w-md bg-transparent text-[32px] font-bold text-gray-900 outline-none"
+                className="w-full max-w-md bg-transparent text-[32px] font-medium text-gray-900 outline-none"
               />
             </div>
             <div className="mt-4 flex flex-wrap gap-2">
@@ -229,7 +229,7 @@ const PerformerWalletWithdrawView = ({ paths = DEFAULT_PATHS }) => {
             type="button"
             onClick={handleContinue}
             disabled={!isValidAmount}
-            className={`w-full max-w-md rounded-2xl py-4 text-[15px] font-bold transition ${
+            className={`w-full max-w-md rounded-2xl py-4 text-[15px] font-medium transition ${
               isValidAmount
                 ? "bg-[#10605F] text-white shadow-md hover:bg-[#00925f]"
                 : "bg-gray-200 text-gray-500"

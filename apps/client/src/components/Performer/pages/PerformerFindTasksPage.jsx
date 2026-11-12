@@ -171,7 +171,7 @@ const PerformerFindTasksPage = () => {
       <main className="w-full px-4 pb-16 pt-[110px] sm:px-6 lg:ml-[220px] lg:w-[calc(100%-220px)] lg:px-8">
         <div className="mx-auto max-w-7xl">
         <header className="mb-6">
-          <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">Find Tasks</h1>
+          <h1 className="text-2xl sm:text-3xl font-heading font-medium tracking-tight">Find Tasks</h1>
         </header>
 
         {kycBanner ? (
@@ -183,7 +183,7 @@ const PerformerFindTasksPage = () => {
                 <ShieldCheck size={22} />
               </span>
               <div>
-                <h2 className="text-sm font-extrabold">{kycBanner.title}</h2>
+                <h2 className="text-sm font-heading font-medium">{kycBanner.title}</h2>
                 <p className="mt-1 max-w-3xl text-sm font-medium leading-6 opacity-75">{kycBanner.body}</p>
               </div>
             </div>
@@ -237,8 +237,8 @@ const PerformerFindTasksPage = () => {
           {searchFocused ? (
             <div className="absolute left-0 right-0 top-[56px] z-40 max-h-[70vh] overflow-y-auto rounded-[14px] border border-slate-100 bg-white shadow-[0_24px_70px_rgba(15,23,42,0.18)] sm:right-14">
               <div className="flex items-center justify-between px-5 py-4">
-                <p className="text-[12px] font-bold uppercase tracking-[0.18em] text-slate-400">Recent searches</p>
-                <button type="button" onClick={clearRecentSearches} className="text-sm font-semibold text-slate-500 hover:text-slate-900">
+                <p className="text-[12px] font-medium uppercase tracking-[0.18em] text-slate-400">Recent searches</p>
+                <button type="button" onClick={clearRecentSearches} className="text-sm font-medium text-slate-500 hover:text-slate-900">
                   Clear all
                 </button>
               </div>
@@ -257,10 +257,10 @@ const PerformerFindTasksPage = () => {
 
               {trendingSearches.length > 0 ? (
                 <div className="border-t border-slate-100 px-5 py-4">
-                  <p className="mb-3 text-[12px] font-bold uppercase tracking-[0.18em] text-slate-400">Popular skills</p>
+                  <p className="mb-3 text-[12px] font-medium uppercase tracking-[0.18em] text-slate-400">Popular skills</p>
                   <div className="flex flex-wrap gap-2">
                     {trendingSearches.map((item) => (
-                      <button key={item} type="button" onMouseDown={(event) => event.preventDefault()} onClick={() => runSearch(item)} className="inline-flex items-center gap-1 rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-[var(--color-primary)]/40 hover:text-[var(--color-primary)]">
+                      <button key={item} type="button" onMouseDown={(event) => event.preventDefault()} onClick={() => runSearch(item)} className="inline-flex items-center gap-1 rounded-full border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 hover:border-[var(--color-primary)]/40 hover:text-[var(--color-primary)]">
                         <TrendingUp size={14} />
                         {item}
                       </button>
@@ -270,14 +270,14 @@ const PerformerFindTasksPage = () => {
               ) : null}
 
               <div className="border-t border-slate-100 pb-2">
-                <p className="px-5 py-4 text-[12px] font-bold uppercase tracking-[0.18em] text-slate-400">Suggested tasks</p>
+                <p className="px-5 py-4 text-[12px] font-medium uppercase tracking-[0.18em] text-slate-400">Suggested tasks</p>
                 {suggestedTasks.map((task) => (
                   <button key={task.id} type="button" onMouseDown={(event) => event.preventDefault()} onClick={() => navigate(`/performer/task/${task.id}`)} className="flex w-full items-center gap-4 px-5 py-3 text-left hover:bg-[var(--color-primary-subtle)]/45">
                     <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-slate-50 text-[var(--color-primary)]">
                       <BriefcaseBusiness size={18} />
                     </span>
                     <span className="min-w-0 flex-1">
-                      <span className="block truncate text-sm font-bold text-slate-900">{task.title}</span>
+                      <span className="block truncate text-sm font-medium text-slate-900">{task.title}</span>
                       <span className="mt-0.5 block truncate text-xs font-medium text-slate-400">{task.priceLabel} · {task.category}</span>
                     </span>
                     <span className="text-sm font-semibold text-slate-300">View</span>
@@ -298,7 +298,7 @@ const PerformerFindTasksPage = () => {
               key={pill.id}
               type="button"
               onClick={() => setActivePill(pill.id)}
-              className={`shrink-0 rounded-full border px-5 py-2 text-[13px] font-bold transition ${
+              className={`shrink-0 rounded-full border px-5 py-2 text-[13px] font-medium transition ${
                 activePill === pill.id
                   ? "border-[var(--color-primary)] bg-[var(--color-primary-subtle)] text-[var(--color-primary)]"
                   : "border-[var(--color-border)] bg-[var(--color-surface-elevated)] text-[var(--color-text-muted)] hover:border-[var(--color-primary)]/30"

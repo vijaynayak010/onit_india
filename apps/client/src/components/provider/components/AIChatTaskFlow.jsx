@@ -213,7 +213,7 @@ export default function AIPoweredTaskFlow({ onComplete, mode = 'landing', initia
                   <div className="w-12 h-12 rounded-2xl bg-[var(--color-primary-subtle)] flex items-center justify-center text-[var(--color-primary)]">
                     <Zap size={24} />
                   </div>
-                  <h2 className="text-3xl font-extrabold text-[var(--color-text)]">What's your vision?</h2>
+                  <h2 className="text-3xl font-medium text-[var(--color-text)]">What's your vision?</h2>
                 </div>
               </div>
               <p className="text-[var(--color-text-muted)] mb-8 text-lg">Tell us about the product you want to build. Our AI will help clarify the requirements.</p>
@@ -253,7 +253,7 @@ export default function AIPoweredTaskFlow({ onComplete, mode = 'landing', initia
           {step === 2 && (
             <motion.div key="s2" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="p-8 sm:p-12">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-xl font-bold flex items-center gap-2 text-[var(--color-primary)]">
+                <h3 className="text-xl font-medium flex items-center gap-2 text-[var(--color-primary)]">
                   <Zap size={24} />
                   AI Draft Recommendation
                 </h3>
@@ -295,7 +295,7 @@ export default function AIPoweredTaskFlow({ onComplete, mode = 'landing', initia
                     AI Scope Builder
                   </p>
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-text)] mb-3">
+                <h2 className="text-2xl sm:text-3xl font-medium text-[var(--color-text)] mb-3">
                   Refine Your Project Scope
                 </h2>
                 <p className="text-sm sm:text-base text-[var(--color-text-muted)] leading-relaxed mb-6">
@@ -437,13 +437,13 @@ export default function AIPoweredTaskFlow({ onComplete, mode = 'landing', initia
               {isMatching ? (
                 <div className="py-20 text-center space-y-6">
                   <Loader className="animate-spin mx-auto text-[var(--color-primary)]" size={48} />
-                  <h2 className="text-2xl font-bold animate-pulse">Syncing with our specialist database...</h2>
+                  <h2 className="text-2xl font-medium animate-pulse">Syncing with our specialist database...</h2>
                 </div>
               ) : (
                 <div className="space-y-8">
                   <div className="flex items-center justify-between">
                     <div>
-                      <h2 className="text-3xl font-extrabold mb-1">Top 3 Matches found!</h2>
+                      <h2 className="text-3xl font-medium mb-1">Top 3 Matches found!</h2>
                       <p className="text-[var(--color-text-muted)] italic">Based on your requirement for {formData.idea.substring(0, 30)}...</p>
                     </div>
                   </div>
@@ -455,14 +455,14 @@ export default function AIPoweredTaskFlow({ onComplete, mode = 'landing', initia
                         onClick={() => openMatchProfile(spec)}
                       >
                         <div className="flex flex-col sm:flex-row sm:items-start gap-5">
-                          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[var(--color-primary)] to-[#083B3A] flex items-center justify-center text-xl font-bold text-white shadow-md">
+                          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[var(--color-primary)] to-[#083B3A] flex items-center justify-center text-xl font-medium text-white shadow-md">
                             {spec.avatar}
                           </div>
 
                           <div className="flex-1 min-w-0">
                             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                               <div>
-                                <h4 className="text-xl font-bold text-[var(--color-text)]">{spec.name}</h4>
+                                <h4 className="text-xl font-medium text-[var(--color-text)]">{spec.name}</h4>
                                 <p className="text-[11px] font-bold text-[var(--color-primary)] uppercase tracking-wider">{spec.role}</p>
                                 <p className="text-sm text-[var(--color-text-muted)] mt-2 leading-relaxed">{spec.bio}</p>
                               </div>
@@ -529,7 +529,7 @@ export default function AIPoweredTaskFlow({ onComplete, mode = 'landing', initia
           {step === 5 && (
             <motion.div key="s5" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="p-8 sm:p-12">
                <div className="mb-8 p-6 bg-[var(--color-surface)] rounded-3xl border-2 border-[var(--color-border)]">
-                  <h3 className="text-lg font-bold mb-6 flex items-center gap-2">
+                  <h3 className="text-lg font-medium mb-6 flex items-center gap-2">
                      <CheckCircle className="text-[var(--color-primary)]" /> Review Your Project
                   </h3>
                   
@@ -582,7 +582,7 @@ export default function AIPoweredTaskFlow({ onComplete, mode = 'landing', initia
                 <CheckCircle size={48} />
               </div>
               <div>
-                <h2 className="text-4xl font-extrabold mb-4">
+                <h2 className="text-4xl font-medium mb-4">
                   {mode === 'provider' ? 'Task Posted Successfully!' : 'Meeting Confirmed!'}
                 </h2>
                 <p className="text-[var(--color-text-muted)] max-w-md mx-auto">
@@ -631,8 +631,8 @@ export default function AIPoweredTaskFlow({ onComplete, mode = 'landing', initia
                   <div className="w-12 h-12 bg-[#EFFBFB] text-[var(--color-primary)] rounded-xl flex items-center justify-center mx-auto mb-3">
                      <Lock size={24} />
                   </div>
-                  <h3 className="text-xl font-bold">Access Secured</h3>
-                  <p className="text-sm text-[var(--color-text-muted)] mt-1.5">Login or register to finalize your meeting with <span className="font-bold text-[var(--color-text)]">{selectedSpec?.name}</span>.</p>
+                  <h3 className="text-xl font-medium">Access Secured</h3>
+                  <p className="text-sm text-[var(--color-text-muted)] mt-1.5">Login or register to finalize your meeting with <span className="font-medium text-[var(--color-text)]">{selectedSpec?.name}</span>.</p>
                </div>
 
                <form onSubmit={handleLogin} className="space-y-3">
@@ -682,7 +682,7 @@ export default function AIPoweredTaskFlow({ onComplete, mode = 'landing', initia
               <div className="w-12 h-12 bg-red-50 text-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
                 <ArrowLeft size={24} />
               </div>
-              <h3 className="text-lg font-bold text-gray-900">Go back?</h3>
+              <h3 className="text-lg font-medium text-gray-900">Go back?</h3>
               <p className="text-sm text-gray-500 mt-2 mb-6">Are you sure you want to go back? Some of your current entries might be lost.</p>
 
               <div className="flex gap-3">

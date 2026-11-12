@@ -132,7 +132,7 @@ const DeleteAccountPage = ({
         >
           {step === 1 ? (
             <>
-              <h1 className="text-xl font-extrabold text-gray-900 sm:text-2xl">
+              <h1 className="text-xl font-medium text-gray-900 sm:text-2xl">
                 Deactivate Your Account?
               </h1>
               <p className="mt-2 text-sm leading-relaxed text-gray-500">
@@ -171,7 +171,7 @@ const DeleteAccountPage = ({
 
           {step === 2 ? (
             <>
-              <h1 className="text-xl font-extrabold text-gray-900 sm:text-2xl">
+              <h1 className="text-xl font-medium text-gray-900 sm:text-2xl">
                 Why are you leaving?
               </h1>
               <p className="mt-2 text-sm text-gray-500">Your feedback helps us improve.</p>
@@ -210,7 +210,7 @@ const DeleteAccountPage = ({
 
           {step === 3 ? (
             <>
-              <h1 className="text-xl font-extrabold text-gray-900 sm:text-2xl">
+              <h1 className="text-xl font-medium text-gray-900 sm:text-2xl">
                 Final Confirmation
               </h1>
               <p className="mt-2 text-sm text-gray-500">

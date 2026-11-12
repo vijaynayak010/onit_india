@@ -18,7 +18,7 @@ function AdminDashboard() {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#d8f7e3] via-[#ffffff] to-[#e3eafc] font-['Neue Montreal']">
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#d8f7e3] via-[#ffffff] to-[#e3eafc] font-sans">
       
       {/* 🌀 Animated Floating Lights */}
 
@@ -35,7 +35,7 @@ function AdminDashboard() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-4xl sm:text-5xl font-extrabold text-black tracking-tight mb-12"
+          className="text-4xl sm:text-5xl font-medium text-black tracking-tight mb-12"
         >
           Admin <span className="text-green-500">Control Panel</span>
         </motion.h1>
@@ -48,7 +48,7 @@ function AdminDashboard() {
             whileTap={{ scale: 0.95 }}
             onClick={() => navigate("/add-post")}
             className="flex items-center justify-center gap-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white 
-                       px-8 py-4 rounded-2xl text-lg font-semibold shadow-md hover:shadow-lg hover:from-black hover:to-gray-800 
+                       px-8 py-4 rounded-2xl text-lg font-medium shadow-md hover:shadow-lg hover:from-black hover:to-gray-800 
                        transition-all duration-300"
           >
             <PlusCircle size={22} />
@@ -61,7 +61,7 @@ function AdminDashboard() {
             whileTap={{ scale: 0.95 }}
             onClick={() => navigate("/blog")}
             className="flex items-center justify-center gap-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white 
-                       px-8 py-4 rounded-2xl text-lg font-semibold shadow-md hover:shadow-lg hover:from-black hover:to-gray-800 
+                       px-8 py-4 rounded-2xl text-lg font-medium shadow-md hover:shadow-lg hover:from-black hover:to-gray-800 
                        transition-all duration-300"
           >
             <FileText size={22} />
@@ -74,7 +74,7 @@ function AdminDashboard() {
             whileTap={{ scale: 0.95 }}
             onClick={handleLogout}
             className="flex items-center justify-center gap-3 bg-gradient-to-r from-red-500 to-pink-500 text-white 
-                       px-8 py-4 rounded-2xl text-lg font-semibold shadow-md hover:shadow-lg hover:from-black hover:to-gray-800 
+                       px-8 py-4 rounded-2xl text-lg font-medium shadow-md hover:shadow-lg hover:from-black hover:to-gray-800 
                        transition-all duration-300"
           >
             <LogOut size={22} />

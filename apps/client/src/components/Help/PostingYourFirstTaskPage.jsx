@@ -41,7 +41,7 @@ const PostingYourFirstTaskPage = () => (
     description="Step-by-step guide for task providers: how to describe your task, set a budget, and get matched with performers who can deliver."
     slug="posting-your-first-task"
   >
-    <h1 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-6">
+    <h1 className="text-3xl md:text-4xl font-medium text-[var(--color-primary)] mb-6">
       Posting Your First Task
     </h1>
     <p className="text-gray-600 text-lg mb-10">
@@ -55,7 +55,7 @@ const PostingYourFirstTaskPage = () => (
             {step}
           </span>
           <div>
-            <h2 className="text-xl font-bold text-[var(--color-primary)] mb-2">{title}</h2>
+            <h2 className="text-xl font-medium text-[var(--color-primary)] mb-2">{title}</h2>
             <p className="text-gray-600">{body}</p>
           </div>
         </div>
@@ -63,7 +63,7 @@ const PostingYourFirstTaskPage = () => (
     </div>
 
     <div className="mt-12 rounded-xl bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/15 p-6">
-      <h2 className="text-lg font-bold text-[var(--color-primary)] mb-2">Tips for a successful task</h2>
+      <h2 className="text-lg font-medium text-[var(--color-primary)] mb-2">Tips for a successful task</h2>
       <ul className="list-disc pl-5 space-y-1 text-gray-600 text-sm">
         <li>Write a clear, specific title (e.g. “Research competitors in X industry” instead of “Need research”).</li>
         <li>Describe deliverables and any format you need (e.g. “One-page summary in Google Doc”).</li>

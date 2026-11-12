@@ -26,7 +26,7 @@ export default function AITaskInput({ onGenerate, isLoading, error }) {
         {/* Header */}
         <div className="flex items-center gap-2 mb-2">
           <Cpu size={20} className="text-[var(--color-primary)]" />
-          <h3 className="text-lg font-semibold text-[var(--color-text)]">
+          <h3 className="text-lg font-medium text-[var(--color-text)]">
             AI Task Generator
           </h3>
         </div>

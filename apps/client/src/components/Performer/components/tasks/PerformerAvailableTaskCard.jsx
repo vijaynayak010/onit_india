@@ -50,18 +50,18 @@ const PerformerAvailableTaskCard = ({
 
     <h3
       onClick={() => onViewDetails?.(task)}
-      className={`mb-3 cursor-pointer font-bold leading-snug text-[var(--color-text)] transition hover:text-[var(--color-primary)] ${
-        compact ? "line-clamp-2 text-[15px]" : "text-lg"
+      className={`mb-3 cursor-pointer font-heading font-medium leading-snug text-[var(--color-text)] transition hover:text-[var(--color-primary)] ${
+        compact ? "line-clamp-2 text-[15px]" : "text-base sm:text-lg"
       }`}
     >
       {task.title}
     </h3>
 
-    <p className={`font-bold text-[var(--color-text)] ${compact ? "text-lg" : "text-xl"}`}>
+    <p className={`font-heading font-medium text-[var(--color-text)] ${compact ? "text-lg" : "text-xl"}`}>
       {task.priceLabel}
     </p>
 
-    <div className="mt-2 flex items-center gap-1.5 text-[12px] font-semibold text-[var(--color-text-muted)]">
+    <div className="mt-2 flex items-center gap-1.5 text-[12px] font-medium text-[var(--color-text-muted)]">
       <Calendar size={14} className="shrink-0 text-[var(--color-text-subtle)]" strokeWidth={2} />
       <span className="line-clamp-1">{task.deadlineLabel}</span>
     </div>

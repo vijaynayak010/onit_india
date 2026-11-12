@@ -100,7 +100,7 @@ const ProviderOnboardingPage = () => {
     return (
       <div className="flex min-h-screen items-center justify-center bg-[#F4F6F8] p-4 font-sans">
         <div className="relative flex w-full max-w-[420px] flex-col overflow-hidden rounded-[28px] bg-white px-8 pb-10 pt-12 shadow-[0_24px_60px_-20px_rgba(15,23,42,0.18)] text-center">
-          <h1 className="text-[24px] font-extrabold leading-tight tracking-tight text-gray-900">Have a referral code?</h1>
+          <h1 className="text-[24px] font-medium leading-tight tracking-tight text-gray-900">Have a referral code?</h1>
           <p className="mx-auto mt-3 max-w-[300px] text-[14px] font-medium leading-relaxed text-gray-500">
             Enter it to unlock rewards for you and the person who invited you.
           </p>
@@ -160,7 +160,7 @@ const ProviderOnboardingPage = () => {
             <Illustration />
 
             <div className="flex flex-1 flex-col px-8 pb-8 pt-6 text-center">
-              <h1 className="text-[26px] font-extrabold leading-tight tracking-tight text-gray-900">
+              <h1 className="text-[26px] font-medium leading-tight tracking-tight text-gray-900">
                 {slide.title}
               </h1>
               <p className="mx-auto mt-3 max-w-[300px] text-[14px] font-medium leading-relaxed text-gray-500">
@@ -185,14 +185,14 @@ const ProviderOnboardingPage = () => {
                   <button
                     type="button"
                     onClick={finish}
-                    className="text-[15px] font-bold text-gray-800 transition hover:text-gray-600"
+                    className="text-[15px] font-medium text-gray-800 transition hover:text-gray-600"
                   >
                     Skip
                   </button>
                   <button
                     type="button"
                     onClick={goNext}
-                    className={`inline-flex items-center gap-1 text-[15px] font-bold transition ${
+                    className={`inline-flex items-center gap-1 text-[15px] font-medium transition ${
                       isLast
                         ? "text-[#10605F] hover:text-[#008f5d]"
                         : "text-gray-900 hover:text-gray-700"

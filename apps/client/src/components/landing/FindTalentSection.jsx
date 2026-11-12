@@ -360,7 +360,7 @@ export default function FindTalentSection() {
       <div className="mx-auto max-w-[1240px] px-4 lg:px-6 mb-12">
         <h2
           style={{
-            fontFamily: "'Outfit', sans-serif",
+            fontFamily: "'Poppins', sans-serif",
             fontWeight: 700,
             fontSize: "clamp(32px, 4vw, 52px)",
             lineHeight: "110%",

@@ -109,7 +109,7 @@ const ScrollRevealSection = () => {
                     <span className="text-[var(--color-primary)] font-bold tracking-wider text-xs uppercase mb-2 block">
                         The Solution
                     </span>
-                    <h2 className="text-xl sm:text-3xl md:text-5xl font-extrabold text-slate-900 mb-2 sm:mb-3 leading-tight">
+                    <h2 className="text-xl sm:text-3xl md:text-5xl font-medium text-slate-900 mb-2 sm:mb-3 leading-tight">
                         Introducing <span className="text-[var(--color-primary)]">FirstDoer Campus</span>
                     </h2>
 
@@ -174,7 +174,7 @@ const ScrollRevealSection = () => {
                                     {React.cloneElement(activeContent.icon, { className: "w-5 h-5 sm:w-6 sm:h-6" })}
                                 </div>
 
-                                <h3 className="text-lg sm:text-2xl md:text-3xl font-black text-slate-900 mb-2 sm:mb-4 leading-tight">
+                                <h3 className="text-lg sm:text-2xl md:text-3xl font-medium text-slate-900 mb-2 sm:mb-4 leading-tight">
                                     {activeContent.heading}
                                 </h3>
 

@@ -28,7 +28,7 @@ const PREVIEW_BG = {
 };
 
 const CARD_H3 = {
-  fontFamily: "Outfit, sans-serif",
+  fontFamily: "Poppins, sans-serif",
   fontWeight: 400,
   fontSize: 21,
   lineHeight: "32px",
@@ -38,7 +38,7 @@ const CARD_H3 = {
 };
 
 const CARD_P = {
-  fontFamily: "Manrope, sans-serif",
+  fontFamily: "Poppins, sans-serif",
   fontWeight: 400,
   fontSize: 12,
   lineHeight: "20px",
@@ -51,7 +51,7 @@ const CHIP = (color = "#009966") => ({
   background: "rgba(255,255,255,0.9)",
   border: "0.8px solid rgba(20,55,44,0.07)",
   borderRadius: 999,
-  fontFamily: "Manrope, sans-serif",
+  fontFamily: "Poppins, sans-serif",
   fontWeight: 400,
   fontSize: 11,
   lineHeight: "16px",
@@ -66,7 +66,7 @@ const PREVIEW_HEADER = {
 };
 
 const LABEL_BOLD = {
-  fontFamily: "Manrope, sans-serif",
+  fontFamily: "Poppins, sans-serif",
   fontWeight: 700,
   fontSize: 11,
   lineHeight: "16px",
@@ -146,7 +146,7 @@ function VerifiedPerformersCard() {
                 alignItems: "center",
                 justifyContent: "center",
                 flexShrink: 0,
-                fontFamily: "Manrope, sans-serif",
+                fontFamily: "Poppins, sans-serif",
                 fontWeight: 700,
                 fontSize: 14,
                 color: "#7a4a2a",
@@ -157,7 +157,7 @@ function VerifiedPerformersCard() {
             <div>
               <p
                 style={{
-                  fontFamily: "Manrope, sans-serif",
+                  fontFamily: "Poppins, sans-serif",
                   fontWeight: 700,
                   fontSize: 10,
                   lineHeight: "15px",
@@ -169,7 +169,7 @@ function VerifiedPerformersCard() {
               </p>
               <p
                 style={{
-                  fontFamily: "Manrope, sans-serif",
+                  fontFamily: "Poppins, sans-serif",
                   fontWeight: 400,
                   fontSize: 8,
                   lineHeight: "12px",
@@ -200,7 +200,7 @@ function VerifiedPerformersCard() {
               >
                 <span
                   style={{
-                    fontFamily: "Manrope, sans-serif",
+                    fontFamily: "Poppins, sans-serif",
                     fontWeight: 400,
                     fontSize: 10,
                     lineHeight: "15px",
@@ -211,7 +211,7 @@ function VerifiedPerformersCard() {
                 </span>
                 <span
                   style={{
-                    fontFamily: "Manrope, sans-serif",
+                    fontFamily: "Poppins, sans-serif",
                     fontWeight: 700,
                     fontSize: 10,
                     lineHeight: "15px",
@@ -252,7 +252,7 @@ function EscrowCard() {
         <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
           <p
             style={{
-              fontFamily: "Manrope, sans-serif",
+              fontFamily: "Poppins, sans-serif",
               fontWeight: 400,
               fontSize: 10,
               lineHeight: "15px",
@@ -265,7 +265,7 @@ function EscrowCard() {
 
           <p
             style={{
-              fontFamily: "Outfit, sans-serif",
+              fontFamily: "Poppins, sans-serif",
               fontWeight: 700,
               fontSize: 46,
               lineHeight: "69px",
@@ -289,7 +289,7 @@ function EscrowCard() {
 
           <p
             style={{
-              fontFamily: "Manrope, sans-serif",
+              fontFamily: "Poppins, sans-serif",
               fontWeight: 400,
               fontSize: 10,
               lineHeight: "15px",
@@ -315,7 +315,7 @@ function EscrowCard() {
           >
             <span
               style={{
-                fontFamily: "Manrope, sans-serif",
+                fontFamily: "Poppins, sans-serif",
                 fontWeight: 700,
                 fontSize: 10,
                 lineHeight: "15px",
@@ -326,7 +326,7 @@ function EscrowCard() {
             </span>
             <span
               style={{
-                fontFamily: "Manrope, sans-serif",
+                fontFamily: "Poppins, sans-serif",
                 fontWeight: 400,
                 fontSize: 10,
                 lineHeight: "15px",
@@ -364,7 +364,7 @@ function AITaskCard() {
         <div style={PREVIEW_HEADER}>
           <span
             style={{
-              fontFamily: "Manrope, sans-serif",
+              fontFamily: "Poppins, sans-serif",
               fontWeight: 700,
               fontSize: 10,
               lineHeight: "15px",
@@ -380,7 +380,7 @@ function AITaskCard() {
               border: "0.8px solid rgba(20,55,44,0.067)",
               boxShadow: "0px 8px 20px rgba(9,30,23,0.055)",
               borderRadius: 999,
-              fontFamily: "Manrope, sans-serif",
+              fontFamily: "Poppins, sans-serif",
               fontWeight: 400,
               fontSize: 11,
               lineHeight: "16px",
@@ -394,7 +394,7 @@ function AITaskCard() {
         {/* Ready to publish */}
         <p
           style={{
-            fontFamily: "Manrope, sans-serif",
+            fontFamily: "Poppins, sans-serif",
             fontWeight: 700,
             fontSize: 10,
             lineHeight: "15px",
@@ -420,7 +420,7 @@ function AITaskCard() {
             >
               <span
                 style={{
-                  fontFamily: "Manrope, sans-serif",
+                  fontFamily: "Poppins, sans-serif",
                   fontWeight: 400,
                   fontSize: 10,
                   lineHeight: "15px",
@@ -475,7 +475,7 @@ function TrackingChatCard() {
             />
             <span
               style={{
-                fontFamily: "Manrope, sans-serif",
+                fontFamily: "Poppins, sans-serif",
                 fontWeight: 700,
                 fontSize: 10,
                 lineHeight: "15px",
@@ -494,7 +494,7 @@ function TrackingChatCard() {
           >
             <span
               style={{
-                fontFamily: "Manrope, sans-serif",
+                fontFamily: "Poppins, sans-serif",
                 fontWeight: 400,
                 fontSize: 10,
                 lineHeight: "15px",
@@ -505,7 +505,7 @@ function TrackingChatCard() {
             </span>
             <span
               style={{
-                fontFamily: "Manrope, sans-serif",
+                fontFamily: "Poppins, sans-serif",
                 fontWeight: 400,
                 fontSize: 8,
                 lineHeight: "12px",
@@ -552,7 +552,7 @@ function TrackingChatCard() {
           />
           <p
             style={{
-              fontFamily: "Manrope, sans-serif",
+              fontFamily: "Poppins, sans-serif",
               fontWeight: 400,
               fontSize: 9,
               lineHeight: "15px",
@@ -625,7 +625,7 @@ function ProofCard() {
             >
               <span
                 style={{
-                  fontFamily: "Manrope, sans-serif",
+                  fontFamily: "Poppins, sans-serif",
                   fontWeight: 400,
                   fontSize: 8,
                   lineHeight: "12px",
@@ -638,7 +638,7 @@ function ProofCard() {
           ))}
           <span
             style={{
-              fontFamily: "Manrope, sans-serif",
+              fontFamily: "Poppins, sans-serif",
               fontWeight: 700,
               fontSize: 8,
               lineHeight: "12px",
@@ -674,7 +674,7 @@ export default function TrustSection() {
         <motion.div {...fadeUp(0)}>
           <h2
             style={{
-              fontFamily: "Outfit, sans-serif",
+              fontFamily: "Poppins, sans-serif",
               fontWeight: 600,
               fontSize: "clamp(26px, 3.5vw, 41.832px)",
               lineHeight: "clamp(32px, 4.5vw, 48px)",
@@ -688,7 +688,7 @@ export default function TrustSection() {
           </h2>
           <p
             style={{
-              fontFamily: "Manrope, sans-serif",
+              fontFamily: "Poppins, sans-serif",
               fontWeight: 400,
               fontSize: "clamp(14px, 1.6vw, 17px)",
               lineHeight: "26px",

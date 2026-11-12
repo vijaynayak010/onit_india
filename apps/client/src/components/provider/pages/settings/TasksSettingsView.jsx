@@ -23,7 +23,7 @@ const Row = ({ icon: Icon, title, description, checked, onChange }) => (
         <Icon size={20} strokeWidth={2} />
       </div>
       <div className="min-w-0">
-        <p className="font-bold text-[var(--color-text)]">{title}</p>
+        <p className="font-medium text-[var(--color-text)]">{title}</p>
         <p className="mt-0.5 text-sm font-semibold text-[var(--color-text-muted)]">{description}</p>
       </div>
     </div>
@@ -45,7 +45,7 @@ const TasksSettingsView = () => {
             <ListTodo size={22} strokeWidth={2} />
           </div>
           <div>
-            <h3 className="text-lg font-bold text-[var(--color-text)]">Task preferences</h3>
+            <h3 className="text-lg font-medium text-[var(--color-text)]">Task preferences</h3>
             <p className="text-sm font-semibold text-[var(--color-text-muted)]">Control how you are notified about task activity.</p>
           </div>
         </div>

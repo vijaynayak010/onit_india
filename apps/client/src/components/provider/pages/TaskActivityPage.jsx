@@ -89,7 +89,7 @@ const ActivityRow = ({ icon: Icon, title, description, tone = "emerald" }) => {
         <ActivityIcon className="h-5 w-5" strokeWidth={2.2} />
       </div>
       <div className="min-w-0">
-        <p className="font-bold text-[var(--color-text)]">{title}</p>
+        <p className="font-medium text-[var(--color-text)]">{title}</p>
         <p className="mt-1 text-sm font-medium text-[var(--color-text-muted)]">{description}</p>
       </div>
     </div>
@@ -106,7 +106,7 @@ const InvitationCard = ({ invitation, onView }) => {
         <div className="flex min-w-0 items-center gap-3.5">
           <img src={tasker.avatar} alt={tasker.displayName} className="h-12 w-12 shrink-0 rounded-full border border-[var(--color-border)] object-cover" />
           <div className="min-w-0">
-            <h4 className="truncate font-extrabold text-[var(--color-text)]">{tasker.displayName}</h4>
+            <h4 className="truncate font-medium text-[var(--color-text)]">{tasker.displayName}</h4>
             <p className="mt-0.5 text-sm font-medium text-[var(--color-text-muted)]">{status.line}</p>
             <p className="mt-1 text-xs font-semibold text-[var(--color-text-subtle)]">Sent {formatDate(invitation.createdAt, "recently")}</p>
           </div>
@@ -131,7 +131,7 @@ const SuggestedCard = ({ suggested, savedIds, setSavedIds, onInvite, onView, sen
         <img src={suggested.avatar} alt={suggested.displayName} className="h-14 w-14 shrink-0 rounded-full object-cover" />
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2">
-            <h4 className="truncate font-extrabold text-[var(--color-text)]">{suggested.displayName}</h4>
+            <h4 className="truncate font-medium text-[var(--color-text)]">{suggested.displayName}</h4>
             <span className="inline-flex items-center gap-1 text-xs font-bold text-amber-600">
               <Star className="h-3.5 w-3.5 fill-current" strokeWidth={0} />{Number(suggested.ratingAvg || 0).toFixed(1)}
             </span>
@@ -278,7 +278,7 @@ const TaskActivityPage = () => {
                   <span className="rounded-full border border-[#29ADAC]/30 bg-[#EFFBFB] px-3 py-1 text-[11px] font-black uppercase tracking-wider text-[#10605F]">{String(task.status || task.rawStatus || "Published").replaceAll("_", " ")}</span>
                   <span className="text-sm font-semibold text-[var(--color-text-muted)]">{task.category || "General"}</span>
                 </div>
-                <h2 className="mt-4 max-w-3xl text-2xl font-black leading-tight text-[var(--color-text)] sm:text-3xl">{title}</h2>
+                <h2 className="mt-4 max-w-3xl text-2xl font-medium leading-tight text-[var(--color-text)] sm:text-3xl">{title}</h2>
                 <div className="mt-5 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-[var(--color-text-muted)]">
                   <span className="inline-flex items-center gap-2"><CalendarDays className="h-4 w-4" />Deadline {formatDate(task.dueAt || task.deadline)}</span>
                   <span className="inline-flex items-center gap-2"><Users className="h-4 w-4" />{interestCount} application{interestCount === 1 ? "" : "s"}</span>
@@ -287,7 +287,7 @@ const TaskActivityPage = () => {
               </div>
               <div className="flex min-w-[210px] flex-col gap-3 rounded-2xl bg-[#EFFBFB]/70 p-4">
                 <span className="text-xs font-bold uppercase tracking-wider text-[#10605F]">Task budget</span>
-                <strong className="text-2xl font-black text-[var(--color-text)]">{formatMoney(task.priceAmount)}</strong>
+                <strong className="text-2xl font-medium text-[var(--color-text)]">{formatMoney(task.priceAmount)}</strong>
                 <button type="button" onClick={() => navigate(`/provider/task-details?taskId=${taskId}`)} className="inline-flex items-center justify-center gap-2 rounded-full border border-[var(--color-border)] bg-white px-4 py-2.5 text-sm font-bold text-[var(--color-text)] transition hover:bg-[var(--color-surface-elevated)]"><Bookmark className="h-4 w-4" />View Task Details</button>
                 {interestCount > 0 ? <button type="button" onClick={() => navigate(`/provider/task-applicants?taskId=${taskId}`, { state: { prefetchedInterests: interests, prefetchedTask: task } })} className="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--color-primary)] px-4 py-2.5 text-sm font-bold text-white transition hover:bg-[var(--color-primary-hover)]">Review Applications <ArrowRight className="h-4 w-4" /></button> : null}
               </div>
@@ -296,7 +296,7 @@ const TaskActivityPage = () => {
         </section>
 
         <section>
-          <div className="mb-4"><h3 className="text-xl font-black text-[var(--color-text)]">Activity</h3><p className="mt-1 text-sm font-medium text-[var(--color-text-muted)]">A quick view of how this task is performing.</p></div>
+          <div className="mb-4"><h3 className="text-xl font-medium text-[var(--color-text)]">Activity</h3><p className="mt-1 text-sm font-medium text-[var(--color-text-muted)]">A quick view of how this task is performing.</p></div>
           {loading ? (
             <div className="grid gap-3 md:grid-cols-3">
               {[1, 2, 3].map((i) => <div key={i} className="h-[92px] rounded-2xl bg-[#EFFBFB]/40 animate-pulse" />)}
@@ -312,7 +312,7 @@ const TaskActivityPage = () => {
 
         <section>
           <div className="mb-4 flex items-center justify-between gap-4">
-            <div><h3 className="text-xl font-black text-[var(--color-text)]">Invited performers</h3><p className="mt-1 text-sm font-medium text-[var(--color-text-muted)]">Track every invitation and response clearly.</p></div>
+            <div><h3 className="text-xl font-medium text-[var(--color-text)]">Invited performers</h3><p className="mt-1 text-sm font-medium text-[var(--color-text-muted)]">Track every invitation and response clearly.</p></div>
             {invitations.length > 0 ? <span className="rounded-full bg-violet-50 px-3 py-1 text-xs font-bold text-violet-700">{invitations.length} sent</span> : null}
           </div>
           {invitationError ? <div className="flex flex-col gap-3 rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4 text-sm font-semibold text-amber-800 sm:flex-row sm:items-center sm:justify-between"><span>{invitationError}</span><button type="button" onClick={loadPage} className="font-black">Retry</button></div>
@@ -322,7 +322,7 @@ const TaskActivityPage = () => {
         </section>
 
         <section>
-          <div className="mb-4"><h3 className="text-xl font-black text-[var(--color-text)]">Suggested performers</h3><p className="mt-1 text-sm font-medium text-[var(--color-text-muted)]">Recommended for {task.category || "this task"} based on skills and experience.</p></div>
+          <div className="mb-4"><h3 className="text-xl font-medium text-[var(--color-text)]">Suggested performers</h3><p className="mt-1 text-sm font-medium text-[var(--color-text-muted)]">Recommended for {task.category || "this task"} based on skills and experience.</p></div>
           {feedback ? <div className="mb-4 rounded-2xl border border-[#29ADAC]/30 bg-[#EFFBFB] px-5 py-3 text-sm font-bold text-[#083B3A]">{feedback}</div> : null}
           {availableSuggestions.length > 0 ? <div className="grid gap-4 lg:grid-cols-2">{availableSuggestions.map((performer) => <SuggestedCard key={performer.id} suggested={performer} savedIds={savedIds} setSavedIds={setSavedIds} onInvite={handleInvite} onView={viewProfile} sending={sendingId === performer.id} />)}</div>
             : <div className="rounded-2xl border border-dashed border-[var(--color-border)] bg-white px-5 py-10 text-center text-sm font-semibold text-[var(--color-text-muted)]">{suggested.length > 0 ? "All current recommendations have been invited." : "No recommendations are available right now."}</div>}

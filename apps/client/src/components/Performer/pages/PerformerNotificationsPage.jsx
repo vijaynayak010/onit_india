@@ -97,7 +97,7 @@ const PerformerNotificationsPage = () => {
                 <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-50 text-slate-300">
                   <BellOff size={30} strokeWidth={1.8} />
                 </div>
-                <h2 className="text-lg font-bold text-slate-800">No notifications yet</h2>
+                <h2 className="text-lg font-medium text-slate-800">No notifications yet</h2>
                 <p className="mt-1 max-w-sm text-sm font-medium text-slate-400">
                   Updates about your tasks, chats, and account will appear here.
                 </p>
@@ -119,7 +119,7 @@ const PerformerNotificationsPage = () => {
                           <Bell size={18} strokeWidth={2.2} />
                         </span>
                         <span className="min-w-0 flex-1">
-                          <span className="block truncate text-sm font-bold text-slate-900">{title}</span>
+                          <span className="block truncate text-sm font-medium text-slate-900">{title}</span>
                           {body ? (
                             <span className="mt-1 line-clamp-2 block text-sm font-medium leading-6 text-slate-500">{body}</span>
                           ) : null}

@@ -17,7 +17,7 @@ function About() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="font-['Plus Jakarta Sans',sans-serif] text-[4vw] md:text-5xl font-bold mb-6 text-center md:text-left text-white"
+        className="font-sans text-3xl sm:text-4xl md:text-5xl font-medium mb-6 text-center md:text-left text-white"
       >
         About <span className="text-[#7EDEDD]">FirstDoer</span>
       </motion.h1>
@@ -42,7 +42,7 @@ function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-2xl md:text-3xl font-semibold mb-4 text-[#7EDEDD]"
+            className="text-2xl md:text-3xl font-medium mb-4 text-[#7EDEDD]"
           >
             Our Approach:
           </motion.h2>

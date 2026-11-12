@@ -51,9 +51,9 @@ const TaskSpotlightCard = ({ task, type, embedded = false }) => {
           <div className="min-w-0 flex-1">
             <div className="mb-2 flex items-center gap-2">
               <LiveChip label="Pending" />
-              <h2 className="truncate text-lg font-extrabold text-[var(--color-text)]">{title}</h2>
+              <h2 className="truncate text-base sm:text-lg font-heading font-medium text-[var(--color-text)]">{title}</h2>
             </div>
-            <p className="text-sm font-semibold text-[var(--color-text-muted)]">Your task is under review</p>
+            <p className="text-sm font-medium text-[var(--color-text-muted)]">Your task is under review</p>
             <div className="mt-3 flex flex-wrap gap-2">
               {["Submitted", "In Queue", `Est. ${task.estimatedReviewMinutes || 24}min`].map((tag) => (
                 <span
@@ -89,9 +89,9 @@ const TaskSpotlightCard = ({ task, type, embedded = false }) => {
           <div className="min-w-0 flex-1">
             <div className="mb-2 flex items-center gap-2">
               <LiveChip label="Notes" />
-              <h2 className="truncate text-lg font-extrabold text-[var(--color-text)]">{title}</h2>
+              <h2 className="truncate text-base sm:text-lg font-heading font-medium text-[var(--color-text)]">{title}</h2>
             </div>
-            <p className="text-sm font-semibold text-red-600">Review didn&apos;t pass</p>
+            <p className="text-sm font-medium text-red-600">Review didn&apos;t pass</p>
             <div className="mt-3 flex flex-wrap gap-2">
               {["Changes", "See Notes", "Resubmit"].map((tag) => (
                 <span
@@ -134,12 +134,12 @@ const TaskSpotlightCard = ({ task, type, embedded = false }) => {
             <div className="min-w-0 flex-1">
               <div className="mb-2 flex items-center gap-2">
                 <LiveChip />
-                <h2 className="truncate text-lg font-extrabold text-[var(--color-text)]">Task is live</h2>
+                <h2 className="truncate text-base sm:text-lg font-heading font-medium text-[var(--color-text)]">Task is live</h2>
               </div>
-              <p className="text-sm font-semibold text-[var(--color-text-muted)]">
+              <p className="text-sm font-medium text-[var(--color-text-muted)]">
                 Matching performers for your task
               </p>
-              <p className="mt-1 truncate text-base font-extrabold text-[var(--color-text)]">{title}</p>
+              <p className="mt-1 truncate text-sm sm:text-base font-heading font-medium text-[var(--color-text)]">{title}</p>
             </div>
             <div className="flex shrink-0 flex-wrap items-center gap-2">
               {applicantCount > 0 ? (

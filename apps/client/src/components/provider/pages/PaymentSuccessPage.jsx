@@ -26,7 +26,7 @@ const PaymentSuccessPage = () => {
                     <div className="w-16 h-16 bg-[#16a34a] rounded-full flex items-center justify-center text-white mb-6 animate-in zoom-in duration-500">
                         <Check size={36} strokeWidth={3} />
                     </div>
-                    <h1 className="text-[34px] font-extrabold text-[#0f172a] mb-2 tracking-tight">Payment Successful</h1>
+                    <h1 className="text-[34px] font-medium text-[#0f172a] mb-2 tracking-tight">Payment Successful</h1>
                     <p className="text-[#16a34a] font-bold text-[17px]">₹350 Paid successfully</p>
                 </div>
 
@@ -36,7 +36,7 @@ const PaymentSuccessPage = () => {
                     {/* Task Brief Card */}
                     <div className="bg-white border border-[#f1f5f9] rounded-[2rem] p-8 shadow-sm flex items-center justify-between">
                         <div>
-                            <h3 className="text-[19px] font-bold text-[#0f172a] mb-1">Hiring a Web Designer</h3>
+                            <h3 className="text-[19px] font-medium text-[#0f172a] mb-1">Hiring a Web Designer</h3>
                             <p className="text-[14px] font-medium text-[#64748b] mb-3">Website redesign • UI/UX improvements</p>
                             <div className="flex items-center gap-2 text-[13px] font-bold text-[#94a3b8]">
                                 <span>Estimated Delivery:</span>
@@ -50,7 +50,7 @@ const PaymentSuccessPage = () => {
 
                     {/* What Happens Next Card */}
                     <div className="bg-white border border-[#f1f5f9] rounded-[2rem] p-8 shadow-sm">
-                        <h4 className="text-[16px] font-bold text-[#0f172a] mb-8">Here's What happens next:</h4>
+                        <h4 className="text-[16px] font-medium text-[#0f172a] mb-8">Here's What happens next:</h4>
                         <div className="space-y-6">
                             {[
                                 "Payment Securely held by our platform",
@@ -62,7 +62,7 @@ const PaymentSuccessPage = () => {
                                     <div className="w-6 h-6 bg-[#16a34a] rounded-full flex items-center justify-center text-white flex-shrink-0">
                                         <Check size={14} strokeWidth={3} />
                                     </div>
-                                    <span className="text-[15px] font-bold text-[#0f172a]">{step}</span>
+                                    <span className="text-[15px] font-medium text-[#0f172a]">{step}</span>
                                 </div>
                             ))}
                         </div>
@@ -80,7 +80,7 @@ const PaymentSuccessPage = () => {
                                     />
                                 </div>
                                 <div className="pt-1">
-                                    <h5 className="text-[17px] font-bold text-[#0f172a]">Ananya</h5>
+                                    <h5 className="text-[17px] font-medium text-[#0f172a]">Ananya</h5>
                                     <p className="text-[14px] font-semibold text-[#16a34a] mb-2">Web Designer</p>
                                     <p className="text-[12px] font-medium text-[#94a3b8]">Avg Response Time: 2hrs</p>
                                 </div>
@@ -100,13 +100,13 @@ const PaymentSuccessPage = () => {
                         <div className="grid grid-cols-2 gap-4">
                             <button 
                                 onClick={() => navigate('/provider/chats')}
-                                className="flex items-center justify-center gap-2 border border-[#16a34a] text-[#16a34a] py-4 rounded-full text-[15px] font-bold hover:bg-green-50 transition-all"
+                                className="flex items-center justify-center gap-2 border border-[#16a34a] text-[#16a34a] py-4 rounded-full text-[15px] font-medium hover:bg-green-50 transition-all"
                             >
                                 <MessageSquare size={18} /> Chat With Performer
                             </button>
                             <button 
                                 onClick={() => navigate('/provider/my-tasks')}
-                                className="flex items-center justify-center gap-2 bg-[#16a34a] text-white py-4 rounded-full text-[15px] font-bold hover:bg-[#15803d] transition-all shadow-lg shadow-green-500/10"
+                                className="flex items-center justify-center gap-2 bg-[#16a34a] text-white py-4 rounded-full text-[15px] font-medium hover:bg-[#15803d] transition-all shadow-lg shadow-green-500/10"
                             >
                                 <TrendingUp size={18} /> Track Task Progress
                             </button>

@@ -50,15 +50,15 @@ const PerformerEarningsTransactionDetailsPage = () => {
                                 <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#2BA960] shadow-sm">
                                     <Wallet size={20} strokeWidth={2.5} />
                                 </div>
-                                <h2 className="text-[40px] font-black text-[#2BA960] leading-none tracking-tight">₹{transaction.amount}</h2>
+                                <h2 className="text-[40px] font-medium text-[#2BA960] leading-none tracking-tight">₹{transaction.amount}</h2>
                             </div>
-                            <p className="text-[18px] font-bold text-[#4B5563] mb-8 pl-13 ml-12">{transaction.type}</p>
+                            <p className="text-[18px] font-medium text-[#4B5563] mb-8 pl-13 ml-12">{transaction.type}</p>
 
                             <div className="bg-white rounded-[16px] border border-gray-100 p-5 flex items-center justify-between shadow-sm">
                                 <div className="flex items-center gap-4">
                                     <img src={transaction.from.avatar} alt={transaction.from.name ? `Sender: ${transaction.from.name}` : "Sender"} className="w-12 h-12 rounded-full object-cover border border-gray-100" />
                                     <div>
-                                        <p className="text-[15px] font-bold text-gray-900 leading-tight">{transaction.from.name}</p>
+                                        <p className="text-[15px] font-medium text-gray-900 leading-tight">{transaction.from.name}</p>
                                         <p className="text-[12px] font-bold text-gray-400 mt-0.5">{transaction.from.role}</p>
                                     </div>
                                 </div>
@@ -69,7 +69,7 @@ const PerformerEarningsTransactionDetailsPage = () => {
                                 </div>
                                 <div className="flex items-center gap-4">
                                     <div className="text-right">
-                                        <p className="text-[15px] font-bold text-gray-900 leading-tight">{transaction.to.name}</p>
+                                        <p className="text-[15px] font-medium text-gray-900 leading-tight">{transaction.to.name}</p>
                                         <p className="text-[12px] font-bold text-gray-400 mt-0.5">{transaction.to.role}</p>
                                     </div>
                                     <img src={transaction.to.avatar} alt={transaction.to.name ? `Recipient: ${transaction.to.name}` : "Recipient"} className="w-12 h-12 rounded-full object-cover border border-gray-100" />
@@ -81,7 +81,7 @@ const PerformerEarningsTransactionDetailsPage = () => {
                         <div className="grid grid-cols-2 gap-8">
                             {/* Transaction Info */}
                             <div>
-                                <h3 className="text-[18px] font-black text-gray-900 mb-4">Transaction info</h3>
+                                <h3 className="text-[18px] font-medium text-gray-900 mb-4">Transaction info</h3>
                                 <div className="bg-white rounded-[16px] border border-gray-100 p-6 space-y-5 shadow-sm">
                                     <div className="flex justify-between items-center">
                                         <span className="text-[14px] font-bold text-gray-400">Date & Time</span>
@@ -102,7 +102,7 @@ const PerformerEarningsTransactionDetailsPage = () => {
 
                             {/* Task & Reason */}
                             <div>
-                                <h3 className="text-[18px] font-black text-gray-900 mb-4">Task & Reason</h3>
+                                <h3 className="text-[18px] font-medium text-gray-900 mb-4">Task & Reason</h3>
                                 <div className="bg-white rounded-[16px] border border-gray-100 p-6 space-y-5 shadow-sm h-[158px]">
                                     <div className="flex justify-between items-start gap-4">
                                         <span className="text-[14px] font-black text-gray-900 min-w-[60px]">Task</span>
@@ -120,11 +120,11 @@ const PerformerEarningsTransactionDetailsPage = () => {
 
                         {/* Payment Method Details */}
                         <div>
-                            <h3 className="text-[18px] font-black text-gray-900 mb-4">Payment Method</h3>
+                            <h3 className="text-[18px] font-medium text-gray-900 mb-4">Payment Method</h3>
                             <div className="bg-white rounded-[16px] border border-gray-100 p-6 shadow-sm">
                                 <div className="flex items-center gap-3 mb-2">
                                     <Wallet size={18} strokeWidth={2.5} className="text-gray-400" />
-                                    <span className="text-[18px] font-black text-gray-900">₹ {transaction.amount}</span>
+                                    <span className="text-[18px] font-medium text-gray-900">₹ {transaction.amount}</span>
                                 </div>
                                 <p className="text-[14px] font-bold text-gray-400">
                                     Refunded <span className="font-black text-[#2BA960]">₹{transaction.amount}</span> to your wallet balance
@@ -134,7 +134,7 @@ const PerformerEarningsTransactionDetailsPage = () => {
 
                         {/* Comments */}
                         <div>
-                            <h3 className="text-[18px] font-black text-gray-900 mb-4">Comments</h3>
+                            <h3 className="text-[18px] font-medium text-gray-900 mb-4">Comments</h3>
                             <div className="bg-[#F4FDF8] rounded-[16px] p-6 border border-[#2BA960]/10">
                                 <p className="text-[14px] font-bold text-gray-700 whitespace-pre-line leading-relaxed">
                                     {transaction.comments}

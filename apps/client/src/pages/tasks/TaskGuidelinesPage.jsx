@@ -45,7 +45,7 @@ const TaskGuidelinesPage = () => (
           ← Back to Help
         </Link>
         <header className="border-b border-gray-200 pb-8 mb-10">
-          <h1 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-4">
+          <h1 className="text-3xl md:text-4xl font-medium text-[var(--color-primary)] mb-4">
             Task Guidelines & Posting Rules
           </h1>
           <p className="text-gray-600 text-base md:text-lg leading-relaxed">
@@ -55,7 +55,7 @@ const TaskGuidelinesPage = () => (
 
         <div className="space-y-10">
           <section>
-            <h2 className="text-xl font-bold text-[var(--color-primary)] mb-4 flex items-center gap-2">
+            <h2 className="text-xl font-medium text-[var(--color-primary)] mb-4 flex items-center gap-2">
               <CheckCircle size={22} />
               Responsibilities of Task Providers
             </h2>
@@ -68,7 +68,7 @@ const TaskGuidelinesPage = () => (
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-[var(--color-primary)] mb-4 flex items-center gap-2">
+            <h2 className="text-xl font-medium text-[var(--color-primary)] mb-4 flex items-center gap-2">
               <CheckCircle size={22} />
               Responsibilities of Task Performers
             </h2>
@@ -81,7 +81,7 @@ const TaskGuidelinesPage = () => (
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-[var(--color-primary)] mb-4 flex items-center gap-2">
+            <h2 className="text-xl font-medium text-[var(--color-primary)] mb-4 flex items-center gap-2">
               <AlertCircle size={22} />
               Prohibited Tasks
             </h2>
@@ -99,7 +99,7 @@ const TaskGuidelinesPage = () => (
           </section>
 
           <section className="rounded-xl bg-gray-50 border border-gray-200 p-6">
-            <h2 className="text-lg font-bold text-[var(--color-primary)] mb-2 flex items-center gap-2">
+            <h2 className="text-lg font-medium text-[var(--color-primary)] mb-2 flex items-center gap-2">
               <FileText size={20} />
               Full terms
             </h2>

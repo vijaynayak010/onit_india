@@ -20,7 +20,7 @@ const PerformerSearchLoadingPage = () => {
             
             <main className="flex-1 flex flex-col items-center justify-center p-10 mt-[-60px]">
                 <div className="max-w-4xl w-full text-center">
-                    <h1 className="text-[36px] font-black text-gray-900 mb-12 tracking-tight">
+                    <h1 className="text-[36px] font-medium text-gray-900 mb-12 tracking-tight">
                         Searching for the <span className="text-[#16a34a]">Tasks...</span>
                     </h1>
 
@@ -47,7 +47,7 @@ const PerformerSearchLoadingPage = () => {
                             <div className="w-2 h-2 rounded-full bg-[#16a34a] animate-bounce [animation-delay:-0.15s]"></div>
                             <div className="w-2 h-2 rounded-full bg-[#16a34a] animate-bounce"></div>
                         </div>
-                        <p className="text-[16px] font-bold text-gray-500 tracking-wide animate-pulse">
+                        <p className="text-[16px] font-medium text-gray-500 tracking-wide animate-pulse">
                             Finding the best matches for you...
                         </p>
                     </div>

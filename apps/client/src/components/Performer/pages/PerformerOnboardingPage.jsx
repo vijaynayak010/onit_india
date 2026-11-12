@@ -275,7 +275,7 @@ const PerformerOnboardingPage = () => {
 
       {/* Header */}
       <div className="px-5 pt-4 text-center">
-        <h1 className="text-[22px] font-bold tracking-tight text-gray-900">Tell us about yourself</h1>
+        <h1 className="text-[22px] font-medium tracking-tight text-gray-900">Tell us about yourself</h1>
         <p className="mx-auto mt-2 max-w-sm text-[13px] font-medium leading-relaxed text-gray-400">
           Answer a few quick questions to help us personalize your experience
         </p>
@@ -291,7 +291,7 @@ const PerformerOnboardingPage = () => {
             exit={{ opacity: 0, x: -16 }}
             transition={{ duration: 0.25 }}
           >
-            <h2 className="mb-6 text-center text-[16px] font-bold text-gray-900">{stepQuestion}</h2>
+            <h2 className="mb-6 text-center text-[16px] font-medium text-gray-900">{stepQuestion}</h2>
 
             {step === STEPS.ROLE && (
               <div className="mx-auto flex max-w-md gap-2.5">
@@ -362,7 +362,7 @@ const PerformerOnboardingPage = () => {
                       }}
                       placeholder="e.g. FirstDoer-ABC-123456"
                       disabled={referralStatus === "success" || saving}
-                      className="flex-1 rounded-2xl border-2 border-gray-200 bg-white px-4 py-3.5 font-mono text-[15px] font-bold uppercase tracking-widest text-gray-900 outline-none transition focus:border-[#10605F] placeholder:normal-case placeholder:font-sans placeholder:tracking-normal placeholder:font-medium placeholder:text-gray-300 disabled:opacity-60"
+                      className="flex-1 rounded-2xl border-2 border-gray-200 bg-white px-4 py-3.5 font-mono text-[15px] font-medium uppercase tracking-widest text-gray-900 outline-none transition focus:border-[#10605F] placeholder:normal-case placeholder:font-sans placeholder:tracking-normal placeholder:font-medium placeholder:text-gray-300 disabled:opacity-60"
                     />
                     <button
                       type="button"
@@ -402,7 +402,7 @@ const PerformerOnboardingPage = () => {
             type="button"
             onClick={handleContinue}
             disabled={!canContinue || saving}
-            className={`w-full rounded-full py-4 text-[15px] font-bold transition ${
+            className={`w-full rounded-full py-4 text-[15px] font-medium transition ${
               canContinue && !saving
                 ? "bg-[#10605F] text-white shadow-md hover:bg-[#00925f]"
                 : "bg-gray-200 text-gray-500"

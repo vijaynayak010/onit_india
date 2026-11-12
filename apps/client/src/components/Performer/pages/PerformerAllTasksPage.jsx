@@ -226,7 +226,7 @@ const PerformerAllTasksPage = () => {
                              task.status === 'pending' ? <AlertCircle size={24} /> : <Clock size={24} />}
                           </div>
                           <div>
-                            <h3 className="text-base font-bold text-[var(--color-text)] group-hover:text-[var(--color-primary)]">{task.company}</h3>
+                            <h3 className="text-base font-medium text-[var(--color-text)] group-hover:text-[var(--color-primary)]">{task.company}</h3>
                             <p className="mt-1 text-sm font-medium text-[var(--color-text-subtle)]">{task.category} • ₹{task.priceAmount}</p>
                           </div>
                         </div>
@@ -247,7 +247,7 @@ const PerformerAllTasksPage = () => {
                 ) : (
                   <div className="rounded-[var(--radius-2xl)] border border-dashed border-[var(--color-border)] bg-[var(--color-surface)] py-16 text-center">
                     <ListTodo className="mx-auto h-12 w-12 opacity-20" />
-                    <h3 className="mt-4 text-lg font-bold text-[var(--color-text)]">No tasks found</h3>
+                    <h3 className="mt-4 text-lg font-medium text-[var(--color-text)]">No tasks found</h3>
                     <p className="mt-1 text-sm font-medium text-[var(--color-text-subtle)]">There are no tasks matching your current filters.</p>
                   </div>
                 )}

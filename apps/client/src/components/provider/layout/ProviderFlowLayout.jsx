@@ -34,7 +34,7 @@ const ProviderFlowLayout = ({
               <ArrowLeft className="h-4 w-4" strokeWidth={2.5} />
               Back
             </button>
-            <h1 className="text-2xl font-extrabold tracking-tight text-[var(--color-text)] sm:text-3xl">
+            <h1 className="text-2xl font-medium tracking-tight text-[var(--color-text)] sm:text-3xl">
               {title}
             </h1>
             {subtitle ? (

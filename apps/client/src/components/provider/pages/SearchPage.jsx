@@ -679,7 +679,7 @@ const SearchPage = () => {
                                     <div className="h-20 w-20 rounded-[24px] bg-[#EFFBFB] flex items-center justify-center text-[var(--color-primary)] mb-6 shadow-inner ring-1 ring-emerald-100">
                                         <Search className="h-9 w-9" />
                                     </div>
-                                    <h3 className="text-xl font-bold text-[var(--color-text)]">No Performers Match</h3>
+                                    <h3 className="text-xl font-medium text-[var(--color-text)]">No Performers Match</h3>
                                     <p className="text-[var(--color-text-muted)] text-sm mt-1.5 max-w-sm mx-auto font-medium">
                                         Try relaxing your search terms or clearing your selected category filter tags.
                                     </p>
@@ -730,10 +730,10 @@ const SearchPage = () => {
                                                         />
                                                     </div>
                                                     <div className="min-w-0">
-                                                        <h3 className="text-[16px] font-black leading-tight text-[var(--color-text)] truncate">
+                                                        <h3 className="text-[16px] font-medium leading-tight text-[var(--color-text)] truncate">
                                                             {p.displayName || p.name || p.person || "Anonymous Performer"}
                                                         </h3>
-                                                        <p className="mt-0.5 text-xs font-semibold text-[var(--color-text-subtle)] truncate">
+                                                        <p className="mt-0.5 text-xs font-medium text-[var(--color-text-subtle)] truncate">
                                                             {p.profession || p.name || "Expert Tasker"}
                                                         </p>
                                                         <div className="mt-1.5 flex items-center gap-1">
@@ -770,7 +770,7 @@ const SearchPage = () => {
                                                     <span>{p.completedTasksCount || p.tasks?.split(" ")[0] || 0} finished</span>
                                                 </div>
                                                 <div className="text-right">
-                                                    <span className="text-[16px] font-black text-[var(--color-text)]">
+                                                    <span className="text-[16px] font-medium text-[var(--color-text)]">
                                                         {p.hourlyRate ? `₹${Number(p.hourlyRate).toLocaleString("en-IN")}/hr` : ""}
                                                     </span>
                                                 </div>
@@ -806,7 +806,7 @@ const SearchPage = () => {
                                     <div className="h-20 w-20 rounded-[24px] bg-[#EFFBFB] flex items-center justify-center text-[var(--color-primary)] mb-6 shadow-inner ring-1 ring-emerald-100">
                                         <Sparkles className="h-9 w-9" />
                                     </div>
-                                    <h3 className="text-xl font-bold text-[var(--color-text)]">No Templates Match</h3>
+                                    <h3 className="text-xl font-medium text-[var(--color-text)]">No Templates Match</h3>
                                     <p className="text-[var(--color-text-muted)] text-sm mt-1.5 max-w-sm mx-auto font-medium">
                                         No quick-start formats match your active filters. Try relaxing your selected tags.
                                     </p>
@@ -844,7 +844,7 @@ const SearchPage = () => {
                                             </span>
                                         </div>
 
-                                        <h3 className="mb-2 line-clamp-2 min-h-[40px] text-[15px] font-bold leading-tight text-[var(--color-text)] transition-colors group-hover:text-[var(--color-primary)]">
+                                        <h3 className="mb-2 line-clamp-2 min-h-[40px] text-[15px] font-medium leading-tight text-[var(--color-text)] transition-colors group-hover:text-[var(--color-primary)]">
                                             {t.title}
                                         </h3>
 
@@ -889,7 +889,7 @@ const SearchPage = () => {
                                     <div className="h-20 w-20 rounded-[24px] bg-blue-50 flex items-center justify-center text-blue-500 mb-6 shadow-inner ring-1 ring-blue-100">
                                         <PlusCircle className="h-9 w-9" />
                                     </div>
-                                    <h3 className="text-xl font-bold text-[var(--color-text)]">No Live Tasks Match</h3>
+                                    <h3 className="text-xl font-medium text-[var(--color-text)]">No Live Tasks Match</h3>
                                     <p className="text-[var(--color-text-muted)] text-sm mt-1.5 max-w-sm mx-auto font-medium">
                                         We couldn't find any of your posted live tasks matching this search keyword or filter.
                                     </p>
@@ -917,7 +917,7 @@ const SearchPage = () => {
                                             </span>
                                         </div>
 
-                                        <h3 className="mb-4 line-clamp-2 min-h-[44px] text-lg font-black leading-tight text-[var(--color-text)] transition-colors group-hover:text-[var(--color-primary)]">
+                                        <h3 className="mb-4 line-clamp-2 min-h-[44px] text-lg font-medium leading-tight text-[var(--color-text)] transition-colors group-hover:text-[var(--color-primary)]">
                                             {task.task}
                                         </h3>
 
@@ -932,7 +932,7 @@ const SearchPage = () => {
                                         <div className="mt-auto flex items-center justify-between border-t border-[var(--color-border)]/60 pt-4">
                                             <div className="flex flex-col">
                                                 <span className="text-[9px] font-bold uppercase tracking-widest text-[var(--color-text-subtle)]">Budget</span>
-                                                <span className="text-lg font-black text-[var(--color-text)]">{task.budget}</span>
+                                                <span className="text-lg font-medium text-[var(--color-text)]">{task.budget}</span>
                                             </div>
                                             <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--color-primary)] text-white shadow-sm transition-transform group-hover:translate-x-1">
                                                 <ChevronRight className="h-5 w-5" strokeWidth={2.5} />

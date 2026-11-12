@@ -44,11 +44,11 @@ const briefs = [
 const htabs = ["Growth & Marketing", "Design & Creative", "Build & Develop", "AI Checklist", "Trust Score"];
 
 const logoStyles = [
-  "font-family:'DM Sans',sans-serif;font-style:italic;font-size:30px",
+  "font-family:'Poppins',sans-serif;font-style:italic;font-size:30px",
   "font-weight:700;letter-spacing:-0.04em",
-  "font-family:'Geist Mono',monospace;letter-spacing:.24em;font-size:20px",
+  "font-family:'Poppins',sans-serif;letter-spacing:.24em;font-size:20px;font-weight:600",
   "font-weight:500;letter-spacing:-0.03em",
-  "font-family:'DM Sans',sans-serif;font-size:30px"
+  "font-family:'Poppins',sans-serif;font-size:30px"
 ];
 const oneLogos = ["Kalpanimbus", "Tarang", "VERVE", "saffronpay", "Northwind"].map((n, i) => ({
   name: n,

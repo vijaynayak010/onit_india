@@ -134,7 +134,7 @@ const TransactionsView = ({ onBack }) => {
           <ChevronLeft size={20} strokeWidth={2} />
         </button>
         <div>
-          <h2 className="text-xl font-bold text-[var(--color-text)]">Transactions</h2>
+          <h2 className="text-xl font-medium text-[var(--color-text)]">Transactions</h2>
           <p className="text-sm font-semibold text-[var(--color-text-muted)]">Your wallet payments, credits, refunds, and withdrawals</p>
         </div>
       </div>

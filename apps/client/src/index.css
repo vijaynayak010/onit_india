@@ -1,13 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,400..600;1,9..40,400..600&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap");
 @import "tailwindcss";
 
-/* ========== Design system (FirstDoer Palette) ========== */
+/* ========== Design system (FirstDoer Palette with Poppins Typography) ========== */
 :root {
-  /* Typography – Geist + DM Sans / Plus Jakarta Sans */
-  --font-sans: "Geist", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Geist", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "Geist Mono", ui-monospace, monospace;
-  --font-serif: "DM Sans", system-ui, sans-serif;
+  /* Typography – Unified Poppins Across Platform */
+  --font-sans: "Poppins", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
   /* Neutral palette – FirstDoer Obsidian & Crisp Slate */
   --color-surface: #F9FAFA;
@@ -52,20 +52,80 @@
   --radius-full: 9999px;
 }
 
-/* Tell Tailwind v4 to use our font for font-sans */
+/* Tell Tailwind v4 to use Poppins for font-sans */
 @theme {
-  --font-sans: "Geist", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Poppins", ui-sans-serif, system-ui, sans-serif;
   --color-primary: #10605F;
   --color-primary-hover: #083B3A;
   --color-primary-muted: #EFFBFB;
   --color-primary-subtle: #DFF7F6;
   --color-primary-accent: #29ADAC;
 }
+
+/* Fluid Typography Scale */
+.text-fluid-h1 {
+  font-size: clamp(1.875rem, 1.25rem + 2.5vw, 3rem);
+  line-height: 1.15;
+  font-weight: 500;
+}
+.text-fluid-h2 {
+  font-size: clamp(1.5rem, 1.15rem + 1.5vw, 2.25rem);
+  line-height: 1.25;
+  font-weight: 500;
+}
+.text-fluid-h3 {
+  font-size: clamp(1.125rem, 1rem + 0.6vw, 1.5rem);
+  line-height: 1.35;
+  font-weight: 500;
+}
+.text-fluid-body {
+  font-size: clamp(0.875rem, 0.825rem + 0.25vw, 1rem);
+  line-height: 1.6;
+}
+
+/* Responsive Containers & Layout Primitives */
+.page-container {
+  width: 100%;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 640px) {
+  .page-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .page-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Responsive Data Table Container */
+.table-responsive-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 0.75rem;
+}
+
+/* Touch targets for mobile */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
 /* Smooth scrolling for the whole page and anchor/programmatic scrolls */
 html {
   scroll-behavior: smooth;
   min-height: 100vh;
   scroll-padding-top: 100px;
+  overflow-x: clip;
 }
 
 /* Section anchor scroll: leave space for fixed navbar */
@@ -73,17 +133,7 @@ section[id] {
   scroll-margin-top: 100px;
 }
 
-html {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  min-height: 100vh;
-  font-family: var(--font-sans);
-  color: var(--color-text);
-  background: var(--color-surface);
-  overflow-x: hidden;
-}
-
+html,
 body,
 #root {
   margin: 0;
@@ -93,54 +143,58 @@ body,
   font-family: var(--font-sans);
   color: var(--color-text);
   background: var(--color-surface);
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* ========================================================
-   Remove Bold Styling in Whole Website (Except Landing Page)
-   Strictly exempting .fd-root (Landing Page preserves original weights)
-   ======================================================== */
-body:not(:has(.fd-root)) {
-  font-weight: 400;
+/* Universal inheritance so all forms, buttons, inputs inherit Poppins */
+button,
+input,
+optgroup,
+select,
+textarea,
+p,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+label,
+table {
+  font-family: inherit;
 }
 
-body:not(:has(.fd-root)) p,
-body:not(:has(.fd-root)) span,
-body:not(:has(.fd-root)) a,
-body:not(:has(.fd-root)) label,
-body:not(:has(.fd-root)) input,
-body:not(:has(.fd-root)) select,
-body:not(:has(.fd-root)) textarea,
-body:not(:has(.fd-root)) li,
-body:not(:has(.fd-root)) td {
-  font-weight: 400;
+/* Standard typographic hierarchy */
+h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.875rem, 1.25rem + 2.5vw, 3rem);
+  font-weight: 500;
+  line-height: 1.15;
 }
-
-/* Remove harsh/heavy bold utility classes outside .fd-root */
-body:not(:has(.fd-root)) .font-bold,
-body:not(:has(.fd-root)) .font-extrabold,
-body:not(:has(.fd-root)) .font-black {
+h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 1.15rem + 1.5vw, 2.25rem);
+  font-weight: 500;
+  line-height: 1.25;
+}
+h3 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.125rem, 1rem + 0.6vw, 1.5rem);
+  font-weight: 500;
+  line-height: 1.35;
+}
+h4, h5, h6 {
+  font-family: var(--font-heading);
   font-weight: 500;
 }
 
-/* Clean, balanced headings on non-landing pages */
-body:not(:has(.fd-root)) h1,
-body:not(:has(.fd-root)) h2,
-body:not(:has(.fd-root)) h3,
-body:not(:has(.fd-root)) h4,
-body:not(:has(.fd-root)) h5,
-body:not(:has(.fd-root)) h6 {
-  font-weight: 600;
-}
-
-/* Buttons & navigation controls: clean medium weight, not bold */
-body:not(:has(.fd-root)) button {
+button {
+  font-family: inherit;
   font-weight: 500;
-}
-
-/* Strictly preserve the landing page (.fd-root) exactly as designed */
-.fd-root,
-.fd-root * {
-  font-weight: revert;
 }
 
 /* Subtle background – soft gradient + dot grid (FirstDoer teal glow) */

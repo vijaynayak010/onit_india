@@ -191,7 +191,7 @@ const PostTaskDetailsPage = () => {
                 <ProviderHeader activePage="my-tasks" />
                 <main className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
                     <div className="mb-8 text-center sm:text-left">
-                        <h1 className="text-3xl font-bold tracking-tight text-[var(--color-text)] sm:text-[32px]">Preview your summary</h1>
+                        <h1 className="text-3xl font-medium tracking-tight text-[var(--color-text)] sm:text-[32px]">Preview your summary</h1>
                         <p className="mt-2 text-[15px] font-medium text-[var(--color-text-muted)]">Check your details before publishing.</p>
                     </div>
 
@@ -200,16 +200,16 @@ const PostTaskDetailsPage = () => {
                             <div className="grid gap-8 md:grid-cols-3">
                                 <div className="md:col-span-2 space-y-6">
                                     <section>
-                                        <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--color-text-subtle)] mb-2">Task Title</h3>
-                                        <p className="text-xl font-bold text-[var(--color-text)]">{taskTitle}</p>
+                                        <h3 className="text-xs font-medium uppercase tracking-wider text-[var(--color-text-subtle)] mb-2">Task Title</h3>
+                                        <p className="text-xl font-medium text-[var(--color-text)]">{taskTitle}</p>
                                     </section>
                                     <section>
-                                        <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--color-text-subtle)] mb-2">Description</h3>
+                                        <h3 className="text-xs font-medium uppercase tracking-wider text-[var(--color-text-subtle)] mb-2">Description</h3>
                                         <p className="text-sm font-semibold leading-relaxed text-[var(--color-text-muted)] whitespace-pre-wrap">{taskDescription}</p>
                                     </section>
                                     {skills.length > 0 && (
                                         <section>
-                                            <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--color-text-subtle)] mb-2">Skills Required</h3>
+                                            <h3 className="text-xs font-medium uppercase tracking-wider text-[var(--color-text-subtle)] mb-2">Skills Required</h3>
                                             <div className="flex flex-wrap gap-2">
                                                 {skills.map((skill, i) => (
                                                     <span key={i} className="px-3 py-1 bg-white border border-[var(--color-border)] rounded-full text-[11px] font-bold text-[var(--color-text)]">
@@ -247,7 +247,7 @@ const PostTaskDetailsPage = () => {
 
                             {conditions.length > 0 && (
                                 <section>
-                                    <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--color-text-subtle)] mb-3">Task Conditions</h3>
+                                    <h3 className="text-xs font-medium uppercase tracking-wider text-[var(--color-text-subtle)] mb-3">Task Conditions</h3>
                                     <div className="space-y-2">
                                         {conditions.map((item, i) => (
                                             <div key={i} className="flex items-center gap-3 rounded-xl border border-[var(--color-border)] bg-white px-4 py-3">
@@ -263,7 +263,7 @@ const PostTaskDetailsPage = () => {
 
                             {attachedFiles.length > 0 && (
                                 <section>
-                                    <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--color-text-subtle)] mb-3">Attachments</h3>
+                                    <h3 className="text-xs font-medium uppercase tracking-wider text-[var(--color-text-subtle)] mb-3">Attachments</h3>
                                     <div className="flex flex-wrap gap-2">
                                         {attachedFiles.map((f, i) => (
                                             <div key={i} className="flex items-center gap-2 rounded-lg border border-[var(--color-border)] bg-white px-3 py-2 text-[11px] font-bold text-[var(--color-text-muted)] shadow-sm"><Paperclip size={14} />{f.name}</div>
@@ -273,12 +273,12 @@ const PostTaskDetailsPage = () => {
                             )}
                         </div>
                         <div className="flex flex-col-reverse gap-3 border-t border-[var(--color-border)] bg-[var(--color-border-subtle)]/30 px-6 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-8">
-                            <button type="button" onClick={() => setIsPreview(false)} className="rounded-full border-2 border-[var(--color-border)] bg-white px-8 py-3 text-[15px] font-bold text-[var(--color-text-muted)] transition hover:bg-gray-50 active:scale-[0.98]">Edit details</button>
+                            <button type="button" onClick={() => setIsPreview(false)} className="rounded-full border-2 border-[var(--color-border)] bg-white px-8 py-3 text-[15px] font-medium text-[var(--color-text-muted)] transition hover:bg-gray-50 active:scale-[0.98]">Edit details</button>
                             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-                                <button type="button" onClick={() => handlePost("DRAFT")} disabled={isProcessing} className="rounded-full border-2 border-[var(--color-border)] bg-white px-8 py-3 text-[15px] font-bold text-[var(--color-text-muted)] transition hover:bg-gray-50 active:scale-[0.98]">
+                                <button type="button" onClick={() => handlePost("DRAFT")} disabled={isProcessing} className="rounded-full border-2 border-[var(--color-border)] bg-white px-8 py-3 text-[15px] font-medium text-[var(--color-text-muted)] transition hover:bg-gray-50 active:scale-[0.98]">
                                     Save as Draft
                                 </button>
-                                <button type="button" onClick={() => handlePost("PUBLISHED")} disabled={isProcessing} className="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--color-primary)] px-10 py-3 text-[15px] font-bold text-white shadow-[var(--shadow-glow)] transition hover:bg-[var(--color-primary-hover)] active:scale-[0.98] disabled:opacity-70">
+                                <button type="button" onClick={() => handlePost("PUBLISHED")} disabled={isProcessing} className="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--color-primary)] px-10 py-3 text-[15px] font-medium text-white shadow-[var(--shadow-glow)] transition hover:bg-[var(--color-primary-hover)] active:scale-[0.98] disabled:opacity-70">
                                     {isProcessing && <Loader2 className="animate-spin" size={18} />}
                                     {isProcessing ? "Publishing..." : "Publish Task Now"}
                                 </button>
@@ -308,57 +308,57 @@ const PostTaskDetailsPage = () => {
 
             <main className="flex-1 overflow-y-auto px-6 py-8 sm:py-12 flex flex-col items-center">
                 <div className="w-full max-w-[800px]">
-                    <div className="text-center mb-10">
+                    <div className="text-center mb-8 sm:mb-10">
                         <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-[var(--color-primary-subtle)] px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-[var(--color-primary)]">
                             <Sparkles size={14} /> AI-Assisted
                         </div>
-                        <h1 className="text-[32px] sm:text-[42px] font-bold text-[var(--color-text)] mb-2">Almost done!</h1>
-                        <p className="text-[18px] sm:text-[20px] text-[var(--color-text-muted)] font-medium">Refine These details to get the best matches.</p>
+                        <h1 className="text-2xl sm:text-3xl md:text-4xl font-heading font-medium text-[var(--color-text)] mb-2">Almost done!</h1>
+                        <p className="text-sm sm:text-base text-[var(--color-text-muted)] font-medium">Refine these details to get the best matches.</p>
                     </div>
 
                     <div className="space-y-8 bg-white p-6 sm:p-10 rounded-[var(--radius-2xl)] border border-[var(--color-border)] shadow-sm">
-                        <div className="flex flex-col gap-3">
-                            <label className="text-[18px] font-bold text-[var(--color-text)]">Task Title</label>
+                        <div className="flex flex-col gap-2">
+                            <label className="text-sm sm:text-base font-heading font-medium text-[var(--color-text)]">Task Title</label>
                             <input
                                 type="text"
                                 value={taskTitle}
                                 onChange={(e) => setTaskTitle(e.target.value)}
                                 placeholder='Enter task title...'
-                                className="w-full px-6 py-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-sm)] text-[16px] font-semibold focus:outline-none focus:border-[var(--color-primary)] transition-colors"
+                                className="w-full px-4 sm:px-6 py-3.5 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-sm)] text-[15px] font-medium focus:outline-none focus:border-[var(--color-primary)] transition-colors"
                             />
                         </div>
 
-                        <div className="flex flex-col gap-3">
-                            <label className="text-[18px] font-bold text-[var(--color-text)]">Task Description</label>
+                        <div className="flex flex-col gap-2">
+                            <label className="text-sm sm:text-base font-heading font-medium text-[var(--color-text)]">Task Description</label>
                             <textarea
                                 value={taskDescription}
                                 onChange={(e) => setTaskDescription(e.target.value)}
                                 placeholder='Detailed description...'
-                                className="w-full h-40 p-6 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-sm)] text-[16px] font-semibold focus:outline-none focus:border-[var(--color-primary)] transition-colors resize-none"
+                                className="w-full h-36 sm:h-40 p-4 sm:p-6 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-sm)] text-[15px] font-medium focus:outline-none focus:border-[var(--color-primary)] transition-colors resize-none"
                             />
                         </div>
 
                         <div className="grid gap-6 sm:grid-cols-2">
-                            <div className="flex flex-col gap-3">
-                                <label className="text-[18px] font-bold text-[var(--color-text)]">Work Setting</label>
+                            <div className="flex flex-col gap-2">
+                                <label className="text-sm sm:text-base font-heading font-medium text-[var(--color-text)]">Work Setting</label>
                                 <div className="flex gap-2">
                                     {["Remote", "On-site"].map(type => (
                                         <button
                                             key={type}
                                             onClick={() => setTaskType(type)}
-                                            className={`flex-1 py-4 rounded-[var(--radius-sm)] border-2 font-bold transition-all ${taskType === type ? "bg-[var(--color-primary)] text-white border-[var(--color-primary)]" : "bg-white text-[var(--color-text-muted)] border-[var(--color-border)] hover:border-[var(--color-primary)]/40"}`}
+                                            className={`flex-1 py-3.5 rounded-[var(--radius-sm)] border-2 font-bold transition-all ${taskType === type ? "bg-[var(--color-primary)] text-white border-[var(--color-primary)]" : "bg-white text-[var(--color-text-muted)] border-[var(--color-border)] hover:border-[var(--color-primary)]/40"}`}
                                         >
                                             {type}
                                         </button>
                                     ))}
                                 </div>
                             </div>
-                            <div className="flex flex-col gap-3">
-                                <label className="text-[18px] font-bold text-[var(--color-text)]">Deadline</label>
+                            <div className="flex flex-col gap-2">
+                                <label className="text-sm sm:text-base font-heading font-medium text-[var(--color-text)]">Deadline</label>
                                 <select
                                     value={deadline}
                                     onChange={(e) => setDeadline(e.target.value)}
-                                    className="w-full px-6 py-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-sm)] text-[16px] font-semibold focus:outline-none focus:border-[var(--color-primary)] transition-colors appearance-none cursor-pointer"
+                                    className="w-full px-4 sm:px-6 py-3.5 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-sm)] text-[15px] font-medium focus:outline-none focus:border-[var(--color-primary)] transition-colors appearance-none cursor-pointer"
                                 >
                                     <option value="" disabled>Select timeline</option>
                                     <option>ASAP</option>
@@ -369,8 +369,8 @@ const PostTaskDetailsPage = () => {
                         </div>
 
                         <div className="grid gap-6 sm:grid-cols-2">
-                            <div className="flex flex-col gap-3">
-                                <label className="text-[18px] font-bold text-[var(--color-text)]">Budget Estimation (₹)</label>
+                            <div className="flex flex-col gap-2">
+                                <label className="text-sm sm:text-base font-heading font-medium text-[var(--color-text)]">Budget Estimation (₹)</label>
                                 <input
                                     type="text"
                                     placeholder="Enter budget amount"
@@ -379,19 +379,19 @@ const PostTaskDetailsPage = () => {
                                         const digits = e.target.value.replace(/\D/g, "");
                                         setBudget(digits);
                                     }}
-                                    className="w-full px-6 py-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-sm)] text-[16px] font-semibold focus:outline-none focus:border-[var(--color-primary)] transition-colors"
+                                    className="w-full px-4 sm:px-6 py-3.5 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-sm)] text-[15px] font-medium focus:outline-none focus:border-[var(--color-primary)] transition-colors"
                                 />
                             </div>
 
-                            <div className="flex flex-col gap-3">
-                                <label className="text-[18px] font-bold text-[var(--color-text)]">Budget Type</label>
+                            <div className="flex flex-col gap-2">
+                                <label className="text-sm sm:text-base font-heading font-medium text-[var(--color-text)]">Budget Type</label>
                                 <div className="flex gap-2">
                                     {["Fixed", "Hourly"].map(type => (
                                         <button
                                             key={type}
                                             type="button"
                                             onClick={() => setBudgetType(type)}
-                                            className={`flex-1 py-4 rounded-[var(--radius-sm)] border-2 font-bold transition-all ${budgetType === type ? "bg-[var(--color-primary)] text-white border-[var(--color-primary)]" : "bg-white text-[var(--color-text-muted)] border-[var(--color-border)] hover:border-[var(--color-primary)]/40"}`}
+                                            className={`flex-1 py-3.5 rounded-[var(--radius-sm)] border-2 font-bold transition-all ${budgetType === type ? "bg-[var(--color-primary)] text-white border-[var(--color-primary)]" : "bg-white text-[var(--color-text-muted)] border-[var(--color-border)] hover:border-[var(--color-primary)]/40"}`}
                                         >
                                             {type}
                                         </button>
@@ -400,8 +400,8 @@ const PostTaskDetailsPage = () => {
                             </div>
                         </div>
 
-                        <div className="flex flex-col gap-3">
-                            <label className="text-[18px] font-bold text-[var(--color-text)]">Skills Required</label>
+                        <div className="flex flex-col gap-2">
+                            <label className="text-sm sm:text-base font-heading font-medium text-[var(--color-text)]">Skills Required</label>
                             <div className="flex flex-wrap gap-2 mb-2">
                                 {(PREDEFINED_SKILLS[templateData?.category || aiData?.category] || PREDEFINED_SKILLS["other"]).map(skill => (
                                     <button
@@ -430,8 +430,8 @@ const PostTaskDetailsPage = () => {
                             </div>
                         </div>
 
-                        <div className="flex flex-col gap-3">
-                            <label className="text-[18px] font-bold text-[var(--color-text)] flex items-center justify-between">
+                        <div className="flex flex-col gap-2">
+                            <label className="text-sm sm:text-base font-heading font-medium text-[var(--color-text)] flex items-center justify-between">
                                 <span>Conditions to follow</span>
                                 <span className="text-[10px] text-[var(--color-text-subtle)] font-bold">{conditions.length}/20</span>
                             </label>
@@ -449,7 +449,7 @@ const PostTaskDetailsPage = () => {
                                         }
                                     }}
                                     placeholder="e.g. Work must be submitted in Figma format"
-                                    className="flex-1 px-6 py-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-sm)] text-[16px] font-semibold focus:outline-none focus:border-[var(--color-primary)] transition-colors"
+                                    className="flex-1 px-6 py-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-sm)] text-[16px] font-medium focus:outline-none focus:border-[var(--color-primary)] transition-colors"
                                 />
                                 <button
                                     type="button"
@@ -489,13 +489,13 @@ const PostTaskDetailsPage = () => {
                             </div>
                         </div>
 
-                        <div className="flex flex-col gap-4">
-                            <label className="text-[18px] font-bold text-[var(--color-text)]">Attachments <span className="font-normal text-[var(--color-text-subtle)]">(optional)</span></label>
+                        <div className="flex flex-col gap-2">
+                            <label className="text-sm sm:text-base font-heading font-medium text-[var(--color-text)]">Attachments <span className="font-normal text-[var(--color-text-subtle)]">(optional)</span></label>
                             <div className="flex flex-wrap gap-3">
                                 {attachedFiles.map((file) => (
                                     <div key={file.id} className="flex items-center gap-2 px-4 py-2 bg-[#EFFBFB] border border-[#29ADAC]/20 rounded-[var(--radius-sm)]">
                                         <Paperclip size={16} className="text-[#10605F]" />
-                                        <span className="text-[13px] font-bold text-slate-700 max-w-[150px] truncate">{file.name}</span>
+                                        <span className="text-[13px] font-medium text-slate-700 max-w-[150px] truncate">{file.name}</span>
                                         <button onClick={() => removeFile(file.id)} className="text-red-400 hover:text-red-600 transition-colors"><X size={14} /></button>
                                     </div>
                                 ))}
@@ -514,7 +514,7 @@ const PostTaskDetailsPage = () => {
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
                             <button 
                                 onClick={handleNext}
-                                className="w-full sm:flex-1 py-4 bg-[var(--color-primary)] text-white rounded-full text-[16px] font-bold hover:bg-[var(--color-primary-hover)] transition-all shadow-[var(--shadow-glow)]"
+                                className="w-full sm:flex-1 py-4 bg-[var(--color-primary)] text-white rounded-full text-[16px] font-medium hover:bg-[var(--color-primary-hover)] transition-all shadow-[var(--shadow-glow)]"
                             >
                                 Review & Preview
                             </button>

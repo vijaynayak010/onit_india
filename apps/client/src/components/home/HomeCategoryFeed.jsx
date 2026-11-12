@@ -43,7 +43,7 @@ export default function HomeCategoryFeed({ categories = [] }) {
   return (
     <section className="mx-auto w-full max-w-6xl px-4 pb-10 sm:px-6 lg:px-8">
       <div className="mb-5 text-center">
-        <h2 className="text-xl font-bold text-[var(--color-text)] sm:text-2xl">
+        <h2 className="text-xl font-medium text-[var(--color-text)] sm:text-2xl">
           Browse services
         </h2>
         <p className="mt-1 text-sm text-[var(--color-text-muted)]">
@@ -74,7 +74,7 @@ export default function HomeCategoryFeed({ categories = [] }) {
                     <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--color-primary-subtle)] text-[var(--color-primary)]">
                       <Icon size={18} />
                     </span>
-                    <h3 className="text-base font-semibold text-[var(--color-text)]">
+                    <h3 className="text-base font-medium text-[var(--color-text)]">
                       {cat.title}
                     </h3>
                   </div>

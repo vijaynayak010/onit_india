@@ -58,7 +58,7 @@ const SuccessStoriesPage = () => (
           Back to Community
         </Link>
         <header className="border-b border-gray-200 pb-8 mb-10">
-          <h1 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-4">
+          <h1 className="text-3xl md:text-4xl font-medium text-[var(--color-primary)] mb-4">
             Success Stories &amp; Case Studies
           </h1>
           <p className="text-gray-600 text-base md:text-lg leading-relaxed">
@@ -75,7 +75,7 @@ const SuccessStoriesPage = () => (
               <span className="inline-block text-xs font-semibold uppercase tracking-wider text-[var(--color-primary)] mb-2">
                 {story.type}
               </span>
-              <h2 className="text-xl font-bold text-gray-900 mb-3">{story.title}</h2>
+              <h2 className="text-xl font-medium text-gray-900 mb-3">{story.title}</h2>
               <div className="flex gap-2 text-gray-600 mb-4">
                 <span className="text-2xl font-serif text-[var(--color-primary)]/60 leading-none shrink-0">&ldquo;</span>
                 <p className="italic">{story.quote}</p>

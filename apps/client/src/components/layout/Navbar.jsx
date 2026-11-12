@@ -228,7 +228,7 @@ function Navbar() {
               <path d="M11 2.5c-4.7 0-8.5 3.8-8.5 8.5s3.8 8.5 8.5 8.5c3.4 0 5.6-2.4 8-8.5 2.4-6.1 4.6-8.5 8-8.5" stroke="#29ADAC" strokeWidth="3" strokeLinecap="round" />
               <path d="M19 19.5c4.7 0 8.5-3.8 8.5-8.5S23.7 2.5 19 2.5c-3.4 0-5.6 2.4-8 8.5" stroke="#4CCDCC" strokeWidth="3" strokeLinecap="round" />
             </svg>
-            <span className="text-xl md:text-2xl font-bold tracking-tight text-[#0D1210]">firstDoer</span>
+            <span className="text-xl md:text-2xl font-medium tracking-tight text-[#0D1210]">firstDoer</span>
           </div>
 
           {/* ================= DESKTOP NAV ================= */}
@@ -298,7 +298,8 @@ function Navbar() {
           <div className="md:hidden z-[1000]">
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="p-2 rounded-lg hover:bg-[var(--color-border-subtle)] transition"
+              className="min-h-[44px] min-w-[44px] flex items-center justify-center p-2 rounded-lg hover:bg-[var(--color-border-subtle)] transition active:scale-95"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
             >
               {menuOpen ? <X size={24} className="text-[var(--color-text)]" /> : <Menu size={24} className="text-[var(--color-text)]" />}
             </button>
@@ -312,7 +313,7 @@ function Navbar() {
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="absolute top-[4.5rem] left-0 w-full bg-white/95 backdrop-blur-xl shadow-[0_10px 40px -10px_rgba(0,0,0,0.1)] border-t border-[var(--color-border-subtle)] flex flex-col items-center py-6 space-y-4 md:hidden overflow-hidden"
+              className="absolute top-[4rem] sm:top-[4.5rem] left-0 w-full bg-white/95 backdrop-blur-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.12)] border-t border-[var(--color-border-subtle)] flex flex-col items-center py-6 space-y-3.5 md:hidden max-h-[calc(100vh-5.5rem)] overflow-y-auto"
             >
               {dynamicNavItems.map((item, index) => (
                 <button

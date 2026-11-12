@@ -27,7 +27,7 @@ const FAQPage = () => {
     return (
         <div className="min-h-screen bg-white text-zinc-900 font-sans">
             <div className="max-w-4xl mx-auto px-6 py-12">
-                <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">
+                <h1 className="text-3xl md:text-4xl font-medium tracking-tight mb-4">
                     Frequently Asked Questions
                 </h1>
                 <p className="text-zinc-600 text-base md:text-lg leading-relaxed mb-8">
@@ -41,7 +41,7 @@ const FAQPage = () => {
                             key={idx}
                             className="rounded-2xl border border-zinc-100 bg-white shadow-sm p-4"
                         >
-                            <h2 className="text-sm md:text-base font-semibold mb-1">
+                            <h2 className="text-sm md:text-base font-medium mb-1">
                                 {item.q}
                             </h2>
                             <p className="text-sm text-zinc-600 leading-relaxed">{item.a}</p>

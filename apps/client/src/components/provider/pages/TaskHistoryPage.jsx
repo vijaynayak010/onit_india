@@ -84,7 +84,7 @@ const TaskHistoryCard = ({ task, onView }) => {
       </div>
 
       <h2
-        className={`text-base font-extrabold ${
+        className={`text-base font-medium ${
           completed ? "text-gray-500" : "text-gray-900"
         }`}
       >
@@ -216,7 +216,7 @@ const TaskHistoryPage = () => {
       ) : filteredTasks.length === 0 ? (
         <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-gray-200 bg-white py-20 text-center">
           <FileClock className="mb-4 h-12 w-12 text-gray-300" strokeWidth={1.5} />
-          <p className="text-lg font-bold text-gray-700">
+          <p className="text-lg font-medium text-gray-700">
             {searchQuery ? "No tasks match your search" : "No posted tasks yet"}
           </p>
           <p className="mt-2 max-w-sm text-sm text-gray-500">

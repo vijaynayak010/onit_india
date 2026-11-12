@@ -1154,7 +1154,7 @@ const AuthPage = ({ initialMode }) => {
                             transition={{ duration: 0.25 }}
                             className="w-full rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-white p-6 shadow-[0_22px_56px_-16px_rgba(15,23,42,0.12)] sm:p-8"
                         >
-                            <h1 className="mb-2 text-2xl font-extrabold tracking-tight text-[var(--color-text)] text-center">
+                            <h1 className="mb-2 text-2xl font-medium tracking-tight text-[var(--color-text)] text-center">
                                 Choose Your Role
                             </h1>
                             <p className="mb-6 text-[13px] text-[var(--color-text-muted)] text-center">
@@ -1171,7 +1171,7 @@ const AuthPage = ({ initialMode }) => {
                                         <Briefcase className="h-6 w-6" />
                                     </div>
                                     <div>
-                                        <h3 className="font-bold text-[var(--color-text)]">Provider</h3>
+                                        <h3 className="font-medium text-[var(--color-text)]">Provider</h3>
                                         <p className="mt-1 text-[11px] leading-tight text-[var(--color-text-muted)]">Post tasks & hire people</p>
                                     </div>
                                 </button>
@@ -1185,7 +1185,7 @@ const AuthPage = ({ initialMode }) => {
                                         <Zap className="h-6 w-6" />
                                     </div>
                                     <div>
-                                        <h3 className="font-bold text-[var(--color-text)]">Performer</h3>
+                                        <h3 className="font-medium text-[var(--color-text)]">Performer</h3>
                                         <p className="mt-1 text-[11px] leading-tight text-[var(--color-text-muted)]">Find tasks & earn money</p>
                                     </div>
                                 </button>
@@ -1203,7 +1203,7 @@ const AuthPage = ({ initialMode }) => {
                             transition={{ duration: 0.25 }}
                             className="w-full rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-white p-6 shadow-[0_22px_56px_-16px_rgba(15,23,42,0.12)] sm:p-8"
                         >
-                            <h1 className="mb-1 text-2xl font-extrabold tracking-tight text-[var(--color-text)] text-center">
+                            <h1 className="mb-1 text-2xl font-medium tracking-tight text-[var(--color-text)] text-center">
                                 Welcome to FirstDoer
                             </h1>
                             <p className="mb-2 text-[13px] text-[var(--color-text-muted)] text-center">
@@ -1279,7 +1279,7 @@ const AuthPage = ({ initialMode }) => {
                                 <button
                                     type="submit"
                                     disabled={!isEntryValid || isSubmitting}
-                                    className={`flex w-full items-center justify-center gap-2 rounded-xl py-3.5 text-[15px] font-bold text-white transition active:scale-[0.98]
+                                    className={`flex w-full items-center justify-center gap-2 rounded-xl py-3.5 text-[15px] font-medium text-white transition active:scale-[0.98]
                                         ${isEntryValid && !isSubmitting
                                             ? "bg-[var(--color-primary)] shadow-[0_4px_16px_-4px_rgba(16,96,95,0.45)] hover:bg-[var(--color-primary-hover)] cursor-pointer"
                                             : "bg-zinc-300 cursor-not-allowed opacity-80"
@@ -1341,7 +1341,7 @@ const AuthPage = ({ initialMode }) => {
                                 <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-full bg-zinc-100 text-zinc-600">
                                     <Lock className="h-5 w-5" strokeWidth={2.2} />
                                 </div>
-                                <h1 className="text-xl font-extrabold tracking-tight text-[var(--color-text)]">
+                                <h1 className="text-xl font-medium tracking-tight text-[var(--color-text)]">
                                     Enter Verification Code
                                 </h1>
                                 <p className="mt-1.5 text-[13px] text-center text-[var(--color-text-muted)] leading-relaxed">
@@ -1373,7 +1373,7 @@ const AuthPage = ({ initialMode }) => {
                                             onChange={(e) => handleOtpChange(i, e.target.value, "primary")}
                                             onKeyDown={(e) => handleOtpKeyDown(i, e, "primary")}
                                             disabled={isVerifyingOtp}
-                                            className={`h-12 w-11 rounded-xl border-2 text-center text-lg font-bold transition outline-none sm:h-13 sm:w-12 
+                                            className={`h-12 w-11 rounded-xl border-2 text-center text-lg font-medium transition outline-none sm:h-13 sm:w-12 
                                                 ${primaryOtpInvalid
                                                     ? "border-red-400 bg-red-50 text-red-600 focus:border-red-500 focus:ring-2 focus:ring-red-500/15"
                                                     : digit
@@ -1435,7 +1435,7 @@ const AuthPage = ({ initialMode }) => {
                                 <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-full bg-zinc-100 text-zinc-600">
                                     <User className="h-5 w-5" strokeWidth={2.2} />
                                 </div>
-                                <h1 className="text-xl font-extrabold tracking-tight text-[var(--color-text)]">
+                                <h1 className="text-xl font-medium tracking-tight text-[var(--color-text)]">
                                     Complete Your Profile
                                 </h1>
                                 <p className="mt-1 text-[13px] text-zinc-400 text-center">
@@ -1448,7 +1448,7 @@ const AuthPage = ({ initialMode }) => {
                             <div className="space-y-4">
                                 {/* Full name */}
                                 <div>
-                                    <label htmlFor="fullname" className="mb-1.5 block text-[11px] font-bold uppercase tracking-widest text-[var(--color-text-subtle)]">
+                                    <label htmlFor="fullname" className="mb-1.5 block text-[11px] font-medium uppercase tracking-widest text-[var(--color-text-subtle)]">
                                         Full Name
                                     </label>
                                     <input
@@ -1560,7 +1560,7 @@ const AuthPage = ({ initialMode }) => {
                                     type="button"
                                     onClick={PHONE_OTP_ENABLED ? handleTriggerVerificationModal : handleCompleteProfileWithoutPhone}
                                     disabled={!isProfileFormValid || isVerifyingOtp}
-                                    className={`w-full rounded-xl py-3.5 text-[15px] font-bold text-white transition active:scale-[0.98] mt-3
+                                    className={`w-full rounded-xl py-3.5 text-[15px] font-medium text-white transition active:scale-[0.98] mt-3
                                         ${isProfileFormValid && !isVerifyingOtp
                                             ? "bg-[var(--color-primary)] shadow-[0_4px_16px_-4px_rgba(16,96,95,0.45)] hover:bg-[var(--color-primary-hover)] cursor-pointer"
                                             : "bg-zinc-300 cursor-not-allowed opacity-80"
@@ -1604,7 +1604,7 @@ const AuthPage = ({ initialMode }) => {
                                     <div className="mb-2.5 flex h-10 w-10 items-center justify-center rounded-full bg-[#EFFBFB] text-[#10605F]">
                                         <Mail className="h-4.5 w-4.5" />
                                     </div>
-                                    <h2 className="text-[17px] font-extrabold text-[var(--color-text)]">
+                                    <h2 className="text-[17px] font-medium text-[var(--color-text)]">
                                         {isInitialEmail ? "Verify phone number" : "Verify email ID"}
                                     </h2>
                                     <p className="mt-1 text-[13px] text-center text-zinc-400">
@@ -1641,7 +1641,7 @@ const AuthPage = ({ initialMode }) => {
                                                 onChange={(e) => handleOtpChange(i, e.target.value, "modal")}
                                                 onKeyDown={(e) => handleOtpKeyDown(i, e, "modal")}
                                                 disabled={isVerifyingModalOtp}
-                                                className={`h-11 w-10 rounded-xl border-2 text-center text-lg font-bold transition outline-none sm:h-12 sm:w-11
+                                                className={`h-11 w-10 rounded-xl border-2 text-center text-lg font-medium transition outline-none sm:h-12 sm:w-11
                                                     ${modalOtpInvalid
                                                         ? "border-red-400 bg-red-50 text-red-600 focus:border-red-500 focus:ring-2 focus:ring-red-500/15"
                                                         : digit

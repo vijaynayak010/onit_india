@@ -25,7 +25,7 @@ const SubscriptionPlanView = () => {
             </div>
             <div>
               <p className="text-xs font-bold uppercase tracking-wide text-[var(--color-text-subtle)]">Current plan</p>
-              <h3 className="text-2xl font-black text-[var(--color-text)]">{planLabel}</h3>
+              <h3 className="text-2xl font-medium text-[var(--color-text)]">{planLabel}</h3>
             </div>
           </div>
         </div>

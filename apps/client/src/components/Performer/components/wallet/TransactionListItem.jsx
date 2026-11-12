@@ -59,7 +59,7 @@ const TransactionListItem = ({ tx, onClick, compact = false }) => {
         )}
       </div>
       <div className="min-w-0 flex-1">
-        <p className="truncate text-[14px] font-bold text-gray-900">{title}</p>
+        <p className="truncate text-[14px] font-medium text-gray-900">{title}</p>
         <div className="mt-0.5 flex flex-wrap items-center gap-1.5 text-[12px] font-medium text-gray-400">
           <span>{dateStr}</span>
           <span>•</span>
@@ -67,7 +67,7 @@ const TransactionListItem = ({ tx, onClick, compact = false }) => {
         </div>
       </div>
       <span
-        className={`shrink-0 text-[15px] font-bold tabular-nums ${
+        className={`shrink-0 text-[15px] font-medium tabular-nums ${
           isCredit ? "text-[#10605F]" : "text-gray-900"
         }`}
       >

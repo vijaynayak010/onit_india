@@ -22,7 +22,7 @@ export default function HomeTalentCategoriesSection() {
     <section className="bg-white px-5 py-16 sm:px-8 lg:px-0 lg:py-[110px]">
       <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-10 lg:gap-12">
         <div className="flex min-h-[106px] items-center justify-between gap-6">
-          <h2 className="max-w-[580px] font-['Montserrat',Inter,sans-serif] text-[38px] font-bold leading-[110%] text-[#111111] sm:text-[44px] lg:text-[48px]">
+          <h2 className="max-w-[580px] font-['Montserrat',Poppins, sans-serif] text-[38px] font-medium leading-[110%] text-[#111111] sm:text-[44px] lg:text-[48px]">
             Find the <span className="text-[#009966]">perfect talent</span>
             <br />
             in minutes.
@@ -47,7 +47,7 @@ export default function HomeTalentCategoriesSection() {
                 />
                 <div className="flex flex-1 flex-col gap-3 px-4 pb-5 pt-4">
                   <div className="flex flex-col gap-1">
-                    <h3 className="font-['Montserrat',Inter,sans-serif] text-[18px] font-bold leading-[22px] text-[#111111]">
+                    <h3 className="font-['Montserrat',Poppins, sans-serif] text-[18px] font-medium leading-[22px] text-[#111111]">
                       {performer.name}
                     </h3>
                     <p className="font-['Inter',sans-serif] text-[13px] font-normal leading-4 text-[#666666]">
@@ -68,7 +68,7 @@ export default function HomeTalentCategoriesSection() {
         <button
           type="button"
           onClick={() => navigate("/auth", { state: { tab: "signup" } })}
-          className="flex h-16 w-fit items-center justify-center gap-3 rounded-full bg-[#009966] px-8 font-['Inter',sans-serif] text-[16px] font-bold text-white transition-colors hover:bg-[#008055]"
+          className="flex h-16 w-fit items-center justify-center gap-3 rounded-full bg-[#009966] px-8 font-['Inter',sans-serif] text-[16px] font-medium text-white transition-colors hover:bg-[#008055]"
         >
           Explore Performers
           <ArrowRight size={19} strokeWidth={2.8} aria-hidden="true" />

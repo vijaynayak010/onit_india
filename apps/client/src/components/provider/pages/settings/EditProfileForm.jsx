@@ -219,7 +219,7 @@ const EditProfileForm = ({ onSave, onCancel }) => {
         </div>
         
         <div className="text-center md:text-left">
-            <h2 className="text-2xl font-black text-[var(--color-text)] tracking-tight">Edit Profile</h2>
+            <h2 className="text-2xl font-medium text-[var(--color-text)] tracking-tight">Edit Profile</h2>
             <p className="mt-1 text-sm font-semibold text-[var(--color-text-muted)]">
                 Update your personal and business presence on FirstDoer.
             </p>

@@ -134,7 +134,7 @@ export default function WhateverYouNeedSection() {
           {/* Line 1 */}
           <div
             style={{
-              fontFamily: "'Outfit', sans-serif",
+              fontFamily: "'Poppins', sans-serif",
               fontWeight: 900,
               fontSize: "clamp(36px, 5.7vw, 82px)",
               lineHeight: 1.26,
@@ -146,7 +146,7 @@ export default function WhateverYouNeedSection() {
           {/* Line 2 */}
           <div
             style={{
-              fontFamily: "'Outfit', sans-serif",
+              fontFamily: "'Poppins', sans-serif",
               fontWeight: 900,
               fontSize: "clamp(36px, 5.7vw, 82px)",
               lineHeight: 1.26,

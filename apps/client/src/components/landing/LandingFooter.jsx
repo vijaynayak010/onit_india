@@ -56,7 +56,7 @@ const SOCIALS = [
 ];
 
 const LINK_STYLE = {
-  fontFamily: "Manrope, sans-serif",
+  fontFamily: "Poppins, sans-serif",
   fontWeight: 400,
   fontSize: 13,
   lineHeight: "20px",
@@ -99,7 +99,7 @@ export default function LandingFooter() {
             >
               <span
                 style={{
-                  fontFamily: "Outfit, sans-serif",
+                  fontFamily: "Poppins, sans-serif",
                   fontWeight: 700,
                   fontSize: 21,
                   lineHeight: "32px",
@@ -114,7 +114,7 @@ export default function LandingFooter() {
                   position: "absolute",
                   left: 52.67,
                   top: 13.4,
-                  fontFamily: "Outfit, sans-serif",
+                  fontFamily: "Poppins, sans-serif",
                   fontWeight: 500,
                   fontSize: 9,
                   lineHeight: "14px",
@@ -147,7 +147,7 @@ export default function LandingFooter() {
                 >
                   <span
                     style={{
-                      fontFamily: "Manrope, sans-serif",
+                      fontFamily: "Poppins, sans-serif",
                       fontWeight: 400,
                       fontSize: 12,
                       lineHeight: "18px",
@@ -177,7 +177,7 @@ export default function LandingFooter() {
               {/* Column heading */}
               <p
                 style={{
-                  fontFamily: "Manrope, sans-serif",
+                  fontFamily: "Poppins, sans-serif",
                   fontWeight: 700,
                   fontSize: 13,
                   lineHeight: "20px",
@@ -219,7 +219,7 @@ export default function LandingFooter() {
         >
           <span
             style={{
-              fontFamily: "Manrope, sans-serif",
+              fontFamily: "Poppins, sans-serif",
               fontWeight: 400,
               fontSize: 11,
               lineHeight: "16px",
@@ -231,7 +231,7 @@ export default function LandingFooter() {
           <a
             href="mailto:support@firstdoer.com"
             style={{
-              fontFamily: "Manrope, sans-serif",
+              fontFamily: "Poppins, sans-serif",
               fontWeight: 400,
               fontSize: 11,
               lineHeight: "16px",

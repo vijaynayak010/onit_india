@@ -35,7 +35,7 @@ function StatChip({ label, value, icon: Icon }) {
   return (
     <div className="flex flex-1 min-w-0 flex-col items-center gap-0.5 rounded-2xl border border-[#29ADAC]/20 bg-white/70 py-3 px-2 transition hover:bg-white/90">
       {Icon && <Icon size={15} strokeWidth={2.2} className="shrink-0 text-[#10605F]" />}
-      <p className="truncate text-[15px] font-black text-gray-900">{value}</p>
+      <p className="truncate text-[15px] font-medium text-gray-900">{value}</p>
       <p className="truncate text-[10px] font-semibold text-gray-500 whitespace-nowrap">{label}</p>
     </div>
   );
@@ -45,7 +45,7 @@ function StatChip({ label, value, icon: Icon }) {
 function Section({ title, children }) {
   return (
     <div className="space-y-1.5">
-      <p className="px-1 text-[11px] font-black uppercase tracking-widest text-[var(--color-text-subtle)]">
+      <p className="px-1 text-[11px] font-medium uppercase tracking-widest text-[var(--color-text-subtle)]">
         {title}
       </p>
       <div className="overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-elevated)] shadow-sm">
@@ -120,7 +120,7 @@ function WalletCard({ balance, onClick }) {
           </div>
           <ChevronRight size={16} className="text-[#7EDEDD] transition group-hover:translate-x-0.5" />
         </div>
-        <p className="mt-2 text-3xl font-black text-white">
+        <p className="mt-2 text-3xl font-medium text-white">
           ₹{(balance || 0).toLocaleString("en-IN")}
         </p>
         <p className="mt-1 text-[11px] font-semibold text-[#7EDEDD]">Tap to view transactions & withdraw</p>
@@ -227,7 +227,7 @@ const PerformerAccountHubPage = () => {
                   {avatar ? (
                     <img src={avatar} alt={displayName} className="h-16 w-16 rounded-2xl object-cover ring-2 ring-white shadow-md" />
                   ) : (
-                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#10605F] text-xl font-black text-white shadow-md ring-2 ring-white">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#10605F] text-xl font-medium text-white shadow-md ring-2 ring-white">
                       {initials}
                     </div>
                   )}
@@ -236,7 +236,7 @@ const PerformerAccountHubPage = () => {
                   </span>
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="truncate text-[17px] font-black text-gray-900">{displayName}</p>
+                  <p className="truncate text-[17px] font-medium text-gray-900">{displayName}</p>
                   <p className="truncate text-[12px] font-medium text-gray-500">{email}</p>
                   <div className="mt-1.5">
                     <RatingBadge rating={rating} total={reviewCount} />

@@ -4,7 +4,7 @@ const PricingPage = () => {
     return (
         <div className="min-h-screen bg-white text-zinc-900 font-sans">
             <div className="max-w-5xl mx-auto px-6 py-12">
-                <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">
+                <h1 className="text-3xl md:text-4xl font-medium tracking-tight mb-4">
                     Pricing &amp; Fees
                 </h1>
                 <p className="text-zinc-600 text-base md:text-lg leading-relaxed mb-8">
@@ -15,7 +15,7 @@ const PricingPage = () => {
 
                 <div className="grid gap-6 md:grid-cols-2 mb-10">
                     <div className="rounded-2xl border border-zinc-100 shadow-sm p-5">
-                        <h2 className="text-xl font-bold mb-2">For task posters</h2>
+                        <h2 className="text-xl font-medium mb-2">For task posters</h2>
                         <p className="text-sm text-zinc-600 leading-relaxed mb-3">
                             Posting a task on FirstDoer is typically free. You only pay when you
                             accept an offer and the work is completed.
@@ -28,7 +28,7 @@ const PricingPage = () => {
                     </div>
 
                     <div className="rounded-2xl border border-zinc-100 shadow-sm p-5">
-                        <h2 className="text-xl font-bold mb-2">For task performers</h2>
+                        <h2 className="text-xl font-medium mb-2">For task performers</h2>
                         <p className="text-sm text-zinc-600 leading-relaxed mb-3">
                             Task performers earn money for each completed task. A small
                             service fee may be charged per transaction to keep the platform
@@ -43,7 +43,7 @@ const PricingPage = () => {
                 </div>
 
                 <div className="rounded-2xl bg-zinc-50 border border-zinc-100 p-5">
-                    <h2 className="text-lg md:text-xl font-bold mb-2">
+                    <h2 className="text-lg md:text-xl font-medium mb-2">
                         Secure payment flow
                     </h2>
                     <ol className="list-decimal pl-5 space-y-2 text-sm text-zinc-600">

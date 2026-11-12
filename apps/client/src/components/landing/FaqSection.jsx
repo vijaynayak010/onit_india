@@ -74,10 +74,10 @@ function FaqItem({ faq, isOpen, onToggle }) {
       >
         <span
           style={{
-            fontFamily: "Manrope, sans-serif",
+            fontFamily: "Poppins, sans-serif",
             fontWeight: 600,
-            fontSize: "clamp(15px, 1.8vw, 20px)",
-            lineHeight: "27px",
+            fontSize: "clamp(15px, 1.8vw, 19px)",
+            lineHeight: "26px",
             color: "#0B1110",
           }}
         >
@@ -99,12 +99,12 @@ function FaqItem({ faq, isOpen, onToggle }) {
           >
             <p
               style={{
-                fontFamily: "Manrope, sans-serif",
+                fontFamily: "Poppins, sans-serif",
                 fontWeight: 400,
-                fontSize: "clamp(14px, 1.6vw, 18px)",
+                fontSize: "clamp(13px, 1.5vw, 16px)",
                 lineHeight: "25px",
                 color: "#68726F",
-                margin: "0 0 28px",
+                margin: "0 0 24px",
                 maxWidth: 760,
               }}
             >
@@ -126,19 +126,19 @@ export default function FaqSection() {
     <section
       style={{
         background: "#FFFFFF",
-        padding: "clamp(56px, 8vw, 110px) 0 clamp(56px, 8vw, 100px)",
+        padding: "clamp(48px, 6vw, 96px) 0",
       }}
     >
-      <div className="mx-auto px-3" style={{ maxWidth: 960 }}>
+      <div className="mx-auto px-4 sm:px-6" style={{ maxWidth: 960 }}>
 
         {/* Heading */}
         <h2
           style={{
-            fontFamily: "Outfit, sans-serif",
-            fontWeight: 400,
-            fontSize: "clamp(28px, 4vw, 42px)",
-            lineHeight: "63px",
-            letterSpacing: "-2.1px",
+            fontFamily: "Poppins, sans-serif",
+            fontWeight: 600,
+            fontSize: "clamp(26px, 3.5vw, 40px)",
+            lineHeight: "1.2",
+            letterSpacing: "-1px",
             color: "#0B1110",
             margin: "0 0 24px",
           }}

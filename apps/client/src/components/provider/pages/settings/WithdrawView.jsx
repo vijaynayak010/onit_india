@@ -82,7 +82,7 @@ const WithdrawView = ({ onCancel, onSuccess }) => {
     return (
       <div className="flex h-64 flex-col items-center justify-center gap-4 text-[#10605F]">
         <CheckCircle2 className="h-16 w-16" />
-        <h3 className="text-xl font-bold">Request Submitted!</h3>
+        <h3 className="text-xl font-medium">Request Submitted!</h3>
         <p className="max-w-xs text-center text-sm font-semibold text-[var(--color-text-muted)]">
           Your withdrawal request of ₹{amount} is being processed. It will be credited within 24 hours.
         </p>
@@ -93,7 +93,7 @@ const WithdrawView = ({ onCancel, onSuccess }) => {
   return (
     <div className="mx-auto w-full max-w-2xl space-y-6">
       <div className="flex items-center justify-between gap-4">
-        <h2 className="text-xl font-bold text-[var(--color-text)]">Withdraw funds</h2>
+        <h2 className="text-xl font-medium text-[var(--color-text)]">Withdraw funds</h2>
         <button
           type="button"
           onClick={onCancel}
@@ -109,7 +109,7 @@ const WithdrawView = ({ onCancel, onSuccess }) => {
           <span className="h-2 w-2 rounded-full bg-[var(--color-primary)]" />
           <span className="text-xs font-bold uppercase tracking-wide text-[var(--color-text-muted)]">Available balance</span>
         </div>
-        <p className="text-3xl font-bold tabular-nums text-[var(--color-text)]">₹{balance.toLocaleString()}</p>
+        <p className="text-3xl font-medium tabular-nums text-[var(--color-text)]">₹{balance.toLocaleString()}</p>
 
         {error && (
           <div className="mt-4 flex items-center gap-2 rounded-xl bg-red-50 p-4 text-xs font-bold text-red-600 border border-red-100">
@@ -154,7 +154,7 @@ const WithdrawView = ({ onCancel, onSuccess }) => {
       </div>
 
       <div>
-        <h3 className="mb-3 text-sm font-bold text-[var(--color-text)]">Choose destination</h3>
+        <h3 className="mb-3 text-sm font-medium text-[var(--color-text)]">Choose destination</h3>
         {payoutMethods.length === 0 ? (
           <div className="rounded-[var(--radius-2xl)] border border-dashed border-[var(--color-border)] p-8 text-center">
             <p className="mb-4 text-sm font-semibold text-[var(--color-text-subtle)]">No payout method found.</p>

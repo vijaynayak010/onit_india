@@ -26,7 +26,7 @@ export default function VideoSection({ videoUrl = "#" }) {
         <div>
           <h2
             style={{
-              fontFamily: "Outfit, sans-serif",
+              fontFamily: "Poppins, sans-serif",
               fontWeight: 600,
               fontSize: "clamp(26px, 3.5vw, 41.832px)",
               lineHeight: "clamp(32px, 4.5vw, 48px)",
@@ -56,7 +56,7 @@ export default function VideoSection({ videoUrl = "#" }) {
 
           <p
             style={{
-              fontFamily: "Manrope, sans-serif",
+              fontFamily: "Poppins, sans-serif",
               fontWeight: 400,
               fontSize: "clamp(14px, 1.6vw, 17px)",
               lineHeight: "26px",
@@ -145,7 +145,7 @@ export default function VideoSection({ videoUrl = "#" }) {
           >
             <span
               style={{
-                fontFamily: "Manrope, sans-serif",
+                fontFamily: "Poppins, sans-serif",
                 fontWeight: 400,
                 fontSize: 11,
                 lineHeight: "16px",

@@ -31,7 +31,7 @@ const DomainSubDomainPage = () => {
   ].join(", ");
 
   return (
-    <div className="min-h-screen bg-[#f3f4f6] pt-[100px] pb-16 px-4 sm:px-6 md:px-12 lg:px-24">
+    <div className="min-h-screen bg-[#f8fafc] pt-24 sm:pt-28 pb-16 px-4 sm:px-6 md:px-12 lg:px-20 font-sans">
       <SEO
         title={title}
         description={description}
@@ -49,27 +49,27 @@ const DomainSubDomainPage = () => {
       <div className="max-w-3xl mx-auto">
         <Link
           to={`/domains/${domainSlug}`}
-          className="inline-flex items-center text-green-600 hover:text-green-700 font-medium mb-6"
+          className="inline-flex items-center text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] font-medium mb-6 transition-colors"
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
           Back to {domain.title}
         </Link>
 
-        <div className="bg-white rounded-3xl shadow-md border border-green-100 overflow-hidden p-6 sm:p-8 md:p-10">
-          <p className="text-xs uppercase tracking-widest text-green-600 font-semibold mb-1">
+        <div className="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden p-6 sm:p-8 md:p-10">
+          <p className="text-xs uppercase tracking-widest text-[var(--color-primary)] font-semibold mb-1">
             {domainLabel} · {blockTitle}
           </p>
-          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+          <h1 className="text-2xl sm:text-3xl font-medium text-gray-900 mb-3 font-heading leading-tight">
             {itemName}
           </h1>
-          <p className="text-gray-700 text-base sm:text-lg mb-6">
+          <p className="text-gray-700 text-base sm:text-lg mb-6 leading-relaxed">
             Get <strong>{itemName.toLowerCase()}</strong> done on FirstDoer. Post your task in this category,
             get matched with vetted performers who specialize in {blockTitle.toLowerCase()}, and manage everything from your dashboard.
           </p>
 
-          <div className="rounded-2xl bg-green-50 border border-green-100 p-4 sm:p-6 mb-6">
-            <h2 className="text-lg font-semibold text-gray-900 mb-2">What you can do</h2>
-            <ul className="text-gray-700 text-sm sm:text-base space-y-1 list-disc list-inside">
+          <div className="rounded-2xl bg-[var(--color-primary-muted)] border border-[var(--color-primary-subtle)] p-4 sm:p-6 mb-6">
+            <h2 className="text-lg font-medium text-gray-900 mb-2 font-heading">What you can do</h2>
+            <ul className="text-gray-700 text-sm sm:text-base space-y-1.5 list-disc list-inside">
               <li>Post a task for {itemName.toLowerCase()}</li>
               <li>Receive offers from qualified performers</li>
               <li>Collaborate and pay securely on the platform</li>
@@ -79,13 +79,13 @@ const DomainSubDomainPage = () => {
 
           <Link
             to="/auth"
-            className="block text-center w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-xl transition-colors"
+            className="block text-center w-full bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white font-semibold py-3.5 rounded-xl transition-all shadow-sm hover:shadow active:scale-[0.98]"
           >
             Post a task for {itemName.toLowerCase()}
           </Link>
 
           <p className="text-center text-sm text-gray-500 mt-6">
-            <Link to={`/domains/${domainSlug}`} className="text-green-600 hover:underline">
+            <Link to={`/domains/${domainSlug}`} className="text-[var(--color-primary)] hover:underline font-medium">
               View all sub-domains under {domain.title}
             </Link>
           </p>

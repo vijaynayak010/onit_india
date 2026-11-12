@@ -48,8 +48,8 @@ const TaskCategoryDetailPage = () => {
         className="border-b border-gray-200 bg-white"
         aria-label="Breadcrumb"
       >
-        <div className="max-w-4xl mx-auto px-6 md:px-20 py-4">
-          <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm md:text-[0.9375rem]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20 py-3.5 sm:py-4">
+          <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs sm:text-sm md:text-[0.9375rem]">
             <li>
               <Link
                 to="/"
@@ -73,7 +73,7 @@ const TaskCategoryDetailPage = () => {
               /
             </li>
             <li
-              className="font-semibold text-[var(--color-primary)] min-w-0 break-words"
+              className="font-medium text-[var(--color-primary)] min-w-0 break-words"
               aria-current="page"
               title={category.title}
             >
@@ -83,41 +83,41 @@ const TaskCategoryDetailPage = () => {
         </div>
       </nav>
 
-      <main className="max-w-4xl mx-auto px-6 md:px-20 py-10 md:py-14">
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20 py-8 sm:py-10 md:py-14 font-sans">
         {/* Back link */}
         <Link
           to="/tasks"
-          className="inline-flex items-center gap-2 text-[var(--color-primary)] font-medium hover:underline mb-8"
+          className="inline-flex items-center gap-2 text-[var(--color-primary)] font-medium hover:underline mb-6 sm:mb-8 text-sm sm:text-base"
         >
           <ArrowLeft size={18} strokeWidth={2} />
           All task categories
         </Link>
 
         {/* Hero */}
-        <header className="border-b border-gray-200 pb-10 mb-10">
-          <div className="flex items-start gap-4">
-            <div className="w-14 h-14 rounded-xl bg-[var(--color-primary)] text-white flex items-center justify-center flex-shrink-0">
-              <Icon size={28} strokeWidth={2} aria-hidden />
+        <header className="border-b border-gray-200 pb-8 sm:pb-10 mb-8 sm:mb-10">
+          <div className="flex flex-col sm:flex-row items-start gap-4">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-[var(--color-primary)] text-white flex items-center justify-center flex-shrink-0">
+              <Icon size={24} strokeWidth={2} aria-hidden />
             </div>
             <div>
-              <h1 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-3">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-medium text-[var(--color-primary)] mb-2 sm:mb-3 font-heading leading-tight">
                 {category.title} Tasks
               </h1>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                 {category.description}
               </p>
             </div>
           </div>
-          <div className="flex flex-wrap items-center gap-3 mt-6">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mt-6">
             <Link
               to="/"
-              className="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white font-semibold px-5 py-3 rounded-full hover:bg-[#003d35] transition-colors shadow-md"
+              className="inline-flex items-center justify-center gap-2 bg-[var(--color-primary)] text-white font-medium px-5 py-3 rounded-full hover:bg-[var(--color-primary-hover)] transition-colors shadow-md min-h-[44px]"
             >
               Post a {category.title.toLowerCase()} task
             </Link>
             <Link
               to="/tasks"
-              className="inline-flex items-center gap-2 border-2 border-[var(--color-primary)] text-[var(--color-primary)] font-semibold px-5 py-3 rounded-full hover:bg-[var(--color-primary)]/5 transition-colors"
+              className="inline-flex items-center justify-center gap-2 border-2 border-[var(--color-primary)] text-[var(--color-primary)] font-semibold px-5 py-3 rounded-full hover:bg-[var(--color-primary)]/5 transition-colors min-h-[44px]"
             >
               Browse all categories
             </Link>
@@ -126,7 +126,7 @@ const TaskCategoryDetailPage = () => {
 
         {/* Example tasks */}
         <section className="mb-12" aria-labelledby="examples-heading">
-          <h2 id="examples-heading" className="text-xl font-semibold text-gray-900 mb-4">
+          <h2 id="examples-heading" className="text-xl font-medium text-gray-900 mb-4">
             Example tasks you can post
           </h2>
           <ul className="flex flex-wrap gap-2">
@@ -142,7 +142,7 @@ const TaskCategoryDetailPage = () => {
 
         {/* CTA block */}
         <section className="p-6 md:p-8 rounded-2xl bg-[var(--color-primary)] text-white" aria-label="Call to action">
-          <h2 className="text-xl font-semibold mb-2">
+          <h2 className="text-xl font-medium mb-2">
             Ready to get your {category.title.toLowerCase()} task done?
           </h2>
           <p className="text-white/90 mb-6">

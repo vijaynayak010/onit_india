@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Button = ({ children, onClick, variant = 'primary', isActive = false, className = '', disabled = false, type = 'button' }) => {
-    const baseClass = 'inline-flex items-center justify-center py-4 px-6 text-[18px] font-bold rounded-[2rem] border-none cursor-pointer transition-all w-full tracking-wide focus:outline-none focus:ring-0';
+    const baseClass = 'inline-flex items-center justify-center py-4 px-6 text-[18px] font-medium rounded-[2rem] border-none cursor-pointer transition-all w-full tracking-wide focus:outline-none focus:ring-0';
 
     // If active use solid green. If not active use gray.
     const variantClass = variant === 'primary'

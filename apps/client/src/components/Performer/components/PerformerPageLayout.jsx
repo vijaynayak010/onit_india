@@ -52,7 +52,7 @@ export function PerformerSectionCard({
             )}
             <div className="min-w-0">
               {title && (
-                <h3 className="truncate text-[15px] font-bold text-slate-900">
+                <h3 className="truncate text-[15px] font-medium text-slate-900">
                   {title}
                 </h3>
               )}

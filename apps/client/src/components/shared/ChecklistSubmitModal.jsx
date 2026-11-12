@@ -53,7 +53,7 @@ const ChecklistSubmitModal = ({ isOpen, item, onClose, onSubmit }) => {
         >
           <div className="flex items-center justify-between border-b border-[var(--color-border)] px-6 py-5">
             <div>
-              <h2 className="text-lg font-bold text-[var(--color-text)]">Submit work</h2>
+              <h2 className="text-lg font-medium text-[var(--color-text)]">Submit work</h2>
               <p className="mt-0.5 text-sm font-semibold text-[var(--color-text-muted)]">{item.text}</p>
             </div>
             {!submitting && (

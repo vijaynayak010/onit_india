@@ -21,7 +21,7 @@ export default function FindTaskersNearbyTeaser() {
             <div>
               <h2
                 id="find-taskers-teaser-heading"
-                className="text-xl font-bold tracking-tight text-[var(--color-text)] sm:text-2xl"
+                className="text-xl font-medium tracking-tight text-[var(--color-text)] sm:text-2xl"
               >
                 Find taskers nearby you
               </h2>

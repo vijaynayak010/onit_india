@@ -76,7 +76,7 @@ const SERVICES = [
 ];
 
 const ServicesIndexPage = () => (
-  <div className="min-h-screen bg-white text-gray-800">
+  <div className="min-h-screen bg-white text-gray-800 font-sans">
     <SEO
       title="Services | Task Execution Services | FirstDoer"
       description="Retail audits, field data collection, content marketing execution, and market research assistance. Post tasks and get work done by verified performers across India. FirstDoer."
@@ -91,38 +91,38 @@ const ServicesIndexPage = () => (
       }}
     />
 
-    <section className="pt-24 pb-16 px-6 md:px-20 bg-gradient-to-b from-[var(--color-primary)]/5 to-white">
+    <section className="pt-24 sm:pt-28 pb-12 sm:pb-16 px-4 sm:px-6 md:px-12 lg:px-20 bg-gradient-to-b from-[var(--color-primary)]/5 to-white">
       <div className="max-w-4xl mx-auto text-center">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--color-primary)] mb-4 leading-tight">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-[var(--color-primary)] mb-3 sm:mb-4 leading-tight font-heading">
           Services
         </h1>
-        <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+        <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
           Get retail audits, field data collection, content and design services, and market research
           executed by verified performers. Post a task, set your price, pay when work is done.
         </p>
       </div>
     </section>
 
-    <section className="py-16 px-6 md:px-20">
-      <div className="max-w-4xl mx-auto">
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-12 lg:px-20">
+      <div className="max-w-5xl mx-auto">
+        <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((service) => (
             <Link
               key={service.slug}
               to={`/services/${service.slug}`}
-              className="group rounded-xl border border-[var(--color-primary)]/15 bg-white p-6 flex gap-4 hover:border-[var(--color-primary)]/30 hover:shadow-md transition-all"
+              className="group rounded-2xl border border-[var(--color-primary)]/15 bg-white p-4 sm:p-6 flex gap-3.5 sm:gap-4 hover:border-[var(--color-primary)]/30 hover:shadow-md transition-all shadow-xs"
             >
-              <div className="shrink-0 w-12 h-12 rounded-xl bg-[var(--color-primary)]/10 text-[var(--color-primary)] flex items-center justify-center group-hover:bg-[var(--color-primary)]/20 transition-colors">
-                <service.icon size={24} />
+              <div className="shrink-0 w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[var(--color-primary)]/10 text-[var(--color-primary)] flex items-center justify-center group-hover:bg-[var(--color-primary)]/20 transition-colors">
+                <service.icon size={22} />
               </div>
               <div className="flex-1 min-w-0">
-                <h2 className="font-semibold text-[var(--color-primary)] mb-1 group-hover:underline">
+                <h2 className="font-medium text-[var(--color-primary)] mb-1 group-hover:underline text-base font-heading">
                   {service.title}
                 </h2>
-                <p className="text-gray-600 text-sm mb-3">{service.description}</p>
-                <span className="inline-flex items-center gap-1 text-[var(--color-primary)] font-medium text-sm">
+                <p className="text-gray-600 text-xs sm:text-sm mb-3 leading-snug">{service.description}</p>
+                <span className="inline-flex items-center gap-1 text-[var(--color-primary)] font-medium text-xs sm:text-sm">
                   Learn more
-                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
                 </span>
               </div>
             </Link>
@@ -131,32 +131,32 @@ const ServicesIndexPage = () => (
       </div>
     </section>
 
-    {/* Domains — same as on homepage, explore by category */}
-    <section className="py-16 px-6 md:px-20 bg-[#f3f4f6]">
+    {/* Domains — explore by category */}
+    <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-12 lg:px-20 bg-[#f8fafc]">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-primary)] mb-2 text-center">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-[var(--color-primary)] mb-2 text-center font-heading">
           Explore by domain
         </h2>
-        <p className="text-gray-600 text-center mb-10 max-w-2xl mx-auto">
+        <p className="text-gray-600 text-center mb-8 sm:mb-10 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
           Browse task categories by domain. Click any domain to see sub-domains and example work you can post.
         </p>
-        <div className="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {domains.map((domain) => (
             <Link
               key={domain.slug}
               to={`/domains/${domain.slug}`}
-              className="group rounded-2xl bg-gradient-to-br from-[#e3eafc] via-[#D9EEE3] to-[#D9EEE3] border border-green-300 p-5 md:p-6 flex flex-col hover:shadow-lg hover:border-[var(--color-primary)]/30 transition-all"
+              className="group rounded-2xl bg-gradient-to-br from-[#e3eafc] via-[#D9EEE3] to-[#D9EEE3] border border-green-300 p-4 sm:p-5 md:p-6 flex flex-col hover:shadow-lg hover:border-[var(--color-primary)]/30 transition-all shadow-xs"
             >
               <div className="flex items-start justify-between gap-2 mb-2">
-                <h3 className="font-bold text-gray-900 text-lg leading-tight">
+                <h3 className="font-medium text-gray-900 text-base sm:text-lg leading-tight font-heading">
                   {domain.title}
                 </h3>
                 <ArrowRightCircle className="w-5 h-5 text-[var(--color-primary)] flex-shrink-0 group-hover:translate-x-0.5 transition-transform" />
               </div>
-              <p className="text-gray-700 text-sm leading-relaxed flex-1">
+              <p className="text-gray-700 text-xs sm:text-sm leading-relaxed flex-1">
                 {domain.description}
               </p>
-              <span className="inline-flex items-center gap-1 text-[var(--color-primary)] font-medium text-sm mt-3">
+              <span className="inline-flex items-center gap-1 text-[var(--color-primary)] font-medium text-xs sm:text-sm mt-3">
                 View task types
                 <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
               </span>

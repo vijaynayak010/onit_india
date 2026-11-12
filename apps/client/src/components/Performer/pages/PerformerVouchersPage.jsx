@@ -83,7 +83,7 @@ const PerformerVouchersPage = () => {
             >
               <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-2xl ring-1 ${statTone[stat.tone]}`}>{stat.icon}</div>
               <p className="text-[10px] font-bold uppercase tracking-wide text-[var(--color-text-subtle)]">{stat.label}</p>
-              <p className="mt-1 text-2xl font-bold tabular-nums tracking-tight text-[var(--color-text)] sm:text-[28px]">{stat.value}</p>
+              <p className="mt-1 text-2xl font-medium tabular-nums tracking-tight text-[var(--color-text)] sm:text-[28px]">{stat.value}</p>
             </div>
           ))}
         </div>
@@ -93,7 +93,7 @@ const PerformerVouchersPage = () => {
           <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[var(--color-primary-subtle)] text-[var(--color-primary)] mb-6 shadow-inner animate-pulse">
             <Ticket size={32} strokeWidth={1.5} />
           </div>
-          <h2 className="text-xl font-bold text-[var(--color-text)] mb-2">No Vouchers Found</h2>
+          <h2 className="text-xl font-medium text-[var(--color-text)] mb-2">No Vouchers Found</h2>
           <p className="text-sm font-semibold text-[var(--color-text-muted)] max-w-sm leading-relaxed mb-8">
             You don't have any vouchers, coupon codes, or active tasker rewards at the moment. Complete client bookings to unlock exclusive promotions!
           </p>

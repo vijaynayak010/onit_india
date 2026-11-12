@@ -21,7 +21,7 @@ const ForgotPasswordPage = () => {
         <AuthLayout illustrationSrc={forgotPassImage}>
             <div className="w-full max-w-[400px] bg-white border border-[#86efac] rounded-[2rem] p-8 shadow-[0_0_15px_rgba(22,163,74,0.05)]">
 
-                <h2 className="text-[24px] font-bold text-center text-gray-900 mb-4">
+                <h2 className="text-[24px] font-medium text-center text-gray-900 mb-4">
                     Forgot your password
                 </h2>
 

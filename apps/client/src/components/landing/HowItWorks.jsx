@@ -17,11 +17,11 @@ import {
 } from "react-feather";
 
 const SectionTitle = ({ title, subtitle }) => (
-    <div className="text-center max-w-3xl mx-auto mb-16">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
+    <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 px-4">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-semibold text-gray-900 mb-3 sm:mb-4">
             {title}
         </h2>
-        <p className="text-lg text-gray-500">{subtitle}</p>
+        <p className="text-base sm:text-lg text-gray-500 leading-relaxed">{subtitle}</p>
     </div>
 );
 

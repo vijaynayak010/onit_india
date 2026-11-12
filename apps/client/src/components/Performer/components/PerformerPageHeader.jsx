@@ -112,7 +112,7 @@ export default function PerformerPageHeader({
           </button>
         )}
         <div className="min-w-0 flex-1">
-          <h1 className="truncate text-base font-extrabold text-slate-900 sm:text-lg">
+          <h1 className="truncate text-base sm:text-lg font-heading font-medium text-slate-900">
             {title}
           </h1>
           {subtitle && (

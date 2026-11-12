@@ -52,7 +52,7 @@ export default function HomeCarousel({ slides = [], className = "mt-6 sm:mt-8" }
             )}
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
             <div className="relative z-10 p-5 sm:p-6 md:p-7">
-              <h2 className="text-[1.35rem] font-extrabold tracking-tight text-white sm:text-[1.5rem]">
+              <h2 className="text-[1.35rem] font-medium tracking-tight text-white sm:text-[1.5rem]">
                 {current.title}
               </h2>
               {current.subtitle ? (

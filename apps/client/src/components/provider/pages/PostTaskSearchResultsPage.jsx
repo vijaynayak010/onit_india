@@ -141,10 +141,10 @@ const PostTaskSearchResultsPage = () => {
                                 <div className="inline-flex items-center px-4 py-1.5 bg-[#10605F] text-white rounded-full text-[13px] font-black uppercase tracking-wider mb-4">
                                     Active Task
                                 </div>
-                                <h2 className="text-[36px] font-black text-slate-900 mb-2">
+                                <h2 className="text-[36px] font-medium text-slate-900 mb-2">
                                     {taskData?.title || (loading ? "Loading Task..." : "Untitled Task")}
                                 </h2>
-                                <p className="text-slate-400 font-bold text-lg">
+                                <p className="text-slate-400 font-medium text-lg">
                                     Posted {taskData?.createdAt ? new Date(taskData.createdAt).toLocaleDateString() : "just now"}
                                 </p>
                             </div>
@@ -195,7 +195,7 @@ const PostTaskSearchResultsPage = () => {
                                     </div>
                                     <div>
                                         <p className="text-[14px] font-bold text-slate-400 mb-0.5">{item.label}</p>
-                                        <p className="text-[18px] font-black text-slate-900 truncate max-w-[200px]">{item.value}</p>
+                                        <p className="text-[18px] font-medium text-slate-900 truncate max-w-[200px]">{item.value}</p>
                                     </div>
                                 </div>
                             ))}
@@ -234,7 +234,7 @@ const PostTaskSearchResultsPage = () => {
                                         />
                                     </div>
                                 </div>
-                                <h3 className="text-[24px] font-black text-slate-900 mb-2">Searching for Talent....</h3>
+                                <h3 className="text-[24px] font-medium text-slate-900 mb-2">Searching for Talent....</h3>
                                 <p className="text-slate-400 font-bold mb-8">Scanning our database of verified performers</p>
 
                                 <div className="flex items-center gap-2">
@@ -308,7 +308,7 @@ const PostTaskSearchResultsPage = () => {
                                                         <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
                                                             <User className="w-10 h-10 text-slate-300" />
                                                         </div>
-                                                        <h4 className="text-2xl font-black text-slate-900 mb-2">No Applicants Yet</h4>
+                                                        <h4 className="text-2xl font-medium text-slate-900 mb-2">No Applicants Yet</h4>
                                                         <p className="text-slate-400 font-bold max-w-sm mx-auto">We're notifying top performers about your task. Refreshing every 5 seconds.</p>
                                                     </div>
                                                 )}
@@ -375,14 +375,14 @@ const PerformerCard = ({ performer, type, taskId, taskData, navigate }) => (
                     {performer.avatar ? (
                         <img src={performer.avatar} alt={performer.person} className="w-full h-full object-cover" />
                     ) : (
-                        <div className="w-full h-full bg-slate-200 flex items-center justify-center text-slate-400 font-bold text-xl">
+                        <div className="w-full h-full bg-slate-200 flex items-center justify-center text-slate-400 font-medium text-xl">
                             {performer.person?.charAt(0)}
                         </div>
                     )}
                 </div>
                 <div>
-                    <h5 className="text-[19px] font-black text-slate-900 leading-tight mb-1">{performer.person}</h5>
-                    <p className="text-[14px] font-bold text-slate-400 mb-1.5 truncate max-w-[150px]">{performer.name}</p>
+                    <h5 className="text-[19px] font-medium text-slate-900 leading-tight mb-1">{performer.person}</h5>
+                    <p className="text-[14px] font-medium text-slate-400 mb-1.5 truncate max-w-[150px]">{performer.name}</p>
 
                     <div className="flex items-center gap-1">
                         <div className="flex text-amber-500 gap-0.5">
@@ -398,7 +398,7 @@ const PerformerCard = ({ performer, type, taskId, taskData, navigate }) => (
                 </div>
             </div>
             <div className="text-right">
-                <p className="text-[20px] font-black text-slate-900">{performer.rate}</p>
+                <p className="text-[20px] font-medium text-slate-900">{performer.rate}</p>
             </div>
         </div>
 

@@ -13,7 +13,7 @@ const SocialButton = ({ provider = 'google', onClick, children }) => {
     return (
         <button
             type="button"
-            className="mx-auto flex w-full max-w-sm items-center justify-center gap-3 rounded-full border-2 border-[var(--color-border)] bg-white py-3.5 px-6 text-[15px] font-bold text-[var(--color-text)] shadow-[var(--shadow-xs)] transition-all hover:border-[var(--color-primary)]/35 hover:bg-[var(--color-primary-subtle)]/50 active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]/30"
+            className="mx-auto flex w-full max-w-sm items-center justify-center gap-3 rounded-full border-2 border-[var(--color-border)] bg-white py-3.5 px-6 text-[15px] font-medium text-[var(--color-text)] shadow-[var(--shadow-xs)] transition-all hover:border-[var(--color-primary)]/35 hover:bg-[var(--color-primary-subtle)]/50 active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]/30"
             onClick={onClick}
         >
             {provider === 'google' && <GoogleIcon />}

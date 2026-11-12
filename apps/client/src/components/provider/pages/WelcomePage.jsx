@@ -34,11 +34,11 @@ const WelcomePage = () => {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-zinc-100 font-sans p-4">
-            <h1 className="text-[2.5rem] font-bold text-black mb-2">
+            <h1 className="text-[2.5rem] font-medium text-black mb-2">
                 {isSignin ? "Welcome Back!" : "Welcome to FirstDoer!"}
             </h1>
             {displayName ? (
-                <p className="mb-6 text-lg font-semibold text-zinc-600">{displayName}</p>
+                <p className="mb-6 text-lg font-medium text-zinc-600">{displayName}</p>
             ) : null}
             <img
                 src={loginAfterImage}

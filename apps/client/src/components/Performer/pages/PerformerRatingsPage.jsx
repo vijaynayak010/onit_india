@@ -98,7 +98,7 @@ const PerformerRatingsPage = () => {
                       <Star className="h-5 w-5 text-amber-500 fill-amber-500" />
                     </div>
                     <div className="mt-4 flex items-baseline gap-1">
-                      <span className="text-4xl font-extrabold text-gray-900">{ratingAvg > 0 ? ratingAvg.toFixed(1) : "0.0"}</span>
+                      <span className="text-4xl font-medium text-gray-900">{ratingAvg > 0 ? ratingAvg.toFixed(1) : "0.0"}</span>
                       <span className="text-sm font-bold text-gray-400">/ 5.0</span>
                     </div>
                     <div className="mt-2 flex items-center gap-0.5">
@@ -120,7 +120,7 @@ const PerformerRatingsPage = () => {
                       <p className="text-sm font-bold text-gray-500">Completed Tasks</p>
                       <CheckCircle2 className="h-5 w-5 text-[#10605F]" />
                     </div>
-                    <p className="mt-4 text-4xl font-extrabold text-gray-900">{completedTasksCount}</p>
+                    <p className="mt-4 text-4xl font-medium text-gray-900">{completedTasksCount}</p>
                     <p className="mt-2 text-xs font-bold text-[#10605F]">Verified completions</p>
                   </div>
 
@@ -129,7 +129,7 @@ const PerformerRatingsPage = () => {
                       <p className="text-sm font-bold text-gray-500">Reviews count</p>
                       <Award className="h-5 w-5 text-[#10605F]" />
                     </div>
-                    <p className="mt-4 text-4xl font-extrabold text-gray-900">{reviews.length}</p>
+                    <p className="mt-4 text-4xl font-medium text-gray-900">{reviews.length}</p>
                     <p className="mt-2 text-xs font-bold text-[#10605F]">Written comments</p>
                   </div>
                 </div>
@@ -137,7 +137,7 @@ const PerformerRatingsPage = () => {
                 {/* Star Breakdown Graphics */}
                 <div className="grid gap-6 md:grid-cols-5 border border-[var(--color-border)] rounded-[var(--radius-2xl)] bg-[var(--color-surface-elevated)] p-6 shadow-[var(--shadow-sm)]">
                   <div className="md:col-span-2 flex flex-col justify-center border-b border-gray-100 pb-5 md:border-b-0 md:border-r md:pb-0 md:pr-6">
-                    <h3 className="text-base font-bold text-gray-900 mb-1">Ratings Distribution</h3>
+                    <h3 className="text-base font-medium text-gray-900 mb-1">Ratings Distribution</h3>
                     <p className="text-xs font-semibold text-gray-400 mb-4">Percentage breakdown of reviews received from customers</p>
                     {ratingAvg >= 4.5 && (
                       <div className="flex items-center gap-2">
@@ -162,7 +162,7 @@ const PerformerRatingsPage = () => {
 
                 {/* Reviews Feed Section */}
                 <div className="space-y-4">
-                  <h3 className="text-base font-bold text-gray-900 flex items-center gap-2 pl-1">
+                  <h3 className="text-base font-medium text-gray-900 flex items-center gap-2 pl-1">
                     <MessageSquare className="h-5 w-5 text-[#10605F]" strokeWidth={2} />
                     Verified Reviews Feed
                   </h3>
@@ -172,7 +172,7 @@ const PerformerRatingsPage = () => {
                       <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-50 text-slate-400 mb-4">
                         <AlertCircle size={24} />
                       </div>
-                      <h4 className="text-sm font-bold text-gray-900 mb-1">No Reviews Found</h4>
+                      <h4 className="text-sm font-medium text-gray-900 mb-1">No Reviews Found</h4>
                       <p className="text-xs font-semibold text-gray-400 max-w-sm leading-relaxed">
                         You have not received any written reviews from customers yet. Completed assigned tasks to receive live feedback and client ratings!
                       </p>
@@ -191,7 +191,7 @@ const PerformerRatingsPage = () => {
                                 </span>
                               </div>
                               {rev.task?.title && (
-                                <p className="mt-1 text-xs font-bold text-[#10605F]">{rev.task.title}</p>
+                                <p className="mt-1 text-xs font-medium text-[#10605F]">{rev.task.title}</p>
                               )}
                             </div>
                             <div className="flex items-center gap-0.5 rounded-lg bg-amber-50 px-2 py-1 text-xs font-extrabold text-amber-700 shadow-[var(--shadow-xs)]">

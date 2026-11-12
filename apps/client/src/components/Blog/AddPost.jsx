@@ -116,7 +116,7 @@ function AddPost() {
         onSubmit={handleSubmit}
         className="w-full max-w-3xl bg-white/40 backdrop-blur-2xl shadow-xl border border-white/40 rounded-3xl p-10 space-y-6"
       >
-        <h1 className="text-4xl font-extrabold text-center text-gray-900 mb-6">
+        <h1 className="text-4xl font-medium text-center text-gray-900 mb-6">
           ✍️ Add New Blog Post
         </h1>
 

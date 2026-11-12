@@ -67,7 +67,7 @@ const PerformerVerificationOnboarding = () => {
 
           {/* Header */}
           <header className="border-b border-gray-200 pb-8 mb-12">
-            <h1 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-4">
+            <h1 className="text-3xl md:text-4xl font-medium text-[var(--color-primary)] mb-4">
               Performer Verification & Onboarding
             </h1>
             <p className="text-gray-600 text-base md:text-lg leading-relaxed max-w-3xl">
@@ -77,7 +77,7 @@ const PerformerVerificationOnboarding = () => {
 
           {/* Process overview */}
           <section className="mb-14">
-            <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-6 flex items-center gap-2">
+            <h2 className="text-xl font-medium text-[var(--color-primary)] mb-6 flex items-center gap-2">
               <CheckCircle size={22} className="text-[var(--color-primary)]" />
               Onboarding journey
             </h2>
@@ -90,7 +90,7 @@ const PerformerVerificationOnboarding = () => {
                   <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--color-primary)] text-white text-sm font-semibold mb-3">
                     {s.num}
                   </span>
-                  <h3 className="font-semibold text-gray-900 text-sm mb-1">{s.title}</h3>
+                  <h3 className="font-medium text-gray-900 text-sm mb-1">{s.title}</h3>
                   <p className="text-gray-600 text-xs leading-snug">{s.desc}</p>
                 </div>
               ))}
@@ -99,7 +99,7 @@ const PerformerVerificationOnboarding = () => {
 
           {/* KYC */}
           <section className="mb-14">
-            <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-4 flex items-center gap-2">
+            <h2 className="text-xl font-medium text-[var(--color-primary)] mb-4 flex items-center gap-2">
               <FileText size={22} className="text-[var(--color-primary)]" />
               1. KYC (Know Your Customer)
             </h2>
@@ -107,7 +107,7 @@ const PerformerVerificationOnboarding = () => {
               Identity verification ensures that performers on the platform are who they claim to be. This protects task providers and keeps the marketplace safe.
             </p>
             <div className="rounded-xl border border-gray-200 bg-white p-5 md:p-6">
-              <h3 className="font-semibold text-gray-900 mb-3 text-sm uppercase tracking-wider text-gray-500">
+              <h3 className="font-medium text-gray-900 mb-3 text-sm uppercase tracking-wider text-gray-500">
                 What we need
               </h3>
               <ul className="space-y-2">
@@ -126,7 +126,7 @@ const PerformerVerificationOnboarding = () => {
 
           {/* Skills */}
           <section className="mb-14">
-            <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-4 flex items-center gap-2">
+            <h2 className="text-xl font-medium text-[var(--color-primary)] mb-4 flex items-center gap-2">
               <Briefcase size={22} className="text-[var(--color-primary)]" />
               2. Skills verification
             </h2>
@@ -134,7 +134,7 @@ const PerformerVerificationOnboarding = () => {
               Your skills help match you with the right tasks and help providers choose performers with the right expertise.
             </p>
             <div className="rounded-xl border border-gray-200 bg-white p-5 md:p-6">
-              <h3 className="font-semibold text-gray-900 mb-3 text-sm uppercase tracking-wider text-gray-500">
+              <h3 className="font-medium text-gray-900 mb-3 text-sm uppercase tracking-wider text-gray-500">
                 How skills work
               </h3>
               <ul className="space-y-2">
@@ -150,7 +150,7 @@ const PerformerVerificationOnboarding = () => {
 
           {/* Background verification */}
           <section className="mb-14">
-            <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-4 flex items-center gap-2">
+            <h2 className="text-xl font-medium text-[var(--color-primary)] mb-4 flex items-center gap-2">
               <Shield size={22} className="text-[var(--color-primary)]" />
               3. Background verification
             </h2>
@@ -158,7 +158,7 @@ const PerformerVerificationOnboarding = () => {
               We run consent-based background checks to ensure platform safety. This step is required to become a verified performer.
             </p>
             <div className="rounded-xl border border-gray-200 bg-white p-5 md:p-6">
-              <h3 className="font-semibold text-gray-900 mb-3 text-sm uppercase tracking-wider text-gray-500">
+              <h3 className="font-medium text-gray-900 mb-3 text-sm uppercase tracking-wider text-gray-500">
                 What we check
               </h3>
               <ul className="space-y-2">
@@ -177,7 +177,7 @@ const PerformerVerificationOnboarding = () => {
 
           {/* Badges */}
           <section className="mb-14">
-            <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-4 flex items-center gap-2">
+            <h2 className="text-xl font-medium text-[var(--color-primary)] mb-4 flex items-center gap-2">
               <Award size={22} className="text-[var(--color-primary)]" />
               4. Badges (skills & work done)
             </h2>
@@ -196,7 +196,7 @@ const PerformerVerificationOnboarding = () => {
                       <Icon size={20} strokeWidth={2} />
                     </span>
                     <div>
-                      <h3 className="font-semibold text-gray-900 text-sm mb-1">{b.name}</h3>
+                      <h3 className="font-medium text-gray-900 text-sm mb-1">{b.name}</h3>
                       <p className="text-gray-600 text-xs leading-snug">{b.desc}</p>
                     </div>
                   </div>
@@ -210,7 +210,7 @@ const PerformerVerificationOnboarding = () => {
 
           {/* Summary & CTA */}
           <section className="rounded-xl border border-[var(--color-primary)]/20 bg-[var(--color-primary)]/5 p-6 md:p-8">
-            <h2 className="text-lg font-semibold text-[var(--color-primary)] mb-3">Ready to become a performer?</h2>
+            <h2 className="text-lg font-medium text-[var(--color-primary)] mb-3">Ready to become a performer?</h2>
             <p className="text-gray-700 text-sm mb-6 max-w-2xl">
               Complete sign-up, KYC, skills, and background verification to get verified and earn badges. Once onboarded, you can browse and accept tasks that match your skills.
             </p>

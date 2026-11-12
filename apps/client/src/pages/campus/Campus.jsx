@@ -108,7 +108,7 @@ const Campus = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+          <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-4">
             <span className=" text-black">
               On<span className="text-green-500 font-bold">IT</span>{" "}
               <span className="text-gray-800">CAMPUS</span>
@@ -159,7 +159,7 @@ const Campus = () => {
               </motion.div>
 
               {/* Text */}
-              <h3 className="text-base md:text-xl font-bold text-gray-800 group-hover:text-green-700 transition-colors">
+              <h3 className="text-base md:text-xl font-medium text-gray-800 group-hover:text-green-700 transition-colors">
                 {item.label}
               </h3>
             </motion.div>

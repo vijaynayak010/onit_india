@@ -27,10 +27,10 @@ function TalentRow({ talent }) {
         <img src={talent.avatar} alt="" className="h-full w-full object-cover grayscale" />
       </div>
       <div>
-        <p className="font-['Manrope'] text-[18px] font-semibold leading-[25px] text-[#111235]">
+        <p className="font-sans text-[18px] font-medium leading-[25px] text-[#111235]">
           {talent.name}
         </p>
-        <p className="font-['Manrope'] text-[12px] font-semibold leading-4 text-[#6C6C6C]">
+        <p className="font-sans text-[12px] font-semibold leading-4 text-[#6C6C6C]">
           {talent.role}
         </p>
       </div>
@@ -45,7 +45,7 @@ function VerifiedTalentCards() {
       <div className="absolute left-[170px] top-[132px] h-[330px] w-[410px] rounded-[36px] bg-black/[0.035] blur-[60px] max-md:left-[40px]" />
 
       <div className="absolute left-0 top-[47px] h-[388px] w-[342px] rounded-[22px] border border-[#DFDFDF] bg-white shadow-[0_64px_194px_rgba(0,0,0,0.10)] max-md:left-0 max-md:w-[calc(100%-28px)]">
-        <h3 className="absolute left-[34px] top-[30px] font-['Manrope'] text-[24px] font-bold leading-[33px] text-[#111235]">
+        <h3 className="absolute left-[34px] top-[30px] font-sans text-[24px] font-medium leading-[33px] text-[#111235]">
           10K+ Verified Talents
         </h3>
 
@@ -72,15 +72,15 @@ function VerifiedTalentCards() {
         <div className="h-[100px] w-[100px] overflow-hidden rounded-full bg-[#FF7900]">
           <img src={avatarPriya} alt="" className="h-full w-full object-cover grayscale" />
         </div>
-        <h3 className="mt-[22px] font-['Manrope'] text-[20px] font-extrabold leading-[27px] text-[#111235]">
+        <h3 className="mt-[22px] font-sans text-[20px] font-medium leading-[27px] text-[#111235]">
           AR Shakir
         </h3>
-        <p className="mt-2 font-['Manrope'] text-[14px] font-medium leading-[19px] text-[#6C6C6C]">
+        <p className="mt-2 font-sans text-[14px] font-medium leading-[19px] text-[#6C6C6C]">
           Mentor of Web Development
         </p>
         <button
           type="button"
-          className="mt-[33px] h-[42px] w-[166px] rounded-full bg-[#009966] font-['Poppins'] text-[16px] font-semibold leading-6 text-white"
+          className="mt-[33px] h-[42px] w-[166px] rounded-full bg-[#009966] font-['Poppins'] text-[16px] font-medium leading-6 text-white"
         >
           CONTACT
         </button>
@@ -91,7 +91,7 @@ function VerifiedTalentCards() {
 
 function BenefitItem({ label }) {
   return (
-    <li className="flex items-center gap-[11px] font-['Manrope'] text-[19px] font-medium leading-[30px] tracking-[-0.02em] text-[#5E6282]">
+    <li className="flex items-center gap-[11px] font-sans text-[19px] font-medium leading-[30px] tracking-[-0.02em] text-[#5E6282]">
       <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#009966]">
         <Check size={15} className="text-white" strokeWidth={3} />
       </span>
@@ -111,12 +111,12 @@ export default function HomeWhyChooseUsSection() {
             <p className="font-['Inter'] text-[24px] font-normal uppercase leading-[29px] text-[#3734A9]">
               Why Choose Us
             </p>
-            <h2 className="font-['Manrope'] text-[50px] font-extrabold leading-[60px] tracking-[-0.03em] text-black max-md:text-[38px] max-md:leading-[46px]">
+            <h2 className="font-sans text-[50px] font-medium leading-[60px] tracking-[-0.03em] text-black max-md:text-[38px] max-md:leading-[46px]">
               Thirty for remove plenty regard you summer though.
             </h2>
           </div>
 
-          <p className="max-w-[446px] font-['Manrope'] text-[18px] font-medium leading-[30px] tracking-[-0.02em] text-[#5E6282]">
+          <p className="max-w-[446px] font-sans text-[18px] font-medium leading-[30px] tracking-[-0.02em] text-[#5E6282]">
             The its enable direct men depend highly. Ham windows sixteen who inquiry fortune demands.
           </p>
 

@@ -78,7 +78,7 @@ const SharedTwoFactorAuthPage = ({ backRoute }) => {
               </button>
 
               <header className="mb-10 border-b border-[var(--color-border)] pb-8">
-                <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">Two-factor authentication</h1>
+                <h1 className="text-2xl font-medium tracking-tight sm:text-3xl">Two-factor authentication</h1>
                 <p className="mt-1 max-w-xl text-sm font-medium text-[var(--color-text-muted)]">
                   Confirm it&apos;s you by entering the one-time code we send to your registered email or phone.
                 </p>
@@ -97,7 +97,7 @@ const SharedTwoFactorAuthPage = ({ backRoute }) => {
 
             <div className="flex w-full flex-1 justify-center lg:justify-start">
               <div className="w-full max-w-md rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-6 shadow-[var(--shadow-md)] sm:p-10">
-                <h2 className="mb-2 text-center text-lg font-bold text-[var(--color-text)] sm:text-xl">Enter verification code</h2>
+                <h2 className="mb-2 text-center text-lg font-medium text-[var(--color-text)] sm:text-xl">Enter verification code</h2>
                 <p className="mb-8 text-center text-sm font-medium text-[var(--color-text-muted)]">Enter the 4-digit code sent to your email</p>
 
                 <form onSubmit={handleSubmit} className="flex flex-col items-center">
@@ -112,7 +112,7 @@ const SharedTwoFactorAuthPage = ({ backRoute }) => {
                         value={digit}
                         onChange={(e) => handleChange(index, e.target.value)}
                         onKeyDown={(e) => handleKeyDown(index, e)}
-                        className="h-14 w-12 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] text-center text-2xl font-bold text-[var(--color-text)] outline-none transition focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20 sm:h-[58px] sm:w-[52px]"
+                        className="h-14 w-12 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] text-center text-2xl font-medium text-[var(--color-text)] outline-none transition focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/20 sm:h-[58px] sm:w-[52px]"
                         autoComplete="one-time-code"
                       />
                     ))}

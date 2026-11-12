@@ -36,7 +36,7 @@ const CompletingYourFirstTaskPage = () => (
     description="For task performers: how to find tasks, show interest, chat with providers, and get paid when you complete work."
     slug="completing-your-first-task"
   >
-    <h1 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-6">
+    <h1 className="text-3xl md:text-4xl font-medium text-[var(--color-primary)] mb-6">
       Completing Your First Task
     </h1>
     <p className="text-gray-600 text-lg mb-10">
@@ -50,7 +50,7 @@ const CompletingYourFirstTaskPage = () => (
             {step}
           </span>
           <div>
-            <h2 className="text-xl font-bold text-[var(--color-primary)] mb-2">{title}</h2>
+            <h2 className="text-xl font-medium text-[var(--color-primary)] mb-2">{title}</h2>
             <p className="text-gray-600">{body}</p>
           </div>
         </div>
@@ -58,7 +58,7 @@ const CompletingYourFirstTaskPage = () => (
     </div>
 
     <div className="mt-12 rounded-xl bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/15 p-6">
-      <h2 className="text-lg font-bold text-[var(--color-primary)] mb-2">Tips for performers</h2>
+      <h2 className="text-lg font-medium text-[var(--color-primary)] mb-2">Tips for performers</h2>
       <ul className="list-disc pl-5 space-y-1 text-gray-600 text-sm">
         <li>Only show interest in tasks you can complete well and on time.</li>
         <li>Read the full description and deliver exactly what’s asked (and in the format requested).</li>

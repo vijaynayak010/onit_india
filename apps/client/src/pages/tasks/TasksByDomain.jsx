@@ -234,7 +234,7 @@ export default function TasksByDomain() {
           transition={{ duration: 0.4 }}
           className="text-center mb-10 md:mb-12"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--color-text)] tracking-tight mb-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-[var(--color-text)] tracking-tight mb-2">
             One place for every task
           </h2>
           <p className="text-base text-[var(--color-text-muted)] max-w-xl mx-auto">
@@ -368,7 +368,7 @@ function WithCapsule({ domain, isInView, slotIndex = 0 }) {
         <Icon size={20} strokeWidth={2} />
       </div>
       <div className="min-w-0 flex-1">
-        <p className="text-xs font-semibold text-[var(--color-primary)] uppercase tracking-wider mb-1">
+        <p className="text-xs font-medium text-[var(--color-primary)] uppercase tracking-wider mb-1">
           {domain.name}
         </p>
         <p className="text-sm font-medium text-[var(--color-text)] leading-snug min-h-[2rem]">
@@ -400,7 +400,7 @@ function WithoutCapsule({ cap, slotIndex = 0 }) {
         <Icon size={20} strokeWidth={2} />
       </div>
       <div className="min-w-0 flex-1">
-        <p className="text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-wider mb-1">
+        <p className="text-xs font-medium text-[var(--color-text-muted)] uppercase tracking-wider mb-1">
           {cap.title}
         </p>
         <p className="text-sm text-[var(--color-text-muted)] leading-snug">

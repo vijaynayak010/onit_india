@@ -97,7 +97,7 @@ const AddFundsView = ({ onCancel, onSuccess }) => {
   return (
     <div className="mx-auto w-full max-w-2xl space-y-6">
       <div className="flex items-center justify-between gap-4">
-        <h2 className="text-xl font-bold text-[var(--color-text)]">Add funds</h2>
+        <h2 className="text-xl font-medium text-[var(--color-text)]">Add funds</h2>
         <button
           type="button"
           onClick={onCancel}
@@ -113,7 +113,7 @@ const AddFundsView = ({ onCancel, onSuccess }) => {
           <span className="h-2 w-2 rounded-full bg-[var(--color-primary)]" />
           <span className="text-xs font-bold uppercase tracking-wide text-[var(--color-text-muted)]">Available balance</span>
         </div>
-        <p className="text-3xl font-bold tabular-nums text-[var(--color-text)]">₹{balance.toLocaleString()}</p>
+        <p className="text-3xl font-medium tabular-nums text-[var(--color-text)]">₹{balance.toLocaleString()}</p>
 
         {error && (
           <div className="mt-4 flex items-center gap-2 rounded-xl bg-red-50 p-4 text-xs font-bold text-red-600 border border-red-100">
@@ -168,7 +168,7 @@ const AddFundsView = ({ onCancel, onSuccess }) => {
       </div>
 
       <div className="opacity-60 grayscale pointer-events-none">
-        <h3 className="mb-3 text-sm font-bold text-[var(--color-text)]">Other payment methods</h3>
+        <h3 className="mb-3 text-sm font-medium text-[var(--color-text)]">Other payment methods</h3>
         <div className="overflow-hidden rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] divide-y divide-[var(--color-border)]">
           {[
             { name: "Google Pay", sub: "Standard checkout", color: "#4285F4" },
@@ -180,13 +180,13 @@ const AddFundsView = ({ onCancel, onSuccess }) => {
             >
               <div className="flex items-center gap-3">
                 <div
-                  className="flex h-9 w-9 items-center justify-center rounded-xl text-[10px] font-bold text-white"
+                  className="flex h-9 w-9 items-center justify-center rounded-xl text-[10px] font-medium text-white"
                   style={{ backgroundColor: item.color }}
                 >
                   {item.name.charAt(0)}
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-[var(--color-text)]">{item.name}</p>
+                  <p className="text-sm font-medium text-[var(--color-text)]">{item.name}</p>
                   <p className="text-xs font-semibold text-[var(--color-text-subtle)]">{item.sub}</p>
                 </div>
               </div>

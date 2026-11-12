@@ -138,41 +138,41 @@ const FAQs = () => {
         additionalSchemas={[faqPageSchema]}
       />
 
-      <section className="pt-24 pb-16 px-4 md:px-8">
+      <section className="pt-24 sm:pt-28 pb-12 sm:pb-16 px-4 sm:px-6 md:px-12 lg:px-20">
         <div className="max-w-4xl mx-auto">
           <Link
             to="/"
-            className="inline-flex items-center text-[var(--color-primary)] hover:text-green-600 font-medium text-sm mb-8"
+            className="inline-flex items-center text-[var(--color-primary)] hover:text-green-600 font-medium text-sm mb-6 sm:mb-8"
           >
             ← Back to Home
           </Link>
 
-          <header className="border-b border-gray-200 pb-8 mb-10">
-            <h1 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-2">
+          <header className="border-b border-gray-200 pb-6 sm:pb-8 mb-8 sm:mb-10">
+            <h1 className="text-3xl sm:text-4xl font-heading font-semibold text-[var(--color-primary)] mb-2 tracking-tight">
               FirstDoer – Frequently Asked Questions
             </h1>
-            <p className="text-gray-600 text-sm md:text-base">
+            <p className="text-gray-600 text-sm sm:text-base">
               Quick answers about the platform, tasks, payments, and support.
             </p>
           </header>
 
-          <div className="space-y-10">
+          <div className="space-y-8 sm:space-y-10">
             {faqs.map((faq, index) => (
               <article
                 key={faq.id}
-                className="border-b border-gray-100 pb-8 last:border-0 last:pb-0"
+                className="border-b border-gray-100 pb-6 sm:pb-8 last:border-0 last:pb-0"
               >
-                <h2 className="text-lg md:text-xl font-semibold text-[var(--color-primary)] mb-3">
+                <h2 className="text-base sm:text-lg md:text-xl font-heading font-semibold text-[var(--color-primary)] mb-2 sm:mb-3">
                   {index + 1}. {faq.question}
                 </h2>
-                <div className="text-gray-700 leading-relaxed">
+                <div className="text-gray-700 text-sm sm:text-base leading-relaxed">
                   {faq.answer}
                 </div>
               </article>
             ))}
           </div>
 
-          <div className="mt-14 pt-8 border-t border-gray-200 text-center text-gray-500 text-sm">
+          <div className="mt-10 sm:mt-14 pt-6 sm:pt-8 border-t border-gray-200 text-center text-gray-500 text-xs sm:text-sm">
             Need more? See <Link to="/terms-and-conditions" className="text-[var(--color-primary)] hover:underline">Terms & Conditions</Link> or <Link to="/refund-policy" className="text-[var(--color-primary)] hover:underline">Refund & Cancellation Policy</Link>.
           </div>
         </div>

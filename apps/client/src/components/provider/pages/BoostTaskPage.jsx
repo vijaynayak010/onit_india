@@ -18,7 +18,7 @@ const BoostTaskPage = () => {
 
                         {/* Status Header */}
                         <div className="flex flex-col gap-1">
-                            <h2 className="text-[22px] font-black text-black">Post Task is Paused & Performer Dismissed</h2>
+                            <h2 className="text-[22px] font-medium text-black">Post Task is Paused & Performer Dismissed</h2>
                             <p className="text-gray-500 font-bold text-[13px] leading-relaxed">
                                 Boost your post to find a new performer to complete the task.<br />
                                 You've dismissed the previous performer for not responding.
@@ -40,7 +40,7 @@ const BoostTaskPage = () => {
 
                                     {/* Task Info */}
                                     <div className="flex flex-col pt-1">
-                                        <h3 className="text-[20px] font-black text-black mb-0.5">Web Design</h3>
+                                        <h3 className="text-[20px] font-medium text-black mb-0.5">Web Design</h3>
                                         <p className="text-gray-500 font-bold text-[14px] mb-2.5">Anu Reddy</p>
                                         <div className="text-[#ef4444] font-bold text-[13px]">
                                             Previous Performer: Access Revoked
@@ -73,9 +73,9 @@ const BoostTaskPage = () => {
 
                         {/* Budget Section */}
                         <div className="flex flex-col gap-4">
-                            <h3 className="text-[16px] font-black text-black">Budget</h3>
+                            <h3 className="text-[16px] font-medium text-black">Budget</h3>
                             <div className="w-full border-[1.2px] border-[#ccf2d9] rounded-[1.2rem] bg-white p-6 flex flex-col gap-2">
-                                <div className="text-[34px] font-black text-black">₹ 2,000</div>
+                                <div className="text-[34px] font-medium text-black">₹ 2,000</div>
                                 <p className="text-gray-500 font-bold text-[15px] mb-1">Want to change your budget?</p>
                                 <div className="flex items-center justify-between">
                                     <button className="border-[1.5px] border-[#ccf2d9] text-[#16a34a] px-6 py-2 rounded-full font-black text-[13px] bg-white hover:bg-gray-50">
@@ -90,7 +90,7 @@ const BoostTaskPage = () => {
 
                         {/* Deadline Section */}
                         <div className="flex flex-col gap-4">
-                            <h3 className="text-[16px] font-black text-black">Deadline</h3>
+                            <h3 className="text-[16px] font-medium text-black">Deadline</h3>
                             <div className="w-full border-[1.2px] border-[#ccf2d9] rounded-[1.2rem] bg-white p-6 flex flex-col gap-2">
                                 <div className="flex items-center gap-2.5 text-black font-bold text-[18px]">
                                     <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">

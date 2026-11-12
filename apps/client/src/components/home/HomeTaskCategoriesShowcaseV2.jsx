@@ -51,7 +51,7 @@ export default function HomeTaskCategoriesShowcaseV2({ className = "" }) {
                 }`}
               >
                 <div className={`relative z-10 flex h-full w-full ${isActive ? "items-start gap-6" : "items-end justify-between gap-4"}`}>
-                  <h3 className={`font-['Outfit',Inter,sans-serif] font-semibold leading-[1.25] text-white ${isActive ? "w-[168px] shrink-0 text-[28px] lg:text-[36px]" : "max-w-[180px] text-[28px] lg:text-[36px]"}`}>
+                  <h3 className={`font-['Poppins', Poppins, sans-serif] font-medium leading-[1.25] text-white ${isActive ? "w-[168px] shrink-0 text-[28px] lg:text-[36px]" : "max-w-[180px] text-[28px] lg:text-[36px]"}`}>
                     {category.title}
                   </h3>
 

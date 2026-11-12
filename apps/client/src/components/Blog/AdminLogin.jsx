@@ -33,7 +33,7 @@ function AdminLogin() {
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-[#e3eafc] to-[#D9EEE3] px-4">
       <div className="bg-white/90 backdrop-blur-sm p-8 rounded-3xl shadow-xl w-full max-w-sm transition-all duration-300">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-extrabold mb-2">
+          <h1 className="text-3xl font-medium mb-2">
             <span className="text-black">On</span>
             <span className="text-green-500">IT</span>
           </h1>

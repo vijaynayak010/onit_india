@@ -16,7 +16,7 @@ const FeatureCard = ({ icon: Icon, title, copy, tone }) => {
       <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-full bg-white/70">
         <Icon size={22} strokeWidth={2.3} />
       </div>
-      <h3 className="mt-4 text-sm font-black text-gray-900">{title}</h3>
+      <h3 className="mt-4 text-sm font-medium text-gray-900">{title}</h3>
       <p className="mt-2 text-xs font-medium leading-relaxed text-gray-500">{copy}</p>
     </article>
   );
@@ -41,7 +41,7 @@ const PerformerSwitchToProviderPage = () => {
                 <Users size={42} strokeWidth={2.4} />
               </div>
 
-              <h1 className="mt-7 text-2xl font-black tracking-tight text-gray-900 sm:text-3xl">
+              <h1 className="mt-7 text-2xl font-medium tracking-tight text-gray-900 sm:text-3xl">
                 Start Posting Tasks
               </h1>
               <p className="mx-auto mt-3 max-w-xl text-sm font-medium leading-relaxed text-gray-500">
@@ -75,7 +75,7 @@ const PerformerSwitchToProviderPage = () => {
                     <BriefcaseBusiness size={20} strokeWidth={2.4} />
                   </div>
                   <div>
-                    <h2 className="text-sm font-black text-gray-900">Provider App Available</h2>
+                    <h2 className="text-sm font-medium text-gray-900">Provider App Available</h2>
                     <p className="mt-1 text-sm font-medium leading-relaxed text-[#10605F]">
                       The Provider experience is available on the Provider App. Download it from the Play Store to switch.
                     </p>

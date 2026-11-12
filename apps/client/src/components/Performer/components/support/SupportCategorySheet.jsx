@@ -49,7 +49,7 @@ const SupportCategorySheet = ({ open, category, onClose, onChatSupport }) => {
               <div className="min-w-0 flex-1 pr-8">
                 <h2
                   id="support-category-title"
-                  className="text-[18px] font-bold tracking-tight text-[var(--color-text)]"
+                  className="text-[18px] font-medium tracking-tight text-[var(--color-text)]"
                 >
                   {title}
                 </h2>

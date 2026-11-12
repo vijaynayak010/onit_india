@@ -23,7 +23,7 @@ const PaymentSelectionPage = () => {
             <main className="max-w-7xl mx-auto px-6 py-12">
                 {/* Page Header */}
                 <div className="mb-10">
-                    <h1 className="text-[32px] font-extrabold text-[#0f172a] mb-1.5 tracking-tight">Payment</h1>
+                    <h1 className="text-[32px] font-medium text-[#0f172a] mb-1.5 tracking-tight">Payment</h1>
                     <p className="text-[#64748b] font-medium text-[15px]">Choose your preferred payment method</p>
                 </div>
 
@@ -45,7 +45,7 @@ const PaymentSelectionPage = () => {
                         
                         {/* UPI Section */}
                         <section>
-                            <h2 className="text-[20px] font-bold text-[#0f172a] mb-6">UPI Links</h2>
+                            <h2 className="text-[20px] font-medium text-[#0f172a] mb-6">UPI Links</h2>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 {[
                                     { name: "Google Pay", bank: "Bank of B...", icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Google_Pay_Logo.svg/1200px-Google_Pay_Logo.svg.png" },
@@ -58,7 +58,7 @@ const PaymentSelectionPage = () => {
                                                 <img src={upi.icon} alt={upi.name} className="w-full h-full object-contain" />
                                             </div>
                                             <div>
-                                                <p className="text-[14px] font-bold text-[#0f172a]">{upi.name}</p>
+                                                <p className="text-[14px] font-medium text-[#0f172a]">{upi.name}</p>
                                                 <p className="text-[12px] font-medium text-[#94a3b8]">Linked to {upi.bank}</p>
                                             </div>
                                         </div>
@@ -78,7 +78,7 @@ const PaymentSelectionPage = () => {
 
                         {/* Card Payment Section */}
                         <section>
-                            <h2 className="text-[20px] font-bold text-[#0f172a] mb-6">Card Payment:</h2>
+                            <h2 className="text-[20px] font-medium text-[#0f172a] mb-6">Card Payment:</h2>
                             <div className="flex flex-col gap-4">
                                 <div className="flex items-center justify-between bg-[#f0fdf4] border border-[#dcfce7] rounded-2xl p-6 group hover:shadow-sm transition-all shadow-[#16a34a]/10">
                                     <div className="flex items-center gap-4">
@@ -86,7 +86,7 @@ const PaymentSelectionPage = () => {
                                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png" alt="Mastercard" className="h-full object-contain" />
                                         </div>
                                         <div>
-                                            <p className="text-[15px] font-bold text-[#0f172a]">RBL Credit Card <span className="text-[#94a3b8] font-medium ml-1">| . . 6213</span></p>
+                                            <p className="text-[15px] font-medium text-[#0f172a]">RBL Credit Card <span className="text-[#94a3b8] font-medium ml-1">| . . 6213</span></p>
                                             <p className="text-[12px] font-medium text-[#94a3b8]">CVV is not needed for MASTERCARD cards saved as per RBI Guidelines</p>
                                         </div>
                                     </div>
@@ -104,7 +104,7 @@ const PaymentSelectionPage = () => {
                                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1200px-Visa_Inc._logo.svg.png" alt="Visa" className="h-full object-contain" />
                                         </div>
                                         <div>
-                                            <p className="text-[15px] font-bold text-[#0f172a]">VISA Card <span className="text-[#94a3b8] font-medium ml-1">| . . 1234</span></p>
+                                            <p className="text-[15px] font-medium text-[#0f172a]">VISA Card <span className="text-[#94a3b8] font-medium ml-1">| . . 1234</span></p>
                                             <p className="text-[12px] font-medium text-[#94a3b8]">Credit card | . . 1234</p>
                                         </div>
                                     </div>
@@ -123,7 +123,7 @@ const PaymentSelectionPage = () => {
 
                         {/* More Payment Options */}
                         <section>
-                            <h2 className="text-[20px] font-bold text-[#0f172a] mb-6">More Payment Options:</h2>
+                            <h2 className="text-[20px] font-medium text-[#0f172a] mb-6">More Payment Options:</h2>
                             <div className="flex flex-col border border-[#f1f5f9] rounded-[1.5rem] divide-y divide-[#f1f5f9] overflow-hidden">
                                 {[
                                     { name: "Wallets", sub: "Amazon, PhonePe & more", icon: <Wallet size={20} className="text-[#64748b]" /> },
@@ -136,7 +136,7 @@ const PaymentSelectionPage = () => {
                                                 {opt.icon}
                                             </div>
                                             <div>
-                                                <p className="text-[15px] font-bold text-[#0f172a]">{opt.name}</p>
+                                                <p className="text-[15px] font-medium text-[#0f172a]">{opt.name}</p>
                                                 {opt.sub && <p className="text-[12px] font-medium text-[#94a3b8]">{opt.sub}</p>}
                                             </div>
                                         </div>
@@ -160,7 +160,7 @@ const PaymentSelectionPage = () => {
                             {/* Task Details Card */}
                             <div className="bg-white border border-[#f1f5f9] rounded-[2rem] p-6 shadow-sm">
                                 <p className="text-[11px] font-bold text-[#94a3b8] uppercase tracking-[0.1em] mb-4">TASK DETAILS</p>
-                                <h3 className="text-[17px] font-extrabold text-[#0f172a] mb-1.5">Hiring a Web Designer</h3>
+                                <h3 className="text-[17px] font-medium text-[#0f172a] mb-1.5">Hiring a Web Designer</h3>
                                 <p className="text-[13px] font-medium text-[#64748b] mb-4">Website Redesign • UX/UI Improvements</p>
                                 <div className="flex items-center justify-between text-[13px] font-bold">
                                     <span className="text-[#94a3b8]">Estimated Delivery</span>
@@ -180,7 +180,7 @@ const PaymentSelectionPage = () => {
                                         <span>Service Fee</span>
                                         <span className="text-[#0f172a] font-bold">₹60</span>
                                     </div>
-                                    <div className="pt-4 border-t border-[#f1f5f9] flex items-center justify-between text-[18px] font-extrabold text-[#0f172a]">
+                                    <div className="pt-4 border-t border-[#f1f5f9] flex items-center justify-between text-[18px] font-medium text-[#0f172a]">
                                         <span>Total Amount</span>
                                         <span className="text-[#16a34a]">₹360</span>
                                     </div>
@@ -188,7 +188,7 @@ const PaymentSelectionPage = () => {
 
                                 <button 
                                     onClick={() => navigate('/provider/payment-success')}
-                                    className="w-full bg-[#16a34a] text-white py-4 rounded-2xl text-[17px] font-bold hover:bg-[#15803d] transition-all active:scale-[0.98] mb-4"
+                                    className="w-full bg-[#16a34a] text-white py-4 rounded-2xl text-[17px] font-medium hover:bg-[#15803d] transition-all active:scale-[0.98] mb-4"
                                 >
                                     Pay ₹360
                                 </button>

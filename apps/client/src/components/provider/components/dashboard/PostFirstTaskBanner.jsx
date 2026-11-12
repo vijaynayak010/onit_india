@@ -64,7 +64,7 @@ const PromoCard = ({ image, Icon, title, description, href, overlay, onNavigate 
         <Icon className="h-5 w-5 text-white" strokeWidth={2.25} />
       </div>
 
-      <h2 className="text-[1.35rem] font-extrabold tracking-tight text-white sm:text-[1.5rem]">
+      <h2 className="text-[1.25rem] font-heading font-medium tracking-tight text-white sm:text-[1.5rem]">
         {title}
       </h2>
       <p className="mt-2 max-w-lg text-sm font-medium leading-relaxed text-white/95">

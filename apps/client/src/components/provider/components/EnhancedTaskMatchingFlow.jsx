@@ -274,7 +274,7 @@ export default function EnhancedTaskMatchingFlow({ onComplete }) {
           >
             <div className="flex items-center gap-3 mb-6">
               <Lightbulb size={28} className="text-[var(--color-primary)]" />
-              <h2 className="text-2xl font-bold text-[var(--color-text)]">
+              <h2 className="text-2xl font-medium text-[var(--color-text)]">
                 Tell us your idea
               </h2>
             </div>
@@ -342,7 +342,7 @@ export default function EnhancedTaskMatchingFlow({ onComplete }) {
           >
             <div className="flex items-center gap-3 mb-6">
               <Zap size={28} className="text-[var(--color-primary)]" />
-              <h2 className="text-2xl font-bold text-[var(--color-text)]">
+              <h2 className="text-2xl font-medium text-[var(--color-text)]">
                 What type of project?
               </h2>
             </div>
@@ -386,7 +386,7 @@ export default function EnhancedTaskMatchingFlow({ onComplete }) {
             exit={{ opacity: 0, x: -20 }}
             className="bg-white rounded-2xl border-2 border-[var(--color-border)] p-8 shadow-[var(--shadow-lg)]"
           >
-            <h2 className="text-2xl font-bold text-[var(--color-text)] mb-2">
+            <h2 className="text-2xl font-medium text-[var(--color-text)] mb-2">
               What sector is this for?
             </h2>
             <p className="text-[var(--color-text-muted)] mb-6">
@@ -401,7 +401,7 @@ export default function EnhancedTaskMatchingFlow({ onComplete }) {
                   className="p-4 rounded-xl border-2 border-[var(--color-border)] hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-subtle)] transition text-left"
                 >
                   <div className="text-2xl mb-1">{sector.icon}</div>
-                  <div className="font-semibold text-[var(--color-text)]">{sector.name}</div>
+                  <div className="font-medium text-[var(--color-text)]">{sector.name}</div>
                   <div className="text-xs text-[var(--color-text-muted)]">{sector.description}</div>
                 </button>
               ))}
@@ -429,7 +429,7 @@ export default function EnhancedTaskMatchingFlow({ onComplete }) {
             <div className="mb-6">
               <Loader size={64} className="text-[var(--color-primary)] animate-spin mx-auto" />
             </div>
-            <h2 className="text-2xl font-bold text-[var(--color-text)] mb-3">
+            <h2 className="text-2xl font-medium text-[var(--color-text)] mb-3">
               Finding the best match for you...
             </h2>
             <p className="text-[var(--color-text-muted)]">
@@ -449,11 +449,11 @@ export default function EnhancedTaskMatchingFlow({ onComplete }) {
             {/* Specialist Header */}
             <div className="bg-gradient-to-r from-[var(--color-primary)] to-[#083B3A] p-6 text-white">
               <div className="flex items-center gap-4">
-                <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center text-2xl font-bold">
+                <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center text-2xl font-medium">
                   {matchedSpecialists[0].avatar}
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold">{matchedSpecialists[0].name}</h3>
+                  <h3 className="text-xl font-medium">{matchedSpecialists[0].name}</h3>
                   <p className="text-white/90">{matchedSpecialists[0].role}</p>
                   <div className="flex items-center gap-2 mt-1">
                     <span className="text-yellow-300">⭐ {matchedSpecialists[0].rating}</span>

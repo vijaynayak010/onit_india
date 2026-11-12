@@ -58,7 +58,7 @@ const StatCard = ({ icon: Icon, label, value, sub, iconBg, iconColor }) => (
       <Icon size={18} className={iconColor} strokeWidth={2.25} />
     </div>
     {sub ? <p className="text-[11px] font-semibold text-gray-400">{sub}</p> : null}
-    <p className="mt-0.5 text-xl font-extrabold text-gray-900">{value}</p>
+    <p className="mt-0.5 text-xl font-medium text-gray-900">{value}</p>
     <p className="text-xs font-semibold text-gray-500">{label}</p>
   </div>
 );
@@ -99,7 +99,7 @@ const ProviderInsightsView = () => {
       {activeTab === "tasks" ? (
         <>
           <section>
-            <h3 className="mb-3 text-xs font-extrabold uppercase tracking-wider text-gray-400">Overview</h3>
+            <h3 className="mb-3 text-xs font-medium uppercase tracking-wider text-gray-400">Overview</h3>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
               <StatCard icon={Briefcase} sub="Since Jan 2026" value={loading ? "…" : "37"} label="Tasks Posted" iconBg="bg-[#EFFBFB]" iconColor="text-[#10605F]" />
               <StatCard icon={CheckCircle2} sub="34 of 37 closed" value="92%" label="Completion Rate" iconBg="bg-sky-50" iconColor="text-sky-600" />
@@ -112,7 +112,7 @@ const ProviderInsightsView = () => {
             <div className="flex items-start justify-between gap-3">
               <div>
                 <p className="text-sm font-semibold text-gray-500">Total Spent · 2026</p>
-                <p className="mt-1 text-3xl font-extrabold text-gray-900">₹1,12,700</p>
+                <p className="mt-1 text-3xl font-medium text-gray-900">₹1,12,700</p>
                 <p className="mt-1 text-xs font-medium text-gray-400">Across 37 tasks this year</p>
               </div>
               <span className="rounded-full bg-[#EFFBFB] px-3 py-1 text-xs font-bold text-[#10605F]">+22%</span>
@@ -121,7 +121,7 @@ const ProviderInsightsView = () => {
 
           <section>
             <div className="mb-3 flex items-center justify-between">
-              <h3 className="text-xs font-extrabold uppercase tracking-wider text-gray-400">Monthly Spend</h3>
+              <h3 className="text-xs font-medium uppercase tracking-wider text-gray-400">Monthly Spend</h3>
               <span className="rounded-full bg-[#EFFBFB] px-2.5 py-1 text-[10px] font-bold text-[#10605F]">+22% ↑</span>
             </div>
             <p className="mb-4 text-xs font-medium text-gray-400">Jan – Jun 2026</p>
@@ -144,12 +144,12 @@ const ProviderInsightsView = () => {
           </section>
 
           <section>
-            <h3 className="mb-3 text-xs font-extrabold uppercase tracking-wider text-gray-400">Tasks by Category</h3>
+            <h3 className="mb-3 text-xs font-medium uppercase tracking-wider text-gray-400">Tasks by Category</h3>
             <div className="space-y-3 rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
               {CATEGORIES.map((cat) => (
                 <div key={cat.name}>
                   <div className="mb-1.5 flex items-center justify-between text-sm">
-                    <span className="font-semibold text-gray-800">{cat.name}</span>
+                    <span className="font-medium text-gray-800">{cat.name}</span>
                     <span className="text-xs font-medium text-gray-400">
                       {cat.tasks} tasks · {cat.pct}%
                     </span>
@@ -163,16 +163,16 @@ const ProviderInsightsView = () => {
           </section>
 
           <section>
-            <h3 className="mb-3 text-xs font-extrabold uppercase tracking-wider text-gray-400">Top Performers Hired</h3>
+            <h3 className="mb-3 text-xs font-medium uppercase tracking-wider text-gray-400">Top Performers Hired</h3>
             <div className="divide-y divide-gray-50 rounded-2xl border border-gray-100 bg-white shadow-sm">
               {TOP_PERFORMERS.map((p) => (
                 <div key={p.name} className="flex items-center justify-between gap-4 p-4">
                   <div className="flex items-center gap-3">
-                    <div className={`flex h-11 w-11 items-center justify-center rounded-full text-sm font-bold text-white ${p.color}`}>
+                    <div className={`flex h-11 w-11 items-center justify-center rounded-full text-sm font-medium text-white ${p.color}`}>
                       {p.name.charAt(0)}
                     </div>
                     <div>
-                      <p className="font-extrabold text-gray-900">{p.name}</p>
+                      <p className="font-medium text-gray-900">{p.name}</p>
                       <p className="text-xs font-medium text-gray-500">{p.role}</p>
                     </div>
                   </div>
@@ -189,12 +189,12 @@ const ProviderInsightsView = () => {
           </section>
 
           <section>
-            <h3 className="mb-3 text-xs font-extrabold uppercase tracking-wider text-gray-400">Recent Tasks</h3>
+            <h3 className="mb-3 text-xs font-medium uppercase tracking-wider text-gray-400">Recent Tasks</h3>
             <div className="divide-y divide-gray-50 rounded-2xl border border-gray-100 bg-white shadow-sm">
               {RECENT_TASKS.map((task) => (
                 <div key={task.title} className="flex flex-wrap items-center justify-between gap-3 p-4">
                   <div>
-                    <p className="font-extrabold text-gray-900">{task.title}</p>
+                    <p className="font-medium text-gray-900">{task.title}</p>
                     <p className="text-xs font-medium text-gray-400">{task.time}</p>
                   </div>
                   <div className="flex items-center gap-3">
@@ -220,7 +220,7 @@ const ProviderInsightsView = () => {
               <Repeat size={22} strokeWidth={2.25} />
             </div>
             <div>
-              <p className="text-lg font-extrabold text-gray-900">62% Repeat Hire Rate</p>
+              <p className="text-lg font-medium text-gray-900">62% Repeat Hire Rate</p>
               <p className="text-sm font-medium text-gray-600">
                 You re-hire the same performers often — a sign of great partnerships.
               </p>
@@ -239,7 +239,7 @@ const ProviderInsightsView = () => {
           <section>
             <div className="mb-3 flex items-center justify-between">
               <div>
-                <h3 className="text-sm font-extrabold text-gray-900">Applications</h3>
+                <h3 className="text-sm font-medium text-gray-900">Applications</h3>
                 <p className="text-xs font-medium text-gray-400">Received per month · last 7 months</p>
               </div>
               <span className="text-sm font-bold text-gray-700">68 this mo.</span>
@@ -269,22 +269,22 @@ const ProviderInsightsView = () => {
 
           <div className="grid grid-cols-3 gap-3">
             <div className="rounded-2xl border border-gray-100 bg-white p-4 text-center shadow-sm">
-              <p className="text-2xl font-extrabold text-[#10605F]">{activeCount}</p>
+              <p className="text-2xl font-medium text-[#10605F]">{activeCount}</p>
               <p className="text-xs font-semibold text-gray-500">Active</p>
             </div>
             <div className="rounded-2xl border border-gray-100 bg-white p-4 text-center shadow-sm">
-              <p className="text-2xl font-extrabold text-red-500">{completedCount}</p>
+              <p className="text-2xl font-medium text-red-500">{completedCount}</p>
               <p className="text-xs font-semibold text-gray-500">Closed</p>
             </div>
             <div className="rounded-2xl border border-gray-100 bg-white p-4 text-center shadow-sm">
-              <p className="text-2xl font-extrabold text-orange-500">{draftCount}</p>
+              <p className="text-2xl font-medium text-orange-500">{draftCount}</p>
               <p className="text-xs font-semibold text-gray-500">Draft</p>
             </div>
           </div>
 
           <section>
             <div className="mb-3 flex items-center justify-between">
-              <h3 className="text-sm font-extrabold text-gray-900">Upcoming Interviews</h3>
+              <h3 className="text-sm font-medium text-gray-900">Upcoming Interviews</h3>
               <button type="button" className="text-xs font-bold text-[var(--color-primary)]">
                 View All
               </button>
@@ -296,7 +296,7 @@ const ProviderInsightsView = () => {
               ].map((item) => (
                 <div key={item.name} className="flex items-center justify-between rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
                   <div>
-                    <p className="font-extrabold text-gray-900">{item.name}</p>
+                    <p className="font-medium text-gray-900">{item.name}</p>
                     <p className="text-xs font-medium text-gray-500">{item.role}</p>
                   </div>
                   <div className="text-right text-xs font-semibold text-gray-500">
@@ -313,7 +313,7 @@ const ProviderInsightsView = () => {
 
           <section>
             <div className="mb-3 flex items-center justify-between">
-              <h3 className="text-sm font-extrabold text-gray-900">Recent Tasks</h3>
+              <h3 className="text-sm font-medium text-gray-900">Recent Tasks</h3>
               <button type="button" className="text-xs font-bold text-[var(--color-primary)]">
                 View All
               </button>
@@ -322,7 +322,7 @@ const ProviderInsightsView = () => {
               {JOB_TASKS.map((task) => (
                 <div key={task.title} className="flex items-center justify-between gap-3 p-4">
                   <div>
-                    <p className="font-extrabold text-gray-900">{task.title}</p>
+                    <p className="font-medium text-gray-900">{task.title}</p>
                     <p className="text-sm font-bold text-gray-700">{task.price}</p>
                   </div>
                   <span className={`rounded-full px-2.5 py-1 text-[10px] font-bold ${task.statusClass}`}>
@@ -338,7 +338,7 @@ const ProviderInsightsView = () => {
               <Repeat size={22} strokeWidth={2.25} />
             </div>
             <div>
-              <p className="text-lg font-extrabold text-gray-900">62% Repeat Hire Rate</p>
+              <p className="text-lg font-medium text-gray-900">62% Repeat Hire Rate</p>
               <p className="text-sm font-medium text-gray-600">
                 You re-hire the same performers often — a sign of great partnerships.
               </p>
