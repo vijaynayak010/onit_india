@@ -63,19 +63,19 @@ const PerformerWalletTransactionsView = ({ paths = DEFAULT_PATHS }) => {
             type="button"
             onClick={() => setActiveTab(tab.id)}
             className={`relative flex-1 pb-3 text-[13px] font-bold transition ${
-              activeTab === tab.id ? "text-emerald-600" : "text-gray-400 hover:text-gray-600"
+              activeTab === tab.id ? "text-[#10605F]" : "text-gray-400 hover:text-gray-600"
             }`}
           >
             {tab.label}
             {activeTab === tab.id && (
-              <span className="absolute bottom-0 left-2 right-2 h-0.5 rounded-full bg-emerald-500" />
+              <span className="absolute bottom-0 left-2 right-2 h-0.5 rounded-full bg-[#10605F]" />
             )}
           </button>
         ))}
       </div>
 
       {loading ? (
-        <div className="flex flex-col items-center py-20 text-emerald-600">
+        <div className="flex flex-col items-center py-20 text-[#10605F]">
           <Loader2 className="h-8 w-8 animate-spin" />
           <p className="mt-3 text-sm font-semibold text-gray-400">Loading transactions…</p>
         </div>

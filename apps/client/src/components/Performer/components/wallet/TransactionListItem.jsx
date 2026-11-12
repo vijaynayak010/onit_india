@@ -12,7 +12,7 @@ const StatusBadge = ({ status }) => {
   const n = normalizeStatus(status);
   if (n === "completed") {
     return (
-      <span className="inline-flex items-center gap-1 text-[12px] font-semibold text-emerald-600">
+      <span className="inline-flex items-center gap-1 text-[12px] font-semibold text-[#10605F]">
         <CheckCircle2 size={12} strokeWidth={2.5} />
         {statusLabel(status)}
       </span>
@@ -68,7 +68,7 @@ const TransactionListItem = ({ tx, onClick, compact = false }) => {
       </div>
       <span
         className={`shrink-0 text-[15px] font-bold tabular-nums ${
-          isCredit ? "text-emerald-600" : "text-gray-900"
+          isCredit ? "text-[#10605F]" : "text-gray-900"
         }`}
       >
         {isCredit ? "+" : "−"}₹{formatINR(tx.amount)}

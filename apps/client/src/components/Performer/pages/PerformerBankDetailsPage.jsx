@@ -369,7 +369,7 @@ const PerformerBankDetailsPage = () => {
                                     </div>
 
                                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pb-10">
-                                        <div className="relative h-[120px] overflow-hidden rounded-2xl bg-gradient-to-br from-[var(--color-primary-subtle)] to-emerald-100/80 p-6 shadow-[var(--shadow-sm)]">
+                                        <div className="relative h-[120px] overflow-hidden rounded-2xl bg-gradient-to-br from-[var(--color-primary-subtle)] to-[#DFF7F6]/80 p-6 shadow-[var(--shadow-sm)]">
                                             <div className="relative z-10 flex h-full flex-col justify-between">
                                                 <h4 className="text-[13px] font-bold text-[var(--color-text-muted)]">Total linked methods</h4>
                                                 <p className="text-[36px] font-black tabular-nums text-[var(--color-text)]">{payoutMethods.length}</p>
@@ -383,7 +383,7 @@ const PerformerBankDetailsPage = () => {
                                             </div>
                                             <div className="absolute right-6 top-6 rounded border-2 border-[var(--color-primary)] px-1.5 py-0.5 text-[9px] font-black tracking-wide text-[var(--color-primary)]">UPI</div>
                                         </div>
-                                        <div className="relative h-[120px] overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-50 to-slate-100 p-6 shadow-[var(--shadow-sm)]">
+                                        <div className="relative h-[120px] overflow-hidden rounded-2xl bg-gradient-to-br from-[#EFFBFB] to-slate-100 p-6 shadow-[var(--shadow-sm)]">
                                             <div className="relative z-10 flex h-full flex-col justify-between">
                                                 <h4 className="text-[13px] font-bold text-[var(--color-text-muted)]">Primary method</h4>
                                                 <p className="text-lg font-black leading-tight text-[var(--color-text)]">

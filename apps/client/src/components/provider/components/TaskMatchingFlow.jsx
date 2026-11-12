@@ -620,7 +620,7 @@ export default function TaskMatchingFlow({ onComplete }) {
             animate={{ opacity: 1, y: 0 }}
             className="space-y-4"
           >
-            <div className="bg-gradient-to-r from-[var(--color-primary)] to-emerald-600 rounded-2xl p-6 text-white mb-6">
+            <div className="bg-gradient-to-r from-[var(--color-primary)] to-[#083B3A] rounded-2xl p-6 text-white mb-6">
               <h2 className="text-2xl font-bold mb-2">
                 🎉 We found {matchedSpecialists.length} perfect matches!
               </h2>
@@ -638,7 +638,7 @@ export default function TaskMatchingFlow({ onComplete }) {
                 className="bg-white rounded-2xl border-2 border-[var(--color-border)] p-6 shadow-[var(--shadow-lg)] hover:shadow-[var(--shadow-xl)] hover:border-[var(--color-primary)]/30 transition"
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[var(--color-primary)] to-emerald-600 flex items-center justify-center text-white text-xl font-bold flex-shrink-0">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[var(--color-primary)] to-[#083B3A] flex items-center justify-center text-white text-xl font-bold flex-shrink-0">
                     {specialist.avatar}
                   </div>
                   

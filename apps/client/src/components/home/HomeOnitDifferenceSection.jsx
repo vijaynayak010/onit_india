@@ -102,7 +102,7 @@ export default function HomeOnitDifferenceSection() {
                     <source type="image/webp" srcSet={card.imageWebp} />
                     <img
                       src={card.image}
-                      alt={`${card.title} on OnIT INDIA`}
+                      alt={`${card.title} on FirstDoer`}
                       className={`w-[215px] max-w-none object-contain ${card.imageClassName}`}
                       loading="lazy"
                       decoding="async"

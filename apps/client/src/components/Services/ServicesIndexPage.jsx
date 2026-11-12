@@ -78,22 +78,22 @@ const SERVICES = [
 const ServicesIndexPage = () => (
   <div className="min-h-screen bg-white text-gray-800">
     <SEO
-      title="Services | Task Execution Services | OnIT INDIA"
-      description="Retail audits, field data collection, content marketing execution, and market research assistance. Post tasks and get work done by verified performers across India. OnIT INDIA."
-      keywords="task execution services, retail audit services, field data collection, content marketing tasks, market research assistance, OnIT INDIA services"
-      canonical="https://www.onitindia.com/services"
+      title="Services | Task Execution Services | FirstDoer"
+      description="Retail audits, field data collection, content marketing execution, and market research assistance. Post tasks and get work done by verified performers across India. FirstDoer."
+      keywords="task execution services, retail audit services, field data collection, content marketing tasks, market research assistance, FirstDoer services"
+      canonical="https://www.firstdoer.com/services"
       webPageSchema={{
         "@context": "https://schema.org",
         "@type": "CollectionPage",
-        "name": "Services | OnIT INDIA",
+        "name": "Services | FirstDoer",
         "description": "Task execution services: retail audits, field data collection, content marketing, market research.",
-        "url": "https://www.onitindia.com/services",
+        "url": "https://www.firstdoer.com/services",
       }}
     />
 
-    <section className="pt-24 pb-16 px-6 md:px-20 bg-gradient-to-b from-[#004d43]/5 to-white">
+    <section className="pt-24 pb-16 px-6 md:px-20 bg-gradient-to-b from-[var(--color-primary)]/5 to-white">
       <div className="max-w-4xl mx-auto text-center">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#004d43] mb-4 leading-tight">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--color-primary)] mb-4 leading-tight">
           Services
         </h1>
         <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
@@ -110,17 +110,17 @@ const ServicesIndexPage = () => (
             <Link
               key={service.slug}
               to={`/services/${service.slug}`}
-              className="group rounded-xl border border-[#004d43]/15 bg-white p-6 flex gap-4 hover:border-[#004d43]/30 hover:shadow-md transition-all"
+              className="group rounded-xl border border-[var(--color-primary)]/15 bg-white p-6 flex gap-4 hover:border-[var(--color-primary)]/30 hover:shadow-md transition-all"
             >
-              <div className="shrink-0 w-12 h-12 rounded-xl bg-[#004d43]/10 text-[#004d43] flex items-center justify-center group-hover:bg-[#004d43]/20 transition-colors">
+              <div className="shrink-0 w-12 h-12 rounded-xl bg-[var(--color-primary)]/10 text-[var(--color-primary)] flex items-center justify-center group-hover:bg-[var(--color-primary)]/20 transition-colors">
                 <service.icon size={24} />
               </div>
               <div className="flex-1 min-w-0">
-                <h2 className="font-semibold text-[#004d43] mb-1 group-hover:underline">
+                <h2 className="font-semibold text-[var(--color-primary)] mb-1 group-hover:underline">
                   {service.title}
                 </h2>
                 <p className="text-gray-600 text-sm mb-3">{service.description}</p>
-                <span className="inline-flex items-center gap-1 text-[#004d43] font-medium text-sm">
+                <span className="inline-flex items-center gap-1 text-[var(--color-primary)] font-medium text-sm">
                   Learn more
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </span>
@@ -134,7 +134,7 @@ const ServicesIndexPage = () => (
     {/* Domains — same as on homepage, explore by category */}
     <section className="py-16 px-6 md:px-20 bg-[#f3f4f6]">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-bold text-[#004d43] mb-2 text-center">
+        <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-primary)] mb-2 text-center">
           Explore by domain
         </h2>
         <p className="text-gray-600 text-center mb-10 max-w-2xl mx-auto">
@@ -145,18 +145,18 @@ const ServicesIndexPage = () => (
             <Link
               key={domain.slug}
               to={`/domains/${domain.slug}`}
-              className="group rounded-2xl bg-gradient-to-br from-[#e3eafc] via-[#D9EEE3] to-[#D9EEE3] border border-green-300 p-5 md:p-6 flex flex-col hover:shadow-lg hover:border-[#004d43]/30 transition-all"
+              className="group rounded-2xl bg-gradient-to-br from-[#e3eafc] via-[#D9EEE3] to-[#D9EEE3] border border-green-300 p-5 md:p-6 flex flex-col hover:shadow-lg hover:border-[var(--color-primary)]/30 transition-all"
             >
               <div className="flex items-start justify-between gap-2 mb-2">
                 <h3 className="font-bold text-gray-900 text-lg leading-tight">
                   {domain.title}
                 </h3>
-                <ArrowRightCircle className="w-5 h-5 text-[#004d43] flex-shrink-0 group-hover:translate-x-0.5 transition-transform" />
+                <ArrowRightCircle className="w-5 h-5 text-[var(--color-primary)] flex-shrink-0 group-hover:translate-x-0.5 transition-transform" />
               </div>
               <p className="text-gray-700 text-sm leading-relaxed flex-1">
                 {domain.description}
               </p>
-              <span className="inline-flex items-center gap-1 text-[#004d43] font-medium text-sm mt-3">
+              <span className="inline-flex items-center gap-1 text-[var(--color-primary)] font-medium text-sm mt-3">
                 View task types
                 <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
               </span>

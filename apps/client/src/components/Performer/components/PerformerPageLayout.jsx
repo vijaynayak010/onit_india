@@ -20,7 +20,7 @@ const MAX_WIDTH_CLASSES = {
  * PerformerSectionCard - Standardized card component matching PerformerProfilePage
  * Features:
  * - Rounded-2xl with border-slate-200/80 and subtle elevation
- * - Optional header with icon badge in emerald-50 / #00A36C
+ * - Optional header with icon badge in emerald-50 / #10605F
  * - Title and subtitle typography aligned with design tokens
  * - Optional header action button / status pill
  */
@@ -46,7 +46,7 @@ export function PerformerSectionCard({
         >
           <div className="flex items-center gap-2.5 min-w-0">
             {Icon && (
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-[#00A36C]">
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-[#EFFBFB] text-[#10605F]">
                 <Icon size={16} strokeWidth={2.2} />
               </div>
             )}

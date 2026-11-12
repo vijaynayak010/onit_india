@@ -7,7 +7,7 @@ import { getMyInvitations } from '../services/api';
 
 const STATUS_STYLES = {
     PENDING: { label: 'Pending', bg: 'bg-sky-50 text-sky-800 ring-1 ring-sky-200/70' },
-    ACCEPTED: { label: 'Accepted', bg: 'bg-emerald-50 text-emerald-800 ring-1 ring-emerald-200/70' },
+    ACCEPTED: { label: 'Accepted', bg: 'bg-[#EFFBFB] text-[#083B3A] ring-1 ring-[#29ADAC]/30' },
     DECLINED: { label: 'Declined', bg: 'bg-rose-50 text-rose-800 ring-1 ring-rose-200/70' },
 };
 

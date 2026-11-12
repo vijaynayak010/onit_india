@@ -19,7 +19,7 @@ const CityLandingPage = () => {
                     Hire trusted task performers in {cityName}
                 </h1>
                 <p className="text-zinc-600 text-base md:text-lg leading-relaxed mb-6">
-                    OnIT helps you get things done locally. Post your task, compare
+                    FirstDoer helps you get things done locally. Post your task, compare
                     offers and hire verified task performers in {cityName}.
                 </p>
 
@@ -37,13 +37,13 @@ const CityLandingPage = () => {
 
                 <div className="rounded-2xl border border-zinc-100 bg-zinc-50 p-5">
                     <h2 className="text-lg md:text-xl font-bold mb-2">
-                        Why people in {cityName} use OnIT
+                        Why people in {cityName} use FirstDoer
                     </h2>
                     <ul className="list-disc pl-5 space-y-2 text-sm text-zinc-600">
                         <li>Find nearby experts who understand your local context.</li>
                         <li>Post any task in minutes from your phone or laptop.</li>
                         <li>Compare profiles, reviews and prices before hiring.</li>
-                        <li>Secure payments and support from the OnIT team.</li>
+                        <li>Secure payments and support from the FirstDoer team.</li>
                     </ul>
                 </div>
             </div>

@@ -18,42 +18,42 @@ const TESTIMONIALS = [
   {
     img: ananyaImg,
     quote:
-      "OnIT INDIA has helped me find consistent freelance work while studying. The platform is trustworthy and the payments are always on time.",
+      "FirstDoer has helped me find consistent freelance work while studying. The platform is trustworthy and the payments are always on time.",
     name: "Ananya S.",
     role: "Performer",
   },
   {
     img: rohitImg,
     quote:
-      "Posting a design task on OnIT INDIA was so fast and easy. I got multiple qualified performers within minutes and completed my project ahead of time.",
+      "Posting a design task on FirstDoer was so fast and easy. I got multiple qualified performers within minutes and completed my project ahead of time.",
     name: "Rohit Verma",
     role: "Provider",
   },
   {
     img: karanImg,
     quote:
-      "The variety of skilled professionals on OnIT INDIA is incredible. I found exactly the right developer for my project within hours of posting.",
+      "The variety of skilled professionals on FirstDoer is incredible. I found exactly the right developer for my project within hours of posting.",
     name: "Karan M.",
     role: "Provider",
   },
   {
     img: devImg,
     quote:
-      "I've been performing tasks on OnIT INDIA for six months and it has completely transformed my freelancing career. Highly recommended!",
+      "I've been performing tasks on FirstDoer for six months and it has completely transformed my freelancing career. Highly recommended!",
     name: "Dev Kumar",
     role: "Performer",
   },
   {
     img: priyaImg,
     quote:
-      "Managing tasks on OnIT INDIA is seamless. The communication tools and secure payments make it the best platform I've ever used.",
+      "Managing tasks on FirstDoer is seamless. The communication tools and secure payments make it the best platform I've ever used.",
     name: "Priya R.",
     role: "Performer",
   },
   {
     img: vikramImg,
     quote:
-      "As a business owner, OnIT INDIA has been invaluable. The quality of performers is consistently high and turnaround times are impressive.",
+      "As a business owner, FirstDoer has been invaluable. The quality of performers is consistently high and turnaround times are impressive.",
     name: "Vikram S.",
     role: "Provider",
   },
@@ -300,7 +300,7 @@ export default function HearFromUsersSection() {
               }}
             >
               Real people. Real opportunities. See how providers and performers
-              are achieving more with OnIT INDIA.
+              are achieving more with FirstDoer.
             </p>
 
             <Link
@@ -323,7 +323,7 @@ export default function HearFromUsersSection() {
               onMouseEnter={(e) => (e.currentTarget.style.background = "#079149")}
               onMouseLeave={(e) => (e.currentTarget.style.background = "#071827")}
             >
-              Join OnIT INDIA
+              Join FirstDoer
             </Link>
           </div>
 

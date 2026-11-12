@@ -3,7 +3,7 @@ import { Search, SlidersHorizontal, ChevronLeft, Loader2, ArrowDownLeft, Wallet 
 import { getTransactions } from "../../services/api";
 
 const STATUS_STYLES = {
-  COMPLETED: "bg-emerald-100 text-emerald-800",
+  COMPLETED: "bg-[#DFF7F6] text-[#083B3A]",
   PENDING: "bg-amber-100 text-amber-800",
   PROCESSING: "bg-sky-100 text-sky-800",
   FAILED: "bg-red-100 text-red-800",
@@ -260,7 +260,7 @@ const TransactionsView = ({ onBack }) => {
                       <div className="flex min-w-0 items-center gap-3">
                         <div
                           className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${
-                            isCredit ? "bg-emerald-50 text-emerald-600" : "bg-red-50 text-red-500"
+                            isCredit ? "bg-[#EFFBFB] text-[#10605F]" : "bg-red-50 text-red-500"
                           }`}
                         >
                           {isCredit ? <ArrowDownLeft size={18} strokeWidth={2.5} /> : <Wallet size={18} strokeWidth={2.5} />}
@@ -275,7 +275,7 @@ const TransactionsView = ({ onBack }) => {
                       <div className="flex flex-col items-end gap-1">
                         <span
                           className={`text-sm font-bold tabular-nums ${
-                            isCredit ? "text-emerald-600" : "text-red-500"
+                            isCredit ? "text-[#10605F]" : "text-red-500"
                           }`}
                         >
                           {isCredit ? "+ " : "− "}

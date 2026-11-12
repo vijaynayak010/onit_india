@@ -128,7 +128,7 @@ const TaskSpotlightCard = ({ task, type, embedded = false }) => {
     ].filter(Boolean);
 
     return (
-      <SpotlightShell embedded={embedded} borderClass="border-emerald-100" bgClass="bg-gradient-to-r from-emerald-50/80 to-white">
+      <SpotlightShell embedded={embedded} borderClass="border-[#29ADAC]/20" bgClass="bg-gradient-to-r from-[#EFFBFB]/80 to-white">
         <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
             <div className="min-w-0 flex-1">
@@ -149,13 +149,13 @@ const TaskSpotlightCard = ({ task, type, embedded = false }) => {
               )}
             </div>
           </div>
-          <div className="flex flex-wrap items-center justify-between gap-3 border-t border-emerald-100/80 pt-4">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[#29ADAC]/20/80 pt-4">
             <div className="flex flex-wrap gap-4 text-xs font-bold text-[var(--color-text-muted)]">
               {statItems.length > 0 ? (
                 statItems.map((item) => (
                   <span
                     key={item}
-                    className={item.includes("Profile Match") ? "text-emerald-700" : undefined}
+                    className={item.includes("Profile Match") ? "text-[#10605F]" : undefined}
                   >
                     {item}
                   </span>

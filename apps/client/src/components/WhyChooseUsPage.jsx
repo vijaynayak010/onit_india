@@ -7,17 +7,17 @@ export default function WhyChooseUsPage() {
   return (
     <div className="min-h-screen bg-[var(--color-surface)]">
       <SEO
-        title="Why Choose OnIT INDIA | Fair, Simple, Local Trust"
-        description="We built the platform we'd want to use—fair, simple, and built around real people and local trust. Low commission, verified community, and clear execution on OnIT INDIA."
-        keywords="OnIT INDIA, why choose OnIT, task platform India, fair commission, verified performers, local tasks"
-        canonical="https://www.onitindia.com/why-choose-us"
+        title="Why Choose firstDoer | Verified Performers & Safe Payments"
+        description="Verified performers, protected escrow payments, and clear AI checklists—why businesses choose firstDoer."
+        keywords="firstDoer, why choose firstDoer, task platform, verified performers, protected payments"
+        canonical="https://www.firstdoer.com/why-choose-us"
         webPageSchema={{
           "@context": "https://schema.org",
           "@type": "WebPage",
-          name: "Why Choose OnIT INDIA",
+          name: "Why Choose firstDoer",
           description:
-            "Fair economics, verified community, and transparent task execution—why teams choose OnIT INDIA.",
-          url: "https://www.onitindia.com/why-choose-us",
+            "Verified performers, protected escrow payments, and clear AI checklists—why businesses choose firstDoer.",
+          url: "https://www.firstdoer.com/why-choose-us",
         }}
       />
       <main className="min-h-0">

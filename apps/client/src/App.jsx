@@ -95,16 +95,16 @@ function Home({ onLandingTabChange }) {
   return (
     <>
       <SEO
-        title="Post Work. Get it Executed. | Task Execution Platform"
-        description="OnIT India connects demand with verified performers. Post tasks, get work executed fast — task marketplace India for micro tasks, gigs, and secure payments."
-        keywords="OnIT INDIA, onitindia, task execution platform, task marketplace, task marketplace India, micro task platform, instant task execution, hire people for small tasks, task coordination platform, future of work, execution infrastructure, hyperlocal tasks, gig work India, post task get done, delegate tasks, freelance tasks India"
-        canonical="https://www.onitindia.com/"
+        title="firstDoer — Post your task. Get it done."
+        description="FirstDoer connects businesses with verified performers. Post marketing, design, or development work in seconds. Pay only when it's done."
+        keywords="firstDoer, firstdoer, task execution platform, task marketplace, verified performers, hire performers, post task get done, freelance tasks"
+        canonical="https://www.firstdoer.com/"
         webPageSchema={{
           "@context": "https://schema.org",
           "@type": "WebPage",
-          "name": "OnIT INDIA — Task Execution Platform",
-          "description": "Post work. Get it executed. OnIT INDIA connects people who need work done with performers ready to execute tasks quickly.",
-          "url": "https://www.onitindia.com/"
+          "name": "firstDoer — Task Execution Platform",
+          "description": "Post your task. Get it done. firstDoer connects businesses with verified performers ready to execute marketing, design, and development tasks quickly.",
+          "url": "https://www.firstdoer.com/"
         }}
       />
       <AnimatedSection id="home" noAnimation>
@@ -201,6 +201,7 @@ const MainContent = () => {
           <Route path="/about" element={<AboutUs />} />
           <Route path="/why-choose-us" element={<WhyChooseUsPage />} />
           <Route path="/what-is-onit-india" element={<WhatIsOnITIndia />} />
+          <Route path="/what-is-firstdoer" element={<WhatIsOnITIndia />} />
           <Route path="/execution-infrastructure" element={<ExecutionInfrastructurePage />} />
           <Route path="/how-it-works" element={<HowItWorksPage />} />
           <Route path="/tasks" element={<TaskCategories />} />

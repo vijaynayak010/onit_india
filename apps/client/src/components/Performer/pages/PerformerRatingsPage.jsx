@@ -84,8 +84,8 @@ const PerformerRatingsPage = () => {
             />
 
             {loading ? (
-              <div className="flex h-64 flex-col items-center justify-center gap-4 text-emerald-600">
-                <div className="h-10 w-10 animate-spin rounded-full border-4 border-emerald-100 border-t-emerald-600" />
+              <div className="flex h-64 flex-col items-center justify-center gap-4 text-[#10605F]">
+                <div className="h-10 w-10 animate-spin rounded-full border-4 border-[#29ADAC]/20 border-t-emerald-600" />
                 <p className="text-sm font-bold uppercase tracking-widest opacity-70">Loading ratings data...</p>
               </div>
             ) : (
@@ -118,19 +118,19 @@ const PerformerRatingsPage = () => {
                   <div className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-6 shadow-[var(--shadow-sm)]">
                     <div className="flex items-center justify-between">
                       <p className="text-sm font-bold text-gray-500">Completed Tasks</p>
-                      <CheckCircle2 className="h-5 w-5 text-emerald-600" />
+                      <CheckCircle2 className="h-5 w-5 text-[#10605F]" />
                     </div>
                     <p className="mt-4 text-4xl font-extrabold text-gray-900">{completedTasksCount}</p>
-                    <p className="mt-2 text-xs font-bold text-emerald-600">Verified completions</p>
+                    <p className="mt-2 text-xs font-bold text-[#10605F]">Verified completions</p>
                   </div>
 
                   <div className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-6 shadow-[var(--shadow-sm)]">
                     <div className="flex items-center justify-between">
                       <p className="text-sm font-bold text-gray-500">Reviews count</p>
-                      <Award className="h-5 w-5 text-emerald-600" />
+                      <Award className="h-5 w-5 text-[#10605F]" />
                     </div>
                     <p className="mt-4 text-4xl font-extrabold text-gray-900">{reviews.length}</p>
-                    <p className="mt-2 text-xs font-bold text-emerald-600">Written comments</p>
+                    <p className="mt-2 text-xs font-bold text-[#10605F]">Written comments</p>
                   </div>
                 </div>
 
@@ -141,7 +141,7 @@ const PerformerRatingsPage = () => {
                     <p className="text-xs font-semibold text-gray-400 mb-4">Percentage breakdown of reviews received from customers</p>
                     {ratingAvg >= 4.5 && (
                       <div className="flex items-center gap-2">
-                        <span className="text-sm font-bold text-emerald-600">★ Highly Rated Performer</span>
+                        <span className="text-sm font-bold text-[#10605F]">★ Highly Rated Performer</span>
                       </div>
                     )}
                   </div>
@@ -163,7 +163,7 @@ const PerformerRatingsPage = () => {
                 {/* Reviews Feed Section */}
                 <div className="space-y-4">
                   <h3 className="text-base font-bold text-gray-900 flex items-center gap-2 pl-1">
-                    <MessageSquare className="h-5 w-5 text-emerald-600" strokeWidth={2} />
+                    <MessageSquare className="h-5 w-5 text-[#10605F]" strokeWidth={2} />
                     Verified Reviews Feed
                   </h3>
 
@@ -191,7 +191,7 @@ const PerformerRatingsPage = () => {
                                 </span>
                               </div>
                               {rev.task?.title && (
-                                <p className="mt-1 text-xs font-bold text-emerald-600">{rev.task.title}</p>
+                                <p className="mt-1 text-xs font-bold text-[#10605F]">{rev.task.title}</p>
                               )}
                             </div>
                             <div className="flex items-center gap-0.5 rounded-lg bg-amber-50 px-2 py-1 text-xs font-extrabold text-amber-700 shadow-[var(--shadow-xs)]">

@@ -10,16 +10,16 @@ const TaskCategories = () => {
   return (
     <div className="min-h-screen bg-white text-gray-800">
       <SEO
-        title="Tasks You Can Get Done on OnIT INDIA | Task Marketplace India"
-        description="Tasks on OnIT INDIA: business operations, content & design, tech & data, admin support, creative writing, events. Post a task and get it executed quickly. Task marketplace India."
-        keywords="OnIT INDIA, onitindia, task marketplace India, tasks, micro task platform, hire people for small tasks, lead generation, design, data entry, task execution platform, types of tasks, outsource tasks India"
-        canonical="https://www.onitindia.com/tasks"
+        title="Tasks You Can Get Done on FirstDoer | Task Marketplace India"
+        description="Tasks on FirstDoer: business operations, content & design, tech & data, admin support, creative writing, events. Post a task and get it executed quickly. Task marketplace India."
+        keywords="FirstDoer, onitindia, task marketplace India, tasks, micro task platform, hire people for small tasks, lead generation, design, data entry, task execution platform, types of tasks, outsource tasks India"
+        canonical="https://www.firstdoer.com/tasks"
         webPageSchema={{
           "@context": "https://schema.org",
           "@type": "WebPage",
-          "name": "Tasks You Can Get Done on OnIT INDIA",
-          "description": "Discover task categories on OnIT INDIA: business, content, tech, admin, creative, and events.",
-          "url": "https://www.onitindia.com/tasks",
+          "name": "Tasks You Can Get Done on FirstDoer",
+          "description": "Discover task categories on FirstDoer: business, content, tech, admin, creative, and events.",
+          "url": "https://www.firstdoer.com/tasks",
         }}
       />
 
@@ -33,7 +33,7 @@ const TaskCategories = () => {
             <li>
               <Link
                 to="/"
-                className="font-semibold text-gray-900 underline-offset-2 hover:text-[#004d43] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#004d43]/40 focus-visible:rounded"
+                className="font-semibold text-gray-900 underline-offset-2 hover:text-[var(--color-primary)] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]/40 focus-visible:rounded"
               >
                 Home
               </Link>
@@ -45,7 +45,7 @@ const TaskCategories = () => {
               /
             </li>
             <li
-              className="font-semibold text-[#004d43]"
+              className="font-semibold text-[var(--color-primary)]"
               aria-current="page"
             >
               Tasks
@@ -57,8 +57,8 @@ const TaskCategories = () => {
       <main className="max-w-4xl mx-auto px-6 md:px-20 py-10 md:py-14">
         {/* Hero */}
         <header className="mb-12">
-          <h1 className="text-3xl md:text-4xl lg:text-[2.25rem] font-bold text-[#004d43] mb-3 tracking-tight">
-            Tasks You Can Get Done on OnIT INDIA
+          <h1 className="text-3xl md:text-4xl lg:text-[2.25rem] font-bold text-[var(--color-primary)] mb-3 tracking-tight">
+            Tasks You Can Get Done on FirstDoer
           </h1>
           <p className="text-lg text-gray-600 leading-relaxed max-w-2xl mb-8">
             From lead generation to video editing—get real work done by vetted performers. Post your task, get matched, and move forward without the hiring hassle.
@@ -66,14 +66,14 @@ const TaskCategories = () => {
           <div className="flex flex-wrap items-center gap-3">
             <Link
               to="/"
-              className="inline-flex items-center gap-2 bg-[#004d43] text-white font-semibold px-5 py-3 rounded-full hover:bg-[#003d35] transition-colors shadow-md hover:shadow-lg"
+              className="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white font-semibold px-5 py-3 rounded-full hover:bg-[#003d35] transition-colors shadow-md hover:shadow-lg"
             >
               <Plus size={18} strokeWidth={2.5} />
               Post a task
             </Link>
             <Link
               to="/task-performers"
-              className="inline-flex items-center gap-2 border-2 border-[#004d43] text-[#004d43] font-semibold px-5 py-3 rounded-full hover:bg-[#004d43]/5 transition-colors"
+              className="inline-flex items-center gap-2 border-2 border-[var(--color-primary)] text-[var(--color-primary)] font-semibold px-5 py-3 rounded-full hover:bg-[var(--color-primary)]/5 transition-colors"
             >
               Join as a performer
               <ArrowRight size={18} strokeWidth={2.5} />
@@ -112,17 +112,17 @@ const TaskCategories = () => {
                 <li key={cat.id}>
                   <Link
                     to={`/tasks/${cat.id}`}
-                    className="group flex h-full rounded-2xl border border-gray-200 bg-gray-50/50 overflow-hidden hover:border-[#004d43]/25 hover:bg-white hover:shadow-md transition-all duration-200"
+                    className="group flex h-full rounded-2xl border border-gray-200 bg-gray-50/50 overflow-hidden hover:border-[var(--color-primary)]/25 hover:bg-white hover:shadow-md transition-all duration-200"
                   >
                     <article className="p-6 md:p-6 flex flex-col h-full w-full">
                       <div className="flex items-start gap-4">
-                        <span className="flex-shrink-0 w-10 h-10 rounded-xl bg-[#004d43] text-white flex items-center justify-center text-sm font-bold">
+                        <span className="flex-shrink-0 w-10 h-10 rounded-xl bg-[var(--color-primary)] text-white flex items-center justify-center text-sm font-bold">
                           {index + 1}
                         </span>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
-                            <Icon size={20} className="text-[#004d43] flex-shrink-0" aria-hidden />
-                            <h3 className="text-lg font-semibold text-gray-900 group-hover:text-[#004d43] transition-colors">
+                            <Icon size={20} className="text-[var(--color-primary)] flex-shrink-0" aria-hidden />
+                            <h3 className="text-lg font-semibold text-gray-900 group-hover:text-[var(--color-primary)] transition-colors">
                               {cat.title}
                             </h3>
                           </div>
@@ -149,7 +149,7 @@ const TaskCategories = () => {
                             )}
                           </ul>
                         </div>
-                        <ChevronRight size={20} className="text-gray-400 group-hover:text-[#004d43] flex-shrink-0 mt-1" />
+                        <ChevronRight size={20} className="text-gray-400 group-hover:text-[var(--color-primary)] flex-shrink-0 mt-1" />
                       </div>
                     </article>
                   </Link>
@@ -160,7 +160,7 @@ const TaskCategories = () => {
         </section>
 
         {/* Bottom CTA */}
-        <section className="mt-14 p-6 md:p-8 rounded-2xl bg-[#004d43] text-white text-center" aria-label="Call to action">
+        <section className="mt-14 p-6 md:p-8 rounded-2xl bg-[var(--color-primary)] text-white text-center" aria-label="Call to action">
           <h2 className="text-xl md:text-2xl font-semibold mb-2">
             Ready to get your next task done?
           </h2>
@@ -169,7 +169,7 @@ const TaskCategories = () => {
           </p>
           <Link
             to="/"
-            className="inline-flex items-center gap-2 bg-white text-[#004d43] font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition-colors"
+            className="inline-flex items-center gap-2 bg-white text-[var(--color-primary)] font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition-colors"
           >
             Post a task
             <ArrowRight size={18} strokeWidth={2.5} />

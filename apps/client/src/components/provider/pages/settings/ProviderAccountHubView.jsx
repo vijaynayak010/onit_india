@@ -36,7 +36,7 @@ function StatChip({ label, value, icon: Icon }) {
   return (
     <div className="flex flex-1 flex-col items-center gap-0.5 rounded-2xl bg-white/60 py-3 px-2">
       {Icon && (
-        <Icon size={15} strokeWidth={2.2} className="text-[#00A36C]" />
+        <Icon size={15} strokeWidth={2.2} className="text-[#10605F]" />
       )}
       <p className="text-[15px] font-black text-gray-900">
         {value}
@@ -118,27 +118,27 @@ function WalletCard({ balance, onTabChange }) {
       type="button"
       onClick={() => onTabChange("wallet")}
       className="group relative w-full overflow-hidden rounded-2xl p-5 text-left transition active:scale-[0.99]"
-      style={{ background: "linear-gradient(135deg, #00A36C 0%, #007A50 100%)" }}
+      style={{ background: "linear-gradient(135deg, #10605F 0%, #007A50 100%)" }}
     >
       <div className="pointer-events-none absolute -right-6 -top-6 h-28 w-28 rounded-full opacity-10 bg-white" />
       <div className="pointer-events-none absolute -bottom-8 -right-4 h-36 w-36 rounded-full opacity-[0.07] bg-white" />
       <div className="relative">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Wallet size={16} strokeWidth={2.2} className="text-emerald-200" />
-            <p className="text-[11px] font-bold uppercase tracking-widest text-emerald-200">
+            <Wallet size={16} strokeWidth={2.2} className="text-[#7EDEDD]" />
+            <p className="text-[11px] font-bold uppercase tracking-widest text-[#7EDEDD]">
               Wallet Balance
             </p>
           </div>
           <ChevronRight
             size={16}
-            className="text-emerald-300 transition group-hover:translate-x-0.5"
+            className="text-[#7EDEDD] transition group-hover:translate-x-0.5"
           />
         </div>
         <p className="mt-2 text-3xl font-black text-white">
           ₹{(balance || 0).toLocaleString("en-IN")}
         </p>
-        <p className="mt-1 text-[11px] font-semibold text-emerald-200">
+        <p className="mt-1 text-[11px] font-semibold text-[#7EDEDD]">
           Tap to add funds, withdraw, or view history
         </p>
       </div>
@@ -261,8 +261,8 @@ const ProviderAccountHubView = ({ onTabChange: _onTabChange }) => {
           style={{ background: "linear-gradient(160deg, #F0FDF7 0%, #D1FAE5 100%)" }}
         >
           {/* decorative rings */}
-          <div className="pointer-events-none absolute -right-10 -top-10 h-44 w-44 rounded-full border border-emerald-200/60" />
-          <div className="pointer-events-none absolute -bottom-12 left-0 h-36 w-36 rounded-full border border-emerald-100/50" />
+          <div className="pointer-events-none absolute -right-10 -top-10 h-44 w-44 rounded-full border border-[#29ADAC]/30/60" />
+          <div className="pointer-events-none absolute -bottom-12 left-0 h-36 w-36 rounded-full border border-[#29ADAC]/20/50" />
 
           {/* avatar + name */}
           <div className="relative flex items-center gap-4">
@@ -271,22 +271,22 @@ const ProviderAccountHubView = ({ onTabChange: _onTabChange }) => {
                 <img
                   src={avatar}
                   alt={displayName}
-                  className="h-16 w-16 rounded-2xl object-cover ring-2 ring-emerald-200"
+                  className="h-16 w-16 rounded-2xl object-cover ring-2 ring-[#29ADAC]/30"
                 />
               ) : (
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-emerald-100 text-xl font-black text-emerald-700 ring-2 ring-emerald-200">
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#DFF7F6] text-xl font-black text-[#10605F] ring-2 ring-[#29ADAC]/30">
                   {initials}
                 </div>
               )}
               {isVerified && (
-                <span className="absolute -bottom-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500 ring-2 ring-white">
+                <span className="absolute -bottom-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#10605F] ring-2 ring-white">
                   <BadgeCheck size={11} className="text-white" />
                 </span>
               )}
             </div>
             <div className="min-w-0 flex-1">
               <p className="truncate text-[17px] font-black text-gray-900">{displayName}</p>
-              <p className="truncate text-[12px] font-medium text-emerald-700/70">{email}</p>
+              <p className="truncate text-[12px] font-medium text-[#10605F]/70">{email}</p>
               <div className="mt-1.5">
                 <RatingBadge rating={rating} total={reviewCount} />
               </div>
@@ -294,7 +294,7 @@ const ProviderAccountHubView = ({ onTabChange: _onTabChange }) => {
             <button
               type="button"
               onClick={() => goTab("profile")}
-              className="shrink-0 rounded-xl bg-emerald-600 px-3 py-1.5 text-[11px] font-bold text-white transition hover:bg-emerald-700"
+              className="shrink-0 rounded-xl bg-[#10605F] px-3 py-1.5 text-[11px] font-bold text-white transition hover:bg-[#083B3A]"
             >
               Edit
             </button>
@@ -303,7 +303,7 @@ const ProviderAccountHubView = ({ onTabChange: _onTabChange }) => {
           {/* stats row */}
           {loading ? (
             <div className="mt-5 flex justify-center">
-              <Loader2 size={18} className="animate-spin text-emerald-500" />
+              <Loader2 size={18} className="animate-spin text-[#29ADAC]" />
             </div>
           ) : (
             <div className="mt-5 flex gap-2">
@@ -322,17 +322,17 @@ const ProviderAccountHubView = ({ onTabChange: _onTabChange }) => {
             <button
               type="button"
               onClick={() => goTab("refer")}
-              className="mt-4 flex w-full items-center justify-between rounded-xl bg-emerald-100/80 px-4 py-2.5 transition hover:bg-emerald-100"
+              className="mt-4 flex w-full items-center justify-between rounded-xl bg-[#DFF7F6]/80 px-4 py-2.5 transition hover:bg-[#DFF7F6]"
             >
               <div className="flex items-center gap-2">
-                <Gift size={14} className="text-emerald-600" />
-                <span className="text-[11px] font-semibold text-emerald-700">Your referral code</span>
+                <Gift size={14} className="text-[#10605F]" />
+                <span className="text-[11px] font-semibold text-[#10605F]">Your referral code</span>
               </div>
               <div className="flex items-center gap-2">
                 <code className="font-mono text-[13px] font-black tracking-widest text-gray-900">
                   {referralCode}
                 </code>
-                <ChevronRight size={13} className="text-emerald-500" />
+                <ChevronRight size={13} className="text-[#29ADAC]" />
               </div>
             </button>
           )}

@@ -207,7 +207,7 @@ const PerformerTaskAgreementPage = () => {
         aria-hidden
         style={{
           background:
-            "radial-gradient(ellipse 80% 50% at 50% -10%, rgba(5,150,105,0.07), transparent 50%)",
+            "radial-gradient(ellipse 80% 50% at 50% -10%, rgba(16,96,95,0.07), transparent 50%)",
         }}
       />
 

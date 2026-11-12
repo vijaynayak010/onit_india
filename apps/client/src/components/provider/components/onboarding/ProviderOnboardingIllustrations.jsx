@@ -68,11 +68,11 @@ export function BestMatchesIllustration() {
           <div className="mt-1 h-12 w-full rounded-t-2xl bg-[#93C5FD]" />
         </div>
         <div className="relative z-10 mb-0">
-          <div className="absolute -left-8 top-6 h-20 w-20 rounded-full border-4 border-[#00A36C]/30 bg-white/40" />
-          <div className="relative flex h-28 w-28 items-center justify-center rounded-full border-[5px] border-[#00A36C] bg-white shadow-lg">
+          <div className="absolute -left-8 top-6 h-20 w-20 rounded-full border-4 border-[#10605F]/30 bg-white/40" />
+          <div className="relative flex h-28 w-28 items-center justify-center rounded-full border-[5px] border-[#10605F] bg-white shadow-lg">
             <div className="h-16 w-16 rounded-full bg-[#FCD34D] border-4 border-white" />
           </div>
-          <div className="absolute -right-3 bottom-2 h-10 w-14 rounded-lg bg-[#00A36C] shadow" />
+          <div className="absolute -right-3 bottom-2 h-10 w-14 rounded-lg bg-[#10605F] shadow" />
         </div>
         <div className="mb-4 flex h-20 w-14 flex-col items-center justify-end">
           <div className="h-9 w-9 rounded-full bg-[#F9A8D4] border-2 border-white shadow" />
@@ -96,7 +96,7 @@ export function TrackPayIllustration() {
           <div className="mt-6 space-y-2 px-3">
             <div className="h-2 rounded-full bg-gray-100" />
             <div className="h-2 w-3/4 rounded-full bg-gray-100" />
-            <div className="mx-auto mt-3 h-8 w-8 rounded-lg bg-[#00A36C]/20" />
+            <div className="mx-auto mt-3 h-8 w-8 rounded-lg bg-[#10605F]/20" />
           </div>
         </div>
         <div className="absolute left-[8%] top-[28%] flex flex-col items-center">

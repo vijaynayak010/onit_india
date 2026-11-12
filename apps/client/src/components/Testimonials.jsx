@@ -23,18 +23,18 @@ import ree from "../ree.png";
 const testimonials = [
   { name: "Janine", profession: "Entrepreneur", text: "Found reliable performers for my startup in designing!", img: img6 },
   { name: "Avinash", profession: "Student", text: "My group project was saved when I got design help overnight. Smooth process!", img: img7 },
-  { name: "Abhi Reddy", profession: "Private job", text: "OnIT INDIA helped me to get my research work done.", img: img2 },
+  { name: "Abhi Reddy", profession: "Private job", text: "FirstDoer helped me to get my research work done.", img: img2 },
   { name: "Kiran Das", profession: "Cafe Owner", text: "Found someone to design menu and videographer to make content.", img: img4 },
   { name: "Bunny", profession: "Freelancer", text: "Work got faster and convenient.", img: ree, imgPosition: "center 25%" },
   { name: "Vikram Mehta", profession: "Event Planner", text: "Helped me find local assistants for my events, making setup and coordination so much easier.", img: img1 },
 ];
 
 const testimonialsRow2 = [
-  { name: "Priya Sharma", profession: "Content Creator", text: "OnIT INDIA connected me with editors and designers. My workflow has never been smoother!", img: re3 },
+  { name: "Priya Sharma", profession: "Content Creator", text: "FirstDoer connected me with editors and designers. My workflow has never been smoother!", img: re3 },
   { name: "Rahul Nair", profession: "Startup Founder", text: "Got branding and web design done within budget. Highly recommend the platform.", img: re4 },
   { name: "Sneha K.", profession: "Marketing Manager", text: "Found talented freelancers for our campaigns. Quality and turnaround were impressive.", img: re2 },
   { name: "Arjun Patel", profession: "Small Business Owner", text: "From logos to social media—everything I needed was available on one platform.", img: re1 },
-  { name: "Meera Iyer", profession: "Educator", text: "Used OnIT INDIA for workshop materials and presentation design. Professional and quick.", img: re6 },
+  { name: "Meera Iyer", profession: "Educator", text: "Used FirstDoer for workshop materials and presentation design. Professional and quick.", img: re6 },
   { name: "Deepak R.", profession: "Tech Lead", text: "Sourced UI/UX help for our side project. The talent pool here is genuinely skilled.", img: re5 },
 ];
 
@@ -87,7 +87,7 @@ function Testimonials() {
       {/* Heading */}
       <div className="text-center mb-6 md:mb-10 px-6">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--color-text)]">
-            Real Stories from On<span className="text-[var(--color-primary)]">IT</span> INDIA
+            Real Stories from <span className="text-[var(--color-primary)]">FirstDoer</span>
           </h2>
         <p className="text-[var(--color-text-muted)] mt-3 sm:mt-4 text-base sm:text-lg">
           Hear what our users have to say about their experience.
@@ -127,7 +127,7 @@ function Testimonials() {
         <p className="text-[var(--color-text-muted)] italic text-base sm:text-lg">
           "Real people. Real impact. One platform —{" "}
           <span className="text-[var(--color-text)] font-semibold">
-            On<span className="text-[var(--color-primary)] font-semibold">IT</span> INDIA
+            first<span className="text-[var(--color-primary)] font-semibold">Doer</span>
           </span>
           ."
         </p>

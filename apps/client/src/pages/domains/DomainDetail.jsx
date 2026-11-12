@@ -30,10 +30,10 @@ const DomainDetail = () => {
   }
 
   const pageTitle = `${domain.title} – Domain Details`;
-  const pageDescription = `${domain.description} Explore structured sub-domains and example work you can delegate in this area on OnIT INDIA.`;
+  const pageDescription = `${domain.description} Explore structured sub-domains and example work you can delegate in this area on FirstDoer.`;
   const pageKeywords = [
     domain.title,
-    "OnIT INDIA",
+    "FirstDoer",
     "task execution",
     "task marketplace",
     "domains",
@@ -47,13 +47,13 @@ const DomainDetail = () => {
         title={pageTitle}
         description={pageDescription}
         keywords={pageKeywords}
-        canonical={`https://www.onitindia.com${canonicalPath}`}
+        canonical={`https://www.firstdoer.com${canonicalPath}`}
         webPageSchema={{
           "@context": "https://schema.org",
           "@type": "WebPage",
           name: pageTitle,
           description: pageDescription,
-          url: `https://www.onitindia.com${canonicalPath}`,
+          url: `https://www.firstdoer.com${canonicalPath}`,
         }}
       />
       <div className="max-w-5xl mx-auto">
@@ -143,7 +143,7 @@ const DomainDetail = () => {
                 </h2>
                 <p className="text-gray-700 text-sm sm:text-base">
                   The work in this domain is organized into clear sub-domains. Each section below
-                  represents a well-defined scope of work you can delegate to OnIT INDIA.
+                  represents a well-defined scope of work you can delegate to FirstDoer.
                 </p>
               </div>
 

@@ -219,7 +219,7 @@ const PerformerAllTasksPage = () => {
                       >
                         <div className="flex items-start gap-4 sm:items-center">
                           <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full ${
-                            task.status === 'completed' ? "bg-emerald-100 text-emerald-600" :
+                            task.status === 'completed' ? "bg-[#DFF7F6] text-[#10605F]" :
                             task.status === 'pending' ? "bg-amber-100 text-amber-600" : "bg-sky-100 text-sky-600"
                           }`}>
                             {task.status === 'completed' ? <CheckCircle2 size={24} /> :
@@ -232,7 +232,7 @@ const PerformerAllTasksPage = () => {
                         </div>
                         <div className="flex items-center justify-between sm:flex-col sm:items-end sm:gap-2">
                           <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide ${
-                            task.status === 'completed' ? "bg-emerald-50 text-emerald-700" :
+                            task.status === 'completed' ? "bg-[#EFFBFB] text-[#10605F]" :
                             task.status === 'pending' ? "bg-amber-50 text-amber-700" : "bg-sky-50 text-sky-700"
                           }`}>
                             {task.status}

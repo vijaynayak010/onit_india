@@ -75,7 +75,7 @@ const TaskPerformersPage = () => {
             const data = response?.taskers || response?.data?.taskers || response?.data || response || [];
             setTaskers(Array.isArray(data) ? data : []);
         } catch (err) {
-            console.error("[ONIT] Error fetching taskers:", err);
+            console.error("[FirstDoer] Error fetching taskers:", err);
             setTaskers([]);
         } finally {
             setIsLoading(false);
@@ -196,7 +196,7 @@ const TaskPerformersPage = () => {
                         {p.isAvailable !== false && (
                             <span className="absolute -right-1 -top-1 flex h-3.5 w-3.5">
                                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                                <span className="relative inline-flex h-3.5 w-3.5 rounded-full border-2 border-white bg-emerald-500" title="Available now" />
+                                <span className="relative inline-flex h-3.5 w-3.5 rounded-full border-2 border-white bg-[#10605F]" title="Available now" />
                             </span>
                         )}
                     </div>
@@ -239,7 +239,7 @@ const TaskPerformersPage = () => {
 
             <div className="mb-5 flex flex-wrap gap-1.5 overflow-hidden h-[24px]">
                 {(skills.length ? skills : ["Reliable"]).slice(0, 3).map(skill => (
-                    <span key={skill} className="rounded-md bg-emerald-50 px-2 py-0.5 text-[10px] font-bold text-[var(--color-primary)] border border-emerald-100/50">
+                    <span key={skill} className="rounded-md bg-[#EFFBFB] px-2 py-0.5 text-[10px] font-bold text-[var(--color-primary)] border border-[#29ADAC]/20/50">
                         {skill}
                     </span>
                 ))}
@@ -343,7 +343,7 @@ const TaskPerformersPage = () => {
                                 exit={{ height: 0, opacity: 0 }}
                                 className="overflow-hidden"
                             >
-                                <div className="mt-6 flex flex-wrap gap-4 rounded-[var(--radius-xl)] bg-emerald-50/50 p-6 border border-emerald-100/50">
+                                <div className="mt-6 flex flex-wrap gap-4 rounded-[var(--radius-xl)] bg-[#EFFBFB]/50 p-6 border border-[#29ADAC]/20/50">
                                     <div className="space-y-2 flex-1 min-w-[150px]">
                                         <label className="text-[11px] font-bold uppercase tracking-wider text-[var(--color-text-subtle)]">Experience Level</label>
                                         <select 
@@ -397,7 +397,7 @@ const TaskPerformersPage = () => {
                                             : "border-[var(--color-border)] bg-white text-[var(--color-text-muted)] hover:border-[var(--color-primary)]/35"
                                     }`}
                                 >
-                                    {filter.name} <span className={`ml-1 text-[10px] ${activeFilter === filter.name ? "text-emerald-100" : "text-[var(--color-text-subtle)]"}`}>({filter.count})</span>
+                                    {filter.name} <span className={`ml-1 text-[10px] ${activeFilter === filter.name ? "text-[#EFFBFB]" : "text-[var(--color-text-subtle)]"}`}>({filter.count})</span>
                                 </button>
                             ))}
                         </div>
@@ -408,7 +408,7 @@ const TaskPerformersPage = () => {
                             <button
                                 key={skill}
                                 onClick={() => setSelectedSkill(selectedSkill === skill ? null : skill)}
-                                className={`rounded-full px-3 py-1 text-[10px] font-bold transition flex items-center gap-1.5 ${selectedSkill === skill ? "bg-[var(--color-primary)] text-white" : "bg-white border border-[var(--color-border)] text-[var(--color-text-muted)] hover:bg-emerald-50"}`}
+                                className={`rounded-full px-3 py-1 text-[10px] font-bold transition flex items-center gap-1.5 ${selectedSkill === skill ? "bg-[var(--color-primary)] text-white" : "bg-white border border-[var(--color-border)] text-[var(--color-text-muted)] hover:bg-[#EFFBFB]"}`}
                             >
                                 {skill}
                                 {selectedSkill === skill && <X className="h-2.5 w-2.5" />}
@@ -428,7 +428,7 @@ const TaskPerformersPage = () => {
                     </div>
                 ) : groupedSections.length === 0 ? (
                     <div className="flex flex-col items-center justify-center py-24 text-center">
-                        <div className="h-24 w-24 rounded-[var(--radius-3xl)] bg-emerald-50 flex items-center justify-center text-[var(--color-primary)] mb-6 shadow-inner ring-1 ring-emerald-100">
+                        <div className="h-24 w-24 rounded-[var(--radius-3xl)] bg-[#EFFBFB] flex items-center justify-center text-[var(--color-primary)] mb-6 shadow-inner ring-1 ring-emerald-100">
                             <Search className="h-10 w-10" />
                         </div>
                         <h2 className="text-2xl font-bold text-[var(--color-text)]">No matches found</h2>

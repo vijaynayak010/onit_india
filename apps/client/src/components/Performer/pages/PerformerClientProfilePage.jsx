@@ -63,7 +63,7 @@ function SidebarInfoRow({ icon: Icon, label, value }) {
 
 function TrustIndicator({ icon: Icon, label, value, tone }) {
     const tones = {
-        green: 'bg-emerald-50 text-emerald-600 border-emerald-100',
+        green: 'bg-[#EFFBFB] text-[#10605F] border-[#29ADAC]/20',
         blue: 'bg-sky-50 text-sky-600 border-sky-100',
         purple: 'bg-violet-50 text-violet-600 border-violet-100',
         amber: 'bg-amber-50 text-amber-600 border-amber-100',
@@ -79,7 +79,7 @@ function TrustIndicator({ icon: Icon, label, value, tone }) {
 
 function ClientStatBox({ label, value, tone }) {
     const tones = {
-        green: 'bg-emerald-50 border-emerald-100 text-emerald-700',
+        green: 'bg-[#EFFBFB] border-[#29ADAC]/20 text-[#10605F]',
         blue: 'bg-sky-50 border-sky-100 text-sky-700',
         rose: 'bg-rose-50 border-rose-100 text-rose-700',
     };

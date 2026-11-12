@@ -266,7 +266,7 @@ export default function FinalCtaSection() {
                 margin: 0,
               }}
             >
-              OnIT India Apps
+              FirstDoer Apps
             </p>
             <h3
               style={{
@@ -279,7 +279,7 @@ export default function FinalCtaSection() {
                 margin: "10px 0 0",
               }}
             >
-              Take OnIT INDIA with you.
+              Take FirstDoer with you.
             </h3>
             <p
               style={{

@@ -18,7 +18,7 @@ import {
 
 /**
  * Rally-style comparison: Left = "Without a clear platform" (pain capsules),
- * Right = "With OnIT INDIA" (task capsules + flow). Fixed layout, text animates in capsules.
+ * Right = "With FirstDoer" (task capsules + flow). Fixed layout, text animates in capsules.
  */
 
 const WITHOUT_CAPSULES = [
@@ -238,7 +238,7 @@ export default function TasksByDomain() {
             One place for every task
           </h2>
           <p className="text-base text-[var(--color-text-muted)] max-w-xl mx-auto">
-            Stop juggling platforms. Post in any domain on OnIT INDIA and get matched with the right performers.
+            Stop juggling platforms. Post in any domain on FirstDoer and get matched with the right performers.
           </p>
         </motion.header>
 
@@ -290,12 +290,12 @@ export default function TasksByDomain() {
             </div>
           </motion.div>
 
-          {/* Right — With OnIT INDIA (task capsules + flow) */}
+          {/* Right — With FirstDoer (task capsules + flow) */}
           <motion.div variants={itemUp} className="relative">
             <div className="rounded-2xl border-2 border-[var(--color-primary)]/20 bg-[var(--color-primary-subtle)]/30 p-5 sm:p-6 min-h-[320px] flex flex-col">
               <p className="text-sm font-bold text-[var(--color-primary)] uppercase tracking-wider mb-3 flex items-center gap-2">
                 <Zap size={14} strokeWidth={2.5} />
-                With OnIT INDIA
+                With FirstDoer
               </p>
 
               {/* Task capsules — 3 at a time; rotate to next 3 after 8s, same layout */}

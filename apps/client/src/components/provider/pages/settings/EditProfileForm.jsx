@@ -221,7 +221,7 @@ const EditProfileForm = ({ onSave, onCancel }) => {
         <div className="text-center md:text-left">
             <h2 className="text-2xl font-black text-[var(--color-text)] tracking-tight">Edit Profile</h2>
             <p className="mt-1 text-sm font-semibold text-[var(--color-text-muted)]">
-                Update your personal and business presence on ONIT.
+                Update your personal and business presence on FirstDoer.
             </p>
         </div>
       </div>
@@ -288,9 +288,9 @@ const EditProfileForm = ({ onSave, onCancel }) => {
                 />
               </div>
             ) : emailStep === "verified" ? (
-              <div className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 flex items-center gap-2">
-                <CheckCircle2 size={16} className="text-emerald-600 shrink-0" />
-                <span className="text-sm font-semibold text-emerald-700">{emailInput} — verified</span>
+              <div className="rounded-xl border border-[#29ADAC]/30 bg-[#EFFBFB] px-4 py-3 flex items-center gap-2">
+                <CheckCircle2 size={16} className="text-[#10605F] shrink-0" />
+                <span className="text-sm font-semibold text-[#10605F]">{emailInput} — verified</span>
               </div>
             ) : emailStep === "otp" ? (
               <div className="space-y-2">
@@ -331,7 +331,7 @@ const EditProfileForm = ({ onSave, onCancel }) => {
                     type="button"
                     onClick={handleSendEmailOtp}
                     disabled={emailLoading || !/\S+@\S+\.\S+/.test(emailInput)}
-                    className="shrink-0 rounded-lg bg-emerald-500 px-3 py-1.5 text-[11px] font-extrabold text-white transition hover:bg-emerald-600 disabled:opacity-50"
+                    className="shrink-0 rounded-lg bg-[#10605F] px-3 py-1.5 text-[11px] font-extrabold text-white transition hover:bg-[#083B3A] disabled:opacity-50"
                   >
                     {emailLoading ? <Loader2 size={12} className="animate-spin" /> : "Send OTP"}
                   </button>

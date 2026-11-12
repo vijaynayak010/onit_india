@@ -641,7 +641,7 @@ const PostTaskManualPage = () => {
                 <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
                     <header className="mb-7 flex flex-col gap-5 border-b border-slate-200 pb-7 sm:flex-row sm:items-end sm:justify-between">
                         <div>
-                            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-bold text-emerald-700">
+                            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-[#EFFBFB] px-3 py-1.5 text-xs font-bold text-[#10605F]">
                                 <CheckCircle2 size={15} strokeWidth={2.4} />
                                 Ready to publish
                             </div>
@@ -651,7 +651,7 @@ const PostTaskManualPage = () => {
                         <button
                             type="button"
                             onClick={() => setIsPreview(false)}
-                            className="inline-flex h-11 items-center justify-center gap-2 self-start rounded-full border border-slate-200 bg-white px-5 text-sm font-bold text-slate-700 shadow-sm transition hover:border-emerald-200 hover:text-emerald-700 active:scale-[0.98] sm:self-auto"
+                            className="inline-flex h-11 items-center justify-center gap-2 self-start rounded-full border border-slate-200 bg-white px-5 text-sm font-bold text-slate-700 shadow-sm transition hover:border-[#29ADAC]/30 hover:text-[#083B3A] active:scale-[0.98] sm:self-auto"
                         >
                             <PencilLine size={16} strokeWidth={2.2} />
                             Edit task
@@ -661,8 +661,8 @@ const PostTaskManualPage = () => {
                     <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_360px]">
                         <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_12px_36px_rgba(15,23,42,0.06)]">
                             <div className="border-b border-slate-100 px-5 py-6 sm:px-8 sm:py-8">
-                                <div className="flex flex-wrap items-center gap-2 text-xs font-bold text-emerald-700">
-                                    <span className="rounded-full bg-emerald-50 px-3 py-1.5">{selectedCategoryLabel}</span>
+                                <div className="flex flex-wrap items-center gap-2 text-xs font-bold text-[#10605F]">
+                                    <span className="rounded-full bg-[#EFFBFB] px-3 py-1.5">{selectedCategoryLabel}</span>
                                     <span className="text-slate-300">/</span>
                                     <span className="text-slate-500">{selectedServiceLabel}</span>
                                 </div>
@@ -678,7 +678,7 @@ const PostTaskManualPage = () => {
 
                                 <div className="mt-6 flex flex-wrap gap-2">
                                     {skills.length > 0 ? skills.map((skill) => (
-                                        <span key={skill} className="rounded-full border border-emerald-100 bg-emerald-50 px-3 py-1.5 text-xs font-bold text-emerald-700">{skill}</span>
+                                        <span key={skill} className="rounded-full border border-[#29ADAC]/20 bg-[#EFFBFB] px-3 py-1.5 text-xs font-bold text-[#10605F]">{skill}</span>
                                     )) : (
                                         <span className="text-sm font-medium text-slate-400">No specific skills listed</span>
                                     )}
@@ -691,14 +691,14 @@ const PostTaskManualPage = () => {
                                         <h3 className="text-lg font-black tracking-tight text-slate-950">Work journey</h3>
                                         <p className="mt-1 text-sm font-medium text-slate-500">The performer completes these checkpoints in order.</p>
                                     </div>
-                                    <span className="shrink-0 text-sm font-black tabular-nums text-emerald-700">{checklist.length} {checklist.length === 1 ? "step" : "steps"}</span>
+                                    <span className="shrink-0 text-sm font-black tabular-nums text-[#10605F]">{checklist.length} {checklist.length === 1 ? "step" : "steps"}</span>
                                 </div>
 
                                 <ol className="mt-6 space-y-4">
                                     {checklist.map((item, index) => (
                                         <li key={`${item.title}-${index}`} className="relative flex gap-4 pl-1">
-                                            {index < checklist.length - 1 ? <span className="absolute left-[18px] top-10 h-[calc(100%+8px)] w-px bg-emerald-100" aria-hidden /> : null}
-                                            <span className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-emerald-600 text-xs font-black text-white shadow-[0_5px_14px_rgba(5,150,105,0.2)]">{index + 1}</span>
+                                            {index < checklist.length - 1 ? <span className="absolute left-[18px] top-10 h-[calc(100%+8px)] w-px bg-[#DFF7F6]" aria-hidden /> : null}
+                                            <span className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#10605F] text-xs font-black text-white shadow-[0_5px_14px_rgba(16,96,95,0.2)]">{index + 1}</span>
                                             <div className="min-w-0 pb-2 pt-1">
                                                 <p className="text-sm font-extrabold text-slate-900">{item.title}</p>
                                                 {item.note ? <p className="mt-1 text-sm font-medium leading-6 text-slate-500">{item.note}</p> : <p className="mt-1 text-xs font-medium text-slate-400">No additional requirement</p>}
@@ -713,8 +713,8 @@ const PostTaskManualPage = () => {
                                     <h3 className="text-lg font-black tracking-tight text-slate-950">Rules to follow</h3>
                                     <div className="mt-4 grid gap-3 sm:grid-cols-2">
                                         {conditions.map((item) => (
-                                            <div key={item} className="flex items-start gap-3 rounded-xl border border-emerald-100 bg-emerald-50/60 p-4">
-                                                <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-emerald-700" strokeWidth={2.3} />
+                                            <div key={item} className="flex items-start gap-3 rounded-xl border border-[#29ADAC]/20 bg-[#EFFBFB]/60 p-4">
+                                                <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-[#10605F]" strokeWidth={2.3} />
                                                 <p className="text-sm font-semibold leading-5 text-slate-700">{item}</p>
                                             </div>
                                         ))}
@@ -728,7 +728,7 @@ const PostTaskManualPage = () => {
                                     <div className="mt-4 grid gap-3 sm:grid-cols-2">
                                         {attachedFiles.map((file) => (
                                             <div key={file} className="flex min-w-0 items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
-                                                <FileText className="h-5 w-5 shrink-0 text-emerald-700" strokeWidth={2.1} />
+                                                <FileText className="h-5 w-5 shrink-0 text-[#10605F]" strokeWidth={2.1} />
                                                 <span className="truncate text-sm font-bold text-slate-700">{file}</span>
                                             </div>
                                         ))}
@@ -739,28 +739,28 @@ const PostTaskManualPage = () => {
 
                         <aside className="space-y-4 lg:sticky lg:top-[104px]">
                             <section className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_12px_36px_rgba(15,23,42,0.07)]">
-                                <div className="bg-emerald-700 px-6 py-6 text-white">
-                                    <p className="text-xs font-bold text-emerald-100">Task budget</p>
+                                <div className="bg-[#10605F] px-6 py-6 text-white">
+                                    <p className="text-xs font-bold text-[#EFFBFB]">Task budget</p>
                                     <p className="mt-1 text-3xl font-black tracking-tight">₹{Number(formData.budget || 0).toLocaleString("en-IN")}</p>
-                                    <p className="mt-1 text-xs font-semibold text-emerald-100">{formData.budgetType} payment</p>
+                                    <p className="mt-1 text-xs font-semibold text-[#EFFBFB]">{formData.budgetType} payment</p>
                                 </div>
                                 <div className="space-y-5 p-6">
                                     <div className="flex items-start gap-3">
-                                        <Calendar className="mt-0.5 h-5 w-5 shrink-0 text-emerald-700" strokeWidth={2.1} />
+                                        <Calendar className="mt-0.5 h-5 w-5 shrink-0 text-[#10605F]" strokeWidth={2.1} />
                                         <div><p className="text-xs font-semibold text-slate-400">Deadline</p><p className="mt-0.5 text-sm font-extrabold text-slate-900">{formData.deadline || "As soon as possible"}</p></div>
                                     </div>
                                     <div className="flex items-start gap-3">
-                                        <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-emerald-700" strokeWidth={2.1} />
+                                        <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-[#10605F]" strokeWidth={2.1} />
                                         <div><p className="text-xs font-semibold text-slate-400">Work type</p><p className="mt-0.5 text-sm font-extrabold text-slate-900">{formData.taskType}</p></div>
                                     </div>
                                     <div className="flex items-start gap-3">
-                                        <Tag className="mt-0.5 h-5 w-5 shrink-0 text-emerald-700" strokeWidth={2.1} />
+                                        <Tag className="mt-0.5 h-5 w-5 shrink-0 text-[#10605F]" strokeWidth={2.1} />
                                         <div><p className="text-xs font-semibold text-slate-400">Service</p><p className="mt-0.5 text-sm font-extrabold leading-5 text-slate-900">{selectedServiceLabel}</p></div>
                                     </div>
 
                                     <div className="rounded-xl bg-slate-50 p-4">
                                         <div className="flex items-start gap-3">
-                                            <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-emerald-700" strokeWidth={2.2} />
+                                            <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-[#10605F]" strokeWidth={2.2} />
                                             <p className="text-xs font-semibold leading-5 text-slate-600">Publishing makes this task visible to eligible performers. You can still manage it from My Tasks.</p>
                                         </div>
                                     </div>
@@ -769,7 +769,7 @@ const PostTaskManualPage = () => {
                                         type="button"
                                         onClick={() => handleConfirmPost("PUBLISHED")}
                                         disabled={isProcessing}
-                                        className="inline-flex h-12 w-full items-center justify-center gap-2 whitespace-nowrap rounded-full bg-emerald-700 px-5 text-sm font-black text-white shadow-[0_8px_20px_rgba(4,120,87,0.22)] transition hover:bg-emerald-800 active:scale-[0.98] disabled:cursor-wait disabled:opacity-65"
+                                        className="inline-flex h-12 w-full items-center justify-center gap-2 whitespace-nowrap rounded-full bg-[#10605F] px-5 text-sm font-black text-white shadow-[0_8px_20px_rgba(16,96,95,0.22)] transition hover:bg-[#083B3A] active:scale-[0.98] disabled:cursor-wait disabled:opacity-65"
                                     >
                                         {isProcessing ? <Loader2 className="animate-spin" size={18} /> : <Send size={17} strokeWidth={2.3} />}
                                         {isProcessing ? "Publishing..." : "Publish task"}
@@ -778,7 +778,7 @@ const PostTaskManualPage = () => {
                                         type="button"
                                         onClick={() => handleConfirmPost("DRAFT")}
                                         disabled={isProcessing}
-                                        className="h-11 w-full whitespace-nowrap rounded-full border border-slate-200 bg-white px-5 text-sm font-bold text-slate-700 transition hover:border-emerald-200 hover:text-emerald-700 active:scale-[0.98] disabled:opacity-60"
+                                        className="h-11 w-full whitespace-nowrap rounded-full border border-slate-200 bg-white px-5 text-sm font-bold text-slate-700 transition hover:border-[#29ADAC]/30 hover:text-[#083B3A] active:scale-[0.98] disabled:opacity-60"
                                     >
                                         Save draft
                                     </button>
@@ -1322,11 +1322,11 @@ const PostTaskManualPage = () => {
                                 {attachedFiles.map((file, idx) => (
                                     <div
                                         key={idx}
-                                        className="flex items-center gap-2 rounded-lg bg-emerald-50 px-3 py-2 text-[11px] font-bold text-emerald-700 border border-emerald-100"
+                                        className="flex items-center gap-2 rounded-lg bg-[#EFFBFB] px-3 py-2 text-[11px] font-bold text-[#10605F] border border-[#29ADAC]/20"
                                     >
                                         <Paperclip size={14} />
                                         {file}
-                                        <button type="button" onClick={() => removeFile(idx)} className="ml-1 text-emerald-400 hover:text-emerald-600">
+                                        <button type="button" onClick={() => removeFile(idx)} className="ml-1 text-[#29ADAC] hover:text-[#083B3A]">
                                             <X size={14} />
                                         </button>
                                     </div>

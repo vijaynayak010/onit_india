@@ -1,34 +1,47 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,400..600;1,9..40,400..600&family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
 
-/* ========== Design system (React Bits Pro–inspired) ========== */
+/* ========== Design system (FirstDoer Palette) ========== */
 :root {
-  /* Typography – Plus Jakarta Sans applied via body */
-  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  /* Typography – Geist + DM Sans / Plus Jakarta Sans */
+  --font-sans: "Geist", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Geist", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+  --font-serif: "DM Sans", system-ui, sans-serif;
 
-  /* Neutral palette – refined grays */
-  --color-surface: #fafafa;
+  /* Neutral palette – FirstDoer Obsidian & Crisp Slate */
+  --color-surface: #F9FAFA;
   --color-surface-elevated: #ffffff;
-  --color-border: #e5e7eb;
-  --color-border-subtle: #f3f4f6;
-  --color-text: #0f172a;
-  --color-text-muted: #475569;
-  --color-text-subtle: #64748b;
+  --color-border: #E4E7E6;
+  --color-border-subtle: #C6F0F0;
+  --color-text: #0D1210;
+  --color-text-muted: #3F4A47;
+  --color-text-subtle: #56615E;
 
-  /* Brand (emerald – keep OnIT India identity) */
-  --color-primary: #009966;
-  --color-primary-hover: #008055;
-  --color-primary-muted: #e6f5f0;
-  --color-primary-subtle: #f0fbf7;
+  /* Brand (FirstDoer Signature Deep Teal & Fresh Mint) */
+  --color-primary: #10605F;
+  --color-primary-hover: #083B3A;
+  --color-primary-muted: #EFFBFB;
+  --color-primary-subtle: #DFF7F6;
+  --color-primary-accent: #29ADAC;
+  --color-primary-glow: #7EDEDD;
 
-  /* Shadows – soft, layered, professional */
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 10px 20px -5px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.06), 0 20px 40px -10px rgba(0, 0, 0, 0.08);
-  --shadow-xl: 0 20px 40px -12px rgba(0, 0, 0, 0.08), 0 30px 60px -15px rgba(0, 0, 0, 0.06);
-  --shadow-glow: 0 0 0 1px rgba(0, 153, 102, 0.08), 0 8px 24px -4px rgba(0, 153, 102, 0.15);
+  /* Status Colors */
+  --color-success: #009966;
+  --color-success-subtle: #E6F5F0;
+  --color-success-text: #005C3D;
+  --color-warning: #FFEE8C;
+  --color-warning-text: #41390B;
+  --color-info: #EAF2FC;
+  --color-info-text: #1B4C86;
+
+  /* Shadows – layered with subtle teal ambience */
+  --shadow-xs: 0 1px 2px rgba(0, 20, 13, 0.04);
+  --shadow-sm: 0 2px 4px rgba(0, 20, 13, 0.04), 0 2px 8px rgba(0, 20, 13, 0.04);
+  --shadow-md: 0 4px 6px -1px rgba(0, 20, 13, 0.05), 0 10px 20px -5px rgba(0, 20, 13, 0.06);
+  --shadow-lg: 0 10px 25px -5px rgba(0, 20, 13, 0.06), 0 20px 40px -10px rgba(0, 20, 13, 0.08);
+  --shadow-xl: 0 20px 40px -12px rgba(0, 20, 13, 0.08), 0 30px 60px -15px rgba(0, 20, 13, 0.06);
+  --shadow-glow: 0 0 0 1px rgba(41, 173, 172, 0.12), 0 8px 24px -4px rgba(41, 173, 172, 0.20);
 
   /* Radii */
   --radius-sm: 0.5rem;
@@ -41,7 +54,12 @@
 
 /* Tell Tailwind v4 to use our font for font-sans */
 @theme {
-  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Geist", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --color-primary: #10605F;
+  --color-primary-hover: #083B3A;
+  --color-primary-muted: #EFFBFB;
+  --color-primary-subtle: #DFF7F6;
+  --color-primary-accent: #29ADAC;
 }
 /* Smooth scrolling for the whole page and anchor/programmatic scrolls */
 html {
@@ -77,16 +95,64 @@ body,
   background: var(--color-surface);
 }
 
-/* Subtle background – soft gradient + dot grid (React Bits style) */
+/* ========================================================
+   Remove Bold Styling in Whole Website (Except Landing Page)
+   Strictly exempting .fd-root (Landing Page preserves original weights)
+   ======================================================== */
+body:not(:has(.fd-root)) {
+  font-weight: 400;
+}
+
+body:not(:has(.fd-root)) p,
+body:not(:has(.fd-root)) span,
+body:not(:has(.fd-root)) a,
+body:not(:has(.fd-root)) label,
+body:not(:has(.fd-root)) input,
+body:not(:has(.fd-root)) select,
+body:not(:has(.fd-root)) textarea,
+body:not(:has(.fd-root)) li,
+body:not(:has(.fd-root)) td {
+  font-weight: 400;
+}
+
+/* Remove harsh/heavy bold utility classes outside .fd-root */
+body:not(:has(.fd-root)) .font-bold,
+body:not(:has(.fd-root)) .font-extrabold,
+body:not(:has(.fd-root)) .font-black {
+  font-weight: 500;
+}
+
+/* Clean, balanced headings on non-landing pages */
+body:not(:has(.fd-root)) h1,
+body:not(:has(.fd-root)) h2,
+body:not(:has(.fd-root)) h3,
+body:not(:has(.fd-root)) h4,
+body:not(:has(.fd-root)) h5,
+body:not(:has(.fd-root)) h6 {
+  font-weight: 600;
+}
+
+/* Buttons & navigation controls: clean medium weight, not bold */
+body:not(:has(.fd-root)) button {
+  font-weight: 500;
+}
+
+/* Strictly preserve the landing page (.fd-root) exactly as designed */
+.fd-root,
+.fd-root * {
+  font-weight: revert;
+}
+
+/* Subtle background – soft gradient + dot grid (FirstDoer teal glow) */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(ellipse 120% 80% at 50% -20%, rgba(0, 153, 102, 0.06), transparent 50%),
-    radial-gradient(ellipse 80% 50% at 100% 0%, rgba(0, 153, 102, 0.03), transparent 40%),
-    radial-gradient(ellipse 60% 40% at 0% 50%, rgba(0, 153, 102, 0.03), transparent 40%);
+    radial-gradient(ellipse 120% 80% at 50% -20%, rgba(41, 173, 172, 0.08), transparent 50%),
+    radial-gradient(ellipse 80% 50% at 100% 0%, rgba(16, 96, 95, 0.04), transparent 40%),
+    radial-gradient(ellipse 60% 40% at 0% 50%, rgba(41, 173, 172, 0.04), transparent 40%);
   pointer-events: none;
 }
 
@@ -162,7 +228,7 @@ body, #root {
 .input:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(0, 153, 102, 0.12);
+  box-shadow: 0 0 0 3px rgba(41, 173, 172, 0.16);
 }
 
 /* Utility classes for design tokens */
@@ -174,7 +240,7 @@ body, #root {
 .shadow-soft { box-shadow: var(--shadow-md); }
 .shadow-soft-lg { box-shadow: var(--shadow-lg); }
 
-/* ========== Splash Cursor (React Bits style, green theme) ========== */
+/* ========== Splash Cursor (FirstDoer teal theme) ========== */
 .splash-cursor-container {
   position: fixed;
   inset: 0;
@@ -194,8 +260,8 @@ body, #root {
   border-radius: 50%;
   background: radial-gradient(
     circle at center,
-    var(--splash-color-inner, rgba(0, 153, 102, 0.2)) 0%,
-    var(--splash-color, rgba(0, 153, 102, 0.35)) 40%,
+    var(--splash-color-inner, rgba(126, 222, 221, 0.3)) 0%,
+    var(--splash-color, rgba(41, 173, 172, 0.35)) 40%,
     transparent 70%
   );
   animation: splash-cursor-expand var(--splash-duration, 800ms) ease-out forwards;

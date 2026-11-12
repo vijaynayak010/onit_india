@@ -185,7 +185,7 @@ const RequirePhoneVerification = ({ children }) => {
                         </h2>
                         <p className="text-[14px] text-zinc-500 mb-8 leading-relaxed font-medium">
                             {step === "PHONE_ENTRY"
-                                ? "Link your phone number to continue using OnIT India."
+                                ? "Link your phone number to continue using FirstDoer."
                                 : `Enter the 4-digit code sent to +91 ${phoneNumber}.`}
                         </p>
 

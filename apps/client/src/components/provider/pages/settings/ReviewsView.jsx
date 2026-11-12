@@ -34,7 +34,7 @@ const REVIEWS = [
     role: "Web Developer",
     rating: 5,
     badge: "Top Quality",
-    badgeClass: "bg-emerald-50 text-emerald-700",
+    badgeClass: "bg-[#EFFBFB] text-[#10605F]",
     project: "Landing Page Build",
     date: "Jun 5, 2026",
     text: "Clean code, great communication, and handled revisions without any hassle. Would definitely work together again.",
@@ -208,7 +208,7 @@ const ReviewsView = () => {
           <p className="text-xs font-semibold text-gray-500">Reviews Given</p>
         </div>
         <div className="rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
-          <div className="mb-2 flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
+          <div className="mb-2 flex h-9 w-9 items-center justify-center rounded-xl bg-[#EFFBFB] text-[#10605F]">
             <ThumbsUp size={18} strokeWidth={2.25} />
           </div>
           <p className="text-2xl font-extrabold text-gray-900">{SUMMARY.wouldRehire}</p>

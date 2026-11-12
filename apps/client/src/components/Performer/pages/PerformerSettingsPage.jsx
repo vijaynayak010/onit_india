@@ -124,14 +124,14 @@ const PerformerSettingsPage = () => {
                         className="h-14 w-14 rounded-2xl object-cover ring-2 ring-emerald-500/20"
                       />
                     ) : (
-                      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#00A36C] text-lg font-black text-white shadow-sm">
+                      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#10605F] text-lg font-black text-white shadow-sm">
                         {initials}
                       </div>
                     )}
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-[16px] font-bold text-[var(--color-text)]">{displayName}</p>
                       <p className="truncate text-xs font-medium text-[var(--color-text-muted)]">{email}</p>
-                      <span className="mt-1 inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-bold text-emerald-700">
+                      <span className="mt-1 inline-flex items-center gap-1 rounded-full bg-[#EFFBFB] px-2.5 py-0.5 text-[11px] font-bold text-[#10605F]">
                         Active Performer
                       </span>
                     </div>
@@ -162,7 +162,7 @@ const PerformerSettingsPage = () => {
                       <p
                         className={`mt-2 inline-flex items-center gap-1.5 rounded-full px-4 py-1 text-xs font-black uppercase tracking-wider ${
                           kycStatus === "VERIFIED"
-                            ? "bg-emerald-50 text-emerald-600 border border-emerald-100"
+                            ? "bg-[#EFFBFB] text-[#10605F] border border-[#29ADAC]/20"
                             : kycStatus === "PENDING"
                             ? "bg-amber-50 text-amber-600 border border-amber-100 animate-pulse"
                             : kycStatus === "REJECTED"

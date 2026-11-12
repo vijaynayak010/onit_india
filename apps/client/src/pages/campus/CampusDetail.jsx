@@ -73,10 +73,10 @@ export default function CampusDetail() {
     return (
         <div className=" bg-[#f3f4f6] min-h-screen font-sans">
             <SEO
-                title="OnIT INDIA Campus | Local Tasks for Students"
-                description="Join OnIT INDIA Campus to find flexible, local work or get help instantly. Connect with students and task performers nearby. Campus jobs and student internships India."
-                keywords="onitindia, OnIT INDIA Campus, campus jobs, student tasks, local freelance, flexible work, student internships, campus partnership India, student earning"
-                canonical="https://www.onitindia.com/campus-detail"
+                title="FirstDoer Campus | Flexible Tasks for Students"
+                description="Join FirstDoer Campus to find flexible, verified work or get help instantly. Connect with students and task performers nearby across India."
+                keywords="firstdoer, FirstDoer Campus, campus jobs, student tasks, local freelance, flexible work, student internships, campus partnership India, student earning"
+                canonical="https://www.firstdoer.com/campus-detail"
             />
             {/* Added id="campus" here for the target */}
             <section

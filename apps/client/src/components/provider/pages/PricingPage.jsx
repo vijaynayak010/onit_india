@@ -8,7 +8,7 @@ const PricingPage = () => {
                     Pricing &amp; Fees
                 </h1>
                 <p className="text-zinc-600 text-base md:text-lg leading-relaxed mb-8">
-                    OnIT is designed to be transparent and fair for both task posters and
+                    FirstDoer is designed to be transparent and fair for both task posters and
                     task performers. Below is a simple overview of how pricing and fees
                     work on the platform.
                 </p>
@@ -17,7 +17,7 @@ const PricingPage = () => {
                     <div className="rounded-2xl border border-zinc-100 shadow-sm p-5">
                         <h2 className="text-xl font-bold mb-2">For task posters</h2>
                         <p className="text-sm text-zinc-600 leading-relaxed mb-3">
-                            Posting a task on OnIT is typically free. You only pay when you
+                            Posting a task on FirstDoer is typically free. You only pay when you
                             accept an offer and the work is completed.
                         </p>
                         <ul className="list-disc pl-5 space-y-1 text-sm text-zinc-600">

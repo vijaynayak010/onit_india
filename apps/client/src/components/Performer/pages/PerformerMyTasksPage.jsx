@@ -337,7 +337,7 @@ const PerformerMyTasksPage = () => {
 
   const toneRing = {
     primary: "bg-[var(--color-primary-subtle)] text-[var(--color-primary)] ring-[var(--color-primary)]/20",
-    emerald: "bg-emerald-50 text-emerald-700 ring-emerald-200/60",
+    emerald: "bg-[#EFFBFB] text-[#10605F] ring-[#29ADAC]/30",
     violet: "bg-violet-50 text-violet-700 ring-violet-200/60",
     amber: "bg-amber-50 text-amber-800 ring-amber-200/60",
     rose: "bg-rose-50 text-rose-700 ring-rose-200/60",
@@ -346,7 +346,7 @@ const PerformerMyTasksPage = () => {
 
   const tabAccent = () => {
     if (activeTab === "pending") return "border-t-amber-500";
-    if (activeTab === "completed") return "border-t-emerald-500";
+    if (activeTab === "completed") return "border-t-[#10605F]";
     return "border-t-[var(--color-primary)]";
   };
 
@@ -592,7 +592,7 @@ const PerformerMyTasksPage = () => {
                             className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide ${activeTab === "pending"
                               ? (task.progress === 90 ? "bg-amber-50 text-amber-800 ring-1 ring-amber-200/70" : "bg-sky-50 text-sky-800 ring-1 ring-sky-200/70")
                               : activeTab === "completed"
-                                ? "bg-emerald-50 text-emerald-800 ring-1 ring-emerald-200/70"
+                                ? "bg-[#EFFBFB] text-[#083B3A] ring-1 ring-[#29ADAC]/30"
                                 : "bg-sky-50 text-sky-800 ring-1 ring-sky-200/70"
                               }`}
                           >
@@ -636,7 +636,7 @@ const PerformerMyTasksPage = () => {
                             className={`font-bold tabular-nums ${activeTab === "pending"
                               ? (task.progress === 90 ? "text-amber-600" : "text-sky-600")
                               : activeTab === "completed"
-                                ? "text-emerald-600"
+                                ? "text-[#10605F]"
                                 : "text-[var(--color-primary)]"
                               }`}
                           >
@@ -648,7 +648,7 @@ const PerformerMyTasksPage = () => {
                             className={`h-full rounded-full transition-all duration-500 ${activeTab === "pending"
                               ? (task.progress === 90 ? "bg-amber-500" : "bg-sky-500")
                               : activeTab === "completed"
-                                ? "bg-emerald-500"
+                                ? "bg-[#10605F]"
                                 : "bg-[var(--color-primary)]"
                               }`}
                             style={{ width: `${task.progress}%` }}
@@ -661,7 +661,7 @@ const PerformerMyTasksPage = () => {
                           className={`inline-flex min-h-[2.25rem] max-w-[60%] items-center gap-2 rounded-lg px-3 py-1.5 text-xs font-bold ${activeTab === "pending"
                             ? (task.progress === 90 ? "bg-amber-50 text-amber-700 ring-1 ring-amber-200" : "bg-sky-50 text-sky-700 ring-1 ring-sky-200")
                             : activeTab === "completed"
-                              ? "bg-emerald-600 text-white"
+                              ? "bg-[#10605F] text-white"
                               : "bg-[var(--color-primary-subtle)] text-[var(--color-text)]"
                             }`}
                         >
@@ -698,7 +698,7 @@ const PerformerMyTasksPage = () => {
                         <button
                           type="button"
                           onClick={() => navigate(`/performer/active-task/${task.id}`, { state: { task } })}
-                          className={`inline-flex shrink-0 items-center gap-1 text-sm font-bold transition hover:gap-1.5 ${activeTab === "completed" ? "text-emerald-700" : "text-[var(--color-primary)]"
+                          className={`inline-flex shrink-0 items-center gap-1 text-sm font-bold transition hover:gap-1.5 ${activeTab === "completed" ? "text-[#10605F]" : "text-[var(--color-primary)]"
                             }`}
                         >
                           View details

@@ -123,7 +123,7 @@ export const SUPPORT_CATEGORIES = [
       },
       {
         q: "What is the platform fee?",
-        a: "OnIT may deduct a platform fee from task earnings. The net payout shown in your wallet reflects fees after a successful release.",
+        a: "FirstDoer may deduct a platform fee from task earnings. The net payout shown in your wallet reflects fees after a successful release.",
       },
       {
         q: "How do refunds work?",

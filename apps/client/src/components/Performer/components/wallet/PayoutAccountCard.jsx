@@ -8,7 +8,7 @@ const PayoutAccountCard = ({ method, onChange, showChange = true }) => {
   return (
     <div className="rounded-2xl border border-gray-100 bg-white px-4 py-4 shadow-sm">
       <div className="flex items-center gap-3">
-        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
+        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#EFFBFB] text-[#10605F]">
           <Landmark size={20} strokeWidth={2.2} />
         </div>
         <div className="min-w-0 flex-1">
@@ -26,7 +26,7 @@ const PayoutAccountCard = ({ method, onChange, showChange = true }) => {
         <button
           type="button"
           onClick={onChange}
-          className="mt-3 text-[13px] font-bold text-emerald-600 hover:text-emerald-700"
+          className="mt-3 text-[13px] font-bold text-[#10605F] hover:text-[#083B3A]"
         >
           Change
         </button>

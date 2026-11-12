@@ -16,14 +16,14 @@ const DomainSubDomainPage = () => {
   }
 
   const { domainLabel, blockTitle, itemName } = item;
-  const canonical = `https://www.onitindia.com/domains/${domainSlug}/${subDomainSlug}`;
-  const title = `${itemName} | ${domainLabel} | OnIT INDIA`;
-  const description = `Get ${itemName.toLowerCase()} done on OnIT INDIA. Part of ${blockTitle} under ${domainLabel}. Post your task, get matched with vetted performers. Task marketplace India.`;
+  const canonical = `https://www.firstdoer.com/domains/${domainSlug}/${subDomainSlug}`;
+  const title = `${itemName} | ${domainLabel} | FirstDoer`;
+  const description = `Get ${itemName.toLowerCase()} done on FirstDoer. Part of ${blockTitle} under ${domainLabel}. Post your task, get matched with vetted performers. Task marketplace India.`;
   const keywords = [
     itemName,
     domainLabel,
     blockTitle,
-    "OnIT INDIA",
+    "FirstDoer",
     "onitindia",
     "task marketplace India",
     "post task",
@@ -63,7 +63,7 @@ const DomainSubDomainPage = () => {
             {itemName}
           </h1>
           <p className="text-gray-700 text-base sm:text-lg mb-6">
-            Get <strong>{itemName.toLowerCase()}</strong> done on OnIT INDIA. Post your task in this category,
+            Get <strong>{itemName.toLowerCase()}</strong> done on FirstDoer. Post your task in this category,
             get matched with vetted performers who specialize in {blockTitle.toLowerCase()}, and manage everything from your dashboard.
           </p>
 

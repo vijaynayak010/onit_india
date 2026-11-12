@@ -15,10 +15,10 @@ const TaskCategoryDetailPage = () => {
   }
 
   const Icon = category.icon;
-  const canonical = `https://www.onitindia.com/tasks/${category.id}`;
+  const canonical = `https://www.firstdoer.com/tasks/${category.id}`;
   const uniqueExamples = getUniqueExamples(category);
   const keywords = [
-    "OnIT INDIA",
+    "FirstDoer",
     "onitindia",
     "task marketplace India",
     category.title.toLowerCase(),
@@ -30,14 +30,14 @@ const TaskCategoryDetailPage = () => {
   return (
     <div className="min-h-screen bg-white text-gray-800">
       <SEO
-        title={`${category.title} Tasks | Get ${category.title} Done on OnIT INDIA`}
-        description={`${category.description} Post ${category.title.toLowerCase()} tasks on OnIT INDIA and get matched with vetted performers. Task marketplace India.`}
+        title={`${category.title} Tasks | Get ${category.title} Done on FirstDoer`}
+        description={`${category.description} Post ${category.title.toLowerCase()} tasks on FirstDoer and get matched with vetted performers. Task marketplace India.`}
         keywords={keywords}
         canonical={canonical}
         webPageSchema={{
           "@context": "https://schema.org",
           "@type": "WebPage",
-          "name": `${category.title} Tasks | OnIT INDIA`,
+          "name": `${category.title} Tasks | FirstDoer`,
           "description": category.description,
           "url": canonical,
         }}
@@ -53,7 +53,7 @@ const TaskCategoryDetailPage = () => {
             <li>
               <Link
                 to="/"
-                className="font-semibold text-gray-900 underline-offset-2 hover:text-[#004d43] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#004d43]/40 focus-visible:rounded"
+                className="font-semibold text-gray-900 underline-offset-2 hover:text-[var(--color-primary)] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]/40 focus-visible:rounded"
               >
                 Home
               </Link>
@@ -64,7 +64,7 @@ const TaskCategoryDetailPage = () => {
             <li>
               <Link
                 to="/tasks"
-                className="font-semibold text-gray-900 underline-offset-2 hover:text-[#004d43] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#004d43]/40 focus-visible:rounded"
+                className="font-semibold text-gray-900 underline-offset-2 hover:text-[var(--color-primary)] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]/40 focus-visible:rounded"
               >
                 Tasks
               </Link>
@@ -73,7 +73,7 @@ const TaskCategoryDetailPage = () => {
               /
             </li>
             <li
-              className="font-semibold text-[#004d43] min-w-0 break-words"
+              className="font-semibold text-[var(--color-primary)] min-w-0 break-words"
               aria-current="page"
               title={category.title}
             >
@@ -87,7 +87,7 @@ const TaskCategoryDetailPage = () => {
         {/* Back link */}
         <Link
           to="/tasks"
-          className="inline-flex items-center gap-2 text-[#004d43] font-medium hover:underline mb-8"
+          className="inline-flex items-center gap-2 text-[var(--color-primary)] font-medium hover:underline mb-8"
         >
           <ArrowLeft size={18} strokeWidth={2} />
           All task categories
@@ -96,11 +96,11 @@ const TaskCategoryDetailPage = () => {
         {/* Hero */}
         <header className="border-b border-gray-200 pb-10 mb-10">
           <div className="flex items-start gap-4">
-            <div className="w-14 h-14 rounded-xl bg-[#004d43] text-white flex items-center justify-center flex-shrink-0">
+            <div className="w-14 h-14 rounded-xl bg-[var(--color-primary)] text-white flex items-center justify-center flex-shrink-0">
               <Icon size={28} strokeWidth={2} aria-hidden />
             </div>
             <div>
-              <h1 className="text-3xl md:text-4xl font-bold text-[#004d43] mb-3">
+              <h1 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-3">
                 {category.title} Tasks
               </h1>
               <p className="text-lg text-gray-600 leading-relaxed">
@@ -111,13 +111,13 @@ const TaskCategoryDetailPage = () => {
           <div className="flex flex-wrap items-center gap-3 mt-6">
             <Link
               to="/"
-              className="inline-flex items-center gap-2 bg-[#004d43] text-white font-semibold px-5 py-3 rounded-full hover:bg-[#003d35] transition-colors shadow-md"
+              className="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white font-semibold px-5 py-3 rounded-full hover:bg-[#003d35] transition-colors shadow-md"
             >
               Post a {category.title.toLowerCase()} task
             </Link>
             <Link
               to="/tasks"
-              className="inline-flex items-center gap-2 border-2 border-[#004d43] text-[#004d43] font-semibold px-5 py-3 rounded-full hover:bg-[#004d43]/5 transition-colors"
+              className="inline-flex items-center gap-2 border-2 border-[var(--color-primary)] text-[var(--color-primary)] font-semibold px-5 py-3 rounded-full hover:bg-[var(--color-primary)]/5 transition-colors"
             >
               Browse all categories
             </Link>
@@ -141,7 +141,7 @@ const TaskCategoryDetailPage = () => {
         </section>
 
         {/* CTA block */}
-        <section className="p-6 md:p-8 rounded-2xl bg-[#004d43] text-white" aria-label="Call to action">
+        <section className="p-6 md:p-8 rounded-2xl bg-[var(--color-primary)] text-white" aria-label="Call to action">
           <h2 className="text-xl font-semibold mb-2">
             Ready to get your {category.title.toLowerCase()} task done?
           </h2>
@@ -150,7 +150,7 @@ const TaskCategoryDetailPage = () => {
           </p>
           <Link
             to="/"
-            className="inline-flex items-center gap-2 bg-white text-[#004d43] font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition-colors"
+            className="inline-flex items-center gap-2 bg-white text-[var(--color-primary)] font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition-colors"
           >
             Post a task
             <ArrowLeft size={18} strokeWidth={2} className="rotate-180" />

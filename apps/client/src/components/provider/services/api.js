@@ -268,7 +268,7 @@ export const directHireTasker = (taskId, taskerId) => api.post(`/tasks/${taskId}
 // AI Assistant (Express micro-server)
 export const generateAITask = (prompt) => aiApi.post('/ai-task', { prompt });
 
-// AI task posting — served by the authenticated OnIT API. These mirror the
+// AI task posting — served by the authenticated FirstDoer API. These mirror the
 // mobile client rather than the unauthenticated Express demo endpoint above.
 export const sendAiTaskMessage = ({ conversationId, message, clientMessageId }) =>
   api.post('/ai/chat', {

@@ -646,7 +646,7 @@ export default function WhyChooseUs() {
           viewport={{ once: true, margin: "-50px" }}
           className="grid grid-cols-1 gap-3 sm:gap-3.5 md:grid-cols-4 md:grid-rows-3 md:gap-3.5 lg:gap-4"
           role="list"
-          aria-label="Why choose OnIT INDIA — bento grid"
+          aria-label="Why choose FirstDoer — bento grid"
         >
           {REASONS.map((item, index) => (
             <ReasonCard key={item.title} item={item} index={index} />

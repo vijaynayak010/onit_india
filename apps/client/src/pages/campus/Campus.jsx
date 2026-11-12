@@ -18,8 +18,8 @@ import { Link } from "react-router-dom";
 const Campus = () => {
   // Theme Configuration
   const theme = {
-    primary: "#2F7A46", // ONIT Green
-    secondary: "#10B981", // Lighter Green for accents
+    primary: "#10605F", // FirstDoer Teal
+    secondary: "#29ADAC", // Vibrant Cyan-Teal accent
     bg: "#f3f4f6", // Your requested BG
     textMain: "#1F2937",
     textSub: "#4B5563",

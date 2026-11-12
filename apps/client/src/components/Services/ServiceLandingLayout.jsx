@@ -17,7 +17,7 @@ const ServiceLandingLayout = ({
   heroSubtitle,
   children,
   ctaTitle = "Ready to get started?",
-  ctaSubtitle = "Post your task on OnIT INDIA and connect with verified performers who can deliver.",
+  ctaSubtitle = "Post your task on FirstDoer and connect with verified performers who can deliver.",
 }) => {
   const navigate = useNavigate();
 
@@ -38,9 +38,9 @@ const ServiceLandingLayout = ({
       />
 
       {/* Hero */}
-      <section className="pt-24 pb-16 px-6 md:px-20 bg-gradient-to-b from-[#004d43]/5 to-white">
+      <section className="pt-24 pb-16 px-6 md:px-20 bg-gradient-to-b from-[var(--color-primary)]/5 to-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#004d43] mb-4 leading-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--color-primary)] mb-4 leading-tight">
             {heroTitle}
           </h1>
           <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
@@ -49,14 +49,14 @@ const ServiceLandingLayout = ({
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => navigate("/provider/post-task-selection")}
-              className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-[#004d43] text-white font-semibold hover:bg-[#016b5c] transition-colors text-base"
+              className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-[var(--color-primary)] text-white font-semibold hover:bg-[var(--color-primary-hover)] transition-colors text-base"
             >
               Post a task
               <ArrowRight size={20} />
             </button>
             <Link
               to="/auth"
-              className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full border-2 border-[#004d43] text-[#004d43] font-semibold hover:bg-[#004d43]/5 transition-colors text-base"
+              className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full border-2 border-[var(--color-primary)] text-[var(--color-primary)] font-semibold hover:bg-[var(--color-primary)]/5 transition-colors text-base"
             >
               Sign up / Log in
             </Link>
@@ -69,13 +69,13 @@ const ServiceLandingLayout = ({
       {/* CTA */}
       <section className="py-16 px-6 md:px-20">
         <div className="max-w-3xl mx-auto text-center">
-          <div className="rounded-2xl bg-[#004d43] text-white p-8 md:p-10">
+          <div className="rounded-2xl bg-[var(--color-primary)] text-white p-8 md:p-10">
             <h2 className="text-xl md:text-2xl font-bold mb-3">{ctaTitle}</h2>
             <p className="text-white/90 mb-6">{ctaSubtitle}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={() => navigate("/auth", { state: { authMode: "signup" } })}
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-white text-[#004d43] font-semibold hover:bg-gray-100 transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-white text-[var(--color-primary)] font-semibold hover:bg-gray-100 transition-colors"
               >
                 Sign up
                 <ArrowRight size={18} />

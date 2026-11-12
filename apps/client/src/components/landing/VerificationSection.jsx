@@ -17,7 +17,7 @@ const STEPS = [
   {
     num: "03",
     icon: "◇",
-    title: "OnIT approval",
+    title: "FirstDoer approval",
     desc: "Our team reviews every project.",
   },
   {
@@ -110,7 +110,7 @@ export default function VerificationSection() {
               margin: "12px 0 0",
             }}
           >
-            OnIT isn't an open marketplace. Every performer earns their place.
+            FirstDoer isn't an open marketplace. Every performer earns their place.
           </p>
         </motion.div>
 
@@ -275,7 +275,7 @@ export default function VerificationSection() {
               </div>
             </div>
 
-            {/* OnIT Verified badge */}
+            {/* FirstDoer Verified badge */}
             <div
               style={{
                 marginTop: 14,
@@ -295,7 +295,7 @@ export default function VerificationSection() {
                   color: "#FFFFFF",
                 }}
               >
-                OnIT Verified ✓
+                FirstDoer Verified ✓
               </span>
             </div>
           </motion.div>

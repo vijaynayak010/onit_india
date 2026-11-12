@@ -80,7 +80,7 @@ const WithdrawView = ({ onCancel, onSuccess }) => {
 
   if (success) {
     return (
-      <div className="flex h-64 flex-col items-center justify-center gap-4 text-emerald-600">
+      <div className="flex h-64 flex-col items-center justify-center gap-4 text-[#10605F]">
         <CheckCircle2 className="h-16 w-16" />
         <h3 className="text-xl font-bold">Request Submitted!</h3>
         <p className="max-w-xs text-center text-sm font-semibold text-[var(--color-text-muted)]">

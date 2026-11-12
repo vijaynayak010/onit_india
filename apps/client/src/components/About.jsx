@@ -9,7 +9,7 @@ function About() {
       data-scroll
       data-scroll-section
       data-scroll-speed=".5"
-      className="relative w-full h-screen bg-[#CDEA68] rounded-tr-3xl rounded-tl-3xl py-20 px-6 -mb-35 md:px-20 overflow-hidden"
+      className="relative w-full min-h-screen bg-gradient-to-br from-[#10605F] to-[#0A4241] text-white rounded-tr-3xl rounded-tl-3xl py-20 px-6 -mb-35 md:px-20 overflow-hidden"
     >
       {/* Heading */}
       <motion.h1
@@ -17,9 +17,9 @@ function About() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="font-['Neue Montreal'] text-[4vw] md:text-5xl font-bold mb-6 text-center md:text-left"
+        className="font-['Plus Jakarta Sans',sans-serif] text-[4vw] md:text-5xl font-bold mb-6 text-center md:text-left text-white"
       >
-        About <span className="text-black">OnIT INDIA</span>
+        About <span className="text-[#7EDEDD]">FirstDoer</span>
       </motion.h1>
 
       {/* Intro Text */}
@@ -28,9 +28,9 @@ function About() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="text-[2vw] md:text-xl leading-relaxed text-black text-center md:text-left mb-16"
+        className="text-[2vw] md:text-xl leading-relaxed text-[#EFFBFB] text-center md:text-left mb-16"
       >
-        OnIT INDIA is a hyperlocal task platform built for real life.
+        FirstDoer is India&apos;s on-demand task execution infrastructure built for real-world speed and accountability.
       </motion.p>
 
       {/* Left + Right Sections */}
@@ -42,7 +42,7 @@ function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-2xl md:text-3xl font-semibold mb-4"
+            className="text-2xl md:text-3xl font-semibold mb-4 text-[#7EDEDD]"
           >
             Our Approach:
           </motion.h2>
@@ -52,9 +52,9 @@ function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-lg md:text-base leading-relaxed mb-2"
+            className="text-lg md:text-base leading-relaxed mb-2 text-white/90"
           >
-            From ordering food or groceries to finding a driver or tutor — simply type your need.
+            From field research and store audits to digital verification and skilled tasks — simply describe what needs doing.
           </motion.p>
 
           {/* Read More */}
@@ -65,13 +65,13 @@ function About() {
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.6 }}
-                className="overflow-hidden mt-2"
+                className="overflow-hidden mt-2 text-white/80"
               >
                 <p className="text-lg md:text-base leading-relaxed mt-2">
-                  OnIT INDIA understands it, finds a nearby person ready to help, and gets it done.
+                  FirstDoer routes the brief to verified local performers, protects payment in milestone escrow, and delivers structured GPS-verified proof of completion.
                 </p>
-                <p className="text-sm md:text-base italic text-gray-800 mt-2">
-                  “No catalogs. No middlemen. Just real help — powered by people near you.”
+                <p className="text-sm md:text-base italic text-[#7EDEDD] mt-2">
+                  “No delays. No guesswork. Just verified execution — powered by reliable performers across India.”
                 </p>
               </motion.div>
             )}
@@ -81,7 +81,7 @@ function About() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setShowMore(!showMore)}
-            className="mt-6 w-max px-6 py-3 border border-black rounded-full uppercase font-medium text-sm bg-transparent hover:bg-black hover:text-white transition-all duration-300"
+            className="mt-6 w-max px-6 py-3 border border-[#7EDEDD] text-[#7EDEDD] rounded-full uppercase font-medium text-sm bg-transparent hover:bg-[#7EDEDD] hover:text-[#0D1210] transition-all duration-300"
           >
             {showMore ? "Read Less" : "Read More"}
           </motion.button>

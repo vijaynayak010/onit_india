@@ -89,7 +89,7 @@ function AdminDashboard() {
           transition={{ delay: 0.6 }}
           className="text-gray-600 mt-12 text-sm sm:text-base"
         >
-          ⚙️ Logged in as <span className="font-semibold text-black">OnIT Admin</span>.  
+          ⚙️ Logged in as <span className="font-semibold text-black">FirstDoer Admin</span>.  
           Manage your content, control visibility, and analyze engagement effortlessly.
         </motion.p>
       </motion.div>

@@ -80,7 +80,7 @@ function InterestStatusModal({ state, taskTitle, onClose, onPrimary, onSecondary
                 <div
                     className={`mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full border-4 ${
                         isSuccess
-                            ? 'border-emerald-100 bg-emerald-50 text-[var(--color-primary)]'
+                            ? 'border-[#29ADAC]/20 bg-[#EFFBFB] text-[var(--color-primary)]'
                             : isWarning
                                 ? 'border-amber-100 bg-amber-50 text-amber-600'
                                 : 'border-rose-100 bg-rose-50 text-rose-600'
@@ -97,7 +97,7 @@ function InterestStatusModal({ state, taskTitle, onClose, onPrimary, onSecondary
                         </span>
                         <div className="min-w-0">
                             <p className="truncate text-sm font-bold text-slate-900">{taskTitle}</p>
-                            <p className="text-xs font-semibold text-slate-400">OnIT India task</p>
+                            <p className="text-xs font-semibold text-slate-400">FirstDoer task</p>
                         </div>
                     </div>
                 ) : null}
@@ -105,7 +105,7 @@ function InterestStatusModal({ state, taskTitle, onClose, onPrimary, onSecondary
                     <button
                         type="button"
                         onClick={onPrimary}
-                        className="flex h-12 items-center justify-center rounded-full bg-[var(--color-primary)] px-6 text-sm font-bold text-white shadow-[0_12px_28px_rgba(0,153,102,0.24)] transition hover:bg-[var(--color-primary-hover)]"
+                        className="flex h-12 items-center justify-center rounded-full bg-[var(--color-primary)] px-6 text-sm font-bold text-white shadow-[0_12px_28px_rgba(16,96,95,0.24)] transition hover:bg-[var(--color-primary-hover)]"
                     >
                         {config.primary}
                     </button>

@@ -25,7 +25,7 @@ const UseCasePage = ({ slug: slugProp }) => {
       <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
         <div className="max-w-md text-center">
           <h1 className="text-2xl font-semibold text-gray-900 mb-4">Page not found</h1>
-          <Link to="/" className="text-[#004d43] font-medium hover:underline">
+          <Link to="/" className="text-[var(--color-primary)] font-medium hover:underline">
             Go to homepage
           </Link>
         </div>
@@ -34,28 +34,28 @@ const UseCasePage = ({ slug: slugProp }) => {
   }
 
   const { title, headline, description, keywords, benefits, exampleTasks } = useCase;
-  const canonical = `https://www.onitindia.com/${slug}`;
+  const canonical = `https://www.firstdoer.com/${slug}`;
 
   return (
     <div className="min-h-screen bg-white text-gray-800">
       <SEO
-        title={`${title} | Task Execution on Demand | OnIT INDIA`}
+        title={`${title} | Task Execution on Demand | FirstDoer`}
         description={description}
         keywords={keywords}
         canonical={canonical}
         webPageSchema={{
           "@context": "https://schema.org",
           "@type": "WebPage",
-          "name": `${title} | OnIT INDIA`,
+          "name": `${title} | FirstDoer`,
           "description": description,
           "url": canonical,
         }}
       />
 
       {/* Hero */}
-      <section className="pt-24 pb-16 px-6 md:px-20 bg-gradient-to-b from-[#004d43]/5 to-white">
+      <section className="pt-24 pb-16 px-6 md:px-20 bg-gradient-to-b from-[var(--color-primary)]/5 to-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#004d43] mb-4 leading-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--color-primary)] mb-4 leading-tight">
             {headline}
           </h1>
           <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
@@ -64,14 +64,14 @@ const UseCasePage = ({ slug: slugProp }) => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => navigate("/provider/post-task-selection")}
-              className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-[#004d43] text-white font-semibold hover:bg-[#016b5c] transition-colors text-base"
+              className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-[var(--color-primary)] text-white font-semibold hover:bg-[var(--color-primary-hover)] transition-colors text-base"
             >
               Post a task
               <ArrowRight size={20} />
             </button>
             <Link
               to="/auth"
-              className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full border-2 border-[#004d43] text-[#004d43] font-semibold hover:bg-[#004d43]/5 transition-colors text-base"
+              className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full border-2 border-[var(--color-primary)] text-[var(--color-primary)] font-semibold hover:bg-[var(--color-primary)]/5 transition-colors text-base"
             >
               Sign up / Log in
             </Link>
@@ -92,16 +92,16 @@ const UseCasePage = ({ slug: slugProp }) => {
       {/* Benefits */}
       <section className="py-16 px-6 md:px-20 border-t border-gray-100">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#004d43] mb-10 text-center">
-            Why {title.toLowerCase()} use OnIT INDIA
+          <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-primary)] mb-10 text-center">
+            Why {title.toLowerCase()} use FirstDoer
           </h2>
           <div className="grid gap-6 md:grid-cols-2">
             {benefits.map((text, i) => (
               <div
                 key={i}
-                className="rounded-xl border border-[#004d43]/15 bg-white p-6 flex gap-4"
+                className="rounded-xl border border-[var(--color-primary)]/15 bg-white p-6 flex gap-4"
               >
-                <div className="shrink-0 w-12 h-12 rounded-xl bg-[#004d43]/10 text-[#004d43] flex items-center justify-center">
+                <div className="shrink-0 w-12 h-12 rounded-xl bg-[var(--color-primary)]/10 text-[var(--color-primary)] flex items-center justify-center">
                   <Check size={24} strokeWidth={2.5} />
                 </div>
                 <p className="text-gray-700">{text}</p>
@@ -114,7 +114,7 @@ const UseCasePage = ({ slug: slugProp }) => {
       {/* Example tasks */}
       <section className="py-16 px-6 md:px-20 bg-gray-50/50">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#004d43] mb-4 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-primary)] mb-4 text-center">
             Example tasks you can post
           </h2>
           <p className="text-gray-600 text-center mb-8">
@@ -130,7 +130,7 @@ const UseCasePage = ({ slug: slugProp }) => {
             ))}
           </ul>
           <p className="text-center mt-6">
-            <Link to="/tasks" className="text-[#004d43] font-semibold hover:underline">
+            <Link to="/tasks" className="text-[var(--color-primary)] font-semibold hover:underline">
               See all task categories →
             </Link>
           </p>
@@ -140,7 +140,7 @@ const UseCasePage = ({ slug: slugProp }) => {
       {/* How it works */}
       <section className="py-16 px-6 md:px-20 border-t border-gray-100">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#004d43] mb-4 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-primary)] mb-4 text-center">
             How it works
           </h2>
           <p className="text-gray-600 text-center mb-8">
@@ -152,7 +152,7 @@ const UseCasePage = ({ slug: slugProp }) => {
                 key={i}
                 className="flex gap-4 items-start rounded-lg bg-white border border-gray-100 p-4"
               >
-                <span className="shrink-0 w-8 h-8 rounded-full bg-[#004d43] text-white flex items-center justify-center text-sm font-bold">
+                <span className="shrink-0 w-8 h-8 rounded-full bg-[var(--color-primary)] text-white flex items-center justify-center text-sm font-bold">
                   {i + 1}
                 </span>
                 <span className="text-gray-700">{step}</span>
@@ -165,7 +165,7 @@ const UseCasePage = ({ slug: slugProp }) => {
       {/* CTA */}
       <section className="py-16 px-6 md:px-20">
         <div className="max-w-3xl mx-auto text-center">
-          <div className="rounded-2xl bg-[#004d43] text-white p-8 md:p-10">
+          <div className="rounded-2xl bg-[var(--color-primary)] text-white p-8 md:p-10">
             <h2 className="text-xl md:text-2xl font-bold mb-3">
               Ready to get work done?
             </h2>
@@ -175,7 +175,7 @@ const UseCasePage = ({ slug: slugProp }) => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={() => navigate("/auth", { state: { authMode: "signup" } })}
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-white text-[#004d43] font-semibold hover:bg-gray-100 transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-white text-[var(--color-primary)] font-semibold hover:bg-gray-100 transition-colors"
               >
                 Sign up
                 <ArrowRight size={18} />

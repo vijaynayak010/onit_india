@@ -19,7 +19,7 @@ const categoryStyle = (category = "") => {
   if (key.includes("business")) return { dot: "bg-red-500", label: "text-red-600" };
   if (key.includes("ux") || key.includes("research")) return { dot: "bg-amber-400", label: "text-gray-500" };
   if (key.includes("design")) return { dot: "bg-violet-500", label: "text-violet-600" };
-  return { dot: "bg-emerald-500", label: "text-emerald-600" };
+  return { dot: "bg-[#10605F]", label: "text-[#10605F]" };
 };
 
 const formatDeadline = (dueAt, createdAt) => {
@@ -118,11 +118,11 @@ const TaskHistoryCard = ({ task, onView }) => {
               className="h-7 w-7 rounded-full object-cover"
             />
           ) : assignee.initial ? (
-            <div className="flex h-7 w-7 items-center justify-center rounded-full bg-emerald-500 text-xs font-bold text-white">
+            <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#10605F] text-xs font-bold text-white">
               {assignee.initial}
             </div>
           ) : (
-            <User size={16} className="text-emerald-500" strokeWidth={2.5} />
+            <User size={16} className="text-[#29ADAC]" strokeWidth={2.5} />
           )}
           <span className="text-sm font-medium text-gray-500">
             {assignee.name || "Unassigned"}
@@ -130,7 +130,7 @@ const TaskHistoryCard = ({ task, onView }) => {
         </div>
 
         {completed ? (
-          <span className="rounded-lg bg-emerald-50 px-3 py-1.5 text-xs font-bold text-emerald-600">
+          <span className="rounded-lg bg-[#EFFBFB] px-3 py-1.5 text-xs font-bold text-[#10605F]">
             Paid
           </span>
         ) : (

@@ -21,7 +21,7 @@ const SKILL_ACCENTS = [
   { iconBg: "bg-fuchsia-100", iconColor: "text-fuchsia-600" },
   { iconBg: "bg-sky-100", iconColor: "text-sky-600" },
   { iconBg: "bg-rose-100", iconColor: "text-rose-600" },
-  { iconBg: "bg-emerald-100", iconColor: "text-emerald-600" },
+  { iconBg: "bg-[#DFF7F6]", iconColor: "text-[#10605F]" },
   { iconBg: "bg-amber-100", iconColor: "text-amber-600" },
   { iconBg: "bg-teal-100", iconColor: "text-teal-600" },
   { iconBg: "bg-orange-100", iconColor: "text-orange-600" },
@@ -76,7 +76,7 @@ export function FindWorkBySkills({ onSkillSelect }) {
                   key={skill.id}
                   type="button"
                   onClick={() => onSkillSelect?.(skill)}
-                  className="flex w-[108px] shrink-0 flex-col items-center rounded-2xl border border-gray-100 bg-white px-3 py-4 shadow-sm transition hover:border-emerald-200 hover:shadow-md active:scale-[0.98]"
+                  className="flex w-[108px] shrink-0 flex-col items-center rounded-2xl border border-gray-100 bg-white px-3 py-4 shadow-sm transition hover:border-[#29ADAC]/30 hover:shadow-md active:scale-[0.98]"
                 >
                   {skill.imageUrl && skill.id !== "more" ? (
                     <div className="mb-3 h-11 w-11 overflow-hidden rounded-xl">
@@ -155,14 +155,14 @@ export function PerformanceRankingCard({ onViewRanking }) {
               ? "Fetching your live ranking…"
               : rankLabel && rankLabel !== "Unranked"
                 ? `${category || "Overall"} · score ${score ?? 0}. Keep completing tasks to climb higher.`
-                : "Complete your first task and start building your presence on OnIT."}
+                : "Complete your first task and start building your presence on FirstDoer."}
           </p>
         </div>
         <div className="border-t border-gray-100 px-5 py-3.5">
           <button
             type="button"
             onClick={onViewRanking}
-            className="text-[14px] font-bold text-[#00A36C] transition hover:text-[#00925f]"
+            className="text-[14px] font-bold text-[#10605F] transition hover:text-[#00925f]"
           >
             Current Ranking
           </button>

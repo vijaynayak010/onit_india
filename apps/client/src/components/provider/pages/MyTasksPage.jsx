@@ -481,7 +481,7 @@ const MyTasksPage = () => {
           <StatCard label="Published" value={stats.PUBLISHED || 0} accent="bg-sky-500" icon={<TrendingUp />} />
           <StatCard label="Interested Candidates" value={interestCandidates} accent="bg-[var(--color-primary)]" icon={<Users />} />
           <StatCard label="Active Tasks" value={(stats.IN_PROGRESS || 0) + (stats.CLAIMED || 0) + (stats.SUBMITTED || 0) + (stats.ASSIGNED || 0) + (stats.ACCEPTED || 0) + (stats.ACTIVE || 0)} accent="bg-violet-500" icon={<Clock />} />
-          <StatCard label="Completed Tasks" value={stats.COMPLETED || 0} accent="bg-emerald-500" icon={<Medal />} />
+          <StatCard label="Completed Tasks" value={stats.COMPLETED || 0} accent="bg-[#10605F]" icon={<Medal />} />
         </>
       );
     }
@@ -500,7 +500,7 @@ const MyTasksPage = () => {
       return (
         <>
           <StatCard label="Completed" value={stats.COMPLETED || 0} accent="bg-[var(--color-primary)]" icon={<Medal />} />
-          <StatCard label="Total Paid" value={`₹${totalPaid.toLocaleString()}`} accent="bg-emerald-500" icon={<CircleDollarSign />} />
+          <StatCard label="Total Paid" value={`₹${totalPaid.toLocaleString()}`} accent="bg-[#10605F]" icon={<CircleDollarSign />} />
           <StatCard label="Cancelled" value={stats.CANCELED || 0} accent="bg-slate-500" icon={<AlertCircle />} />
           <StatCard label="Expired" value={stats.EXPIRED || 0} accent="bg-amber-500" icon={<Star />} />
         </>
@@ -1008,19 +1008,19 @@ const InterestTaskCard = ({ task, onClick, onNavigateDetails, onCancel, onDelete
   const hasInvitations = !hasApplicants && invitationsCount > 0;
 
   return (
-    <div className="group relative flex h-full flex-col overflow-hidden rounded-[24px] border border-slate-100 bg-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:border-emerald-100">
+    <div className="group relative flex h-full flex-col overflow-hidden rounded-[24px] border border-slate-100 bg-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:border-[#29ADAC]/20">
       {/* Thin accent line at top */}
       <div className={`h-[3px] w-full ${hasApplicants ? "bg-gradient-to-r from-emerald-400 to-teal-400" : hasInvitations ? "bg-gradient-to-r from-violet-400 to-purple-400" : "bg-gradient-to-r from-slate-200 to-slate-300"}`} />
 
       {/* Header row */}
       <div className="flex items-center justify-between px-5 pt-4">
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-[9px] font-black uppercase tracking-widest text-emerald-700">
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-[#EFFBFB] px-2.5 py-1 text-[9px] font-black uppercase tracking-widest text-[#10605F]">
           <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
           {task.category || "General"}
         </span>
         <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-black ${
           hasApplicants
-            ? "bg-emerald-500 text-white"
+            ? "bg-[#10605F] text-white"
             : hasInvitations
               ? "bg-violet-100 text-violet-700"
               : "bg-slate-100 text-slate-500"
@@ -1050,7 +1050,7 @@ const InterestTaskCard = ({ task, onClick, onNavigateDetails, onCancel, onDelete
       {/* Applicants section */}
       <div className="mx-5 mt-4">
         {hasApplicants ? (
-          <div className="flex items-center justify-between rounded-2xl bg-emerald-50 px-4 py-3">
+          <div className="flex items-center justify-between rounded-2xl bg-[#EFFBFB] px-4 py-3">
             <div className="flex items-center gap-3">
               <div className="flex -space-x-2.5">
                 {applicants.slice(0, 4).map((applicant, i) => {
@@ -1063,19 +1063,19 @@ const InterestTaskCard = ({ task, onClick, onNavigateDetails, onCancel, onDelete
                   );
                 })}
                 {applicantsCount > 4 && (
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-white bg-emerald-200 text-[9px] font-black text-emerald-800 shadow-sm">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-white bg-emerald-200 text-[9px] font-black text-[#083B3A] shadow-sm">
                     +{applicantsCount - 4}
                   </div>
                 )}
               </div>
               <div className="text-[12px] leading-none">
-                <span className="font-black text-emerald-700">{applicantsCount}</span>
-                <span className="ml-1 font-semibold text-emerald-600">
+                <span className="font-black text-[#10605F]">{applicantsCount}</span>
+                <span className="ml-1 font-semibold text-[#10605F]">
                   performer{applicantsCount > 1 ? "s" : ""} applied
                 </span>
               </div>
             </div>
-            <Eye className="h-4 w-4 text-emerald-400" strokeWidth={2} />
+            <Eye className="h-4 w-4 text-[#29ADAC]" strokeWidth={2} />
           </div>
         ) : (
           <div className="flex items-center gap-2.5 rounded-2xl bg-slate-50 px-4 py-3">
@@ -1141,7 +1141,7 @@ const InterestTaskCard = ({ task, onClick, onNavigateDetails, onCancel, onDelete
             <button
               type="button"
               onClick={onClick}
-              className="inline-flex items-center gap-1.5 rounded-full bg-emerald-600 px-4 py-2 text-[12px] font-bold text-white shadow-sm shadow-emerald-200 transition hover:bg-emerald-700 active:scale-95"
+              className="inline-flex items-center gap-1.5 rounded-full bg-[#10605F] px-4 py-2 text-[12px] font-bold text-white shadow-sm shadow-emerald-200 transition hover:bg-[#083B3A] active:scale-95"
             >
               Activity
               <ChevronRight className="h-3.5 w-3.5" strokeWidth={2.5} />

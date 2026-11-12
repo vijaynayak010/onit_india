@@ -117,13 +117,13 @@ const TaskPerformerProfilePage = () => {
                             (tasker?.userId && String(interest.tasker?.userId || "") === String(tasker.userId))
                     );
                     if (matchingInterest) {
-                        console.log("[ONIT] Found matching interest in profile page:", matchingInterest);
+                        console.log("[FirstDoer] Found matching interest in profile page:", matchingInterest);
                         setInterestId(matchingInterest.id);
                     } else if (!initialInterestId) {
                         setInterestId(null);
                     }
                 } catch (err) {
-                    console.error("[ONIT] Error fetching task interests in profile page:", err);
+                    console.error("[FirstDoer] Error fetching task interests in profile page:", err);
                     if (!initialInterestId) setInterestId(null);
                 } finally {
                     setInterestLoading(false);
@@ -144,7 +144,7 @@ const TaskPerformerProfilePage = () => {
                 listTaskers({ limit: 99 }).catch(() => null),
             ]);
             const listTasker = extractTaskers(taskerListResponse).find((item) => isSameTasker(item, taskerId));
-            console.log("[ONIT] Raw tasker profile data:", JSON.stringify(data, null, 2));
+            console.log("[FirstDoer] Raw tasker profile data:", JSON.stringify(data, null, 2));
             const merged = { ...(fallbackTasker || {}), ...(listTasker || {}), ...(data || {}) };
             merged.completedTasksCount = Math.max(
                 getCompletedCount(fallbackTasker),
@@ -153,7 +153,7 @@ const TaskPerformerProfilePage = () => {
             );
             setTasker(merged);
         } catch (err) {
-            console.error("[ONIT] Error fetching profile:", err);
+            console.error("[FirstDoer] Error fetching profile:", err);
             if (!fallbackTasker) {
                 setError("Could not load performer profile. Please try again.");
             }
@@ -169,7 +169,7 @@ const TaskPerformerProfilePage = () => {
             const list = res?.reviews || res?.data || (Array.isArray(res) ? res : []);
             setReviews(list);
         } catch (err) {
-            console.error("[ONIT] Error fetching reviews:", err);
+            console.error("[FirstDoer] Error fetching reviews:", err);
             setReviews([]);
         } finally {
             setReviewsLoading(false);
@@ -198,7 +198,7 @@ const TaskPerformerProfilePage = () => {
                         setContextTask(task);
                     }
                 } catch (err) {
-                    console.error("[ONIT] Error fetching context task:", err);
+                    console.error("[FirstDoer] Error fetching context task:", err);
                 } finally {
                     setLoadingContextTask(false);
                 }
@@ -219,7 +219,7 @@ const TaskPerformerProfilePage = () => {
             );
             setMyTasks(open);
         } catch (err) {
-            console.error('[ONIT] fetchMyTasks error:', err);
+            console.error('[FirstDoer] fetchMyTasks error:', err);
             setMyTasks([]);
         } finally {
             setTasksLoading(false);
@@ -427,7 +427,7 @@ const TaskPerformerProfilePage = () => {
 
             <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
                 {invitationFeedback && (
-                    <div className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-800">
+                    <div className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-[#29ADAC]/30 bg-[#EFFBFB] px-4 py-3 text-sm font-semibold text-[#083B3A]">
                         <span>{invitationFeedback}</span>
                         <div className="flex items-center gap-3">
                             {pendingInvitation && <button type="button" onClick={checkInvitationAndPay} disabled={checkingInvitation} className="rounded-full bg-[var(--color-primary)] px-3 py-1.5 text-xs font-black text-white disabled:opacity-60">{checkingInvitation ? 'Checking…' : 'Check & pay'}</button>}
@@ -523,7 +523,7 @@ const TaskPerformerProfilePage = () => {
                                     <div className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-white p-6 shadow-[var(--shadow-sm)] sm:p-8">
                                         <h2 className="mb-4 text-xl font-bold text-[var(--color-text)]">Overview</h2>
                                         <p className="whitespace-pre-wrap text-[15px] font-medium leading-[1.75] text-[var(--color-text-muted)]">
-                                            {tasker.bio || "This performer has not provided a bio yet. They are a dedicated member of the OnIT professional network, committed to high-quality work and client satisfaction."}
+                                            {tasker.bio || "This performer has not provided a bio yet. They are a dedicated member of the FirstDoer professional network, committed to high-quality work and client satisfaction."}
                                         </p>
                                     </div>
                                     <div className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-6 shadow-[var(--shadow-sm)] sm:p-8">
@@ -734,7 +734,7 @@ const TaskPerformerProfilePage = () => {
                                         <p className="mt-1 text-xs font-bold text-[var(--color-text)] truncate">{contextTask.title}</p>
                                         <div className="mt-2 flex items-center justify-between">
                                             <span className="text-[11px] font-black text-[var(--color-primary)]">₹{contextTask.priceAmount || contextTask.budget || contextTask.price}</span>
-                                            <span className="rounded-full bg-emerald-500/10 px-2 py-0.5 text-[9px] font-extrabold text-[var(--color-primary)] uppercase">Active</span>
+                                            <span className="rounded-full bg-[#10605F]/10 px-2 py-0.5 text-[9px] font-extrabold text-[var(--color-primary)] uppercase">Active</span>
                                         </div>
                                     </div>
                                 )}
@@ -747,7 +747,7 @@ const TaskPerformerProfilePage = () => {
                                         whileTap={interestId && contextTask ? { scale: 0.98 } : undefined}
                                         disabled={!interestId || !contextTask || interestLoading || loadingContextTask}
                                         onClick={handleHireInterestedPerformer}
-                                        className="relative flex w-full items-center justify-center gap-2.5 overflow-hidden rounded-full bg-[var(--color-primary)] py-4 text-[15px] font-extrabold text-white shadow-[0_4px_20px_rgba(5,150,105,0.35)] transition disabled:cursor-not-allowed disabled:bg-[var(--color-border-subtle)] disabled:text-[var(--color-text-subtle)] disabled:shadow-none"
+                                        className="relative flex w-full items-center justify-center gap-2.5 overflow-hidden rounded-full bg-[var(--color-primary)] py-4 text-[15px] font-extrabold text-white shadow-[0_4px_20px_rgba(16,96,95,0.35)] transition disabled:cursor-not-allowed disabled:bg-[var(--color-border-subtle)] disabled:text-[var(--color-text-subtle)] disabled:shadow-none"
                                     >
                                         <span className="pointer-events-none absolute inset-0 rounded-full bg-white/10 opacity-0 transition hover:opacity-100" />
                                         <Zap className="h-5 w-5 shrink-0" strokeWidth={2.5} fill="currentColor" />
@@ -764,7 +764,7 @@ const TaskPerformerProfilePage = () => {
                                             whileHover={{ scale: 1.02 }}
                                             whileTap={{ scale: 0.98 }}
                                             onClick={openHireModal}
-                                            className="relative flex w-full items-center justify-center gap-2.5 overflow-hidden rounded-full bg-[var(--color-primary)] py-4 text-[15px] font-extrabold text-white shadow-[0_4px_20px_rgba(5,150,105,0.35)] transition"
+                                            className="relative flex w-full items-center justify-center gap-2.5 overflow-hidden rounded-full bg-[var(--color-primary)] py-4 text-[15px] font-extrabold text-white shadow-[0_4px_20px_rgba(16,96,95,0.35)] transition"
                                         >
                                             <span className="pointer-events-none absolute inset-0 bg-white/10 opacity-0 transition hover:opacity-100 rounded-full" />
                                             <Zap className="h-5 w-5 shrink-0" strokeWidth={2.5} fill="currentColor" />
@@ -889,7 +889,7 @@ const TaskPerformerProfilePage = () => {
                                         onClick={() => handleConfirmHire()}
                                         className={`flex-1 rounded-full py-3 text-[14px] font-extrabold text-white transition ${
                                             selectedTask
-                                                ? 'bg-[var(--color-primary)] shadow-[0_4px_14px_rgba(5,150,105,0.3)] cursor-pointer'
+                                                ? 'bg-[var(--color-primary)] shadow-[0_4px_14px_rgba(16,96,95,0.3)] cursor-pointer'
                                                 : 'bg-[var(--color-border-subtle)] text-[var(--color-text-subtle)] cursor-not-allowed'
                                         }`}
                                     >

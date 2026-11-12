@@ -8,7 +8,7 @@ const AboutPage = () => {
                     About On<span className="text-green-600">IT</span>
                 </h1>
                 <p className="text-zinc-600 text-base md:text-lg leading-relaxed mb-6">
-                    OnIT is a hyperlocal platform that connects people who need help with
+                    FirstDoer is a hyperlocal platform that connects people who need help with
                     trusted task performers in their area. From academic research and web
                     design to everyday home services, we make it simple to post a task,
                     get offers, and hire the right expert.
@@ -23,7 +23,7 @@ const AboutPage = () => {
                     fast, and frictionless.
                 </p>
 
-                <h2 className="text-xl md:text-2xl font-bold mt-8 mb-3">Why OnIT?</h2>
+                <h2 className="text-xl md:text-2xl font-bold mt-8 mb-3">Why FirstDoer?</h2>
                 <ul className="list-disc pl-5 space-y-2 text-zinc-600">
                     <li><strong>Verified task performers</strong> with ratings and reviews.</li>
                     <li><strong>Secure payments</strong> released only when work is completed.</li>
@@ -33,7 +33,7 @@ const AboutPage = () => {
 
                 <h2 className="text-xl md:text-2xl font-bold mt-8 mb-3">Who we serve</h2>
                 <p className="text-zinc-600 leading-relaxed mb-2">
-                    OnIT is built for students, professionals, small businesses and
+                    FirstDoer is built for students, professionals, small businesses and
                     families who want work done quickly and reliably:
                 </p>
                 <ul className="list-disc pl-5 space-y-2 text-zinc-600">

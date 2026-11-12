@@ -86,7 +86,7 @@ function BlogPost() {
       {!loading && error && (
         <SEO
           title="Article Not Found"
-          description="The requested blog article was not found. Return to OnIT INDIA blog for more insights on task execution and the future of work."
+          description="The requested blog article was not found. Return to FirstDoer blog for more insights on task execution and the future of work."
           noindex
         />
       )}
@@ -118,8 +118,8 @@ function BlogPost() {
           title={post.title}
           description={post.description}
           image={post.image}
-          keywords={post.keywords ? post.keywords.join(", ") : "onitindia, OnIT INDIA blog, article"}
-          canonical={`https://www.onitindia.com/blog/${post._id}`}
+          keywords={post.keywords ? post.keywords.join(", ") : "firstdoer, FirstDoer blog, article"}
+          canonical={`https://www.firstdoer.com/blog/${post._id}`}
           type="article"
           schema={{
             "@context": "https://schema.org",
@@ -134,10 +134,10 @@ function BlogPost() {
             "datePublished": post.date,
             "publisher": {
               "@type": "Organization",
-              "name": "OnIT INDIA",
+              "name": "FirstDoer",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://www.onitindia.com/logo.png"
+                "url": "https://www.firstdoer.com/logo.png"
               }
             }
           }}
@@ -249,7 +249,7 @@ function BlogPost() {
                   (s) =>
                     s.length > 40 &&
                     s.length < 120 &&
-                    (s.includes("OnIT INDIA") || s.includes("OnIT INDIA") || s.includes("lifesaver") || s.includes("empowering"))
+                    (s.includes("FirstDoer") || s.includes("FirstDoer") || s.includes("lifesaver") || s.includes("empowering"))
                 );
 
                 const lines = post.description.split('\n').filter(line => line.trim() !== '');
@@ -328,11 +328,11 @@ function BlogPost() {
               })()}
             </div>
             {/* Internal links */}
-            <nav className="mt-12 pt-8 border-t border-[var(--color-border)]" aria-label="Explore OnIT INDIA">
-              <h3 className="text-xs font-bold text-[var(--color-text-muted)] uppercase tracking-widest mb-4">Explore OnIT INDIA</h3>
+            <nav className="mt-12 pt-8 border-t border-[var(--color-border)]" aria-label="Explore FirstDoer">
+              <h3 className="text-xs font-bold text-[var(--color-text-muted)] uppercase tracking-widest mb-4">Explore FirstDoer</h3>
               <ul className="flex flex-wrap gap-x-4 gap-y-2 text-sm">
                 <li><Link to="/" className="text-[var(--color-primary)] font-semibold hover:underline">Home</Link></li>
-                <li><Link to="/what-is-onit-india" className="text-[var(--color-primary)] font-semibold hover:underline">What is OnIT INDIA</Link></li>
+                <li><Link to="/what-is-onit-india" className="text-[var(--color-primary)] font-semibold hover:underline">What is FirstDoer</Link></li>
                 <li><Link to="/how-it-works" className="text-[var(--color-primary)] font-semibold hover:underline">How it works</Link></li>
                 <li><Link to="/task-performers" className="text-[var(--color-primary)] font-semibold hover:underline">For performers</Link></li>
                 <li><Link to="/tasks" className="text-[var(--color-primary)] font-semibold hover:underline">Task categories</Link></li>

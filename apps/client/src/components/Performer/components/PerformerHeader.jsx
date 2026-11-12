@@ -43,8 +43,12 @@ const PerformerHeader = ({ activePage = "dashboard" }) => {
     <>
       <header className="fixed left-0 top-0 z-[100] h-[93px] w-full border-b border-[rgba(177,186,199,0.35)] bg-white">
         <div className="flex h-full items-center justify-between px-5 sm:px-6">
-          <button type="button" onClick={() => navigate("/performer/dashboard")} className="flex h-[40px] w-[56px] items-center justify-start" aria-label="Go to performer home">
-            <img src="/logo.png" alt="OnIT India Logo" className="h-[31px] w-[49px] object-contain" />
+          <button type="button" onClick={() => navigate("/performer/dashboard")} className="flex items-center gap-2" aria-label="Go to performer home">
+            <svg width="26" height="18" viewBox="0 0 30 22" fill="none" aria-hidden="true">
+              <path d="M11 2.5c-4.7 0-8.5 3.8-8.5 8.5s3.8 8.5 8.5 8.5c3.4 0 5.6-2.4 8-8.5 2.4-6.1 4.6-8.5 8-8.5" stroke="#29ADAC" strokeWidth="3" strokeLinecap="round" />
+              <path d="M19 19.5c4.7 0 8.5-3.8 8.5-8.5S23.7 2.5 19 2.5c-3.4 0-5.6 2.4-8 8.5" stroke="#4CCDCC" strokeWidth="3" strokeLinecap="round" />
+            </svg>
+            <span className="text-xl font-bold tracking-tight text-[#0D1210]">firstDoer</span>
           </button>
 
           <div className="flex min-w-0 items-center gap-3 sm:gap-6">
@@ -90,11 +94,11 @@ const PerformerHeader = ({ activePage = "dashboard" }) => {
                       <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400">Account</p>
                       <p className="truncate text-sm font-semibold text-slate-900">{displayName}</p>
                     </div>
-                    <button type="button" onClick={() => { navigate("/performer/account"); setShowProfileDropdown(false); }} className="flex w-full items-center gap-3 px-4 py-2.5 text-left text-sm font-semibold text-slate-700 transition hover:bg-emerald-50">
+                    <button type="button" onClick={() => { navigate("/performer/account"); setShowProfileDropdown(false); }} className="flex w-full items-center gap-3 px-4 py-2.5 text-left text-sm font-semibold text-slate-700 transition hover:bg-[#EFFBFB]">
                       <UserRound size={17} className="text-slate-400" />
                       Account
                     </button>
-                    <button type="button" onClick={() => { navigate("/performer/settings"); setShowProfileDropdown(false); }} className="flex w-full items-center gap-3 px-4 py-2.5 text-left text-sm font-semibold text-slate-700 transition hover:bg-emerald-50">
+                    <button type="button" onClick={() => { navigate("/performer/settings"); setShowProfileDropdown(false); }} className="flex w-full items-center gap-3 px-4 py-2.5 text-left text-sm font-semibold text-slate-700 transition hover:bg-[#EFFBFB]">
                       <Settings size={17} className="text-slate-400" />
                       Settings
                     </button>
@@ -123,7 +127,7 @@ const PerformerHeader = ({ activePage = "dashboard" }) => {
                 type="button"
                 onClick={() => navigate(link.path)}
                 className={`flex h-[43px] w-full items-center rounded-[10px] px-3.5 text-left text-[14px] font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] ${
-                  isActive ? "bg-[rgba(0,153,102,0.15)] font-semibold text-[var(--color-primary)]" : "text-black/60 hover:bg-white hover:text-slate-900"
+                  isActive ? "bg-[rgba(16,96,95,0.15)] font-semibold text-[var(--color-primary)]" : "text-black/60 hover:bg-white hover:text-slate-900"
                 }`}
               >
                 {link.name}

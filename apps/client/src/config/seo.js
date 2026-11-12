@@ -1,9 +1,9 @@
-export const SITE_NAME = "OnIT INDIA";
-export const SITE_URL = "https://www.onitindia.com";
+export const SITE_NAME = "FirstDoer";
+export const SITE_URL = "https://www.firstdoer.com";
 export const DEFAULT_SOCIAL_IMAGE = `${SITE_URL}/logo.png`;
 
 export const DEFAULT_DESCRIPTION =
-  "OnIT INDIA connects people and businesses with verified performers for freelance, digital, and local tasks across India.";
+  "FirstDoer connects businesses and individuals with verified local and digital performers for fast, reliable task execution across India.";
 
 export function toCanonicalUrl(value = "/") {
   const rawValue = String(value || "/").trim();
@@ -11,7 +11,7 @@ export function toCanonicalUrl(value = "/") {
   try {
     const url = new URL(rawValue, SITE_URL);
     url.protocol = "https:";
-    url.hostname = "www.onitindia.com";
+    url.hostname = "www.firstdoer.com";
     url.hash = "";
     url.search = "";
     url.pathname = url.pathname !== "/" ? url.pathname.replace(/\/+$/, "") : "/";
@@ -23,10 +23,10 @@ export function toCanonicalUrl(value = "/") {
 export function withBrand(title) {
   const cleanTitle = String(title || "").trim();
   if (!cleanTitle) {
-    return "OnIT INDIA | Freelance & Task Marketplace in India";
+    return "FirstDoer | India's On-Demand Execution Infrastructure";
   }
 
-  return /onit india/i.test(cleanTitle)
+  return /firstdoer|onit india/i.test(cleanTitle)
     ? cleanTitle
     : `${cleanTitle} | ${SITE_NAME}`;
 }

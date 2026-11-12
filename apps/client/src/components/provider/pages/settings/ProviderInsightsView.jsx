@@ -24,7 +24,7 @@ const MONTHLY_SPEND = [
 const CATEGORIES = [
   { name: "Design & Creative", tasks: 14, pct: 38, color: "bg-violet-500" },
   { name: "Web Development", tasks: 10, pct: 27, color: "bg-blue-500" },
-  { name: "Content & Writing", tasks: 7, pct: 19, color: "bg-emerald-500" },
+  { name: "Content & Writing", tasks: 7, pct: 19, color: "bg-[#10605F]" },
   { name: "Marketing & SEO", tasks: 4, pct: 11, color: "bg-orange-500" },
   { name: "Video & Animation", tasks: 2, pct: 5, color: "bg-pink-500" },
 ];
@@ -36,15 +36,15 @@ const TOP_PERFORMERS = [
 ];
 
 const RECENT_TASKS = [
-  { title: "Brand Logo Redesign", status: "Completed", statusClass: "bg-emerald-50 text-emerald-700", time: "3d turnaround", price: "₹8,500", rating: 5 },
-  { title: "Landing Page Build", status: "Completed", statusClass: "bg-emerald-50 text-emerald-700", time: "7d turnaround", price: "₹14,000", rating: 5 },
-  { title: "SEO Audit Report", status: "Completed", statusClass: "bg-emerald-50 text-emerald-700", time: "5d turnaround", price: "₹6,200", rating: 4 },
+  { title: "Brand Logo Redesign", status: "Completed", statusClass: "bg-[#EFFBFB] text-[#10605F]", time: "3d turnaround", price: "₹8,500", rating: 5 },
+  { title: "Landing Page Build", status: "Completed", statusClass: "bg-[#EFFBFB] text-[#10605F]", time: "7d turnaround", price: "₹14,000", rating: 5 },
+  { title: "SEO Audit Report", status: "Completed", statusClass: "bg-[#EFFBFB] text-[#10605F]", time: "5d turnaround", price: "₹6,200", rating: 4 },
   { title: "Social Media Graphics", status: "Active", statusClass: "bg-blue-50 text-blue-700", time: "2d turnaround", price: "₹4,800", rating: null },
-  { title: "Email Campaign Copy", status: "Completed", statusClass: "bg-emerald-50 text-emerald-700", time: "4d turnaround", price: "₹3,900", rating: 4 },
+  { title: "Email Campaign Copy", status: "Completed", statusClass: "bg-[#EFFBFB] text-[#10605F]", time: "4d turnaround", price: "₹3,900", rating: 4 },
 ];
 
 const JOB_TASKS = [
-  { title: "Senior React Developer", price: "₹42K", status: "Hired", statusClass: "bg-emerald-50 text-emerald-700" },
+  { title: "Senior React Developer", price: "₹42K", status: "Hired", statusClass: "bg-[#EFFBFB] text-[#10605F]" },
   { title: "UI/UX Designer", price: "₹68K", status: "Active", statusClass: "bg-orange-50 text-orange-700" },
   { title: "Node.js Backend Eng.", price: "₹21K", status: "Closed", statusClass: "bg-red-50 text-red-700" },
   { title: "Product Manager", price: "₹35K", status: "Draft", statusClass: "bg-gray-100 text-gray-600" },
@@ -101,7 +101,7 @@ const ProviderInsightsView = () => {
           <section>
             <h3 className="mb-3 text-xs font-extrabold uppercase tracking-wider text-gray-400">Overview</h3>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              <StatCard icon={Briefcase} sub="Since Jan 2026" value={loading ? "…" : "37"} label="Tasks Posted" iconBg="bg-emerald-50" iconColor="text-emerald-600" />
+              <StatCard icon={Briefcase} sub="Since Jan 2026" value={loading ? "…" : "37"} label="Tasks Posted" iconBg="bg-[#EFFBFB]" iconColor="text-[#10605F]" />
               <StatCard icon={CheckCircle2} sub="34 of 37 closed" value="92%" label="Completion Rate" iconBg="bg-sky-50" iconColor="text-sky-600" />
               <StatCard icon={Clock} sub="total applicants" value="284" label="Avg Turnaround" iconBg="bg-violet-50" iconColor="text-violet-600" />
               <StatCard icon={Users} sub="Unique so far" value="95.8%" label="Performers Hired" iconBg="bg-amber-50" iconColor="text-amber-600" />
@@ -115,14 +115,14 @@ const ProviderInsightsView = () => {
                 <p className="mt-1 text-3xl font-extrabold text-gray-900">₹1,12,700</p>
                 <p className="mt-1 text-xs font-medium text-gray-400">Across 37 tasks this year</p>
               </div>
-              <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-600">+22%</span>
+              <span className="rounded-full bg-[#EFFBFB] px-3 py-1 text-xs font-bold text-[#10605F]">+22%</span>
             </div>
           </div>
 
           <section>
             <div className="mb-3 flex items-center justify-between">
               <h3 className="text-xs font-extrabold uppercase tracking-wider text-gray-400">Monthly Spend</h3>
-              <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-[10px] font-bold text-emerald-600">+22% ↑</span>
+              <span className="rounded-full bg-[#EFFBFB] px-2.5 py-1 text-[10px] font-bold text-[#10605F]">+22% ↑</span>
             </div>
             <p className="mb-4 text-xs font-medium text-gray-400">Jan – Jun 2026</p>
             <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
@@ -230,7 +230,7 @@ const ProviderInsightsView = () => {
       ) : (
         <>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            <StatCard icon={Briefcase} sub="12 jobs posted" value="₹38.4L" label="Total CTC Offered" iconBg="bg-emerald-50" iconColor="text-emerald-600" />
+            <StatCard icon={Briefcase} sub="12 jobs posted" value="₹38.4L" label="Total CTC Offered" iconBg="bg-[#EFFBFB]" iconColor="text-[#10605F]" />
             <StatCard icon={IndianRupee} sub="per role" value="₹3.2L" label="Avg. Salary Offered" iconBg="bg-sky-50" iconColor="text-sky-600" />
             <StatCard icon={Clock} sub="total applicants" value="284" label="Applications Received" iconBg="bg-violet-50" iconColor="text-violet-600" />
             <StatCard icon={BarChart3} sub="+5.3% this month" value="95.8%" label="Interview Rate" iconBg="bg-amber-50" iconColor="text-amber-600" />
@@ -269,7 +269,7 @@ const ProviderInsightsView = () => {
 
           <div className="grid grid-cols-3 gap-3">
             <div className="rounded-2xl border border-gray-100 bg-white p-4 text-center shadow-sm">
-              <p className="text-2xl font-extrabold text-emerald-600">{activeCount}</p>
+              <p className="text-2xl font-extrabold text-[#10605F]">{activeCount}</p>
               <p className="text-xs font-semibold text-gray-500">Active</p>
             </div>
             <div className="rounded-2xl border border-gray-100 bg-white p-4 text-center shadow-sm">

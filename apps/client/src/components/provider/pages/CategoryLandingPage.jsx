@@ -14,12 +14,12 @@ const CategoryLandingPage = () => {
         <div className="min-h-screen bg-white text-zinc-900 font-sans">
             <div className="max-w-5xl mx-auto px-6 py-12">
                 <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-3">
-                    {categoryName} on OnIT
+                    {categoryName} on FirstDoer
                 </h1>
                 <p className="text-zinc-600 text-base md:text-lg leading-relaxed mb-6">
                     Find experienced task performers for {categoryName.toLowerCase()}.
                     Post your requirements, receive offers and collaborate securely on
-                    OnIT.
+                    FirstDoer.
                 </p>
 
                 <h2 className="text-xl font-bold mt-6 mb-2">Examples of {categoryName.toLowerCase()}</h2>

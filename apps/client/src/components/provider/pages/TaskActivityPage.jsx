@@ -41,7 +41,7 @@ const invitationStatus = (value) => {
     label: "Accepted",
     line: "Invitation accepted. This performer is ready for the next step.",
     icon: CheckCircle2,
-    className: "border-emerald-200 bg-emerald-50 text-emerald-700",
+    className: "border-[#29ADAC]/30 bg-[#EFFBFB] text-[#10605F]",
   };
   if (status.includes("DECLIN") || status.includes("REJECT")) return {
     label: "Declined",
@@ -80,11 +80,11 @@ const ActivityRow = ({ icon: Icon, title, description, tone = "emerald" }) => {
   const ActivityIcon = Icon;
   const tones = {
     blue: "bg-blue-50 text-blue-600",
-    emerald: "bg-emerald-50 text-emerald-600",
+    emerald: "bg-[#EFFBFB] text-[#10605F]",
     violet: "bg-violet-50 text-violet-600",
   };
   return (
-    <div className="flex min-h-[92px] items-center gap-4 rounded-2xl bg-emerald-50/40 px-4 py-4 sm:px-5">
+    <div className="flex min-h-[92px] items-center gap-4 rounded-2xl bg-[#EFFBFB]/40 px-4 py-4 sm:px-5">
       <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full ${tones[tone]}`}>
         <ActivityIcon className="h-5 w-5" strokeWidth={2.2} />
       </div>
@@ -135,13 +135,13 @@ const SuggestedCard = ({ suggested, savedIds, setSavedIds, onInvite, onView, sen
             <span className="inline-flex items-center gap-1 text-xs font-bold text-amber-600">
               <Star className="h-3.5 w-3.5 fill-current" strokeWidth={0} />{Number(suggested.ratingAvg || 0).toFixed(1)}
             </span>
-            {suggested.kycStatus === "VERIFIED" ? <ShieldCheck className="h-4 w-4 text-emerald-600" /> : null}
+            {suggested.kycStatus === "VERIFIED" ? <ShieldCheck className="h-4 w-4 text-[#10605F]" /> : null}
           </div>
           <p className="mt-0.5 text-sm font-semibold text-[var(--color-text-muted)]">{suggested.profession}</p>
           <p className="mt-0.5 text-xs text-[var(--color-text-subtle)]">{suggested.completedTasksCount || 0} completed tasks</p>
         </div>
       </div>
-      <button type="button" aria-label={`Save ${suggested.displayName}`} onClick={() => setSavedIds(toggleSavedPerformer(suggested.id))} className="rounded-lg p-2 text-[var(--color-text-subtle)] transition hover:bg-emerald-50 hover:text-emerald-600">
+      <button type="button" aria-label={`Save ${suggested.displayName}`} onClick={() => setSavedIds(toggleSavedPerformer(suggested.id))} className="rounded-lg p-2 text-[var(--color-text-subtle)] transition hover:bg-[#EFFBFB] hover:text-[#083B3A]">
         <Bookmark className="h-4 w-4" fill={savedIds.includes(suggested.id) ? "currentColor" : "none"} />
       </button>
     </div>
@@ -270,12 +270,12 @@ const TaskActivityPage = () => {
       headerRight={<button type="button" onClick={loadPage} disabled={loading} className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-white px-4 py-2.5 text-sm font-bold text-[var(--color-text-muted)] shadow-sm transition hover:bg-gray-50 disabled:opacity-60"><RefreshCw className={`h-4 w-4 ${loading ? "animate-spin" : ""}`} />Refresh</button>}
     >
       <div className="space-y-8">
-        <section className="overflow-hidden rounded-3xl border border-emerald-100 bg-white shadow-[var(--shadow-sm)]">
+        <section className="overflow-hidden rounded-3xl border border-[#29ADAC]/20 bg-white shadow-[var(--shadow-sm)]">
           <div className="border-l-4 border-[var(--color-primary)] p-6 sm:p-8">
             <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
               <div className="min-w-0">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[11px] font-black uppercase tracking-wider text-emerald-700">{String(task.status || task.rawStatus || "Published").replaceAll("_", " ")}</span>
+                  <span className="rounded-full border border-[#29ADAC]/30 bg-[#EFFBFB] px-3 py-1 text-[11px] font-black uppercase tracking-wider text-[#10605F]">{String(task.status || task.rawStatus || "Published").replaceAll("_", " ")}</span>
                   <span className="text-sm font-semibold text-[var(--color-text-muted)]">{task.category || "General"}</span>
                 </div>
                 <h2 className="mt-4 max-w-3xl text-2xl font-black leading-tight text-[var(--color-text)] sm:text-3xl">{title}</h2>
@@ -285,8 +285,8 @@ const TaskActivityPage = () => {
                   <span className="inline-flex items-center gap-2"><Send className="h-4 w-4" />{inviteCount} invitation{inviteCount === 1 ? "" : "s"}</span>
                 </div>
               </div>
-              <div className="flex min-w-[210px] flex-col gap-3 rounded-2xl bg-emerald-50/70 p-4">
-                <span className="text-xs font-bold uppercase tracking-wider text-emerald-700">Task budget</span>
+              <div className="flex min-w-[210px] flex-col gap-3 rounded-2xl bg-[#EFFBFB]/70 p-4">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#10605F]">Task budget</span>
                 <strong className="text-2xl font-black text-[var(--color-text)]">{formatMoney(task.priceAmount)}</strong>
                 <button type="button" onClick={() => navigate(`/provider/task-details?taskId=${taskId}`)} className="inline-flex items-center justify-center gap-2 rounded-full border border-[var(--color-border)] bg-white px-4 py-2.5 text-sm font-bold text-[var(--color-text)] transition hover:bg-[var(--color-surface-elevated)]"><Bookmark className="h-4 w-4" />View Task Details</button>
                 {interestCount > 0 ? <button type="button" onClick={() => navigate(`/provider/task-applicants?taskId=${taskId}`, { state: { prefetchedInterests: interests, prefetchedTask: task } })} className="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--color-primary)] px-4 py-2.5 text-sm font-bold text-white transition hover:bg-[var(--color-primary-hover)]">Review Applications <ArrowRight className="h-4 w-4" /></button> : null}
@@ -299,7 +299,7 @@ const TaskActivityPage = () => {
           <div className="mb-4"><h3 className="text-xl font-black text-[var(--color-text)]">Activity</h3><p className="mt-1 text-sm font-medium text-[var(--color-text-muted)]">A quick view of how this task is performing.</p></div>
           {loading ? (
             <div className="grid gap-3 md:grid-cols-3">
-              {[1, 2, 3].map((i) => <div key={i} className="h-[92px] rounded-2xl bg-emerald-50/40 animate-pulse" />)}
+              {[1, 2, 3].map((i) => <div key={i} className="h-[92px] rounded-2xl bg-[#EFFBFB]/40 animate-pulse" />)}
             </div>
           ) : (
             <div className="grid gap-3 md:grid-cols-3">
@@ -323,7 +323,7 @@ const TaskActivityPage = () => {
 
         <section>
           <div className="mb-4"><h3 className="text-xl font-black text-[var(--color-text)]">Suggested performers</h3><p className="mt-1 text-sm font-medium text-[var(--color-text-muted)]">Recommended for {task.category || "this task"} based on skills and experience.</p></div>
-          {feedback ? <div className="mb-4 rounded-2xl border border-emerald-200 bg-emerald-50 px-5 py-3 text-sm font-bold text-emerald-800">{feedback}</div> : null}
+          {feedback ? <div className="mb-4 rounded-2xl border border-[#29ADAC]/30 bg-[#EFFBFB] px-5 py-3 text-sm font-bold text-[#083B3A]">{feedback}</div> : null}
           {availableSuggestions.length > 0 ? <div className="grid gap-4 lg:grid-cols-2">{availableSuggestions.map((performer) => <SuggestedCard key={performer.id} suggested={performer} savedIds={savedIds} setSavedIds={setSavedIds} onInvite={handleInvite} onView={viewProfile} sending={sendingId === performer.id} />)}</div>
             : <div className="rounded-2xl border border-dashed border-[var(--color-border)] bg-white px-5 py-10 text-center text-sm font-semibold text-[var(--color-text-muted)]">{suggested.length > 0 ? "All current recommendations have been invited." : "No recommendations are available right now."}</div>}
         </section>

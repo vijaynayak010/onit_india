@@ -9,7 +9,7 @@ import { getWalletBalance, getTransactions, getPayoutMethods } from "../../servi
 
 const StatCard = ({ label, amount, tone }) => {
   const tones = {
-    available: "bg-emerald-50 text-emerald-700",
+    available: "bg-[#EFFBFB] text-[#10605F]",
     pending: "bg-orange-50 text-orange-700",
     lifetime: "bg-sky-50 text-sky-700",
   };
@@ -84,7 +84,7 @@ const PerformerWalletEarningsView = ({ paths = DEFAULT_PATHS, title = "Wallet" }
       />
 
       {loading ? (
-        <div className="flex flex-col items-center justify-center py-20 text-emerald-600">
+        <div className="flex flex-col items-center justify-center py-20 text-[#10605F]">
           <Loader2 className="h-8 w-8 animate-spin" />
           <p className="mt-3 text-sm font-semibold text-gray-400">Loading wallet…</p>
         </div>
@@ -103,7 +103,7 @@ const PerformerWalletEarningsView = ({ paths = DEFAULT_PATHS, title = "Wallet" }
               <button
                 type="button"
                 onClick={() => navigate(paths.withdraw)}
-                className="shrink-0 rounded-full bg-[#00A36C] px-5 py-2.5 text-[13px] font-bold text-white shadow-md transition hover:bg-[#00925f]"
+                className="shrink-0 rounded-full bg-[#10605F] px-5 py-2.5 text-[13px] font-bold text-white shadow-md transition hover:bg-[#00925f]"
               >
                 Withdraw Funds
               </button>
@@ -122,7 +122,7 @@ const PerformerWalletEarningsView = ({ paths = DEFAULT_PATHS, title = "Wallet" }
               <button
                 type="button"
                 onClick={() => navigate(paths.banks)}
-                className="text-[13px] font-bold text-emerald-600 hover:text-emerald-700"
+                className="text-[13px] font-bold text-[#10605F] hover:text-[#083B3A]"
               >
                 Change
               </button>
@@ -136,7 +136,7 @@ const PerformerWalletEarningsView = ({ paths = DEFAULT_PATHS, title = "Wallet" }
               <button
                 type="button"
                 onClick={() => navigate(paths.transactions)}
-                className="inline-flex items-center gap-0.5 text-[13px] font-bold text-emerald-600 hover:text-emerald-700"
+                className="inline-flex items-center gap-0.5 text-[13px] font-bold text-[#10605F] hover:text-[#083B3A]"
               >
                 View all
                 <ChevronRight size={16} strokeWidth={2.5} />

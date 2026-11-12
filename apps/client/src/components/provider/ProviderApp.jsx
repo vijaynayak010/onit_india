@@ -79,14 +79,14 @@ const ProviderApp = () => {
             // 0. SECONDARY GUARD: If user is explicitly a TASKER, don't let them in here
             const currentRole = String(user.role).toUpperCase();
             if (currentRole === 'TASKER' || currentRole === 'PERFORMER') {
-                console.warn("[ONIT] Redirecting Performer away from Provider module.");
+                console.warn("[FirstDoer] Redirecting Performer away from Provider module.");
                 navigate('/performer/dashboard', { replace: true });
                 return;
             }
 
             try {
                 // 1. Sync full profile from backend
-                console.log("[ONIT] Syncing full provider profile from backend...");
+                console.log("[FirstDoer] Syncing full provider profile from backend...");
                 const fullProfile = await refreshProfile();
 
                 // 2. Extra check: if backend says they are a Tasker, redirect now
@@ -104,7 +104,7 @@ const ProviderApp = () => {
 
                 // 4. Ensure the Provider Profile record exists in the database
                 if (!fullProfile.provider) {
-                    console.log("[ONIT] ⚠️ Provider record missing. Initializing...");
+                    console.log("[FirstDoer] ⚠️ Provider record missing. Initializing...");
                     if (backendRole === 'PROVIDER' || backendRole === 'ADMIN' || backendRole === 'SUPER_ADMIN') {
                         await onboardUser('PROVIDER');
                         await createProviderProfile({});
@@ -115,7 +115,7 @@ const ProviderApp = () => {
                     }
                 }
             } catch (err) {
-                console.error("[ONIT]  Failed to verify user role:", err);
+                console.error("[FirstDoer]  Failed to verify user role:", err);
             }
         };
 

@@ -43,25 +43,29 @@ function Footer({ onShowPrivacyPolicy }) {
   };
 
   return (
-    <footer className="w-full bg-[#004d43] text-white pt-10 md:pt-20 pb-10 px-6 md:px-20 relative overflow-hidden rounded-t-[3rem]">
+    <footer className="w-full bg-[#0D1210] text-white pt-10 md:pt-20 pb-10 px-6 md:px-20 relative overflow-hidden rounded-t-[3rem] border-t border-[#10605F]/30">
       {/* Subtle overlay for depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/40 pointer-events-none"></div>
 
       <div className="flex flex-col lg:flex-row justify-between items-start gap-8 md:gap-12 relative z-10">
         {/* Left Section: Brand & Newsletter */}
         <div className="w-full lg:w-5/12 space-y-8">
           {/* Brand Tagline */}
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4 leading-tight">
-              Post work. Get it executed.
+            <div className="flex items-center gap-2 mb-4">
+              <svg width="28" height="20" viewBox="0 0 30 22" fill="none" aria-hidden="true">
+                <path d="M11 2.5c-4.7 0-8.5 3.8-8.5 8.5s3.8 8.5 8.5 8.5c3.4 0 5.6-2.4 8-8.5 2.4-6.1 4.6-8.5 8-8.5" stroke="#29ADAC" strokeWidth="3" strokeLinecap="round" />
+                <path d="M19 19.5c4.7 0 8.5-3.8 8.5-8.5S23.7 2.5 19 2.5c-3.4 0-5.6 2.4-8 8.5" stroke="#4CCDCC" strokeWidth="3" strokeLinecap="round" />
+              </svg>
+              <span className="text-2xl font-bold tracking-tight text-white">firstDoer</span>
+            </div>
+            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight mb-3 text-white">
+              Post your task. Get it done.
             </h2>
-            <p className="text-zinc-300 text-base leading-relaxed max-w-md">
-              <span className="text-black font-bold">On</span><span className="text-green-500 font-bold">IT</span> India connects people who need work done with performers ready to execute tasks quickly. Building execution infrastructure for the modern work economy.
+            <p className="text-zinc-300 text-sm leading-relaxed max-w-md">
+              firstDoer connects businesses with verified performers ready to execute marketing, design, and development tasks quickly. Pay only when it’s done.
             </p>
           </div>
-
-          
-
         </div>
 
         {/* Right Section: Link columns — structured for clarity */}
@@ -69,10 +73,10 @@ function Footer({ onShowPrivacyPolicy }) {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8">
             {/* 1. Platform */}
             <div className="min-w-0">
-              <h3 className="text-xs font-semibold text-green-300 mb-3 uppercase tracking-widest">Platform</h3>
+              <h3 className="text-xs font-semibold text-[#7EDEDD] mb-3 uppercase tracking-widest">Platform</h3>
               <ul className="space-y-2">
                 <li><Link to="/how-it-works" className="text-zinc-300 hover:text-white transition-colors text-sm">How it Works</Link></li>
-                <li><Link to="/what-is-onit-india" className="text-zinc-300 hover:text-white transition-colors text-sm">What is OnIT INDIA</Link></li>
+                <li><Link to="/what-is-onit-india" className="text-zinc-300 hover:text-white transition-colors text-sm">What is FirstDoer</Link></li>
                 <li><Link to="/execution-infrastructure" className="text-zinc-300 hover:text-white transition-colors text-sm">Execution Infrastructure</Link></li>
                 <li><Link to="/services" className="text-zinc-300 hover:text-white transition-colors text-sm">Services</Link></li>
                 <li><Link to="/tasks" className="text-zinc-300 hover:text-white transition-colors text-sm">Task categories</Link></li>
@@ -85,7 +89,7 @@ function Footer({ onShowPrivacyPolicy }) {
             </div>
             {/* 2. Get Started */}
             <div className="min-w-0">
-              <h3 className="text-xs font-semibold text-green-300 mb-3 uppercase tracking-widest">Get Started</h3>
+              <h3 className="text-xs font-semibold text-[#7EDEDD] mb-3 uppercase tracking-widest">Get Started</h3>
               <ul className="space-y-2">
                 <li><Link to="/for-providers" className="text-zinc-300 hover:text-white transition-colors text-sm">For task providers</Link></li>
                 <li><Link to="/for-performers" className="text-zinc-300 hover:text-white transition-colors text-sm">For task performers</Link></li>
@@ -95,7 +99,7 @@ function Footer({ onShowPrivacyPolicy }) {
             </div>
             {/* 3. Company */}
             <div className="min-w-0">
-              <h3 className="text-xs font-semibold text-green-300 mb-3 uppercase tracking-widest">Company</h3>
+              <h3 className="text-xs font-semibold text-[#7EDEDD] mb-3 uppercase tracking-widest">Company</h3>
               <ul className="space-y-2">
                 <li><Link to="/about" className="text-zinc-300 hover:text-white transition-colors text-sm">About</Link></li>
                 <li><Link to="/blog" className="text-zinc-300 hover:text-white transition-colors text-sm">Blog</Link></li>
@@ -104,7 +108,7 @@ function Footer({ onShowPrivacyPolicy }) {
             </div>
             {/* 4. Legal & Policies */}
             <div className="min-w-0">
-              <h3 className="text-xs font-semibold text-green-300 mb-3 uppercase tracking-widest">Legal & Policies</h3>
+              <h3 className="text-xs font-semibold text-[#7EDEDD] mb-3 uppercase tracking-widest">Legal & Policies</h3>
               <ul className="space-y-2">
                 <li><Link to="/terms-and-conditions" className="text-zinc-300 hover:text-white transition-colors text-sm">Terms & Conditions</Link></li>
                 <li><Link to="/privacy-policy" className="text-zinc-300 hover:text-white transition-colors text-sm">Privacy Policy</Link></li>
@@ -121,7 +125,7 @@ function Footer({ onShowPrivacyPolicy }) {
             </div>
             {/* 5. Support */}
             <div className="min-w-0">
-              <h3 className="text-xs font-semibold text-green-300 mb-3 uppercase tracking-widest">Support</h3>
+              <h3 className="text-xs font-semibold text-[#7EDEDD] mb-3 uppercase tracking-widest">Support</h3>
               <ul className="space-y-2">
                 <li><Link to="/help" className="text-zinc-300 hover:text-white transition-colors text-sm">Help & Guides</Link></li>
                 <li><Link to="/faqs" className="text-zinc-300 hover:text-white transition-colors text-sm">FAQs</Link></li>
@@ -140,7 +144,7 @@ function Footer({ onShowPrivacyPolicy }) {
             <p className="text-zinc-400 text-xs mb-4">Reach us or follow for updates.</p>
             <div className="flex flex-wrap gap-2">
               <a
-                href="mailto:support@onitindia.com"
+                href="mailto:support@firstdoer.com"
                 className="inline-flex items-center gap-2 rounded-lg bg-white/10 border border-white/20 px-4 py-2.5 text-sm text-white hover:bg-white/20 transition-all min-w-[120px] justify-center"
               >
                 <FaEnvelope className="text-lg shrink-0" />
@@ -236,10 +240,7 @@ function Footer({ onShowPrivacyPolicy }) {
       {/* Footer bottom */}
       <div className="border-t border-white/10 mt-12 pt-8 relative z-10">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-zinc-400">
-          <p className="order-2 sm:order-1">© 2026 OnIT INDIA. All rights reserved.</p>
-          {/* <span className="text-[2.5rem] sm:text-[4rem] font-black text-white/5 tracking-tighter select-none pointer-events-none leading-none order-1 sm:order-2" aria-hidden="true">
-            
-          </span> */}
+          <p className="order-2 sm:order-1">© {new Date().getFullYear()} firstDoer. All rights reserved.</p>
         </div>
       </div>
     </footer>

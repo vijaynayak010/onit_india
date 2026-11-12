@@ -19,7 +19,7 @@ function DetailRow({ label, value, highlight }) {
   return (
     <div className="flex items-center justify-between gap-4 border-b border-gray-100 py-3 last:border-0">
       <span className="text-[13px] font-medium text-gray-500">{label}</span>
-      <span className={`text-[14px] ${highlight ? "font-bold text-emerald-600" : "font-semibold text-gray-900"}`}>
+      <span className={`text-[14px] ${highlight ? "font-bold text-[#10605F]" : "font-semibold text-gray-900"}`}>
         {value}
       </span>
     </div>
@@ -102,7 +102,7 @@ const PerformerWalletWithdrawView = ({ paths = DEFAULT_PATHS }) => {
   if (step === "success") {
     return (
       <div className="py-4 text-center">
-        <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
+        <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-[#DFF7F6] text-[#10605F]">
           <CheckCircle2 size={40} strokeWidth={2} />
         </div>
         <h1 className="text-[22px] font-bold text-gray-900">Withdrawal initiated</h1>
@@ -126,7 +126,7 @@ const PerformerWalletWithdrawView = ({ paths = DEFAULT_PATHS }) => {
         <button
           type="button"
           onClick={() => navigate(paths.transactions)}
-          className="mt-8 w-full rounded-2xl bg-[#00A36C] py-4 text-[15px] font-bold text-white shadow-md hover:bg-[#00925f]"
+          className="mt-8 w-full rounded-2xl bg-[#10605F] py-4 text-[15px] font-bold text-white shadow-md hover:bg-[#00925f]"
         >
           View transaction history
         </button>
@@ -151,20 +151,20 @@ const PerformerWalletWithdrawView = ({ paths = DEFAULT_PATHS }) => {
         actions={
           <div className="text-right">
             <span className="text-xs font-medium text-gray-500">Available to withdraw</span>
-            <div className="text-lg font-black text-emerald-600">₹{formatINR(balance)}</div>
+            <div className="text-lg font-black text-[#10605F]">₹{formatINR(balance)}</div>
           </div>
         }
       />
 
       {loading ? (
-        <div className="flex flex-col items-center py-20 text-emerald-600">
+        <div className="flex flex-col items-center py-20 text-[#10605F]">
           <Loader2 className="h-8 w-8 animate-spin" />
         </div>
       ) : (
         <>
           <section className="mb-6">
             <p className="mb-3 text-[11px] font-bold uppercase tracking-widest text-gray-400">Enter amount</p>
-            <div className="border-b-2 border-emerald-500 pb-2">
+            <div className="border-b-2 border-[#10605F] pb-2">
               <input
                 type="text"
                 inputMode="numeric"
@@ -181,8 +181,8 @@ const PerformerWalletWithdrawView = ({ paths = DEFAULT_PATHS }) => {
                   onClick={() => handleQuickSelect(val)}
                   className={`rounded-full border px-4 py-2 text-[13px] font-bold transition ${
                     numericAmount === val
-                      ? "border-emerald-500 bg-emerald-50 text-emerald-700"
-                      : "border-gray-200 bg-white text-gray-700 hover:border-emerald-300"
+                      ? "border-[#10605F] bg-[#EFFBFB] text-[#10605F]"
+                      : "border-gray-200 bg-white text-gray-700 hover:border-[#29ADAC]/40"
                   }`}
                 >
                   ₹{formatINR(val)}
@@ -193,8 +193,8 @@ const PerformerWalletWithdrawView = ({ paths = DEFAULT_PATHS }) => {
                 onClick={() => handleQuickSelect("all")}
                 className={`rounded-full border px-4 py-2 text-[13px] font-bold transition ${
                   numericAmount === balance
-                    ? "border-emerald-500 bg-emerald-50 text-emerald-700"
-                    : "border-gray-200 bg-white text-gray-700 hover:border-emerald-300"
+                    ? "border-[#10605F] bg-[#EFFBFB] text-[#10605F]"
+                    : "border-gray-200 bg-white text-gray-700 hover:border-[#29ADAC]/40"
                 }`}
               >
                 All (₹{formatINR(balance)})
@@ -208,7 +208,7 @@ const PerformerWalletWithdrawView = ({ paths = DEFAULT_PATHS }) => {
               <button
                 type="button"
                 onClick={() => navigate(paths.banks)}
-                className="text-[13px] font-bold text-emerald-600"
+                className="text-[13px] font-bold text-[#10605F]"
               >
                 Change
               </button>
@@ -231,7 +231,7 @@ const PerformerWalletWithdrawView = ({ paths = DEFAULT_PATHS }) => {
             disabled={!isValidAmount}
             className={`w-full max-w-md rounded-2xl py-4 text-[15px] font-bold transition ${
               isValidAmount
-                ? "bg-[#00A36C] text-white shadow-md hover:bg-[#00925f]"
+                ? "bg-[#10605F] text-white shadow-md hover:bg-[#00925f]"
                 : "bg-gray-200 text-gray-500"
             }`}
           >

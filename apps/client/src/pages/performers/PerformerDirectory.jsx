@@ -230,7 +230,7 @@ const PerformerDirectory = () => {
 
   const pageTitle = "Explore Performers by Domain & Region";
   const pageDescription =
-    "Browse OnIT INDIA performers by domain and metro city. Discover taskers for research, content, data, academic work, and on-ground assistance across major Indian cities.";
+    "Browse FirstDoer performers by domain and metro city. Discover taskers for research, content, data, academic work, and on-ground assistance across major Indian cities.";
 
   const handleSearchClick = () => {
     // Filters are live; this button gives a clear explicit search action.
@@ -249,14 +249,14 @@ const PerformerDirectory = () => {
         <SEO
           title={pageTitle}
           description={pageDescription}
-          keywords="OnIT INDIA performers, explore performers, taskers directory, find taskers by city, business operations, content, design, marketing, data, admin, academic support, on-ground assistance, hire tasker India, find performer by location"
-          canonical="https://www.onitindia.com/performers-directory"
+          keywords="FirstDoer performers, explore performers, taskers directory, find taskers by city, business operations, content, design, marketing, data, admin, academic support, on-ground assistance, hire tasker India, find performer by location"
+          canonical="https://www.firstdoer.com/performers-directory"
           webPageSchema={{
             "@context": "https://schema.org",
             "@type": "WebPage",
             name: pageTitle,
             description: pageDescription,
-            url: "https://www.onitindia.com/performers-directory",
+            url: "https://www.firstdoer.com/performers-directory",
           }}
         />
 
@@ -286,7 +286,7 @@ const PerformerDirectory = () => {
                 Explore performers by domain & region
               </h1>
               <p className="text-sm sm:text-base text-slate-600 max-w-2xl">
-                Filter the OnIT INDIA performer network by metro city and domain to understand what kind of execution capacity
+                Filter the FirstDoer performer network by metro city and domain to understand what kind of execution capacity
                 is available in your region.
               </p>
 
@@ -458,7 +458,7 @@ const PerformerDirectory = () => {
                         <div className="min-w-[220px] rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
                           <div className="flex items-center justify-between gap-2 mb-2">
                             <span className="inline-flex items-center rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-emerald-700">
-                              OnIT INDIA
+                              FirstDoer
                             </span>
                             <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-amber-600">
                               <Star size={11} />

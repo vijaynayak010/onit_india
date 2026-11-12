@@ -6,18 +6,18 @@ const testimonials = [
   {
     id: "customer-posting",
     quote:
-      "Posting a task felt as simple as describing it out loud. OnIT structured everything and matched us with the right performer within the day.",
-    author: "OnIT India Customer",
+      "Posting a task felt as simple as describing it out loud. FirstDoer structured everything and matched us with the right performer within the day.",
+    author: "FirstDoer Customer",
   },
   {
     id: "performer-pricing",
     quote: "The task breakdown saved us hours of back-and-forth on scope and pricing.",
-    author: "OnIT India Performer",
+    author: "FirstDoer Performer",
   },
   {
     id: "customer-execution",
     quote: "Finding execution support for smaller jobs used to be the hardest part - not anymore.",
-    author: "OnIT India Customer",
+    author: "FirstDoer Customer",
   },
 ];
 

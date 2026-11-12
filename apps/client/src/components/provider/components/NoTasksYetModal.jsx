@@ -76,7 +76,7 @@ const NoTasksYetModal = ({ open, onClose, performer, onPostTask }) => {
             <button
               type="button"
               onClick={handlePostTask}
-              className="mt-6 w-full rounded-full bg-[var(--color-primary)] py-3.5 text-[15px] font-bold text-white shadow-[0_4px_16px_-4px_rgba(0,153,102,0.45)] transition hover:bg-[var(--color-primary-hover)] active:scale-[0.98]"
+              className="mt-6 w-full rounded-full bg-[var(--color-primary)] py-3.5 text-[15px] font-bold text-white shadow-[0_4px_16px_-4px_rgba(16,96,95,0.45)] transition hover:bg-[var(--color-primary-hover)] active:scale-[0.98]"
             >
               Post a Task
             </button>

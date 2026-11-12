@@ -469,7 +469,7 @@ const DashboardPage = () => {
                     key={i}
                     className="group min-w-[192px] shrink-0 overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-xs)] transition hover:-translate-y-0.5 hover:border-[var(--color-primary)]/25 hover:shadow-[var(--shadow-md)]"
                   >
-                    <div className="relative h-[108px] w-full overflow-hidden bg-gradient-to-br from-slate-100 via-slate-50 to-emerald-50/50">
+                    <div className="relative h-[108px] w-full overflow-hidden bg-gradient-to-br from-slate-100 via-slate-50 to-[#EFFBFB]/50">
                       <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-t from-black/20 to-transparent opacity-0 transition group-hover:opacity-100">
                         <div className="flex h-11 w-11 scale-90 items-center justify-center rounded-full bg-white text-[var(--color-text)] opacity-0 shadow-lg transition group-hover:scale-100 group-hover:opacity-100">
                           <Play className="ml-0.5 h-5 w-5 fill-current" />
@@ -517,10 +517,10 @@ const DOMAIN_CATEGORIES = [
     id: "marketing",
     title: "Marketing & Growth",
     description: "Social media management, ads, SEO campaigns, and performance marketing.",
-    gradient: "from-emerald-500 to-teal-600",
-    lightBg: "bg-emerald-50/70",
-    border: "border-emerald-100/50 hover:border-emerald-500/30",
-    badgeColor: "bg-emerald-500/10 text-emerald-600",
+    gradient: "from-[#10605F] to-teal-600",
+    lightBg: "bg-[#EFFBFB]/70",
+    border: "border-[#29ADAC]/20/50 hover:border-[#10605F]/30",
+    badgeColor: "bg-[#10605F]/10 text-[#10605F]",
     icon: Globe,
     templateFilters: ["Marketing & Ads", "Social Media Management"],
     taskFilters: ["marketing", "ads", "social", "instagram", "facebook", "seo", "growth"],

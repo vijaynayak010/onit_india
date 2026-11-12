@@ -8,7 +8,7 @@ const FeatureCard = ({ icon: Icon, title, copy, tone }) => {
   const tones = {
     blue: "bg-blue-50 text-blue-600 border-blue-100",
     violet: "bg-fuchsia-50 text-fuchsia-600 border-fuchsia-100",
-    green: "bg-emerald-50 text-emerald-600 border-emerald-100",
+    green: "bg-[#EFFBFB] text-[#10605F] border-[#29ADAC]/20",
   };
 
   return (
@@ -71,12 +71,12 @@ const PerformerSwitchToProviderPage = () => {
 
               <div className="mx-auto mt-8 max-w-xl rounded-2xl border border-gray-100 bg-white p-5 text-left shadow-sm">
                 <div className="flex gap-4">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#EFFBFB] text-[#10605F]">
                     <BriefcaseBusiness size={20} strokeWidth={2.4} />
                   </div>
                   <div>
                     <h2 className="text-sm font-black text-gray-900">Provider App Available</h2>
-                    <p className="mt-1 text-sm font-medium leading-relaxed text-emerald-600">
+                    <p className="mt-1 text-sm font-medium leading-relaxed text-[#10605F]">
                       The Provider experience is available on the Provider App. Download it from the Play Store to switch.
                     </p>
                   </div>

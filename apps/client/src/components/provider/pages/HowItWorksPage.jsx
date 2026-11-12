@@ -31,7 +31,7 @@ const HowItWorksPage = () => {
                     How On<span className="text-green-600">IT</span> Works
                 </h1>
                 <p className="text-zinc-600 text-base md:text-lg leading-relaxed mb-8">
-                    OnIT brings together people who need help and trusted task
+                    FirstDoer brings together people who need help and trusted task
                     performers in a single, simple workflow. Here&apos;s exactly what
                     happens from posting a task to getting it done.
                 </p>

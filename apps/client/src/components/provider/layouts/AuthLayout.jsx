@@ -27,7 +27,7 @@ const AuthLayout = ({ children, illustrationSrc }) => {
                     <header className="shrink-0">
                         <p className="inline-flex items-center gap-2 rounded-full border border-[var(--color-primary)]/22 bg-white/95 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-primary)] shadow-[var(--shadow-xs)]">
                             <Sparkles className="h-3 w-3" strokeWidth={2.5} />
-                            OnIT INDIA
+                            FirstDoer
                         </p>
                         <h2 className="mt-4 max-w-[22ch] text-[clamp(1.35rem,2.2vw,1.75rem)] font-extrabold leading-[1.2] tracking-tight text-[var(--color-text)]">
                             India&apos;s task execution workspace
@@ -57,17 +57,17 @@ const AuthLayout = ({ children, illustrationSrc }) => {
                     <div className="mt-8 flex w-full flex-1 flex-col items-center justify-center lg:mt-10">
                         <div className="relative w-full max-w-[360px]">
                             <div
-                                className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-[88%] w-[108%] -translate-x-1/2 -translate-y-1/2 rounded-[2rem] bg-gradient-to-br from-[var(--color-primary)]/18 to-emerald-200/10 opacity-90 blur-2xl"
+                                className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-[88%] w-[108%] -translate-x-1/2 -translate-y-1/2 rounded-[2rem] bg-gradient-to-br from-[var(--color-primary)]/18 to-teal-200/10 opacity-90 blur-2xl"
                                 aria-hidden
                             />
 
-                            <div className="relative z-10 overflow-hidden rounded-2xl border border-white/95 bg-gradient-to-b from-white to-[var(--color-primary-subtle)]/20 p-[3px] shadow-[0_20px_50px_-14px_rgba(5,90,65,0.2)] ring-1 ring-[var(--color-primary)]/10">
+                            <div className="relative z-10 overflow-hidden rounded-2xl border border-white/95 bg-gradient-to-b from-white to-[var(--color-primary-subtle)]/20 p-[3px] shadow-[0_20px_50px_-14px_rgba(16,96,95,0.2)] ring-1 ring-[var(--color-primary)]/10">
                                 <div className="flex items-center gap-1.5 rounded-t-[0.85rem] bg-[var(--color-border-subtle)]/90 px-2.5 py-1.5">
                                     <span className="h-2 w-2 rounded-full bg-red-400/95" />
                                     <span className="h-2 w-2 rounded-full bg-amber-400/95" />
-                                    <span className="h-2 w-2 rounded-full bg-emerald-500/85" />
+                                    <span className="h-2 w-2 rounded-full bg-teal-500/85" />
                                     <span className="ml-1.5 min-w-0 flex-1 truncate rounded bg-white/95 px-2 py-0.5 text-center text-[9px] font-semibold text-[var(--color-text-subtle)]">
-                                        onitindia.com
+                                        firstdoer.com
                                     </span>
                                 </div>
                                 <div className="relative rounded-b-[0.8rem] bg-gradient-to-b from-[var(--color-primary-subtle)]/25 to-white px-3 pb-4 pt-3 sm:px-4 sm:pb-5 sm:pt-4">
@@ -76,8 +76,8 @@ const AuthLayout = ({ children, illustrationSrc }) => {
                                         <div className="flex h-[min(280px,32vh)] w-full items-center justify-center sm:h-[min(300px,34vh)] lg:h-[min(320px,36vh)]">
                                             <img
                                                 src={illustrationSrc}
-                                                alt="Professionals collaborating in a secure OnIT workspace"
-                                                className="max-h-full w-full max-w-[300px] object-contain object-center drop-shadow-[0_8px_32px_rgba(5,100,70,0.1)]"
+                                                alt="Professionals collaborating in a secure FirstDoer workspace"
+                                                className="max-h-full w-full max-w-[300px] object-contain object-center drop-shadow-[0_8px_32px_rgba(16,96,95,0.1)]"
                                             />
                                         </div>
                                     ) : (

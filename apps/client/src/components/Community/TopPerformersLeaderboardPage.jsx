@@ -21,26 +21,26 @@ const LEADERBOARD = [
 const TopPerformersLeaderboardPage = () => (
   <div className="min-h-screen bg-white text-gray-800">
     <SEO
-      title="Top Performers Leaderboard | OnIT INDIA"
-      description="Top task performers on OnIT INDIA by completed tasks and ratings. See who's delivering great work on the platform."
-      keywords="OnIT INDIA leaderboard, top performers, best task performers, task marketplace India ratings"
-      canonical="https://www.onitindia.com/community/top-performers"
+      title="Top Performers Leaderboard | FirstDoer"
+      description="Top task performers on FirstDoer by completed tasks and ratings. See who's delivering great work on the platform."
+      keywords="FirstDoer leaderboard, top performers, best task performers, task marketplace India ratings"
+      canonical="https://www.firstdoer.com/community/top-performers"
     />
     <section className="pt-24 pb-16 px-6 md:px-20">
       <div className="max-w-4xl mx-auto">
         <Link
           to="/community"
-          className="inline-flex items-center gap-2 text-[#004d43] font-medium text-sm mb-8 hover:underline"
+          className="inline-flex items-center gap-2 text-[var(--color-primary)] font-medium text-sm mb-8 hover:underline"
         >
           <ArrowLeft size={16} />
           Back to Community
         </Link>
         <header className="border-b border-gray-200 pb-8 mb-10">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 rounded-xl bg-[#004d43]/10 flex items-center justify-center">
-              <Award size={24} className="text-[#004d43]" />
+            <div className="w-12 h-12 rounded-xl bg-[var(--color-primary)]/10 flex items-center justify-center">
+              <Award size={24} className="text-[var(--color-primary)]" />
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold text-[#004d43]">
+            <h1 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)]">
               Top Performers Leaderboard
             </h1>
           </div>
@@ -49,15 +49,15 @@ const TopPerformersLeaderboardPage = () => (
           </p>
         </header>
 
-        <div className="overflow-x-auto rounded-xl border border-[#004d43]/15">
+        <div className="overflow-x-auto rounded-xl border border-[var(--color-primary)]/15">
           <table className="w-full text-left">
             <thead>
-              <tr className="bg-[#004d43]/5 border-b border-[#004d43]/15">
-                <th className="px-4 py-3 text-sm font-semibold text-[#004d43]">Rank</th>
-                <th className="px-4 py-3 text-sm font-semibold text-[#004d43]">Performer</th>
-                <th className="px-4 py-3 text-sm font-semibold text-[#004d43]">Tasks completed</th>
-                <th className="px-4 py-3 text-sm font-semibold text-[#004d43]">Rating</th>
-                <th className="px-4 py-3 text-sm font-semibold text-[#004d43] hidden sm:table-cell">Category</th>
+              <tr className="bg-[var(--color-primary)]/5 border-b border-[var(--color-primary)]/15">
+                <th className="px-4 py-3 text-sm font-semibold text-[var(--color-primary)]">Rank</th>
+                <th className="px-4 py-3 text-sm font-semibold text-[var(--color-primary)]">Performer</th>
+                <th className="px-4 py-3 text-sm font-semibold text-[var(--color-primary)]">Tasks completed</th>
+                <th className="px-4 py-3 text-sm font-semibold text-[var(--color-primary)]">Rating</th>
+                <th className="px-4 py-3 text-sm font-semibold text-[var(--color-primary)] hidden sm:table-cell">Category</th>
               </tr>
             </thead>
             <tbody>
@@ -68,7 +68,7 @@ const TopPerformersLeaderboardPage = () => (
                 >
                   <td className="px-4 py-3">
                     <span className={`inline-flex w-8 h-8 items-center justify-center rounded-full text-sm font-bold ${
-                      row.rank <= 3 ? "bg-[#004d43] text-white" : "bg-gray-100 text-gray-700"
+                      row.rank <= 3 ? "bg-[var(--color-primary)] text-white" : "bg-gray-100 text-gray-700"
                     }`}>
                       {row.rank}
                     </span>
@@ -95,7 +95,7 @@ const TopPerformersLeaderboardPage = () => (
         <div className="mt-10 text-center">
           <Link
             to="/task-performers"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#004d43] text-white font-semibold hover:bg-[#016b5c] transition-colors"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[var(--color-primary)] text-white font-semibold hover:bg-[var(--color-primary-hover)] transition-colors"
           >
             Join as a performer
           </Link>

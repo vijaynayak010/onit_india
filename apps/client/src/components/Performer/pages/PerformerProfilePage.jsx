@@ -101,7 +101,7 @@ function SectionCard({ title, subtitle, icon: Icon, action, children }) {
       <div className="mb-4 flex items-start justify-between gap-4 border-b border-slate-100 pb-3.5">
         <div className="flex items-center gap-2.5">
           {Icon && (
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-[#00A36C]">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-[#EFFBFB] text-[#10605F]">
               <Icon size={16} strokeWidth={2.2} />
             </div>
           )}
@@ -156,7 +156,7 @@ const ModalShell = ({ title, subtitle, children, onClose, onSave, saveLabel = "S
           <button
             type="button"
             onClick={onSave}
-            className="rounded-xl bg-[#00A36C] px-5 py-2 text-xs font-bold text-white shadow-xs transition hover:bg-[#00875A] active:scale-95"
+            className="rounded-xl bg-[#10605F] px-5 py-2 text-xs font-bold text-white shadow-xs transition hover:bg-[#083B3A] active:scale-95"
           >
             {saveLabel}
           </button>
@@ -596,9 +596,9 @@ const PerformerProfilePage = () => {
                   onClick={handleSave}
                   className={`flex h-9 items-center gap-1.5 rounded-xl px-4 text-xs font-bold transition shadow-xs disabled:opacity-50 active:scale-95 ${
                     savedOk
-                      ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
+                      ? "bg-[#EFFBFB] text-[#10605F] border border-[#29ADAC]/30"
                       : isDirty
-                      ? "bg-[#00A36C] text-white hover:bg-[#00875A]"
+                      ? "bg-[#10605F] text-white hover:bg-[#083B3A]"
                       : "bg-slate-900 text-white hover:bg-slate-800"
                   }`}
                 >
@@ -609,7 +609,7 @@ const PerformerProfilePage = () => {
                     </>
                   ) : savedOk ? (
                     <>
-                      <Check size={14} strokeWidth={2.5} className="text-emerald-600" />
+                      <Check size={14} strokeWidth={2.5} className="text-[#10605F]" />
                       <span>Saved!</span>
                     </>
                   ) : (
@@ -631,13 +631,13 @@ const PerformerProfilePage = () => {
           )}
 
           {/* ── Profile Summary Hero Card ── */}
-          <div className="relative overflow-hidden rounded-3xl border border-emerald-100/80 bg-gradient-to-r from-emerald-50/60 via-white to-emerald-50/40 p-5 shadow-xs sm:p-7">
+          <div className="relative overflow-hidden rounded-3xl border border-[#29ADAC]/20/80 bg-gradient-to-r from-[#EFFBFB]/60 via-white to-[#EFFBFB]/40 p-5 shadow-xs sm:p-7">
             <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
               
               {/* Avatar & Identity */}
               <div className="flex items-center gap-4.5">
                 <div className="relative shrink-0">
-                  <div className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-2xl bg-[#00A36C] text-2xl font-black text-white shadow-md ring-4 ring-white">
+                  <div className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-2xl bg-[#10605F] text-2xl font-black text-white shadow-md ring-4 ring-white">
                     {uploadingAvatar ? (
                       <Loader2 size={24} className="animate-spin text-white" />
                     ) : profile.avatarUrl && !profile.avatarUrl.includes("gravatar.com/avatar/000") ? (
@@ -663,7 +663,7 @@ const PerformerProfilePage = () => {
                     disabled={uploadingAvatar}
                     aria-label="Upload profile picture"
                     title="Change profile picture"
-                    className="absolute -bottom-1 -right-1 flex h-7 w-7 items-center justify-center rounded-xl border-2 border-white bg-slate-900 text-white shadow-sm transition hover:bg-[#00A36C] hover:scale-105 active:scale-95"
+                    className="absolute -bottom-1 -right-1 flex h-7 w-7 items-center justify-center rounded-xl border-2 border-white bg-slate-900 text-white shadow-sm transition hover:bg-[#10605F] hover:scale-105 active:scale-95"
                   >
                     <Camera size={13} strokeWidth={2.2} />
                   </button>
@@ -675,13 +675,13 @@ const PerformerProfilePage = () => {
                       {profile.fullName || "Performer"}
                     </h2>
                     {profile.phoneVerified && (
-                      <span className="flex items-center gap-0.5 rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-bold text-emerald-800">
-                        <ShieldCheck size={11} className="text-[#00A36C]" />
+                      <span className="flex items-center gap-0.5 rounded-full bg-[#DFF7F6] px-2 py-0.5 text-[10px] font-bold text-[#083B3A]">
+                        <ShieldCheck size={11} className="text-[#10605F]" />
                         Verified
                       </span>
                     )}
                   </div>
-                  <p className="mt-0.5 text-xs font-semibold text-emerald-700">
+                  <p className="mt-0.5 text-xs font-semibold text-[#10605F]">
                     {profile.role || "Professional Performer"}
                   </p>
                   <p className="mt-1 flex items-center gap-1 text-[11px] font-medium text-slate-400">
@@ -695,17 +695,17 @@ const PerformerProfilePage = () => {
               </div>
 
               {/* Profile Completion Indicator */}
-              <div className="flex items-center gap-3 rounded-2xl border border-emerald-100 bg-white/80 p-3.5 shadow-xs sm:w-64 sm:flex-col sm:items-stretch">
+              <div className="flex items-center gap-3 rounded-2xl border border-[#29ADAC]/20 bg-white/80 p-3.5 shadow-xs sm:w-64 sm:flex-col sm:items-stretch">
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex items-center gap-1.5">
-                    <Sparkles size={14} className="text-[#00A36C]" />
+                    <Sparkles size={14} className="text-[#10605F]" />
                     <span className="text-xs font-bold text-slate-800">Profile Readiness</span>
                   </div>
-                  <span className="text-xs font-extrabold text-[#00A36C]">{completionPct}%</span>
+                  <span className="text-xs font-extrabold text-[#10605F]">{completionPct}%</span>
                 </div>
                 <div className="h-2 w-full overflow-hidden rounded-full bg-slate-100">
                   <div
-                    className="h-full rounded-full bg-[#00A36C] transition-all duration-500"
+                    className="h-full rounded-full bg-[#10605F] transition-all duration-500"
                     style={{ width: `${completionPct}%` }}
                   />
                 </div>
@@ -726,7 +726,7 @@ const PerformerProfilePage = () => {
               onClick={() => setActiveTab("personal")}
               className={`flex flex-1 items-center justify-center gap-2 rounded-xl py-2.5 text-xs font-bold transition duration-150 ${
                 activeTab === "personal"
-                  ? "bg-[#00A36C] text-white shadow-xs"
+                  ? "bg-[#10605F] text-white shadow-xs"
                   : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
               }`}
             >
@@ -740,7 +740,7 @@ const PerformerProfilePage = () => {
               onClick={() => setActiveTab("work")}
               className={`flex flex-1 items-center justify-center gap-2 rounded-xl py-2.5 text-xs font-bold transition duration-150 ${
                 activeTab === "work"
-                  ? "bg-[#00A36C] text-white shadow-xs"
+                  ? "bg-[#10605F] text-white shadow-xs"
                   : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
               }`}
             >
@@ -775,7 +775,7 @@ const PerformerProfilePage = () => {
                       value={profile.fullName}
                       onChange={(e) => setProfile((p) => ({ ...p, fullName: e.target.value }))}
                       placeholder="e.g. Rahul Sharma"
-                      className="h-11 w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 text-sm font-semibold text-slate-900 outline-none transition focus:border-[#00A36C] focus:bg-white focus:ring-2 focus:ring-emerald-500/10"
+                      className="h-11 w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 text-sm font-semibold text-slate-900 outline-none transition focus:border-[#10605F] focus:bg-white focus:ring-2 focus:ring-emerald-500/10"
                     />
                   </div>
 
@@ -788,7 +788,7 @@ const PerformerProfilePage = () => {
                       value={profile.role}
                       onChange={(e) => setProfile((p) => ({ ...p, role: e.target.value }))}
                       placeholder="e.g. Full Stack Developer, Market Auditor"
-                      className="h-11 w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 text-sm font-semibold text-slate-900 outline-none transition focus:border-[#00A36C] focus:bg-white focus:ring-2 focus:ring-emerald-500/10"
+                      className="h-11 w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 text-sm font-semibold text-slate-900 outline-none transition focus:border-[#10605F] focus:bg-white focus:ring-2 focus:ring-emerald-500/10"
                     />
                   </div>
 
@@ -803,7 +803,7 @@ const PerformerProfilePage = () => {
                         value={profile.location}
                         onChange={(e) => setProfile((p) => ({ ...p, location: e.target.value }))}
                         placeholder="e.g. Bengaluru, Karnataka, India"
-                        className="h-11 w-full rounded-xl border border-slate-200 bg-slate-50/50 pl-10 pr-3.5 text-sm font-semibold text-slate-900 outline-none transition focus:border-[#00A36C] focus:bg-white focus:ring-2 focus:ring-emerald-500/10"
+                        className="h-11 w-full rounded-xl border border-slate-200 bg-slate-50/50 pl-10 pr-3.5 text-sm font-semibold text-slate-900 outline-none transition focus:border-[#10605F] focus:bg-white focus:ring-2 focus:ring-emerald-500/10"
                       />
                     </div>
                   </div>
@@ -822,7 +822,7 @@ const PerformerProfilePage = () => {
                     <div className="flex items-center justify-between">
                       <label className="text-xs font-bold text-slate-700">Phone Number</label>
                       {profile.phoneVerified ? (
-                        <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-bold text-emerald-800">
+                        <span className="inline-flex items-center gap-1 rounded-full bg-[#DFF7F6] px-2 py-0.5 text-[10px] font-bold text-[#083B3A]">
                           <Check size={10} strokeWidth={3} /> Verified
                         </span>
                       ) : (
@@ -851,7 +851,7 @@ const PerformerProfilePage = () => {
                     <div className="flex items-center justify-between">
                       <label className="text-xs font-bold text-slate-700">Email Address</label>
                       {profile.emailVerified && (
-                        <span className="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-bold text-emerald-800">
+                        <span className="inline-flex items-center gap-1 rounded-full bg-[#DFF7F6] px-2 py-0.5 text-[10px] font-bold text-[#083B3A]">
                           <Check size={10} strokeWidth={3} /> Verified
                         </span>
                       )}
@@ -875,13 +875,13 @@ const PerformerProfilePage = () => {
                             onChange={(e) => setEmailOtp(e.target.value)}
                             placeholder="Enter 6-digit OTP"
                             maxLength={6}
-                            className="h-11 flex-1 rounded-xl border border-slate-200 px-3.5 text-sm font-mono tracking-widest outline-none focus:border-[#00A36C]"
+                            className="h-11 flex-1 rounded-xl border border-slate-200 px-3.5 text-sm font-mono tracking-widest outline-none focus:border-[#10605F]"
                           />
                           <button
                             type="button"
                             onClick={handleVerifyEmailOtp}
                             disabled={emailLoading || !emailOtp.trim()}
-                            className="h-11 rounded-xl bg-[#00A36C] px-4 text-xs font-bold text-white transition hover:bg-[#00875A] disabled:opacity-50"
+                            className="h-11 rounded-xl bg-[#10605F] px-4 text-xs font-bold text-white transition hover:bg-[#083B3A] disabled:opacity-50"
                           >
                             {emailLoading ? "..." : "Verify"}
                           </button>
@@ -896,13 +896,13 @@ const PerformerProfilePage = () => {
                             value={emailInput}
                             onChange={(e) => setEmailInput(e.target.value)}
                             placeholder="name@example.com"
-                            className="h-11 flex-1 rounded-xl border border-slate-200 px-3.5 text-sm font-semibold outline-none focus:border-[#00A36C]"
+                            className="h-11 flex-1 rounded-xl border border-slate-200 px-3.5 text-sm font-semibold outline-none focus:border-[#10605F]"
                           />
                           <button
                             type="button"
                             onClick={handleSendEmailOtp}
                             disabled={emailLoading || !/\S+@\S+\.\S+/.test(emailInput)}
-                            className="h-11 rounded-xl bg-[#00A36C] px-3.5 text-xs font-bold text-white transition hover:bg-[#00875A] disabled:opacity-50"
+                            className="h-11 rounded-xl bg-[#10605F] px-3.5 text-xs font-bold text-white transition hover:bg-[#083B3A] disabled:opacity-50"
                           >
                             {emailLoading ? "..." : "Send OTP"}
                           </button>
@@ -933,7 +933,7 @@ const PerformerProfilePage = () => {
                       onChange={(e) => setProfile((p) => ({ ...p, aboutMe: e.target.value.slice(0, 500) }))}
                       rows={4}
                       placeholder="Highlight your domain strengths, past work execution, and why clients should select you for micro-tasks..."
-                      className="w-full resize-none rounded-xl border border-slate-200 bg-slate-50/50 p-3.5 text-sm font-semibold text-slate-900 outline-none transition focus:border-[#00A36C] focus:bg-white focus:ring-2 focus:ring-emerald-500/10 placeholder:text-slate-400"
+                      className="w-full resize-none rounded-xl border border-slate-200 bg-slate-50/50 p-3.5 text-sm font-semibold text-slate-900 outline-none transition focus:border-[#10605F] focus:bg-white focus:ring-2 focus:ring-emerald-500/10 placeholder:text-slate-400"
                     />
                   </div>
 
@@ -964,7 +964,7 @@ const PerformerProfilePage = () => {
                         onChange={(e) => setLanguageInput(e.target.value)}
                         onKeyDown={addLanguage}
                         placeholder="Type a language and press Enter (e.g. Hindi, English, Tamil)"
-                        className="h-10 flex-1 rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 text-xs font-semibold text-slate-900 outline-none transition focus:border-[#00A36C] focus:bg-white"
+                        className="h-10 flex-1 rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 text-xs font-semibold text-slate-900 outline-none transition focus:border-[#10605F] focus:bg-white"
                       />
                       <button
                         type="button"
@@ -1000,7 +1000,7 @@ const PerformerProfilePage = () => {
                   <button
                     type="button"
                     onClick={() => openModal("skills")}
-                    className="inline-flex items-center gap-1 rounded-xl border border-emerald-200 bg-emerald-50/80 px-3 py-1.5 text-xs font-bold text-[#00A36C] hover:bg-emerald-100 transition active:scale-95"
+                    className="inline-flex items-center gap-1 rounded-xl border border-[#29ADAC]/30 bg-[#EFFBFB]/80 px-3 py-1.5 text-xs font-bold text-[#10605F] hover:bg-[#DFF7F6] transition active:scale-95"
                   >
                     <Plus size={13} strokeWidth={2.5} />
                     Browse Skills
@@ -1013,14 +1013,14 @@ const PerformerProfilePage = () => {
                       {profile.skills.map((skill) => (
                         <span
                           key={skill}
-                          className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200/80 bg-emerald-50/60 px-3 py-1 text-xs font-bold text-[#00A36C]"
+                          className="inline-flex items-center gap-1.5 rounded-full border border-[#29ADAC]/30/80 bg-[#EFFBFB]/60 px-3 py-1 text-xs font-bold text-[#10605F]"
                         >
                           {skill}
                           <button
                             type="button"
                             onClick={() => removeSkill(skill)}
                             aria-label={`Remove skill ${skill}`}
-                            className="rounded-full p-0.5 text-emerald-600 hover:bg-emerald-200 hover:text-emerald-900"
+                            className="rounded-full p-0.5 text-[#10605F] hover:bg-emerald-200 hover:text-emerald-900"
                           >
                             <X size={11} />
                           </button>
@@ -1038,7 +1038,7 @@ const PerformerProfilePage = () => {
                       onChange={(e) => setSkillInput(e.target.value)}
                       onKeyDown={addInlineSkill}
                       placeholder="Add a custom skill and press Enter"
-                      className="h-10 flex-1 rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 text-xs font-semibold text-slate-900 outline-none transition focus:border-[#00A36C] focus:bg-white"
+                      className="h-10 flex-1 rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 text-xs font-semibold text-slate-900 outline-none transition focus:border-[#10605F] focus:bg-white"
                     />
                     <button
                       type="button"
@@ -1073,7 +1073,7 @@ const PerformerProfilePage = () => {
                         onClick={() => setProfile((p) => ({ ...p, experienceLevel: lvl }))}
                         className={`rounded-xl border p-3 text-center transition ${
                           isSelected
-                            ? "border-[#00A36C] bg-emerald-50/80 font-bold text-[#00A36C] shadow-xs"
+                            ? "border-[#10605F] bg-[#EFFBFB]/80 font-bold text-[#10605F] shadow-xs"
                             : "border-slate-200 bg-slate-50/50 font-semibold text-slate-600 hover:bg-white hover:border-slate-300"
                         }`}
                       >
@@ -1106,7 +1106,7 @@ const PerformerProfilePage = () => {
                     onClick={handleToggleAvailability}
                     aria-label="Toggle availability"
                     className={`relative inline-flex h-7 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
-                      profile.isAvailable ? "bg-[#00A36C]" : "bg-slate-300"
+                      profile.isAvailable ? "bg-[#10605F]" : "bg-slate-300"
                     }`}
                   >
                     <span
@@ -1127,7 +1127,7 @@ const PerformerProfilePage = () => {
                   <button
                     type="button"
                     onClick={() => openModal("project")}
-                    className="inline-flex items-center gap-1 rounded-xl bg-[#00A36C] px-3.5 py-1.5 text-xs font-bold text-white hover:bg-[#00875A] transition active:scale-95 shadow-xs"
+                    className="inline-flex items-center gap-1 rounded-xl bg-[#10605F] px-3.5 py-1.5 text-xs font-bold text-white hover:bg-[#083B3A] transition active:scale-95 shadow-xs"
                   >
                     <Plus size={13} strokeWidth={2.5} />
                     Add Project
@@ -1144,7 +1144,7 @@ const PerformerProfilePage = () => {
                   <button
                     type="button"
                     onClick={() => openModal("project")}
-                    className="flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-dashed border-slate-200 py-6 text-xs font-bold text-slate-400 transition hover:border-[#00A36C] hover:text-[#00A36C] hover:bg-emerald-50/20"
+                    className="flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-dashed border-slate-200 py-6 text-xs font-bold text-slate-400 transition hover:border-[#10605F] hover:text-[#10605F] hover:bg-[#EFFBFB]/20"
                   >
                     <Plus size={16} strokeWidth={2.5} />
                     Add your first project link
@@ -1161,7 +1161,7 @@ const PerformerProfilePage = () => {
                   <button
                     type="button"
                     onClick={() => openModal("certification")}
-                    className="inline-flex items-center gap-1 rounded-xl bg-[#00A36C] px-3.5 py-1.5 text-xs font-bold text-white hover:bg-[#00875A] transition active:scale-95 shadow-xs"
+                    className="inline-flex items-center gap-1 rounded-xl bg-[#10605F] px-3.5 py-1.5 text-xs font-bold text-white hover:bg-[#083B3A] transition active:scale-95 shadow-xs"
                   >
                     <Plus size={13} strokeWidth={2.5} />
                     Add Certification
@@ -1210,12 +1210,12 @@ const PerformerProfilePage = () => {
                   onClick={() => toggleDraftSkill(skill)}
                   className={`flex items-center justify-between rounded-xl px-3.5 py-2.5 text-left text-xs font-bold transition ${
                     selected
-                      ? "bg-emerald-50 text-[#00A36C] border border-emerald-200"
+                      ? "bg-[#EFFBFB] text-[#10605F] border border-[#29ADAC]/30"
                       : "text-slate-700 hover:bg-slate-100 border border-transparent"
                   }`}
                 >
                   <span>{skill}</span>
-                  {selected && <Check size={14} strokeWidth={3} className="text-[#00A36C]" />}
+                  {selected && <Check size={14} strokeWidth={3} className="text-[#10605F]" />}
                 </button>
               );
             })}
@@ -1239,7 +1239,7 @@ const PerformerProfilePage = () => {
                 value={draftProject.title}
                 onChange={(e) => setDraftProject((p) => ({ ...p, title: e.target.value }))}
                 placeholder="e.g. E-Commerce Redesign, Market Audit Report"
-                className="h-11 w-full rounded-xl border border-slate-200 px-3.5 text-xs font-semibold outline-none focus:border-[#00A36C]"
+                className="h-11 w-full rounded-xl border border-slate-200 px-3.5 text-xs font-semibold outline-none focus:border-[#10605F]"
               />
             </div>
             <div className="space-y-1">
@@ -1249,7 +1249,7 @@ const PerformerProfilePage = () => {
                 value={draftProject.url}
                 onChange={(e) => setDraftProject((p) => ({ ...p, url: e.target.value }))}
                 placeholder="https://example.com/project"
-                className="h-11 w-full rounded-xl border border-slate-200 px-3.5 text-xs font-semibold outline-none focus:border-[#00A36C]"
+                className="h-11 w-full rounded-xl border border-slate-200 px-3.5 text-xs font-semibold outline-none focus:border-[#10605F]"
               />
             </div>
           </div>
@@ -1272,7 +1272,7 @@ const PerformerProfilePage = () => {
                 value={draftCertification.title}
                 onChange={(e) => setDraftCertification((p) => ({ ...p, title: e.target.value }))}
                 placeholder="e.g. Certified Scrum Master, Google Analytics"
-                className="h-11 w-full rounded-xl border border-slate-200 px-3.5 text-xs font-semibold outline-none focus:border-[#00A36C]"
+                className="h-11 w-full rounded-xl border border-slate-200 px-3.5 text-xs font-semibold outline-none focus:border-[#10605F]"
               />
             </div>
             <div className="space-y-1">
@@ -1282,7 +1282,7 @@ const PerformerProfilePage = () => {
                 value={draftCertification.issuer}
                 onChange={(e) => setDraftCertification((p) => ({ ...p, issuer: e.target.value }))}
                 placeholder="e.g. Google, Coursera, Meta"
-                className="h-11 w-full rounded-xl border border-slate-200 px-3.5 text-xs font-semibold outline-none focus:border-[#00A36C]"
+                className="h-11 w-full rounded-xl border border-slate-200 px-3.5 text-xs font-semibold outline-none focus:border-[#10605F]"
               />
             </div>
           </div>

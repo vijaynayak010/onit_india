@@ -58,7 +58,7 @@ import {
 /* ─────────────────────────────────────────────
    Helpers
 ───────────────────────────────────────────── */
-const BRAND = "#009966";
+const BRAND = "#10605F";
 const BRAND_LIGHT = "#f0fbf7";
 
 const CHAT_FILTERS = [
@@ -268,7 +268,7 @@ function ChatCard({
         <div className="relative shrink-0">
           <Avatar src={chat.avatar} name={chat.name} size={48} />
           {chat.isOnline && (
-            <span className="absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-white bg-emerald-500" />
+            <span className="absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-white bg-[#10605F]" />
           )}
         </div>
       )}
@@ -354,7 +354,7 @@ function MessageBubble({ msg, isMe }) {
           fontSize: 14,
           lineHeight: 1.45,
           boxShadow: isMe
-            ? "0 2px 8px rgba(0,153,102,0.2)"
+            ? "0 2px 8px rgba(16,96,95,0.2)"
             : "0 1px 4px rgba(0,0,0,0.06)",
           border: isMe ? "none" : "1px solid #f0f0f0",
           wordBreak: "break-word",
@@ -412,7 +412,7 @@ function SupportBubble({ text, time }) {
           alignItems: "center",
           justifyContent: "center",
           flexShrink: 0,
-          boxShadow: "0 2px 8px rgba(0,153,102,0.2)",
+          boxShadow: "0 2px 8px rgba(16,96,95,0.2)",
         }}
       >
         <Bot size={18} color="#fff" strokeWidth={2} />
@@ -471,7 +471,7 @@ function UserSupportBubble({ text, time }) {
           color: "#fff",
           fontSize: 14,
           lineHeight: 1.45,
-          boxShadow: "0 2px 8px rgba(0,153,102,0.2)",
+          boxShadow: "0 2px 8px rgba(16,96,95,0.2)",
           maxWidth: "70vw",
           wordBreak: "break-word",
         }}
@@ -573,8 +573,8 @@ function ChatConfirmModal({ type, onConfirm, onCancel }) {
   const configs = {
     pin: {
       icon: Pin,
-      iconBg: "bg-emerald-50",
-      iconColor: "text-emerald-600",
+      iconBg: "bg-[#EFFBFB]",
+      iconColor: "text-[#10605F]",
       title: "Pin this chat?",
       desc: "This chat will be pinned to the top of your chat list for quick access.",
       confirm: "Pin Chat",
@@ -582,8 +582,8 @@ function ChatConfirmModal({ type, onConfirm, onCancel }) {
     },
     archive: {
       icon: Archive,
-      iconBg: "bg-emerald-50",
-      iconColor: "text-emerald-600",
+      iconBg: "bg-[#EFFBFB]",
+      iconColor: "text-[#10605F]",
       title: "Archive this chat?",
       desc: "Archived chats are hidden from your main list but can be accessed anytime.",
       confirm: "Archive Chat",
@@ -793,10 +793,10 @@ const ChatsPage = () => {
 
         const supportChat = {
           _id: 0,
-          name: "OnIT INDIA Support",
+          name: "FirstDoer Support",
           role: "Support Buddy",
           profession: null,
-          lastMessage: { content: "Hi, I am your OnIT INDIA Buddy..." },
+          lastMessage: { content: "Hi, I am your FirstDoer Buddy..." },
           updatedAt: new Date().toISOString(),
           avatar: "support",
           unreadCount: 0,
@@ -928,9 +928,9 @@ const ChatsPage = () => {
           withPrefs([
             {
               _id: 0,
-              name: "OnIT INDIA Support",
+              name: "FirstDoer Support",
               role: "Support Buddy",
-              lastMessage: { content: "Hi, I am your OnIT INDIA Buddy..." },
+              lastMessage: { content: "Hi, I am your FirstDoer Buddy..." },
               updatedAt: new Date().toISOString(),
               avatar: "support",
               unreadCount: 0,
@@ -1031,7 +1031,7 @@ const ChatsPage = () => {
                 const formatted = [
                   {
                     id: "sys-1",
-                    text: "Hi! I'm your OnIT Buddy. How can I help you today?",
+                    text: "Hi! I'm your FirstDoer Buddy. How can I help you today?",
                     time: "System",
                     type: "received",
                   },
@@ -1070,7 +1070,7 @@ const ChatsPage = () => {
           setMessages([
             {
               id: "sys-1",
-              text: "Hi! I'm your OnIT Buddy. How can I help you today?",
+              text: "Hi! I'm your FirstDoer Buddy. How can I help you today?",
               time: "System",
               type: "received",
             },
@@ -1876,7 +1876,7 @@ const ChatsPage = () => {
                           fontWeight: 500,
                         }}
                       >
-                        Your OnIT INDIA support dashboard
+                        Your FirstDoer support dashboard
                       </p>
                     </div>
 
@@ -2048,7 +2048,7 @@ const ChatsPage = () => {
                               fontWeight: 700,
                               fontSize: 13,
                               cursor: "pointer",
-                              boxShadow: "0 4px 16px rgba(0,153,102,0.3)",
+                              boxShadow: "0 4px 16px rgba(16,96,95,0.3)",
                             }}
                           >
                             Chat with Agent
@@ -2157,7 +2157,7 @@ const ChatsPage = () => {
                             color: "#111827",
                           }}
                         >
-                          OnIT INDIA Support
+                          FirstDoer Support
                         </div>
                         <div
                           style={{
@@ -2497,7 +2497,7 @@ const ChatsPage = () => {
         </div>
       </div>
 
-      {/* OnIT Buddy FAB */}
+      {/* FirstDoer Buddy FAB */}
       <button
         type="button"
         onClick={() => {
@@ -2505,7 +2505,7 @@ const ChatsPage = () => {
           if (support) openChat(support);
         }}
         className="fixed bottom-6 right-6 z-30 flex flex-col items-center gap-1"
-        aria-label="Open OnIT Buddy"
+        aria-label="Open FirstDoer Buddy"
       >
         <div className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-white bg-[var(--color-primary)] shadow-lg shadow-emerald-500/30 transition hover:scale-105">
           <Bot size={28} className="text-white" strokeWidth={2} />
@@ -2654,7 +2654,7 @@ function ChatInput({ value, onChange, onSend, inputRef }) {
           cursor: value.trim() ? "pointer" : "not-allowed",
           flexShrink: 0,
           transition: "background 0.18s ease",
-          boxShadow: value.trim() ? "0 4px 12px rgba(0,153,102,0.3)" : "none",
+          boxShadow: value.trim() ? "0 4px 12px rgba(16,96,95,0.3)" : "none",
         }}
       >
         <Send size={18} color="#fff" strokeWidth={2.5} />

@@ -258,7 +258,7 @@ export default function AIPoweredTaskFlow({ onComplete, mode = 'landing', initia
                   AI Draft Recommendation
                 </h3>
               </div>
-              <div className="p-6 bg-emerald-50 rounded-2xl border border-emerald-100 mb-8 italic text-emerald-900 leading-relaxed">
+              <div className="p-6 bg-[#EFFBFB] rounded-2xl border border-[#29ADAC]/20 mb-8 italic text-emerald-900 leading-relaxed">
                 "{formData.refinedIdea}"
               </div>
               <p className="text-[var(--color-text-muted)] mb-8">We've enhanced your prompt based on platform standards. You can edit this in the next step.</p>
@@ -455,7 +455,7 @@ export default function AIPoweredTaskFlow({ onComplete, mode = 'landing', initia
                         onClick={() => openMatchProfile(spec)}
                       >
                         <div className="flex flex-col sm:flex-row sm:items-start gap-5">
-                          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[var(--color-primary)] to-emerald-600 flex items-center justify-center text-xl font-bold text-white shadow-md">
+                          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[var(--color-primary)] to-[#083B3A] flex items-center justify-center text-xl font-bold text-white shadow-md">
                             {spec.avatar}
                           </div>
 
@@ -468,9 +468,9 @@ export default function AIPoweredTaskFlow({ onComplete, mode = 'landing', initia
                               </div>
 
                               <div className="shrink-0 w-full md:w-auto">
-                                <div className="inline-flex items-center gap-2 rounded-full bg-emerald-50 border border-emerald-100 px-3 py-1.5">
-                                  <Clock size={13} className="text-emerald-600" />
-                                  <span className="text-xs font-semibold text-emerald-700">{spec.availability}</span>
+                                <div className="inline-flex items-center gap-2 rounded-full bg-[#EFFBFB] border border-[#29ADAC]/20 px-3 py-1.5">
+                                  <Clock size={13} className="text-[#10605F]" />
+                                  <span className="text-xs font-semibold text-[#10605F]">{spec.availability}</span>
                                 </div>
                               </div>
                             </div>
@@ -485,7 +485,7 @@ export default function AIPoweredTaskFlow({ onComplete, mode = 'landing', initia
                               </div>
                               <div className="rounded-xl border border-gray-100 bg-[var(--color-surface)] px-3 py-2.5">
                                 <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Rate</p>
-                                <p className="text-sm font-semibold text-emerald-700">{spec.hourlyRate}</p>
+                                <p className="text-sm font-semibold text-[#10605F]">{spec.hourlyRate}</p>
                               </div>
                               <div className="rounded-xl border border-gray-100 bg-[var(--color-surface)] px-3 py-2.5">
                                 <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Rating</p>
@@ -547,7 +547,7 @@ export default function AIPoweredTaskFlow({ onComplete, mode = 'landing', initia
                         </div>
                         <div className="p-4 bg-white rounded-xl border-2 border-gray-50 shadow-sm">
                            <p className="text-[10px] font-bold text-gray-400 uppercase mb-1">Budget</p>
-                           <p className="font-bold text-emerald-600">{formData.budget}</p>
+                           <p className="font-bold text-[#10605F]">{formData.budget}</p>
                         </div>
                         <div className="p-4 bg-white rounded-xl border-2 border-gray-50 shadow-sm">
                            <p className="text-[10px] font-bold text-gray-400 uppercase mb-1">Timeline</p>
@@ -628,7 +628,7 @@ export default function AIPoweredTaskFlow({ onComplete, mode = 'landing', initia
                <button onClick={() => setShowLoginModal(false)} className="absolute top-4 right-4 text-gray-400 hover:text-black transition-colors"><X size={20} /></button>
                
                <div className="text-center mb-6">
-                  <div className="w-12 h-12 bg-emerald-50 text-[var(--color-primary)] rounded-xl flex items-center justify-center mx-auto mb-3">
+                  <div className="w-12 h-12 bg-[#EFFBFB] text-[var(--color-primary)] rounded-xl flex items-center justify-center mx-auto mb-3">
                      <Lock size={24} />
                   </div>
                   <h3 className="text-xl font-bold">Access Secured</h3>
@@ -666,7 +666,7 @@ export default function AIPoweredTaskFlow({ onComplete, mode = 'landing', initia
                </div>
                
                <div className="mt-4 text-center text-xs text-gray-400">
-                  By continuing, you agree to OnIT INDIA <span className="underline cursor-pointer">Terms of Service</span>
+                  By continuing, you agree to FirstDoer <span className="underline cursor-pointer">Terms of Service</span>
                </div>
             </motion.div>
           </div>

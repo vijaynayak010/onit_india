@@ -7,15 +7,15 @@ import marketingTwo from "../../assets/marketing/2.png";
 import marketingThree from "../../assets/marketing/3.jpeg";
 
 const groundImages = [
-  { src: groundTwo, alt: "OnIT flyers used during ground work" },
-  { src: marketingOne, alt: "OnIT ground work showcase" },
-  { src: groundOne, alt: "OnIT ground work with local outreach" },
-  { src: groundThree, alt: "OnIT campus presentation" },
-  { src: marketingTwo, alt: "OnIT ground work showcase" },
-  { src: marketingThree, alt: "OnIT ground work showcase" },
-  { src: "/assets/1.png", alt: "OnIT ground work showcase" },
-  { src: "/assets/2.png", alt: "OnIT ground work showcase" },
-  { src: "/assets/3.png", alt: "OnIT ground work showcase" },
+  { src: groundTwo, alt: "FirstDoer flyers used during ground work" },
+  { src: marketingOne, alt: "FirstDoer ground work showcase" },
+  { src: groundOne, alt: "FirstDoer ground work with local outreach" },
+  { src: groundThree, alt: "FirstDoer campus presentation" },
+  { src: marketingTwo, alt: "FirstDoer ground work showcase" },
+  { src: marketingThree, alt: "FirstDoer ground work showcase" },
+  { src: "/assets/1.png", alt: "FirstDoer ground work showcase" },
+  { src: "/assets/2.png", alt: "FirstDoer ground work showcase" },
+  { src: "/assets/3.png", alt: "FirstDoer ground work showcase" },
 ];
 
 export default function HomeGroundWorkSection() {

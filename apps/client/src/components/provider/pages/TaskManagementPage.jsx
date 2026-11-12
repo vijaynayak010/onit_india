@@ -83,7 +83,7 @@ const TaskManagementPage = () => {
         <section className="overflow-hidden rounded-3xl border border-[var(--color-border)] bg-white shadow-[var(--shadow-sm)]">
           <div className="border-l-4 border-[var(--color-primary)] p-6 sm:p-8">
             <div className="mb-3 flex flex-wrap items-center gap-2">
-              <span className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[11px] font-black uppercase tracking-wider text-emerald-700">
+              <span className="rounded-full border border-[#29ADAC]/30 bg-[#EFFBFB] px-3 py-1 text-[11px] font-black uppercase tracking-wider text-[#10605F]">
                 {String(task.status || 'Draft').replaceAll('_', ' ')}
               </span>
               {task.category && (

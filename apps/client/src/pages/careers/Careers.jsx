@@ -30,7 +30,7 @@ const FALLBACK_POSITIONS = [
       "Good communication skills and ability to work in a fast-paced team",
     ],
     applicationProcess: [
-      "Send your resume and cover letter to support@onitindia.com with subject 'Application: Backend Engineer'",
+      "Send your resume and cover letter to support@firstdoer.com with subject 'Application: Backend Engineer'",
       "Our team will review and shortlist candidates within 5–7 working days",
       "Shortlisted candidates will be invited for a phone/video screening",
       "Technical round (coding/design) with the engineering team",
@@ -59,7 +59,7 @@ const FALLBACK_POSITIONS = [
       "Self-driven and able to manage multiple stakeholders",
     ],
     applicationProcess: [
-      "Email your resume and a short note on why you fit this role to support@onitindia.com with subject 'Application: Relationship Manager'",
+      "Email your resume and a short note on why you fit this role to support@firstdoer.com with subject 'Application: Relationship Manager'",
       "We will review applications and respond to shortlisted candidates within 5–7 working days",
       "First round: phone/video call to discuss your experience and the role",
       "Second round: case discussion or scenario-based conversation with the team",
@@ -88,7 +88,7 @@ const FALLBACK_POSITIONS = [
       "Bonus: experience with Firebase, push notifications, or CI for mobile",
     ],
     applicationProcess: [
-      "Send your resume, links to apps or GitHub, and a short cover note to support@onitindia.com with subject 'Application: Flutter Developer'",
+      "Send your resume, links to apps or GitHub, and a short cover note to support@firstdoer.com with subject 'Application: Flutter Developer'",
       "We review applications and reply to shortlisted candidates within 5–7 working days",
       "Technical conversation on Flutter and past projects",
       "Short take-home or live coding exercise if needed",
@@ -104,7 +104,7 @@ const FALLBACK_POSITIONS = [
     postedDate: "2026-03-01",
     deadline: "2026-05-31",
     description:
-      "Grow our brand and community across social channels. You will plan content, engage audiences, and work with design and product to tell the OnIT INDIA story clearly and consistently.",
+      "Grow our brand and community across social channels. You will plan content, engage audiences, and work with design and product to tell the FirstDoer story clearly and consistently.",
     responsibilities: [
       "Own content calendar and posting across major social platforms",
       "Write captions, brief creatives, and coordinate with designers or creators",
@@ -117,7 +117,7 @@ const FALLBACK_POSITIONS = [
       "Self-starter who can balance brand voice with performance",
     ],
     applicationProcess: [
-      "Email your resume and links to accounts or portfolios you have managed to support@onitindia.com with subject 'Application: Social Media Manager'",
+      "Email your resume and links to accounts or portfolios you have managed to support@firstdoer.com with subject 'Application: Social Media Manager'",
       "We will review and respond to shortlisted candidates within 5–7 working days",
       "Intro call to discuss your approach and our brand",
       "Short content or campaign exercise",
@@ -146,7 +146,7 @@ const FALLBACK_POSITIONS = [
       "Availability for a defined internship period (duration discussed during hiring)",
     ],
     applicationProcess: [
-      "Send your resume and a short note on what you want to learn to support@onitindia.com with subject 'Application: Founders Office Intern'",
+      "Send your resume and a short note on what you want to learn to support@firstdoer.com with subject 'Application: Founders Office Intern'",
       "We review applications and reach out to shortlisted candidates within 5–7 working days",
       "Conversation with the founder or core team about fit and goals",
       "Possible short task or scenario discussion",
@@ -669,10 +669,10 @@ const Careers = () => {
 
     <div className="min-h-screen bg-[var(--color-surface)] text-[var(--color-text)]">
       <SEO
-        title="Careers | OnIT INDIA"
-        description={`Join OnIT INDIA and explore open roles in ${dynamicRoleText}. Build your career with a hyperlocal task and opportunity platform.`}
-        keywords={`onitindia, OnIT INDIA careers, jobs, hiring, ${dynamicRoleText}, work at OnIT INDIA, task platform jobs India`}
-        canonical="https://www.onitindia.com/careers"
+        title="Careers | FirstDoer"
+        description={`Join FirstDoer and explore open roles in ${dynamicRoleText}. Build your career with a hyperlocal task and opportunity platform.`}
+        keywords={`firstdoer, FirstDoer careers, jobs, hiring, ${dynamicRoleText}, work at FirstDoer, task platform jobs India`}
+        canonical="https://www.firstdoer.com/careers"
       />
 
       {/* Soft gradient orbs */}
@@ -747,7 +747,7 @@ const Careers = () => {
               <div className="text-center p-12 bg-white rounded-2xl border border-[var(--color-border)] shadow-[var(--shadow-sm)]">
                 <Briefcase size={40} className="mx-auto text-[var(--color-text-subtle)] mb-4" />
                 <h3 className="text-lg font-bold text-[var(--color-text)] mb-2">No open positions</h3>
-                <p className="text-[var(--color-text-muted)]">We are not currently actively hiring for any roles, but we're always looking for great talent. Feel free to reach out to support@onitindia.com.</p>
+                <p className="text-[var(--color-text-muted)]">We are not currently actively hiring for any roles, but we're always looking for great talent. Feel free to reach out to support@firstdoer.com.</p>
               </div>
             ) : (
               <div className="space-y-6">
@@ -853,7 +853,7 @@ const Careers = () => {
           </motion.section>
 
           <p className="mt-12 text-center text-sm text-[var(--color-text-subtle)]">
-            ONIT INDIA
+            FirstDoer
           </p>
         </div>
       </section>

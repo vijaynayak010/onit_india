@@ -89,7 +89,7 @@ const PerformerLeaderboardPage = () => {
           const status = t.kycStatus === "VERIFIED" ? "Verified" : "Active";
           const statusClass =
             t.kycStatus === "VERIFIED"
-              ? "bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200/80"
+              ? "bg-[#EFFBFB] text-[#10605F] ring-1 ring-[#29ADAC]/30"
               : "bg-[var(--color-border-subtle)] text-[var(--color-text-muted)] ring-1 ring-[var(--color-border)]";
           return {
             rank: t.rank,
@@ -180,7 +180,7 @@ const PerformerLeaderboardPage = () => {
           />
 
         {loading ? (
-          <div className="flex h-96 flex-col items-center justify-center gap-4 text-emerald-600">
+          <div className="flex h-96 flex-col items-center justify-center gap-4 text-[#10605F]">
             <Loader2 className="h-10 w-10 animate-spin" strokeWidth={2.5} />
             <p className="text-sm font-bold uppercase tracking-widest opacity-70">Loading rankings…</p>
           </div>
@@ -321,7 +321,7 @@ const PerformerLeaderboardPage = () => {
                               <td className="px-5 py-5 text-sm font-medium text-[var(--color-text-muted)] sm:px-8">{myRow.profession}</td>
                               <td className="px-5 py-5 text-center text-sm font-bold tabular-nums sm:px-8">{myRow.rankingScore}</td>
                               <td className="px-5 py-5 text-right sm:px-8">
-                                <span className="inline-block rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wide bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200/80">You</span>
+                                <span className="inline-block rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wide bg-[#EFFBFB] text-[#10605F] ring-1 ring-[#29ADAC]/30">You</span>
                               </td>
                             </tr>
                           </>

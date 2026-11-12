@@ -860,7 +860,7 @@ const ProviderActiveTaskExecutionPage = () => {
                       {[
                         { label: "Price", value: `₹${taskData?.price}`, color: "text-indigo-600", bg: "bg-indigo-50" },
                         { label: "Deadline", value: taskData?.timeRemaining, color: "text-amber-600", bg: "bg-amber-50" },
-                        { label: "Tier", value: taskData?.tier, color: "text-emerald-600", bg: "bg-emerald-50" },
+                        { label: "Tier", value: taskData?.tier, color: "text-[#10605F]", bg: "bg-[#EFFBFB]" },
                         { label: "Location", value: taskData?.location, color: "text-blue-600", bg: "bg-blue-50" },
                       ].map((stat, i) => (
                         <div key={i} className={`p-4 rounded-2xl border border-transparent shadow-sm ${stat.bg}`}>

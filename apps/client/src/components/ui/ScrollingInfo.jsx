@@ -2,12 +2,12 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const BANNER_TEXT =
-  "OnIT INDIA is building the execution infrastructure for the modern work economy  ·  Hire local help in minutes — get tasks done fast with verified performers";
+  "firstDoer — Post marketing, design or development work in seconds  ·  Pay only when it’s done  ·  Verified performers only";
 
 function ScrollingInfo() {
   return (
     <div
-      className="fixed top-0 left-0 right-0 z-[10000] h-10 w-full bg-[#004D43] text-white overflow-hidden border-b border-white/20"
+      className="fixed top-0 left-0 right-0 z-[10000] h-10 w-full bg-[#10605F] text-white overflow-hidden border-b border-[#29ADAC]/30"
       role="marquee"
       aria-live="polite"
     >

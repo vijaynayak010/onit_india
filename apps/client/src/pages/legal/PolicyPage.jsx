@@ -164,8 +164,8 @@ const PolicyPage = () => {
     return (
         <div className="min-h-screen bg-slate-50 flex flex-col justify-between">
             <SEO 
-                title={`${pageData.title} | OnIT INDIA`}
-                description={`Read the official ${pageData.title} document for the OnIT India platform.`}
+                title={`${pageData.title} | FirstDoer`}
+                description={`Read the official ${pageData.title} document for the FirstDoer platform.`}
             />
             <Navbar />
 
@@ -180,7 +180,7 @@ const PolicyPage = () => {
                             </h1>
                             <div className="flex items-center gap-3 text-xs text-slate-400 font-bold uppercase tracking-wider">
                                 <span className="flex items-center gap-1"><Clock size={12} /> Updated: {new Date(pageData.updatedAt).toLocaleDateString()}</span>
-                                <span className="flex items-center gap-1 text-emerald-600"><Shield size={12} /> Verified Page</span>
+                                <span className="flex items-center gap-1 text-[var(--color-primary)]"><Shield size={12} /> Verified Page</span>
                             </div>
                         </div>
                     </div>

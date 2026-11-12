@@ -13,13 +13,13 @@ const HelpArticleLayout = ({ title, description, slug, children }) => (
     <SEO
       title={title}
       description={description}
-      canonical={slug ? `https://www.onitindia.com/help/${slug}` : undefined}
+      canonical={slug ? `https://www.firstdoer.com/help/${slug}` : undefined}
     />
     <section className="pt-24 pb-8 px-6 md:px-20">
       <div className="max-w-3xl mx-auto">
         <Link
           to="/help"
-          className="inline-flex items-center gap-2 text-[#004d43] font-medium text-sm mb-6 hover:underline"
+          className="inline-flex items-center gap-2 text-[var(--color-primary)] font-medium text-sm mb-6 hover:underline"
         >
           <ArrowLeft size={16} />
           Back to Help

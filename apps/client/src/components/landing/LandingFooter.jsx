@@ -42,7 +42,7 @@ const NAV_COLS = [
     links: [
       { label: "Help & Guides", to: "/help" },
       { label: "FAQs", to: "/faq" },
-      { label: "support@onitindia.com", href: "mailto:support@onitindia.com" },
+      { label: "support@firstdoer.com", href: "mailto:support@firstdoer.com" },
     ],
   },
 ];
@@ -107,7 +107,7 @@ export default function LandingFooter() {
                   color: "#111716",
                 }}
               >
-                OnIT
+                FirstDoer
               </span>
               <span
                 style={{
@@ -226,10 +226,10 @@ export default function LandingFooter() {
               color: "#6F7976",
             }}
           >
-            © 2026 OnIT INDIA · Made in India
+            © 2026 FirstDoer · Made in India
           </span>
           <a
-            href="mailto:support@onitindia.com"
+            href="mailto:support@firstdoer.com"
             style={{
               fontFamily: "Manrope, sans-serif",
               fontWeight: 400,
@@ -239,7 +239,7 @@ export default function LandingFooter() {
               textDecoration: "none",
             }}
           >
-            support@onitindia.com
+            support@firstdoer.com
           </a>
         </div>
 

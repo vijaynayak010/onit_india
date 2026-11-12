@@ -1135,9 +1135,11 @@ const AuthPage = ({ initialMode }) => {
             <div className="relative w-full">
                 {/* Brand header */}
                 <div className="mb-6 text-center">
-                    <Link to="/" className="inline-flex select-none items-baseline font-bold text-[var(--color-text)] text-2xl sm:text-3xl transition hover:opacity-80">
-                        <span className="font-extrabold tracking-normal">OnIT</span>
-                        <span className="ml-1.5 font-bold uppercase tracking-tight text-[var(--color-primary)]">INDIA</span>
+                    <Link to="/" className="inline-flex select-none items-center gap-2 font-bold text-[var(--color-text)] text-2xl sm:text-3xl transition hover:opacity-80">
+                        <svg className="h-7 w-7 text-[var(--color-primary)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                        </svg>
+                        <span className="font-extrabold tracking-tight">first<span className="text-[var(--color-primary)]">Doer</span></span>
                     </Link>
                 </div>
 
@@ -1156,7 +1158,7 @@ const AuthPage = ({ initialMode }) => {
                                 Choose Your Role
                             </h1>
                             <p className="mb-6 text-[13px] text-[var(--color-text-muted)] text-center">
-                                How would you like to use OnIT India?
+                                How would you like to use FirstDoer?
                             </p>
 
                             <div className="grid grid-cols-2 gap-4">
@@ -1202,7 +1204,7 @@ const AuthPage = ({ initialMode }) => {
                             className="w-full rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-white p-6 shadow-[0_22px_56px_-16px_rgba(15,23,42,0.12)] sm:p-8"
                         >
                             <h1 className="mb-1 text-2xl font-extrabold tracking-tight text-[var(--color-text)] text-center">
-                                Welcome to OnIT INDIA
+                                Welcome to FirstDoer
                             </h1>
                             <p className="mb-2 text-[13px] text-[var(--color-text-muted)] text-center">
                                 {isSignupMode ? "Create your account to get started" : "Log in to your workspace"}
@@ -1279,7 +1281,7 @@ const AuthPage = ({ initialMode }) => {
                                     disabled={!isEntryValid || isSubmitting}
                                     className={`flex w-full items-center justify-center gap-2 rounded-xl py-3.5 text-[15px] font-bold text-white transition active:scale-[0.98]
                                         ${isEntryValid && !isSubmitting
-                                            ? "bg-[var(--color-primary)] shadow-[0_4px_16px_-4px_rgba(0,153,102,0.45)] hover:bg-[var(--color-primary-hover)] cursor-pointer"
+                                            ? "bg-[var(--color-primary)] shadow-[0_4px_16px_-4px_rgba(16,96,95,0.45)] hover:bg-[var(--color-primary-hover)] cursor-pointer"
                                             : "bg-zinc-300 cursor-not-allowed opacity-80"
                                         }`}
                                 >
@@ -1375,8 +1377,8 @@ const AuthPage = ({ initialMode }) => {
                                                 ${primaryOtpInvalid
                                                     ? "border-red-400 bg-red-50 text-red-600 focus:border-red-500 focus:ring-2 focus:ring-red-500/15"
                                                     : digit
-                                                    ? "border-[var(--color-primary)] bg-[var(--color-primary-subtle)] text-[var(--color-primary)] focus:border-[var(--color-primary)] focus:bg-emerald-50/30 focus:ring-2 focus:ring-[var(--color-primary)]/15"
-                                                    : "border-zinc-200 bg-[var(--color-surface)] text-[var(--color-text)] focus:border-[var(--color-primary)] focus:bg-emerald-50/30 focus:ring-2 focus:ring-[var(--color-primary)]/15"
+                                                    ? "border-[var(--color-primary)] bg-[var(--color-primary-subtle)] text-[var(--color-primary)] focus:border-[var(--color-primary)] focus:bg-[#EFFBFB]/30 focus:ring-2 focus:ring-[var(--color-primary)]/15"
+                                                    : "border-zinc-200 bg-[var(--color-surface)] text-[var(--color-text)] focus:border-[var(--color-primary)] focus:bg-[#EFFBFB]/30 focus:ring-2 focus:ring-[var(--color-primary)]/15"
                                                 }`}
                                         />
                                     ))}
@@ -1387,7 +1389,7 @@ const AuthPage = ({ initialMode }) => {
                                     disabled={!isPrimaryOtpComplete || isVerifyingOtp}
                                     className={`flex w-full items-center justify-center gap-2 rounded-xl py-3.5 text-[14px] font-bold text-white transition active:scale-[0.98]
                                         ${isPrimaryOtpComplete && !isVerifyingOtp
-                                            ? "bg-[var(--color-primary)] shadow-[0_4px_16px_-4px_rgba(0,153,102,0.45)] hover:bg-[var(--color-primary-hover)] cursor-pointer"
+                                            ? "bg-[var(--color-primary)] shadow-[0_4px_16px_-4px_rgba(16,96,95,0.45)] hover:bg-[var(--color-primary-hover)] cursor-pointer"
                                             : "bg-zinc-300 cursor-not-allowed opacity-80"
                                         }`}
                                 >
@@ -1496,7 +1498,7 @@ const AuthPage = ({ initialMode }) => {
                                                             <button
                                                                 type="button"
                                                                 onClick={handleTriggerVerificationModal}
-                                                                className="absolute right-2 px-3 py-1 bg-emerald-500 hover:bg-emerald-600 text-white text-[11px] font-extrabold rounded-lg shadow-sm transition hover:scale-[1.02] active:scale-[0.98]"
+                                                                className="absolute right-2 px-3 py-1 bg-[#10605F] hover:bg-[#083B3A] text-white text-[11px] font-extrabold rounded-lg shadow-sm transition hover:scale-[1.02] active:scale-[0.98]"
                                                             >
                                                                 verify
                                                             </button>
@@ -1526,7 +1528,7 @@ const AuthPage = ({ initialMode }) => {
                                                     <button
                                                         type="button"
                                                         onClick={handleTriggerVerificationModal}
-                                                        className="absolute right-2 px-3 py-1 bg-emerald-500 hover:bg-emerald-600 text-white text-[11px] font-extrabold rounded-lg shadow-sm transition hover:scale-[1.02] active:scale-[0.98]"
+                                                        className="absolute right-2 px-3 py-1 bg-[#10605F] hover:bg-[#083B3A] text-white text-[11px] font-extrabold rounded-lg shadow-sm transition hover:scale-[1.02] active:scale-[0.98]"
                                                     >
                                                         verify
                                                     </button>
@@ -1560,7 +1562,7 @@ const AuthPage = ({ initialMode }) => {
                                     disabled={!isProfileFormValid || isVerifyingOtp}
                                     className={`w-full rounded-xl py-3.5 text-[15px] font-bold text-white transition active:scale-[0.98] mt-3
                                         ${isProfileFormValid && !isVerifyingOtp
-                                            ? "bg-[var(--color-primary)] shadow-[0_4px_16px_-4px_rgba(0,153,102,0.45)] hover:bg-[var(--color-primary-hover)] cursor-pointer"
+                                            ? "bg-[var(--color-primary)] shadow-[0_4px_16px_-4px_rgba(16,96,95,0.45)] hover:bg-[var(--color-primary-hover)] cursor-pointer"
                                             : "bg-zinc-300 cursor-not-allowed opacity-80"
                                         }`}
                                 >
@@ -1570,7 +1572,7 @@ const AuthPage = ({ initialMode }) => {
                                             {PHONE_OTP_ENABLED ? "Sending code..." : "Setting up account..."}
                                         </>
                                     ) : (
-                                        "Continue to OnIt India"
+                                        "Continue to FirstDoer"
                                     )}
                                 </button>
                             </div>
@@ -1599,7 +1601,7 @@ const AuthPage = ({ initialMode }) => {
                                 </button>
 
                                 <div className="mb-5 flex flex-col items-center">
-                                    <div className="mb-2.5 flex h-10 w-10 items-center justify-center rounded-full bg-emerald-50 text-emerald-600">
+                                    <div className="mb-2.5 flex h-10 w-10 items-center justify-center rounded-full bg-[#EFFBFB] text-[#10605F]">
                                         <Mail className="h-4.5 w-4.5" />
                                     </div>
                                     <h2 className="text-[17px] font-extrabold text-[var(--color-text)]">
@@ -1613,7 +1615,7 @@ const AuthPage = ({ initialMode }) => {
                                         <button
                                             type="button"
                                             onClick={() => setOtpModalOpen(false)}
-                                            className="ml-1.5 font-bold text-emerald-600 hover:underline"
+                                            className="ml-1.5 font-bold text-[#10605F] hover:underline"
                                         >
                                             Change details
                                         </button>
@@ -1643,8 +1645,8 @@ const AuthPage = ({ initialMode }) => {
                                                     ${modalOtpInvalid
                                                         ? "border-red-400 bg-red-50 text-red-600 focus:border-red-500 focus:ring-2 focus:ring-red-500/15"
                                                         : digit
-                                                        ? "border-[var(--color-primary)] bg-[var(--color-primary-subtle)] text-[var(--color-primary)] focus:border-[var(--color-primary)] focus:bg-emerald-50/30 focus:ring-2 focus:ring-[var(--color-primary)]/15"
-                                                        : "border-zinc-200 bg-[var(--color-surface)] text-[var(--color-text)] focus:border-[var(--color-primary)] focus:bg-emerald-50/30 focus:ring-2 focus:ring-[var(--color-primary)]/15"
+                                                        ? "border-[var(--color-primary)] bg-[var(--color-primary-subtle)] text-[var(--color-primary)] focus:border-[var(--color-primary)] focus:bg-[#EFFBFB]/30 focus:ring-2 focus:ring-[var(--color-primary)]/15"
+                                                        : "border-zinc-200 bg-[var(--color-surface)] text-[var(--color-text)] focus:border-[var(--color-primary)] focus:bg-[#EFFBFB]/30 focus:ring-2 focus:ring-[var(--color-primary)]/15"
                                                     }`}
                                             />
                                         ))}
@@ -1655,7 +1657,7 @@ const AuthPage = ({ initialMode }) => {
                                         disabled={!isModalOtpComplete || isVerifyingModalOtp}
                                         className={`w-full rounded-xl py-3 text-[14px] font-bold text-white transition active:scale-[0.98]
                                             ${isModalOtpComplete && !isVerifyingModalOtp
-                                                ? "bg-[var(--color-primary)] shadow-[0_4px_16px_-4px_rgba(0,153,102,0.45)] hover:bg-[var(--color-primary-hover)] cursor-pointer"
+                                                ? "bg-[var(--color-primary)] shadow-[0_4px_16px_-4px_rgba(16,96,95,0.45)] hover:bg-[var(--color-primary-hover)] cursor-pointer"
                                                 : "bg-zinc-300 cursor-not-allowed opacity-80"
                                             }`}
                                     >

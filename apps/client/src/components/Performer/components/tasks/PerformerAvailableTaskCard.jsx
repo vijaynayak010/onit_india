@@ -80,7 +80,7 @@ const PerformerAvailableTaskCard = ({
         onClick={() => onViewDetails?.(task)}
         className={`inline-flex shrink-0 items-center justify-center gap-1.5 rounded-full px-4 py-2 text-[12px] font-bold shadow-[var(--shadow-xs)] transition ${
           interestStatus
-            ? "bg-emerald-50 text-[var(--color-primary)] ring-1 ring-emerald-100"
+            ? "bg-[#EFFBFB] text-[var(--color-primary)] ring-1 ring-emerald-100"
             : "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-hover)]"
         }`}
       >

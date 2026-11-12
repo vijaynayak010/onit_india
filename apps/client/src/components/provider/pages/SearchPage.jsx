@@ -80,7 +80,7 @@ const SearchPage = () => {
             const data = response?.taskers || response?.data || response || [];
             setTaskers(Array.isArray(data) ? data : []);
         } catch (err) {
-            console.error("[ONIT] Error fetching taskers for search page:", err);
+            console.error("[FirstDoer] Error fetching taskers for search page:", err);
             setTaskers([]);
         } finally {
             setIsLoadingTaskers(false);
@@ -448,7 +448,7 @@ const SearchPage = () => {
     );
 
     return (
-        <div className="min-h-screen bg-[var(--color-surface)] pb-28 pt-[80px] font-sans antialiased text-[var(--color-text)] selection:bg-emerald-100">
+        <div className="min-h-screen bg-[var(--color-surface)] pb-28 pt-[80px] font-sans antialiased text-[var(--color-text)] selection:bg-[#DFF7F6]">
             <ProviderHeader activePage="home" />
 
             {/* Premium visual gradients background */}
@@ -526,7 +526,7 @@ const SearchPage = () => {
                             searchType === "templates" ? "bg-white text-[var(--color-text)] shadow-sm" : "text-slate-500 hover:text-slate-900"
                         }`}
                     >
-                        <Sparkles size={14} className="text-emerald-500" />
+                        <Sparkles size={14} className="text-[#29ADAC]" />
                         Task Templates
                         <span className="px-1.5 py-0.5 rounded-lg text-[9px] bg-slate-200 text-slate-600 font-bold">
                             {filteredTemplates.length}
@@ -567,7 +567,7 @@ const SearchPage = () => {
                                 {tab.name}{" "}
                                 <span
                                     className={`ml-1 text-[10px] font-bold ${
-                                        activeTab === tab.name ? "text-emerald-100" : "text-[var(--color-text-subtle)]"
+                                        activeTab === tab.name ? "text-[#EFFBFB]" : "text-[var(--color-text-subtle)]"
                                     }`}
                                 >
                                     ({tab.count})
@@ -676,7 +676,7 @@ const SearchPage = () => {
                                 </div>
                             ) : filteredPerformers.length === 0 ? (
                                 <div className="flex flex-col items-center justify-center py-24 text-center bg-white rounded-3xl border border-[var(--color-border)] shadow-sm">
-                                    <div className="h-20 w-20 rounded-[24px] bg-emerald-50 flex items-center justify-center text-[var(--color-primary)] mb-6 shadow-inner ring-1 ring-emerald-100">
+                                    <div className="h-20 w-20 rounded-[24px] bg-[#EFFBFB] flex items-center justify-center text-[var(--color-primary)] mb-6 shadow-inner ring-1 ring-emerald-100">
                                         <Search className="h-9 w-9" />
                                     </div>
                                     <h3 className="text-xl font-bold text-[var(--color-text)]">No Performers Match</h3>
@@ -695,10 +695,10 @@ const SearchPage = () => {
                                         >
                                             <div className="flex gap-2 mb-4">
                                                 {p.isAvailable !== false ? (
-                                                    <span className="flex items-center gap-1.5 px-2.5 py-1 bg-emerald-50 text-emerald-600 rounded-full text-[10px] font-black uppercase tracking-wider border border-emerald-100">
+                                                    <span className="flex items-center gap-1.5 px-2.5 py-1 bg-[#EFFBFB] text-[#10605F] rounded-full text-[10px] font-black uppercase tracking-wider border border-[#29ADAC]/20">
                                                         <span className="relative flex h-2 w-2 shrink-0">
                                                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                                                            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                                                            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10605F]"></span>
                                                         </span>
                                                         Online
                                                     </span>
@@ -803,7 +803,7 @@ const SearchPage = () => {
                         >
                             {filteredTemplates.length === 0 ? (
                                 <div className="col-span-full flex flex-col items-center justify-center py-24 text-center bg-white rounded-3xl border border-[var(--color-border)] shadow-sm">
-                                    <div className="h-20 w-20 rounded-[24px] bg-emerald-50 flex items-center justify-center text-[var(--color-primary)] mb-6 shadow-inner ring-1 ring-emerald-100">
+                                    <div className="h-20 w-20 rounded-[24px] bg-[#EFFBFB] flex items-center justify-center text-[var(--color-primary)] mb-6 shadow-inner ring-1 ring-emerald-100">
                                         <Sparkles className="h-9 w-9" />
                                     </div>
                                     <h3 className="text-xl font-bold text-[var(--color-text)]">No Templates Match</h3>
@@ -911,8 +911,8 @@ const SearchPage = () => {
                                             <span className="rounded-full bg-[var(--color-primary-subtle)] px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-[var(--color-primary)] shadow-sm">
                                                 {task.category}
                                             </span>
-                                            <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50/50 px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider text-emerald-600 border border-emerald-100/50">
-                                                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                                            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#EFFBFB]/50 px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider text-[#10605F] border border-[#29ADAC]/20/50">
+                                                <span className="h-1.5 w-1.5 rounded-full bg-[#10605F] animate-pulse"></span>
                                                 Live
                                             </span>
                                         </div>
@@ -924,7 +924,7 @@ const SearchPage = () => {
                                         <div className="mb-6 flex items-center gap-2 text-xs font-semibold text-[var(--color-text-muted)]">
                                             <span>Deadline: {task.deadline}</span>
                                             <span>•</span>
-                                            <span className="text-emerald-600 font-extrabold flex items-center gap-1">
+                                            <span className="text-[#10605F] font-extrabold flex items-center gap-1">
                                                 {task.applicantsCount || 0} interested
                                             </span>
                                         </div>

@@ -51,7 +51,7 @@ const DomainSelectSheet = ({ open, options, selected, onChange, onClose, onDone 
               <button
                 type="button"
                 onClick={onClose}
-                className="rounded-full p-2 text-[#00A36C] hover:bg-emerald-50"
+                className="rounded-full p-2 text-[#10605F] hover:bg-[#EFFBFB]"
                 aria-label="Close"
               >
                 <X size={20} strokeWidth={2.5} />
@@ -69,7 +69,7 @@ const DomainSelectSheet = ({ open, options, selected, onChange, onClose, onDone 
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   placeholder="Search domains…"
-                  className="w-full rounded-xl border border-gray-200 bg-gray-50 py-3 pl-10 pr-4 text-[14px] font-medium text-gray-900 outline-none focus:border-[#00A36C] focus:bg-white"
+                  className="w-full rounded-xl border border-gray-200 bg-gray-50 py-3 pl-10 pr-4 text-[14px] font-medium text-gray-900 outline-none focus:border-[#10605F] focus:bg-white"
                 />
               </div>
             </div>
@@ -102,7 +102,7 @@ const DomainSelectSheet = ({ open, options, selected, onChange, onClose, onDone 
                 disabled={!canDone}
                 className={`w-full rounded-full py-4 text-[15px] font-bold transition ${
                   canDone
-                    ? "bg-[#00A36C] text-white shadow-md hover:bg-[#00925f]"
+                    ? "bg-[#10605F] text-white shadow-md hover:bg-[#00925f]"
                     : "bg-gray-200 text-gray-500"
                 }`}
               >

@@ -141,7 +141,7 @@ const TaskApplicantsPage = () => {
     }, [isSearching]);
 
     return (
-        <div className="min-h-screen bg-[#f8fafc] text-slate-900 font-sans selection:bg-emerald-100">
+        <div className="min-h-screen bg-[#f8fafc] text-slate-900 font-sans selection:bg-[#DFF7F6]">
             <ProviderHeader activePage="my-tasks" />
 
             {/* Glowing decorative background blobs */}
@@ -154,7 +154,7 @@ const TaskApplicantsPage = () => {
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-slate-200">
                         <div className="space-y-1.5">
                             <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-slate-400">
-                                <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                                <span className="h-2 w-2 rounded-full bg-[#10605F] animate-pulse"></span>
                                 Performers Interested
                             </div>
                             <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight leading-tight">
@@ -193,16 +193,16 @@ const TaskApplicantsPage = () => {
                                 transition={{ duration: 0.4 }}
                                 className="flex flex-col items-center justify-center py-20 bg-white rounded-[2.5rem] border border-slate-100 shadow-md relative overflow-hidden"
                             >
-                                <div className="absolute inset-0 bg-radial-gradient from-emerald-500/5 via-transparent to-transparent pointer-events-none" />
+                                <div className="absolute inset-0 bg-radial-gradient from-[#10605F]/5 via-transparent to-transparent pointer-events-none" />
 
                                 <div className="relative mb-10">
                                     {/* Rotating radar sweeping background */}
                                     <motion.div
                                         animate={{ rotate: 360 }}
                                         transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                                        className="w-40 h-40 rounded-full border-2 border-dashed border-emerald-500/20 absolute inset-0 flex items-center justify-center"
+                                        className="w-40 h-40 rounded-full border-2 border-dashed border-[#10605F]/20 absolute inset-0 flex items-center justify-center"
                                     >
-                                        <div className="w-32 h-32 rounded-full border border-dotted border-emerald-500/10" />
+                                        <div className="w-32 h-32 rounded-full border border-dotted border-[#10605F]/10" />
                                     </motion.div>
 
                                     {/* Central radar signal core */}
@@ -215,7 +215,7 @@ const TaskApplicantsPage = () => {
                                             ]
                                         }}
                                         transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-                                        className="w-24 h-24 bg-emerald-500/10 border-4 border-white shadow-xl rounded-full flex items-center justify-center text-emerald-500 relative z-10"
+                                        className="w-24 h-24 bg-[#10605F]/10 border-4 border-white shadow-xl rounded-full flex items-center justify-center text-[#29ADAC] relative z-10"
                                     >
                                         <Compass size={40} className="animate-spin duration-[4000ms]" />
                                     </motion.div>
@@ -232,7 +232,7 @@ const TaskApplicantsPage = () => {
                                             animate={{ opacity: 1, y: 0 }}
                                             exit={{ opacity: 0, y: -10 }}
                                             transition={{ duration: 0.2 }}
-                                            className="text-emerald-600 font-extrabold text-sm uppercase tracking-widest flex items-center gap-2"
+                                            className="text-[#10605F] font-extrabold text-sm uppercase tracking-widest flex items-center gap-2"
                                         >
                                             <Zap size={14} className="animate-bounce" />
                                             {scoutingMessages[scoutMessageIndex]}
@@ -287,12 +287,12 @@ const TaskApplicantsPage = () => {
                                         <h3 className="text-xl font-black text-slate-900 tracking-tight">
                                             Performers interested
                                         </h3>
-                                        <span className="px-2.5 py-1 rounded-lg text-[11px] font-black tracking-wider bg-emerald-500 text-white">
+                                        <span className="px-2.5 py-1 rounded-lg text-[11px] font-black tracking-wider bg-[#10605F] text-white">
                                             {applicants.length}
                                         </span>
                                     </div>
                                     <div className="shrink-0 flex items-center gap-2 px-4 py-2 bg-slate-100 rounded-xl text-xs font-bold text-slate-500 border border-slate-200">
-                                        <ShieldCheck size={14} className="text-emerald-500" />
+                                        <ShieldCheck size={14} className="text-[#29ADAC]" />
                                         Interest responses
                                     </div>
                                 </div>
@@ -335,7 +335,7 @@ const TaskApplicantsPage = () => {
                                                         {suggested.map((s) => (
                                                             <div
                                                                 key={s.id}
-                                                                className="bg-white border border-emerald-100 rounded-3xl p-6 flex flex-col sm:flex-row gap-5 items-start"
+                                                                className="bg-white border border-[#29ADAC]/20 rounded-3xl p-6 flex flex-col sm:flex-row gap-5 items-start"
                                                             >
                                                                 <img
                                                                     src={s.avatar}
@@ -350,7 +350,7 @@ const TaskApplicantsPage = () => {
                                                                             {s.ratingAvg || "5"}
                                                                         </span>
                                                                         {s.kycStatus === "VERIFIED" ? (
-                                                                            <ShieldCheck size={16} className="text-emerald-500" />
+                                                                            <ShieldCheck size={16} className="text-[#29ADAC]" />
                                                                         ) : null}
                                                                     </div>
                                                                     <p className="text-sm font-semibold text-slate-500 mt-0.5">{s.profession}</p>
@@ -392,7 +392,7 @@ const TaskApplicantsPage = () => {
                                                                                 taskData,
                                                                             },
                                                                         })}
-                                                                        className="flex-1 sm:flex-none px-5 py-2.5 rounded-full bg-emerald-600 text-white text-xs font-extrabold hover:bg-emerald-700"
+                                                                        className="flex-1 sm:flex-none px-5 py-2.5 rounded-full bg-[#10605F] text-white text-xs font-extrabold hover:bg-[#083B3A]"
                                                                     >
                                                                         Hire
                                                                     </button>
@@ -424,7 +424,7 @@ const PerformerCard = ({ performer, type, taskId, taskData, navigate, onReject, 
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             whileHover={{ y: -4, shadow: "0 10px 25px -5px rgba(16, 185, 129, 0.08)" }}
-            className="group bg-white border border-[#a7f3d0] hover:border-emerald-500/50 rounded-3xl p-6 sm:p-7 shadow-sm transition-all duration-300 flex flex-col sm:flex-row items-start gap-6 relative"
+            className="group bg-white border border-[#a7f3d0] hover:border-[#10605F]/50 rounded-3xl p-6 sm:p-7 shadow-sm transition-all duration-300 flex flex-col sm:flex-row items-start gap-6 relative"
         >
             {/* Avatar Frame */}
             <div className="relative shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden bg-slate-50 border border-slate-200 shadow-sm">
@@ -486,7 +486,7 @@ const PerformerCard = ({ performer, type, taskId, taskData, navigate, onReject, 
             </div>
 
             {/* Bookmark Ribbon Icon */}
-            <button className="absolute top-6 right-6 text-[#a7f3d0] hover:text-emerald-500 transition-colors p-1" title="Bookmark Performer">
+            <button className="absolute top-6 right-6 text-[#a7f3d0] hover:text-[#29ADAC] transition-colors p-1" title="Bookmark Performer">
                 <Bookmark className="w-6 h-6 stroke-[1.8]" />
             </button>
 
@@ -495,7 +495,7 @@ const PerformerCard = ({ performer, type, taskId, taskData, navigate, onReject, 
                 {performer.userId && (performer.status === 'ASSIGNED' || performer.status === 'ACCEPTED') && (
                     <button
                         onClick={() => navigate(`/provider/chats?userId=${performer.userId}&taskId=${taskId}`)}
-                        className="p-2.5 bg-slate-100 hover:bg-emerald-50 text-slate-500 hover:text-emerald-600 rounded-full border border-slate-200/60 transition-all active:scale-95"
+                        className="p-2.5 bg-slate-100 hover:bg-[#EFFBFB] text-slate-500 hover:text-[#083B3A] rounded-full border border-slate-200/60 transition-all active:scale-95"
                         title="Message Performer"
                     >
                         <MessageCircle size={16} strokeWidth={2.5} />
@@ -522,7 +522,7 @@ const PerformerCard = ({ performer, type, taskId, taskData, navigate, onReject, 
                         )}
                         <button
                             onClick={() => navigate(`/provider/confirm-and-pay`, { state: { performer, taskData } })}
-                            className="px-5 py-2.5 bg-emerald-50 border border-emerald-200 text-emerald-600 hover:bg-emerald-100 font-extrabold rounded-full text-xs transition-all active:scale-95"
+                            className="px-5 py-2.5 bg-[#EFFBFB] border border-[#29ADAC]/30 text-[#10605F] hover:bg-[#DFF7F6] font-extrabold rounded-full text-xs transition-all active:scale-95"
                         >
                             Hire
                         </button>

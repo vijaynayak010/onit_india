@@ -38,7 +38,7 @@ export default function HomeTalentCategoriesSection() {
               >
                 <img
                   src={performer.image}
-                  alt={`${performer.name}, ${performer.role} performer on OnIT INDIA`}
+                  alt={`${performer.name}, ${performer.role} performer on FirstDoer`}
                   className="h-[222px] w-full object-cover object-center"
                   loading="lazy"
                   decoding="async"

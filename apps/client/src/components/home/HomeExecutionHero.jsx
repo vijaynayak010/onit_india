@@ -133,7 +133,7 @@ function BriefPreviewCard({ brief, animKey, onPostTask }) {
         }}
       >
         <span style={{ fontFamily: "Manrope, sans-serif", fontSize: 12, color: "#7A8380" }}>
-          ▢ onitindia.com/post-task
+          ▢ firstdoer.com/post-task
         </span>
         <div className="flex items-center gap-7">
           <span
@@ -187,7 +187,7 @@ function BriefPreviewCard({ brief, animKey, onPostTask }) {
             )}
           </h3>
           <span className="mt-auto" style={{ fontFamily: "Manrope, sans-serif", fontSize: 13, color: "#87908D" }}>
-            Structured by OnIT AI
+            Structured by FirstDoer AI
           </span>
         </div>
 
@@ -345,7 +345,7 @@ export default function HomeExecutionHero({ className = "" }) {
             <div className="flex w-full items-center" style={{ maxWidth: 1280 }}>
               <Link to="/" className="relative shrink-0" style={{ width: 92, height: 32 }}>
                 <span style={{ position: "absolute", left: 0, top: -0.6, fontFamily: "Outfit, sans-serif", fontWeight: 700, fontSize: 21, lineHeight: "32px", letterSpacing: "-0.7px", color: "#0B1110" }}>
-                  OnIT
+                  FirstDoer
                 </span>
                 <span style={{ position: "absolute", left: 52.67, top: 13.4, fontFamily: "Outfit, sans-serif", fontWeight: 500, fontSize: 9, lineHeight: "14px", letterSpacing: "3px", color: "#77817E" }}>
                   INDIA

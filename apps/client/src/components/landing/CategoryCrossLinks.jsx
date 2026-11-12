@@ -10,7 +10,7 @@ import { Send, Briefcase } from "react-feather";
  * @param {Array<{ to: string, label: string }>} links - Links to other category pages
  * @param {Object} ctaPrimary - { to, label } e.g. "Post Your Task"
  * @param {Object} ctaSecondary - { to, label } e.g. "Get Work Executed"
- * @param {"teal"|"green"} variant - teal (#004d43) or green (green-600)
+ * @param {"teal"|"green"} variant - teal (var(--color-primary)) or green (green-600)
  * @param {boolean} showCtas - If false, only show links (no duplicate Post task / Get work executed buttons)
  */
 const CategoryCrossLinks = ({
@@ -22,9 +22,9 @@ const CategoryCrossLinks = ({
   showCtas = true,
 }) => {
   const isTeal = variant === "teal";
-  const primaryBg = isTeal ? "bg-[#004d43] hover:bg-[#003d35]" : "bg-green-600 hover:bg-green-700";
-  const secondaryBorder = isTeal ? "border-[#004d43] text-[#004d43] hover:bg-[#004d43]/5" : "border-green-600 text-green-700 hover:bg-green-50";
-  const linkCls = isTeal ? "text-[#004d43] hover:text-[#003d35] hover:underline" : "text-green-700 hover:text-green-800 hover:underline";
+  const primaryBg = isTeal ? "bg-[var(--color-primary)] hover:bg-[#003d35]" : "bg-green-600 hover:bg-green-700";
+  const secondaryBorder = isTeal ? "border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary)]/5" : "border-green-600 text-green-700 hover:bg-green-50";
+  const linkCls = isTeal ? "text-[var(--color-primary)] hover:text-[#003d35] hover:underline" : "text-green-700 hover:text-green-800 hover:underline";
 
   return (
     <section className="rounded-2xl border border-gray-200 bg-gray-50/80 p-4 sm:p-6">

@@ -181,7 +181,7 @@ const BanksDetailsView = () => {
                     <div className="flex flex-wrap items-center gap-2">
                       <p className="font-bold text-[var(--color-text)]">{a.details?.bankName || "Bank Account"}</p>
                       {a.isVerified ? (
-                        <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-emerald-700">
+                        <span className="inline-flex items-center gap-1 rounded-full bg-[#EFFBFB] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#10605F]">
                           <CheckCircle2 size={12} strokeWidth={2.5} />
                           Verified
                         </span>

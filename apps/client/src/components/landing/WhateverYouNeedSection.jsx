@@ -247,7 +247,7 @@ export default function WhateverYouNeedSection() {
         <div className="hidden lg:block" style={{ position: "absolute", left: 1068, top: 20, width: 220, zIndex: 2 }}>
           <FeatureCard
             icon={<IconClock />}
-            title="OnIT Lets You Rate The Experience"
+            title="FirstDoer Lets You Rate The Experience"
             desc="Share your feedback and review your performer after the task is complete."
           />
         </div>
@@ -257,7 +257,7 @@ export default function WhateverYouNeedSection() {
           <FeatureCard
             icon={<IconBolt />}
             title="GET IT DONE"
-            desc="From a simple idea to a completed task, OnIT helps you get the work done."
+            desc="From a simple idea to a completed task, FirstDoer helps you get the work done."
           />
         </div>
 

@@ -46,7 +46,7 @@ const ProviderHeader = ({ activePage }) => {
     ];
 
     const getLinkClass = (key) => {
-        const baseClass = "text-[15px] transition-colors font-bold pb-1 border-b-[3px] border-transparent";
+        const baseClass = "text-[15px] transition-colors font-medium pb-1 border-b-[3px] border-transparent";
         if (activePage === key) {
             return `${baseClass} text-[var(--color-primary)] border-[var(--color-primary)]`;
         }
@@ -58,14 +58,18 @@ const ProviderHeader = ({ activePage }) => {
             {/* Main Nav — aligned with marketing site chrome */}           
             <div className="mx-auto flex w-full max-w-[1600px] items-center justify-between px-2 py-2 sm:px-6 lg:px-8 lg:py-4">
                 <div className="flex items-center">
-                    {/* Wordmark — same as landing Navbar (no image logo) */}
+                    {/* Wordmark — FirstDoer */}
                     <button
                         type="button"
                         onClick={() => navigate("/provider/dashboard")}
-                        className="flex shrink-0 cursor-pointer items-center overflow-hidden rounded-lg text-left transition hover:opacity-90 active:scale-[0.98]"
+                        className="flex shrink-0 cursor-pointer items-center gap-2 overflow-hidden rounded-lg text-left transition hover:opacity-90 active:scale-[0.98]"
                         aria-label="Go to provider home"
                     >
-                        <img src="/logo.png" alt="OnIT India Logo" className="h-10 w-18 object-contain mr-2" />
+                        <svg width="26" height="18" viewBox="0 0 30 22" fill="none" aria-hidden="true">
+                            <path d="M11 2.5c-4.7 0-8.5 3.8-8.5 8.5s3.8 8.5 8.5 8.5c3.4 0 5.6-2.4 8-8.5 2.4-6.1 4.6-8.5 8-8.5" stroke="#29ADAC" strokeWidth="3" strokeLinecap="round" />
+                            <path d="M19 19.5c4.7 0 8.5-3.8 8.5-8.5S23.7 2.5 19 2.5c-3.4 0-5.6 2.4-8 8.5" stroke="#4CCDCC" strokeWidth="3" strokeLinecap="round" />
+                        </svg>
+                        <span className="text-xl font-bold tracking-tight text-[#0D1210]">firstDoer</span>
                     </button>
                 </div>
 

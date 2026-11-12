@@ -73,7 +73,7 @@ const onboardingSteps = [
 const workSteps = [
   { title: "Submit First Proposal", body: "Apply to any open task", icon: FileText, bg: "bg-blue-50", color: "text-blue-500" },
   { title: "Earn Your First Rating", body: "Complete a task to get reviewed", icon: Star, bg: "bg-amber-50", color: "text-amber-500" },
-  { title: "Enter the Rankings", body: "Finish 1 task to get ranked", icon: Trophy, bg: "bg-emerald-50", color: "text-emerald-600" },
+  { title: "Enter the Rankings", body: "Finish 1 task to get ranked", icon: Trophy, bg: "bg-[#EFFBFB]", color: "text-[#10605F]" },
 ];
 
 const howItWorks = [
@@ -95,8 +95,8 @@ const howItWorks = [
     title: "Get Paid Securely",
     body: "Work with confidence through protected payments, milestone releases, and ratings.",
     icon: BadgeCheck,
-    color: "text-emerald-600",
-    bg: "bg-emerald-50",
+    color: "text-[#10605F]",
+    bg: "bg-[#EFFBFB]",
   },
 ];
 
@@ -183,7 +183,7 @@ function SectionShell({ title, subtitle, actionLabel, onAction, children }) {
 
 function TaskCard({ task, onOpen }) {
   return (
-    <article className="flex min-h-[216px] flex-col rounded-[12px] border border-slate-100 bg-white p-5 shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition hover:-translate-y-0.5 hover:border-emerald-100 hover:shadow-[0_10px_28px_rgba(15,23,42,0.08)]">
+    <article className="flex min-h-[216px] flex-col rounded-[12px] border border-slate-100 bg-white p-5 shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition hover:-translate-y-0.5 hover:border-[#29ADAC]/20 hover:shadow-[0_10px_28px_rgba(15,23,42,0.08)]">
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
           <p className="truncate text-[11px] font-semibold text-slate-400">{task.client}</p>
@@ -211,7 +211,7 @@ function TaskCard({ task, onOpen }) {
         <button
           type="button"
           onClick={onOpen}
-          className="inline-flex h-8 items-center gap-1.5 rounded-full bg-[var(--color-primary)] px-4 text-[11px] font-semibold text-white shadow-[0_2px_6px_rgba(0,153,102,0.18)] transition hover:bg-[var(--color-primary-hover)]"
+          className="inline-flex h-8 items-center gap-1.5 rounded-full bg-[var(--color-primary)] px-4 text-[11px] font-semibold text-white shadow-[0_2px_6px_rgba(16,96,95,0.18)] transition hover:bg-[var(--color-primary-hover)]"
         >
           View task
           <ArrowRight size={12} strokeWidth={2.4} />
@@ -232,7 +232,7 @@ function JourneyBanner({ stage, category, onAction }) {
     setup: {
       eyebrow: "Your next step",
       title: "Complete your profile to get reviewed",
-      body: "Add your skills, portfolio, and identity details so OnIT can match you to the right category.",
+      body: "Add your skills, portfolio, and identity details so FirstDoer can match you to the right category.",
       action: "Continue setup",
     },
     review: {
@@ -268,10 +268,10 @@ function JourneyBanner({ stage, category, onAction }) {
   }[stage] || null;
   if (!copy) return null;
   return <section className="rounded-3xl bg-slate-950 p-5 text-white shadow-[0_12px_30px_rgba(15,23,42,0.12)] sm:p-6">
-    <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-emerald-300">{copy.eyebrow}</p>
+    <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#7EDEDD]">{copy.eyebrow}</p>
     <h1 className="mt-2 max-w-xl text-[25px] font-bold leading-tight tracking-tight sm:text-[30px]">{copy.title}</h1>
     <p className="mt-3 max-w-xl text-sm leading-6 text-slate-300">{copy.body}</p>
-    {copy.action ? <button type="button" onClick={onAction} className="mt-5 inline-flex min-h-11 items-center gap-2 rounded-full bg-emerald-500 px-5 text-sm font-bold text-white transition active:scale-[0.98] hover:bg-emerald-400">
+    {copy.action ? <button type="button" onClick={onAction} className="mt-5 inline-flex min-h-11 items-center gap-2 rounded-full bg-[#10605F] px-5 text-sm font-bold text-white transition active:scale-[0.98] hover:bg-[#083B3A]">
       {copy.action}<ArrowRight size={16} />
     </button> : <div className="mt-5 h-2 w-40 overflow-hidden rounded-full bg-white/15"><div className="h-full w-1/2 animate-pulse rounded-full bg-emerald-400" /></div>}
   </section>;
@@ -288,7 +288,7 @@ function Greeting({ name }) {
 }
 
 function EmptyState({ title, body, action, onAction }) {
-  return <div className="rounded-2xl border border-dashed border-slate-200 bg-slate-50 p-5 text-center"><p className="text-sm font-bold text-slate-700">{title}</p><p className="mx-auto mt-1 max-w-md text-xs leading-5 text-slate-500">{body}</p>{action && <button type="button" onClick={onAction} className="mt-3 text-xs font-bold text-emerald-700">{action} →</button>}</div>;
+  return <div className="rounded-2xl border border-dashed border-slate-200 bg-slate-50 p-5 text-center"><p className="text-sm font-bold text-slate-700">{title}</p><p className="mx-auto mt-1 max-w-md text-xs leading-5 text-slate-500">{body}</p>{action && <button type="button" onClick={onAction} className="mt-3 text-xs font-bold text-[#10605F]">{action} →</button>}</div>;
 }
 
 const NEW_HOME_CACHE_KEY = "onit_performer_new_home_cache_v1";
@@ -323,7 +323,7 @@ function SponsoredCard({ item, position }) {
     recordRecommendationClick(item.id, { requestId: `new-home-click-${item.id}-${Date.now()}`, impressionId: impressionId || undefined, placement: "performer_new_home" }).catch(() => {});
     window.open(item.destination_url, "_blank", "noopener,noreferrer");
   };
-  return <article className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm"><div className="flex items-center justify-between px-5 pt-4"><p className="text-[10px] font-bold uppercase tracking-[0.14em] text-slate-500">{item.is_sponsored ? "Sponsored" : "OnIT resource"}</p><span className="text-[10px] font-medium text-slate-400">For your growth</span></div>{item.image_url ? <img src={item.image_url} alt="" className="mt-3 h-32 w-full object-cover" /> : <div className="mx-5 mt-3 flex h-24 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-700"><Sparkles size={28} /></div>}<div className="p-5"><p className="text-xs font-semibold text-emerald-700">{item.brand_name}</p><h3 className="mt-1 text-base font-bold text-slate-950">{item.title}</h3><p className="mt-1 text-sm leading-5 text-slate-600">{item.description}</p><button type="button" onClick={open} className="mt-4 inline-flex min-h-10 items-center gap-2 rounded-full bg-slate-950 px-4 text-sm font-bold text-white">Learn more <ArrowRight size={15} /></button></div></article>;
+  return <article className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm"><div className="flex items-center justify-between px-5 pt-4"><p className="text-[10px] font-bold uppercase tracking-[0.14em] text-slate-500">{item.is_sponsored ? "Sponsored" : "FirstDoer resource"}</p><span className="text-[10px] font-medium text-slate-400">For your growth</span></div>{item.image_url ? <img src={item.image_url} alt="" className="mt-3 h-32 w-full object-cover" /> : <div className="mx-5 mt-3 flex h-24 items-center justify-center rounded-2xl bg-[#EFFBFB] text-[#10605F]"><Sparkles size={28} /></div>}<div className="p-5"><p className="text-xs font-semibold text-[#10605F]">{item.brand_name}</p><h3 className="mt-1 text-base font-bold text-slate-950">{item.title}</h3><p className="mt-1 text-sm leading-5 text-slate-600">{item.description}</p><button type="button" onClick={open} className="mt-4 inline-flex min-h-10 items-center gap-2 rounded-full bg-slate-950 px-4 text-sm font-bold text-white">Learn more <ArrowRight size={15} /></button></div></article>;
 }
 
 const PerformerDashboardPage = () => {
@@ -590,20 +590,20 @@ const PerformerDashboardPage = () => {
               </SectionShell> : null}
 
               {appliedTasks.length > 0 ? <SectionShell title="Applications and offers" subtitle="Track what is waiting, shortlisted, or ready for you." actionLabel="View applications" onAction={() => navigate("/performer/applications")}>
-                <div className="space-y-2">{appliedTasks.slice(0, 3).map((application) => { const task = application.task || application; const status = String(application.status || application.interestStatus || "SUBMITTED").replaceAll("_", " ").toLowerCase(); return <button key={application.id || task.id} type="button" onClick={() => task.id && navigate(`/performer/task/${task.id}`)} className="flex w-full items-center justify-between gap-3 rounded-2xl border border-slate-100 bg-white p-4 text-left shadow-sm"><span className="min-w-0"><span className="block truncate text-sm font-bold text-slate-900">{task.title || "Task application"}</span><span className="mt-1 block text-xs text-slate-500">{task.category || "Application"}</span></span><span className={`shrink-0 rounded-full px-3 py-1 text-[10px] font-bold capitalize ${status.includes("offer") || status.includes("short") ? "bg-emerald-50 text-emerald-700" : "bg-slate-100 text-slate-600"}`}>{status}</span></button>; })}</div>
+                <div className="space-y-2">{appliedTasks.slice(0, 3).map((application) => { const task = application.task || application; const status = String(application.status || application.interestStatus || "SUBMITTED").replaceAll("_", " ").toLowerCase(); return <button key={application.id || task.id} type="button" onClick={() => task.id && navigate(`/performer/task/${task.id}`)} className="flex w-full items-center justify-between gap-3 rounded-2xl border border-slate-100 bg-white p-4 text-left shadow-sm"><span className="min-w-0"><span className="block truncate text-sm font-bold text-slate-900">{task.title || "Task application"}</span><span className="mt-1 block text-xs text-slate-500">{task.category || "Application"}</span></span><span className={`shrink-0 rounded-full px-3 py-1 text-[10px] font-bold capitalize ${status.includes("offer") || status.includes("short") ? "bg-[#EFFBFB] text-[#10605F]" : "bg-slate-100 text-slate-600"}`}>{status}</span></button>; })}</div>
               </SectionShell> : null}
 
               {journey.stage !== "working" && <SectionShell title={journey.stage === "ready" ? "Tasks matched to you" : "Preview your future work"} subtitle={journey.stage === "ready" ? "A short list based on your skills and category." : "See what performers in this category work on."} actionLabel="Browse" onAction={() => navigate("/performer/find-tasks")}>
                 {loadingTasks && tasks.length === 0 ? <div className="grid gap-3 md:grid-cols-2">{[0, 1].map((item) => <div key={item} className="h-[216px] animate-pulse rounded-2xl bg-slate-50" />)}</div> : displayTasks.length ? <div className="grid gap-3 md:grid-cols-2">{displayTasks.map((task) => <TaskCard key={task.id} task={task} onOpen={() => navigate(`/performer/task/${task.id}`)} />)}</div> : <EmptyState title="No published tasks right now" body="We’ll show relevant work here as soon as it is available." />}
               </SectionShell>}
 
-              {nextMilestone && <section className="rounded-3xl border border-emerald-100 bg-emerald-50/70 p-5"><div className="flex items-start gap-3"><div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-white text-emerald-700"><Target size={19} /></div><div><p className="text-xs font-bold uppercase tracking-widest text-emerald-700">Your improvement plan</p><h2 className="mt-1 text-lg font-bold text-slate-950">Next: {nextMilestone.title}</h2><p className="mt-1 text-sm leading-6 text-slate-600">{nextMilestone.description || "Complete this step to keep your profile ready for review."}</p><button type="button" onClick={() => navigate("/performer/growth")} className="mt-3 text-sm font-bold text-emerald-700">Open growth plan →</button></div></div></section>}
+              {nextMilestone && <section className="rounded-3xl border border-[#29ADAC]/20 bg-[#EFFBFB]/70 p-5"><div className="flex items-start gap-3"><div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-white text-[#10605F]"><Target size={19} /></div><div><p className="text-xs font-bold uppercase tracking-widest text-[#10605F]">Your improvement plan</p><h2 className="mt-1 text-lg font-bold text-slate-950">Next: {nextMilestone.title}</h2><p className="mt-1 text-sm leading-6 text-slate-600">{nextMilestone.description || "Complete this step to keep your profile ready for review."}</p><button type="button" onClick={() => navigate("/performer/growth")} className="mt-3 text-sm font-bold text-[#10605F]">Open growth plan →</button></div></div></section>}
             </div>
 
             <aside className="space-y-5">
-              <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm"><div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500"><Wallet size={16} /> Earnings</div><p className="mt-3 text-3xl font-bold text-slate-950">₹{Number(walletSummary?.balance ?? walletSummary?.availableBalance ?? walletSummary?.amount ?? walletSummary?.wallet?.balance ?? 0).toLocaleString("en-IN")}</p><p className="mt-1 text-xs text-slate-500">Available balance</p><div className="mt-4 grid grid-cols-2 gap-2"><div className="rounded-xl bg-slate-50 p-3"><p className="text-[10px] text-slate-500">Completed</p><p className="mt-1 text-sm font-bold text-slate-900">{analyticsSummary?.completedTasks ?? analyticsSummary?.tasksCompleted ?? completedTasks.length}</p></div><div className="rounded-xl bg-slate-50 p-3"><p className="text-[10px] text-slate-500">Rating</p><p className="mt-1 text-sm font-bold text-slate-900">{performerStats.rating ? `${performerStats.rating.toFixed(1)} / 5` : "Not rated"}</p></div></div><button type="button" onClick={() => navigate("/performer/earnings")} className="mt-4 text-xs font-bold text-emerald-700">View earnings →</button></section>
+              <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm"><div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500"><Wallet size={16} /> Earnings</div><p className="mt-3 text-3xl font-bold text-slate-950">₹{Number(walletSummary?.balance ?? walletSummary?.availableBalance ?? walletSummary?.amount ?? walletSummary?.wallet?.balance ?? 0).toLocaleString("en-IN")}</p><p className="mt-1 text-xs text-slate-500">Available balance</p><div className="mt-4 grid grid-cols-2 gap-2"><div className="rounded-xl bg-slate-50 p-3"><p className="text-[10px] text-slate-500">Completed</p><p className="mt-1 text-sm font-bold text-slate-900">{analyticsSummary?.completedTasks ?? analyticsSummary?.tasksCompleted ?? completedTasks.length}</p></div><div className="rounded-xl bg-slate-50 p-3"><p className="text-[10px] text-slate-500">Rating</p><p className="mt-1 text-sm font-bold text-slate-900">{performerStats.rating ? `${performerStats.rating.toFixed(1)} / 5` : "Not rated"}</p></div></div><button type="button" onClick={() => navigate("/performer/earnings")} className="mt-4 text-xs font-bold text-[#10605F]">View earnings →</button></section>
               <section className="rounded-3xl bg-slate-950 p-5 text-white">
-                <div className="flex items-center gap-2 text-sm font-bold text-emerald-300"><ShieldCheck size={17} /> Trust Score</div>
+                <div className="flex items-center gap-2 text-sm font-bold text-[#7EDEDD]"><ShieldCheck size={17} /> Trust Score</div>
                 {growthTrust == null ? (
                   <div className="mt-3 space-y-2">
                     <div className="h-9 w-20 animate-pulse rounded-lg bg-white/10" />
@@ -622,7 +622,7 @@ const PerformerDashboardPage = () => {
                 )}
               </section>
               {dailyQuiz?.available && dailyQuiz.quiz ? <section className="rounded-3xl border border-amber-100 bg-amber-50 p-5"><div className="flex items-center justify-between gap-3"><div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-amber-800"><BookOpen size={16} /> Today’s quiz</div><span className="rounded-full bg-white/80 px-2.5 py-1 text-[10px] font-bold text-amber-800">{dailyQuiz.quiz.attemptsRemaining} tries left</span></div><h2 className="mt-2 text-lg font-bold text-slate-950">{dailyQuiz.quiz.title}</h2><p className="mt-1 text-sm leading-5 text-slate-600">{dailyQuiz.quiz.questions?.length || 0} questions · {dailyQuiz.quiz.timeLimitSeconds ? Math.ceil(dailyQuiz.quiz.timeLimitSeconds / 60) : Math.ceil((dailyQuiz.quiz.questions?.length || 0) * (dailyQuiz.quiz.secondsPerQuestion || 30) / 60)} min total</p><button type="button" onClick={() => navigate("/performer/daily-quiz")} className="mt-4 inline-flex min-h-10 items-center gap-2 rounded-full bg-slate-950 px-4 text-sm font-bold text-white transition-transform active:scale-[0.98]">{dailyQuiz.quiz.passed ? "View result" : "Start quiz"} <ArrowRight size={15} /></button></section> : quizResource ? <section className="rounded-3xl border border-slate-200 bg-white p-5"><div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500"><BookOpen size={16} /> Practice library</div><h2 className="mt-2 text-lg font-bold text-slate-950">{quizResource.title}</h2><p className="mt-1 text-sm leading-5 text-slate-600">Explore this practice resource while today’s quiz is being prepared.</p><button type="button" onClick={() => navigate("/performer/growth")} className="mt-4 inline-flex min-h-10 items-center gap-2 rounded-full bg-slate-950 px-4 text-sm font-bold text-white">Open library <ArrowRight size={15} /></button></section> : null}
-              {courseResources.length ? <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm"><div className="flex items-center justify-between gap-3"><div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500"><BookOpen size={16} /> Learn next</div><button type="button" onClick={() => navigate("/performer/growth")} className="text-xs font-bold text-emerald-700">See all</button></div><div className="mt-3 space-y-3">{courseResources.map((resource) => <button key={resource.id} type="button" onClick={() => navigate("/performer/growth")} className="block w-full rounded-2xl border border-slate-100 p-3 text-left"><p className="text-sm font-bold text-slate-900">{resource.title}</p><p className="mt-1 text-xs text-slate-500">{resource.category}</p></button>)}</div></section> : null}
+              {courseResources.length ? <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm"><div className="flex items-center justify-between gap-3"><div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500"><BookOpen size={16} /> Learn next</div><button type="button" onClick={() => navigate("/performer/growth")} className="text-xs font-bold text-[#10605F]">See all</button></div><div className="mt-3 space-y-3">{courseResources.map((resource) => <button key={resource.id} type="button" onClick={() => navigate("/performer/growth")} className="block w-full rounded-2xl border border-slate-100 p-3 text-left"><p className="text-sm font-bold text-slate-900">{resource.title}</p><p className="mt-1 text-xs text-slate-500">{resource.category}</p></button>)}</div></section> : null}
               {recommendations[0] ? <SponsoredCard item={recommendations[0]} position={1} /> : null}
             </aside>
           </div>
@@ -634,7 +634,7 @@ const PerformerDashboardPage = () => {
                 : categoryCards.map((skill) => {
                     const Icon = skill.icon;
                     return (
-                      <button key={skill.id || skill.label} type="button" onClick={() => navigate(`/performer/find-tasks?q=${encodeURIComponent(skill.query || skill.label)}`)} className="group rounded-[12px] border border-slate-100 bg-white p-4 text-left shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition hover:-translate-y-0.5 hover:border-emerald-100">
+                      <button key={skill.id || skill.label} type="button" onClick={() => navigate(`/performer/find-tasks?q=${encodeURIComponent(skill.query || skill.label)}`)} className="group rounded-[12px] border border-slate-100 bg-white p-4 text-left shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition hover:-translate-y-0.5 hover:border-[#29ADAC]/20">
                         {skill.imageUrl ? (
                           <div className="h-9 w-9 overflow-hidden rounded-[10px]">
                             <img src={skill.imageUrl} alt="" className="h-full w-full object-cover" />
@@ -663,7 +663,7 @@ const PerformerDashboardPage = () => {
           <section className="rounded-[16px] border border-slate-100 bg-white p-6 shadow-[0_1px_2px_rgba(15,23,42,0.05)]">
             <div className="mb-5">
               <h2 className="text-[17px] font-semibold text-slate-950">Performance Ranking</h2>
-              <p className="mt-1 text-[12px] font-medium text-slate-400">Your standing among ONIT performers.</p>
+              <p className="mt-1 text-[12px] font-medium text-slate-400">Your standing among FirstDoer performers.</p>
             </div>
             <div className="grid gap-4 lg:grid-cols-[1fr_435px]">
               <div className="rounded-[12px] bg-slate-50 p-5">
@@ -671,10 +671,10 @@ const PerformerDashboardPage = () => {
                 <h3 className="mt-5 text-[16px] font-semibold text-slate-950">{rankLabel}</h3>
                 <p className="mt-1 text-[11px] font-medium text-slate-400">
                   {rankLabel === "Unranked"
-                    ? `${rankCategory}. Complete your first task to enter the ONIT ranking.`
+                    ? `${rankCategory}. Complete your first task to enter the FirstDoer ranking.`
                     : `${rankCategory} · score ${rankingScore}. Keep completing tasks to climb higher.`}
                 </p>
-                <div className="mt-3 inline-flex rounded-full bg-emerald-50 px-3 py-1 text-[10px] font-semibold text-[var(--color-primary)]">Quality work and reliability improve your standing</div>
+                <div className="mt-3 inline-flex rounded-full bg-[#EFFBFB] px-3 py-1 text-[10px] font-semibold text-[var(--color-primary)]">Quality work and reliability improve your standing</div>
                 <button type="button" onClick={() => navigate("/performer/find-tasks")} className="mt-4 flex h-8 items-center rounded-full bg-[var(--color-primary)] px-4 text-[11px] font-semibold text-white">
                   {performerStats.hasActivity ? "Find More Tasks" : "Find Your First Task"}
                 </button>
@@ -682,12 +682,12 @@ const PerformerDashboardPage = () => {
               <div className="grid gap-3 sm:grid-cols-3">
                 {performerStats.hasActivity && topPerformers.length
                   ? topPerformers.map((performer, index) => (
-                      <button key={performer.id || performer.displayName} type="button" onClick={() => navigate("/performer/leaderboard")} className="rounded-[12px] border border-slate-100 bg-slate-50 p-4 text-center transition hover:border-emerald-100 hover:bg-white">
+                      <button key={performer.id || performer.displayName} type="button" onClick={() => navigate("/performer/leaderboard")} className="rounded-[12px] border border-slate-100 bg-slate-50 p-4 text-center transition hover:border-[#29ADAC]/20 hover:bg-white">
                         <img src={performer.avatar} alt="" className="mx-auto h-12 w-12 rounded-full object-cover" />
                         <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.03em] text-slate-300">Rank #{performer.rank || index + 1}</p>
                         <h3 className="mt-2 truncate text-[12px] font-semibold text-slate-700">{performer.displayName}</h3>
                         <p className="mt-1 truncate text-[10px] font-medium text-slate-400">{performer.profession || performer.domain}</p>
-                        <div className="mt-3 h-1 rounded-full bg-emerald-100" />
+                        <div className="mt-3 h-1 rounded-full bg-[#DFF7F6]" />
                         <p className="mt-2 text-[9px] font-medium text-slate-400">Score {performer.rankingScore ?? 0}</p>
                       </button>
                     ))
@@ -714,7 +714,7 @@ const PerformerDashboardPage = () => {
 
           <section className="rounded-[20px] border border-slate-100 bg-white p-7 shadow-[0_1px_2px_rgba(15,23,42,0.06)]">
             <div>
-              <h2 className="text-[19px] font-semibold text-slate-950">How OnIT Works</h2>
+              <h2 className="text-[19px] font-semibold text-slate-950">How FirstDoer Works</h2>
               <p className="mt-1 text-[12px] font-medium text-slate-400">Three steps to earning securely</p>
             </div>
             <div className="mt-6 grid gap-4 md:grid-cols-3">

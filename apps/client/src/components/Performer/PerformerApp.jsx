@@ -77,14 +77,14 @@ const PerformerApp = () => {
             const forbiddenRoles = ['PROVIDER', 'ADMIN', 'SUPER_ADMIN'];
 
             if (forbiddenRoles.includes(currentRole)) {
-                console.warn("[ONIT PERF] ⛔ Redirecting Provider away from Performer module.");
+                console.warn("[FirstDoer PERF] ⛔ Redirecting Provider away from Performer module.");
                 navigate('/provider/dashboard', { replace: true });
                 return;
             }
 
             try {
                 // 1. Sync full profile from backend (includes taskers data)
-                console.log("[ONIT PERF] Syncing full performer profile from backend...");
+                console.log("[FirstDoer PERF] Syncing full performer profile from backend...");
                 const fullProfile = await refreshProfile();
 
                 // 2. Extra check: if backend says they are a Provider, redirect now
@@ -96,10 +96,10 @@ const PerformerApp = () => {
 
                 // 3. Ensure Tasker Profile record exists
                 if (!fullProfile.taskers) {
-                    console.log("[ONIT PERF] ⚠️ Tasker record missing. Initializing...");
+                    console.log("[FirstDoer PERF] ⚠️ Tasker record missing. Initializing...");
                     const checkRole = String(fullProfile?.role || 'TASKER').toUpperCase();
                     if (checkRole === 'PROVIDER' || checkRole === 'ADMIN' || checkRole === 'SUPER_ADMIN') {
-                        console.warn("[ONIT PERF] ⛔ Skipping Tasker profile creation for non-tasker role:", checkRole);
+                        console.warn("[FirstDoer PERF] ⛔ Skipping Tasker profile creation for non-tasker role:", checkRole);
                         navigate('/provider/dashboard', { replace: true });
                     } else {
                         await onboardUser('TASKER');
@@ -108,7 +108,7 @@ const PerformerApp = () => {
                     }
                 }
             } catch (err) {
-                console.error("[ONIT PERF] ❌ Failed to verify performer user role:", err);
+                console.error("[FirstDoer PERF] ❌ Failed to verify performer user role:", err);
             }
         };
 

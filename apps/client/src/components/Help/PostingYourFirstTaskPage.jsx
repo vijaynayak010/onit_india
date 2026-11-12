@@ -37,33 +37,33 @@ const STEPS = [
 
 const PostingYourFirstTaskPage = () => (
   <HelpArticleLayout
-    title="Posting Your First Task | OnIT INDIA"
+    title="Posting Your First Task | FirstDoer"
     description="Step-by-step guide for task providers: how to describe your task, set a budget, and get matched with performers who can deliver."
     slug="posting-your-first-task"
   >
-    <h1 className="text-3xl md:text-4xl font-bold text-[#004d43] mb-6">
+    <h1 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-6">
       Posting Your First Task
     </h1>
     <p className="text-gray-600 text-lg mb-10">
-      This guide walks you through posting a task on OnIT INDIA so you can get work done by verified performers. You set the price; performers show interest; you choose, chat, assign, and pay when the work is done.
+      This guide walks you through posting a task on FirstDoer so you can get work done by verified performers. You set the price; performers show interest; you choose, chat, assign, and pay when the work is done.
     </p>
 
     <div className="space-y-8">
       {STEPS.map(({ step, title, body }) => (
         <div key={step} className="flex gap-4">
-          <span className="shrink-0 w-10 h-10 rounded-full bg-[#004d43] text-white flex items-center justify-center font-bold text-sm">
+          <span className="shrink-0 w-10 h-10 rounded-full bg-[var(--color-primary)] text-white flex items-center justify-center font-bold text-sm">
             {step}
           </span>
           <div>
-            <h2 className="text-xl font-bold text-[#004d43] mb-2">{title}</h2>
+            <h2 className="text-xl font-bold text-[var(--color-primary)] mb-2">{title}</h2>
             <p className="text-gray-600">{body}</p>
           </div>
         </div>
       ))}
     </div>
 
-    <div className="mt-12 rounded-xl bg-[#004d43]/5 border border-[#004d43]/15 p-6">
-      <h2 className="text-lg font-bold text-[#004d43] mb-2">Tips for a successful task</h2>
+    <div className="mt-12 rounded-xl bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/15 p-6">
+      <h2 className="text-lg font-bold text-[var(--color-primary)] mb-2">Tips for a successful task</h2>
       <ul className="list-disc pl-5 space-y-1 text-gray-600 text-sm">
         <li>Write a clear, specific title (e.g. “Research competitors in X industry” instead of “Need research”).</li>
         <li>Describe deliverables and any format you need (e.g. “One-page summary in Google Doc”).</li>
@@ -73,7 +73,7 @@ const PostingYourFirstTaskPage = () => (
     </div>
 
     <p className="mt-10 text-gray-600">
-      Ready to post? <Link to="/provider/post-task-selection" className="text-[#004d43] font-medium hover:underline">Go to Post a task</Link>. New to the platform? See our <Link to="/help/getting-started" className="text-[#004d43] font-medium hover:underline">Getting Started Guide</Link>.
+      Ready to post? <Link to="/provider/post-task-selection" className="text-[var(--color-primary)] font-medium hover:underline">Go to Post a task</Link>. New to the platform? See our <Link to="/help/getting-started" className="text-[var(--color-primary)] font-medium hover:underline">Getting Started Guide</Link>.
     </p>
   </HelpArticleLayout>
 );

@@ -18,7 +18,7 @@ export default function TaskPreview({ taskData, onUseTask, onRegenerate }) {
   return (
     <div className="w-full rounded-2xl border-2 border-[var(--color-primary)]/20 bg-white shadow-[var(--shadow-lg)] overflow-hidden">
       {/* Header with gradient */}
-      <div className="bg-gradient-to-r from-[var(--color-primary)] to-emerald-600 px-6 py-4">
+      <div className="bg-gradient-to-r from-[var(--color-primary)] to-[#083B3A] px-6 py-4">
         <div className="flex items-center justify-between">
           <h3 className="text-lg font-bold text-white flex items-center gap-2">
             <CheckCircle size={20} />
@@ -111,7 +111,7 @@ export default function TaskPreview({ taskData, onUseTask, onRegenerate }) {
           <label className="block text-xs font-semibold text-[var(--color-text-subtle)] uppercase tracking-wide mb-2">
             Category
           </label>
-          <span className="inline-flex items-center px-4 py-2 rounded-lg bg-gradient-to-r from-[var(--color-primary)] to-emerald-600 text-white font-semibold">
+          <span className="inline-flex items-center px-4 py-2 rounded-lg bg-gradient-to-r from-[var(--color-primary)] to-[#083B3A] text-white font-semibold">
             {taskData.task_category}
           </span>
         </div>

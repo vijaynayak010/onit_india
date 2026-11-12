@@ -141,12 +141,12 @@ const WalletView = ({ onAddMoney, onWithdraw, onViewTransactions }) => {
             >
               <div className="flex min-w-0 flex-wrap items-center gap-2">
                 {tx.type === "CREDIT" ? (
-                  <ArrowDownLeft size={16} className="text-emerald-600" strokeWidth={2.5} />
+                  <ArrowDownLeft size={16} className="text-[#10605F]" strokeWidth={2.5} />
                 ) : (
                   <ArrowUpRight size={16} className="text-red-500" strokeWidth={2.5} />
                 )}
                 <span
-                  className={`text-sm font-bold tabular-nums ${tx.type === "CREDIT" ? "text-emerald-600" : "text-red-500"}`}
+                  className={`text-sm font-bold tabular-nums ${tx.type === "CREDIT" ? "text-[#10605F]" : "text-red-500"}`}
                 >
                   {tx.type === "CREDIT" ? "+" : "−"} ₹{tx.amount.toLocaleString()}
                 </span>

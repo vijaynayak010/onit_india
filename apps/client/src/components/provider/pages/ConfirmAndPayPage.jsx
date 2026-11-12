@@ -265,7 +265,7 @@ const ConfirmAndPayPage = () => {
                 key: import.meta.env.VITE_RAZORPAY_KEY_ID,
                 amount: order.amount,
                 currency: order.currency || "INR",
-                name: "OnIT India",
+                name: "FirstDoer",
                 description: `Hiring ${performer.person || 'Performer'} for "${taskData.title}"`,
                 order_id: order.id,
                 handler: async (response) => {
@@ -411,7 +411,7 @@ const ConfirmAndPayPage = () => {
                                 </div>
                                 <div>
                                     <p className="text-[13px] font-bold text-[#94a3b8] mb-1.5">Service Tier</p>
-                                    <p className="text-[16px] font-bold text-[#16a34a]">OnIT Verified</p>
+                                    <p className="text-[16px] font-bold text-[#16a34a]">FirstDoer Verified</p>
                                 </div>
                             </div>
 
@@ -840,9 +840,9 @@ const ConfirmAndPayPage = () => {
                                 <h2 className="text-[34px] font-black text-slate-900 mb-3 tracking-tight">Payment Successful!</h2>
                                 <div className="flex flex-col items-center gap-2 mb-12">
                                     <p className="text-[19px] font-bold text-slate-600">
-                                        Task <span className="text-emerald-600">ASSIGNED</span> to {performer?.person}
+                                        Task <span className="text-[#10605F]">ASSIGNED</span> to {performer?.person}
                                     </p>
-                                    <div className="px-4 py-1.5 bg-emerald-50 text-emerald-600 rounded-full text-[12px] font-black uppercase tracking-wider">
+                                    <div className="px-4 py-1.5 bg-[#EFFBFB] text-[#10605F] rounded-full text-[12px] font-black uppercase tracking-wider">
                                         Task in Progress
                                     </div>
                                 </div>

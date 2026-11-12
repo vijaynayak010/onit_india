@@ -49,7 +49,7 @@ const formatTime = (value) => {
 
 const GREETING = {
   id: "sys-1",
-  text: "Hi! I'm your OnIT Buddy. How can I help you today?",
+  text: "Hi! I'm your FirstDoer Buddy. How can I help you today?",
   time: "System",
   type: "received",
 };
@@ -211,7 +211,7 @@ const ProviderAgentSupportPage = () => {
         aria-hidden
         style={{
           background:
-            "radial-gradient(ellipse 80% 50% at 50% -10%, rgba(5,150,105,0.08), transparent 50%), radial-gradient(ellipse 60% 40% at 100% 20%, rgba(5,150,105,0.05), transparent 45%)",
+            "radial-gradient(ellipse 80% 50% at 50% -10%, rgba(16,96,95,0.08), transparent 50%), radial-gradient(ellipse 60% 40% at 100% 20%, rgba(16,96,95,0.05), transparent 45%)",
         }}
       />
 
@@ -240,7 +240,7 @@ const ProviderAgentSupportPage = () => {
                 <ChevronRight className="h-4 w-4 text-[var(--color-border)]" aria-hidden />
               </>
             )}
-            <span className="font-bold text-[var(--color-primary)]">OnIT Buddy</span>
+            <span className="font-bold text-[var(--color-primary)]">FirstDoer Buddy</span>
           </nav>
         </div>
       </div>
@@ -268,7 +268,7 @@ const ProviderAgentSupportPage = () => {
               <Headphones size={20} strokeWidth={2.2} />
             </div>
             <div className="min-w-0 flex-1">
-              <p className="text-[15px] font-bold text-[var(--color-text)]">OnIT Buddy</p>
+              <p className="text-[15px] font-bold text-[var(--color-text)]">FirstDoer Buddy</p>
               <p className="flex items-center gap-1.5 text-[12px] font-medium text-[var(--color-text-muted)]">
                 <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-primary)]" />
                 Online · Avg. reply under 5 min

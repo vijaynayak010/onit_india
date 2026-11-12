@@ -49,12 +49,12 @@ const faqs = [
     answer: "Traditional freelancing often involves proposals, negotiation, and projects lasting weeks or months. Task-based work focuses on a specific outcome with a clearer scope and shorter execution cycle. Many independent professionals use both models.",
   },
   {
-    question: "Can beginners find freelance work on OnIT INDIA?",
-    answer: "OnIT INDIA includes task categories that suit different experience levels. Beginners should complete their profile accurately, choose work that matches their current skills, communicate clearly, and build a reliable record one task at a time.",
+    question: "Can beginners find freelance work on FirstDoer?",
+    answer: "FirstDoer includes task categories that suit different experience levels. Beginners should complete their profile accurately, choose work that matches their current skills, communicate clearly, and build a reliable record one task at a time.",
   },
   {
     question: "What freelance services can businesses hire for?",
-    answer: "Businesses can use OnIT INDIA for content, design, research, data operations, administration, marketing support, technology tasks, field verification, retail audits, and other clearly defined work.",
+    answer: "Businesses can use FirstDoer for content, design, research, data operations, administration, marketing support, technology tasks, field verification, retail audits, and other clearly defined work.",
   },
   {
     question: "How should I write a good freelance task brief?",
@@ -93,7 +93,7 @@ const breadcrumbSchema = {
 
 export default function FreelancingIndiaPage() {
   const canonical = `${SITE_URL}/freelancing`;
-  const description = "Explore freelancing in India with OnIT INDIA. Find task-based freelance work or hire skilled performers for writing, design, research, data, tech, and local tasks.";
+  const description = "Explore freelancing in India with FirstDoer. Find task-based freelance work or hire skilled performers for writing, design, research, data, tech, and local tasks.";
 
   return (
     <div className="min-h-screen bg-white text-slate-900">
@@ -116,28 +116,28 @@ export default function FreelancingIndiaPage() {
       />
 
       <main>
-        <section className="border-b border-emerald-100 bg-[linear-gradient(135deg,#ecfdf5_0%,#ffffff_52%,#eff6ff_100%)] px-6 py-16 sm:py-24">
+        <section className="border-b border-[var(--color-border)] bg-[linear-gradient(135deg,#EFFBFB_0%,#ffffff_52%,#eff6ff_100%)] px-6 py-16 sm:py-24">
           <div className="mx-auto max-w-6xl">
             <nav aria-label="Breadcrumb" className="mb-8 text-sm text-slate-600">
-              <Link to="/" className="hover:text-emerald-700">Home</Link>
+              <Link to="/" className="hover:text-[var(--color-primary)]">Home</Link>
               <span aria-hidden="true" className="mx-2">/</span>
               <span>Freelancing in India</span>
             </nav>
             <div className="max-w-4xl">
-              <p className="mb-4 text-sm font-bold uppercase tracking-[0.18em] text-emerald-700">
+              <p className="mb-4 text-sm font-bold uppercase tracking-[0.18em] text-[var(--color-primary)]">
                 Freelance and task-based work
               </p>
               <h1 className="text-4xl font-black tracking-tight text-slate-950 sm:text-6xl">
                 Freelancing in India, built around work that gets completed
               </h1>
               <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-700 sm:text-xl">
-                OnIT INDIA connects people and businesses that need work done with independent performers ready to execute it. Find freelance tasks that match your skills, or hire talent for a clear outcome without a long recruitment cycle.
+                FirstDoer connects people and businesses that need work done with independent performers ready to execute it. Find freelance tasks that match your skills, or hire talent for a clear outcome without a long recruitment cycle.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Link to="/for-performers" className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-700 px-6 py-3 font-bold text-white transition hover:bg-emerald-800">
+                <Link to="/for-performers" className="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--color-primary)] px-6 py-3 font-bold text-white transition hover:bg-[var(--color-primary-hover)]">
                   Find freelance work <ArrowRight size={18} />
                 </Link>
-                <Link to="/for-providers" className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3 font-bold text-slate-900 transition hover:border-emerald-600 hover:text-emerald-700">
+                <Link to="/for-providers" className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3 font-bold text-slate-900 transition hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]">
                   Hire skilled performers <Users size={18} />
                 </Link>
               </div>
@@ -153,14 +153,14 @@ export default function FreelancingIndiaPage() {
                 Freelancing gives people the freedom to work independently, choose the skills they offer, and collaborate with different clients. It also gives businesses flexible access to talent without creating a permanent role for every need. The difficult part is often not the work itself; it is finding the right match, agreeing on scope, coordinating delivery, and verifying completion.
               </p>
               <p className="mt-4 text-lg leading-8 text-slate-600">
-                OnIT INDIA is designed for that execution gap. A provider posts a defined task, performers respond or are matched based on relevant skills, and the work moves through a structured completion process. This model works especially well for short freelance assignments, recurring operational tasks, and outcomes that can be clearly described and reviewed.
+                FirstDoer is designed for that execution gap. A provider posts a defined task, performers respond or are matched based on relevant skills, and the work moves through a structured completion process. This model works especially well for short freelance assignments, recurring operational tasks, and outcomes that can be clearly described and reviewed.
               </p>
             </div>
 
             <div className="mt-12 grid gap-5 md:grid-cols-2">
               {benefits.map((benefit) => (
                 <article key={benefit.title} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-700">
+                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-50 text-[var(--color-primary)]">
                     {React.createElement(benefit.icon, { size: 22 })}
                   </div>
                   <h3 className="text-xl font-bold">{benefit.title}</h3>
@@ -201,7 +201,7 @@ export default function FreelancingIndiaPage() {
                 ))}
               </ul>
               <Link to="/how-it-works" className="mt-8 inline-flex items-center gap-2 font-bold text-blue-400 hover:text-blue-300">
-                See how OnIT INDIA works <ArrowRight size={18} />
+                See how FirstDoer works <ArrowRight size={18} />
               </Link>
             </div>
           </div>
@@ -217,7 +217,7 @@ export default function FreelancingIndiaPage() {
               {categories.map(([label, to]) => (
                 <Link key={label} to={to} className="group flex min-h-28 items-end justify-between rounded-2xl border border-slate-200 p-5 font-bold text-slate-900 transition hover:-translate-y-0.5 hover:border-emerald-500 hover:shadow-lg">
                   <span>{label}</span>
-                  <ArrowRight className="shrink-0 text-emerald-700 transition group-hover:translate-x-1" size={19} />
+                  <ArrowRight className="shrink-0 text-[var(--color-primary)] transition group-hover:translate-x-1" size={19} />
                 </Link>
               ))}
             </div>
@@ -239,14 +239,14 @@ export default function FreelancingIndiaPage() {
         </section>
 
         <section className="px-6 py-16 text-center sm:py-20">
-          <div className="mx-auto max-w-3xl rounded-3xl bg-emerald-700 px-6 py-12 text-white sm:px-12">
+          <div className="mx-auto max-w-3xl rounded-3xl bg-[var(--color-primary)] px-6 py-12 text-white sm:px-12">
             <h2 className="text-3xl font-black tracking-tight sm:text-4xl">Ready to move from intent to execution?</h2>
             <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-emerald-50">
               Join as a performer to find task-based freelance opportunities, or post the work you need and connect with skilled talent.
             </p>
             <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
-              <Link to="/auth" className="rounded-full bg-white px-6 py-3 font-bold text-emerald-800 hover:bg-emerald-50">Get started</Link>
-              <Link to="/services" className="rounded-full border border-emerald-300 px-6 py-3 font-bold text-white hover:bg-emerald-800">Explore services</Link>
+              <Link to="/auth" className="rounded-full bg-white px-6 py-3 font-bold text-[var(--color-primary-hover)] hover:bg-emerald-50">Get started</Link>
+              <Link to="/services" className="rounded-full border border-emerald-300 px-6 py-3 font-bold text-white hover:bg-[var(--color-primary-hover)]">Explore services</Link>
             </div>
           </div>
         </section>

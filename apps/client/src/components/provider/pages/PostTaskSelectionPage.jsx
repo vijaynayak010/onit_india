@@ -32,7 +32,7 @@ const PostTaskSelectionPage = () => {
       detail: "Let AI Generate Task Description",
       icon: Sparkles,
       accent: "from-[#2279d9] to-[#2078d1]",
-      ring: "ring-emerald-200/60",
+      ring: "ring-[#29ADAC]/30",
       to: "/provider/post-task-ai",
       cta: "Post Using AI",
     },

@@ -221,11 +221,14 @@ function Navbar() {
         <div className="mx-auto h-full w-full px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           {/* ================= BRAND WORDMARK ================= */}
           <div
-            className="flex h-full min-h-[52px] md:min-h-[64px] items-center shrink-0 cursor-pointer overflow-hidden transition-all duration-200 hover:opacity-90 active:scale-[0.98] py-1 ml-2 sm:ml-3"
+            className="flex h-full min-h-[52px] md:min-h-[64px] items-center shrink-0 cursor-pointer overflow-hidden transition-all duration-200 hover:opacity-90 active:scale-[0.98] py-1 ml-2 sm:ml-3 gap-2.5"
             onClick={() => navigate("/")}
           >
-            <img src="/logo.png" alt="OnIT India Logo" className="h-12 w-18 object-contain mr-2" />
-
+            <svg width="28" height="20" viewBox="0 0 30 22" fill="none" aria-hidden="true">
+              <path d="M11 2.5c-4.7 0-8.5 3.8-8.5 8.5s3.8 8.5 8.5 8.5c3.4 0 5.6-2.4 8-8.5 2.4-6.1 4.6-8.5 8-8.5" stroke="#29ADAC" strokeWidth="3" strokeLinecap="round" />
+              <path d="M19 19.5c4.7 0 8.5-3.8 8.5-8.5S23.7 2.5 19 2.5c-3.4 0-5.6 2.4-8 8.5" stroke="#4CCDCC" strokeWidth="3" strokeLinecap="round" />
+            </svg>
+            <span className="text-xl md:text-2xl font-bold tracking-tight text-[#0D1210]">firstDoer</span>
           </div>
 
           {/* ================= DESKTOP NAV ================= */}
@@ -247,7 +250,7 @@ function Navbar() {
                         <motion.span
                           key={idx}
                           variants={letterVariants}
-                          className="inline-block text-[15px] font-bold text-[var(--color-text-muted)] group-hover:text-[var(--color-primary)] transition-colors duration-200"
+                          className="inline-block text-[15px] font-medium text-[var(--color-text-muted)] group-hover:text-[var(--color-primary)] transition-colors duration-200"
                         >
                           {char === " " ? "\u00A0" : char}
                         </motion.span>
@@ -266,7 +269,7 @@ function Navbar() {
                 {/* Unified Login */}
                 <button
                   onClick={() => handleLogin()}
-                  className="text-[13px] font-bold text-slate-700 hover:text-white border border-slate-300 hover:bg-slate-800 px-5 py-2 rounded-full transition-all duration-200"
+                  className="text-[13px] font-medium text-slate-700 hover:text-white border border-slate-300 hover:bg-slate-800 px-5 py-2 rounded-full transition-all duration-200"
                 >
                   Login / Sign up
                 </button>
@@ -275,16 +278,16 @@ function Navbar() {
 
                 <button
                   onClick={handleStartPosting}
-                  className="hidden lg:inline-flex items-center gap-2 text-[13px] font-extrabold text-white bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] px-5 py-2 rounded-full transition-all duration-200 shadow-[0_4px_12px_rgba(0,153,102,0.15)]"
+                  className="hidden lg:inline-flex items-center gap-2 text-[13px] font-medium text-white bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] px-5 py-2 rounded-full transition-all duration-200 shadow-[0_4px_12px_rgba(16,96,95,0.2)]"
                 >
-                  <Plus size={15} strokeWidth={3} aria-hidden />
+                  <Plus size={15} strokeWidth={2.5} aria-hidden />
                   Start Posting
                 </button>
               </div>
             ) : (
               <button
                 onClick={handleDashboard}
-                className="inline-flex items-center gap-2 text-sm font-bold text-white bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] px-5 py-2.5 rounded-full transition-all duration-200 shadow-[0_4px_15px_rgba(0,153,102,0.25)] hover:shadow-[0_6px_20px_rgba(0,153,102,0.35)] hover:-translate-y-0.5 active:scale-95"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] px-5 py-2.5 rounded-full transition-all duration-200 shadow-[0_4px_15px_rgba(16,96,95,0.25)] hover:shadow-[0_6px_20px_rgba(16,96,95,0.35)] hover:-translate-y-0.5 active:scale-95"
               >
                 <UserCheck size={16} strokeWidth={2.5} />
                 Dashboard

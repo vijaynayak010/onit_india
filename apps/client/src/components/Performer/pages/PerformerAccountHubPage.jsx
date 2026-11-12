@@ -33,8 +33,8 @@ import {
 // ─── Small stat chip ───────────────────────────────────────────────────────
 function StatChip({ label, value, icon: Icon }) {
   return (
-    <div className="flex flex-1 min-w-0 flex-col items-center gap-0.5 rounded-2xl border border-emerald-100 bg-white/70 py-3 px-2 transition hover:bg-white/90">
-      {Icon && <Icon size={15} strokeWidth={2.2} className="shrink-0 text-[#00A36C]" />}
+    <div className="flex flex-1 min-w-0 flex-col items-center gap-0.5 rounded-2xl border border-[#29ADAC]/20 bg-white/70 py-3 px-2 transition hover:bg-white/90">
+      {Icon && <Icon size={15} strokeWidth={2.2} className="shrink-0 text-[#10605F]" />}
       <p className="truncate text-[15px] font-black text-gray-900">{value}</p>
       <p className="truncate text-[10px] font-semibold text-gray-500 whitespace-nowrap">{label}</p>
     </div>
@@ -107,23 +107,23 @@ function WalletCard({ balance, onClick }) {
     <button
       type="button"
       onClick={onClick}
-      className="group relative w-full overflow-hidden rounded-2xl p-5 text-left transition duration-200 hover:shadow-lg hover:brightness-[1.02] active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
-      style={{ background: "linear-gradient(135deg, #00A36C 0%, #007A50 100%)" }}
+      className="group relative w-full overflow-hidden rounded-2xl p-5 text-left transition duration-200 hover:shadow-lg hover:brightness-[1.02] active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#29ADAC]"
+      style={{ background: "linear-gradient(135deg, #10605F 0%, #007A50 100%)" }}
     >
       <div className="pointer-events-none absolute -right-6 -top-6 h-28 w-28 rounded-full opacity-10" style={{ background: "#fff" }} />
       <div className="pointer-events-none absolute -bottom-8 -right-4 h-36 w-36 rounded-full opacity-[0.07]" style={{ background: "#fff" }} />
       <div className="relative">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Wallet size={16} strokeWidth={2.2} className="text-emerald-200" />
-            <p className="text-[11px] font-bold uppercase tracking-widest text-emerald-200">Wallet Balance</p>
+            <Wallet size={16} strokeWidth={2.2} className="text-[#7EDEDD]" />
+            <p className="text-[11px] font-bold uppercase tracking-widest text-[#7EDEDD]">Wallet Balance</p>
           </div>
-          <ChevronRight size={16} className="text-emerald-300 transition group-hover:translate-x-0.5" />
+          <ChevronRight size={16} className="text-[#7EDEDD] transition group-hover:translate-x-0.5" />
         </div>
         <p className="mt-2 text-3xl font-black text-white">
           ₹{(balance || 0).toLocaleString("en-IN")}
         </p>
-        <p className="mt-1 text-[11px] font-semibold text-emerald-200">Tap to view transactions & withdraw</p>
+        <p className="mt-1 text-[11px] font-semibold text-[#7EDEDD]">Tap to view transactions & withdraw</p>
       </div>
     </button>
   );
@@ -214,12 +214,12 @@ const PerformerAccountHubPage = () => {
           <div className="w-full lg:w-[350px] xl:w-[380px] shrink-0 lg:h-full lg:overflow-y-auto lg:overflow-x-hidden [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden flex flex-col gap-4">
             {/* Hero Profile Card */}
             <div
-              className="relative overflow-hidden rounded-3xl border border-emerald-100 px-5 pb-5 pt-6 shadow-xs"
+              className="relative overflow-hidden rounded-3xl border border-[#29ADAC]/20 px-5 pb-5 pt-6 shadow-xs"
               style={{ background: "linear-gradient(160deg, #F0FDF7 0%, #E6FAF2 60%, #D1FAE5 100%)" }}
             >
               {/* decorative ring blobs */}
-              <div className="pointer-events-none absolute -right-8 -top-8 h-40 w-40 rounded-full border-[20px] border-emerald-100/60" />
-              <div className="pointer-events-none absolute -bottom-10 -left-6 h-32 w-32 rounded-full border-[16px] border-emerald-100/40" />
+              <div className="pointer-events-none absolute -right-8 -top-8 h-40 w-40 rounded-full border-[20px] border-[#29ADAC]/20/60" />
+              <div className="pointer-events-none absolute -bottom-10 -left-6 h-32 w-32 rounded-full border-[16px] border-[#29ADAC]/20/40" />
 
               {/* avatar + name */}
               <div className="relative flex items-center gap-4">
@@ -227,11 +227,11 @@ const PerformerAccountHubPage = () => {
                   {avatar ? (
                     <img src={avatar} alt={displayName} className="h-16 w-16 rounded-2xl object-cover ring-2 ring-white shadow-md" />
                   ) : (
-                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#00A36C] text-xl font-black text-white shadow-md ring-2 ring-white">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#10605F] text-xl font-black text-white shadow-md ring-2 ring-white">
                       {initials}
                     </div>
                   )}
-                  <span className="absolute -bottom-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-emerald-400 ring-2 ring-white shadow-xs">
+                  <span className="absolute -bottom-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#29ADAC] ring-2 ring-white shadow-xs">
                     <span className="h-2 w-2 rounded-full bg-white" />
                   </span>
                 </div>
@@ -246,7 +246,7 @@ const PerformerAccountHubPage = () => {
                   type="button"
                   onClick={() => navigateFromAccount("/performer/profile")}
                   aria-label="Edit Performer Profile"
-                  className="shrink-0 rounded-xl border border-emerald-200 bg-white px-3 py-1.5 text-[11px] font-bold text-[#00A36C] shadow-xs transition hover:bg-emerald-50 hover:border-emerald-300 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+                  className="shrink-0 rounded-xl border border-[#29ADAC]/30 bg-white px-3 py-1.5 text-[11px] font-bold text-[#10605F] shadow-xs transition hover:bg-[#EFFBFB] hover:border-[#29ADAC]/40 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#29ADAC]"
                 >
                   Edit
                 </button>
@@ -255,7 +255,7 @@ const PerformerAccountHubPage = () => {
               {/* stats row */}
               {loading ? (
                 <div className="mt-5 flex justify-center py-2">
-                  <Loader2 size={18} className="animate-spin text-emerald-500" />
+                  <Loader2 size={18} className="animate-spin text-[#29ADAC]" />
                 </div>
               ) : (
                 <div className="mt-4 flex gap-2">
@@ -270,15 +270,15 @@ const PerformerAccountHubPage = () => {
                 <button
                   type="button"
                   onClick={() => navigateFromAccount("/performer/refer")}
-                  className="mt-3.5 flex w-full items-center justify-between rounded-xl border border-emerald-200 bg-white/70 px-4 py-2.5 transition hover:bg-white hover:border-emerald-300 active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+                  className="mt-3.5 flex w-full items-center justify-between rounded-xl border border-[#29ADAC]/30 bg-white/70 px-4 py-2.5 transition hover:bg-white hover:border-[#29ADAC]/40 active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#29ADAC]"
                 >
                   <div className="flex items-center gap-2">
-                    <Gift size={14} className="text-[#00A36C]" />
+                    <Gift size={14} className="text-[#10605F]" />
                     <span className="text-[11px] font-semibold text-gray-600">Your referral code</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <code className="font-mono text-[13px] font-black tracking-widest text-gray-900">{referralCode}</code>
-                    <ChevronRight size={13} className="text-emerald-500" />
+                    <ChevronRight size={13} className="text-[#29ADAC]" />
                   </div>
                 </button>
               )}
@@ -291,7 +291,7 @@ const PerformerAccountHubPage = () => {
           </div>
 
           {/* ── Scrollable Right Column: Menu Sections ── */}
-          <div className="w-full min-w-0 flex-1 lg:h-full lg:overflow-y-auto lg:overflow-x-hidden pr-0 lg:pr-3 pb-24 lg:pb-32 [scrollbar-width:thin] [scrollbar-color:rgba(0,163,108,0.25)_transparent] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-slate-200 hover:[&::-webkit-scrollbar-thumb]:bg-emerald-500/40 [&::-webkit-scrollbar-thumb]:rounded-full">
+          <div className="w-full min-w-0 flex-1 lg:h-full lg:overflow-y-auto lg:overflow-x-hidden pr-0 lg:pr-3 pb-24 lg:pb-32 [scrollbar-width:thin] [scrollbar-color:rgba(16,96,95,0.25)_transparent] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-slate-200 hover:[&::-webkit-scrollbar-thumb]:bg-[#29ADAC]/40 [&::-webkit-scrollbar-thumb]:rounded-full">
             {loading ? (
               <div className="flex justify-center py-16">
                 <Loader2 size={24} className="animate-spin text-[var(--color-primary)]" />

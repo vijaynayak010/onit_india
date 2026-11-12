@@ -44,7 +44,7 @@ const DraftTaskCard = ({ task, onView }) => {
 
       <div className="mt-5 flex items-center justify-between border-t border-gray-50 pt-4">
         <div className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-50 text-xs font-bold text-emerald-600">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#EFFBFB] text-xs font-bold text-[#10605F]">
             U
           </div>
           <span className="text-sm font-medium text-gray-500">Unassigned</span>

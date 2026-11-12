@@ -110,15 +110,15 @@ const ProviderOnboardingPage = () => {
               value={referralCode}
               onChange={(e) => { setReferralCode(e.target.value.toUpperCase()); setReferralError(null); }}
               placeholder="Enter code e.g. ABCD1234"
-              className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-center text-sm font-bold uppercase tracking-widest text-gray-800 outline-none focus:border-[#00A36C] focus:ring-2 focus:ring-[#00A36C]/20"
+              className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-center text-sm font-bold uppercase tracking-widest text-gray-800 outline-none focus:border-[#10605F] focus:ring-2 focus:ring-[#10605F]/20"
             />
             {referralError && <p className="text-xs font-semibold text-rose-600">{referralError}</p>}
-            {referralSuccess && <p className="text-xs font-semibold text-[#00A36C]">Code applied!</p>}
+            {referralSuccess && <p className="text-xs font-semibold text-[#10605F]">Code applied!</p>}
             <button
               type="button"
               onClick={handleApplyReferral}
               disabled={isApplying || !referralCode.trim() || referralSuccess}
-              className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#00A36C] py-3 text-sm font-bold text-white transition hover:bg-[#008f5d] disabled:opacity-50"
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#10605F] py-3 text-sm font-bold text-white transition hover:bg-[#008f5d] disabled:opacity-50"
             >
               {isApplying ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
               Apply Code
@@ -142,7 +142,7 @@ const ProviderOnboardingPage = () => {
         <button
           type="button"
           onClick={goBack}
-          className="absolute left-4 top-4 z-20 flex h-9 w-9 items-center justify-center rounded-full text-[#00A36C] transition hover:bg-white/80"
+          className="absolute left-4 top-4 z-20 flex h-9 w-9 items-center justify-center rounded-full text-[#10605F] transition hover:bg-white/80"
           aria-label="Go back"
         >
           <ChevronLeft size={22} strokeWidth={2.5} />
@@ -194,7 +194,7 @@ const ProviderOnboardingPage = () => {
                     onClick={goNext}
                     className={`inline-flex items-center gap-1 text-[15px] font-bold transition ${
                       isLast
-                        ? "text-[#00A36C] hover:text-[#008f5d]"
+                        ? "text-[#10605F] hover:text-[#008f5d]"
                         : "text-gray-900 hover:text-gray-700"
                     }`}
                   >

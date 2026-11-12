@@ -17,7 +17,7 @@ const ACTION_CONFIG = {
   view: {
     label: "View",
     icon: Eye,
-    gradient: "from-emerald-500 to-emerald-600",
+    gradient: "from-[#10605F] to-[#083B3A]",
     shadow: "rgba(16,185,129,0.35)",
     chip: "Live",
   },
@@ -52,7 +52,7 @@ const ACTION_CONFIG = {
   explore: {
     label: "Explore",
     icon: Compass,
-    gradient: "from-emerald-500 to-teal-600",
+    gradient: "from-[#10605F] to-teal-600",
     shadow: "rgba(16,185,129,0.35)",
     chip: "Open",
   },
@@ -73,18 +73,18 @@ export const PulseBadge = ({ count }) => (
   <motion.span
     animate={{ scale: [0.85, 1, 0.85] }}
     transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-    className="inline-flex min-w-[22px] items-center justify-center rounded-full bg-emerald-500 px-2 py-0.5 text-[11px] font-bold text-white"
+    className="inline-flex min-w-[22px] items-center justify-center rounded-full bg-[#10605F] px-2 py-0.5 text-[11px] font-bold text-white"
   >
     {count}
   </motion.span>
 );
 
 export const LiveChip = ({ label = "Live" }) => (
-  <span className="inline-flex items-center gap-1.5 rounded-lg border border-emerald-200 bg-emerald-50 px-2 py-1 text-[11px] font-semibold text-emerald-800">
+  <span className="inline-flex items-center gap-1.5 rounded-lg border border-[#29ADAC]/30 bg-[#EFFBFB] px-2 py-1 text-[11px] font-semibold text-[#083B3A]">
     <motion.span
       animate={{ opacity: [0.5, 1, 0.5] }}
       transition={{ duration: 0.9, repeat: Infinity, ease: "easeInOut" }}
-      className="h-1.5 w-1.5 rounded-full bg-emerald-500"
+      className="h-1.5 w-1.5 rounded-full bg-[#10605F]"
     />
     {label}
   </span>
@@ -122,7 +122,7 @@ export const DashboardTaskCard = ({
   animate = true,
 }) => {
   const content = (
-    <div className="rounded-2xl border border-emerald-100/80 bg-white p-4 shadow-sm">
+    <div className="rounded-2xl border border-[#29ADAC]/20/80 bg-white p-4 shadow-sm">
       <div className="mb-2.5 flex items-start justify-between gap-3">
         <h3 className="line-clamp-2 flex-1 text-[15px] font-bold leading-snug tracking-tight text-gray-900">
           {title}
@@ -150,7 +150,7 @@ export const DashboardTaskCard = ({
         <div className="flex items-center justify-between gap-3">
           <div>
             <p className="text-[11px] font-medium uppercase tracking-wide text-gray-400">Budget</p>
-            <p className="text-lg font-extrabold tracking-tight text-emerald-600">{price}</p>
+            <p className="text-lg font-extrabold tracking-tight text-[#10605F]">{price}</p>
           </div>
           <GradientActionButton actionType={actionType} onClick={onAction} />
         </div>
@@ -249,7 +249,7 @@ const InterestCardCarousel = ({ tasks, onViewApplicants }) => {
             type="button"
             onClick={goPrev}
             aria-label="Previous interest card"
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-600 shadow-sm transition hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-700 active:scale-95"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-600 shadow-sm transition hover:border-[#29ADAC]/30 hover:bg-[#EFFBFB] hover:text-[#083B3A] active:scale-95"
           >
             <ChevronLeft size={18} strokeWidth={2.5} />
           </button>
@@ -285,7 +285,7 @@ const InterestCardCarousel = ({ tasks, onViewApplicants }) => {
             type="button"
             onClick={goNext}
             aria-label="Next interest card"
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-600 shadow-sm transition hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-700 active:scale-95"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-600 shadow-sm transition hover:border-[#29ADAC]/30 hover:bg-[#EFFBFB] hover:text-[#083B3A] active:scale-95"
           >
             <ChevronRight size={18} strokeWidth={2.5} />
           </button>
@@ -301,7 +301,7 @@ const InterestCardCarousel = ({ tasks, onViewApplicants }) => {
               aria-label={`Go to interest card ${i + 1}`}
               onClick={() => goTo(i, i > activeIndex ? 1 : -1)}
               className={`h-1.5 rounded-full transition-all ${
-                i === activeIndex ? "w-5 bg-emerald-500" : "w-1.5 bg-gray-300 hover:bg-gray-400"
+                i === activeIndex ? "w-5 bg-[#10605F]" : "w-1.5 bg-gray-300 hover:bg-gray-400"
               }`}
             />
           ))}
@@ -329,7 +329,7 @@ export const InterestAlertBar = ({ activities = [], onViewApplicants }) => {
     <AnimatedReveal>
       <div className="overflow-hidden rounded-[20px] border border-gray-100 bg-white shadow-[0_4px_20px_rgba(16,185,129,0.08),0_2px_10px_rgba(0,0,0,0.04)]">
         <div className="flex w-full items-center gap-3 px-4 py-3.5">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-600 text-white shadow-[0_3px_8px_rgba(16,185,129,0.3)]">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#10605F] to-[#083B3A] text-white shadow-[0_3px_8px_rgba(16,185,129,0.3)]">
             <Users size={18} strokeWidth={2.25} />
           </div>
           <div className="min-w-0 flex-1">

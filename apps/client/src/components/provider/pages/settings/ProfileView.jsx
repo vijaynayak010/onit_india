@@ -223,7 +223,7 @@ const ProfileView = ({ onEditClick, onAddOrgClick }) => {
                   </div>
                   <h4 className="pr-16 text-sm font-extrabold text-gray-900">{job.title}</h4>
                   {job.category ? (
-                    <p className="mt-0.5 text-[11px] font-semibold text-emerald-600">{job.category}</p>
+                    <p className="mt-0.5 text-[11px] font-semibold text-[#10605F]">{job.category}</p>
                   ) : null}
                   <p className="mt-1.5 text-xs leading-relaxed text-gray-500">
                     {job.description || "No description provided."}
@@ -236,7 +236,7 @@ const ProfileView = ({ onEditClick, onAddOrgClick }) => {
                         </span>
                       ) : null}
                       {job.priceAmount ? (
-                        <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-semibold text-emerald-700">
+                        <span className="rounded-full bg-[#EFFBFB] px-2 py-0.5 text-[10px] font-semibold text-[#10605F]">
                           ₹{Number(job.priceAmount).toLocaleString("en-IN")}
                         </span>
                       ) : null}

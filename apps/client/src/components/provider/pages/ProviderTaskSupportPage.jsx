@@ -57,7 +57,7 @@ const ProviderTaskSupportPage = ({ kind = "need-help" }) => {
     try {
       setSubmitting(true);
       await createTaskDispute({ taskId: id, assignmentId: assignment.id, reason, explanation: explanation.trim() });
-      window.alert("Issue reported. OnIT support will review the task and keep escrow protected while it is investigated.");
+      window.alert("Issue reported. FirstDoer support will review the task and keep escrow protected while it is investigated.");
       navigate(`/provider/active-task/${id}`);
     } catch (error) {
       window.alert(error?.response?.data?.message || error?.message || "Could not report this issue.");
@@ -104,7 +104,7 @@ const ProviderTaskSupportPage = ({ kind = "need-help" }) => {
               </label>
               <label className="block text-sm font-bold text-[var(--color-text)]">
                 Explain what happened
-                <textarea value={explanation} onChange={(event) => setExplanation(event.target.value)} minLength={10} maxLength={1000} rows={6} placeholder="Include dates, agreed deliverables, and what you need OnIT to review..." className="mt-2 w-full resize-y rounded-xl border border-[var(--color-border)] bg-white px-3 py-3 text-sm font-medium leading-6 outline-none focus:border-[var(--color-primary)]" />
+                <textarea value={explanation} onChange={(event) => setExplanation(event.target.value)} minLength={10} maxLength={1000} rows={6} placeholder="Include dates, agreed deliverables, and what you need FirstDoer to review..." className="mt-2 w-full resize-y rounded-xl border border-[var(--color-border)] bg-white px-3 py-3 text-sm font-medium leading-6 outline-none focus:border-[var(--color-primary)]" />
                 <span className="mt-1 block text-right text-xs font-medium text-[var(--color-text-subtle)]">{explanation.length}/1000</span>
               </label>
               <div className="flex flex-col gap-3 sm:flex-row">

@@ -50,7 +50,7 @@ const AddFundsView = ({ onCancel, onSuccess }) => {
         key: import.meta.env.VITE_RAZORPAY_KEY_ID, 
         amount: order.amount,
         currency: order.currency,
-        name: "OnIT India",
+        name: "FirstDoer",
         description: "Add funds to wallet",
         order_id: order.id,
         handler: async (response) => {

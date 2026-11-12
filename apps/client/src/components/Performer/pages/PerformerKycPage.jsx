@@ -22,10 +22,10 @@ import PerformerPageHeader from "../components/PerformerPageHeader";
 const StatusBadge = ({ status }) => {
   const configs = {
     VERIFIED: {
-      color: "bg-emerald-50 text-emerald-700 border-emerald-200",
+      color: "bg-[#EFFBFB] text-[#10605F] border-[#29ADAC]/30",
       icon: BadgeCheck,
       label: "Account Verified",
-      desc: "Your identity has been certified by OnIT India.",
+      desc: "Your identity has been certified by FirstDoer.",
     },
     PENDING: {
       color: "bg-amber-50 text-amber-700 border-amber-200",
@@ -286,7 +286,7 @@ const PerformerKycPage = () => {
                         ) : null}
 
                         {success ? (
-                          <div className="mt-6 flex items-center gap-3 rounded-xl bg-emerald-50 px-4 py-3 text-xs font-bold text-emerald-600">
+                          <div className="mt-6 flex items-center gap-3 rounded-xl bg-[#EFFBFB] px-4 py-3 text-xs font-bold text-[#10605F]">
                             <CheckCircle2 size={16} />
                             {kycStep === 2
                               ? "KYC submitted! Our team is reviewing it."
@@ -369,7 +369,7 @@ const PerformerKycPage = () => {
                               <p className="text-xs text-[var(--color-text-muted)]">{new Date(sub.createdAt).toLocaleDateString()}</p>
                             </div>
                           </div>
-                          <div className={`rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-wider ${sub.status === 'APPROVED' ? 'bg-emerald-100 text-emerald-700' :
+                          <div className={`rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-wider ${sub.status === 'APPROVED' ? 'bg-[#DFF7F6] text-[#10605F]' :
                               sub.status === 'REJECTED' ? 'bg-rose-100 text-rose-700' :
                                 'bg-amber-100 text-amber-700'
                             }`}>

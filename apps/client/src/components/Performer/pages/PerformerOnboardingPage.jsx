@@ -37,7 +37,7 @@ const ROLES = [
     id: "freelancer",
     label: "Freelancer",
     sublabel: "Self-employed",
-    gradient: "from-emerald-100 via-teal-50 to-green-100",
+    gradient: "from-[#DFF7F6] via-teal-50 to-green-100",
     Icon: Laptop,
   },
   {
@@ -104,12 +104,12 @@ function RoleCard({ role, selected, onClick }) {
       onClick={onClick}
       className={`relative flex flex-1 flex-col overflow-hidden rounded-2xl border-2 bg-white transition ${
         selected
-          ? "border-[#00A36C] shadow-[0_0_0_1px_rgba(0,163,108,0.12)]"
+          ? "border-[#10605F] shadow-[0_0_0_1px_rgba(0,163,108,0.12)]"
           : "border-gray-200 hover:border-gray-300"
       }`}
     >
       {selected && (
-        <span className="absolute right-2 top-2 z-10 flex h-5 w-5 items-center justify-center rounded-full bg-[#00A36C] text-white">
+        <span className="absolute right-2 top-2 z-10 flex h-5 w-5 items-center justify-center rounded-full bg-[#10605F] text-white">
           <svg width="10" height="8" viewBox="0 0 10 8" fill="none" aria-hidden>
             <path
               d="M1 4L3.5 6.5L9 1"
@@ -128,7 +128,7 @@ function RoleCard({ role, selected, onClick }) {
       </div>
       <div className="px-2 py-3 text-center">
         <p className="text-[13px] font-bold text-gray-900">{label}</p>
-        <p className={`mt-0.5 text-[10px] font-semibold ${selected ? "text-[#00A36C]" : "text-gray-400"}`}>
+        <p className={`mt-0.5 text-[10px] font-semibold ${selected ? "text-[#10605F]" : "text-gray-400"}`}>
           {sublabel}
         </p>
       </div>
@@ -343,12 +343,12 @@ const PerformerOnboardingPage = () => {
               <div className="mx-auto max-w-md space-y-5">
                 {/* Illustration */}
                 <div className="flex justify-center">
-                  <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-br from-emerald-50 to-emerald-100">
+                  <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-br from-[#EFFBFB] to-[#DFF7F6]">
                     <span className="text-4xl">🎁</span>
                   </div>
                 </div>
                 <p className="text-center text-[13px] font-medium leading-relaxed text-gray-400">
-                  If someone referred you to OnIT, enter their code below. They'll earn a reward when you join!
+                  If someone referred you to FirstDoer, enter their code below. They'll earn a reward when you join!
                 </p>
                 <div className="space-y-3">
                   <div className="flex gap-2">
@@ -360,21 +360,21 @@ const PerformerOnboardingPage = () => {
                         setReferralStatus(null);
                         setReferralMessage("");
                       }}
-                      placeholder="e.g. ONIT-ABC-123456"
+                      placeholder="e.g. FirstDoer-ABC-123456"
                       disabled={referralStatus === "success" || saving}
-                      className="flex-1 rounded-2xl border-2 border-gray-200 bg-white px-4 py-3.5 font-mono text-[15px] font-bold uppercase tracking-widest text-gray-900 outline-none transition focus:border-[#00A36C] placeholder:normal-case placeholder:font-sans placeholder:tracking-normal placeholder:font-medium placeholder:text-gray-300 disabled:opacity-60"
+                      className="flex-1 rounded-2xl border-2 border-gray-200 bg-white px-4 py-3.5 font-mono text-[15px] font-bold uppercase tracking-widest text-gray-900 outline-none transition focus:border-[#10605F] placeholder:normal-case placeholder:font-sans placeholder:tracking-normal placeholder:font-medium placeholder:text-gray-300 disabled:opacity-60"
                     />
                     <button
                       type="button"
                       onClick={handleApplyReferral}
                       disabled={!referralCode.trim() || referralStatus === "success" || saving}
-                      className="rounded-2xl bg-[#00A36C] px-5 py-3.5 text-[14px] font-bold text-white transition hover:bg-[#00925f] disabled:opacity-40"
+                      className="rounded-2xl bg-[#10605F] px-5 py-3.5 text-[14px] font-bold text-white transition hover:bg-[#00925f] disabled:opacity-40"
                     >
                       {saving ? "…" : "Apply"}
                     </button>
                   </div>
                   {referralStatus === "success" && (
-                    <div className="flex items-center gap-2 rounded-xl bg-emerald-50 px-4 py-3 text-[13px] font-semibold text-emerald-700">
+                    <div className="flex items-center gap-2 rounded-xl bg-[#EFFBFB] px-4 py-3 text-[13px] font-semibold text-[#10605F]">
                       <span>✓</span>
                       {referralMessage}
                     </div>
@@ -404,7 +404,7 @@ const PerformerOnboardingPage = () => {
             disabled={!canContinue || saving}
             className={`w-full rounded-full py-4 text-[15px] font-bold transition ${
               canContinue && !saving
-                ? "bg-[#00A36C] text-white shadow-md hover:bg-[#00925f]"
+                ? "bg-[#10605F] text-white shadow-md hover:bg-[#00925f]"
                 : "bg-gray-200 text-gray-500"
             }`}
           >

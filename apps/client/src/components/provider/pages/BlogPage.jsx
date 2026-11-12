@@ -8,7 +8,7 @@ const articles = [
             'Clear, detailed task descriptions attract better offers and help task performers deliver exactly what you need.',
     },
     {
-        title: 'Tips for hiring a web designer on OnIT',
+        title: 'Tips for hiring a web designer on FirstDoer',
         slug: 'tips-for-hiring-a-web-designer',
         excerpt:
             'From portfolios to timelines, here is what to look for before you assign your next web design project.',
@@ -26,7 +26,7 @@ const BlogPage = () => {
         <div className="min-h-screen bg-white text-zinc-900 font-sans">
             <div className="max-w-5xl mx-auto px-6 py-12">
                 <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">
-                    OnIT Learning Hub
+                    FirstDoer Learning Hub
                 </h1>
                 <p className="text-zinc-600 text-base md:text-lg leading-relaxed mb-8">
                     Guides and resources to help you get more done—whether you are

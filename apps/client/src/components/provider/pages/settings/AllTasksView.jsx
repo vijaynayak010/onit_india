@@ -110,7 +110,7 @@ const AllTasksView = () => {
               >
                 <div className="flex items-start gap-4 sm:items-center">
                   <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full ${
-                    String(task.status).toUpperCase() === 'COMPLETED' ? "bg-emerald-100 text-emerald-600" :
+                    String(task.status).toUpperCase() === 'COMPLETED' ? "bg-[#DFF7F6] text-[#10605F]" :
                     String(task.status).toUpperCase() === 'PUBLISHED' ? "bg-sky-100 text-sky-600" : "bg-amber-100 text-amber-600"
                   }`}>
                     {String(task.status).toUpperCase() === 'COMPLETED' ? <CheckCircle2 size={24} /> :
@@ -124,7 +124,7 @@ const AllTasksView = () => {
                 </div>
                 <div className="flex items-center justify-between sm:flex-col sm:items-end sm:gap-2">
                   <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wide ${
-                    String(task.status).toUpperCase() === 'COMPLETED' ? "bg-emerald-50 text-emerald-700" :
+                    String(task.status).toUpperCase() === 'COMPLETED' ? "bg-[#EFFBFB] text-[#10605F]" :
                     String(task.status).toUpperCase() === 'PUBLISHED' ? "bg-sky-50 text-sky-700" : "bg-amber-50 text-amber-700"
                   }`}>
                     {task.status}

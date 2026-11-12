@@ -43,10 +43,10 @@ function ChipList({ items }) {
 
 function ShareContent({ data, code }) {
   if (!data) {
-    return <main className="public-state"><span className="public-eyebrow">ONIT INDIA</span><h1>This link is no longer available</h1><p>It may have expired or been turned off by the person who shared it.</p><AppButtons href="https://www.onitindia.com/" /></main>;
+    return <main className="public-state"><span className="public-eyebrow">ONIT INDIA</span><h1>This link is no longer available</h1><p>It may have expired or been turned off by the person who shared it.</p><AppButtons href="https://www.firstdoer.com/" /></main>;
   }
   if (data.available === false) {
-    return <main className="public-state"><span className="public-eyebrow">ONIT INDIA</span><h1>This link is no longer available</h1><p>It may have expired or been turned off by the person who shared it.</p><AppButtons href={`https://www.onitindia.com/s/${encodeURIComponent(code)}`} /></main>;
+    return <main className="public-state"><span className="public-eyebrow">ONIT INDIA</span><h1>This link is no longer available</h1><p>It may have expired or been turned off by the person who shared it.</p><AppButtons href={`https://www.firstdoer.com/s/${encodeURIComponent(code)}`} /></main>;
   }
   if (data.type === "TASK" && data.task) {
     const task = data.task;
@@ -77,7 +77,7 @@ function ShareContent({ data, code }) {
             {task.provider.profilePicUrl ? <img src={task.provider.profilePicUrl} alt="" /> : <span className="public-avatar">{task.provider.name?.[0] || "O"}</span>}
             <div><span>Posted by</span><strong>{task.provider.name || "OnIT member"}</strong><small>{[task.provider.city, task.provider.ratingAvg != null ? `★ ${task.provider.ratingAvg} (${task.provider.ratingCount || 0})` : null].filter(Boolean).join(" · ")}</small></div>
           </section>}
-          <AppButtons href={`https://www.onitindia.com/s/${encodeURIComponent(code)}`} playStore="https://play.google.com/store/apps/details?id=com.onitapp.india" />
+          <AppButtons href={`https://www.firstdoer.com/s/${encodeURIComponent(code)}`} playStore="https://play.google.com/store/apps/details?id=com.onitapp.india" />
           <div className="public-powered">Work gets done. OnIT.</div>
         </article>
       </main>
@@ -109,13 +109,13 @@ function ShareContent({ data, code }) {
             return url ? <a href={url} target="_blank" rel="noreferrer" key={url + i}>{item.title || "View work"} ↗</a> : null;
           })}</div></section>}
           {list(person.recentReviews).length > 0 && <section className="public-section"><h2>Recent reviews</h2>{list(person.recentReviews).slice(0, 3).map((review, i) => <blockquote className="public-review" key={review.id || i}><div>★ {review.rating ?? review.ratingAvg ?? ""}</div><p>{review.comment || review.review || review.text}</p><small>{review.reviewerName || review.name || "OnIT member"}</small></blockquote>)}</section>}
-          <AppButtons href={`https://www.onitindia.com/s/${encodeURIComponent(code)}`} />
+          <AppButtons href={`https://www.firstdoer.com/s/${encodeURIComponent(code)}`} />
           <div className="public-powered">Work gets done. OnIT.</div>
         </article>
       </main>
     );
   }
-  return <main className="public-state"><span className="public-eyebrow">ONIT INDIA</span><h1>This link is no longer available</h1><p>We couldn’t find anything to show here.</p><AppButtons href="https://www.onitindia.com/" /></main>;
+  return <main className="public-state"><span className="public-eyebrow">ONIT INDIA</span><h1>This link is no longer available</h1><p>We couldn’t find anything to show here.</p><AppButtons href="https://www.firstdoer.com/" /></main>;
 }
 
 export default function PublicSharePage() {
@@ -158,7 +158,7 @@ export default function PublicSharePage() {
   const description = data?.type === "TASK" ? data.task?.description : data?.performer?.bio;
   const image = data?.type === "TASK" ? data.task?.provider?.profilePicUrl : data?.performer?.profilePicUrl;
   return <>
-    <SEO title={title || "Shared on OnIT"} description={description || "Discover work and talent on OnIT India."} image={image} canonical={`https://www.onitindia.com/s/${encodeURIComponent(code)}`} />
+    <SEO title={title || "Shared on OnIT"} description={description || "Discover work and talent on FirstDoer."} image={image} canonical={`https://www.firstdoer.com/s/${encodeURIComponent(code)}`} />
     {loading ? <main className="public-state"><div className="public-loading" /><p>Opening this OnIT link…</p></main> : <ShareContent data={data} code={code} />}
   </>;
 }

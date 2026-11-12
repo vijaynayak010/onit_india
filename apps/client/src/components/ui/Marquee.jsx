@@ -15,7 +15,7 @@ function Marquee() {
           }}
           className="inline-block text-[13vw] leading-none font['Founders_Grotesk_X-Condensed'] font-bold  px-5 -mb-5 "
         >
-          We Are OnIT
+          We Are FirstDoer
         </motion.h1>
 
         <motion.h1
@@ -28,7 +28,7 @@ function Marquee() {
           }}
           className="inline-block text-[13vw] leading-none font-bold font['Founders_Grotesk_X-Condensed'] px-5"
         >
-          We Are OnIT
+          We Are FirstDoer
         </motion.h1>
         <motion.h1
           initial={{ x: 0 }}
@@ -40,7 +40,7 @@ function Marquee() {
           }}
           className="inline-block text-[13vw] leading-none font-bold font['Founders_Grotesk_X-Condensed'] px-5"
         >
-          We Are OnIT
+          We Are FirstDoer
         </motion.h1>
         <motion.h1
           initial={{ x: 0 }}
@@ -52,7 +52,7 @@ function Marquee() {
           }}
           className="inline-block text-[17vw] leading-none font-bold font['Founders_Grotesk_X-Condensed']  px-5"
         >
-          We Are OnIT
+          We Are FirstDoer
         </motion.h1>
       </div>
     </div>

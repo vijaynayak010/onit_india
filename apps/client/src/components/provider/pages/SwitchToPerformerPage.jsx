@@ -77,9 +77,9 @@ const SwitchToPerformerPage = () => {
                 icon={ShieldCheck}
                 title="Verified & Secure"
                 description="Your profile and earnings are fully protected."
-                cardBg="bg-emerald-50/80"
-                iconBg="bg-emerald-100"
-                iconColor="text-emerald-600"
+                cardBg="bg-[#EFFBFB]/80"
+                iconBg="bg-[#DFF7F6]"
+                iconColor="text-[#10605F]"
               />
             </div>
 
@@ -95,7 +95,7 @@ const SwitchToPerformerPage = () => {
                 href={PERFORMER_APP_PLAY_STORE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Get OnIT INDIA Performer on Google Play"
+                aria-label="Get FirstDoer Performer on Google Play"
                 className="inline-flex w-full max-w-sm items-center justify-center rounded-xl bg-black px-6 py-3.5 transition hover:bg-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2"
               >
                 <img

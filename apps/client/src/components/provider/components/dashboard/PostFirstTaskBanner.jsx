@@ -36,7 +36,7 @@ const CARDS = [
     Icon: Clock,
     title: "Get Started in Minutes",
     description:
-      "Join thousands of satisfied clients who found their perfect freelancer on OniT.",
+      "Join thousands of satisfied clients who found their perfect freelancer on FirstDoer.",
     href: "/provider/post-task-selection",
     overlay: "linear-gradient(135deg, #3EBF6DB2 0%, #6A728299 100%)",
   },
@@ -133,7 +133,7 @@ const PostFirstTaskBanner = ({ dynamicSlides = [] }) => {
           <button
             type="button"
             onClick={() => goTo(activeIndex - 1)}
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--color-border)] bg-white text-slate-700 shadow-sm transition hover:border-emerald-200 hover:text-emerald-700 sm:h-11 sm:w-11"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--color-border)] bg-white text-slate-700 shadow-sm transition hover:border-[#29ADAC]/30 hover:text-[#083B3A] sm:h-11 sm:w-11"
             aria-label="Previous slide"
           >
             <ChevronLeft size={20} />
@@ -187,7 +187,7 @@ const PostFirstTaskBanner = ({ dynamicSlides = [] }) => {
           <button
             type="button"
             onClick={() => goTo(activeIndex + 1)}
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--color-border)] bg-white text-slate-700 shadow-sm transition hover:border-emerald-200 hover:text-emerald-700 sm:h-11 sm:w-11"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--color-border)] bg-white text-slate-700 shadow-sm transition hover:border-[#29ADAC]/30 hover:text-[#083B3A] sm:h-11 sm:w-11"
             aria-label="Next slide"
           >
             <ChevronRight size={20} />
@@ -204,7 +204,7 @@ const PostFirstTaskBanner = ({ dynamicSlides = [] }) => {
               aria-label={`Go to promo ${i + 1}`}
               onClick={() => goTo(i)}
               className={`h-1.5 rounded-full transition-all ${
-                i === activeIndex ? "w-6 bg-emerald-500" : "w-1.5 bg-gray-300 hover:bg-gray-400"
+                i === activeIndex ? "w-6 bg-[#10605F]" : "w-1.5 bg-gray-300 hover:bg-gray-400"
               }`}
             />
           ))}

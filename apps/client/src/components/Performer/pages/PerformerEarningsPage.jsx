@@ -32,7 +32,7 @@ const FILTERS = [
 
 const MetricCard = ({ label, value, helper, icon: Icon, tone = "emerald" }) => {
   const tones = {
-    emerald: "bg-emerald-50 text-emerald-600",
+    emerald: "bg-[#EFFBFB] text-[#10605F]",
     orange: "bg-orange-50 text-orange-600",
     blue: "bg-blue-50 text-blue-600",
     violet: "bg-fuchsia-50 text-fuchsia-600",
@@ -67,7 +67,7 @@ const TransactionStatus = ({ status }) => {
           ? "bg-orange-50 text-orange-600"
           : failed
             ? "bg-rose-50 text-rose-600"
-            : "bg-emerald-50 text-emerald-600"
+            : "bg-[#EFFBFB] text-[#10605F]"
       }`}
     >
       <Icon size={12} strokeWidth={2.5} />
@@ -78,7 +78,7 @@ const TransactionStatus = ({ status }) => {
 
 const EmptyTransactions = () => (
   <div className="flex min-h-[240px] flex-col items-center justify-center px-4 py-12 text-center">
-    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600">
+    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#EFFBFB] text-[#10605F]">
       <Wallet size={24} strokeWidth={2.3} />
     </div>
     <h3 className="mt-4 text-lg font-bold text-gray-900">No transactions found</h3>
@@ -184,7 +184,7 @@ const PerformerEarningsPage = () => {
                 <button
                   type="button"
                   onClick={() => navigate("/performer/wallet/withdraw")}
-                  className="inline-flex h-11 items-center justify-center rounded-full bg-[#00A36C] px-8 text-sm font-bold text-white shadow-sm transition hover:bg-[#008f5f]"
+                  className="inline-flex h-11 items-center justify-center rounded-full bg-[#10605F] px-8 text-sm font-bold text-white shadow-sm transition hover:bg-[#008f5f]"
                 >
                   Withdraw Earnings
                 </button>
@@ -192,7 +192,7 @@ const PerformerEarningsPage = () => {
             />
 
             {loading ? (
-              <div className="flex min-h-[420px] flex-col items-center justify-center text-emerald-600">
+              <div className="flex min-h-[420px] flex-col items-center justify-center text-[#10605F]">
                 <Loader2 className="h-8 w-8 animate-spin" />
                 <p className="mt-3 text-sm font-semibold text-gray-500">Loading earnings...</p>
               </div>
@@ -200,7 +200,7 @@ const PerformerEarningsPage = () => {
               <>
                 <section className="mb-4 rounded-2xl border border-gray-100 bg-white p-7 shadow-sm">
                   <div className="flex items-center gap-3 text-sm font-semibold text-gray-500">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-50 text-emerald-600">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#EFFBFB] text-[#10605F]">
                       <Wallet size={16} strokeWidth={2.4} />
                     </span>
                     Available Balance
@@ -209,7 +209,7 @@ const PerformerEarningsPage = () => {
                     ₹{formatINR(wallet.balance)}
                   </p>
                   <p className="mt-4 flex items-center gap-2 text-sm font-medium text-gray-500">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#00A36C]" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#10605F]" />
                     Ready to withdraw
                   </p>
                 </section>
@@ -249,7 +249,7 @@ const PerformerEarningsPage = () => {
                       </div>
                       <button
                         type="button"
-                        className="inline-flex h-9 items-center justify-center gap-2 rounded-full border border-gray-200 px-4 text-xs font-semibold text-gray-600 transition hover:border-emerald-200 hover:text-emerald-700"
+                        className="inline-flex h-9 items-center justify-center gap-2 rounded-full border border-gray-200 px-4 text-xs font-semibold text-gray-600 transition hover:border-[#29ADAC]/30 hover:text-[#083B3A]"
                       >
                         <Download size={14} strokeWidth={2.2} />
                         Export CSV
@@ -262,7 +262,7 @@ const PerformerEarningsPage = () => {
                         <input
                           value={query}
                           onChange={(event) => setQuery(event.target.value)}
-                          className="h-9 w-full rounded-full bg-gray-100 pl-11 pr-4 text-sm font-medium text-gray-800 outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-emerald-100"
+                          className="h-9 w-full rounded-full bg-gray-100 pl-11 pr-4 text-sm font-medium text-gray-800 outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-[#EFFBFB]"
                           placeholder="Search transactions..."
                         />
                       </label>
@@ -274,7 +274,7 @@ const PerformerEarningsPage = () => {
                             onClick={() => setFilter(item.id)}
                             className={`h-9 rounded-full px-4 text-xs font-bold transition ${
                               filter === item.id
-                                ? "bg-emerald-50 text-emerald-700"
+                                ? "bg-[#EFFBFB] text-[#10605F]"
                                 : "text-gray-500 hover:bg-gray-50 hover:text-gray-800"
                             }`}
                           >
@@ -314,7 +314,7 @@ const PerformerEarningsPage = () => {
                                     <div className="flex items-center gap-4">
                                       <span
                                         className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${
-                                          isCredit ? "bg-emerald-50 text-emerald-600" : "bg-rose-50 text-rose-500"
+                                          isCredit ? "bg-[#EFFBFB] text-[#10605F]" : "bg-rose-50 text-rose-500"
                                         }`}
                                       >
                                         {isCredit ? <ArrowDownLeft size={15} /> : <ArrowUpRight size={15} />}
@@ -339,7 +339,7 @@ const PerformerEarningsPage = () => {
                                   <td className="px-5 py-5"><TransactionStatus status={tx.status} /></td>
                                   <td
                                     className={`px-5 py-5 text-right text-sm font-black tabular-nums ${
-                                      isCredit ? "text-emerald-600" : "text-rose-500"
+                                      isCredit ? "text-[#10605F]" : "text-rose-500"
                                     }`}
                                   >
                                     {isCredit ? "+" : "-"}₹{formatINR(tx.amount)}
@@ -363,14 +363,14 @@ const PerformerEarningsPage = () => {
                         <button
                           type="button"
                           onClick={() => navigate("/performer/banks")}
-                          className="h-10 rounded-full border border-gray-200 text-sm font-semibold text-gray-900 transition hover:border-emerald-200 hover:text-emerald-700"
+                          className="h-10 rounded-full border border-gray-200 text-sm font-semibold text-gray-900 transition hover:border-[#29ADAC]/30 hover:text-[#083B3A]"
                         >
                           Change Account
                         </button>
                         <button
                           type="button"
                           onClick={() => navigate("/performer/banks")}
-                          className="h-10 rounded-full border border-gray-200 text-sm font-semibold text-gray-900 transition hover:border-emerald-200 hover:text-emerald-700"
+                          className="h-10 rounded-full border border-gray-200 text-sm font-semibold text-gray-900 transition hover:border-[#29ADAC]/30 hover:text-[#083B3A]"
                         >
                           Manage Banks
                         </button>
@@ -391,9 +391,9 @@ const PerformerEarningsPage = () => {
                       </div>
                     </section>
 
-                    <section className="rounded-2xl border border-emerald-100 bg-white p-5 shadow-sm">
+                    <section className="rounded-2xl border border-[#29ADAC]/20 bg-white p-5 shadow-sm">
                       <div className="flex items-start gap-3">
-                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-emerald-50 text-emerald-600">
+                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#EFFBFB] text-[#10605F]">
                           <ShieldCheck size={17} strokeWidth={2.4} />
                         </span>
                         <div>

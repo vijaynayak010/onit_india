@@ -3,8 +3,8 @@ import React from 'react';
 const FAQPage = () => {
     const faqs = [
         {
-            q: 'What is OnIT?',
-            a: 'OnIT is a hyperlocal marketplace that connects people who need tasks done with trusted task performers nearby. You can post tasks, receive offers and complete work securely on the platform.',
+            q: 'What is FirstDoer?',
+            a: 'FirstDoer is a hyperlocal marketplace that connects people who need tasks done with trusted task performers nearby. You can post tasks, receive offers and complete work securely on the platform.',
         },
         {
             q: 'Is it free to post a task?',
@@ -31,7 +31,7 @@ const FAQPage = () => {
                     Frequently Asked Questions
                 </h1>
                 <p className="text-zinc-600 text-base md:text-lg leading-relaxed mb-8">
-                    Find quick answers to the most common questions about using OnIT as
+                    Find quick answers to the most common questions about using FirstDoer as
                     both a task poster and a task performer.
                 </p>
 

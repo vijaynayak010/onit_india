@@ -34,7 +34,7 @@ export default function VideoSection({ videoUrl = "#" }) {
               margin: 0,
             }}
           >
-            See OnIT INDIA in{" "}
+            See FirstDoer in{" "}
             <span className="relative inline-block" style={{ color: "#009966" }}>
               60 seconds.
               {/* underline accent */}
@@ -65,7 +65,7 @@ export default function VideoSection({ videoUrl = "#" }) {
               margin: "12px 0 0",
             }}
           >
-            Take a quick look at how OnIT turns one clear idea into a structured
+            Take a quick look at how FirstDoer turns one clear idea into a structured
             brief, a trusted match, and work you can confidently approve.
           </p>
         </div>
@@ -91,7 +91,7 @@ export default function VideoSection({ videoUrl = "#" }) {
           {/* Thumbnail */}
           <img
             src={`${S3}/video-thumbnail.png`}
-            alt="OnIT INDIA platform demo"
+            alt="FirstDoer platform demo"
             style={{
               width: "100%",
               height: "100%",

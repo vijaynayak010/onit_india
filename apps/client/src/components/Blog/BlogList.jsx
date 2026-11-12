@@ -65,7 +65,7 @@ const CATEGORY_META = {
   },
   "Community": {
     title: "Community",
-    description: "Stories and impact from the OnIT INDIA community and the people who use the platform.",
+    description: "Stories and impact from the FirstDoer community and the people who use the platform.",
   },
   "Lifestyle": {
     title: "Lifestyle",
@@ -302,16 +302,16 @@ function BlogList() {
   return (
     <div className="min-h-screen bg-[var(--color-surface)] text-[var(--color-text)] font-sans selection:bg-[var(--color-primary)] selection:text-white">
       <SEO
-        title="Blog | Future of Work, Task Execution & OnIT INDIA Insights"
-        description="OnIT INDIA blog: insights on future of work, task-based economies, execution platforms, digital and hyperlocal coordination. Thought leadership from the OnIT INDIA team."
-        keywords="OnIT INDIA blog, onitindia, future of work, task execution platform, task marketplace India, execution infrastructure, micro task platform, task coordination, gig economy India, remote work"
-        canonical="https://www.onitindia.com/blog"
+        title="Blog | Future of Work, Task Execution & FirstDoer Insights"
+        description="FirstDoer blog: insights on future of work, task-based economies, execution platforms, digital and hyperlocal coordination. Thought leadership from the FirstDoer team."
+        keywords="FirstDoer blog, firstdoer, future of work, task execution platform, task marketplace India, execution infrastructure, micro task platform, task coordination, gig economy India, remote work"
+        canonical="https://www.firstdoer.com/blog"
         webPageSchema={{
           "@context": "https://schema.org",
           "@type": "WebPage",
-          name: "OnIT INDIA Blog — The Journal",
-          description: "Insights, updates, and thought leadership on task execution and the future of work from OnIT INDIA.",
-          url: "https://www.onitindia.com/blog",
+          name: "FirstDoer Blog — The Journal",
+          description: "Insights, updates, and thought leadership on task execution and the future of work from FirstDoer.",
+          url: "https://www.firstdoer.com/blog",
         }}
       />
 
@@ -340,7 +340,7 @@ function BlogList() {
                 Insights on the future of work
               </h1>
               <p className="mt-3 md:mt-4 text-base md:text-lg text-[var(--color-text-muted)] leading-relaxed">
-                Thought leadership on task-based economies, execution platforms, and coordination infrastructure from the OnIT INDIA team.
+                Thought leadership on task-based economies, execution platforms, and coordination infrastructure from the FirstDoer team.
               </p>
             </div>
           </div>

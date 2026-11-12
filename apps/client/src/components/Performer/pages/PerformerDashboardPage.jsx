@@ -101,7 +101,7 @@ const onboardingSteps = [
 const workSteps = [
   { title: "Submit First Proposal", body: "Apply to any open task", icon: FileText, bg: "bg-blue-50", color: "text-blue-500" },
   { title: "Earn Your First Rating", body: "Complete a task to get reviewed", icon: Star, bg: "bg-amber-50", color: "text-amber-500" },
-  { title: "Enter the Rankings", body: "Finish 1 task to get ranked", icon: Trophy, bg: "bg-emerald-50", color: "text-emerald-600" },
+  { title: "Enter the Rankings", body: "Finish 1 task to get ranked", icon: Trophy, bg: "bg-[#EFFBFB]", color: "text-[#10605F]" },
 ];
 
 const howItWorks = [
@@ -123,8 +123,8 @@ const howItWorks = [
     title: "Get Paid Securely",
     body: "Work with confidence through protected payments, milestone releases, and ratings.",
     icon: BadgeCheck,
-    color: "text-emerald-600",
-    bg: "bg-emerald-50",
+    color: "text-[#10605F]",
+    bg: "bg-[#EFFBFB]",
   },
 ];
 
@@ -226,7 +226,7 @@ function SectionShell({ title, subtitle, actionLabel, onAction, children }) {
 
 function TaskCard({ task, onOpen }) {
   return (
-    <article className="flex min-h-[216px] flex-col rounded-[12px] border border-slate-100 bg-white p-5 shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition hover:-translate-y-0.5 hover:border-emerald-100 hover:shadow-[0_10px_28px_rgba(15,23,42,0.08)]">
+    <article className="flex min-h-[216px] flex-col rounded-[12px] border border-slate-100 bg-white p-5 shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition hover:-translate-y-0.5 hover:border-[#29ADAC]/20 hover:shadow-[0_10px_28px_rgba(15,23,42,0.08)]">
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
           <p className="truncate text-[11px] font-semibold text-slate-400">{task.client}</p>
@@ -254,7 +254,7 @@ function TaskCard({ task, onOpen }) {
         <button
           type="button"
           onClick={onOpen}
-          className="inline-flex h-8 items-center gap-1.5 rounded-full bg-[var(--color-primary)] px-4 text-[11px] font-semibold text-white shadow-[0_2px_6px_rgba(0,153,102,0.18)] transition hover:bg-[var(--color-primary-hover)]"
+          className="inline-flex h-8 items-center gap-1.5 rounded-full bg-[var(--color-primary)] px-4 text-[11px] font-semibold text-white shadow-[0_2px_6px_rgba(16,96,95,0.18)] transition hover:bg-[var(--color-primary-hover)]"
         >
           View task
           <ArrowRight size={12} strokeWidth={2.4} />
@@ -491,7 +491,7 @@ const PerformerDashboardPage = () => {
                 <source type="image/webp" srcSet={heroImageWebp} />
                 <img src={heroImage} alt="" className="absolute inset-0 h-full w-full object-cover" />
               </picture>
-              <div className="absolute inset-0 bg-gradient-to-r from-sky-400/80 via-sky-300/55 to-emerald-200/80" />
+              <div className="absolute inset-0 bg-gradient-to-r from-sky-400/80 via-sky-300/55 to-[#7EDEDD]/80" />
               <div className="relative flex min-h-[214px] max-w-[430px] flex-col justify-center px-7 py-8 text-white">
                 <div className="mb-3 flex h-8 w-8 items-center justify-center rounded-full bg-white/20">
                   <Wallet size={18} strokeWidth={1.9} />
@@ -515,10 +515,10 @@ const PerformerDashboardPage = () => {
             <section className="rounded-[16px] border border-slate-100 bg-white p-7 shadow-[0_0_2px_rgba(15,23,42,0.14)]">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <h2 className="text-[15px] font-semibold text-slate-950">Get Started on ONIT</h2>
+                  <h2 className="text-[15px] font-semibold text-slate-950">Get Started on FirstDoer</h2>
                   <p className="mt-1 text-[11px] font-medium text-slate-400">Complete these steps to unlock your full earning potential.</p>
                 </div>
-                <span className="rounded-full bg-emerald-50 px-3 py-1 text-[11px] font-semibold text-[var(--color-primary)]">{onboardingProgress.done}/3 Done</span>
+                <span className="rounded-full bg-[#EFFBFB] px-3 py-1 text-[11px] font-semibold text-[var(--color-primary)]">{onboardingProgress.done}/3 Done</span>
               </div>
               <div className="mt-5 grid gap-6 md:grid-cols-3">
                 {onboardingSteps.map((step, index) => {
@@ -526,12 +526,12 @@ const PerformerDashboardPage = () => {
                   const isNext = !isDone && onboardingProgress.done === index;
                   const Icon = isDone ? CheckCircle2 : step.icon;
                   return (
-                    <article key={step.title} className={`rounded-[12px] border p-4 ${isDone || isNext ? "border-emerald-200 bg-gradient-to-br from-emerald-50/60 to-white" : "border-slate-100 bg-white"}`}>
+                    <article key={step.title} className={`rounded-[12px] border p-4 ${isDone || isNext ? "border-[#29ADAC]/30 bg-gradient-to-br from-[#EFFBFB]/60 to-white" : "border-slate-100 bg-white"}`}>
                       <div className="flex items-center justify-between">
-                        <div className="flex h-[34px] w-[34px] items-center justify-center rounded-[10px] bg-emerald-50 text-[var(--color-primary)]">
+                        <div className="flex h-[34px] w-[34px] items-center justify-center rounded-[10px] bg-[#EFFBFB] text-[var(--color-primary)]">
                           <Icon size={20} strokeWidth={1.9} />
                         </div>
-                        <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-[0.03em] text-[var(--color-primary)]">
+                        <span className="rounded-full bg-[#EFFBFB] px-2 py-0.5 text-[9px] font-semibold uppercase tracking-[0.03em] text-[var(--color-primary)]">
                           {isDone ? "Done" : isNext ? "Next" : `Step ${index + 1}`}
                         </span>
                       </div>
@@ -575,7 +575,7 @@ const PerformerDashboardPage = () => {
                 : categoryCards.map((skill) => {
                     const Icon = skill.icon;
                     return (
-                      <button key={skill.id || skill.label} type="button" onClick={() => navigate(`/performer/find-tasks?q=${encodeURIComponent(skill.query || skill.label)}`)} className="group rounded-[12px] border border-slate-100 bg-white p-4 text-left shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition hover:-translate-y-0.5 hover:border-emerald-100">
+                      <button key={skill.id || skill.label} type="button" onClick={() => navigate(`/performer/find-tasks?q=${encodeURIComponent(skill.query || skill.label)}`)} className="group rounded-[12px] border border-slate-100 bg-white p-4 text-left shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition hover:-translate-y-0.5 hover:border-[#29ADAC]/20">
                         {skill.imageUrl ? (
                           <div className="h-9 w-9 overflow-hidden rounded-[10px]">
                             <img src={skill.imageUrl} alt="" className="h-full w-full object-cover" />
@@ -604,7 +604,7 @@ const PerformerDashboardPage = () => {
           <section className="rounded-[16px] border border-slate-100 bg-white p-6 shadow-[0_1px_2px_rgba(15,23,42,0.05)]">
             <div className="mb-5">
               <h2 className="text-[17px] font-semibold text-slate-950">Performance Ranking</h2>
-              <p className="mt-1 text-[12px] font-medium text-slate-400">Your standing among ONIT performers.</p>
+              <p className="mt-1 text-[12px] font-medium text-slate-400">Your standing among FirstDoer performers.</p>
             </div>
             <div className="grid gap-4 lg:grid-cols-[1fr_435px]">
               <div className="rounded-[12px] bg-slate-50 p-5">
@@ -612,10 +612,10 @@ const PerformerDashboardPage = () => {
                 <h3 className="mt-5 text-[16px] font-semibold text-slate-950">{rankLabel}</h3>
                 <p className="mt-1 text-[11px] font-medium text-slate-400">
                   {rankLabel === "Unranked"
-                    ? `${rankCategory}. Complete your first task to enter the ONIT ranking.`
+                    ? `${rankCategory}. Complete your first task to enter the FirstDoer ranking.`
                     : `${rankCategory} · score ${rankingScore}. Keep completing tasks to climb higher.`}
                 </p>
-                <div className="mt-3 inline-flex rounded-full bg-emerald-50 px-3 py-1 text-[10px] font-semibold text-[var(--color-primary)]">Top performers reach rank #1 within 60 days</div>
+                <div className="mt-3 inline-flex rounded-full bg-[#EFFBFB] px-3 py-1 text-[10px] font-semibold text-[var(--color-primary)]">Top performers reach rank #1 within 60 days</div>
                 <button type="button" onClick={() => navigate("/performer/find-tasks")} className="mt-4 flex h-8 items-center rounded-full bg-[var(--color-primary)] px-4 text-[11px] font-semibold text-white">
                   {performerStats.hasActivity ? "Find More Tasks" : "Find Your First Task"}
                 </button>
@@ -623,12 +623,12 @@ const PerformerDashboardPage = () => {
               <div className="grid gap-3 sm:grid-cols-3">
                 {performerStats.hasActivity && topPerformers.length
                   ? topPerformers.map((performer, index) => (
-                      <button key={performer.id || performer.displayName} type="button" onClick={() => navigate("/performer/leaderboard")} className="rounded-[12px] border border-slate-100 bg-slate-50 p-4 text-center transition hover:border-emerald-100 hover:bg-white">
+                      <button key={performer.id || performer.displayName} type="button" onClick={() => navigate("/performer/leaderboard")} className="rounded-[12px] border border-slate-100 bg-slate-50 p-4 text-center transition hover:border-[#29ADAC]/20 hover:bg-white">
                         <img src={performer.avatar} alt="" className="mx-auto h-12 w-12 rounded-full object-cover" />
                         <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.03em] text-slate-300">Rank #{performer.rank || index + 1}</p>
                         <h3 className="mt-2 truncate text-[12px] font-semibold text-slate-700">{performer.displayName}</h3>
                         <p className="mt-1 truncate text-[10px] font-medium text-slate-400">{performer.profession || performer.domain}</p>
-                        <div className="mt-3 h-1 rounded-full bg-emerald-100" />
+                        <div className="mt-3 h-1 rounded-full bg-[#DFF7F6]" />
                         <p className="mt-2 text-[9px] font-medium text-slate-400">Score {performer.rankingScore ?? 0}</p>
                       </button>
                     ))
@@ -655,7 +655,7 @@ const PerformerDashboardPage = () => {
 
           <section className="rounded-[20px] border border-slate-100 bg-white p-7 shadow-[0_1px_2px_rgba(15,23,42,0.06)]">
             <div>
-              <h2 className="text-[19px] font-semibold text-slate-950">How OnIT Works</h2>
+              <h2 className="text-[19px] font-semibold text-slate-950">How FirstDoer Works</h2>
               <p className="mt-1 text-[12px] font-medium text-slate-400">Three steps to earning securely</p>
             </div>
             <div className="mt-6 grid gap-4 md:grid-cols-3">

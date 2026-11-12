@@ -16,12 +16,12 @@ const i2 = `${CDN}/i2.webp`;
 const i3 = `${CDN}/i3.webp`;
 const i4 = `${CDN}/i4.webp`;
 
-// Content adapted for the "OnIT Campus" intro, but in the requested tabbed format
+// Content adapted for the "FirstDoer Campus" intro, but in the requested tabbed format
 const features = [
     {
         id: "learn-earn",
         icon: <Coins className="w-5 h-5" />,
-        color: "bg-green-100 text-green-600",
+        color: "bg-green-100 text-[var(--color-primary)]",
         btnColor: "bg-slate-900",
         title: "Learn & Earn",
         heading: "Learn & Earn",
@@ -31,7 +31,7 @@ const features = [
     {
         id: "real-work",
         icon: <Hammer className="w-5 h-5" />,
-        color: "bg-green-100 text-green-600",
+        color: "bg-green-100 text-[var(--color-primary)]",
         btnColor: "bg-slate-900",
         title: "Real Work",
         heading: "Real Work",
@@ -41,7 +41,7 @@ const features = [
     {
         id: "micro-tasks",
         icon: <Zap className="w-5 h-5" />,
-        color: "bg-green-100 text-green-600",
+        color: "bg-green-100 text-[var(--color-primary)]",
         btnColor: "bg-slate-900",
         title: "Flexible Micro-Tasks",
         heading: "Flexible Micro-Tasks",
@@ -51,7 +51,7 @@ const features = [
     {
         id: "hyperlocal",
         icon: <MapPin className="w-5 h-5" />,
-        color: "bg-green-100 text-green-600",
+        color: "bg-green-100 text-[var(--color-primary)]",
         btnColor: "bg-slate-900",
         title: "Hyperlocal Trust",
         heading: "Hyperlocal Trust",
@@ -106,11 +106,11 @@ const ScrollRevealSection = () => {
 
                 {/* Section Heading */}
                 <div className="text-center mb-6 sm:mb-8">
-                    <span className="text-green-600 font-bold tracking-wider text-xs uppercase mb-2 block">
+                    <span className="text-[var(--color-primary)] font-bold tracking-wider text-xs uppercase mb-2 block">
                         The Solution
                     </span>
                     <h2 className="text-xl sm:text-3xl md:text-5xl font-extrabold text-slate-900 mb-2 sm:mb-3 leading-tight">
-                        Introducing <span className="text-green-600">OnIT Campus</span>
+                        Introducing <span className="text-[var(--color-primary)]">FirstDoer Campus</span>
                     </h2>
 
                     <p className="text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto">

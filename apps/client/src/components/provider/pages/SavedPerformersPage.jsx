@@ -32,7 +32,7 @@ const SavedPerformerCard = ({ performer, onRemove }) => {
       <button
         type="button"
         onClick={() => onRemove(performer.id)}
-        className="absolute right-5 top-5 text-emerald-500 transition hover:text-emerald-600"
+        className="absolute right-5 top-5 text-[#29ADAC] transition hover:text-[#083B3A]"
         aria-label="Remove from saved"
       >
         <Bookmark size={20} fill="currentColor" strokeWidth={0} />

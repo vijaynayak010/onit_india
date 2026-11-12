@@ -45,8 +45,8 @@ const ReferEarnView = () => {
   const websiteLink =
     stats?.shareableLink ||
     (code !== "NOTAVAIL"
-      ? `https://www.onitindia.com/signup?ref=${code}`
-      : "https://www.onitindia.com/signup");
+      ? `https://www.firstdoer.com/signup?ref=${code}`
+      : "https://www.firstdoer.com/signup");
   const appLink = stats?.appLink || PLAY_STORE_APP_LINK;
 
   const copyToClipboard = async (text, setter) => {
@@ -61,7 +61,7 @@ const ReferEarnView = () => {
 
   const getFullShareMessage = () => {
     return (
-      `Join me on OnIT India! Use my referral code: ${code}\n\n` +
+      `Join me on FirstDoer! Use my referral code: ${code}\n\n` +
       `🌐 Sign up on Website:\n${websiteLink}\n\n` +
       `📲 Download Android App:\n${appLink}`
     );
@@ -72,7 +72,7 @@ const ReferEarnView = () => {
     if (navigator.share) {
       try {
         await navigator.share({
-          title: "Join OnIT India",
+          title: "Join FirstDoer",
           text: shareText,
           url: websiteLink,
         });
@@ -135,7 +135,7 @@ const ReferEarnView = () => {
             <button
               type="button"
               onClick={handleWhatsAppShare}
-              className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-5 py-2.5 text-sm font-bold text-white shadow-[var(--shadow-sm)] transition hover:bg-emerald-700 active:scale-95"
+              className="inline-flex items-center gap-2 rounded-xl bg-[#10605F] px-5 py-2.5 text-sm font-bold text-white shadow-[var(--shadow-sm)] transition hover:bg-[#083B3A] active:scale-95"
             >
               <MessageCircle size={18} strokeWidth={2} />
               Share on WhatsApp
@@ -158,7 +158,7 @@ const ReferEarnView = () => {
                   onClick={() => copyToClipboard(code, setCopiedCode)}
                   className="inline-flex items-center gap-1.5 rounded-lg border border-[var(--color-border)] bg-gray-50 px-3.5 py-1.5 text-xs font-bold text-gray-700 transition hover:bg-gray-100"
                 >
-                  {copiedCode ? <Check size={14} className="text-emerald-600" /> : <Copy size={14} />}
+                  {copiedCode ? <Check size={14} className="text-[#10605F]" /> : <Copy size={14} />}
                   {copiedCode ? "Copied" : "Copy Code"}
                 </button>
               </div>
@@ -182,7 +182,7 @@ const ReferEarnView = () => {
                     onClick={() => copyToClipboard(websiteLink, setCopiedWebsite)}
                     className="inline-flex items-center gap-1.5 rounded-lg border border-[var(--color-border)] bg-gray-50 px-3.5 py-1.5 text-xs font-bold text-gray-700 transition hover:bg-gray-100"
                   >
-                    {copiedWebsite ? <Check size={14} className="text-emerald-600" /> : <Copy size={14} />}
+                    {copiedWebsite ? <Check size={14} className="text-[#10605F]" /> : <Copy size={14} />}
                     {copiedWebsite ? "Copied" : "Copy Link"}
                   </button>
                   <a
@@ -202,7 +202,7 @@ const ReferEarnView = () => {
             {/* Android App Link Row */}
             <div className="rounded-2xl border border-[var(--color-border)] bg-white p-4 shadow-sm">
               <div className="flex items-center gap-2 mb-1.5">
-                <Smartphone size={15} className="text-emerald-600" />
+                <Smartphone size={15} className="text-[#10605F]" />
                 <label className="text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--color-text-subtle)]">
                   Android App (Play Store) Link
                 </label>
@@ -217,14 +217,14 @@ const ReferEarnView = () => {
                     onClick={() => copyToClipboard(appLink, setCopiedApp)}
                     className="inline-flex items-center gap-1.5 rounded-lg border border-[var(--color-border)] bg-gray-50 px-3.5 py-1.5 text-xs font-bold text-gray-700 transition hover:bg-gray-100"
                   >
-                    {copiedApp ? <Check size={14} className="text-emerald-600" /> : <Copy size={14} />}
+                    {copiedApp ? <Check size={14} className="text-[#10605F]" /> : <Copy size={14} />}
                     {copiedApp ? "Copied" : "Copy Link"}
                   </button>
                   <a
                     href={appLink}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1 rounded-lg border border-transparent bg-emerald-50 px-2.5 py-1.5 text-xs font-bold text-emerald-700 transition hover:bg-emerald-600 hover:text-white"
+                    className="inline-flex items-center gap-1 rounded-lg border border-transparent bg-[#EFFBFB] px-2.5 py-1.5 text-xs font-bold text-[#10605F] transition hover:bg-[#083B3A] hover:text-white"
                     title="Open in Google Play"
                   >
                     <ExternalLink size={13} />
@@ -277,7 +277,7 @@ const ReferEarnView = () => {
       )}
 
       <p className="text-center text-xs font-semibold text-[var(--color-text-subtle)]">
-        Rewards are credited to your OnIT wallet upon referee qualification. Terms & conditions apply.
+        Rewards are credited to your FirstDoer wallet upon referee qualification. Terms & conditions apply.
       </p>
     </div>
   );

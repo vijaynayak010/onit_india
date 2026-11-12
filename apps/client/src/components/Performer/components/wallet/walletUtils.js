@@ -1,4 +1,4 @@
-export const PRIMARY_GREEN = "#00A36C";
+export const PRIMARY_GREEN = "#10605F";
 
 export const formatINR = (val) =>
   new Intl.NumberFormat("en-IN", { maximumFractionDigits: 0 }).format(Number(val) || 0);

@@ -69,7 +69,7 @@ const CarouselArrow = ({ direction, onClick, label }) => (
       onClick?.();
     }}
     aria-label={label}
-    className={`absolute top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-600 shadow-md transition hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-700 active:scale-95 ${
+    className={`absolute top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-600 shadow-md transition hover:border-[#29ADAC]/30 hover:bg-[#EFFBFB] hover:text-[#083B3A] active:scale-95 ${
       direction === "prev" ? "left-0 sm:-left-3" : "right-0 sm:-right-3"
     }`}
   >
@@ -336,7 +336,7 @@ const DashboardActionCarousel = ({
                 aria-label={`Go to slide ${i + 1}`}
                 onClick={() => goTo(i)}
                 className={`h-1.5 rounded-full transition-all ${
-                  i === safeActiveIndex ? "w-6 bg-emerald-500" : "w-1.5 bg-gray-300 hover:bg-gray-400"
+                  i === safeActiveIndex ? "w-6 bg-[#10605F]" : "w-1.5 bg-gray-300 hover:bg-gray-400"
                 }`}
               />
             ))}

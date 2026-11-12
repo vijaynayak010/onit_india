@@ -128,7 +128,7 @@ const PostTaskSearchResultsPage = () => {
 
 
     return (
-        <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-emerald-100">
+        <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-[#DFF7F6]">
             <ProviderHeader activePage="my-tasks" />
 
             {/* Main Content */}
@@ -138,7 +138,7 @@ const PostTaskSearchResultsPage = () => {
                     <div className="mb-16">
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-6">
                             <div>
-                                <div className="inline-flex items-center px-4 py-1.5 bg-emerald-500 text-white rounded-full text-[13px] font-black uppercase tracking-wider mb-4">
+                                <div className="inline-flex items-center px-4 py-1.5 bg-[#10605F] text-white rounded-full text-[13px] font-black uppercase tracking-wider mb-4">
                                     Active Task
                                 </div>
                                 <h2 className="text-[36px] font-black text-slate-900 mb-2">
@@ -171,10 +171,10 @@ const PostTaskSearchResultsPage = () => {
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                             {[
                                 {
-                                    icon: <DollarSign className="text-emerald-500" />,
+                                    icon: <DollarSign className="text-[#29ADAC]" />,
                                     label: "Budget",
                                     value: taskData?.priceAmount ? `₹${taskData.priceAmount.toLocaleString()}` : "Dynamic Budget",
-                                    bg: "bg-emerald-50"
+                                    bg: "bg-[#EFFBFB]"
                                 },
                                 {
                                     icon: <Clock className="text-blue-500" />,
@@ -354,17 +354,17 @@ const PerformerCard = ({ performer, type, taskId, taskData, navigate }) => (
             show: { opacity: 1, y: 0 }
         }}
         whileHover={{ y: -8 }}
-        className="group bg-white border border-slate-100 rounded-[2.5rem] p-8 shadow-sm hover:shadow-2xl hover:border-emerald-500/20 transition-all h-full flex flex-col relative overflow-hidden"
+        className="group bg-white border border-slate-100 rounded-[2.5rem] p-8 shadow-sm hover:shadow-2xl hover:border-[#10605F]/20 transition-all h-full flex flex-col relative overflow-hidden"
     >
         {/* Glow effect on hover */}
-        <div className="absolute -right-20 -top-20 w-40 h-40 bg-emerald-500/5 blur-[80px] rounded-full group-hover:bg-emerald-500/10 transition-colors" />
+        <div className="absolute -right-20 -top-20 w-40 h-40 bg-[#10605F]/5 blur-[80px] rounded-full group-hover:bg-[#10605F]/10 transition-colors" />
 
         <div className="flex gap-2 mb-8">
             <span className={`flex items-center gap-1.5 px-4 py-1.5 rounded-full text-[11px] font-black uppercase tracking-wider border ${type === 'applicant' ? 'bg-amber-50 text-amber-600 border-amber-100' : 'bg-blue-50 text-blue-600 border-blue-100'}`}>
                 <div className={`w-4 h-4 rounded-full flex items-center justify-center ${type === 'applicant' ? 'bg-amber-100' : 'bg-blue-100'}`}><Check size={10} strokeWidth={4} /></div> 
                 {type === 'applicant' ? (performer.status === 'ACCEPTED' || performer.status === 'ASSIGNED' ? 'Contracted' : 'Interest Shown') : 'Recommended'}
             </span>
-            <span className="flex items-center gap-1.5 px-4 py-1.5 bg-emerald-50 text-emerald-600 rounded-full text-[11px] font-black uppercase tracking-wider border border-emerald-100">
+            <span className="flex items-center gap-1.5 px-4 py-1.5 bg-[#EFFBFB] text-[#10605F] rounded-full text-[11px] font-black uppercase tracking-wider border border-[#29ADAC]/20">
                 <div className="w-4 h-4 rounded-full bg-emerald-110 flex items-center justify-center"><Check size={10} strokeWidth={4} /></div> ID Verified
             </span>
         </div>
@@ -415,7 +415,7 @@ const PerformerCard = ({ performer, type, taskId, taskData, navigate }) => (
         <div className="flex items-center justify-between mt-auto gap-4 pt-6 border-t border-slate-50">
             <button
                 onClick={() => navigate(`/provider/task-performer-profile/${performer.id}?taskId=${taskId}`, { state: { taskId, taskData, tasker: performer } })}
-                className="text-[14px] font-black text-emerald-600 flex items-center gap-1.5 hover:text-emerald-700 transition-colors"
+                className="text-[14px] font-black text-[#10605F] flex items-center gap-1.5 hover:text-[#083B3A] transition-colors"
             >
                 View Profile <ExternalLink size={16} />
             </button>
@@ -423,7 +423,7 @@ const PerformerCard = ({ performer, type, taskId, taskData, navigate }) => (
                 {performer.userId && (performer.status === 'ASSIGNED' || performer.status === 'ACCEPTED') && (
                     <button
                         onClick={() => navigate(`/provider/chats?userId=${performer.userId}&taskId=${taskId}`)}
-                        className="p-3 bg-slate-100 text-slate-600 rounded-2xl hover:bg-emerald-50 hover:text-emerald-600 transition-all active:scale-95"
+                        className="p-3 bg-slate-100 text-slate-600 rounded-2xl hover:bg-[#EFFBFB] hover:text-[#083B3A] transition-all active:scale-95"
                         title="Message performer"
                     >
                         <MessageCircle size={18} strokeWidth={2.5} />

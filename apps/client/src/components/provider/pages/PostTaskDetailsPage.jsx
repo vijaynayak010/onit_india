@@ -493,8 +493,8 @@ const PostTaskDetailsPage = () => {
                             <label className="text-[18px] font-bold text-[var(--color-text)]">Attachments <span className="font-normal text-[var(--color-text-subtle)]">(optional)</span></label>
                             <div className="flex flex-wrap gap-3">
                                 {attachedFiles.map((file) => (
-                                    <div key={file.id} className="flex items-center gap-2 px-4 py-2 bg-emerald-50 border border-emerald-100 rounded-[var(--radius-sm)]">
-                                        <Paperclip size={16} className="text-emerald-600" />
+                                    <div key={file.id} className="flex items-center gap-2 px-4 py-2 bg-[#EFFBFB] border border-[#29ADAC]/20 rounded-[var(--radius-sm)]">
+                                        <Paperclip size={16} className="text-[#10605F]" />
                                         <span className="text-[13px] font-bold text-slate-700 max-w-[150px] truncate">{file.name}</span>
                                         <button onClick={() => removeFile(file.id)} className="text-red-400 hover:text-red-600 transition-colors"><X size={14} /></button>
                                     </div>

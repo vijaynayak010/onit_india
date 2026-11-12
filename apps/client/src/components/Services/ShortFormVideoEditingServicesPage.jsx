@@ -36,10 +36,10 @@ const EXAMPLES = [
 
 const ShortFormVideoEditingServicesPage = () => (
   <ServiceLandingLayout
-    title="Short-Form Video Editing Services (Reels / Shorts) | OnIT INDIA"
-    description="Short-form video editing services by verified performers. Reels, Shorts, and TikTok edits. Captions, cuts, and music. Post a task, get edited videos delivered. OnIT INDIA."
-    keywords="short-form video editing services, Reels editing, YouTube Shorts editing, video editing India, Reels editor, Shorts editor, OnIT INDIA"
-    canonical="https://www.onitindia.com/services/short-form-video-editing-services"
+    title="Short-Form Video Editing Services (Reels / Shorts) | FirstDoer"
+    description="Short-form video editing services by verified performers. Reels, Shorts, and TikTok edits. Captions, cuts, and music. Post a task, get edited videos delivered. FirstDoer."
+    keywords="short-form video editing services, Reels editing, YouTube Shorts editing, video editing India, Reels editor, Shorts editor, FirstDoer"
+    canonical="https://www.firstdoer.com/services/short-form-video-editing-services"
     heroTitle="Short-Form Video Editing Services (Reels / Shorts)"
     heroSubtitle="Get Reels, Shorts, and short-form videos edited by verified performers. Captions, cuts, music, and format — post your raw footage and brief, pay when the edit is approved."
     ctaTitle="Need Reels or Shorts edited?"
@@ -47,15 +47,15 @@ const ShortFormVideoEditingServicesPage = () => (
   >
     <section className="py-16 px-6 md:px-20 border-t border-gray-100">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-bold text-[#004d43] mb-10 text-center">What we help you execute</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-primary)] mb-10 text-center">What we help you execute</h2>
         <div className="grid gap-6 md:grid-cols-2">
           {BENEFITS.map((item) => (
-            <div key={item.title} className="rounded-xl border border-[#004d43]/15 bg-white p-6 flex gap-4">
-              <div className="shrink-0 w-12 h-12 rounded-xl bg-[#004d43]/10 text-[#004d43] flex items-center justify-center">
+            <div key={item.title} className="rounded-xl border border-[var(--color-primary)]/15 bg-white p-6 flex gap-4">
+              <div className="shrink-0 w-12 h-12 rounded-xl bg-[var(--color-primary)]/10 text-[var(--color-primary)] flex items-center justify-center">
                 <item.icon size={24} />
               </div>
               <div>
-                <h3 className="font-semibold text-[#004d43] mb-1">{item.title}</h3>
+                <h3 className="font-semibold text-[var(--color-primary)] mb-1">{item.title}</h3>
                 <p className="text-gray-600 text-sm">{item.description}</p>
               </div>
             </div>
@@ -65,12 +65,12 @@ const ShortFormVideoEditingServicesPage = () => (
     </section>
     <section className="py-16 px-6 md:px-20 bg-gray-50/50">
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-bold text-[#004d43] mb-4 text-center">Types of short-form editing you can post</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-primary)] mb-4 text-center">Types of short-form editing you can post</h2>
         <p className="text-gray-600 text-center mb-8">Post tasks for any of these; performers deliver edited files to your specs.</p>
         <ul className="space-y-3">
           {EXAMPLES.map((item) => (
             <li key={item} className="flex gap-3 items-center rounded-lg bg-white border border-gray-100 px-4 py-3 text-gray-700">
-              <span className="shrink-0 w-5 h-5 rounded-full bg-[#004d43]/20 text-[#004d43] flex items-center justify-center text-xs font-bold">✓</span>
+              <span className="shrink-0 w-5 h-5 rounded-full bg-[var(--color-primary)]/20 text-[var(--color-primary)] flex items-center justify-center text-xs font-bold">✓</span>
               {item}
             </li>
           ))}

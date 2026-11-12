@@ -48,31 +48,31 @@ const EXAMPLES = [
 const CompletedTasksExamplesPage = () => (
   <div className="min-h-screen bg-white text-gray-800">
     <SEO
-      title="Completed Tasks Examples | OnIT INDIA"
-      description="Examples of tasks completed on OnIT INDIA — research, design, field work, content, and data. See the kind of work that gets done on the platform."
-      keywords="OnIT INDIA completed tasks, task examples, research tasks, design tasks, field tasks India"
-      canonical="https://www.onitindia.com/community/completed-tasks-examples"
+      title="Completed Tasks Examples | FirstDoer"
+      description="Examples of tasks completed on FirstDoer — research, design, field work, content, and data. See the kind of work that gets done on the platform."
+      keywords="FirstDoer completed tasks, task examples, research tasks, design tasks, field tasks India"
+      canonical="https://www.firstdoer.com/community/completed-tasks-examples"
     />
     <section className="pt-24 pb-16 px-6 md:px-20">
       <div className="max-w-4xl mx-auto">
         <Link
           to="/community"
-          className="inline-flex items-center gap-2 text-[#004d43] font-medium text-sm mb-8 hover:underline"
+          className="inline-flex items-center gap-2 text-[var(--color-primary)] font-medium text-sm mb-8 hover:underline"
         >
           <ArrowLeft size={16} />
           Back to Community
         </Link>
         <header className="border-b border-gray-200 pb-8 mb-10">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 rounded-xl bg-[#004d43]/10 flex items-center justify-center">
-              <CheckSquare size={24} className="text-[#004d43]" />
+            <div className="w-12 h-12 rounded-xl bg-[var(--color-primary)]/10 flex items-center justify-center">
+              <CheckSquare size={24} className="text-[var(--color-primary)]" />
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold text-[#004d43]">
+            <h1 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)]">
               Completed Tasks Examples
             </h1>
           </div>
           <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-            Real examples of tasks completed on OnIT INDIA. These show the range of work — research, design, field visits, content, and data — and typical outcomes.
+            Real examples of tasks completed on FirstDoer. These show the range of work — research, design, field visits, content, and data — and typical outcomes.
           </p>
         </header>
 
@@ -81,7 +81,7 @@ const CompletedTasksExamplesPage = () => (
             const Icon = CATEGORY_ICONS[group.icon] || FileText;
             return (
               <section key={group.category}>
-                <h2 className="text-lg font-bold text-[#004d43] mb-4 flex items-center gap-2">
+                <h2 className="text-lg font-bold text-[var(--color-primary)] mb-4 flex items-center gap-2">
                   <Icon size={20} />
                   {group.category}
                 </h2>
@@ -89,7 +89,7 @@ const CompletedTasksExamplesPage = () => (
                   {group.tasks.map((task, i) => (
                     <li
                       key={i}
-                      className="rounded-xl border border-[#004d43]/10 bg-white p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2"
+                      className="rounded-xl border border-[var(--color-primary)]/10 bg-white p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2"
                     >
                       <span className="font-medium text-gray-900">{task.title}</span>
                       <span className="text-gray-600 text-sm shrink-0">{task.outcome}</span>
@@ -104,7 +104,7 @@ const CompletedTasksExamplesPage = () => (
         <div className="mt-10 text-center">
           <Link
             to="/for-providers"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#004d43] text-white font-semibold hover:bg-[#016b5c] transition-colors"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[var(--color-primary)] text-white font-semibold hover:bg-[var(--color-primary-hover)] transition-colors"
           >
             Post a task
           </Link>

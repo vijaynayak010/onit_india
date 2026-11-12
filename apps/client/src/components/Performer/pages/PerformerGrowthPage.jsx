@@ -94,7 +94,7 @@ export default function PerformerGrowthPage() {
       <main className="w-full px-4 py-6 sm:px-6 lg:ml-[220px] lg:w-[calc(100%-220px)] lg:px-8">
         <div className="mx-auto w-full max-w-6xl pb-20">
           <PerformerPageHeader
-            title="Grow your place on OnIT"
+            title="Grow your place on FirstDoer"
             subtitle="See where you stand, what you can do next, and how real work builds trust"
             backTo="/performer/account"
           />
@@ -102,7 +102,7 @@ export default function PerformerGrowthPage() {
             <p role="status" className="text-sm text-gray-600">Loading your progress…</p>
           ) : error ? (
             <div role="alert" className="rounded-2xl bg-white p-5 text-sm text-gray-700">
-              {error} <button type="button" onClick={load} className="ml-2 font-semibold text-emerald-700">Try again</button>
+              {error} <button type="button" onClick={load} className="ml-2 font-semibold text-[#10605F]">Try again</button>
             </div>
           ) : (
             <>
@@ -125,7 +125,7 @@ export default function PerformerGrowthPage() {
                 <section className="mb-5 rounded-[24px] bg-slate-950 p-5 text-white shadow-[0_12px_30px_rgba(15,23,42,0.12)] sm:p-6">
                   <div className="flex flex-wrap items-center justify-between gap-3">
                     <div>
-                      <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-emerald-300">Today’s practice</p>
+                      <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#7EDEDD]">Today’s practice</p>
                       <h2 className="mt-2 text-xl font-bold">{dailyQuiz.quiz.title}</h2>
                       <p className="mt-1 text-sm text-slate-300">
                         {dailyQuiz.quiz.questions?.length || 0} questions · {dailyQuiz.quiz.timeLimitSeconds ? Math.ceil(dailyQuiz.quiz.timeLimitSeconds / 60) : 1} min total · {dailyQuiz.quiz.attemptsRemaining} attempts left
@@ -134,7 +134,7 @@ export default function PerformerGrowthPage() {
                     <button
                       type="button"
                       onClick={() => navigate("/performer/daily-quiz")}
-                      className="inline-flex min-h-11 items-center gap-2 rounded-full bg-emerald-500 px-5 text-sm font-bold text-white transition-[transform,background-color] duration-150 ease-out hover:bg-emerald-400 active:scale-[0.98]"
+                      className="inline-flex min-h-11 items-center gap-2 rounded-full bg-[#10605F] px-5 text-sm font-bold text-white transition-[transform,background-color] duration-150 ease-out hover:bg-[#083B3A] active:scale-[0.98]"
                     >
                       {dailyQuiz.quiz.passed ? "View result" : "Start quiz"} <span aria-hidden="true">→</span>
                     </button>
@@ -145,7 +145,7 @@ export default function PerformerGrowthPage() {
                 <div className="mb-5 rounded-2xl border border-gray-200 bg-white p-5">
                   <h2 className="font-bold text-gray-900">Choose a category to begin</h2>
                   <p className="mt-1 text-sm text-gray-600">Add your skills and category in your profile to see your growth plan.</p>
-                  <button type="button" onClick={() => navigate("/performer/profile")} className="mt-3 text-sm font-semibold text-emerald-700">Complete profile →</button>
+                  <button type="button" onClick={() => navigate("/performer/profile")} className="mt-3 text-sm font-semibold text-[#10605F]">Complete profile →</button>
                 </div>
               )}
               <div className="grid gap-5 lg:grid-cols-2">

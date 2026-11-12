@@ -93,7 +93,7 @@ const PerformerEarningsTransactionDetailsPage = () => {
                                     </div>
                                     <div className="flex justify-between items-center">
                                         <span className="text-[14px] font-bold text-gray-400">Status</span>
-                                        <span className="bg-emerald-50 text-emerald-600 px-3 py-1.5 rounded-lg text-[12px] font-black uppercase tracking-widest">
+                                        <span className="bg-[#EFFBFB] text-[#10605F] px-3 py-1.5 rounded-lg text-[12px] font-black uppercase tracking-widest">
                                             {transaction.status}
                                         </span>
                                     </div>

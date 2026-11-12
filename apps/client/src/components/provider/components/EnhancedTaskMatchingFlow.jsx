@@ -447,7 +447,7 @@ export default function EnhancedTaskMatchingFlow({ onComplete }) {
             className="bg-white rounded-2xl border-2 border-[var(--color-border)] shadow-[var(--shadow-lg)] overflow-hidden"
           >
             {/* Specialist Header */}
-            <div className="bg-gradient-to-r from-[var(--color-primary)] to-emerald-600 p-6 text-white">
+            <div className="bg-gradient-to-r from-[var(--color-primary)] to-[#083B3A] p-6 text-white">
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center text-2xl font-bold">
                   {matchedSpecialists[0].avatar}

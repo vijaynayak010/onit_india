@@ -49,7 +49,7 @@ const ConfirmWithdrawalModal = ({
             </div>
 
             <div className="space-y-4 rounded-2xl border border-gray-100 bg-gray-50/50 px-4 py-4">
-              <Row label="Amount" value={`₹${formatINR(amount)}`} valueClass="text-emerald-600 font-bold" />
+              <Row label="Amount" value={`₹${formatINR(amount)}`} valueClass="text-[#10605F] font-bold" />
               <Row label="To" value={destination} />
               <Row label="Remaining balance" value={`₹${formatINR(remainingBalance)}`} />
               <Row label="Processing time" value="Within 24 hours" />
@@ -67,7 +67,7 @@ const ConfirmWithdrawalModal = ({
               type="button"
               onClick={onConfirm}
               disabled={loading}
-              className="mt-5 w-full rounded-2xl bg-[#00A36C] py-4 text-[15px] font-bold text-white shadow-md transition hover:bg-[#00925f] disabled:opacity-60"
+              className="mt-5 w-full rounded-2xl bg-[#10605F] py-4 text-[15px] font-bold text-white shadow-md transition hover:bg-[#00925f] disabled:opacity-60"
             >
               {loading ? "Processing…" : "Confirm withdrawal"}
             </button>

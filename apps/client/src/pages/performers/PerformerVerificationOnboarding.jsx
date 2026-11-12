@@ -50,24 +50,24 @@ const PerformerVerificationOnboarding = () => {
   return (
     <div className="min-h-screen bg-white text-gray-800">
       <SEO
-        title="Performer Verification & Onboarding | OnIT INDIA"
-        description="OnIT INDIA performer onboarding: KYC, skills verification, background checks, and badges. Become a verified task performer and start earning."
-        keywords="OnIT INDIA performer verification, task performer onboarding, KYC for performers, skill verification, background check, performer badges, join as performer"
-        canonical="https://www.onitindia.com/performer-verification-onboarding"
+        title="Performer Verification & Onboarding | FirstDoer"
+        description="FirstDoer performer onboarding: KYC, skills verification, background checks, and badges. Become a verified task performer and start earning."
+        keywords="FirstDoer performer verification, task performer onboarding, KYC for performers, skill verification, background check, performer badges, join as performer"
+        canonical="https://www.firstdoer.com/performer-verification-onboarding"
       />
 
       <section className="pt-24 pb-16 px-6 md:px-20">
         <div className="max-w-4xl mx-auto">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-[#004d43] hover:text-green-600 font-medium text-sm mb-8"
+            className="inline-flex items-center gap-2 text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] font-medium text-sm mb-8"
           >
             ← Back to Home
           </Link>
 
           {/* Header */}
           <header className="border-b border-gray-200 pb-8 mb-12">
-            <h1 className="text-3xl md:text-4xl font-bold text-[#004d43] mb-4">
+            <h1 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-4">
               Performer Verification & Onboarding
             </h1>
             <p className="text-gray-600 text-base md:text-lg leading-relaxed max-w-3xl">
@@ -77,8 +77,8 @@ const PerformerVerificationOnboarding = () => {
 
           {/* Process overview */}
           <section className="mb-14">
-            <h2 className="text-xl font-semibold text-[#004d43] mb-6 flex items-center gap-2">
-              <CheckCircle size={22} className="text-[#004d43]" />
+            <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-6 flex items-center gap-2">
+              <CheckCircle size={22} className="text-[var(--color-primary)]" />
               Onboarding journey
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -87,7 +87,7 @@ const PerformerVerificationOnboarding = () => {
                   key={s.num}
                   className="rounded-xl border border-gray-200 bg-gray-50/50 p-4 flex flex-col"
                 >
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#004d43] text-white text-sm font-semibold mb-3">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--color-primary)] text-white text-sm font-semibold mb-3">
                     {s.num}
                   </span>
                   <h3 className="font-semibold text-gray-900 text-sm mb-1">{s.title}</h3>
@@ -99,8 +99,8 @@ const PerformerVerificationOnboarding = () => {
 
           {/* KYC */}
           <section className="mb-14">
-            <h2 className="text-xl font-semibold text-[#004d43] mb-4 flex items-center gap-2">
-              <FileText size={22} className="text-[#004d43]" />
+            <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-4 flex items-center gap-2">
+              <FileText size={22} className="text-[var(--color-primary)]" />
               1. KYC (Know Your Customer)
             </h2>
             <p className="text-gray-600 text-sm md:text-base mb-4 leading-relaxed">
@@ -126,8 +126,8 @@ const PerformerVerificationOnboarding = () => {
 
           {/* Skills */}
           <section className="mb-14">
-            <h2 className="text-xl font-semibold text-[#004d43] mb-4 flex items-center gap-2">
-              <Briefcase size={22} className="text-[#004d43]" />
+            <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-4 flex items-center gap-2">
+              <Briefcase size={22} className="text-[var(--color-primary)]" />
               2. Skills verification
             </h2>
             <p className="text-gray-600 text-sm md:text-base mb-4 leading-relaxed">
@@ -150,8 +150,8 @@ const PerformerVerificationOnboarding = () => {
 
           {/* Background verification */}
           <section className="mb-14">
-            <h2 className="text-xl font-semibold text-[#004d43] mb-4 flex items-center gap-2">
-              <Shield size={22} className="text-[#004d43]" />
+            <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-4 flex items-center gap-2">
+              <Shield size={22} className="text-[var(--color-primary)]" />
               3. Background verification
             </h2>
             <p className="text-gray-600 text-sm md:text-base mb-4 leading-relaxed">
@@ -177,8 +177,8 @@ const PerformerVerificationOnboarding = () => {
 
           {/* Badges */}
           <section className="mb-14">
-            <h2 className="text-xl font-semibold text-[#004d43] mb-4 flex items-center gap-2">
-              <Award size={22} className="text-[#004d43]" />
+            <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-4 flex items-center gap-2">
+              <Award size={22} className="text-[var(--color-primary)]" />
               4. Badges (skills & work done)
             </h2>
             <p className="text-gray-600 text-sm md:text-base mb-6 leading-relaxed">
@@ -192,7 +192,7 @@ const PerformerVerificationOnboarding = () => {
                     key={b.name}
                     className="rounded-xl border border-gray-200 bg-white p-5 flex gap-4"
                   >
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#004d43]/10 text-[#004d43]">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[var(--color-primary)]/10 text-[var(--color-primary)]">
                       <Icon size={20} strokeWidth={2} />
                     </span>
                     <div>
@@ -209,14 +209,14 @@ const PerformerVerificationOnboarding = () => {
           </section>
 
           {/* Summary & CTA */}
-          <section className="rounded-xl border border-[#004d43]/20 bg-[#004d43]/5 p-6 md:p-8">
-            <h2 className="text-lg font-semibold text-[#004d43] mb-3">Ready to become a performer?</h2>
+          <section className="rounded-xl border border-[var(--color-primary)]/20 bg-[var(--color-primary)]/5 p-6 md:p-8">
+            <h2 className="text-lg font-semibold text-[var(--color-primary)] mb-3">Ready to become a performer?</h2>
             <p className="text-gray-700 text-sm mb-6 max-w-2xl">
               Complete sign-up, KYC, skills, and background verification to get verified and earn badges. Once onboarded, you can browse and accept tasks that match your skills.
             </p>
             <Link
               to="/task-performers"
-              className="inline-flex items-center gap-2 rounded-xl bg-[#004d43] px-5 py-3 text-sm font-semibold text-white hover:bg-[#003d36] transition-colors"
+              className="inline-flex items-center gap-2 rounded-xl bg-[var(--color-primary)] px-5 py-3 text-sm font-semibold text-white hover:bg-[#003d36] transition-colors"
             >
               Join as a Task Performer
               <ArrowRight size={16} />
@@ -224,7 +224,7 @@ const PerformerVerificationOnboarding = () => {
           </section>
 
           <div className="mt-14 pt-8 border-t border-gray-200 text-center text-gray-500 text-sm">
-            Last updated: March 2026 · OnIT INDIA
+            Last updated: March 2026 · FirstDoer
           </div>
         </div>
       </section>

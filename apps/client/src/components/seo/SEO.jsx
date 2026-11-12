@@ -12,7 +12,7 @@ export default function SEO({
     title,
     description,
     image,
-    name = 'OnIT INDIA',
+    name = SITE_NAME,
     type = 'website',
     keywords,
     canonical,
@@ -70,7 +70,7 @@ export default function SEO({
         setMeta('name', 'keywords', keywords);
         setMeta('name', 'robots', robotsContent);
         setMeta('name', 'googlebot', robotsContent);
-        setMeta('name', 'theme-color', '#16a34a');
+        setMeta('name', 'theme-color', '#10605F');
 
         setMeta('property', 'og:type', type);
         setMeta('property', 'og:title', fullTitle);
@@ -87,7 +87,7 @@ export default function SEO({
         setMeta('name', 'twitter:description', seoDescription);
         setMeta('name', 'twitter:image', seoImage);
         setMeta('name', 'twitter:image:alt', `${fullTitle} — ${SITE_NAME}`);
-        setMeta('name', 'twitter:site', '@onitindia');
+        setMeta('name', 'twitter:site', '@firstdoer');
 
         let canonicalElement = document.head.querySelector('link[rel="canonical"]');
         if (noindex) {

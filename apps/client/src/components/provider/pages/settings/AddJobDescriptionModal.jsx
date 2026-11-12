@@ -116,7 +116,7 @@ const AddJobDescriptionModal = ({ isOpen, onClose, onSave, initialData = null, s
             <form onSubmit={handleSubmit} className="max-h-[calc(78vh-52px)] overflow-y-auto px-4 pb-5 pt-3">
               <div className="space-y-2.5 rounded-xl border border-gray-100 bg-gray-50/80 p-3">
                 <div className="flex items-start gap-2.5">
-                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-emerald-100 text-emerald-600">
+                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[#DFF7F6] text-[#10605F]">
                     <Type size={14} />
                   </div>
                   <div className="w-full min-w-0">
@@ -134,7 +134,7 @@ const AddJobDescriptionModal = ({ isOpen, onClose, onSave, initialData = null, s
                 </div>
                 <hr className="border-gray-200" />
                 <div className="flex items-start gap-2.5">
-                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-emerald-100 text-emerald-600">
+                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[#DFF7F6] text-[#10605F]">
                     <AlignLeft size={14} />
                   </div>
                   <div className="w-full min-w-0">
@@ -162,7 +162,7 @@ const AddJobDescriptionModal = ({ isOpen, onClose, onSave, initialData = null, s
                       onClick={() => setForm((prev) => ({ ...prev, category: cat }))}
                       className={`flex items-center gap-1 rounded-lg border px-2 py-1 text-[11px] font-semibold transition ${
                         form.category === cat
-                          ? "border-emerald-600 bg-emerald-600 text-white"
+                          ? "border-[#10605F] bg-[#10605F] text-white"
                           : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"
                       }`}
                     >
@@ -180,23 +180,23 @@ const AddJobDescriptionModal = ({ isOpen, onClose, onSave, initialData = null, s
                     <label
                       key={dur}
                       className={`flex cursor-pointer items-center justify-between rounded-lg px-3 py-2 transition ${
-                        form.duration === dur ? "bg-emerald-50" : "hover:bg-gray-50"
+                        form.duration === dur ? "bg-[#EFFBFB]" : "hover:bg-gray-50"
                       }`}
                     >
                       <span
                         className={`text-xs font-semibold ${
-                          form.duration === dur ? "text-emerald-700" : "text-gray-800"
+                          form.duration === dur ? "text-[#10605F]" : "text-gray-800"
                         }`}
                       >
                         {dur}
                       </span>
                       <div
                         className={`relative flex h-4 w-4 items-center justify-center rounded-full border-2 ${
-                          form.duration === dur ? "border-emerald-600" : "border-gray-300"
+                          form.duration === dur ? "border-[#10605F]" : "border-gray-300"
                         }`}
                       >
                         {form.duration === dur ? (
-                          <div className="h-2 w-2 rounded-full bg-emerald-600" />
+                          <div className="h-2 w-2 rounded-full bg-[#10605F]" />
                         ) : null}
                       </div>
                       <input
@@ -214,7 +214,7 @@ const AddJobDescriptionModal = ({ isOpen, onClose, onSave, initialData = null, s
 
               <div className="mt-4 space-y-2.5 rounded-xl border border-gray-100 bg-white p-3">
                 <div className="flex items-start gap-2.5">
-                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-emerald-100 text-emerald-600">
+                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[#DFF7F6] text-[#10605F]">
                     <Tag size={14} />
                   </div>
                   <div className="w-full min-w-0">
@@ -232,7 +232,7 @@ const AddJobDescriptionModal = ({ isOpen, onClose, onSave, initialData = null, s
                 </div>
                 <hr className="border-gray-100" />
                 <div className="flex items-start gap-2.5">
-                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-emerald-100 text-emerald-600">
+                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[#DFF7F6] text-[#10605F]">
                     <IndianRupee size={14} />
                   </div>
                   <div className="w-full min-w-0">
@@ -252,7 +252,7 @@ const AddJobDescriptionModal = ({ isOpen, onClose, onSave, initialData = null, s
                 </div>
                 <hr className="border-gray-100" />
                 <div className="flex items-start gap-2.5">
-                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-emerald-100 text-emerald-600">
+                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[#DFF7F6] text-[#10605F]">
                     <MapPin size={14} />
                   </div>
                   <div className="w-full min-w-0">

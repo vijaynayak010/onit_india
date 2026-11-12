@@ -11,32 +11,32 @@ const SiteDataPolicy = () => {
   return (
     <div className="min-h-screen bg-white text-gray-800 relative z-10">
       <SEO
-        title="Cookie Policy | OnIT INDIA"
-        description="How OnIT INDIA uses cookies and similar technologies. Information about analytics, preferences, and your choices. Read our cookie policy for the task execution platform."
-        keywords="OnIT INDIA cookie policy, cookies policy, site data, analytics cookies, OnIT INDIA privacy, browser cookies, task marketplace India data"
-        canonical="https://www.onitindia.com/cookie-policy"
+        title="Cookie Policy | FirstDoer"
+        description="How FirstDoer uses cookies and similar technologies. Information about analytics, preferences, and your choices. Read our cookie policy for the task execution platform."
+        keywords="FirstDoer cookie policy, cookies policy, site data, analytics cookies, FirstDoer privacy, browser cookies, task marketplace India data"
+        canonical="https://www.firstdoer.com/cookie-policy"
       />
       <section className="pt-24 pb-16 px-6 md:px-20">
         <div className="max-w-4xl mx-auto">
           <Link
             to="/"
-            className="inline-flex items-center text-[#004d43] hover:text-green-600 font-medium text-sm mb-8"
+            className="inline-flex items-center text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] font-medium text-sm mb-8"
           >
             ← Back to Home
           </Link>
 
           <header className="border-b border-gray-200 pb-8 mb-10">
-            <h1 className="text-3xl md:text-4xl font-bold text-[#004d43] mb-4">
+            <h1 className="text-3xl md:text-4xl font-bold text-[var(--color-primary)] mb-4">
               Cookie Policy
             </h1>
             <p className="text-gray-600 text-sm md:text-base">
               <strong>Effective Date:</strong> March 2026
             </p>
             <p className="text-gray-600 text-sm md:text-base mt-4">
-              This Cookie Policy explains how OnIT INDIA ("we", "us", "our") uses
+              This Cookie Policy explains how FirstDoer ("we", "us", "our") uses
               cookies and similar technologies when you use our website and
               platform. It should be read together with our{" "}
-              <Link to="/privacy-policy" className="text-[#004d43] font-medium hover:underline">
+              <Link to="/privacy-policy" className="text-[var(--color-primary)] font-medium hover:underline">
                 Privacy Policy
               </Link>
               .
@@ -45,7 +45,7 @@ const SiteDataPolicy = () => {
 
           <div className="space-y-8 text-gray-700 leading-relaxed">
             <section>
-              <h2 className="text-xl font-semibold text-[#004d43] mb-3">
+              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">
                 1. What are cookies?
               </h2>
               <p>
@@ -57,7 +57,7 @@ const SiteDataPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[#004d43] mb-3">
+              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">
                 2. How we use cookies
               </h2>
               <p className="mb-3">We use cookies for the following purposes:</p>
@@ -83,7 +83,7 @@ const SiteDataPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[#004d43] mb-3">
+              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">
                 3. Third-party cookies
               </h2>
               <p>
@@ -95,7 +95,7 @@ const SiteDataPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[#004d43] mb-3">
+              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">
                 4. Your choices
               </h2>
               <p className="mb-3">
@@ -110,7 +110,7 @@ const SiteDataPolicy = () => {
                   href="https://tools.google.com/dlpage/gaoptout"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#004d43] font-medium hover:underline"
+                  className="text-[var(--color-primary)] font-medium hover:underline"
                 >
                   Google Analytics Opt-out Browser Add-on
                 </a>{" "}
@@ -119,7 +119,7 @@ const SiteDataPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[#004d43] mb-3">
+              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">
                 5. Updates
               </h2>
               <p>
@@ -130,17 +130,17 @@ const SiteDataPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-[#004d43] mb-3">
+              <h2 className="text-xl font-semibold text-[var(--color-primary)] mb-3">
                 6. Contact
               </h2>
               <p>
                 For questions about our use of cookies or this policy, contact
                 us at{" "}
                 <a
-                  href="mailto:support@onitindia.com"
-                  className="text-[#004d43] font-medium hover:underline"
+                  href="mailto:support@firstdoer.com"
+                  className="text-[var(--color-primary)] font-medium hover:underline"
                 >
-                  support@onitindia.com
+                  support@firstdoer.com
                 </a>
                 .
               </p>
