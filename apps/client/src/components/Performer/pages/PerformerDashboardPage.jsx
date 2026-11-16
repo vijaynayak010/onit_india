@@ -4,6 +4,7 @@ import {
   ArrowRight,
   BadgeCheck,
   Bookmark,
+  ChevronDown,
   ChevronRight,
   CheckCircle2,
   FileText,
@@ -32,6 +33,7 @@ import {
 } from "../services/api";
 import { filterNormalizedTasks, normalizeFeedTask, parseTasksFeed } from "../components/tasks/performerTaskUtils";
 import PerformerHeader from "../components/PerformerHeader";
+import { DashboardShell, DashboardCard, StatusBadge, EmptyState } from "../../shared/dashboard";
 import { useAutoReload } from "../../../hooks/useAutoReload";
 import {
   PERFORMER_DASHBOARD_CACHE_KEY,
@@ -209,13 +211,13 @@ function SectionShell({ title, subtitle, actionLabel, onAction, children }) {
     <section className="space-y-4">
       <div className="flex items-end justify-between gap-4">
         <div>
-          <h2 className="text-lg sm:text-xl font-heading font-medium leading-tight text-slate-950">{title}</h2>
-          {subtitle ? <p className="mt-1 text-[13px] font-medium text-slate-400">{subtitle}</p> : null}
+          <h2 className="text-lg sm:text-xl font-heading font-medium leading-tight text-[var(--dash-text)]">{title}</h2>
+          {subtitle ? <p className="mt-1 text-[13px] font-medium text-[var(--dash-text-secondary)]">{subtitle}</p> : null}
         </div>
         {actionLabel ? (
-          <button type="button" onClick={onAction} className="inline-flex items-center gap-1 text-[12px] font-semibold text-slate-700 transition hover:text-[var(--color-primary)]">
+          <button type="button" onClick={onAction} className="inline-flex items-center gap-1 text-[13px] font-medium text-[var(--dash-primary-700)] transition hover:text-[var(--dash-primary-800)]">
             {actionLabel}
-            <ChevronRight size={14} strokeWidth={2.4} />
+            <ChevronRight size={14} strokeWidth={2.25} />
           </button>
         ) : null}
       </div>
@@ -226,38 +228,38 @@ function SectionShell({ title, subtitle, actionLabel, onAction, children }) {
 
 function TaskCard({ task, onOpen }) {
   return (
-    <article className="flex min-h-[216px] flex-col rounded-[12px] border border-slate-100 bg-white p-5 shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition hover:-translate-y-0.5 hover:border-[#29ADAC]/20 hover:shadow-[0_10px_28px_rgba(15,23,42,0.08)]">
+    <article className="flex min-h-[216px] flex-col rounded-2xl border border-[var(--dash-border)] bg-[var(--dash-surface)] p-5 shadow-[var(--shadow-sm)] transition hover:-translate-y-0.5 hover:border-[var(--dash-primary-600)]/40 hover:shadow-[var(--shadow-md)]">
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
-          <p className="truncate text-[11px] font-semibold text-slate-400">{task.client}</p>
-          <button type="button" onClick={onOpen} className="mt-1 line-clamp-2 text-left text-[15px] sm:text-[16px] font-heading font-medium leading-snug text-slate-950 hover:text-[var(--color-primary)]">
+          <p className="truncate text-[11px] font-medium text-[var(--dash-text-secondary)]">{task.client}</p>
+          <button type="button" onClick={onOpen} className="mt-1 line-clamp-2 text-left text-[15px] sm:text-[16px] font-heading font-medium leading-snug text-[var(--dash-text)] hover:text-[var(--dash-primary-700)]">
             {task.title}
           </button>
         </div>
-        <button type="button" onClick={onOpen} className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-slate-300 transition hover:bg-slate-50 hover:text-slate-600" aria-label="Save task">
+        <button type="button" onClick={onOpen} className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-[var(--dash-text-secondary)] transition hover:bg-[var(--dash-canvas)] hover:text-[var(--dash-text)]" aria-label="Save task">
           <Bookmark size={17} strokeWidth={1.8} />
         </button>
       </div>
       <div className="mt-4 flex flex-wrap gap-1.5">
         {task.tags.map((tag) => (
-          <span key={tag} className="rounded-full bg-slate-50 px-2 py-1 text-[10px] font-medium text-slate-500">
+          <span key={tag} className="rounded-full border border-[var(--dash-border)] bg-[var(--dash-canvas)] px-2.5 py-0.5 text-[10px] font-medium text-[var(--dash-text-secondary)]">
             {tag}
           </span>
         ))}
       </div>
-      <div className="mt-4 flex items-center justify-between text-[11px] font-medium text-slate-400">
-        <span>Deadline: {task.deadline}</span>
+      <div className="mt-4 flex items-center justify-between text-[11px] font-medium text-[var(--dash-text-secondary)]">
+        <span className="tabular-nums">Deadline: {task.deadline}</span>
         <span>{task.posted}</span>
       </div>
-      <div className="mt-auto flex items-end justify-between gap-4 pt-4">
-        <p className="text-[17px] font-medium text-slate-950">{task.budget}</p>
+      <div className="mt-auto flex items-end justify-between gap-4 border-t border-[var(--dash-border)] pt-4">
+        <p className="dash-kpi tabular-nums text-[17px] font-medium text-[var(--dash-text)]">{task.budget}</p>
         <button
           type="button"
           onClick={onOpen}
-          className="inline-flex h-8 items-center gap-1.5 rounded-full bg-[var(--color-primary)] px-4 text-[11px] font-semibold text-white shadow-[0_2px_6px_rgba(16,96,95,0.18)] transition hover:bg-[var(--color-primary-hover)]"
+          className="inline-flex h-8 items-center gap-1.5 rounded-full bg-[var(--dash-primary-700)] px-4 text-[11px] font-medium text-white shadow-[var(--shadow-xs)] transition hover:bg-[var(--dash-primary-800)]"
         >
           View task
-          <ArrowRight size={12} strokeWidth={2.4} />
+          <ArrowRight size={12} strokeWidth={2.25} />
         </button>
       </div>
     </article>
@@ -266,6 +268,7 @@ function TaskCard({ task, onOpen }) {
 
 const PerformerDashboardPage = () => {
   const navigate = useNavigate();
+  const [showHowItWorks, setShowHowItWorks] = useState(false);
   const { categories, loading: loadingCategories } = useHomeContent();
   const initialDashboardData = useMemo(
     () => readPerformerCache(PERFORMER_DASHBOARD_CACHE_KEY, PERFORMER_DASHBOARD_CACHE_TTL_MS),
@@ -481,202 +484,383 @@ const PerformerDashboardPage = () => {
   useAutoReload(fetchData, PERFORMER_DASHBOARD_CACHE_TTL_MS);
 
   return (
-    <div className="min-h-screen bg-white text-slate-950">
-      <PerformerHeader activePage="dashboard" />
-      <main className="w-full px-5 pb-16 pt-[108px] sm:px-8 lg:ml-[220px] lg:w-[calc(100%-220px)] lg:px-9">
-        <div className="max-w-[1160px] space-y-8">
-          <section className="overflow-hidden rounded-[12px]">
-            <div className="relative min-h-[214px] overflow-hidden">
-              <picture>
-                <source type="image/webp" srcSet={heroImageWebp} />
-                <img src={heroImage} alt="" className="absolute inset-0 h-full w-full object-cover" />
-              </picture>
-              <div className="absolute inset-0 bg-gradient-to-r from-sky-400/80 via-sky-300/55 to-[#7EDEDD]/80" />
-              <div className="relative flex min-h-[214px] max-w-[430px] flex-col justify-center px-7 py-8 text-white">
-                <div className="mb-3 flex h-8 w-8 items-center justify-center rounded-full bg-white/20">
-                  <Wallet size={18} strokeWidth={1.9} />
+    <DashboardShell header={<PerformerHeader activePage="dashboard" />} hasSidebar>
+      <div className="space-y-6 lg:space-y-7">
+        {/* Compact Hero Banner (~150px) with integrated pagination controls */}
+        <section className="relative overflow-hidden rounded-2xl border border-[var(--dash-primary-800)]/20 bg-gradient-to-r from-[#083B3A] via-[#10605F] to-[#1B8887] shadow-[var(--shadow-sm)]">
+          <div className="relative min-h-[150px] overflow-hidden">
+            <picture>
+              <source type="image/webp" srcSet={heroImageWebp} />
+              <img src={heroImage} alt="" className="absolute inset-0 h-full w-full object-cover opacity-20 mix-blend-luminosity" />
+            </picture>
+            <div className="relative flex min-h-[150px] flex-col justify-between gap-4 px-6 py-5 text-white sm:flex-row sm:items-center sm:px-8">
+              <div className="max-w-xl">
+                <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-[11px] font-medium text-white backdrop-blur-xs">
+                  <Wallet size={14} strokeWidth={2} aria-hidden="true" />
+                  <span>Protected Payouts</span>
                 </div>
-                <h1 className="text-xl sm:text-2xl font-heading font-medium leading-tight text-white">Earn with Confidence</h1>
-                <p className="mt-2 text-[15px] font-medium leading-relaxed text-white/95">Transparent payouts with the full task amount shown before you apply</p>
-                <button type="button" onClick={() => navigate("/performer/find-tasks")} className="mt-3 inline-flex w-fit items-center gap-1 border-b border-white pb-0.5 text-[14px] font-semibold">
-                  Get Started
+                <h1 className="text-xl sm:text-2xl font-heading font-medium leading-tight text-white">
+                  Earn with Confidence
+                </h1>
+                <p className="mt-1 text-xs sm:text-sm font-normal leading-relaxed text-white/90">
+                  Transparent payouts with the full task amount shown before you apply.
+                </p>
+              </div>
+              <div className="flex shrink-0 flex-col items-start gap-3 sm:items-end">
+                <button
+                  type="button"
+                  onClick={() => navigate("/performer/find-tasks")}
+                  className="inline-flex items-center gap-2 rounded-full bg-[#7EDEDD] px-5 py-2.5 text-xs sm:text-sm font-medium text-[#032120] shadow-xs transition hover:bg-[#4CCDDC]"
+                >
+                  <span>Get Started</span>
                   <ArrowRight size={15} />
                 </button>
-              </div>
-            </div>
-            <div className="mt-4 flex justify-center gap-1.5">
-              <span className="h-2 w-8 rounded-full bg-[var(--color-primary)]" />
-              <span className="h-2 w-2 rounded-full bg-slate-200" />
-              <span className="h-2 w-2 rounded-full bg-slate-200" />
-            </div>
-          </section>
-
-          {onboardingProgress.show ? (
-            <section className="rounded-[16px] border border-slate-100 bg-white p-7 shadow-[0_0_2px_rgba(15,23,42,0.14)]">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <h2 className="text-[15px] font-medium text-slate-950">Get Started on FirstDoer</h2>
-                  <p className="mt-1 text-[11px] font-medium text-slate-400">Complete these steps to unlock your full earning potential.</p>
+                <div className="flex items-center gap-1.5" aria-label="Banner slides">
+                  <span className="h-1.5 w-6 rounded-full bg-white" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-white/40" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-white/40" />
                 </div>
-                <span className="rounded-full bg-[#EFFBFB] px-3 py-1 text-[11px] font-semibold text-[var(--color-primary)]">{onboardingProgress.done}/3 Done</span>
               </div>
-              <div className="mt-5 grid gap-6 md:grid-cols-3">
-                {onboardingSteps.map((step, index) => {
-                  const isDone = onboardingProgress.statuses[index];
-                  const isNext = !isDone && onboardingProgress.done === index;
-                  const Icon = isDone ? CheckCircle2 : step.icon;
-                  return (
-                    <article key={step.title} className={`rounded-[12px] border p-4 ${isDone || isNext ? "border-[#29ADAC]/30 bg-gradient-to-br from-[#EFFBFB]/60 to-white" : "border-slate-100 bg-white"}`}>
-                      <div className="flex items-center justify-between">
-                        <div className="flex h-[34px] w-[34px] items-center justify-center rounded-[10px] bg-[#EFFBFB] text-[var(--color-primary)]">
-                          <Icon size={20} strokeWidth={1.9} />
-                        </div>
-                        <span className="rounded-full bg-[#EFFBFB] px-2 py-0.5 text-[9px] font-semibold uppercase tracking-[0.03em] text-[var(--color-primary)]">
-                          {isDone ? "Done" : isNext ? "Next" : `Step ${index + 1}`}
-                        </span>
-                      </div>
-                      <h3 className="mt-3 text-[13px] font-medium text-slate-950">{step.title}</h3>
-                      <p className="mt-1 min-h-[32px] text-[11px] font-medium leading-[15px] text-slate-400">{step.body}</p>
-                      <button type="button" onClick={() => navigate(step.path)} className={`mt-4 h-[30px] w-full rounded-full text-[11px] font-semibold ${isNext ? "bg-[var(--color-primary)] text-white" : "bg-slate-50 text-slate-500"}`}>
-                        {isDone ? "Completed" : step.cta}
-                      </button>
-                    </article>
-                  );
-                })}
-              </div>
-              <div className="mt-6 flex items-center justify-between gap-4">
-                <p className="text-[11px] font-medium text-slate-400">Complete your profile to unlock better task recommendations.</p>
-                <span className="text-[11px] font-semibold text-[var(--color-primary)]">{onboardingProgress.percent}%</span>
-              </div>
-              <div className="mt-2 h-[5px] overflow-hidden rounded-full bg-slate-100">
-                <div className="h-full rounded-full bg-[var(--color-primary)]" style={{ width: `${onboardingProgress.percent}%` }} />
-              </div>
-            </section>
-          ) : null}
-
-          <SectionShell title="Recommended Tasks" subtitle="Tasks that best match your skills and interests." actionLabel="View All Tasks" onAction={() => navigate("/performer/find-tasks")}>
-            <div className="grid gap-3 md:grid-cols-3">
-              {loadingTasks && tasks.length === 0
-                ? [0, 1, 2].map((item) => <div key={item} className="h-[216px] animate-pulse rounded-[12px] border border-slate-100 bg-slate-50" />)
-                : displayTasks.map((task) => (
-                    <TaskCard
-                      key={task.id}
-                      task={task}
-                      onOpen={() => navigate(String(task.id).startsWith("sample-") ? "/performer/find-tasks" : `/performer/task/${task.id}`)}
-                    />
-                  ))}
             </div>
-          </SectionShell>
+          </div>
+        </section>
 
-          <SectionShell title="Browse Work by Skills" subtitle="Discover tasks across every discipline." actionLabel="See all" onAction={() => navigate("/performer/find-tasks")}>
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              {loadingCategories && !categoryCards.length
-                ? Array.from({ length: 8 }).map((_, index) => <div key={index} className="h-[150px] animate-pulse rounded-[12px] border border-slate-100 bg-slate-50" />)
-                : categoryCards.map((skill) => {
-                    const Icon = skill.icon;
-                    return (
-                      <button key={skill.id || skill.label} type="button" onClick={() => navigate(`/performer/find-tasks?q=${encodeURIComponent(skill.query || skill.label)}`)} className="group rounded-[12px] border border-slate-100 bg-white p-4 text-left shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition hover:-translate-y-0.5 hover:border-[#29ADAC]/20">
-                        {skill.imageUrl ? (
-                          <div className="h-9 w-9 overflow-hidden rounded-[10px]">
-                            <img src={skill.imageUrl} alt="" className="h-full w-full object-cover" />
-                          </div>
-                        ) : (
-                          <div className="flex h-9 w-9 items-center justify-center rounded-[10px]" style={{ backgroundColor: skill.iconBg || "#ecfdf5", color: skill.iconColor || "#059669" }}>
-                            <Icon size={17} strokeWidth={2} />
-                          </div>
-                        )}
-                        <h3 className="mt-4 text-[13px] font-medium text-slate-950">{skill.label}</h3>
-                        <p className="mt-2 text-[10px] font-medium text-slate-400">{skill.count} open tasks</p>
-                        <span className="mt-3 inline-flex items-center gap-1 text-[11px] font-semibold text-[var(--color-primary)]">
-                          Explore <ChevronRight size={12} />
-                        </span>
-                      </button>
-                    );
-                  })}
-              {!loadingCategories && !categoryCards.length ? (
-                <div className="rounded-[12px] border border-slate-100 bg-slate-50 p-5 text-[12px] font-medium text-slate-500 sm:col-span-2 lg:col-span-4">
-                  No task categories are available right now.
-                </div>
-              ) : null}
-            </div>
-          </SectionShell>
-
-          <section className="rounded-[16px] border border-slate-100 bg-white p-6 shadow-[0_1px_2px_rgba(15,23,42,0.05)]">
-            <div className="mb-5">
-              <h2 className="text-base sm:text-lg font-heading font-medium text-slate-950">Performance Ranking</h2>
-              <p className="mt-1 text-[12px] font-medium text-slate-400">Your standing among FirstDoer performers.</p>
-            </div>
-            <div className="grid gap-4 lg:grid-cols-[1fr_435px]">
-              <div className="rounded-[12px] bg-slate-50 p-5">
-                <p className="text-[12px] font-semibold text-slate-400">Current Rank</p>
-                <h3 className="mt-5 text-[16px] font-medium text-slate-950">{rankLabel}</h3>
-                <p className="mt-1 text-[11px] font-medium text-slate-400">
-                  {rankLabel === "Unranked"
-                    ? `${rankCategory}. Complete your first task to enter the FirstDoer ranking.`
-                    : `${rankCategory} · score ${rankingScore}. Keep completing tasks to climb higher.`}
+        {/* Get Started on FirstDoer with 2/3 Done (67%) in header */}
+        {onboardingProgress.show ? (
+          <DashboardCard className="p-5 sm:p-6">
+            <div className="flex flex-col gap-3 border-b border-[var(--dash-border)] pb-4 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <h2 className="text-base sm:text-lg font-heading font-medium text-[var(--dash-text)]">
+                  Get Started on FirstDoer
+                </h2>
+                <p className="mt-0.5 text-xs font-medium text-[var(--dash-text-secondary)]">
+                  Complete these steps to unlock your full earning potential.
                 </p>
-                <div className="mt-3 inline-flex rounded-full bg-[#EFFBFB] px-3 py-1 text-[10px] font-semibold text-[var(--color-primary)]">Top performers reach rank #1 within 60 days</div>
-                <button type="button" onClick={() => navigate("/performer/find-tasks")} className="mt-4 flex h-8 items-center rounded-full bg-[var(--color-primary)] px-4 text-[11px] font-semibold text-white">
-                  {performerStats.hasActivity ? "Find More Tasks" : "Find Your First Task"}
-                </button>
               </div>
-              <div className="grid gap-3 sm:grid-cols-3">
-                {performerStats.hasActivity && topPerformers.length
-                  ? topPerformers.map((performer, index) => (
-                      <button key={performer.id || performer.displayName} type="button" onClick={() => navigate("/performer/leaderboard")} className="rounded-[12px] border border-slate-100 bg-slate-50 p-4 text-center transition hover:border-[#29ADAC]/20 hover:bg-white">
-                        <img src={performer.avatar} alt="" className="mx-auto h-12 w-12 rounded-full object-cover" />
-                        <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.03em] text-slate-300">Rank #{performer.rank || index + 1}</p>
-                        <h3 className="mt-2 truncate text-[12px] font-medium text-slate-700">{performer.displayName}</h3>
-                        <p className="mt-1 truncate text-[10px] font-medium text-slate-400">{performer.profession || performer.domain}</p>
-                        <div className="mt-3 h-1 rounded-full bg-[#DFF7F6]" />
-                        <p className="mt-2 text-[9px] font-medium text-slate-400">Score {performer.rankingScore ?? 0}</p>
-                      </button>
-                    ))
-                  : rankingSteps.map((step, index) => {
-                      const Icon = step.icon;
-                      return (
-                        <div key={step.title} className="relative rounded-[12px] border border-slate-100 bg-slate-50 p-4 text-center">
-                          <div className={`mx-auto flex h-10 w-10 items-center justify-center rounded-full ${step.bg} ${step.color}`}>
-                            <Icon size={17} strokeWidth={2} />
-                          </div>
-                          <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.03em] text-slate-300">Step {index + 1}</p>
-                          <h3 className="mt-2 text-[11px] font-medium text-slate-600">{step.title}</h3>
-                          <p className="mt-1 text-[10px] font-medium text-slate-400">{step.body}</p>
-                          <div className="mt-3 h-1 overflow-hidden rounded-full bg-slate-200">
-                            <div className={`h-full rounded-full ${step.completed ? "w-full bg-[var(--color-primary)]" : "w-0"}`} />
-                          </div>
-                          <p className="mt-2 text-[9px] font-medium text-slate-300">{step.completed ? "1" : "0"} / 1 completed</p>
-                        </div>
-                      );
-                    })}
+              <div className="flex items-center gap-3 self-start sm:self-auto">
+                <div className="hidden h-1.5 w-28 overflow-hidden rounded-full bg-[var(--dash-canvas)] sm:block">
+                  <div
+                    className="h-full rounded-full bg-[var(--dash-primary-700)] transition-all"
+                    style={{ width: `${onboardingProgress.percent}%` }}
+                  />
+                </div>
+                <StatusBadge variant="completed" className="tabular-nums">
+                  {onboardingProgress.done}/3 Done ({onboardingProgress.percent}%)
+                </StatusBadge>
               </div>
             </div>
-          </section>
-
-          <section className="rounded-[20px] border border-slate-100 bg-white p-7 shadow-[0_1px_2px_rgba(15,23,42,0.06)]">
-            <div>
-              <h2 className="text-[19px] font-medium text-slate-950">How FirstDoer Works</h2>
-              <p className="mt-1 text-[12px] font-medium text-slate-400">Three steps to earning securely</p>
-            </div>
-            <div className="mt-6 grid gap-4 md:grid-cols-3">
-              {howItWorks.map((item, index) => {
-                const Icon = item.icon;
+            <div className="mt-5 grid gap-4 md:grid-cols-3">
+              {onboardingSteps.map((step, index) => {
+                const isDone = onboardingProgress.statuses[index];
+                const isNext = !isDone && (onboardingProgress.done === index || step.cta === "Start Verification");
+                const Icon = isDone ? CheckCircle2 : step.icon;
                 return (
-                  <article key={item.title} className="relative overflow-hidden rounded-[15px] border border-slate-100 bg-slate-50 p-5">
-                    <div className={`flex h-[38px] w-[38px] items-center justify-center rounded-[15px] ${item.bg} ${item.color}`}>
-                      <Icon size={17} strokeWidth={2} />
+                  <article
+                    key={step.title}
+                    className={`flex flex-col rounded-xl border p-4 transition ${
+                      isDone
+                        ? "border-[#1B8887]/20 bg-[#E8F8F5]/45"
+                        : isNext
+                          ? "border-[#1B8887]/40 bg-[#EDF9FA]/60"
+                          : "border-[var(--dash-border)] bg-[var(--dash-surface)]"
+                    }`}
+                  >
+                    <div className="flex items-center justify-between gap-2">
+                      <div
+                        className={`flex h-9 w-9 items-center justify-center rounded-xl ${
+                          isDone
+                            ? "bg-[#E8F8F5] text-[#1B8887]"
+                            : "bg-[var(--dash-canvas)] text-[var(--dash-primary-700)]"
+                        }`}
+                      >
+                        <Icon size={18} strokeWidth={2} aria-hidden="true" />
+                      </div>
+                      {isDone ? (
+                        <StatusBadge variant="completed">Completed</StatusBadge>
+                      ) : isNext ? (
+                        <StatusBadge variant="active">Next</StatusBadge>
+                      ) : (
+                        <StatusBadge variant="neutral">Step {index + 1}</StatusBadge>
+                      )}
                     </div>
-                    <h3 className="mt-5 text-[13px] font-medium text-slate-700">{item.title}</h3>
-                    <p className="mt-1 text-[11px] font-medium leading-relaxed text-slate-400">{item.body}</p>
-                    <span className="absolute right-5 top-4 text-[45px] font-medium leading-none text-slate-100">0{index + 1}</span>
+                    <h3 className="mt-3 text-sm font-medium text-[var(--dash-text)]">{step.title}</h3>
+                    <p className="mt-1 flex-1 text-xs leading-relaxed text-[var(--dash-text-secondary)]">
+                      {step.body}
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() => navigate(step.path)}
+                      className={`mt-4 h-9 w-full rounded-full text-xs font-medium transition ${
+                        isDone
+                          ? "border border-[#1B8887]/20 bg-[#E8F8F5] text-[#1B8887] hover:bg-[#E8F8F5]/80"
+                          : isNext
+                            ? "bg-[#1B8887] text-white shadow-[var(--shadow-xs)] hover:bg-[#10605F]"
+                            : "border border-[var(--dash-border)] bg-[var(--dash-canvas)] text-[var(--dash-text)] hover:border-[#1B8887]/40"
+                      }`}
+                    >
+                      {isDone ? "Completed" : step.cta}
+                    </button>
                   </article>
                 );
               })}
             </div>
-          </section>
-        </div>
-      </main>
-    </div>
+          </DashboardCard>
+        ) : null}
+
+        {/* Recommended Tasks: Responsive 3-column grid */}
+        <SectionShell
+          title="Recommended Tasks"
+          subtitle="Tasks that best match your skills and interests."
+          actionLabel="View All Tasks"
+          onAction={() => navigate("/performer/find-tasks")}
+        >
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {loadingTasks && tasks.length === 0
+              ? [0, 1, 2].map((item) => (
+                  <div
+                    key={item}
+                    className="h-[216px] animate-pulse rounded-2xl border border-[var(--dash-border)] bg-[var(--dash-surface)]"
+                  />
+                ))
+              : displayTasks.map((task) => (
+                  <TaskCard
+                    key={task.id}
+                    task={task}
+                    onOpen={() =>
+                      navigate(
+                        String(task.id).startsWith("sample-")
+                          ? "/performer/find-tasks"
+                          : `/performer/task/${task.id}`,
+                      )
+                    }
+                  />
+                ))}
+          </div>
+        </SectionShell>
+
+        {/* Browse Work by Skills: Interactive chips or clean EmptyState */}
+        <SectionShell
+          title="Browse Work by Skills"
+          subtitle="Discover tasks across every discipline."
+          actionLabel="See all"
+          onAction={() => navigate("/performer/find-tasks")}
+        >
+          {loadingCategories && !categoryCards.length ? (
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+              {Array.from({ length: 4 }).map((_, index) => (
+                <div
+                  key={index}
+                  className="h-[110px] animate-pulse rounded-2xl border border-[var(--dash-border)] bg-[var(--dash-surface)]"
+                />
+              ))}
+            </div>
+          ) : categoryCards.length > 0 ? (
+            <div className="space-y-4">
+              <div className="flex flex-wrap gap-2">
+                {categoryCards.map((skill) => {
+                  const Icon = skill.icon;
+                  return (
+                    <button
+                      key={skill.id || skill.label}
+                      type="button"
+                      onClick={() =>
+                        navigate(`/performer/find-tasks?q=${encodeURIComponent(skill.query || skill.label)}`)
+                      }
+                      className="inline-flex items-center gap-2 rounded-full border border-[var(--dash-border)] bg-[var(--dash-surface)] px-4 py-2 text-xs sm:text-[13px] font-medium text-[var(--dash-text)] shadow-[var(--shadow-xs)] transition hover:border-[var(--dash-primary-700)] hover:bg-[var(--dash-active-bg)] hover:text-[var(--dash-primary-700)]"
+                    >
+                      {Icon ? <Icon size={15} strokeWidth={2} aria-hidden="true" /> : null}
+                      <span>{skill.label}</span>
+                      <span className="dash-kpi tabular-nums rounded-full bg-[var(--dash-canvas)] px-2 py-0.5 text-[11px] text-[var(--dash-text-secondary)]">
+                        {skill.count}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          ) : (
+            <DashboardCard className="p-5">
+              <div className="mb-4 flex flex-wrap items-center gap-2">
+                {["UI/UX Design", "React & Web", "Video Editing", "Content & Copy", "Digital Marketing"].map(
+                  (chip) => (
+                    <button
+                      key={chip}
+                      type="button"
+                      onClick={() => navigate(`/performer/find-tasks?q=${encodeURIComponent(chip)}`)}
+                      className="inline-flex items-center gap-1.5 rounded-full border border-[var(--dash-border)] bg-[var(--dash-canvas)] px-3.5 py-1.5 text-xs font-medium text-[var(--dash-text)] transition hover:border-[var(--dash-primary-700)] hover:bg-[var(--dash-active-bg)] hover:text-[var(--dash-primary-700)]"
+                    >
+                      <span>{chip}</span>
+                      <ChevronRight size={12} />
+                    </button>
+                  ),
+                )}
+              </div>
+              <EmptyState
+                icon={Grid3X3}
+                title="Live category counts are updating"
+                description="Use any skill chip above or browse all open tasks directly."
+                actionLabel="Browse All Tasks"
+                onAction={() => navigate("/performer/find-tasks")}
+              />
+            </DashboardCard>
+          )}
+        </SectionShell>
+
+        {/* Performance Ranking: Balanced grid so Current Rank and 3 step cards never wrap narrowly */}
+        <DashboardCard className="p-5 sm:p-6">
+          <div className="mb-5">
+            <h2 className="text-base sm:text-lg font-heading font-medium text-[var(--dash-text)]">
+              Performance Ranking
+            </h2>
+            <p className="mt-1 text-xs font-medium text-[var(--dash-text-secondary)]">
+              Your standing among FirstDoer performers.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 gap-5 lg:grid-cols-[minmax(280px,1fr)_minmax(0,2fr)]">
+            <div className="flex flex-col justify-between rounded-xl border border-[var(--dash-border)] bg-[var(--dash-canvas)] p-5">
+              <div>
+                <p className="text-xs font-medium text-[var(--dash-text-secondary)]">Current Rank</p>
+                <h3 className="dash-kpi tabular-nums mt-3 text-xl font-medium text-[var(--dash-text)]">
+                  {rankLabel}
+                </h3>
+                <p className="mt-1.5 text-xs leading-relaxed text-[var(--dash-text-secondary)]">
+                  {rankLabel === "Unranked"
+                    ? `${rankCategory}. Complete your first task to enter the FirstDoer ranking.`
+                    : `${rankCategory} · score ${rankingScore}. Keep completing tasks to climb higher.`}
+                </p>
+              </div>
+              <div className="mt-4 space-y-3">
+                <StatusBadge variant="active">Top performers reach rank #1 within 60 days</StatusBadge>
+                <div>
+                  <button
+                    type="button"
+                    onClick={() => navigate("/performer/find-tasks")}
+                    className="inline-flex h-9 items-center rounded-full bg-[var(--dash-primary-700)] px-4 text-xs font-medium text-white transition hover:bg-[var(--dash-primary-800)]"
+                  >
+                    {performerStats.hasActivity ? "Find More Tasks" : "Find Your First Task"}
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+              {performerStats.hasActivity && topPerformers.length
+                ? topPerformers.map((performer, index) => (
+                    <button
+                      key={performer.id || performer.displayName}
+                      type="button"
+                      onClick={() => navigate("/performer/leaderboard")}
+                      className="flex flex-col items-center rounded-xl border border-[var(--dash-border)] bg-[var(--dash-canvas)] p-4 text-center transition hover:border-[var(--dash-primary-600)]/40 hover:bg-[var(--dash-surface)]"
+                    >
+                      <img src={performer.avatar} alt="" className="h-12 w-12 rounded-full object-cover" />
+                      <p className="dash-kpi tabular-nums mt-3 text-[10px] font-medium uppercase tracking-wider text-[var(--dash-text-secondary)]">
+                        Rank #{performer.rank || index + 1}
+                      </p>
+                      <h3 className="mt-1.5 w-full truncate text-xs font-medium text-[var(--dash-text)]">
+                        {performer.displayName}
+                      </h3>
+                      <p className="mt-0.5 w-full truncate text-[11px] text-[var(--dash-text-secondary)]">
+                        {performer.profession || performer.domain}
+                      </p>
+                      <div className="mt-3 h-1 w-full rounded-full bg-[#E8F8F5]">
+                        <div className="h-full w-3/4 rounded-full bg-[var(--dash-primary-700)]" />
+                      </div>
+                      <p className="dash-kpi tabular-nums mt-2 text-[11px] text-[var(--dash-text-secondary)]">
+                        Score {performer.rankingScore ?? 0}
+                      </p>
+                    </button>
+                  ))
+                : rankingSteps.map((step, index) => {
+                    const Icon = step.icon;
+                    return (
+                      <div
+                        key={step.title}
+                        className="flex flex-col items-center justify-between rounded-xl border border-[var(--dash-border)] bg-[var(--dash-canvas)] p-4 text-center"
+                      >
+                        <div>
+                          <div
+                            className={`mx-auto flex h-10 w-10 items-center justify-center rounded-full ${step.bg} ${step.color}`}
+                          >
+                            <Icon size={17} strokeWidth={2} aria-hidden="true" />
+                          </div>
+                          <p className="dash-kpi tabular-nums mt-3 text-[10px] font-medium uppercase tracking-wider text-[var(--dash-text-secondary)]">
+                            Step {index + 1}
+                          </p>
+                          <h3 className="mt-1.5 text-xs font-medium text-[var(--dash-text)]">{step.title}</h3>
+                          <p className="mt-1 text-[11px] leading-snug text-[var(--dash-text-secondary)]">
+                            {step.body}
+                          </p>
+                        </div>
+                        <div className="mt-4 w-full">
+                          <div className="h-1.5 overflow-hidden rounded-full bg-[var(--dash-border)]">
+                            <div
+                              className={`h-full rounded-full ${
+                                step.completed ? "w-full bg-[var(--dash-primary-700)]" : "w-0"
+                              }`}
+                            />
+                          </div>
+                          <p className="dash-kpi tabular-nums mt-2 text-[10px] text-[var(--dash-text-secondary)]">
+                            {step.completed ? "1" : "0"} / 1 completed
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
+            </div>
+          </div>
+        </DashboardCard>
+
+        {/* How FirstDoer Works: Compact & Collapsible */}
+        <DashboardCard className="p-5 sm:p-6">
+          <button
+            type="button"
+            onClick={() => setShowHowItWorks((prev) => !prev)}
+            aria-expanded={showHowItWorks}
+            className="flex w-full items-center justify-between gap-4 text-left"
+          >
+            <div>
+              <h2 className="text-base sm:text-lg font-heading font-medium text-[var(--dash-text)]">
+                How FirstDoer Works
+              </h2>
+              <p className="mt-0.5 text-xs font-medium text-[var(--dash-text-secondary)]">
+                Three steps to earning securely on FirstDoer
+              </p>
+            </div>
+            <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[var(--dash-border)] bg-[var(--dash-canvas)] text-[var(--dash-text)]">
+              <ChevronDown
+                size={16}
+                className={`transition-transform duration-200 ${showHowItWorks ? "rotate-180" : ""}`}
+              />
+            </span>
+          </button>
+          {showHowItWorks ? (
+            <div className="mt-5 grid gap-4 border-t border-[var(--dash-border)] pt-5 md:grid-cols-3">
+              {howItWorks.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <article
+                    key={item.title}
+                    className="relative overflow-hidden rounded-xl border border-[var(--dash-border)] bg-[var(--dash-canvas)] p-4"
+                  >
+                    <div className="flex items-center justify-between">
+                      <div
+                        className={`flex h-9 w-9 items-center justify-center rounded-xl ${item.bg} ${item.color}`}
+                      >
+                        <Icon size={17} strokeWidth={2} aria-hidden="true" />
+                      </div>
+                      <span className="dash-kpi tabular-nums text-xs font-medium text-[var(--dash-text-secondary)]">
+                        0{index + 1}
+                      </span>
+                    </div>
+                    <h3 className="mt-3 text-sm font-medium text-[var(--dash-text)]">{item.title}</h3>
+                    <p className="mt-1 text-xs leading-relaxed text-[var(--dash-text-secondary)]">{item.body}</p>
+                  </article>
+                );
+              })}
+            </div>
+          ) : null}
+        </DashboardCard>
+      </div>
+    </DashboardShell>
   );
 };
 

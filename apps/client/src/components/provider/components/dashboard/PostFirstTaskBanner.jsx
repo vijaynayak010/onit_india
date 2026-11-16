@@ -1,7 +1,8 @@
 import React, { useState, useCallback, useEffect, useMemo, useRef } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Plus, Search, Clock, ArrowRight, ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
+const MotionDiv = motion.div;
 const CDN = "https://onit-india-app-uploads.s3.ap-south-1.amazonaws.com/landing/docs";
 const hero530 = `${CDN}/image-530.webp`;
 const hero531 = `${CDN}/image-531.webp`;
@@ -45,35 +46,42 @@ const CARDS = [
 const SWIPE_THRESHOLD = 48;
 const AUTO_MS = 5000;
 
-const PromoCard = ({ image, Icon, title, description, href, overlay, onNavigate }) => (
+const PromoCard = ({ image, icon: Icon, title, description, href, overlay, onNavigate }) => (
   <button
     type="button"
     onClick={() => onNavigate(href)}
-    className="relative flex h-full min-h-[168px] w-full flex-col items-start overflow-hidden rounded-[22px] p-6 text-left shadow-[0_10px_28px_rgba(15,23,42,0.10)] transition hover:brightness-[1.03] active:scale-[0.995] sm:min-h-[180px] sm:p-7"
+    className="relative flex h-full min-h-[124px] w-full flex-col items-start justify-center overflow-hidden rounded-2xl px-12 py-4 text-left shadow-[var(--shadow-sm)] transition hover:brightness-[1.03] active:scale-[0.995] sm:min-h-[132px] sm:px-14 sm:py-5"
   >
     <img
       src={image}
       alt=""
-      className="absolute inset-0 h-full w-full scale-105 object-cover object-center blur-[1.5px]"
+      className="absolute inset-0 h-full w-full scale-105 object-cover object-center opacity-25 mix-blend-luminosity"
       draggable={false}
     />
-    <div className="absolute inset-0" style={{ background: overlay }} aria-hidden />
+    <div
+      className="absolute inset-0"
+      style={{ background: overlay || "linear-gradient(115deg, #083B3A 0%, #10605F 55%, #1B8887 100%)" }}
+      aria-hidden
+    />
 
-    <div className="relative z-10 flex h-full w-full max-w-xl flex-col">
-      <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-white/25 backdrop-blur-[2px] ring-1 ring-white/40">
-        <Icon className="h-5 w-5 text-white" strokeWidth={2.25} />
+    <div className="relative z-10 flex w-full flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex items-start gap-3.5 sm:items-center">
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/15 ring-1 ring-white/25 backdrop-blur-xs">
+          {Icon ? React.createElement(Icon, { className: "h-5 w-5 text-white", strokeWidth: 2 }) : null}
+        </div>
+        <div className="min-w-0">
+          <h2 className="text-base sm:text-lg font-heading font-medium tracking-tight text-white">
+            {title}
+          </h2>
+          <p className="mt-0.5 max-w-xl text-xs sm:text-sm font-normal leading-snug text-white/90 line-clamp-2">
+            {description}
+          </p>
+        </div>
       </div>
 
-      <h2 className="text-[1.25rem] font-heading font-medium tracking-tight text-white sm:text-[1.5rem]">
-        {title}
-      </h2>
-      <p className="mt-2 max-w-lg text-sm font-medium leading-relaxed text-white/95">
-        {description}
-      </p>
-
-      <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-white">
+      <span className="inline-flex shrink-0 items-center gap-1.5 self-start rounded-full bg-[#7EDEDD] px-4 py-1.5 text-xs font-medium text-[#032120] shadow-xs sm:self-center">
         Get Started
-        <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+        <ArrowRight className="h-3.5 w-3.5" strokeWidth={2.25} />
       </span>
     </div>
   </button>
@@ -128,20 +136,23 @@ const PostFirstTaskBanner = ({ dynamicSlides = [] }) => {
 
   return (
     <section className="w-full" aria-label="Promotions">
-      <div className="flex items-center gap-2 sm:gap-3">
+      <div className="relative w-full overflow-hidden rounded-2xl">
         {count > 1 ? (
           <button
             type="button"
-            onClick={() => goTo(activeIndex - 1)}
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--color-border)] bg-white text-slate-700 shadow-sm transition hover:border-[#29ADAC]/30 hover:text-[#083B3A] sm:h-11 sm:w-11"
+            onClick={(e) => {
+              e.stopPropagation();
+              goTo(activeIndex - 1);
+            }}
+            className="absolute left-3 top-1/2 z-20 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-white/25 bg-[#032120]/50 text-white backdrop-blur-xs transition hover:bg-[#032120]/75"
             aria-label="Previous slide"
           >
-            <ChevronLeft size={20} />
+            <ChevronLeft size={17} />
           </button>
         ) : null}
 
         <div
-          className="min-w-0 flex-1 overflow-hidden touch-pan-y"
+          className="w-full overflow-hidden touch-pan-y"
           onMouseDown={onPointerDown}
           onMouseUp={onPointerUp}
           onMouseLeave={() => {
@@ -150,7 +161,7 @@ const PostFirstTaskBanner = ({ dynamicSlides = [] }) => {
           onTouchStart={onPointerDown}
           onTouchEnd={onPointerUp}
         >
-          <motion.div
+          <MotionDiv
             className="flex w-full"
             animate={{ x: `-${activeIndex * 100}%` }}
             transition={{ type: "spring", stiffness: 320, damping: 34 }}
@@ -160,56 +171,59 @@ const PostFirstTaskBanner = ({ dynamicSlides = [] }) => {
                 {card.kind === "dynamic" ? (
                   <PromoCard
                     image={card.slide?.imageUrl || ""}
-                    Icon={Sparkles}
+                    icon={Sparkles}
                     title={card.slide?.title || "Special Offer"}
                     description={card.slide?.subtitle || ""}
                     href={card.slide?.linkUrl || "#"}
-                    overlay="linear-gradient(135deg, #8B5CF699 0%, #3B82F699 100%)"
+                    overlay="linear-gradient(135deg, #083B3A 0%, #1B8887 100%)"
                     onNavigate={navigate}
                   />
                 ) : (
                   <PromoCard
                     image={card.image}
-                    Icon={card.Icon}
+                    icon={card.Icon}
                     title={card.title}
                     description={card.description}
                     href={card.href}
-                    overlay={card.overlay}
+                    overlay="linear-gradient(115deg, #083B3A 0%, #10605F 55%, #1B8887 100%)"
                     onNavigate={navigate}
                   />
                 )}
               </div>
             ))}
-          </motion.div>
+          </MotionDiv>
         </div>
 
         {count > 1 ? (
           <button
             type="button"
-            onClick={() => goTo(activeIndex + 1)}
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--color-border)] bg-white text-slate-700 shadow-sm transition hover:border-[#29ADAC]/30 hover:text-[#083B3A] sm:h-11 sm:w-11"
+            onClick={(e) => {
+              e.stopPropagation();
+              goTo(activeIndex + 1);
+            }}
+            className="absolute right-3 top-1/2 z-20 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-white/25 bg-[#032120]/50 text-white backdrop-blur-xs transition hover:bg-[#032120]/75"
             aria-label="Next slide"
           >
-            <ChevronRight size={20} />
+            <ChevronRight size={17} />
           </button>
         ) : null}
-      </div>
 
-      {count > 1 ? (
-        <div className="mt-4 flex items-center justify-center gap-2">
-          {slides.map((card, i) => (
-            <button
-              key={card.id}
-              type="button"
-              aria-label={`Go to promo ${i + 1}`}
-              onClick={() => goTo(i)}
-              className={`h-1.5 rounded-full transition-all ${
-                i === activeIndex ? "w-6 bg-[#10605F]" : "w-1.5 bg-gray-300 hover:bg-gray-400"
-              }`}
-            />
-          ))}
-        </div>
-      ) : null}
+        {count > 1 ? (
+          <div className="pointer-events-auto absolute bottom-2.5 left-1/2 z-20 flex -translate-x-1/2 items-center gap-1.5">
+            {slides.map((card, i) => (
+              <button
+                key={card.id}
+                type="button"
+                aria-label={`Go to promo ${i + 1}`}
+                onClick={() => goTo(i)}
+                className={`h-1.5 rounded-full transition-all ${
+                  i === activeIndex ? "w-5 bg-white" : "w-1.5 bg-white/45 hover:bg-white/75"
+                }`}
+              />
+            ))}
+          </div>
+        ) : null}
+      </div>
     </section>
   );
 };

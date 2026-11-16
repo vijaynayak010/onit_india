@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+const MotionDiv = motion.div;
 import {
   Search,
   Mic,
@@ -50,6 +51,7 @@ import DashboardActionCarousel from "../components/dashboard/DashboardActionCaro
 import PostFirstTaskBanner from "../components/dashboard/PostFirstTaskBanner";
 import BrowseCategoryGrid from "../components/BrowseCategoryGrid";
 import { useHomeContent } from "../../../services/homeContent";
+import { StatCard, EmptyState } from "../../shared/dashboard";
 
 
 const fadeUp = {
@@ -80,13 +82,13 @@ function SectionHeader({ eyebrow, title, description, action, divider = true }) 
 
 function SectionCard({ children, className = "", delay = 0 }) {
   return (
-    <motion.div
+    <MotionDiv
       {...fadeUp}
       transition={{ duration: 0.4, delay, ease: [0.22, 1, 0.36, 1] }}
       className={`rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)]/95 shadow-[var(--shadow-sm)] backdrop-blur-sm transition-shadow duration-300 hover:shadow-[var(--shadow-md)] ${className}`}
     >
       {children}
-    </motion.div>
+    </MotionDiv>
   );
 }
 
@@ -94,9 +96,9 @@ function SectionCard({ children, className = "", delay = 0 }) {
 const DashboardPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { user } = useAuth();
-  const { stats: cachedStats, activities, performers, loading, refreshData } = useProviderData();
-  const { slides: homeSlides } = useHomeContent();
+  useAuth();
+  const { stats: cachedStats, activities, performers, loading } = useProviderData();
+  const { slides: homeSlides, categories: homeCategories } = useHomeContent();
   
   const [searchQuery, setSearchQuery] = useState(() => location.state?.query || "");
 
@@ -108,14 +110,6 @@ const DashboardPage = () => {
 
   // Domain Explorer State Variables
   const [selectedDomain, setSelectedDomain] = useState(null);
-
-  const handleOpenDomain = (domain) => {
-    if (selectedDomain?.id === domain.id) {
-      setSelectedDomain(null);
-    } else {
-      setSelectedDomain(domain);
-    }
-  };
 
   // Default stats structure for initial render
   const defaultStats = [
@@ -135,40 +129,20 @@ const DashboardPage = () => {
     };
   }).filter(s => s.label) : defaultStats;
 
-  const totalCount = activities.length;
-
-
-  // Data is now managed globally by ProviderDataContext
-
   const SkeletonStats = () => (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {[1, 2, 3, 4].map((i) => (
-        <div key={i} className="animate-pulse rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-5">
-          <div className="mb-4 h-11 w-11 rounded-xl bg-[var(--color-border-subtle)]" />
-          <div className="mb-2 h-3 w-1/3 rounded bg-[var(--color-border-subtle)]" />
-          <div className="h-8 w-1/2 rounded bg-[var(--color-border-subtle)]" />
+        <div key={i} className="animate-pulse rounded-2xl border border-[var(--dash-border)] bg-[var(--dash-surface)] p-5">
+          <div className="mb-3 h-10 w-10 rounded-xl bg-[var(--dash-canvas)]" />
+          <div className="mb-2 h-3 w-1/3 rounded bg-[var(--dash-canvas)]" />
+          <div className="h-7 w-1/2 rounded bg-[var(--dash-canvas)]" />
         </div>
       ))}
     </div>
   );
 
-  const SkeletonActivityRow = () => (
-    <tr className="animate-pulse border-b border-[var(--color-border-subtle)]">
-      <td className="px-6 py-6 sm:px-8">
-        <div className="mb-2 h-4 w-3/4 rounded bg-[var(--color-border-subtle)]" />
-        <div className="h-3 w-1/4 rounded bg-[var(--color-border-subtle)]" />
-      </td>
-      <td className="px-6 py-6 sm:px-8">
-        <div className="h-4 w-1/2 rounded bg-[var(--color-border-subtle)]" />
-      </td>
-      <td className="px-6 py-6 sm:px-8">
-        <div className="h-8 w-24 rounded-full bg-[var(--color-border-subtle)]" />
-      </td>
-    </tr>
-  );
-
   const SkeletonPerformerCard = () => (
-    <div className="min-w-[288px] max-w-[288px] animate-pulse rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
+    <div className="w-full animate-pulse rounded-2xl border border-[var(--dash-border)] bg-[var(--dash-surface)] p-5">
       <div className="mb-4 flex gap-3.5">
         <div className="h-12 w-12 rounded-xl bg-[var(--color-border-subtle)]" />
         <div className="flex-1 space-y-2">
@@ -184,28 +158,6 @@ const DashboardPage = () => {
       </div>
     </div>
   );
-
-  const liveTasks = activities.filter(a => String(a.status).toUpperCase() === 'PUBLISHED');
-  const filteredLiveTasks = liveTasks.filter(task => {
-    if (selectedDomain) {
-      const title = String(task.task || "").toLowerCase();
-      const cat = String(task.category || "").toLowerCase();
-      const desc = String(task.description || "").toLowerCase();
-      const isDomainMatch = selectedDomain.taskFilters.some(filter =>
-        title.includes(filter.toLowerCase()) ||
-        cat.includes(filter.toLowerCase()) ||
-        desc.includes(filter.toLowerCase())
-      );
-      if (!isDomainMatch) return false;
-    }
-    if (!searchQuery) return true;
-    const q = searchQuery.toLowerCase();
-    return (
-      String(task.task || "").toLowerCase().includes(q) ||
-      String(task.category || "").toLowerCase().includes(q) ||
-      String(task.description || "").toLowerCase().includes(q)
-    );
-  });
 
   const filteredPerformers = performers.filter(p => {
     if (selectedDomain) {
@@ -233,17 +185,15 @@ const DashboardPage = () => {
   });
 
   return (
-    <div className="flex h-screen flex-col overflow-hidden bg-[var(--color-surface)] pt-[80px] font-sans antialiased">
+    <div className="flex h-screen flex-col overflow-hidden bg-[var(--dash-canvas)] pt-[72px] font-sans antialiased text-[var(--dash-text)]">
       <ProviderHeader activePage="home" />
 
       <div className="custom-scrollbar flex-1 overflow-y-auto">
-
-
-        <main className="mx-auto w-full max-w-7xl px-4 pb-28 pt-6 sm:px-6 lg:px-8 lg:pt-8">
+        <main className="mx-auto w-full max-w-[1440px] px-4 pb-24 pt-6 sm:px-6 lg:px-8">
           {/* Active Category Filter Pill Banner */}
           <AnimatePresence>
             {selectedDomain && (
-              <motion.div
+              <MotionDiv
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
@@ -270,7 +220,7 @@ const DashboardPage = () => {
                   Clear filter
                   <X size={12} strokeWidth={2.5} />
                 </button>
-              </motion.div>
+              </MotionDiv>
             )}
           </AnimatePresence>
 
@@ -300,63 +250,45 @@ const DashboardPage = () => {
 
             <section aria-labelledby="dash-stats-heading">
               <div className="mb-3 sm:mb-4 flex items-center justify-between gap-3">
-                <h2 id="dash-stats-heading" className="text-xs sm:text-sm font-heading font-medium uppercase tracking-wide text-[var(--color-text-muted)]">
+                <h2 id="dash-stats-heading" className="text-xs sm:text-sm font-heading font-medium uppercase tracking-wide text-[var(--dash-text-secondary)]">
                   Key metrics
                 </h2>
-                <span className="text-[11px] sm:text-xs font-medium text-[var(--color-text-subtle)]">Last 30 days context</span>
+                <span className="text-[11px] sm:text-xs font-medium text-[var(--dash-text-secondary)]">Last 30 days context</span>
               </div>
 
               {loading && !cachedStats ? (
                 <SkeletonStats />
               ) : (
-                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4 sm:gap-4 lg:gap-5">
-                  {stats.map((s, i) => {
-                    const Icon = s.Icon;
-                    return (
-                      <motion.div
-                        key={i}
-                        {...fadeUp}
-                        transition={{ duration: 0.35, delay: 0.05 * i, ease: [0.22, 1, 0.36, 1] }}
-                        className="group relative overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-4 sm:p-5 shadow-[var(--shadow-sm)] transition hover:border-[var(--color-primary)]/25 hover:shadow-[var(--shadow-md)]"
-                      >
-                        <div className="absolute right-0 top-0 h-24 w-24 translate-x-8 -translate-y-8 rounded-full bg-[var(--color-primary)]/[0.04] transition group-hover:bg-[var(--color-primary)]/[0.08]" />
-                        <div
-                          className={`relative mb-3 inline-flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl ${s.iconBg} ${s.accent}`}
-                        >
-                          <Icon className="h-5 w-5" strokeWidth={2.25} aria-hidden />
-                        </div>
-                        <p className="relative mb-1 text-[11px] sm:text-xs font-medium uppercase tracking-wide text-[var(--color-text-muted)]">
-                          {s.label}
-                        </p>
-                        <p className="relative mb-1 text-2xl sm:text-3xl font-heading font-medium tracking-tight text-[var(--color-text)]">{s.value}</p>
-                        {s.change ? (
-                          <p className="relative flex items-center gap-1.5 text-xs font-medium text-[var(--color-primary)]">
-                            {s.trend === "up" ? (
-                              <TrendingUp className="h-3.5 w-3.5 shrink-0" strokeWidth={2.5} aria-hidden />
-                            ) : null}
-                            {s.change}
-                          </p>
-                        ) : null}
-                      </motion.div>
-                    );
-                  })}
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                  {stats.map((s, i) => (
+                    <StatCard
+                      key={i}
+                      icon={s.Icon}
+                      label={s.label}
+                      value={s.value}
+                      change={s.change}
+                      trend={s.trend}
+                    />
+                  ))}
                 </div>
               )}
             </section>
 
-            <SectionCard className="p-5 sm:p-6 md:p-7" delay={0.14}>
-              <BrowseCategoryGrid
-                showHeader
-                onSelectCategory={(item) =>
-                  navigate("/provider/task-templates", {
-                    state: { category: item.category || item.label || item.slug },
-                  })
-                }
-                onMoreClick={() => navigate("/provider/task-templates")}
-              />
-            </SectionCard>
+            {Array.isArray(homeCategories) && homeCategories.length > 0 ? (
+              <SectionCard className="p-5 sm:p-6 md:p-7" delay={0.14}>
+                <BrowseCategoryGrid
+                  showHeader
+                  onSelectCategory={(item) =>
+                    navigate("/provider/task-templates", {
+                      state: { category: item.category || item.label || item.slug },
+                    })
+                  }
+                  onMoreClick={() => navigate("/provider/task-templates")}
+                />
+              </SectionCard>
+            ) : null}
 
-            <SectionCard className="p-6 sm:p-8" delay={0.16}>
+            <SectionCard className="p-5 sm:p-6" delay={0.16}>
               <SectionHeader
                 eyebrow="Network"
                 title="Task performers"
@@ -365,38 +297,42 @@ const DashboardPage = () => {
                   <button
                     type="button"
                     onClick={() => navigate("/provider/task-performers")}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-primary)]/20 bg-[var(--color-primary-subtle)] px-4 py-2 text-sm font-bold text-[var(--color-primary)] transition hover:bg-[var(--color-primary)]/15"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-[var(--dash-primary-700)]/20 bg-[var(--dash-active-bg)] px-4 py-2 text-xs sm:text-sm font-medium text-[var(--dash-primary-700)] transition hover:bg-[var(--dash-primary-700)]/15"
                   >
                     View all
-                    <ChevronRight className="h-4 w-4" strokeWidth={2.5} />
+                    <ChevronRight className="h-4 w-4" strokeWidth={2.25} />
                   </button>
                 }
               />
               <h3 id="dash-performers-heading" className="sr-only">
-                Task performers carousel
+                Task performers grid
               </h3>
-              <div className="relative pt-1">
-                <div className="flex gap-4 overflow-x-auto overscroll-x-contain py-2 pb-3 scrollbar-hide">
-                  {loading && !performers.length ? (
-                    [1, 2, 3, 4].map(i => <SkeletonPerformerCard key={i} />)
-                  ) : filteredPerformers.length > 0 ? (
-                    filteredPerformers.map((p, i) => (
+              <div className="pt-1">
+                {loading && !performers.length ? (
+                  <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                    {[1, 2, 3, 4].map((i) => (
+                      <SkeletonPerformerCard key={i} />
+                    ))}
+                  </div>
+                ) : filteredPerformers.length > 0 ? (
+                  <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                    {filteredPerformers.slice(0, 4).map((p, i) => (
                       <article
                         key={p.id || i}
-                        className="min-w-[260px] sm:min-w-[288px] max-w-[288px] shrink-0 rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface)] p-4 sm:p-6 shadow-[var(--shadow-sm)] ring-1 ring-black/[0.03] transition hover:-translate-y-0.5 hover:border-[var(--color-primary)]/25 hover:shadow-[var(--shadow-lg)]"
+                        className="flex flex-col rounded-2xl border border-[var(--dash-border)] bg-[var(--dash-surface)] p-5 shadow-[var(--shadow-sm)] transition hover:-translate-y-0.5 hover:border-[var(--dash-primary-600)]/40 hover:shadow-[var(--shadow-md)]"
                       >
-                        <div className="mb-3.5 sm:mb-4 flex gap-3 sm:gap-3.5">
-                          <div className="h-11 w-11 sm:h-12 sm:w-12 shrink-0 overflow-hidden rounded-xl border border-[var(--color-border-subtle)] ring-1 ring-black/[0.04]">
+                        <div className="mb-3.5 flex gap-3">
+                          <div className="h-11 w-11 shrink-0 overflow-hidden rounded-xl border border-[var(--dash-border)]">
                             <img
-                              src={p.avatar || `https://ui-avatars.com/api/?name=${p.person}&background=random`}
+                              src={p.avatar || `https://ui-avatars.com/api/?name=${encodeURIComponent(p.person || "P")}&background=1B8887&color=fff`}
                               alt={p.person}
                               className="h-full w-full object-cover"
                             />
                           </div>
                           <div className="min-w-0">
-                            <h3 className="line-clamp-1 text-sm font-heading font-medium text-[var(--color-text)]">{p.person}</h3>
-                            <p className="line-clamp-1 text-xs font-medium text-[var(--color-text-subtle)]">{p.name}</p>
-                            <div className="mt-1 flex items-center gap-1 text-amber-500">
+                            <h3 className="line-clamp-1 text-sm font-heading font-medium text-[var(--dash-text)]">{p.person}</h3>
+                            <p className="line-clamp-1 text-xs font-medium text-[var(--dash-text-secondary)]">{p.name}</p>
+                            <div className="mt-1 flex items-center gap-0.5 text-amber-500">
                               {[1, 2, 3, 4, 5].map((star) => (
                                 <Star
                                   key={star}
@@ -405,43 +341,46 @@ const DashboardPage = () => {
                                   fill="currentColor"
                                 />
                               ))}
-                              <span className="ml-1 text-[11px] font-bold text-[var(--color-text-subtle)]">
+                              <span className="dash-kpi tabular-nums ml-1 text-[11px] font-medium text-[var(--dash-text-secondary)]">
                                 {p.rating ? p.rating.toFixed(1) : "0.0"}/5
                               </span>
                             </div>
                           </div>
                         </div>
-                        <p className="mb-3 sm:mb-4 line-clamp-2 text-xs font-medium leading-relaxed text-[var(--color-text-muted)] h-[32px]">
+                        <p className="mb-3.5 line-clamp-2 min-h-[32px] text-xs font-normal leading-relaxed text-[var(--dash-text-secondary)]">
                           {p.bio}
                         </p>
-                        <div className="mb-3 sm:mb-4 flex flex-wrap gap-1.5 sm:gap-2 h-[20px] overflow-hidden">
+                        <div className="mb-4 flex flex-wrap gap-1.5 min-h-[22px]">
                           {(p.skills || []).slice(0, 3).map((skill, idx) => (
-                            <span key={idx} className="rounded-full bg-[var(--color-border-subtle)] px-2 py-0.5 text-[10px] font-medium uppercase tracking-tight text-[var(--color-text-muted)]">
+                            <span key={idx} className="rounded-full border border-[var(--dash-border)] bg-[var(--dash-canvas)] px-2 py-0.5 text-[10px] font-medium text-[var(--dash-text-secondary)]">
                               {skill}
                             </span>
                           ))}
                         </div>
-                        <div className="flex items-center justify-between gap-2 border-t border-[var(--color-border)]/80 pt-3.5 sm:pt-4">
-                          <span className="rounded-full bg-[var(--color-primary-subtle)] px-2.5 sm:px-3 py-1 text-[10px] font-medium text-[var(--color-primary)]">
+                        <div className="mt-auto flex items-center justify-between gap-2 border-t border-[var(--dash-border)] pt-3.5">
+                          <span className="dash-kpi tabular-nums rounded-full bg-[var(--dash-completed-bg)] px-2.5 py-1 text-[10px] font-medium text-[var(--dash-primary-700)]">
                             {p.tasks}
                           </span>
                           <button
                             type="button"
                             onClick={() => navigate(`/provider/task-performer-profile/${p.id}`, { state: { tasker: p } })}
-                            className="rounded-full bg-[var(--color-primary)] px-3.5 sm:px-4 py-2 text-[11px] font-medium text-white shadow-[var(--shadow-xs)] transition hover:bg-[var(--color-primary-hover)] whitespace-nowrap min-h-[36px]"
+                            className="inline-flex min-h-[34px] items-center justify-center whitespace-nowrap rounded-full bg-[var(--dash-primary-700)] px-3.5 py-1.5 text-[11px] font-medium text-white shadow-[var(--shadow-xs)] transition hover:bg-[var(--dash-primary-800)]"
                           >
                             View Profile
                           </button>
                         </div>
                       </article>
-                    ))) : (
-                    <div className="flex w-full flex-col items-center justify-center py-8 text-center">
-                      <p className="text-xs font-medium text-[var(--color-text-muted)]">
-                        No performers found matching your search.
-                      </p>
-                    </div>
-                  )}
-                </div>
+                    ))}
+                  </div>
+                ) : (
+                  <EmptyState
+                    icon={Users}
+                    title="No performers found"
+                    description="Try clearing your search or category filter to see available task performers."
+                    actionLabel="Explore All Talent"
+                    onAction={() => navigate("/provider/task-performers")}
+                  />
+                )}
               </div>
             </SectionCard>
 

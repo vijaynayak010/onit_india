@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { motion } from "framer-motion";
+const MotionDiv = motion.div;
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import {
   getSpotlightTypeForTask,
@@ -69,14 +70,14 @@ const CarouselArrow = ({ direction, onClick, label }) => (
       onClick?.();
     }}
     aria-label={label}
-    className={`absolute top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-600 shadow-md transition hover:border-[#29ADAC]/30 hover:bg-[#EFFBFB] hover:text-[#083B3A] active:scale-95 ${
-      direction === "prev" ? "left-0 sm:-left-3" : "right-0 sm:-right-3"
+    className={`absolute top-1/2 z-30 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--dash-border)] bg-[var(--dash-surface)]/95 text-[var(--dash-text)] shadow-sm transition hover:border-[var(--dash-primary-700)]/40 hover:bg-[var(--dash-active-bg)] hover:text-[var(--dash-primary-700)] active:scale-95 ${
+      direction === "prev" ? "left-3" : "right-3"
     }`}
   >
     {direction === "prev" ? (
-      <ChevronLeft size={20} strokeWidth={2.5} />
+      <ChevronLeft size={17} strokeWidth={2.25} />
     ) : (
-      <ChevronRight size={20} strokeWidth={2.5} />
+      <ChevronRight size={17} strokeWidth={2.25} />
     )}
   </button>
 );
@@ -296,7 +297,7 @@ const DashboardActionCarousel = ({
   return (
     <AnimatedReveal>
       <div
-        className="relative w-full overflow-hidden px-8 sm:px-10"
+        className="relative w-full overflow-hidden rounded-2xl"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
@@ -308,7 +309,7 @@ const DashboardActionCarousel = ({
         ) : null}
 
         <div className="relative w-full overflow-hidden">
-          <motion.div
+          <MotionDiv
             key={activeSlide.id}
             className="w-full"
             initial={{ opacity: 0, x: 24 }}
@@ -324,7 +325,7 @@ const DashboardActionCarousel = ({
             }}
           >
             {activeSlide.render()}
-          </motion.div>
+          </MotionDiv>
         </div>
 
         {hasMultiple ? (

@@ -1,17 +1,17 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ChevronDown, LogOut, Menu, Search, Settings, UserRound, X } from "lucide-react";
+import { Bell, Briefcase, ChevronDown, Home, LogOut, Mail, Menu, MessageSquare, Search, Settings, UserRound, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useAuth } from "../../../contexts/AuthContext";
 import NotificationBell from "../../shared/NotificationBell";
 
 const navLinks = [
-  { name: "Home", path: "/performer/dashboard", key: "dashboard" },
-  { name: "My Tasks", path: "/performer/my-tasks", key: "my-tasks" },
-  { name: "Invitations", path: "/performer/invitations", key: "invitations" },
-  { name: "Messages", path: "/performer/chats", key: "chats" },
-  { name: "Notifications", path: "/performer/notifications", key: "notifications" },
-  { name: "Account", path: "/performer/account", key: "account" },
+  { name: "Home", path: "/performer/dashboard", key: "dashboard", icon: Home },
+  { name: "My Tasks", path: "/performer/my-tasks", key: "my-tasks", icon: Briefcase },
+  { name: "Invitations", path: "/performer/invitations", key: "invitations", icon: Mail },
+  { name: "Messages", path: "/performer/chats", key: "chats", icon: MessageSquare },
+  { name: "Notifications", path: "/performer/notifications", key: "notifications", icon: Bell },
+  { name: "Account", path: "/performer/account", key: "account", icon: UserRound },
 ];
 
 const MotionDiv = motion.div;
@@ -43,19 +43,19 @@ const PerformerHeader = ({ activePage = "dashboard" }) => {
 
   return (
     <>
-      <header className="fixed left-0 top-0 z-[100] h-[93px] w-full border-b border-[rgba(177,186,199,0.35)] bg-white">
+      <header className="fixed left-0 top-0 z-[100] h-[80px] w-full border-b border-[var(--dash-border)] bg-[var(--dash-surface)]">
         <div className="flex h-full items-center justify-between px-5 sm:px-6">
           <button type="button" onClick={() => navigate("/performer/dashboard")} className="flex items-center gap-2" aria-label="Go to performer home">
             <svg width="26" height="18" viewBox="0 0 30 22" fill="none" aria-hidden="true">
               <path d="M11 2.5c-4.7 0-8.5 3.8-8.5 8.5s3.8 8.5 8.5 8.5c3.4 0 5.6-2.4 8-8.5 2.4-6.1 4.6-8.5 8-8.5" stroke="#29ADAC" strokeWidth="3" strokeLinecap="round" />
               <path d="M19 19.5c4.7 0 8.5-3.8 8.5-8.5S23.7 2.5 19 2.5c-3.4 0-5.6 2.4-8 8.5" stroke="#4CCDCC" strokeWidth="3" strokeLinecap="round" />
             </svg>
-            <span className="text-xl font-medium tracking-tight text-[#0D1210]">firstDoer</span>
+            <span className="text-xl font-medium tracking-tight text-[var(--dash-text)]">firstDoer</span>
           </button>
 
-          <div className="flex min-w-0 items-center gap-3 sm:gap-6">
-            <label className="hidden h-11 w-[min(444px,42vw)] items-center gap-2 rounded-full border border-[#e0e0e0] bg-white px-3 text-slate-500 md:flex">
-              <Search size={16} strokeWidth={1.9} className="text-slate-500" />
+          <div className="flex min-w-0 items-center gap-3 sm:gap-5">
+            <label className="hidden h-10 w-[min(420px,40vw)] items-center gap-2 rounded-full border border-[var(--dash-border)] bg-[var(--dash-surface)] px-3.5 text-[var(--dash-text-secondary)] focus-within:border-[var(--dash-primary-700)] focus-within:ring-2 focus-within:ring-[var(--dash-primary-700)]/15 md:flex">
+              <Search size={16} strokeWidth={1.9} className="text-[var(--dash-text-secondary)]" />
               <input
                 type="search"
                 onKeyDown={(event) => {
@@ -64,7 +64,7 @@ const PerformerHeader = ({ activePage = "dashboard" }) => {
                   }
                 }}
                 placeholder="Search tasks, performers..."
-                className="min-w-0 flex-1 bg-transparent text-[14px] font-medium outline-none placeholder:text-slate-400"
+                className="min-w-0 flex-1 bg-transparent text-[13px] font-medium text-[var(--dash-text)] outline-none placeholder:text-[var(--dash-text-secondary)]"
               />
             </label>
 
@@ -158,6 +158,7 @@ const PerformerHeader = ({ activePage = "dashboard" }) => {
                 {/* Navigation links */}
                 <nav className="flex flex-col gap-1 py-1">
                   {navLinks.map((link) => {
+                    const Icon = link.icon;
                     const isActive =
                       activePage === link.key ||
                       ((activePage === "account" || activePage === "settings") && link.key === "account") ||
@@ -170,13 +171,21 @@ const PerformerHeader = ({ activePage = "dashboard" }) => {
                           navigate(link.path);
                           setMobileMenuOpen(false);
                         }}
-                        className={`flex h-11 w-full items-center rounded-xl px-4 text-left text-sm transition ${
+                        className={`flex h-11 w-full items-center gap-3 rounded-xl px-4 text-left text-sm transition ${
                           isActive
-                            ? "bg-[rgba(16,96,95,0.12)] font-heading font-medium text-[var(--color-primary)]"
-                            : "font-medium text-slate-700 hover:bg-slate-50"
+                            ? "bg-[var(--dash-active-bg)] font-medium text-[var(--dash-primary-700)]"
+                            : "font-medium text-[var(--dash-text-secondary)] hover:bg-[var(--dash-canvas)] hover:text-[var(--dash-text)]"
                         }`}
                       >
-                        {link.name}
+                        {Icon ? (
+                          <Icon
+                            size={17}
+                            strokeWidth={2}
+                            className={isActive ? "text-[var(--dash-primary-700)]" : "text-[var(--dash-text-secondary)]"}
+                            aria-hidden="true"
+                          />
+                        ) : null}
+                        <span>{link.name}</span>
                       </button>
                     );
                   })}
@@ -212,9 +221,10 @@ const PerformerHeader = ({ activePage = "dashboard" }) => {
         </AnimatePresence>
       </header>
 
-      <aside className="fixed left-0 top-[93px] z-[90] hidden h-[calc(100vh-93px)] w-[220px] flex-col bg-[#fafafa] px-4 py-7 lg:flex">
-        <nav className="space-y-1.5">
+      <aside className="fixed left-0 top-[80px] z-[90] hidden h-[calc(100vh-80px)] w-[240px] flex-col border-r border-[var(--dash-border)] bg-[var(--dash-surface)] px-4 py-6 lg:flex">
+        <nav className="space-y-1.5" aria-label="Performer navigation">
           {navLinks.map((link) => {
+            const Icon = link.icon;
             const isActive =
               activePage === link.key ||
               ((activePage === "account" || activePage === "settings") && link.key === "account") ||
@@ -224,21 +234,33 @@ const PerformerHeader = ({ activePage = "dashboard" }) => {
                 key={link.key}
                 type="button"
                 onClick={() => navigate(link.path)}
-                className={`flex h-[43px] w-full items-center rounded-[10px] px-3.5 text-left text-[14px] font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] ${
-                  isActive ? "bg-[rgba(16,96,95,0.15)] font-semibold text-[var(--color-primary)]" : "text-black/60 hover:bg-white hover:text-slate-900"
+                className={`flex h-[42px] w-full items-center gap-3 rounded-xl px-3.5 text-left text-[14px] font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--dash-primary-700)] ${
+                  isActive
+                    ? "bg-[var(--dash-active-bg)] text-[var(--dash-primary-700)]"
+                    : "text-[var(--dash-text-secondary)] hover:bg-[var(--dash-canvas)] hover:text-[var(--dash-text)]"
                 }`}
               >
-                {link.name}
+                {Icon ? (
+                  <Icon
+                    size={17}
+                    strokeWidth={2}
+                    className={isActive ? "text-[var(--dash-primary-700)]" : "text-[var(--dash-text-secondary)]"}
+                    aria-hidden="true"
+                  />
+                ) : null}
+                <span>{link.name}</span>
               </button>
             );
           })}
         </nav>
-        <div className="mt-auto border-t border-white/80 pt-3">
-          <div className="flex items-center gap-2.5 px-2.5 py-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-red-600 text-[12px] font-bold text-white">{initials}</div>
+        <div className="mt-auto border-t border-[var(--dash-border)] pt-3">
+          <div className="flex items-center gap-2.5 px-2 py-2.5">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--dash-primary-700)] text-[12px] font-medium text-white">
+              {initials}
+            </div>
             <div className="min-w-0">
-              <p className="truncate text-[13px] font-semibold text-slate-500">{displayName}</p>
-              <p className="text-[11px] font-medium text-slate-300">Performer</p>
+              <p className="truncate text-[13px] font-medium text-[var(--dash-text)]">{displayName}</p>
+              <p className="text-[11px] font-medium text-[var(--dash-text-secondary)]">Performer</p>
             </div>
           </div>
         </div>

@@ -50,6 +50,22 @@
   --radius-xl: 1.25rem;
   --radius-2xl: 1.5rem;
   --radius-full: 9999px;
+
+  /* Scoped Dashboard Tokens (Provider & Performer Dashboards) */
+  --dash-primary-400: #7EDEDD;
+  --dash-primary-500: #4CCDDC;
+  --dash-primary-600: #29ADAC;
+  --dash-primary-700: #1B8887;
+  --dash-primary-800: #10605F;
+  --dash-primary-900: #083B3A;
+  --dash-primary-950: #032120;
+  --dash-canvas: #F5FAFA;
+  --dash-surface: #FFFFFF;
+  --dash-text: #172B2B;
+  --dash-text-secondary: #647575;
+  --dash-border: #E5EEEE;
+  --dash-active-bg: #EDF9FA;
+  --dash-completed-bg: #E8F8F5;
 }
 
 /* Tell Tailwind v4 to use Poppins for font-sans */
@@ -61,6 +77,11 @@
   --color-primary-muted: #EFFBFB;
   --color-primary-subtle: #DFF7F6;
   --color-primary-accent: #29ADAC;
+}
+
+.dash-kpi {
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
 }
 
 /* Fluid Typography Scale */

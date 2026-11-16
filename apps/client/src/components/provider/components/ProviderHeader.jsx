@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+const MotionDiv = motion.div;
 import { LayoutDashboard, Settings, LogOut, Search, Menu, X, Home, ListTodo, MessageSquare, PlusCircle } from 'lucide-react';
 import { useAuth } from '../../../contexts/AuthContext';
 import NotificationBell from '../../shared/NotificationBell';
@@ -55,15 +56,15 @@ const ProviderHeader = ({ activePage }) => {
     const getLinkClass = (key) => {
         const baseClass = "text-[14px] sm:text-[15px] transition-colors font-medium pb-1 border-b-[3px] border-transparent min-h-[44px] flex items-center";
         if (activePage === key) {
-            return `${baseClass} text-[var(--color-primary)] border-[var(--color-primary)] font-semibold`;
+            return `${baseClass} text-[var(--dash-primary-700)] border-[var(--dash-primary-700)] font-medium`;
         }
-        return `${baseClass} text-[var(--color-text-muted)] hover:text-[var(--color-text)]`;
+        return `${baseClass} text-[var(--dash-text-secondary)] hover:text-[var(--dash-text)]`;
     };
 
     return (
-        <header className="fixed left-0 top-0 z-[100] flex w-full shrink-0 flex-col border-b border-[var(--color-border)] bg-white/95 backdrop-blur-xl shadow-[var(--shadow-xs)]">
-            {/* Main Nav — aligned with marketing site chrome */}
-            <div className="mx-auto flex w-full max-w-[1600px] items-center justify-between px-3 py-2 sm:px-6 lg:px-8 lg:py-3.5">
+        <header className="fixed left-0 top-0 z-[100] flex w-full shrink-0 flex-col border-b border-[var(--dash-border)] bg-[var(--dash-surface)]/95 backdrop-blur-xl shadow-[var(--shadow-xs)]">
+            {/* Main Nav — aligned with 1440px dashboard container */}
+            <div className="mx-auto flex w-full max-w-[1440px] items-center justify-between px-4 py-2 sm:px-6 lg:px-8 lg:py-3">
                 <div className="flex items-center gap-2">
                     {/* Mobile Menu Hamburger Toggle */}
                     <button
@@ -126,7 +127,7 @@ const ProviderHeader = ({ activePage }) => {
                     {/* Post Task Action Button */}
                     <button
                         onClick={() => navigate('/provider/post-task-selection')}
-                        className="rounded-full px-3.5 sm:px-5 py-2 text-xs sm:text-sm font-medium text-white bg-[var(--color-primary)] shadow-sm transition-all duration-200 hover:bg-[var(--color-primary-hover)] hover:shadow active:scale-[0.98] cursor-pointer whitespace-nowrap min-h-[38px] flex items-center justify-center gap-1.5"
+                        className="rounded-full px-4 sm:px-5 py-2 text-xs sm:text-sm font-medium text-white bg-[var(--dash-primary-700)] shadow-sm transition-all duration-200 hover:bg-[var(--dash-primary-800)] hover:shadow active:scale-[0.98] cursor-pointer whitespace-nowrap min-h-[38px] flex items-center justify-center gap-1.5"
                     >
                         <PlusCircle size={15} className="hidden sm:inline" />
                         <span>Post Task</span>
@@ -150,7 +151,7 @@ const ProviderHeader = ({ activePage }) => {
 
                         <AnimatePresence>
                             {showAccountDropdown && (
-                                <motion.div
+                                <MotionDiv
                                     initial={{ opacity: 0, y: 8, scale: 0.98 }}
                                     animate={{ opacity: 1, y: 0, scale: 1 }}
                                     exit={{ opacity: 0, y: 8, scale: 0.98 }}
@@ -199,7 +200,7 @@ const ProviderHeader = ({ activePage }) => {
                                             Logout
                                         </button>
                                     </div>
-                                </motion.div>
+                                </MotionDiv>
                             )}
                         </AnimatePresence>
                     </div>
@@ -209,7 +210,7 @@ const ProviderHeader = ({ activePage }) => {
             {/* Mobile Navigation Drawer / Dropdown */}
             <AnimatePresence>
                 {mobileMenuOpen && (
-                    <motion.div
+                    <MotionDiv
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
@@ -294,7 +295,7 @@ const ProviderHeader = ({ activePage }) => {
                                 <span>Logout</span>
                             </button>
                         </div>
-                    </motion.div>
+                    </MotionDiv>
                 )}
             </AnimatePresence>
         </header>
