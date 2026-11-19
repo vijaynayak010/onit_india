@@ -148,7 +148,7 @@ const PerformerAllTasksPage = () => {
     <div className="min-h-screen bg-[var(--color-surface)] pt-[93px] font-sans text-[var(--color-text)]">
       <PerformerHeader activePage="account" />
 
-      <main className="w-full px-4 py-6 sm:px-6 lg:ml-[220px] lg:w-[calc(100%-220px)] lg:px-8">
+      <main className="w-full px-4 py-6 sm:px-6 lg:ml-[240px] lg:w-[calc(100%-240px)] lg:px-8">
         <div className="mx-auto w-full max-w-4xl">
             <PerformerPageHeader
               title="All Tasks"

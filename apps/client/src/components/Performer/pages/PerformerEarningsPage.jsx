@@ -16,7 +16,7 @@ import {
 import PerformerHeader from "../components/PerformerHeader";
 import PerformerPageHeader from "../components/PerformerPageHeader";
 import PayoutAccountCard from "../components/wallet/PayoutAccountCard";
-import { formatINR, formatTxDate, getTxTitle, normalizeStatus } from "../components/wallet/walletUtils";
+import { extractTransactionList, formatINR, formatTxDate, getTxTitle, normalizeStatus } from "../components/wallet/walletUtils";
 import {
   getPayoutMethods,
   getTransactions,
@@ -30,12 +30,12 @@ const FILTERS = [
   { id: "withdrawal", label: "Withdrawal" },
 ];
 
-const MetricCard = ({ label, value, helper, icon: Icon, tone = "emerald" }) => {
+const MetricCard = ({ label, value, helper, icon, tone = "emerald" }) => {
   const tones = {
     emerald: "bg-[#EFFBFB] text-[#10605F]",
     orange: "bg-orange-50 text-orange-600",
     blue: "bg-blue-50 text-blue-600",
-    violet: "bg-fuchsia-50 text-fuchsia-600",
+    violet: "bg-[#EFFBFB] text-[#10605F]",
   };
 
   return (
@@ -47,7 +47,7 @@ const MetricCard = ({ label, value, helper, icon: Icon, tone = "emerald" }) => {
           {helper ? <p className="mt-2 text-xs font-medium text-gray-500">{helper}</p> : null}
         </div>
         <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full ${tones[tone]}`}>
-          <Icon size={16} strokeWidth={2.4} />
+          {React.createElement(icon, { size: 16, strokeWidth: 2.4 })}
         </span>
       </div>
     </section>
@@ -111,7 +111,7 @@ const PerformerEarningsPage = () => {
 
         if (cancelled) return;
 
-        const txList = Array.isArray(transRes?.data) ? transRes.data : [];
+        const txList = extractTransactionList(transRes);
         const completedCredits = txList
           .filter((tx) => tx.type === "CREDIT" && normalizeStatus(tx.status) === "completed")
           .reduce((sum, tx) => sum + (Number(tx.amount) || 0), 0);
@@ -174,7 +174,7 @@ const PerformerEarningsPage = () => {
     <div className="min-h-screen bg-[#F4F6F8] pt-[93px] font-sans text-gray-900">
       <PerformerHeader activePage="account" />
 
-      <main className="w-full px-4 py-6 sm:px-6 lg:ml-[220px] lg:w-[calc(100%-220px)] lg:px-8">
+      <main className="w-full px-4 py-6 sm:px-6 lg:ml-[240px] lg:w-[calc(100%-240px)] lg:px-8">
         <div className="mx-auto w-full max-w-6xl">
             <PerformerPageHeader
               title="Earnings"
@@ -205,7 +205,7 @@ const PerformerEarningsPage = () => {
                     </span>
                     Available Balance
                   </div>
-                  <p className="mt-4 text-4xl font-medium leading-none tracking-tight text-gray-900">
+                  <p className="mt-4 text-2xl sm:text-[28px] font-medium leading-none tracking-tight text-gray-900">
                     ₹{formatINR(wallet.balance)}
                   </p>
                   <p className="mt-4 flex items-center gap-2 text-sm font-medium text-gray-500">
@@ -338,11 +338,11 @@ const PerformerEarningsPage = () => {
                                   <td className="px-5 py-5 text-sm font-medium text-gray-500">{formatTxDate(tx.createdAt)}</td>
                                   <td className="px-5 py-5"><TransactionStatus status={tx.status} /></td>
                                   <td
-                                    className={`px-5 py-5 text-right text-sm font-black tabular-nums ${
+                                    className={`px-5 py-5 text-right text-sm font-medium tabular-nums ${
                                       isCredit ? "text-[#10605F]" : "text-rose-500"
                                     }`}
                                   >
-                                    {isCredit ? "+" : "-"}₹{formatINR(tx.amount)}
+                                    {isCredit ? "+" : "-"}₹{formatINR(Math.abs(Number(tx.amount) || 0))}
                                   </td>
                                 </tr>
                               );

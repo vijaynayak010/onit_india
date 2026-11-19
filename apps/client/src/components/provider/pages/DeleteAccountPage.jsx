@@ -2,9 +2,7 @@ import React, { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, X, Loader2 } from "lucide-react";
 import ProviderHeader from "../components/ProviderHeader";
-import ProviderSettingsSidebar from "../components/ProviderSettingsSidebar";
 import PerformerHeader from "../../Performer/components/PerformerHeader";
-import { accountMainClass, accountMainStyle } from "../../common/account/AccountFlatNav";
 import { useAuth } from "../../../contexts/AuthContext";
 import { requestAccountDeletion as requestProviderDeletion } from "../services/api";
 import { requestAccountDeletion as requestPerformerDeletion } from "../../Performer/services/api";
@@ -268,17 +266,11 @@ const DeleteAccountPage = ({
   }
 
   return (
-    <div className="flex min-h-screen flex-col bg-[var(--color-surface)] pt-[80px] font-sans text-[var(--color-text)]">
+    <div className="flex min-h-screen flex-col bg-[var(--dash-canvas)] pt-[80px] font-sans text-[var(--dash-text)]">
       <ProviderHeader activePage="home" />
-      <div className="relative flex flex-1">
-        <ProviderSettingsSidebar />
-        <main
-          className={`${accountMainClass} ${step === 2 ? "pb-8 pt-0 lg:pb-10" : ""}`}
-          style={accountMainStyle}
-        >
-          {content}
-        </main>
-      </div>
+      <main className={`mx-auto w-full max-w-4xl flex-1 px-4 py-6 sm:px-6 lg:px-8 ${step === 2 ? "pb-8 pt-4 lg:pb-10" : "py-8"}`}>
+        {content}
+      </main>
     </div>
   );
 };

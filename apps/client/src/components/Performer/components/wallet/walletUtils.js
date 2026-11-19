@@ -48,7 +48,7 @@ if (method.type === "BANK" || method.type === "BANK_ACCOUNT") {
   if (method.type === "UPI") {
     return {
       name: "UPI",
-      detail: method.details?.upiId || "UPI ID",
+      detail: method.details?.upiId || method.handle || method.upiId || "UPI ID",
       last4: null,
       verified: method.isVerified !== false,
     };
@@ -71,4 +71,26 @@ export const getWithdrawDestinationLabel = (method) => {
   const info = getPayoutMethodInfo(method);
   if (info.last4) return `${info.name} •••• ${info.last4}`;
   return info.name;
+};
+
+/** Normalize direct arrays and documented envelope shapes from wallet transaction endpoints. */
+export const extractTransactionList = (response) => {
+  const raw = Array.isArray(response)
+    ? response
+    : Array.isArray(response?.data)
+      ? response.data
+      : Array.isArray(response?.transactions)
+        ? response.transactions
+        : Array.isArray(response?.data?.transactions)
+          ? response.data.transactions
+          : [];
+  const seen = new Set();
+  return raw.filter((tx) => {
+    if (!tx || typeof tx !== "object") return false;
+    if (!tx.id) return true;
+    const key = String(tx.id);
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 };

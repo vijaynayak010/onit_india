@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Loader2 } from "lucide-react";
 import PerformerPageHeader from "../PerformerPageHeader";
 import TransactionListItem from "./TransactionListItem";
-import { normalizeStatus } from "./walletUtils";
+import { extractTransactionList, normalizeStatus } from "./walletUtils";
 import { getTransactions } from "../../services/api";
 
 const TABS = [
@@ -29,7 +29,7 @@ const PerformerWalletTransactionsView = ({ paths = DEFAULT_PATHS }) => {
       try {
         setLoading(true);
         const response = await getTransactions({ limit: 100 });
-        setTransactions(Array.isArray(response?.data) ? response.data : []);
+        setTransactions(extractTransactionList(response));
       } catch (err) {
         console.error("Failed to fetch transactions:", err);
       } finally {

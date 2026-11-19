@@ -141,7 +141,7 @@ const PostTaskSearchResultsPage = () => {
                                 <div className="inline-flex items-center px-4 py-1.5 bg-[#10605F] text-white rounded-full text-[13px] font-black uppercase tracking-wider mb-4">
                                     Active Task
                                 </div>
-                                <h2 className="text-[36px] font-medium text-slate-900 mb-2">
+                                <h2 className="dash-page-title text-[var(--dash-text)] mb-2">
                                     {taskData?.title || (loading ? "Loading Task..." : "Untitled Task")}
                                 </h2>
                                 <p className="text-slate-400 font-medium text-lg">

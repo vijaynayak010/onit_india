@@ -4,6 +4,7 @@ import { getTransactions } from "../../services/api";
 
 const STATUS_STYLES = {
   COMPLETED: "bg-[#DFF7F6] text-[#083B3A]",
+  SUCCESS: "bg-[#DFF7F6] text-[#083B3A]",
   PENDING: "bg-amber-100 text-amber-800",
   PROCESSING: "bg-sky-100 text-sky-800",
   FAILED: "bg-red-100 text-red-800",
@@ -11,28 +12,37 @@ const STATUS_STYLES = {
 };
 
 function formatAmount(amount) {
-  return `₹${Number(amount || 0).toLocaleString("en-IN")}`;
+  return `₹${Math.abs(Number(amount || 0)).toLocaleString("en-IN")}`;
 }
 
 function formatWhen(value) {
   if (!value) return "—";
-  try {
-    return new Date(value).toLocaleString("en-IN", {
-      day: "numeric",
-      month: "short",
-      year: "numeric",
-      hour: "numeric",
-      minute: "2-digit",
-    });
-  } catch {
-    return "—";
-  }
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) return "—";
+  return parsed.toLocaleString("en-IN", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+  });
+}
+
+function getTxDate(tx) {
+  return tx?.processedAt || tx?.createdAt || tx?.date || null;
+}
+
+function isCreditTx(tx) {
+  const type = String(tx?.type || "").toUpperCase();
+  if (["CREDIT", "WALLET_DEPOSIT", "PAYOUT_RELEASE", "REFUND"].includes(type)) return true;
+  if (["DEBIT", "ESCROW_LOCK", "WITHDRAWAL"].includes(type)) return false;
+  return Number(tx?.amount || 0) >= 0;
 }
 
 function groupByDate(transactions) {
   const groups = new Map();
   transactions.forEach((tx) => {
-    const key = tx.processedAt || tx.createdAt || "Unknown";
+    const key = getTxDate(tx);
     const label = formatWhen(key);
     if (!groups.has(label)) groups.set(label, []);
     groups.get(label).push(tx);
@@ -42,6 +52,8 @@ function groupByDate(transactions) {
 
 function txTitle(tx) {
   if (tx.relatedTask?.title) return tx.relatedTask.title;
+  if (tx.title) return tx.title;
+  if (tx.taskTitle) return tx.taskTitle;
   if (String(tx.externalReference || "").toLowerCase().includes("refund")) return "Task refund";
   if (tx.type === "CREDIT") return "Funds added";
   if (tx.type === "DEBIT") return "Wallet payment";
@@ -52,6 +64,8 @@ function txSubtitle(tx) {
   return (
     tx.externalReference ||
     tx.processorReference ||
+    tx.referenceId ||
+    tx.method ||
     tx.providerUser?.email ||
     "Wallet ledger"
   );
@@ -94,14 +108,14 @@ const TransactionsView = ({ onBack }) => {
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase();
     return transactions.filter((tx) => {
-      const type = String(tx.type || "").toUpperCase();
+      const isCredit = isCreditTx(tx);
       const matchesTab = subTab === "all" ||
-        (subTab === "added" ? type === "CREDIT" : type === "DEBIT");
+        (subTab === "added" ? isCredit : !isCredit);
       if (!matchesTab) return false;
       const status = String(tx.status || "PENDING").toUpperCase();
       if (statusFilter !== "ALL" && status !== statusFilter) return false;
       if (dateFilter !== "ALL") {
-        const when = new Date(tx.processedAt || tx.createdAt || 0).getTime();
+        const when = new Date(getTxDate(tx) || 0).getTime();
         const days = dateFilter === "7D" ? 7 : dateFilter === "30D" ? 30 : 90;
         if (!when || Date.now() - when > days * 24 * 60 * 60 * 1000) return false;
       }
@@ -250,7 +264,7 @@ const TransactionsView = ({ onBack }) => {
               </p>
               <div className="space-y-3">
                 {group.items.map((tx) => {
-                  const isCredit = String(tx.type).toUpperCase() === "CREDIT";
+                  const isCredit = isCreditTx(tx);
                   const status = String(tx.status || "PENDING").toUpperCase();
                   return (
                     <div

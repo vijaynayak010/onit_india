@@ -12,7 +12,7 @@ import {
   LogOut,
 } from "lucide-react";
 import { useAuth } from "../../../contexts/AuthContext";
-import { ACCOUNT_SIDEBAR_WIDTH } from "../../common/account/AccountFlatNav";
+import { ACCOUNT_SIDEBAR_WIDTH } from "../../common/account/accountNavConstants";
 
 const NAV_ITEMS = [
   { id: "home", label: "Account", icon: LayoutDashboard, tab: "home" },
@@ -71,22 +71,29 @@ const ProviderSettingsSidebar = ({ onTabChange }) => {
       <button
         type="button"
         onClick={() => goTab(item.tab)}
-        className={`flex h-11 w-full items-center gap-3 rounded-xl px-4 py-2.5 text-left transition ${
-          active ? "bg-[#d3f6e1] text-black font-bold" : "text-black hover:bg-[#f1fbf5] font-semibold"
+        className={`flex h-11 w-full items-center gap-3 rounded-xl px-4 py-2.5 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--dash-primary-700)] ${
+          active
+            ? "bg-[var(--dash-active-bg)] text-[var(--dash-primary-800)] font-semibold"
+            : "text-[var(--dash-text-secondary)] hover:bg-[var(--dash-canvas)] hover:text-[var(--dash-text)] font-medium"
         }`}
       >
-        <Icon size={20} strokeWidth={2.1} className="shrink-0" />
-        <span className="truncate text-[15px] leading-none">{item.label}</span>
+        <Icon
+          size={19}
+          strokeWidth={2}
+          className={`shrink-0 ${active ? "text-[var(--dash-primary-700)]" : "text-[var(--dash-text-secondary)]"}`}
+          aria-hidden="true"
+        />
+        <span className="truncate text-[14px] leading-none">{item.label}</span>
       </button>
     );
   };
 
   return (
     <aside
-      className="fixed left-0 top-[80px] z-40 hidden h-[calc(100vh-80px)] flex-col justify-between border-r border-[#d8e5de] bg-white px-5 py-7 shadow-[0_4px_12px_rgba(0,0,0,0.14)] lg:flex"
+      className="fixed left-0 top-[80px] z-40 hidden h-[calc(100vh-80px)] flex-col justify-between border-r border-[var(--dash-border)] bg-[var(--dash-surface)] px-4 py-6 lg:flex"
       style={{ width: ACCOUNT_SIDEBAR_WIDTH }}
     >
-      <nav className="flex flex-col gap-2">
+      <nav className="flex flex-col gap-1.5" aria-label="Provider account navigation">
         {NAV_ITEMS.map((item) => (
           <NavButton key={item.id} item={item} />
         ))}
@@ -95,10 +102,10 @@ const ProviderSettingsSidebar = ({ onTabChange }) => {
       <button
         type="button"
         onClick={handleLogout}
-        className="flex h-11 w-full items-center gap-3 rounded-xl px-4 py-2.5 text-left font-semibold text-black transition hover:bg-red-50 hover:text-red-600"
+        className="flex h-11 w-full items-center gap-3 rounded-xl px-4 py-2.5 text-left font-medium text-[var(--dash-text-secondary)] transition hover:bg-rose-50 hover:text-rose-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500"
       >
-        <LogOut size={20} strokeWidth={2.1} className="shrink-0" />
-        <span className="truncate text-[15px] leading-none">Logout</span>
+        <LogOut size={19} strokeWidth={2} className="shrink-0" aria-hidden="true" />
+        <span className="truncate text-[14px] leading-none">Logout</span>
       </button>
     </aside>
   );

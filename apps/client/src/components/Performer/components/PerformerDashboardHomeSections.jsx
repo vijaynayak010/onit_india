@@ -17,8 +17,8 @@ const MORE_ITEM = {
 };
 
 const SKILL_ACCENTS = [
-  { iconBg: "bg-violet-100", iconColor: "text-violet-600" },
-  { iconBg: "bg-fuchsia-100", iconColor: "text-fuchsia-600" },
+  { iconBg: "bg-[#EFFBFB]", iconColor: "text-[#10605F]" },
+  { iconBg: "bg-[#DFF7F6]", iconColor: "text-[#1B8887]" },
   { iconBg: "bg-sky-100", iconColor: "text-sky-600" },
   { iconBg: "bg-rose-100", iconColor: "text-rose-600" },
   { iconBg: "bg-[#DFF7F6]", iconColor: "text-[#10605F]" },

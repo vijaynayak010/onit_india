@@ -99,16 +99,11 @@ export function setTestRole(role) {
   localStorage.setItem(STORAGE_TEST_ROLE_KEY, normalized);
   localStorage.setItem('userRole', normalized);
 
-  // Sync with AuthContext user object if available
+  // Clear stale cached user so mockDb.getCurrentUser(normalized) resolves the new role's persona
   try {
-    const userStr = localStorage.getItem('onit_user');
-    if (userStr) {
-      const user = JSON.parse(userStr);
-      user.role = normalized;
-      localStorage.setItem('onit_user', JSON.stringify(user));
-    }
-  } catch (e) {
-    // Ignore parse error
+    localStorage.removeItem('onit_user');
+  } catch {
+    // Ignore storage error
   }
 
   window.dispatchEvent(new CustomEvent('onit-test-role-change', { detail: { role: normalized } }));

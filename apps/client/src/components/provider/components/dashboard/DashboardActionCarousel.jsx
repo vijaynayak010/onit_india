@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { motion } from "framer-motion";
 const MotionDiv = motion.div;
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import {
   getSpotlightTypeForTask,
   normalizeTaskStatus,
@@ -61,26 +60,6 @@ const getAssignmentStatus = (task) => {
 
 /** Provider reviewing submitter work — not admin task-approval. */
 const needsProviderReview = (task) => getAssignmentStatus(task) === "SUBMITTED";
-
-const CarouselArrow = ({ direction, onClick, label }) => (
-  <button
-    type="button"
-    onClick={(e) => {
-      e.stopPropagation();
-      onClick?.();
-    }}
-    aria-label={label}
-    className={`absolute top-1/2 z-30 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-[var(--dash-border)] bg-[var(--dash-surface)]/95 text-[var(--dash-text)] shadow-sm transition hover:border-[var(--dash-primary-700)]/40 hover:bg-[var(--dash-active-bg)] hover:text-[var(--dash-primary-700)] active:scale-95 ${
-      direction === "prev" ? "left-3" : "right-3"
-    }`}
-  >
-    {direction === "prev" ? (
-      <ChevronLeft size={17} strokeWidth={2.25} />
-    ) : (
-      <ChevronRight size={17} strokeWidth={2.25} />
-    )}
-  </button>
-);
 
 const DashboardActionCarousel = ({
   activities = [],
@@ -301,13 +280,6 @@ const DashboardActionCarousel = ({
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
-        {hasMultiple ? (
-          <>
-            <CarouselArrow direction="prev" onClick={goPrev} label="Previous card" />
-            <CarouselArrow direction="next" onClick={goNext} label="Next card" />
-          </>
-        ) : null}
-
         <div className="relative w-full overflow-hidden">
           <MotionDiv
             key={activeSlide.id}

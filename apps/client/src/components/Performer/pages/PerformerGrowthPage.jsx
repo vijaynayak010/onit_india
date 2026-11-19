@@ -35,15 +35,8 @@ export default function PerformerGrowthPage() {
     setLoading(true);
     try {
       const [progressResponse, trustResponse, resourceResponse, dailyQuizResponse] = await Promise.all([
-        getGrowthProgress().catch(() => ({
-          data: {
-            access: [{ category: "Content Writing", categoryKey: "content_writing", status: "APPROVED", visibilityEnabled: true }],
-            plans: [{ categoryKey: "content_writing", title: "Content Writing Journey", steps: [] }],
-          },
-        })),
-        getGrowthTrustScore().catch(() => ({
-          data: { score: 92, status: "High Trust", badge: "Gold Performer" },
-        })),
+        getGrowthProgress(),
+        getGrowthTrustScore().catch(() => ({ data: null })),
         getGrowthResources().catch(() => ({ data: [] })),
         getDailyQuiz().catch(() => null),
       ]);
@@ -51,15 +44,15 @@ export default function PerformerGrowthPage() {
       const nextProgress = rawProgress && typeof rawProgress === "object"
         ? {
             ...rawProgress,
-            access: Array.isArray(rawProgress.access) ? rawProgress.access : [{ category: "Content Writing", categoryKey: "content_writing", status: "APPROVED", visibilityEnabled: true }],
+            access: Array.isArray(rawProgress.access) ? rawProgress.access : [],
             plans: Array.isArray(rawProgress.plans) ? rawProgress.plans : [],
           }
         : {
-            access: [{ category: "Content Writing", categoryKey: "content_writing", status: "APPROVED", visibilityEnabled: true }],
-            plans: [{ categoryKey: "content_writing", title: "Content Writing Journey", steps: [] }],
+            access: [],
+            plans: [],
           };
       setProgress(nextProgress);
-      setTrust(trustResponse?.data || { score: 92, status: "High Trust" });
+      setTrust(trustResponse?.data || null);
       setResources(Array.isArray(resourceResponse?.data) ? resourceResponse.data : []);
       setDailyQuiz(dailyQuizResponse?.data || null);
       setCategory((current) => current || nextProgress?.access?.[0]?.category || "");
@@ -91,7 +84,7 @@ export default function PerformerGrowthPage() {
   return (
     <div className="min-h-screen bg-[var(--color-surface)] pt-[93px] font-sans text-[var(--color-text)]">
       <PerformerHeader activePage="account" />
-      <main className="w-full px-4 py-6 sm:px-6 lg:ml-[220px] lg:w-[calc(100%-220px)] lg:px-8">
+      <main className="w-full px-4 py-6 sm:px-6 lg:ml-[240px] lg:w-[calc(100%-240px)] lg:px-8">
         <div className="mx-auto w-full max-w-6xl pb-20">
           <PerformerPageHeader
             title="Grow your place on FirstDoer"

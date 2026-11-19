@@ -141,15 +141,15 @@ const TaskApplicantsPage = () => {
     }, [isSearching]);
 
     return (
-        <div className="min-h-screen bg-[#f8fafc] text-slate-900 font-sans selection:bg-[#DFF7F6]">
+        <div className="relative min-h-screen overflow-x-hidden bg-[#F5FAFA] text-[#172B2B] font-sans selection:bg-[#DFF7F6]">
             <ProviderHeader activePage="my-tasks" />
 
             {/* Glowing decorative background blobs */}
             <div className="absolute top-20 left-10 w-96 h-96 bg-emerald-400/5 rounded-full blur-[100px] pointer-events-none" />
             <div className="absolute top-[400px] right-20 w-[500px] h-[500px] bg-violet-400/5 rounded-full blur-[120px] pointer-events-none" />
 
-            <main className="pt-[110px] pb-24 px-4 sm:px-6 lg:px-10 relative z-10">
-                <div className="max-w-7xl mx-auto space-y-8">
+            <main className="pt-[96px] pb-16 px-4 sm:px-6 lg:px-8 relative z-10">
+                <div className="max-w-[1440px] mx-auto space-y-6">
                     {/* Minimal & Elegant Page Header */}
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-slate-200">
                         <div className="space-y-1.5">
@@ -157,7 +157,7 @@ const TaskApplicantsPage = () => {
                                 <span className="h-2 w-2 rounded-full bg-[#10605F] animate-pulse"></span>
                                 Performers Interested
                             </div>
-                            <h1 className="text-2xl sm:text-3xl font-medium text-slate-900 tracking-tight leading-tight">
+                            <h1 className="dash-page-title text-[#172B2B]">
                                 {taskData?.title || (loading ? "Loading Task Details..." : "Untitled Task")}
                             </h1>
                         </div>
@@ -442,9 +442,9 @@ const PerformerCard = ({ performer, type, taskId, taskData, navigate, onReject, 
             </div>
 
             {/* Performer Details */}
-            <div className="flex-1 min-w-0 pr-8 sm:pr-14">
+            <div className="flex-1 min-w-0 w-full">
                 {/* Professional Title */}
-                <h4 className="text-xl font-medium text-slate-800 tracking-tight leading-tight">
+                <h4 className="text-xl font-medium text-slate-800 tracking-tight leading-tight pr-8">
                     {performer.name || "Web Designer"}
                 </h4>
 
@@ -483,68 +483,68 @@ const PerformerCard = ({ performer, type, taskId, taskData, navigate, onReject, 
                 <p className="text-sm font-semibold text-slate-500 leading-relaxed mt-3 max-w-xl">
                     {performer.desc}
                 </p>
+
+                {/* Actions Bar */}
+                <div className="flex flex-wrap items-center justify-end gap-2 mt-5 pt-4 border-t border-slate-100 w-full">
+                    {performer.userId && (performer.status === 'ASSIGNED' || performer.status === 'ACCEPTED') && (
+                        <button
+                            onClick={() => navigate(`/provider/chats?userId=${performer.userId}&taskId=${taskId}`)}
+                            className="p-2.5 bg-slate-100 hover:bg-[#EFFBFB] text-slate-500 hover:text-[#083B3A] rounded-full border border-slate-200/60 transition-all active:scale-95"
+                            title="Message Performer"
+                        >
+                            <MessageCircle size={16} strokeWidth={2.5} />
+                        </button>
+                    )}
+
+                    {performer.status === 'ASSIGNED' || performer.status === 'ACCEPTED' ? (
+                        <button
+                            onClick={() => navigate(`/provider/active-task/${taskId}`)}
+                            className="px-5 py-2.5 bg-slate-950 text-white rounded-full font-black text-xs hover:bg-slate-900 transition-all shadow-md active:scale-95"
+                        >
+                            Manage Task
+                        </button>
+                    ) : (
+                        <>
+                            {type === 'applicant' && performer.interestId && performer.status === 'PENDING' && onReject && (
+                                <button
+                                    onClick={() => onReject(performer.interestId)}
+                                    disabled={rejecting}
+                                    className="px-5 py-2.5 bg-red-50 border border-red-200 text-red-600 hover:bg-red-100 font-extrabold rounded-full text-xs transition-all active:scale-95 disabled:opacity-50"
+                                >
+                                    {rejecting ? "Rejecting..." : "Reject"}
+                                </button>
+                            )}
+                            <button
+                                onClick={() => navigate(`/provider/confirm-and-pay`, { state: { performer, taskData } })}
+                                className="px-5 py-2.5 bg-[#EFFBFB] border border-[#29ADAC]/30 text-[#10605F] hover:bg-[#DFF7F6] font-extrabold rounded-full text-xs transition-all active:scale-95"
+                            >
+                                Hire
+                            </button>
+                        </>
+                    )}
+
+                    <button
+                        onClick={() => navigate(profileUrl, {
+                            state: {
+                                taskId,
+                                taskData,
+                                ...(isInterestedApplicant ? {
+                                    profileSource: 'task-interest',
+                                    interestId: performer.interestId,
+                                } : {}),
+                            },
+                        })}
+                        className="px-6 py-2.5 bg-[#10605F] hover:bg-[#083B3A] text-white font-semibold rounded-full text-xs shadow-sm transition-all active:scale-95"
+                    >
+                        View Profile
+                    </button>
+                </div>
             </div>
 
             {/* Bookmark Ribbon Icon */}
             <button className="absolute top-6 right-6 text-[#a7f3d0] hover:text-[#29ADAC] transition-colors p-1" title="Bookmark Performer">
                 <Bookmark className="w-6 h-6 stroke-[1.8]" />
             </button>
-
-            {/* Actions Bar */}
-            <div className="sm:absolute bottom-6 right-6 flex items-center gap-2 mt-4 sm:mt-0 w-full sm:w-auto justify-end">
-                {performer.userId && (performer.status === 'ASSIGNED' || performer.status === 'ACCEPTED') && (
-                    <button
-                        onClick={() => navigate(`/provider/chats?userId=${performer.userId}&taskId=${taskId}`)}
-                        className="p-2.5 bg-slate-100 hover:bg-[#EFFBFB] text-slate-500 hover:text-[#083B3A] rounded-full border border-slate-200/60 transition-all active:scale-95"
-                        title="Message Performer"
-                    >
-                        <MessageCircle size={16} strokeWidth={2.5} />
-                    </button>
-                )}
-
-                {performer.status === 'ASSIGNED' || performer.status === 'ACCEPTED' ? (
-                    <button
-                        onClick={() => navigate(`/provider/active-task/${taskId}`)}
-                        className="px-5 py-2.5 bg-slate-950 text-white rounded-full font-black text-xs hover:bg-slate-900 transition-all shadow-md active:scale-95"
-                    >
-                        Manage Task
-                    </button>
-                ) : (
-                    <>
-                        {type === 'applicant' && performer.interestId && performer.status === 'PENDING' && onReject && (
-                            <button
-                                onClick={() => onReject(performer.interestId)}
-                                disabled={rejecting}
-                                className="px-5 py-2.5 bg-red-50 border border-red-200 text-red-600 hover:bg-red-100 font-extrabold rounded-full text-xs transition-all active:scale-95 disabled:opacity-50"
-                            >
-                                {rejecting ? "Rejecting..." : "Reject"}
-                            </button>
-                        )}
-                        <button
-                            onClick={() => navigate(`/provider/confirm-and-pay`, { state: { performer, taskData } })}
-                            className="px-5 py-2.5 bg-[#EFFBFB] border border-[#29ADAC]/30 text-[#10605F] hover:bg-[#DFF7F6] font-extrabold rounded-full text-xs transition-all active:scale-95"
-                        >
-                            Hire
-                        </button>
-                    </>
-                )}
-
-                <button
-                    onClick={() => navigate(profileUrl, {
-                        state: {
-                            taskId,
-                            taskData,
-                            ...(isInterestedApplicant ? {
-                                profileSource: 'task-interest',
-                                interestId: performer.interestId,
-                            } : {}),
-                        },
-                    })}
-                    className="px-6 py-2.5 bg-[#16a34a] hover:bg-[#15803d] text-white font-extrabold rounded-full text-xs shadow-sm transition-all active:scale-95"
-                >
-                    View Profile
-                </button>
-            </div>
         </motion.div>
     );
 };

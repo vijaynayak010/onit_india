@@ -1,8 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import { ChevronLeft } from "lucide-react";
 import ProviderHeader from "../components/ProviderHeader";
-import ProviderSettingsSidebar from "../components/ProviderSettingsSidebar";
-import { accountMainClass, accountMainStyle } from "../../common/account/AccountFlatNav";
 
 import ProfileView from "./settings/ProfileView";
 import EditProfileForm from "./settings/EditProfileForm";
@@ -37,18 +36,18 @@ const VALID_TABS = [
 ];
 
 const TAB_META = {
-  home: { label: "Profile", description: "Account overview" },
+  home: { label: "Account Overview", description: "Profile, wallet, tasks, and preferences in one place" },
   profile: { label: "Profile", description: "Identity, contact, and organization" },
   wallet: { label: "Wallet", description: "Balance, add money, and withdrawals" },
-  banks: { label: "Bank details", description: "Accounts for payouts and verification" },
-  insights: { label: "Provider insights", description: "Overview of your task activity and performance" },
+  banks: { label: "Bank Details", description: "Accounts for payouts and verification" },
+  insights: { label: "Provider Insights", description: "Overview of your task activity and performance" },
   transactions: { label: "Payment History", description: "View your payment history" },
   subscription: { label: "Subscription Plan", description: "Manage your plan and billing" },
-  ratings: { label: "Ratings Received", description: "All ratings from your clients" },
+  ratings: { label: "Ratings Received", description: "All ratings from performers" },
   reviews: { label: "Reviews & Feedback", description: "Your reviews for performers" },
-  refer: { label: "Refer & earn", description: "Invite others and track rewards" },
+  refer: { label: "Refer & Earn", description: "Invite others and track rewards" },
   settings: { label: "Settings", description: "Notifications, support, and account actions" },
-  all_tasks: { label: "Task", description: "View your complete task history" },
+  all_tasks: { label: "Tasks", description: "View your complete task history" },
 };
 
 const SettingsPage = () => {
@@ -83,8 +82,7 @@ const SettingsPage = () => {
 
   const meta = TAB_META[activeTab];
   const isWalletOverlay = showAddFunds || showWithdraw;
-  const hidePageIntro =
-    showOrgForm || showEditProfile || activeTab === "home" || isWalletOverlay;
+  const hidePageIntro = showOrgForm || showEditProfile || activeTab === "home" || isWalletOverlay;
 
   const handleWalletSuccess = () => {
     setShowAddFunds(false);
@@ -116,7 +114,12 @@ const SettingsPage = () => {
 
     switch (activeTab) {
       case "home":
-        return <ProviderAccountHubView onTabChange={goTab} />;
+        return (
+          <ProviderAccountHubView
+            onTabChange={goTab}
+            onEditProfile={() => setShowEditProfile(true)}
+          />
+        );
       case "insights":
         return <ProviderInsightsView />;
       case "settings":
@@ -153,24 +156,26 @@ const SettingsPage = () => {
   };
 
   return (
-    <div className="flex min-h-screen flex-col bg-[var(--color-surface)] pt-[80px] font-sans text-[var(--color-text)]">
+    <div className="min-h-screen bg-[var(--dash-canvas)] pt-[80px] font-sans text-[var(--dash-text)]">
       <ProviderHeader activePage="home" />
 
-      <div className="relative flex flex-1">
-        <ProviderSettingsSidebar onTabChange={goTab} />
-
-        <main className={accountMainClass} style={accountMainStyle}>
-          <div className={`w-full ${activeTab === "ratings" || activeTab === "reviews" ? "max-w-5xl" : "mx-auto max-w-6xl"}`}>
-            {!hidePageIntro ? (
-              <header className="mb-8 border-b border-[var(--color-border)] pb-8">
-                <h1 className="text-2xl font-medium tracking-tight sm:text-3xl">{meta.label}</h1>
-                <p className="mt-1 max-w-2xl text-sm font-medium text-[var(--color-text-muted)]">{meta.description}</p>
-              </header>
-            ) : null}
-            {renderContent()}
-          </div>
-        </main>
-      </div>
+      <main className="mx-auto w-full max-w-[1440px] px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
+        {!hidePageIntro ? (
+          <header className="mb-6 border-b border-[var(--dash-border)] pb-5">
+            <button
+              type="button"
+              onClick={() => goTab("home")}
+              className="mb-3 inline-flex items-center gap-1.5 text-[13px] font-medium text-[var(--dash-text-secondary)] transition hover:text-[var(--dash-primary-800)]"
+            >
+              <ChevronLeft size={16} aria-hidden="true" />
+              Back to Account Overview
+            </button>
+            <h1 className="dash-page-title text-[var(--dash-text)]">{meta.label}</h1>
+            <p className="dash-secondary mt-1 max-w-2xl">{meta.description}</p>
+          </header>
+        ) : null}
+        {renderContent()}
+      </main>
     </div>
   );
 };

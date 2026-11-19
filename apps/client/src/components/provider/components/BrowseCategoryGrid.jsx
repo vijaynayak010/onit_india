@@ -67,8 +67,8 @@ export default function BrowseCategoryGrid({
         <div className={className}>
           {showHeader ? (
             <div className="mb-4 sm:mb-5">
-              <h2 className="text-sm font-heading font-medium uppercase tracking-[0.05em] text-[var(--color-text)] sm:text-base">
-                Browse by Category
+              <h2 className="dash-section-title text-[var(--dash-text)]">
+                Browse by category
               </h2>
             </div>
           ) : null}
@@ -85,8 +85,8 @@ export default function BrowseCategoryGrid({
     <div className={className}>
       {showHeader ? (
         <div className="mb-4 sm:mb-5">
-          <h2 className="text-sm font-heading font-medium uppercase tracking-[0.05em] text-[var(--color-text)] sm:text-base">
-            Browse by Category
+          <h2 className="dash-section-title text-[var(--dash-text)]">
+            Browse by category
           </h2>
           <p className="mt-1 text-xs text-[var(--color-text-muted)] sm:text-sm">
             Find the right expert for your project

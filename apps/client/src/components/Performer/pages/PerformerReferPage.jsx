@@ -159,7 +159,7 @@ const PerformerReferPage = () => {
     <div className="min-h-screen bg-[var(--color-surface)] pt-[93px] font-sans text-[var(--color-text)]">
       <PerformerHeader activePage="account" />
 
-      <main className="w-full px-4 py-6 sm:px-6 lg:ml-[220px] lg:w-[calc(100%-220px)] lg:px-8">
+      <main className="w-full px-4 py-6 sm:px-6 lg:ml-[240px] lg:w-[calc(100%-240px)] lg:px-8">
         <div className="mx-auto w-full max-w-4xl">
             <PerformerPageHeader
               title="Refer & Earn"
@@ -200,7 +200,7 @@ const PerformerReferPage = () => {
                       <button
                         type="button"
                         onClick={handleShareAll}
-                        className="inline-flex items-center gap-1.5 rounded-xl bg-white px-4 py-2 text-xs font-black text-[#083B3A] shadow-sm transition hover:bg-[#EFFBFB] active:scale-95"
+                        className="inline-flex items-center gap-1.5 rounded-xl bg-white px-4 py-2 text-xs font-medium text-[#083B3A] shadow-sm transition hover:bg-[#EFFBFB] active:scale-95"
                       >
                         {shareCopied ? <Check size={14} strokeWidth={3} /> : <Share2 size={14} strokeWidth={2.5} />}
                         {shareCopied ? "Invite Text Copied!" : "Share Invite"}
@@ -208,7 +208,7 @@ const PerformerReferPage = () => {
                       <button
                         type="button"
                         onClick={handleWhatsAppShare}
-                        className="inline-flex items-center gap-1.5 rounded-xl bg-[#0D1210]/40 px-4 py-2 text-xs font-black text-white shadow-sm transition hover:bg-[#0D1210]/60 active:scale-95"
+                        className="inline-flex items-center gap-1.5 rounded-xl bg-[#0D1210]/40 px-4 py-2 text-xs font-medium text-white shadow-sm transition hover:bg-[#0D1210]/60 active:scale-95"
                       >
                         <MessageCircle size={14} strokeWidth={2.5} />
                         Share on WhatsApp
@@ -218,9 +218,9 @@ const PerformerReferPage = () => {
                     <div className="grid gap-3 sm:grid-cols-3">
                       {/* Referral code */}
                       <div>
-                        <p className="mb-1.5 text-[10px] font-black uppercase tracking-widest text-[#7EDEDD]">Your referral code</p>
+                        <p className="mb-1.5 text-[10px] font-medium uppercase tracking-widest text-[#7EDEDD]">Your referral code</p>
                         <div className="flex items-center gap-2 rounded-xl bg-white/10 px-3.5 py-2.5 backdrop-blur-sm">
-                          <code className="min-w-0 flex-1 truncate font-mono text-[14px] font-black tracking-widest text-white">{referralCode}</code>
+                          <code className="min-w-0 flex-1 truncate font-mono text-[14px] font-medium tracking-widest text-white">{referralCode}</code>
                           <button
                             type="button"
                             onClick={copyCode}
@@ -236,7 +236,7 @@ const PerformerReferPage = () => {
                       <div>
                         <div className="mb-1.5 flex items-center gap-1">
                           <Globe size={11} className="text-[#7EDEDD]" />
-                          <p className="text-[10px] font-black uppercase tracking-widest text-[#7EDEDD]">Website Link</p>
+                          <p className="text-[10px] font-medium uppercase tracking-widest text-[#7EDEDD]">Website Link</p>
                         </div>
                         <div className="flex items-center gap-2 rounded-xl bg-white/10 px-3.5 py-2.5 backdrop-blur-sm">
                           <span className="min-w-0 flex-1 truncate font-mono text-[11px] font-semibold text-[#EFFBFB]/80">{websiteUrl}</span>
@@ -255,7 +255,7 @@ const PerformerReferPage = () => {
                       <div>
                         <div className="mb-1.5 flex items-center gap-1">
                           <Smartphone size={11} className="text-[#7EDEDD]" />
-                          <p className="text-[10px] font-black uppercase tracking-widest text-[#7EDEDD]">Android App Link</p>
+                          <p className="text-[10px] font-medium uppercase tracking-widest text-[#7EDEDD]">Android App Link</p>
                         </div>
                         <div className="flex items-center gap-2 rounded-xl bg-white/10 px-3.5 py-2.5 backdrop-blur-sm">
                           <span className="min-w-0 flex-1 truncate font-mono text-[11px] font-semibold text-[#EFFBFB]/80">{appLink}</span>
@@ -280,7 +280,7 @@ const PerformerReferPage = () => {
                     { icon: CheckCircle2, color: "text-[#10605F]", bg: "bg-[#EFFBFB]", value: successfulReferrals, label: "Successful" },
                     { icon: Clock3, color: "text-amber-500", bg: "bg-amber-50", value: pendingReferrals, label: "Pending" },
                     { icon: Gift, color: "text-[#10605F]", bg: "bg-[#EFFBFB]", value: `₹${totalEarned.toLocaleString()}`, label: "Earned" },
-                    { icon: Award, color: "text-purple-500", bg: "bg-purple-50", value: `₹${walletBalance.toLocaleString()}`, label: "Wallet" },
+                    { icon: Award, color: "text-[#10605F]", bg: "bg-[#EFFBFB]", value: `₹${walletBalance.toLocaleString()}`, label: "Wallet" },
                   ].map(({ icon: Icon, color, bg, value, label }) => (
                     <div key={label} className="flex flex-col gap-2 rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
                       <div className={`flex h-8 w-8 items-center justify-center rounded-lg ${bg}`}>
@@ -334,7 +334,7 @@ const PerformerReferPage = () => {
                                   : `${reward.referralsNeeded} more referral${Number(reward.referralsNeeded) === 1 ? "" : "s"} needed`}
                               </p>
                             </div>
-                            <span className={`rounded-full px-2.5 py-1 text-[10px] font-black tracking-wide ${unlocked ? "bg-[#EFFBFB] text-[#10605F]" : "bg-gray-100 text-gray-500"}`}>
+                            <span className={`rounded-full px-2.5 py-1 text-[10px] font-medium tracking-wide ${unlocked ? "bg-[#EFFBFB] text-[#10605F]" : "bg-gray-100 text-gray-500"}`}>
                               {unlocked ? "UNLOCKED" : "LOCKED"}
                             </span>
                           </div>
@@ -359,7 +359,7 @@ const PerformerReferPage = () => {
                         const completed = item.status === "success";
                         return (
                           <div key={item.id} className="flex items-center gap-3 py-4 first:pt-0 last:pb-0">
-                            <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-xs font-black ${completed ? "bg-[#DFF7F6] text-[#10605F]" : "bg-amber-100 text-amber-700"}`}>
+                            <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-xs font-medium ${completed ? "bg-[#DFF7F6] text-[#10605F]" : "bg-amber-100 text-amber-700"}`}>
                               {item.initials || "U"}
                             </div>
                             <div className="min-w-0 flex-1">
@@ -369,7 +369,7 @@ const PerformerReferPage = () => {
                             {completed && Number(item.pointsEarned || 0) > 0 && (
                               <span className="text-xs font-bold text-[#10605F]">+{item.pointsEarned} pts</span>
                             )}
-                            <span className={`rounded-full px-2.5 py-1 text-[10px] font-black ${completed ? "bg-[#EFFBFB] text-[#10605F]" : "bg-amber-50 text-amber-700"}`}>
+                            <span className={`rounded-full px-2.5 py-1 text-[10px] font-medium ${completed ? "bg-[#EFFBFB] text-[#10605F]" : "bg-amber-50 text-amber-700"}`}>
                               {item.statusLabel || (completed ? "Completed" : "Pending")}
                             </span>
                           </div>
@@ -392,7 +392,7 @@ const PerformerReferPage = () => {
                   <div className="grid gap-6 md:grid-cols-3 relative">
                     {/* Step 1 */}
                     <div className="flex flex-col gap-2">
-                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#DFF7F6] text-sm font-black text-[#10605F]">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#DFF7F6] text-sm font-medium text-[#10605F]">
                         1
                       </div>
                       <h4 className="text-sm font-medium text-gray-900 mt-2">Send Invitation</h4>
@@ -403,7 +403,7 @@ const PerformerReferPage = () => {
 
                     {/* Step 2 */}
                     <div className="flex flex-col gap-2">
-                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#DFF7F6] text-sm font-black text-[#10605F]">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#DFF7F6] text-sm font-medium text-[#10605F]">
                         2
                       </div>
                       <h4 className="text-sm font-medium text-gray-900 mt-2">They Complete a Task</h4>
@@ -414,7 +414,7 @@ const PerformerReferPage = () => {
 
                     {/* Step 3 */}
                     <div className="flex flex-col gap-2">
-                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#DFF7F6] text-sm font-black text-[#10605F]">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#DFF7F6] text-sm font-medium text-[#10605F]">
                         3
                       </div>
                       <h4 className="text-sm font-medium text-gray-900 mt-2">Get Paid Cash Credit</h4>

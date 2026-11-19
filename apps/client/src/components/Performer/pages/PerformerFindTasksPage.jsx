@@ -168,10 +168,10 @@ const PerformerFindTasksPage = () => {
     <div className="min-h-screen bg-[var(--color-bg)] font-sans text-[var(--color-text)]">
       <PerformerHeader activePage="dashboard" />
 
-      <main className="w-full px-4 pb-16 pt-[110px] sm:px-6 lg:ml-[220px] lg:w-[calc(100%-220px)] lg:px-8">
+      <main className="w-full px-4 pb-16 pt-[110px] sm:px-6 lg:ml-[240px] lg:w-[calc(100%-240px)] lg:px-8">
         <div className="mx-auto max-w-7xl">
         <header className="mb-6">
-          <h1 className="text-2xl sm:text-3xl font-heading font-medium tracking-tight">Find Tasks</h1>
+          <h1 className="dash-page-title">Find Tasks</h1>
         </header>
 
         {kycBanner ? (
@@ -292,7 +292,7 @@ const PerformerFindTasksPage = () => {
           ) : null}
         </div>
 
-        <div className="mb-8 flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
+        <div className="mb-8 flex flex-wrap gap-2">
           {FILTER_PILLS.map((pill) => (
             <button
               key={pill.id}

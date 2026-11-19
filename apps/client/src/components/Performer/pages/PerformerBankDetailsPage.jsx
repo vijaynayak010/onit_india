@@ -1,6 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion as Motion, AnimatePresence } from 'framer-motion';
 import {
     Landmark,
     CreditCard,
@@ -16,7 +15,6 @@ import PerformerPageHeader from '../components/PerformerPageHeader';
 import { getPayoutMethods, addPayoutMethod, deletePayoutMethod } from '../services/api';
 
 const PerformerBankDetailsPage = () => {
-    const navigate = useNavigate();
     const [isAddingUpi, setIsAddingUpi] = useState(false);
     const [isAddingCard, setIsAddingCard] = useState(false);
     const [isAddingNetbanking, setIsAddingNetbanking] = useState(false);
@@ -25,7 +23,7 @@ const PerformerBankDetailsPage = () => {
     const [verificationType, setVerificationType] = useState('upi'); // 'upi', 'card', 'bank', 'wallet', 'credpay'
 
     const [payoutMethods, setPayoutMethods] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [, setLoading] = useState(true);
 
     const [upiIdInput, setUpiIdInput] = useState('');
     const [cardData, setCardData] = useState({ number: '', expiryMonth: '', expiryYear: '', cvv: '', name: '' });
@@ -110,21 +108,19 @@ const PerformerBankDetailsPage = () => {
         try {
             await deletePayoutMethod(id);
             setPayoutMethods(prev => prev.filter(m => m.id !== id));
-        } catch (err) {
+        } catch {
             alert("Failed to delete payout method");
         }
     };
-
-    const isAnyModalOpen = isAddingUpi || isAddingCard || isAddingNetbanking || isAddingWallet || isAddingCredPay;
 
     return (
         <div className="min-h-screen bg-[var(--color-surface)] pt-[93px] font-sans text-[var(--color-text)]">
             <PerformerHeader activePage="account" />
 
-            <main className="w-full px-4 py-6 sm:px-6 lg:ml-[220px] lg:w-[calc(100%-220px)] lg:px-8">
+            <main className="w-full px-4 py-6 sm:px-6 lg:ml-[240px] lg:w-[calc(100%-240px)] lg:px-8">
                 <div className="mx-auto w-full max-w-5xl">
                     <AnimatePresence mode="wait">
-                        <motion.div
+                        <Motion.div
                             key={isAddingUpi ? 'add-upi' : isAddingCard ? 'add-card' : isAddingNetbanking ? 'add-bank' : isAddingWallet ? 'add-wallet' : isAddingCredPay ? 'add-cred' : 'banks'}
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -306,7 +302,7 @@ const PerformerBankDetailsPage = () => {
                                                                     <div className="bg-[var(--color-primary)] text-white text-[10px] font-bold px-1.5 py-0.5 rounded-[4px] tracking-wider">UPI</div>
                                                                 </div>
                                                                 <div>
-                                                                    <p className="text-[14px] font-bold text-gray-900">{method.details?.upiId}</p>
+                                                                    <p className="text-[14px] font-bold text-gray-900">{method.details?.upiId || method.handle || method.upiId || method.label || "UPI Linked"}</p>
                                                                 </div>
                                                             </div>
                                                             <button onClick={() => handleDelete(method.id)} className="p-2 text-gray-400 hover:text-red-500 transition-colors">
@@ -372,14 +368,14 @@ const PerformerBankDetailsPage = () => {
                                         <div className="relative h-[120px] overflow-hidden rounded-2xl bg-gradient-to-br from-[var(--color-primary-subtle)] to-[#DFF7F6]/80 p-6 shadow-[var(--shadow-sm)]">
                                             <div className="relative z-10 flex h-full flex-col justify-between">
                                                 <h4 className="text-[13px] font-medium text-[var(--color-text-muted)]">Total linked methods</h4>
-                                                <p className="text-[36px] font-medium tabular-nums text-[var(--color-text)]">{payoutMethods.length}</p>
+                                                <p className="text-2xl sm:text-[28px] font-medium tabular-nums text-[var(--color-text)]">{payoutMethods.length}</p>
                                             </div>
                                             <CreditCard size={26} className="absolute right-6 top-6 text-[var(--color-primary)]" strokeWidth={1.5} />
                                         </div>
                                         <div className="relative h-[120px] overflow-hidden rounded-2xl border border-[var(--color-primary)]/25 bg-[var(--color-surface-elevated)] p-6 shadow-[var(--shadow-sm)]">
                                             <div className="relative z-10 flex h-full flex-col justify-between text-left">
                                                 <h4 className="text-[13px] font-medium text-[var(--color-text-muted)]">UPI accounts</h4>
-                                                <p className="text-[36px] font-medium tabular-nums text-[var(--color-text)]">{payoutMethods.filter(m => m.type === 'UPI').length}</p>
+                                                <p className="text-2xl sm:text-[28px] font-medium tabular-nums text-[var(--color-text)]">{payoutMethods.filter(m => m.type === 'UPI').length}</p>
                                             </div>
                                             <div className="absolute right-6 top-6 rounded border-2 border-[var(--color-primary)] px-1.5 py-0.5 text-[9px] font-black tracking-wide text-[var(--color-primary)]">UPI</div>
                                         </div>
@@ -395,7 +391,7 @@ const PerformerBankDetailsPage = () => {
                                     </div>
                                 </>
                             )}
-                        </motion.div>
+                        </Motion.div>
                     </AnimatePresence>
                 </div>
             </main>

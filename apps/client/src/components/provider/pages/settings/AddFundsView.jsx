@@ -113,7 +113,7 @@ const AddFundsView = ({ onCancel, onSuccess }) => {
           <span className="h-2 w-2 rounded-full bg-[var(--color-primary)]" />
           <span className="text-xs font-bold uppercase tracking-wide text-[var(--color-text-muted)]">Available balance</span>
         </div>
-        <p className="text-3xl font-medium tabular-nums text-[var(--color-text)]">₹{balance.toLocaleString()}</p>
+        <p className="dash-kpi text-[var(--dash-text)]">₹{balance.toLocaleString()}</p>
 
         {error && (
           <div className="mt-4 flex items-center gap-2 rounded-xl bg-red-50 p-4 text-xs font-bold text-red-600 border border-red-100">

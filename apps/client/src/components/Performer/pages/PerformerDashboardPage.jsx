@@ -29,7 +29,10 @@ import {
   getMyCompletedTasks,
   getMyTaskerProfile,
   getMyTaskerRanking,
+  getSavedTasks,
   getTasksFeed,
+  saveTask,
+  unsaveTask,
 } from "../services/api";
 import { filterNormalizedTasks, normalizeFeedTask, parseTasksFeed } from "../components/tasks/performerTaskUtils";
 import PerformerHeader from "../components/PerformerHeader";
@@ -43,35 +46,7 @@ import {
   writePerformerCache,
 } from "../utils/performerDataCache";
 
-const fallbackTasks = [
-  {
-    id: "sample-design",
-    client: "Growthify Ventures",
-    title: "Product UI/UX Designer for SaaS Platform",
-    tags: ["Design", "Figma", "SaaS", "UX Research"],
-    deadline: "31-07-2026",
-    posted: "2 hours ago",
-    budget: "₹25,000",
-  },
-  {
-    id: "sample-react",
-    client: "TravelDesk India",
-    title: "React Developer - Build a Booking Dashboard",
-    tags: ["Development", "React", "TypeScript", "REST API"],
-    deadline: "31-07-2026",
-    posted: "2 hours ago",
-    budget: "₹30,000",
-  },
-  {
-    id: "sample-brand",
-    client: "Nimbus Co.",
-    title: "Brand Strategy & Visual Identity B2C Brand",
-    tags: ["Branding", "Illustrator", "Strategy"],
-    deadline: "31-07-2026",
-    posted: "2 hours ago",
-    budget: "₹18,000",
-  },
-];
+// Empty-state & error-state handling replaces fabricated fallback tasks.
 
 const onboardingSteps = [
   {
@@ -118,8 +93,8 @@ const howItWorks = [
     title: "Apply to Projects",
     body: "Send targeted proposals with your portfolio, timeline, and competitive pricing.",
     icon: Megaphone,
-    color: "text-fuchsia-500",
-    bg: "bg-fuchsia-50",
+    color: "text-[#1B8887]",
+    bg: "bg-[#EFFBFB]",
   },
   {
     title: "Get Paid Securely",
@@ -127,6 +102,30 @@ const howItWorks = [
     icon: BadgeCheck,
     color: "text-[#10605F]",
     bg: "bg-[#EFFBFB]",
+  },
+];
+
+const HERO_SLIDES = [
+  {
+    badge: "Protected Payouts",
+    title: "Earn with Confidence",
+    subtitle: "Transparent payouts with the full task amount shown before you apply.",
+    ctaLabel: "Get Started",
+    ctaPath: "/performer/find-tasks",
+  },
+  {
+    badge: "Escrow Secured",
+    title: "Guaranteed Milestone Payments",
+    subtitle: "Funds are locked in escrow before work begins and released on approval.",
+    ctaLabel: "View Wallet",
+    ctaPath: "/performer/wallet",
+  },
+  {
+    badge: "Daily Growth",
+    title: "Boost Your Performer Rank",
+    subtitle: "Complete tasks on time and earn 5-star reviews to unlock top-tier gigs.",
+    ctaLabel: "Explore Growth",
+    ctaPath: "/performer/growth",
   },
 ];
 
@@ -226,7 +225,7 @@ function SectionShell({ title, subtitle, actionLabel, onAction, children }) {
   );
 }
 
-function TaskCard({ task, onOpen }) {
+function TaskCard({ task, onOpen, isSaved = false, saving = false, onToggleSave }) {
   return (
     <article className="flex min-h-[216px] flex-col rounded-2xl border border-[var(--dash-border)] bg-[var(--dash-surface)] p-5 shadow-[var(--shadow-sm)] transition hover:-translate-y-0.5 hover:border-[var(--dash-primary-600)]/40 hover:shadow-[var(--shadow-md)]">
       <div className="flex items-start justify-between gap-3">
@@ -236,8 +235,22 @@ function TaskCard({ task, onOpen }) {
             {task.title}
           </button>
         </div>
-        <button type="button" onClick={onOpen} className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-[var(--dash-text-secondary)] transition hover:bg-[var(--dash-canvas)] hover:text-[var(--dash-text)]" aria-label="Save task">
-          <Bookmark size={17} strokeWidth={1.8} />
+        <button
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            onToggleSave?.(task);
+          }}
+          disabled={saving}
+          aria-pressed={isSaved}
+          aria-label={isSaved ? "Remove from saved tasks" : "Save task"}
+          className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition ${
+            isSaved
+              ? "bg-[var(--dash-active-bg)] text-[var(--dash-primary-700)]"
+              : "text-[var(--dash-text-secondary)] hover:bg-[var(--dash-canvas)] hover:text-[var(--dash-text)]"
+          } ${saving ? "opacity-50 cursor-wait" : ""}`}
+        >
+          <Bookmark size={17} strokeWidth={1.8} className={isSaved ? "fill-current" : ""} />
         </button>
       </div>
       <div className="mt-4 flex flex-wrap gap-1.5">
@@ -252,7 +265,7 @@ function TaskCard({ task, onOpen }) {
         <span>{task.posted}</span>
       </div>
       <div className="mt-auto flex items-end justify-between gap-4 border-t border-[var(--dash-border)] pt-4">
-        <p className="dash-kpi tabular-nums text-[17px] font-medium text-[var(--dash-text)]">{task.budget}</p>
+        <p className="tabular-nums text-[17px] font-medium text-[var(--dash-text)]">{task.budget}</p>
         <button
           type="button"
           onClick={onOpen}
@@ -281,6 +294,9 @@ const PerformerDashboardPage = () => {
 
   const [tasks, setTasks] = useState(initialData.tasks || []);
   const [loadingTasks, setLoadingTasks] = useState(!initialDashboardData);
+  const [feedError, setFeedError] = useState("");
+  const [savedTaskIds, setSavedTaskIds] = useState(() => new Set());
+  const [savingTaskIds, setSavingTaskIds] = useState(() => new Set());
   const [profileLoaded, setProfileLoaded] = useState(Boolean(initialDashboardData));
   const [rankLabel, setRankLabel] = useState(initialData.rankLabel || "Unranked");
   const [rankCategory, setRankCategory] = useState(initialData.rankCategory || "Overall");
@@ -292,6 +308,18 @@ const PerformerDashboardPage = () => {
   const [activeTasks, setActiveTasks] = useState(initialData.activeTasks || []);
   const [completedTasks, setCompletedTasks] = useState(initialData.completedTasks || []);
   const [topPerformers, setTopPerformers] = useState(initialData.topPerformers || []);
+  const [activeBannerSlide, setActiveBannerSlide] = useState(0);
+  const [isBannerPaused, setIsBannerPaused] = useState(false);
+
+  useEffect(() => {
+    if (isBannerPaused) return undefined;
+    const timer = window.setInterval(() => {
+      setActiveBannerSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+    }, 5000);
+    return () => window.clearInterval(timer);
+  }, [isBannerPaused]);
+
+  const currentHeroSlide = HERO_SLIDES[activeBannerSlide] || HERO_SLIDES[0];
 
   const applyDashboardData = useCallback((data) => {
     dashboardDataRef.current = data;
@@ -310,7 +338,7 @@ const PerformerDashboardPage = () => {
 
   const displayTasks = useMemo(() => {
     const openTasks = filterNormalizedTasks(tasks.map(normalizeFeedTask), { search: "", pill: "all" }).map((task) => normalizeTaskForCard(task.raw || task));
-    return openTasks.length ? openTasks.slice(0, 3) : fallbackTasks;
+    return openTasks.slice(0, 3);
   }, [tasks]);
 
   const categoryCards = useMemo(() => {
@@ -424,10 +452,12 @@ const PerformerDashboardPage = () => {
         settleRequest(dedupePerformerRequest("performer-dashboard:completed", () => getMyCompletedTasks({ limit: 20 }))),
         settleRequest(dedupePerformerRequest("performer-dashboard:bank", () => getBankAccount())),
         settleRequest(dedupePerformerRequest("performer-dashboard:ranking", () => getMyTaskerRanking({ limit: 3 }))),
+        settleRequest(dedupePerformerRequest("performer-dashboard:saved", () => getSavedTasks({ limit: 100 }))),
       ]);
 
       const feedResult = await feedRequest;
       if (feedResult.ok) {
+        setFeedError("");
         const feedData = {
           ...dashboardDataRef.current,
           tasks: parseTasksFeed(feedResult.value),
@@ -436,13 +466,16 @@ const PerformerDashboardPage = () => {
         writePerformerCache(PERFORMER_DASHBOARD_CACHE_KEY, feedData);
       } else {
         console.error("[PERF DASH] Failed to load task feed:", feedResult.error);
+        if (!dashboardDataRef.current?.tasks?.length) {
+          setFeedError("Could not load recommended tasks right now.");
+        }
       }
 
       // The task feed controls the primary dashboard skeleton. Enrichment can
       // finish quietly without holding the whole page behind the slowest API.
       setLoadingTasks(false);
 
-      const [profileResult, assignedResult, appliedResult, activeResult, completedResult, bankResult, rankingResult] = await enrichmentRequest;
+      const [profileResult, assignedResult, appliedResult, activeResult, completedResult, bankResult, rankingResult, savedResult] = await enrichmentRequest;
       const nextData = { ...dashboardDataRef.current };
 
       if (profileResult.ok) nextData.profile = unwrapPayload(profileResult.value);
@@ -456,6 +489,17 @@ const PerformerDashboardPage = () => {
         nextData.rankCategory = rankingResult.value.category || "Overall";
         nextData.rankingScore = Number(rankingResult.value.data.rankingScore || 0);
         nextData.topPerformers = mapRankedTaskers(rankingResult.value.leaderboard || []).slice(0, 3);
+      }
+      if (savedResult.ok) {
+        const savedList = extractList(savedResult.value);
+        setSavedTaskIds(
+          new Set(
+            savedList
+              .map((item) => item?.taskId || item?.task?.id || item?.task?._id || item?.id || item?._id)
+              .filter(Boolean)
+              .map(String),
+          ),
+        );
       }
 
       applyDashboardData(nextData);
@@ -483,42 +527,95 @@ const PerformerDashboardPage = () => {
   // Silent background revalidation: respects cache TTL, no spinner
   useAutoReload(fetchData, PERFORMER_DASHBOARD_CACHE_TTL_MS);
 
+  const handleToggleSave = useCallback(async (task) => {
+    const taskId = String(task?.id || "");
+    if (!taskId || savingTaskIds.has(taskId)) return;
+
+    const wasSaved = savedTaskIds.has(taskId);
+    setSavingTaskIds((prev) => new Set(prev).add(taskId));
+    setSavedTaskIds((prev) => {
+      const next = new Set(prev);
+      if (wasSaved) next.delete(taskId);
+      else next.add(taskId);
+      return next;
+    });
+
+    try {
+      if (wasSaved) {
+        await unsaveTask(taskId);
+      } else {
+        await saveTask(taskId);
+      }
+    } catch (error) {
+      console.error("[PERF DASH] Failed to toggle saved task:", error);
+      setSavedTaskIds((prev) => {
+        const next = new Set(prev);
+        if (wasSaved) next.add(taskId);
+        else next.delete(taskId);
+        return next;
+      });
+    } finally {
+      setSavingTaskIds((prev) => {
+        const next = new Set(prev);
+        next.delete(taskId);
+        return next;
+      });
+    }
+  }, [savedTaskIds, savingTaskIds]);
+
   return (
     <DashboardShell header={<PerformerHeader activePage="dashboard" />} hasSidebar>
       <div className="space-y-6 lg:space-y-7">
         {/* Compact Hero Banner (~150px) with integrated pagination controls */}
         <section className="relative overflow-hidden rounded-2xl border border-[var(--dash-primary-800)]/20 bg-gradient-to-r from-[#083B3A] via-[#10605F] to-[#1B8887] shadow-[var(--shadow-sm)]">
-          <div className="relative min-h-[150px] overflow-hidden">
+          <div
+            className="relative min-h-[150px] overflow-hidden"
+            onMouseEnter={() => setIsBannerPaused(true)}
+            onMouseLeave={() => setIsBannerPaused(false)}
+          >
             <picture>
               <source type="image/webp" srcSet={heroImageWebp} />
               <img src={heroImage} alt="" className="absolute inset-0 h-full w-full object-cover opacity-20 mix-blend-luminosity" />
             </picture>
             <div className="relative flex min-h-[150px] flex-col justify-between gap-4 px-6 py-5 text-white sm:flex-row sm:items-center sm:px-8">
-              <div className="max-w-xl">
+              <div className="max-w-xl transition-opacity duration-300">
                 <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-[11px] font-medium text-white backdrop-blur-xs">
                   <Wallet size={14} strokeWidth={2} aria-hidden="true" />
-                  <span>Protected Payouts</span>
+                  <span>{currentHeroSlide.badge}</span>
                 </div>
                 <h1 className="text-xl sm:text-2xl font-heading font-medium leading-tight text-white">
-                  Earn with Confidence
+                  {currentHeroSlide.title}
                 </h1>
                 <p className="mt-1 text-xs sm:text-sm font-normal leading-relaxed text-white/90">
-                  Transparent payouts with the full task amount shown before you apply.
+                  {currentHeroSlide.subtitle}
                 </p>
               </div>
               <div className="flex shrink-0 flex-col items-start gap-3 sm:items-end">
                 <button
                   type="button"
-                  onClick={() => navigate("/performer/find-tasks")}
+                  onClick={() => navigate(currentHeroSlide.ctaPath)}
                   className="inline-flex items-center gap-2 rounded-full bg-[#7EDEDD] px-5 py-2.5 text-xs sm:text-sm font-medium text-[#032120] shadow-xs transition hover:bg-[#4CCDDC]"
                 >
-                  <span>Get Started</span>
+                  <span>{currentHeroSlide.ctaLabel}</span>
                   <ArrowRight size={15} />
                 </button>
-                <div className="flex items-center gap-1.5" aria-label="Banner slides">
-                  <span className="h-1.5 w-6 rounded-full bg-white" />
-                  <span className="h-1.5 w-1.5 rounded-full bg-white/40" />
-                  <span className="h-1.5 w-1.5 rounded-full bg-white/40" />
+                <div className="flex items-center gap-1.5" role="tablist" aria-label="Banner slides">
+                  {HERO_SLIDES.map((slide, idx) => {
+                    const isActive = idx === activeBannerSlide;
+                    return (
+                      <button
+                        key={slide.badge}
+                        type="button"
+                        role="tab"
+                        aria-selected={isActive}
+                        aria-label={`Show slide ${idx + 1}: ${slide.title}`}
+                        onClick={() => setActiveBannerSlide(idx)}
+                        className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                          isActive ? "w-6 bg-white" : "w-1.5 bg-white/40 hover:bg-white/70"
+                        }`}
+                      />
+                    );
+                  })}
                 </div>
               </div>
             </div>
@@ -614,28 +711,52 @@ const PerformerDashboardPage = () => {
           actionLabel="View All Tasks"
           onAction={() => navigate("/performer/find-tasks")}
         >
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {loadingTasks && tasks.length === 0
-              ? [0, 1, 2].map((item) => (
-                  <div
-                    key={item}
-                    className="h-[216px] animate-pulse rounded-2xl border border-[var(--dash-border)] bg-[var(--dash-surface)]"
-                  />
-                ))
-              : displayTasks.map((task) => (
+          {loadingTasks && tasks.length === 0 ? (
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+              {[0, 1, 2].map((item) => (
+                <div
+                  key={item}
+                  className="h-[216px] animate-pulse rounded-2xl border border-[var(--dash-border)] bg-[var(--dash-surface)]"
+                />
+              ))}
+            </div>
+          ) : feedError && displayTasks.length === 0 ? (
+            <DashboardCard className="p-6">
+              <EmptyState
+                icon={FileText}
+                title="Unable to load recommended tasks"
+                description={feedError}
+                actionLabel="Retry"
+                onAction={() => fetchData(true)}
+              />
+            </DashboardCard>
+          ) : displayTasks.length === 0 ? (
+            <DashboardCard className="p-6">
+              <EmptyState
+                icon={FileText}
+                title="No open tasks available right now"
+                description="Check back soon or browse all categories for new opportunities."
+                actionLabel="Browse All Tasks"
+                onAction={() => navigate("/performer/find-tasks")}
+              />
+            </DashboardCard>
+          ) : (
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+              {displayTasks.map((task) => {
+                const taskId = String(task.id || "");
+                return (
                   <TaskCard
-                    key={task.id}
+                    key={taskId}
                     task={task}
-                    onOpen={() =>
-                      navigate(
-                        String(task.id).startsWith("sample-")
-                          ? "/performer/find-tasks"
-                          : `/performer/task/${task.id}`,
-                      )
-                    }
+                    isSaved={savedTaskIds.has(taskId)}
+                    saving={savingTaskIds.has(taskId)}
+                    onToggleSave={handleToggleSave}
+                    onOpen={() => navigate(`/performer/task/${taskId}`)}
                   />
-                ))}
-          </div>
+                );
+              })}
+            </div>
+          )}
         </SectionShell>
 
         {/* Browse Work by Skills: Interactive chips or clean EmptyState */}
@@ -666,11 +787,11 @@ const PerformerDashboardPage = () => {
                       onClick={() =>
                         navigate(`/performer/find-tasks?q=${encodeURIComponent(skill.query || skill.label)}`)
                       }
-                      className="inline-flex items-center gap-2 rounded-full border border-[var(--dash-border)] bg-[var(--dash-surface)] px-4 py-2 text-xs sm:text-[13px] font-medium text-[var(--dash-text)] shadow-[var(--shadow-xs)] transition hover:border-[var(--dash-primary-700)] hover:bg-[var(--dash-active-bg)] hover:text-[var(--dash-primary-700)]"
+                      className="inline-flex items-center gap-2 rounded-full border border-[var(--dash-border)] bg-[var(--dash-surface)] px-4 py-2 text-[13px] sm:text-[14px] font-normal text-[var(--dash-text)] shadow-[var(--shadow-xs)] transition hover:border-[var(--dash-primary-700)] hover:bg-[var(--dash-active-bg)] hover:text-[var(--dash-primary-700)]"
                     >
                       {Icon ? <Icon size={15} strokeWidth={2} aria-hidden="true" /> : null}
                       <span>{skill.label}</span>
-                      <span className="dash-kpi tabular-nums rounded-full bg-[var(--dash-canvas)] px-2 py-0.5 text-[11px] text-[var(--dash-text-secondary)]">
+                      <span className="tabular-nums rounded-full bg-[var(--dash-canvas)] px-2.5 py-0.5 text-[18px] sm:text-[19px] font-medium leading-tight text-[var(--dash-text)]">
                         {skill.count}
                       </span>
                     </button>
@@ -709,21 +830,21 @@ const PerformerDashboardPage = () => {
         {/* Performance Ranking: Balanced grid so Current Rank and 3 step cards never wrap narrowly */}
         <DashboardCard className="p-5 sm:p-6">
           <div className="mb-5">
-            <h2 className="text-base sm:text-lg font-heading font-medium text-[var(--dash-text)]">
+            <h2 className="text-[18px] sm:text-[20px] font-heading font-medium text-[var(--dash-text)]">
               Performance Ranking
             </h2>
-            <p className="mt-1 text-xs font-medium text-[var(--dash-text-secondary)]">
+            <p className="mt-1 text-[13px] sm:text-[14px] font-normal text-[var(--dash-text-secondary)]">
               Your standing among FirstDoer performers.
             </p>
           </div>
           <div className="grid grid-cols-1 gap-5 lg:grid-cols-[minmax(280px,1fr)_minmax(0,2fr)]">
             <div className="flex flex-col justify-between rounded-xl border border-[var(--dash-border)] bg-[var(--dash-canvas)] p-5">
               <div>
-                <p className="text-xs font-medium text-[var(--dash-text-secondary)]">Current Rank</p>
-                <h3 className="dash-kpi tabular-nums mt-3 text-xl font-medium text-[var(--dash-text)]">
+                <p className="text-[13px] sm:text-[14px] font-normal text-[var(--dash-text-secondary)]">Current Rank</p>
+                <h3 className="tabular-nums mt-2 text-[22px] sm:text-[24px] font-medium text-[var(--dash-text)]">
                   {rankLabel}
                 </h3>
-                <p className="mt-1.5 text-xs leading-relaxed text-[var(--dash-text-secondary)]">
+                <p className="mt-1.5 text-[12px] sm:text-[13px] font-normal leading-relaxed text-[var(--dash-text-secondary)]">
                   {rankLabel === "Unranked"
                     ? `${rankCategory}. Complete your first task to enter the FirstDoer ranking.`
                     : `${rankCategory} · score ${rankingScore}. Keep completing tasks to climb higher.`}
@@ -735,7 +856,7 @@ const PerformerDashboardPage = () => {
                   <button
                     type="button"
                     onClick={() => navigate("/performer/find-tasks")}
-                    className="inline-flex h-9 items-center rounded-full bg-[var(--dash-primary-700)] px-4 text-xs font-medium text-white transition hover:bg-[var(--dash-primary-800)]"
+                    className="inline-flex h-9 items-center rounded-full bg-[var(--dash-primary-700)] px-4 text-[13px] font-medium text-white transition hover:bg-[var(--dash-primary-800)]"
                   >
                     {performerStats.hasActivity ? "Find More Tasks" : "Find Your First Task"}
                   </button>
@@ -752,19 +873,19 @@ const PerformerDashboardPage = () => {
                       className="flex flex-col items-center rounded-xl border border-[var(--dash-border)] bg-[var(--dash-canvas)] p-4 text-center transition hover:border-[var(--dash-primary-600)]/40 hover:bg-[var(--dash-surface)]"
                     >
                       <img src={performer.avatar} alt="" className="h-12 w-12 rounded-full object-cover" />
-                      <p className="dash-kpi tabular-nums mt-3 text-[10px] font-medium uppercase tracking-wider text-[var(--dash-text-secondary)]">
+                      <p className="tabular-nums mt-3 text-[12px] font-normal uppercase tracking-wider text-[var(--dash-text-secondary)]">
                         Rank #{performer.rank || index + 1}
                       </p>
-                      <h3 className="mt-1.5 w-full truncate text-xs font-medium text-[var(--dash-text)]">
+                      <h3 className="mt-1.5 w-full truncate text-[13px] sm:text-[14px] font-medium text-[var(--dash-text)]">
                         {performer.displayName}
                       </h3>
-                      <p className="mt-0.5 w-full truncate text-[11px] text-[var(--dash-text-secondary)]">
+                      <p className="mt-0.5 w-full truncate text-[12px] font-normal text-[var(--dash-text-secondary)]">
                         {performer.profession || performer.domain}
                       </p>
                       <div className="mt-3 h-1 w-full rounded-full bg-[#E8F8F5]">
                         <div className="h-full w-3/4 rounded-full bg-[var(--dash-primary-700)]" />
                       </div>
-                      <p className="dash-kpi tabular-nums mt-2 text-[11px] text-[var(--dash-text-secondary)]">
+                      <p className="tabular-nums mt-2 text-[12px] font-normal text-[var(--dash-text-secondary)]">
                         Score {performer.rankingScore ?? 0}
                       </p>
                     </button>
@@ -782,11 +903,11 @@ const PerformerDashboardPage = () => {
                           >
                             <Icon size={17} strokeWidth={2} aria-hidden="true" />
                           </div>
-                          <p className="dash-kpi tabular-nums mt-3 text-[10px] font-medium uppercase tracking-wider text-[var(--dash-text-secondary)]">
+                          <p className="tabular-nums mt-3 text-[17px] sm:text-[18px] font-medium uppercase tracking-wider text-[var(--dash-text)]">
                             Step {index + 1}
                           </p>
-                          <h3 className="mt-1.5 text-xs font-medium text-[var(--dash-text)]">{step.title}</h3>
-                          <p className="mt-1 text-[11px] leading-snug text-[var(--dash-text-secondary)]">
+                          <h3 className="mt-1.5 text-[13px] sm:text-[14px] font-normal text-[var(--dash-text)]">{step.title}</h3>
+                          <p className="mt-1 text-[12px] sm:text-[13px] font-normal leading-snug text-[var(--dash-text-secondary)]">
                             {step.body}
                           </p>
                         </div>
@@ -798,8 +919,8 @@ const PerformerDashboardPage = () => {
                               }`}
                             />
                           </div>
-                          <p className="dash-kpi tabular-nums mt-2 text-[10px] text-[var(--dash-text-secondary)]">
-                            {step.completed ? "1" : "0"} / 1 completed
+                          <p className="tabular-nums mt-2.5 text-[18px] sm:text-[20px] font-medium text-[var(--dash-text)]">
+                            {step.completed ? "1" : "0"}/1 completed
                           </p>
                         </div>
                       </div>
@@ -818,10 +939,10 @@ const PerformerDashboardPage = () => {
             className="flex w-full items-center justify-between gap-4 text-left"
           >
             <div>
-              <h2 className="text-base sm:text-lg font-heading font-medium text-[var(--dash-text)]">
+              <h2 className="text-[18px] sm:text-[20px] font-heading font-medium text-[var(--dash-text)]">
                 How FirstDoer Works
               </h2>
-              <p className="mt-0.5 text-xs font-medium text-[var(--dash-text-secondary)]">
+              <p className="mt-0.5 text-[13px] font-normal text-[var(--dash-text-secondary)]">
                 Three steps to earning securely on FirstDoer
               </p>
             </div>
@@ -847,7 +968,7 @@ const PerformerDashboardPage = () => {
                       >
                         <Icon size={17} strokeWidth={2} aria-hidden="true" />
                       </div>
-                      <span className="dash-kpi tabular-nums text-xs font-medium text-[var(--dash-text-secondary)]">
+                      <span className="tabular-nums text-xs font-medium text-[var(--dash-text-secondary)]">
                         0{index + 1}
                       </span>
                     </div>

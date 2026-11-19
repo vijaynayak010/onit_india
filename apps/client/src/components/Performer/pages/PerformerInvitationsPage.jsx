@@ -35,7 +35,7 @@ const PerformerInvitationsPage = () => {
     }, []);
 
     return (
-        <div className="min-h-screen bg-[var(--color-bg)] pb-12 pt-[80px] font-sans text-[var(--color-text)] lg:pl-[220px]">
+        <div className="min-h-screen bg-[var(--color-bg)] pb-12 pt-[80px] font-sans text-[var(--color-text)] lg:pl-[240px]">
             <PerformerHeader activePage="invitations" />
             <main className="mx-auto w-full max-w-3xl px-4 py-8 sm:px-6 lg:px-8">
                 <header className="mb-6">

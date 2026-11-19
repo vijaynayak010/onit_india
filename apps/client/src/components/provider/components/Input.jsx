@@ -7,14 +7,15 @@ const Input = ({ label, type = 'text', placeholder, value, onChange, onBlur, id,
 
     return (
         <div className="flex flex-col gap-2 w-full text-left items-start">
-            {label && <label htmlFor={id} className="text-[13px] font-bold text-[var(--color-text)]">{label}</label>}
+            {label && <label htmlFor={id} className="text-[13px] font-semibold text-[var(--dash-text)]">{label}</label>}
             <div className="relative flex items-center w-full">
                 <input
                     id={id}
                     type={isPassword ? (showPassword ? 'text' : 'password') : type}
-                    className={`w-full rounded-[var(--radius-sm)] border bg-[var(--color-surface)] px-4 py-3.5 text-[14px] font-semibold text-[var(--color-text)] outline-none transition-all placeholder:text-[var(--color-text-subtle)] focus:ring-2 focus:ring-[var(--color-primary)]/20 ${error
-                        ? "border-red-500 focus:border-red-500"
-                        : "border-[var(--color-border)] focus:border-[var(--color-primary)]"
+                    aria-invalid={Boolean(error) || undefined}
+                    className={`w-full rounded-xl border bg-[var(--dash-surface)] px-4 py-3 text-[14px] font-medium text-[var(--dash-text)] outline-none transition-all placeholder:text-[var(--dash-text-secondary)] focus:ring-2 focus:ring-[var(--dash-primary-700)]/20 ${error
+                        ? "border-rose-500 focus:border-rose-500"
+                        : "border-[var(--dash-border)] focus:border-[var(--dash-primary-700)]"
                         }`}
                     placeholder={placeholder}
                     value={value}
@@ -22,17 +23,18 @@ const Input = ({ label, type = 'text', placeholder, value, onChange, onBlur, id,
                     onBlur={onBlur}
                 />
                 {isPassword && (
-                    <div
-                        className="absolute right-4 text-gray-400 cursor-pointer flex items-center justify-center hover:text-gray-600"
+                    <button
+                        type="button"
+                        className="absolute right-3 flex h-8 w-8 items-center justify-center rounded-full text-[var(--dash-text-secondary)] hover:bg-[var(--dash-canvas)] hover:text-[var(--dash-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--dash-primary-700)]"
                         onClick={() => setShowPassword(!showPassword)}
-                        title={showPassword ? "Hide password" : "Show password"}
+                        aria-label={showPassword ? "Hide password" : "Show password"}
                     >
-                        {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
-                    </div>
+                        {showPassword ? <EyeOff size={18} aria-hidden="true" /> : <Eye size={18} aria-hidden="true" />}
+                    </button>
                 )}
             </div>
             {error && (
-                <span className="text-red-500 text-[12px] font-medium mt-[-2px] ml-1">
+                <span role="alert" className="text-rose-600 text-[12px] font-medium mt-[-2px] ml-1">
                     {error}
                 </span>
             )}

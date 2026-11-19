@@ -6,19 +6,19 @@ const BoostTaskPage = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="flex flex-col h-screen bg-[#f8fbfa] overflow-hidden font-sans">
+        <div className="flex flex-col h-screen bg-[#f8fbfa] overflow-hidden pt-[80px] font-sans">
             <ProviderHeader activePage="my-tasks" />
 
             {/* Main Content Area */}
-            <div className="flex-1 overflow-y-auto px-10 py-10">
-                <div className="max-w-4xl mx-auto flex flex-col gap-8">
+            <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6 sm:py-8 lg:px-10 lg:py-10">
+                <div className="max-w-4xl mx-auto flex flex-col gap-6 sm:gap-8">
 
                     {/* Main Bordered Container */}
-                    <div className="w-full border-[1.2px] border-[#ccf2d9] rounded-[2rem] bg-white p-10 flex flex-col gap-8">
+                    <div className="w-full border-[1.2px] border-[#ccf2d9] rounded-2xl sm:rounded-[2rem] bg-white p-5 sm:p-8 lg:p-10 flex flex-col gap-6 sm:gap-8">
 
                         {/* Status Header */}
                         <div className="flex flex-col gap-1">
-                            <h2 className="text-[22px] font-medium text-black">Post Task is Paused & Performer Dismissed</h2>
+                            <h2 className="dash-section-title text-[#172B2B]">Post Task is Paused &amp; Performer Dismissed</h2>
                             <p className="text-gray-500 font-bold text-[13px] leading-relaxed">
                                 Boost your post to find a new performer to complete the task.<br />
                                 You've dismissed the previous performer for not responding.
@@ -74,14 +74,14 @@ const BoostTaskPage = () => {
                         {/* Budget Section */}
                         <div className="flex flex-col gap-4">
                             <h3 className="text-[16px] font-medium text-black">Budget</h3>
-                            <div className="w-full border-[1.2px] border-[#ccf2d9] rounded-[1.2rem] bg-white p-6 flex flex-col gap-2">
-                                <div className="text-[34px] font-medium text-black">₹ 2,000</div>
-                                <p className="text-gray-500 font-bold text-[15px] mb-1">Want to change your budget?</p>
+                            <div className="w-full border-[1.2px] border-[#29ADAC]/30 rounded-[1.2rem] bg-white p-6 flex flex-col gap-2">
+                                <div className="text-[28px] font-semibold text-[#172B2B] dash-num">₹ 2,000</div>
+                                <p className="text-[#647575] font-medium text-[14px] mb-1">Want to change your budget?</p>
                                 <div className="flex items-center justify-between">
-                                    <button className="border-[1.5px] border-[#ccf2d9] text-[#16a34a] px-6 py-2 rounded-full font-black text-[13px] bg-white hover:bg-gray-50">
+                                    <button className="border-[1.5px] border-[#29ADAC]/30 text-[#10605F] px-6 py-2 rounded-full font-semibold text-[13px] bg-white hover:bg-[#EFFBFB]">
                                         Edit Budget
                                     </button>
-                                    <button className="bg-[#16a34a] text-white px-7 py-2.5 rounded-[0.8rem] font-black text-[13px] hover:bg-green-700 transition-colors">
+                                    <button className="bg-[#10605F] text-white px-7 py-2.5 rounded-[0.8rem] font-semibold text-[13px] hover:bg-[#083B3A] transition-colors">
                                         Proceed
                                     </button>
                                 </div>
@@ -90,9 +90,9 @@ const BoostTaskPage = () => {
 
                         {/* Deadline Section */}
                         <div className="flex flex-col gap-4">
-                            <h3 className="text-[16px] font-medium text-black">Deadline</h3>
-                            <div className="w-full border-[1.2px] border-[#ccf2d9] rounded-[1.2rem] bg-white p-6 flex flex-col gap-2">
-                                <div className="flex items-center gap-2.5 text-black font-bold text-[18px]">
+                            <h3 className="text-[16px] font-semibold text-[#172B2B]">Deadline</h3>
+                            <div className="w-full border-[1.2px] border-[#29ADAC]/30 rounded-[1.2rem] bg-white p-6 flex flex-col gap-2">
+                                <div className="flex items-center gap-2.5 text-[#172B2B] font-semibold text-[17px]">
                                     <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                     </svg>
@@ -101,12 +101,12 @@ const BoostTaskPage = () => {
                                         <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
                                     </svg>
                                 </div>
-                                <p className="text-gray-500 font-bold text-[15px] mb-1">Continue with existing Deadline?</p>
+                                <p className="text-[#647575] font-medium text-[14px] mb-1">Continue with existing Deadline?</p>
                                 <div className="flex items-center justify-between">
-                                    <button className="border-[1.5px] border-[#ccf2d9] text-[#16a34a] px-6 py-2 rounded-full font-black text-[13px] bg-white hover:bg-gray-50">
-                                        Edit Budget
+                                    <button className="border-[1.5px] border-[#29ADAC]/30 text-[#10605F] px-6 py-2 rounded-full font-semibold text-[13px] bg-white hover:bg-[#EFFBFB]">
+                                        Edit Deadline
                                     </button>
-                                    <button className="bg-[#16a34a] text-white px-7 py-2.5 rounded-[0.8rem] font-black text-[13px] hover:bg-green-700 transition-colors">
+                                    <button className="bg-[#10605F] text-white px-7 py-2.5 rounded-[0.8rem] font-semibold text-[13px] hover:bg-[#083B3A] transition-colors">
                                         Proceed
                                     </button>
                                 </div>
@@ -116,14 +116,14 @@ const BoostTaskPage = () => {
                     </div>
 
                     {/* Bottom Action Footer */}
-                    <div className="flex items-center justify-between pb-10">
+                    <div className="flex flex-col-reverse gap-3 sm:flex-row sm:items-center sm:justify-between pb-10">
                         <button
                             onClick={() => navigate('/provider/my-tasks')}
-                            className="border-[1.5px] border-[#ccf2d9] text-[#16a34a] px-14 py-3.5 rounded-[1.2rem] font-black text-[15px] bg-white hover:bg-gray-50 transition-colors"
+                            className="w-full sm:w-auto border-[1.5px] border-[#29ADAC]/30 text-[#10605F] px-8 sm:px-14 py-3.5 rounded-[1.2rem] font-semibold text-[15px] bg-white hover:bg-[#EFFBFB] transition-colors"
                         >
                             Cancel
                         </button>
-                        <button className="bg-[#16a34a] text-white px-14 py-3.5 rounded-[1.2rem] font-black text-[15px] hover:bg-green-700 shadow-lg shadow-green-100 transition-all">
+                        <button className="w-full sm:w-auto bg-[#10605F] text-white px-8 sm:px-14 py-3.5 rounded-[1.2rem] font-semibold text-[15px] hover:bg-[#083B3A] shadow-lg transition-all">
                             Boost Task
                         </button>
                     </div>

@@ -66,6 +66,8 @@
   --dash-border: #E5EEEE;
   --dash-active-bg: #EDF9FA;
   --dash-completed-bg: #E8F8F5;
+  --dash-radius-card: 1rem;
+  --dash-radius-card-lg: 1.25rem;
 }
 
 /* Tell Tailwind v4 to use Poppins for font-sans */
@@ -81,7 +83,78 @@
 
 .dash-kpi {
   font-family: var(--font-sans);
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
   font-variant-numeric: tabular-nums;
+}
+
+.dash-num {
+  font-variant-numeric: tabular-nums;
+}
+
+.dash-overline {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.dash-page-title {
+  font-size: clamp(1.25rem, 1.15rem + 0.4vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+
+.dash-section-title {
+  font-size: clamp(1.125rem, 1.06rem + 0.25vw, 1.25rem);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.dash-subsection-title {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.dash-card-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.dash-body {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+.dash-body-compact {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.dash-secondary {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--dash-text-secondary);
+}
+
+.dash-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.dash-caption {
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--dash-text-secondary);
 }
 
 /* Fluid Typography Scale */
@@ -189,33 +262,35 @@ table {
   font-family: inherit;
 }
 
-/* Standard typographic hierarchy */
-h1 {
-  font-family: var(--font-heading);
-  font-size: clamp(1.875rem, 1.25rem + 2.5vw, 3rem);
-  font-weight: 500;
-  line-height: 1.15;
-}
-h2 {
-  font-family: var(--font-heading);
-  font-size: clamp(1.5rem, 1.15rem + 1.5vw, 2.25rem);
-  font-weight: 500;
-  line-height: 1.25;
-}
-h3 {
-  font-family: var(--font-heading);
-  font-size: clamp(1.125rem, 1rem + 0.6vw, 1.5rem);
-  font-weight: 500;
-  line-height: 1.35;
-}
-h4, h5, h6 {
-  font-family: var(--font-heading);
-  font-weight: 500;
-}
+@layer base {
+  /* Standard typographic hierarchy (layered so Tailwind utilities override cleanly) */
+  h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.875rem, 1.25rem + 2.5vw, 3rem);
+    font-weight: 500;
+    line-height: 1.15;
+  }
+  h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 1.15rem + 1.5vw, 2.25rem);
+    font-weight: 500;
+    line-height: 1.25;
+  }
+  h3 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.125rem, 1rem + 0.6vw, 1.5rem);
+    font-weight: 500;
+    line-height: 1.35;
+  }
+  h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 500;
+  }
 
-button {
-  font-family: inherit;
-  font-weight: 500;
+  button {
+    font-family: inherit;
+    font-weight: 500;
+  }
 }
 
 /* Subtle background – soft gradient + dot grid (FirstDoer teal glow) */

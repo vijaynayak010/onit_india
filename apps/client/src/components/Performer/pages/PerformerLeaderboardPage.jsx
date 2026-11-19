@@ -158,14 +158,14 @@ const PerformerLeaderboardPage = () => {
     sky: "bg-sky-50 text-sky-600 ring-sky-200/70",
     emerald: "bg-[var(--color-primary-subtle)] text-[var(--color-primary)] ring-[var(--color-primary)]/20",
     amber: "bg-amber-50 text-amber-700 ring-amber-200/70",
-    violet: "bg-violet-50 text-violet-700 ring-violet-200/70",
+    violet: "bg-[#EFFBFB] text-[#10605F] ring-[#29ADAC]/25",
   };
 
   return (
     <div className="min-h-screen bg-[var(--color-surface)] pt-[93px] font-sans text-[var(--color-text)]">
       <PerformerHeader activePage="leaderboard" />
 
-      <main className="w-full px-4 py-6 sm:px-6 lg:ml-[220px] lg:w-[calc(100%-220px)] lg:px-8">
+      <main className="w-full px-4 py-6 sm:px-6 lg:ml-[240px] lg:w-[calc(100%-240px)] lg:px-8">
         <div className="mx-auto w-full max-w-6xl pb-12">
           <PerformerPageHeader
             title="Leaderboard"
@@ -199,7 +199,7 @@ const PerformerLeaderboardPage = () => {
                     </div>
                   </div>
                   <div className="text-right">
-                    <p className="text-3xl font-medium tabular-nums text-[var(--color-text)]">
+                    <p className="text-2xl sm:text-[26px] font-medium tabular-nums text-[var(--color-text)]">
                       {myRank != null ? `#${myRank}` : "—"}
                     </p>
                     <p className="text-xs font-bold uppercase tracking-wide text-[var(--color-text-subtle)]">
@@ -345,12 +345,12 @@ const PerformerLeaderboardPage = () => {
                   key={stat.label}
                   className="flex items-center gap-4 rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-5 shadow-[var(--shadow-sm)] sm:p-6"
                 >
-                  <div className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl ring-1 text-sm font-black ${toneRing[stat.tone]}`}>
+                  <div className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl ring-1 text-sm font-medium ${toneRing[stat.tone]}`}>
                     {String(stat.value).slice(0, 1)}
                   </div>
                   <div className="min-w-0">
                     <p className="text-[10px] font-bold uppercase tracking-wide text-[var(--color-text-subtle)]">{stat.label}</p>
-                    <p className="mt-1 truncate text-2xl font-medium tabular-nums tracking-tight text-[var(--color-text)] sm:text-3xl">{stat.value}</p>
+                    <p className="mt-1 truncate text-2xl font-medium tabular-nums tracking-tight text-[var(--color-text)] sm:text-[26px]">{stat.value}</p>
                   </div>
                 </div>
               ))}

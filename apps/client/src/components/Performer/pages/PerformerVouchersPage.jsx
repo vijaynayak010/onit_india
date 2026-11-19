@@ -52,7 +52,7 @@ const PerformerVouchersPage = () => {
   const statTone = {
     emerald: "bg-[var(--color-primary-subtle)] text-[var(--color-primary)] ring-[var(--color-primary)]/20",
     sky: "bg-sky-50 text-sky-600 ring-sky-200/70",
-    violet: "bg-violet-50 text-violet-700 ring-violet-200/70",
+    violet: "bg-[#EFFBFB] text-[#10605F] ring-[#29ADAC]/25",
     amber: "bg-amber-50 text-amber-700 ring-amber-200/70",
   };
 
@@ -60,7 +60,7 @@ const PerformerVouchersPage = () => {
     <div className="min-h-screen bg-[var(--color-surface)] pt-[93px] font-sans text-[var(--color-text)]">
       <PerformerHeader activePage="account" />
 
-      <main className="w-full px-4 py-6 sm:px-6 lg:ml-[220px] lg:w-[calc(100%-220px)] lg:px-8">
+      <main className="w-full px-4 py-6 sm:px-6 lg:ml-[240px] lg:w-[calc(100%-240px)] lg:px-8">
         <div className="mx-auto w-full max-w-6xl pb-12">
           <PerformerPageHeader
             title="My vouchers"

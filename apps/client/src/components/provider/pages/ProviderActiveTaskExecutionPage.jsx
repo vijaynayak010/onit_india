@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion as Motion, AnimatePresence } from "framer-motion";
 import {
   ChevronLeft,
   MessageCircle,
@@ -119,7 +119,7 @@ const mapProviderTaskData = (task, updates = []) => {
       ? `ID: ${performer.substring(0, 8)}...`
       : (performer?.displayName || performer?.professional_title || performer?.user?.email?.split("@")[0] || "No Performer"),
     category: task.category || "General",
-    timeRemaining: formatDeadline(task.dueAt),
+    timeRemaining: formatDeadline(task.dueAt || task.deadline || task.expectedCompletionDate),
     price: task.priceAmount || 0,
     id: task.id,
     submission: {
@@ -157,7 +157,7 @@ const getCombinedFiles = (taskFiles, updates, performerUserId = null) => {
           if (lastPart && lastPart.includes('.')) {
             filename = decodeURIComponent(lastPart);
           }
-        } catch (e) {
+        } catch {
           // Ignore URL parsing errors
         }
       }
@@ -244,7 +244,7 @@ const ProviderActiveTaskExecutionPage = () => {
   const isChecklistApproved = String(checklistStatus || "").toUpperCase() === "APPROVED";
 
   const applyChecklist = (checklistPayload) => {
-    setChecklistExistsOnServer(checklistPayload !== null && checklistPayload !== undefined);
+    setChecklistExistsOnServer(Boolean(checklistPayload?.id || (Array.isArray(checklistPayload?.items) && checklistPayload.items.length > 0)));
     setChecklistId(checklistPayload?.id || null);
     setChecklistStatus(checklistPayload?.status || null);
     const mappedChecklist = mapChecklistItemsFromApi(checklistPayload?.items || []);
@@ -330,6 +330,7 @@ const ProviderActiveTaskExecutionPage = () => {
       setTaskUpdates([]);
       fetchTaskDetails(nextPreview);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- Only re-initialize and fetch when route task id changes; location.state is read as an initial preview.
   }, [id]);
 
   const syncChecklistItems = (items, idFromApi = null) => {
@@ -340,7 +341,7 @@ const ProviderActiveTaskExecutionPage = () => {
 
   const refreshChecklist = async () => {
     const fresh = await getChecklist(id);
-    setChecklistExistsOnServer(true);
+    setChecklistExistsOnServer(Boolean(fresh?.id || (Array.isArray(fresh?.items) && fresh.items.length > 0)));
     setChecklistId(fresh?.id || null);
     setChecklistStatus(fresh?.status || null);
     syncChecklistItems(fresh?.items || [], fresh?.id);
@@ -574,8 +575,6 @@ const ProviderActiveTaskExecutionPage = () => {
     }
   };
 
-  const isCompleted = taskData?.status === "COMPLETED" || taskData?.assignmentStatus === "COMPLETED";
-
   const tabs = [
     { id: "details", label: "Task Details" },
     { id: "updates", label: "Execution Updates" },
@@ -586,13 +585,13 @@ const ProviderActiveTaskExecutionPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[var(--color-surface)] pb-28 pt-[80px] font-sans text-[var(--color-text)] antialiased">
+    <div className="min-h-screen bg-[var(--color-surface)] pb-20 pt-[80px] font-sans text-[var(--color-text)] antialiased">
       <ProviderHeader activePage="my-tasks" />
 
       {/* Chat Sidebar Overlay */}
       <AnimatePresence>
         {showChatSidebar && (
-          <motion.div
+          <Motion.div
             initial={{ x: "100%", opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: "100%", opacity: 0 }}
@@ -625,52 +624,13 @@ const ProviderActiveTaskExecutionPage = () => {
                 createConversation={createConversation}
               />
             </div>
-          </motion.div>
+          </Motion.div>
         )}
       </AnimatePresence>
 
-      <div className="border-b border-[var(--color-border)] bg-gradient-to-b from-[var(--color-surface-elevated)] to-[var(--color-surface)]/90">
-        <div className="mx-auto max-w-5xl px-4 py-4 sm:px-6 lg:px-8">
-          <nav aria-label="Breadcrumb" className="mb-3 flex flex-wrap items-center gap-2 text-xs font-medium sm:text-sm">
-            <button
-              type="button"
-              onClick={() => navigate("/provider/my-tasks")}
-              className="text-[var(--color-text-subtle)] transition hover:text-[var(--color-primary)]"
-            >
-              My tasks
-            </button>
-            <span className="text-[var(--color-border)]" aria-hidden>
-              /
-            </span>
-            <span className="font-semibold text-[var(--color-text)]">Active task</span>
-            <span className="rounded-full bg-[var(--color-border-subtle)] px-2 py-0.5 font-mono text-[11px] text-[var(--color-text-muted)]">
-              #{(taskData?.id || id)?.substring(0, 8).toUpperCase()}
-            </span>
-          </nav>
-          <div className="flex flex-wrap items-center gap-2">
-            <button
-              type="button"
-              onClick={() => navigate("/provider/dashboard")}
-              className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border)] bg-white px-3 py-1.5 text-xs font-semibold text-[var(--color-text)] shadow-[var(--shadow-xs)] transition hover:border-[var(--color-primary)]/35 sm:text-sm"
-            >
-              <LayoutGrid className="h-3.5 w-3.5" strokeWidth={2.25} />
-              Dashboard
-            </button>
-            <button
-              type="button"
-              onClick={() => navigate("/provider/my-tasks")}
-              className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border)] bg-white px-3 py-1.5 text-xs font-semibold text-[var(--color-text)] shadow-[var(--shadow-xs)] transition hover:border-[var(--color-primary)]/35 sm:text-sm"
-            >
-              <ListTodo className="h-3.5 w-3.5" strokeWidth={2.25} />
-              All tasks
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <main className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
+      <main className="mx-auto max-w-[1440px] px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
         {/* Summary header */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35 }}
@@ -693,7 +653,7 @@ const ProviderActiveTaskExecutionPage = () => {
                     <Hash className="h-3 w-3" strokeWidth={2.5} />
                     Task #{(taskData?.id || id)?.substring(0, 8).toUpperCase()}
                   </div>
-                  <h1 className="text-lg sm:text-xl md:text-2xl font-heading font-medium leading-snug tracking-tight text-[var(--color-text)]">
+                  <h1 className="dash-page-title text-[var(--color-text)]">
                     {taskData?.title || "Loading..."}
                   </h1>
                 </div>
@@ -731,7 +691,7 @@ const ProviderActiveTaskExecutionPage = () => {
               </div>
             </div>
           </div>
-        </motion.div>
+        </Motion.div>
 
         <div className="mb-8 grid gap-4 lg:grid-cols-[1.35fr_1fr]">
           <section className="rounded-[var(--radius-xl)] border border-[var(--color-primary)]/25 bg-[var(--color-primary)] p-5 text-white shadow-[var(--shadow-sm)] sm:p-6">
@@ -776,21 +736,21 @@ const ProviderActiveTaskExecutionPage = () => {
 
         {/* Main panel */}
         <div className="overflow-hidden rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] shadow-[var(--shadow-md)] ring-1 ring-black/[0.04]">
-          <div className="flex flex-col gap-4 border-b border-[var(--color-border)] bg-[var(--color-border-subtle)]/40 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-8 sm:py-5">
-            <div className="flex gap-6 overflow-x-auto pb-1 scrollbar-hide sm:gap-10 sm:pb-0">
+          <div className="flex flex-col gap-3 border-b border-[var(--color-border)] bg-[var(--color-border-subtle)]/40 px-4 py-4 lg:flex-row lg:items-center lg:justify-between lg:gap-4 lg:px-6 lg:py-4">
+            <div className="flex min-w-0 flex-nowrap gap-4 overflow-x-auto pb-2 scrollbar-hide lg:gap-5 lg:pb-0">
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
                   type="button"
                   onClick={() => setActiveTab(tab.id)}
-                  className={`relative shrink-0 pb-3 text-[15px] font-medium transition-colors sm:text-[16px] ${activeTab === tab.id
+                  className={`relative shrink-0 whitespace-nowrap pb-2 text-[13.5px] font-medium transition-colors xl:text-[14.5px] ${activeTab === tab.id
                     ? "text-[var(--color-text)]"
                     : "text-[var(--color-text-subtle)] hover:text-[var(--color-text-muted)]"
                     }`}
                 >
                   {tab.label}
                   {activeTab === tab.id && (
-                    <motion.div
+                    <Motion.div
                       layoutId="providerActiveTaskTab"
                       className="absolute bottom-0 left-0 right-0 h-[3px] rounded-full bg-[var(--color-primary)]"
                       transition={{ type: "spring", stiffness: 380, damping: 32 }}
@@ -799,14 +759,14 @@ const ProviderActiveTaskExecutionPage = () => {
                 </button>
               ))}
             </div>
-            <div className="flex flex-col sm:flex-row items-center gap-3 self-end sm:self-auto">
+            <div className="flex shrink-0 flex-col sm:flex-row items-center gap-2.5 self-end lg:self-auto">
               <button
                 type="button"
                 onClick={() => navigate(`/provider/active-task/${id}/performer-issues`)}
-                className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-red-50 px-4 py-2.5 text-red-600 transition hover:bg-red-100 font-bold text-sm border border-red-100 w-full sm:w-auto"
+                className="inline-flex shrink-0 items-center justify-center gap-1.5 rounded-xl bg-red-50 px-3.5 py-2 text-red-600 transition hover:bg-red-100 font-bold text-xs sm:text-[13px] border border-red-100 w-full sm:w-auto whitespace-nowrap"
                 title="Get Help from Support"
               >
-                <AlertCircle className="h-4 w-4" />
+                <AlertCircle className="h-3.5 w-3.5" />
                 Report an issue
               </button>
               <button
@@ -818,10 +778,10 @@ const ProviderActiveTaskExecutionPage = () => {
                     alert("No performer assigned to this task yet.");
                   }
                 }}
-                className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-[var(--color-primary-subtle)] px-4 py-2.5 text-[var(--color-primary)] transition hover:bg-[var(--color-primary)]/15 font-bold text-sm w-full sm:w-auto"
+                className="inline-flex shrink-0 items-center justify-center gap-1.5 rounded-xl bg-[var(--color-primary-subtle)] px-3.5 py-2 text-[var(--color-primary)] transition hover:bg-[var(--color-primary)]/15 font-bold text-xs sm:text-[13px] w-full sm:w-auto whitespace-nowrap"
                 title="Go to Chat"
               >
-                <MessageCircle className="h-4 w-4" fill="currentColor" strokeWidth={0} />
+                <MessageCircle className="h-3.5 w-3.5" fill="currentColor" strokeWidth={0} />
                 Open Chat
               </button>
             </div>
@@ -848,7 +808,7 @@ const ProviderActiveTaskExecutionPage = () => {
             ) : (
               <AnimatePresence mode="wait">
                 {activeTab === "details" && (
-                  <motion.div
+                  <Motion.div
                     key="details"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -891,11 +851,11 @@ const ProviderActiveTaskExecutionPage = () => {
                         </div>
                       </div>
                     )}
-                  </motion.div>
+                  </Motion.div>
                 )}
 
                 {activeTab === "checklist" && (
-                  <motion.div
+                  <Motion.div
                     key="checklist"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -923,7 +883,7 @@ const ProviderActiveTaskExecutionPage = () => {
                         <span className="text-3xl font-medium leading-none text-[var(--color-primary)]">{progressPercentage}%</span>
                       </div>
                       <div className="h-2.5 w-full overflow-hidden rounded-full bg-[var(--color-border-subtle)]">
-                        <motion.div
+                        <Motion.div
                           initial={{ width: 0 }}
                           animate={{ width: `${progressPercentage}%` }}
                           className="h-full rounded-full bg-[var(--color-primary)] transition-all duration-700 ease-out"
@@ -957,7 +917,7 @@ const ProviderActiveTaskExecutionPage = () => {
                       ) : null}
 
                       {hasChecklistChanges && (
-                        <motion.div
+                        <Motion.div
                           initial={{ opacity: 0, y: -10 }}
                           animate={{ opacity: 1, y: 0 }}
                           className="flex justify-end mt-2"
@@ -970,7 +930,7 @@ const ProviderActiveTaskExecutionPage = () => {
                           >
                             {savingChecklist ? "Saving Changes..." : "Save Checklist Changes"}
                           </button>
-                        </motion.div>
+                        </Motion.div>
                       )}
                     </div>
 
@@ -1045,11 +1005,11 @@ const ProviderActiveTaskExecutionPage = () => {
                         Approve entire checklist
                       </button>
                     ) : null}
-                  </motion.div>
+                  </Motion.div>
                 )}
 
                 {activeTab === "updates" && (
-                  <motion.div
+                  <Motion.div
                     key="updates"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -1216,13 +1176,13 @@ const ProviderActiveTaskExecutionPage = () => {
                         </div>
                       </div>
                     </div>
-                  </motion.div>
+                  </Motion.div>
                 )}
 
                 {activeTab === "files" && (() => {
                   const combinedFiles = getCombinedFiles(taskData.files, taskUpdates);
                   return (
-                    <motion.div
+                    <Motion.div
                       key="files"
                       initial={{ opacity: 0, scale: 0.98 }}
                       animate={{ opacity: 1, scale: 1 }}
@@ -1241,7 +1201,7 @@ const ProviderActiveTaskExecutionPage = () => {
                           <p className="font-bold text-[var(--color-text-subtle)]">No files shared yet.</p>
                         </div>
                       )}
-                    </motion.div>
+                    </Motion.div>
                   );
                 })()}
 
@@ -1262,7 +1222,7 @@ const ProviderActiveTaskExecutionPage = () => {
             {(() => {
               const aStatus = taskData?.assignmentStatus;
               const canApprove = aStatus && ['ACCEPTED', 'IN_PROGRESS', 'ASSIGNED', 'CLAIMED', 'SUBMITTED', 'ACTIVE'].includes(aStatus);
-              const checklistBlocksCompletion = checklistExistsOnServer && !isChecklistApproved;
+              const checklistBlocksCompletion = checklistExistsOnServer && checklistItems.length > 0 && !isChecklistApproved;
               const alreadyDone = aStatus === 'COMPLETED';
               const showRevision = aStatus === 'SUBMITTED';
 

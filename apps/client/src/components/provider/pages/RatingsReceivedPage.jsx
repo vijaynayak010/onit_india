@@ -97,7 +97,7 @@ const RatingsReceivedPage = () => {
         </button>
 
         <header className="mb-8">
-          <h1 className="text-3xl font-medium text-gray-900">Ratings Received</h1>
+          <h1 className="dash-page-title text-gray-900">Ratings Received</h1>
           <p className="text-gray-500 mt-1">All ratings from your clients</p>
         </header>
 

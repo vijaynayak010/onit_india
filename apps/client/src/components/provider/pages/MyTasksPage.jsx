@@ -165,7 +165,7 @@ const MyTasksPage = () => {
   useEffect(() => {
     if (location.state?.tab) {
       setActiveTab(location.state.tab);
-      setSearchParams({ tab: location.state.tab.toLowerCase() });
+      setSearchParams({ tab: location.state.tab.toLowerCase() }, { replace: true });
     }
   }, [location.state, setSearchParams]);
 
@@ -521,12 +521,12 @@ const MyTasksPage = () => {
   };
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[var(--color-surface)] pb-24 pt-[80px] font-sans antialiased">
+    <div className="min-h-screen overflow-x-hidden bg-[var(--color-surface)] pb-16 pt-[80px] font-sans antialiased">
       <ProviderHeader activePage="my-tasks" />
 
 
 
-      <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <main className="mx-auto max-w-[1440px] px-4 py-6 sm:px-6 lg:px-8">
         {/* Page shell */}
 
 
@@ -797,7 +797,7 @@ const ActiveTaskCard = ({ task, onClick }) => (
       <div className="flex flex-col items-stretch gap-3 sm:items-end">
         <div className="flex items-center gap-3 text-[var(--color-text-subtle)]">
           {task.filesCount > 0 && (
-            <div className="flex items-center gap-1 font-bold text-[#16a34a]">
+            <div className="flex items-center gap-1 font-semibold text-[#10605F]">
               <Paperclip className="h-3.5 w-3.5" strokeWidth={2.5} />
               <span className="text-[11px]">{task.filesCount}</span>
             </div>
@@ -840,7 +840,7 @@ const PendingTaskCard = ({ task, onClick }) => (
           {task.filesCount > 0 && (
             <>
               <span className="text-[var(--color-text-subtle)]">·</span>
-              <div className="flex items-center gap-1 font-bold text-[#16a34a]">
+              <div className="flex items-center gap-1 font-semibold text-[#10605F]">
                 <Paperclip className="h-3 w-3" strokeWidth={2.5} />
                 <span className="text-[11px]">{task.filesCount}</span>
               </div>
@@ -1014,11 +1014,11 @@ const InterestTaskCard = ({ task, onClick, onNavigateDetails, onCancel, onDelete
 
       {/* Header row */}
       <div className="flex items-center justify-between px-5 pt-4">
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-[#EFFBFB] px-2.5 py-1 text-[9px] font-black uppercase tracking-widest text-[#10605F]">
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-[#EFFBFB] px-2.5 py-1 text-[9px] font-medium uppercase tracking-widest text-[#10605F]">
           <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
           {task.category || "General"}
         </span>
-        <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-black ${
+        <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-medium ${
           hasApplicants
             ? "bg-[#10605F] text-white"
             : hasInvitations
@@ -1063,14 +1063,14 @@ const InterestTaskCard = ({ task, onClick, onNavigateDetails, onCancel, onDelete
                   );
                 })}
                 {applicantsCount > 4 && (
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-white bg-emerald-200 text-[9px] font-black text-[#083B3A] shadow-sm">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-white bg-emerald-200 text-[9px] font-medium text-[#083B3A] shadow-sm">
                     +{applicantsCount - 4}
                   </div>
                 )}
               </div>
               <div className="text-[12px] leading-none">
-                <span className="font-black text-[#10605F]">{applicantsCount}</span>
-                <span className="ml-1 font-semibold text-[#10605F]">
+                <span className="font-medium text-[#10605F]">{applicantsCount}</span>
+                <span className="ml-1 font-normal text-[#10605F]">
                   performer{applicantsCount > 1 ? "s" : ""} applied
                 </span>
               </div>
@@ -1096,7 +1096,7 @@ const InterestTaskCard = ({ task, onClick, onNavigateDetails, onCancel, onDelete
       <div className="mt-auto px-5 pb-5 pt-4">
         {/* Budget row */}
         <div className="mb-3">
-          <p className="text-[9px] font-black uppercase tracking-[0.12em] text-slate-400">Budget</p>
+          <p className="text-[9px] font-normal uppercase tracking-[0.12em] text-slate-400">Budget</p>
           <p className="text-[18px] font-medium leading-none tracking-tight text-slate-900">
             ₹{task.priceAmount ? Number(task.priceAmount).toLocaleString("en-IN") : "0"}
           </p>

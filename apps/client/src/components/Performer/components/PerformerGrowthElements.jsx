@@ -89,7 +89,7 @@ export function PerformerTrustCard({ trust }) {
     <section className="rounded-3xl bg-gray-950 p-5 text-white" aria-label="Trust Score">
       <div className="flex items-center gap-2 text-sm font-semibold text-[#7EDEDD]"><ShieldCheck size={18} /> Trust Score</div>
       {trust.active ? <>
-        <div className="mt-3 flex items-baseline gap-1"><span className="text-5xl font-medium">{trust.score}</span><span className="text-gray-400">/{trust.maxScore}</span></div>
+        <div className="mt-3 flex items-baseline gap-1"><span className="text-[28px] sm:text-[32px] font-medium">{trust.score}</span><span className="text-gray-400">/{trust.maxScore}</span></div>
         <p className="mt-2 text-sm leading-6 text-gray-300">Built from verified work, quality, deadlines, reliability, and profile strength.</p>
         <div className="mt-4 grid grid-cols-2 gap-2 text-xs">
           {Object.entries(trust.breakdown || {}).map(([key, value]) => <div key={key} className="rounded-xl bg-white/10 p-3"><span className="capitalize text-gray-300">{key.replace(/([A-Z])/g, " $1")}</span><strong className="block mt-1 text-base text-white">{value}</strong></div>)}
@@ -109,7 +109,7 @@ export function PerformerEarningsCard({ benchmark }) {
     <p className="text-xs font-semibold uppercase tracking-widest text-gray-500">Real earnings · last {benchmark.periodDays} days</p>
     <h2 className="mt-2 text-xl font-medium text-gray-950">{benchmark.category}</h2>
     {benchmark.available ? <>
-      <p className="mt-3 text-3xl font-medium text-[#10605F]">₹{Number(benchmark.medianEarningsInr).toLocaleString("en-IN")}</p>
+      <p className="mt-3 text-2xl sm:text-[26px] font-medium text-[#10605F]">₹{Number(benchmark.medianEarningsInr).toLocaleString("en-IN")}</p>
       <p className="mt-1 text-sm text-gray-600">Median earned by {benchmark.performerCount} active performers in this category.</p>
     </> : <p className="mt-3 text-sm text-gray-600">Not enough completed, paid work yet for a reliable comparison.</p>}
     <p className="mt-3 text-xs leading-5 text-gray-500">{benchmark.disclaimer}</p>

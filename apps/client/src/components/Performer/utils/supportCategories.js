@@ -48,8 +48,8 @@ export const SUPPORT_CATEGORIES = [
     shortDescription: "Issues with the client",
     subtitle: "Chat, clarification & no response",
     Icon: UserX,
-    iconBg: "bg-violet-50",
-    iconColor: "text-violet-600",
+    iconBg: "bg-[#EFFBFB]",
+    iconColor: "text-[#10605F]",
     faqs: [
       {
         q: "The provider isn't responding.",

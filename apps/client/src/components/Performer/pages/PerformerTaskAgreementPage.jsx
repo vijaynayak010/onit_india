@@ -269,7 +269,7 @@ const PerformerTaskAgreementPage = () => {
                 <ShieldCheck className="h-3.5 w-3.5" strokeWidth={2.5} />
                 Task Agreement
               </div>
-              <h1 className="text-2xl sm:text-3xl font-heading font-medium tracking-tight text-[var(--color-text)]">
+              <h1 className="dash-page-title text-[var(--color-text)]">
                 {view.title}
               </h1>
               <p className="mt-1.5 text-[15px] font-medium text-[var(--color-text-muted)]">

@@ -4,7 +4,7 @@ import { ChevronRight, Loader2 } from "lucide-react";
 import PerformerPageHeader from "../PerformerPageHeader";
 import PayoutAccountCard from "./PayoutAccountCard";
 import TransactionListItem from "./TransactionListItem";
-import { formatINR } from "./walletUtils";
+import { extractTransactionList, formatINR } from "./walletUtils";
 import { getWalletBalance, getTransactions, getPayoutMethods } from "../../services/api";
 
 const StatCard = ({ label, amount, tone }) => {
@@ -45,7 +45,7 @@ const PerformerWalletEarningsView = ({ paths = DEFAULT_PATHS, title = "Wallet" }
           getPayoutMethods().catch(() => []),
         ]);
 
-        const txList = Array.isArray(transRes?.data) ? transRes.data : [];
+        const txList = extractTransactionList(transRes);
         const totalEarned = txList
           .filter((t) => t.type === "CREDIT" && t.status === "COMPLETED")
           .reduce((sum, t) => sum + (Number(t.amount) || 0), 0);
@@ -96,7 +96,7 @@ const PerformerWalletEarningsView = ({ paths = DEFAULT_PATHS, title = "Wallet" }
                 <p className="text-[11px] font-bold uppercase tracking-widest text-gray-400">
                   Available balance
                 </p>
-                <p className="mt-1 text-4xl font-medium tabular-nums leading-none text-gray-900">
+                <p className="mt-1 text-2xl sm:text-[28px] font-medium tabular-nums leading-none text-gray-900">
                   ₹{formatINR(wallet.balance)}
                 </p>
               </div>

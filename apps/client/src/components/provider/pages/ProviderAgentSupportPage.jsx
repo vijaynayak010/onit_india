@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
-import { ChevronRight, Headphones, Home, Loader2, Send } from "lucide-react";
+import { useSearchParams } from "react-router-dom";
+import { Headphones, Loader2, Send } from "lucide-react";
 import ProviderHeader from "../components/ProviderHeader";
 import {
   addSupportMessage,
@@ -55,7 +55,6 @@ const GREETING = {
 };
 
 const ProviderAgentSupportPage = () => {
-  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const taskId = searchParams.get("taskId");
   const topic = searchParams.get("topic") || "general";
@@ -215,36 +214,6 @@ const ProviderAgentSupportPage = () => {
         }}
       />
 
-      {/* Breadcrumb */}
-      <div className="border-b border-[var(--color-border)] bg-gradient-to-b from-[var(--color-surface-elevated)] to-[var(--color-surface)]/90">
-        <div className="mx-auto max-w-5xl px-4 py-4 sm:px-6 lg:px-8">
-          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-sm">
-            <button
-              type="button"
-              onClick={() => navigate("/provider/dashboard")}
-              className="inline-flex items-center gap-2 font-medium text-[var(--color-text-subtle)] transition hover:text-[var(--color-primary)]"
-            >
-              <Home className="h-4 w-4" strokeWidth={2.25} />
-              Home
-            </button>
-            <ChevronRight className="h-4 w-4 text-[var(--color-border)]" aria-hidden />
-            {taskId && (
-              <>
-                <button
-                  type="button"
-                  onClick={() => navigate(`/provider/active-task/${taskId}`)}
-                  className="font-medium text-[var(--color-text-subtle)] transition hover:text-[var(--color-primary)]"
-                >
-                  Task
-                </button>
-                <ChevronRight className="h-4 w-4 text-[var(--color-border)]" aria-hidden />
-              </>
-            )}
-            <span className="font-bold text-[var(--color-primary)]">FirstDoer Buddy</span>
-          </nav>
-        </div>
-      </div>
-
       <main className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Page header */}
         <div className="mb-8 text-center sm:text-left">
@@ -252,7 +221,7 @@ const ProviderAgentSupportPage = () => {
             <Headphones className="h-3.5 w-3.5" strokeWidth={2.5} />
             Support
           </div>
-          <h1 className="text-3xl font-medium tracking-tight text-[var(--color-text)] sm:text-[32px]">
+          <h1 className="dash-page-title text-[var(--color-text)]">
             {meta.title}
           </h1>
           <p className="mt-2 max-w-2xl text-[15px] font-medium text-[var(--color-text-muted)]">

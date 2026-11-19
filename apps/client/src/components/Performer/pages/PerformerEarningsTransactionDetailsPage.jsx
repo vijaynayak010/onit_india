@@ -1,5 +1,4 @@
 import React from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
 import {
     ChevronLeft,
     Wallet,
@@ -10,8 +9,6 @@ import PerformerHeader from '../components/PerformerHeader';
 import PerformerPageHeader from '../components/PerformerPageHeader';
 
 const PerformerEarningsTransactionDetailsPage = () => {
-    const navigate = useNavigate();
-    const { id } = useParams();
 
     // Mock data based on design
     const transaction = {
@@ -31,7 +28,7 @@ const PerformerEarningsTransactionDetailsPage = () => {
         <div className="min-h-screen bg-[var(--color-surface)] pt-[93px] font-sans text-[var(--color-text)]">
             <PerformerHeader activePage="account" />
 
-            <main className="w-full px-4 py-6 sm:px-6 lg:ml-[220px] lg:w-[calc(100%-220px)] lg:px-8">
+            <main className="w-full px-4 py-6 sm:px-6 lg:ml-[240px] lg:w-[calc(100%-240px)] lg:px-8">
                 <div className="mx-auto w-full max-w-4xl">
                     <PerformerPageHeader
                         title="Transaction Details"
@@ -50,7 +47,7 @@ const PerformerEarningsTransactionDetailsPage = () => {
                                 <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#2BA960] shadow-sm">
                                     <Wallet size={20} strokeWidth={2.5} />
                                 </div>
-                                <h2 className="text-[40px] font-medium text-[#2BA960] leading-none tracking-tight">₹{transaction.amount}</h2>
+                                <h2 className="text-2xl sm:text-[30px] font-medium text-[#2BA960] leading-none tracking-tight">₹{transaction.amount}</h2>
                             </div>
                             <p className="text-[18px] font-medium text-[#4B5563] mb-8 pl-13 ml-12">{transaction.type}</p>
 
@@ -85,15 +82,15 @@ const PerformerEarningsTransactionDetailsPage = () => {
                                 <div className="bg-white rounded-[16px] border border-gray-100 p-6 space-y-5 shadow-sm">
                                     <div className="flex justify-between items-center">
                                         <span className="text-[14px] font-bold text-gray-400">Date & Time</span>
-                                        <span className="text-[14px] font-black text-gray-900">{transaction.date}</span>
+                                        <span className="text-[14px] font-medium text-gray-900">{transaction.date}</span>
                                     </div>
                                     <div className="flex justify-between items-center">
                                         <span className="text-[14px] font-bold text-gray-400">Reference ID</span>
-                                        <span className="text-[14px] font-black text-gray-900">{transaction.referenceId}</span>
+                                        <span className="text-[14px] font-medium text-gray-900">{transaction.referenceId}</span>
                                     </div>
                                     <div className="flex justify-between items-center">
                                         <span className="text-[14px] font-bold text-gray-400">Status</span>
-                                        <span className="bg-[#EFFBFB] text-[#10605F] px-3 py-1.5 rounded-lg text-[12px] font-black uppercase tracking-widest">
+                                        <span className="bg-[#EFFBFB] text-[#10605F] px-3 py-1.5 rounded-lg text-[12px] font-medium uppercase tracking-widest">
                                             {transaction.status}
                                         </span>
                                     </div>
@@ -105,11 +102,11 @@ const PerformerEarningsTransactionDetailsPage = () => {
                                 <h3 className="text-[18px] font-medium text-gray-900 mb-4">Task & Reason</h3>
                                 <div className="bg-white rounded-[16px] border border-gray-100 p-6 space-y-5 shadow-sm h-[158px]">
                                     <div className="flex justify-between items-start gap-4">
-                                        <span className="text-[14px] font-black text-gray-900 min-w-[60px]">Task</span>
+                                        <span className="text-[14px] font-medium text-gray-900 min-w-[60px]">Task</span>
                                         <span className="text-[14px] font-bold text-gray-600 text-right">{transaction.taskTitle}</span>
                                     </div>
                                     <div className="flex justify-between items-start gap-4">
-                                        <span className="text-[14px] font-black text-gray-900 min-w-[60px]">Reason</span>
+                                        <span className="text-[14px] font-medium text-gray-900 min-w-[60px]">Reason</span>
                                         <span className="text-[12px] font-bold text-gray-400 text-right leading-relaxed line-clamp-3">
                                             {transaction.reason}
                                         </span>
@@ -127,7 +124,7 @@ const PerformerEarningsTransactionDetailsPage = () => {
                                     <span className="text-[18px] font-medium text-gray-900">₹ {transaction.amount}</span>
                                 </div>
                                 <p className="text-[14px] font-bold text-gray-400">
-                                    Refunded <span className="font-black text-[#2BA960]">₹{transaction.amount}</span> to your wallet balance
+                                    Refunded <span className="font-medium text-[#2BA960]">₹{transaction.amount}</span> to your wallet balance
                                 </p>
                             </div>
                         </div>
@@ -144,7 +141,7 @@ const PerformerEarningsTransactionDetailsPage = () => {
                         
                         {/* Export Button */}
                         <div className="flex justify-center pt-6">
-                            <button className="flex items-center gap-2 px-8 py-3.5 rounded-xl border-2 border-gray-100 text-gray-600 font-black text-[15px] hover:bg-gray-50 hover:border-gray-200 transition-all shadow-sm bg-white">
+                            <button className="flex items-center gap-2 px-8 py-3.5 rounded-xl border-2 border-gray-100 text-gray-600 font-medium text-[15px] hover:bg-gray-50 hover:border-gray-200 transition-all shadow-sm bg-white">
                                 <FileText size={18} strokeWidth={2.5} />
                                 Export Statement
                             </button>

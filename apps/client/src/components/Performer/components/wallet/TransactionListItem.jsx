@@ -71,7 +71,7 @@ const TransactionListItem = ({ tx, onClick, compact = false }) => {
           isCredit ? "text-[#10605F]" : "text-gray-900"
         }`}
       >
-        {isCredit ? "+" : "−"}₹{formatINR(tx.amount)}
+        {isCredit ? "+" : "−"}₹{formatINR(Math.abs(Number(tx.amount) || 0))}
       </span>
     </button>
   );

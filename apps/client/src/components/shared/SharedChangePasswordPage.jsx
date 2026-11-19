@@ -26,7 +26,7 @@ const SharedChangePasswordPage = ({ backRoute, forgotPasswordRoute }) => {
     <div className={`min-h-screen bg-[var(--color-surface)] font-sans text-[var(--color-text)] ${isPerformer ? "pt-[93px]" : ""}`}>
       {isPerformer ? <PerformerHeader activePage="account" /> : <ProviderHeader activePage="settings" />}
 
-      <main className={`pb-16 ${isPerformer ? "w-full px-4 py-6 sm:px-6 lg:ml-[220px] lg:w-[calc(100%-220px)] lg:px-8" : "pt-[80px]"}`}>
+      <main className={`pb-16 ${isPerformer ? "w-full px-4 py-6 sm:px-6 lg:ml-[240px] lg:w-[calc(100%-240px)] lg:px-8" : "pt-[80px]"}`}>
         <div className="mx-auto w-full max-w-5xl px-4 py-4 sm:px-6">
           {isPerformer ? (
             <PerformerPageHeader

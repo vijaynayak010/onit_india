@@ -88,8 +88,8 @@ const howItWorks = [
     title: "Apply to Projects",
     body: "Send targeted proposals with your portfolio, timeline, and competitive pricing.",
     icon: Megaphone,
-    color: "text-fuchsia-500",
-    bg: "bg-fuchsia-50",
+    color: "text-[#1B8887]",
+    bg: "bg-[#EFFBFB]",
   },
   {
     title: "Get Paid Securely",
@@ -269,7 +269,7 @@ function JourneyBanner({ stage, category, onAction }) {
   if (!copy) return null;
   return <section className="rounded-3xl bg-slate-950 p-5 text-white shadow-[0_12px_30px_rgba(15,23,42,0.12)] sm:p-6">
     <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#7EDEDD]">{copy.eyebrow}</p>
-    <h1 className="mt-2 max-w-xl text-xl sm:text-2xl md:text-3xl font-heading font-medium leading-tight tracking-tight">{copy.title}</h1>
+    <h1 className="mt-2 max-w-xl dash-page-title">{copy.title}</h1>
     <p className="mt-3 max-w-xl text-sm leading-6 text-slate-300">{copy.body}</p>
     {copy.action ? <button type="button" onClick={onAction} className="mt-5 inline-flex min-h-11 items-center gap-2 rounded-full bg-[#10605F] px-5 text-sm font-bold text-white transition active:scale-[0.98] hover:bg-[#083B3A]">
       {copy.action}<ArrowRight size={16} />
@@ -282,7 +282,7 @@ function Greeting({ name }) {
   const hour = new Date().getHours();
   const greeting = hour < 12 ? "Good morning" : hour < 18 ? "Good afternoon" : "Good evening";
   return <div className="flex items-end justify-between gap-4">
-    <div><p className="text-sm font-medium text-slate-500">{greeting}</p><h2 className="mt-1 text-2xl sm:text-3xl font-heading font-medium tracking-tight text-slate-950">{name} <span aria-hidden="true">👋</span></h2></div>
+    <div><p className="text-sm font-medium text-slate-500">{greeting}</p><h2 className="mt-1 dash-section-title text-slate-950">{name} <span aria-hidden="true">👋</span></h2></div>
     <p className="hidden text-right text-xs font-medium text-slate-400 sm:block">Your work, progress, and next step</p>
   </div>;
 }
@@ -573,7 +573,7 @@ const PerformerDashboardPage = () => {
   return (
     <div className="min-h-screen bg-white text-slate-950">
       <PerformerHeader activePage="dashboard" />
-      <main className="w-full px-5 pb-16 pt-[108px] sm:px-8 lg:ml-[220px] lg:w-[calc(100%-220px)] lg:px-9">
+      <main className="w-full px-5 pb-16 pt-[108px] sm:px-8 lg:ml-[240px] lg:w-[calc(100%-240px)] lg:px-9">
         <div className="max-w-[1160px] space-y-6">
           <Greeting name={displayName} />
           <JourneyBanner stage={journey.stage} category={journey.access?.category} onAction={() => {
@@ -601,7 +601,7 @@ const PerformerDashboardPage = () => {
             </div>
 
             <aside className="space-y-5">
-              <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm"><div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500"><Wallet size={16} /> Earnings</div><p className="mt-3 text-3xl font-medium text-slate-950">₹{Number(walletSummary?.balance ?? walletSummary?.availableBalance ?? walletSummary?.amount ?? walletSummary?.wallet?.balance ?? 0).toLocaleString("en-IN")}</p><p className="mt-1 text-xs text-slate-500">Available balance</p><div className="mt-4 grid grid-cols-2 gap-2"><div className="rounded-xl bg-slate-50 p-3"><p className="text-[10px] text-slate-500">Completed</p><p className="mt-1 text-sm font-bold text-slate-900">{analyticsSummary?.completedTasks ?? analyticsSummary?.tasksCompleted ?? completedTasks.length}</p></div><div className="rounded-xl bg-slate-50 p-3"><p className="text-[10px] text-slate-500">Rating</p><p className="mt-1 text-sm font-bold text-slate-900">{performerStats.rating ? `${performerStats.rating.toFixed(1)} / 5` : "Not rated"}</p></div></div><button type="button" onClick={() => navigate("/performer/earnings")} className="mt-4 text-xs font-bold text-[#10605F]">View earnings →</button></section>
+              <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm"><div className="flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-slate-500"><Wallet size={16} /> Earnings</div><p className="mt-3 text-2xl sm:text-[26px] font-medium text-slate-950">₹{Number(walletSummary?.balance ?? walletSummary?.availableBalance ?? walletSummary?.amount ?? walletSummary?.wallet?.balance ?? 0).toLocaleString("en-IN")}</p><p className="mt-1 text-xs text-slate-500">Available balance</p><div className="mt-4 grid grid-cols-2 gap-2"><div className="rounded-xl bg-slate-50 p-3"><p className="text-[10px] text-slate-500">Completed</p><p className="mt-1 text-sm font-medium text-slate-900">{analyticsSummary?.completedTasks ?? analyticsSummary?.tasksCompleted ?? completedTasks.length}</p></div><div className="rounded-xl bg-slate-50 p-3"><p className="text-[10px] text-slate-500">Rating</p><p className="mt-1 text-sm font-medium text-slate-900">{performerStats.rating ? `${performerStats.rating.toFixed(1)} / 5` : "Not rated"}</p></div></div><button type="button" onClick={() => navigate("/performer/earnings")} className="mt-4 text-xs font-medium text-[#10605F]">View earnings →</button></section>
               <section className="rounded-3xl bg-slate-950 p-5 text-white">
                 <div className="flex items-center gap-2 text-sm font-bold text-[#7EDEDD]"><ShieldCheck size={17} /> Trust Score</div>
                 {growthTrust == null ? (
@@ -611,7 +611,7 @@ const PerformerDashboardPage = () => {
                   </div>
                 ) : growthTrust.active ? (
                   <>
-                    <p className="mt-3 text-4xl font-medium">{growthTrust.score}<span className="text-lg text-slate-400">/{growthTrust.maxScore}</span></p>
+                    <p className="mt-3 text-2xl sm:text-[28px] font-medium">{growthTrust.score}<span className="text-lg text-slate-400">/{growthTrust.maxScore}</span></p>
                     <p className="mt-1 text-xs leading-5 text-slate-300">Quality, deadlines, reliability, and verified work.</p>
                   </>
                 ) : (

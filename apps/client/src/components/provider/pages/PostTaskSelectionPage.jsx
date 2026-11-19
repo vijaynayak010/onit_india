@@ -1,132 +1,104 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
-import {
-  PenTool,
-  Sparkles,
-  ChevronRight,
-  Home,
-  ArrowRight,
-} from "lucide-react";
+import { PenTool, Sparkles, ArrowRight, CheckCircle2 } from "lucide-react";
 import ProviderHeader from "../components/ProviderHeader";
+import { DashboardCard, PrimaryButton, SecondaryButton } from "../../shared/dashboard";
+
+const OPTIONS = [
+  {
+    key: "manual",
+    title: "Post Manually",
+    subtitle: "Full control over every detail",
+    detail: "Set category, approved service, budget, timeline, skills, and custom work journey checkpoints.",
+    highlights: ["Custom checkpoints & rules", "Attach brief files", "Save as draft anytime"],
+    icon: PenTool,
+    to: "/provider/post-task-manual",
+    cta: "Start Manual Form",
+    primary: true,
+  },
+  {
+    key: "ai",
+    title: "Post Task with AI",
+    subtitle: "Guided brief in seconds",
+    detail: "Describe what you need in plain English and let AI structure the title, deliverables, and checklist.",
+    highlights: ["Auto-generated deliverables", "Editable before publishing", "Fastest way to launch"],
+    icon: Sparkles,
+    to: "/provider/post-task-ai",
+    cta: "Try AI Assistant",
+    primary: false,
+  },
+];
 
 const PostTaskSelectionPage = () => {
   const navigate = useNavigate();
 
-  const options = [
-    {
-      key: "manual",
-      title: "Post Manually",
-      subtitle: "Create your task step by step",
-      detail: "Have Full Control over Task Description",
-      icon: PenTool,
-      accent: "from-[#3d7cf8] to-[#2577d4]",
-      ring: "ring-sky-200/60",
-      to: "/provider/post-task-manual",
-      cta: "Post Manually",
-    },
-    {
-      key: "ai",
-      title: "Post Task using AI",
-      subtitle: "Let AI help you",
-      detail: "Let AI Generate Task Description",
-      icon: Sparkles,
-      accent: "from-[#2279d9] to-[#2078d1]",
-      ring: "ring-[#29ADAC]/30",
-      to: "/provider/post-task-ai",
-      cta: "Post Using AI",
-    },
-  ];
-
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-[var(--color-surface)] pt-[80px] font-sans antialiased">
-      <ProviderHeader />
+    <div className="min-h-screen bg-[var(--dash-canvas)] pt-[80px] font-sans text-[var(--dash-text)] antialiased">
+      <ProviderHeader activePage="my-tasks" />
 
-      <div
-        className="pointer-events-none fixed inset-0 -z-10 opacity-90"
-        aria-hidden
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 50% at 50% -10%, rgba(5, 150, 105, 0.08), transparent 50%), radial-gradient(ellipse 60% 40% at 100% 20%, rgba(5, 150, 105, 0.05), transparent 45%), radial-gradient(ellipse 50% 35% at 0% 60%, rgba(14, 165, 233, 0.06), transparent 45%)",
-        }}
-      />
-
-      <div className="border-b border-[var(--color-border)] bg-[#f3fdf7]">
-        <div className="mx-auto flex max-w-6xl items-center gap-2 px-4 py-4 text-sm sm:px-6 lg:px-8">
-          <button
-            type="button"
-            onClick={() => navigate("/provider/dashboard")}
-            className="inline-flex items-center gap-2 font-semibold text-[var(--color-text-subtle)] transition hover:text-[var(--color-primary)]"
-          >
-            <Home className="h-4 w-4" strokeWidth={2.25} />
-            Home
-          </button>
-          <ChevronRight className="h-4 w-4 text-[var(--color-border)]" aria-hidden />
-          <span className="font-bold text-[var(--color-primary)]">Post Task</span>
-        </div>
-      </div>
-
-      <main className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-8 text-center sm:mb-12"
-        >
-          <h1 className="mb-3 text-4xl font-medium text-[var(--color-text)] sm:text-[46px]">
-            Post a Task
-          </h1>
-          <p className="mx-auto max-w-xl text-lg font-medium leading-relaxed text-[var(--color-text-muted)] sm:text-xl">
-            Choose how you&apos;d like to create you tasks
+      <main className="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8 lg:py-10">
+        <header className="mb-8 text-center sm:mb-10">
+          <p className="dash-overline mb-2 text-[var(--dash-primary-700)]">Create Task</p>
+          <h1 className="dash-page-title text-[var(--dash-text)]">Post a Task</h1>
+          <p className="dash-body mx-auto mt-2 max-w-xl text-[var(--dash-text-secondary)]">
+            Choose how you&apos;d like to create your task. Both options let you review every detail before publishing.
           </p>
-        </motion.div>
+        </header>
 
-        <div className="grid w-full max-w-[880px] grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
-          {options.map((opt, i) => {
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {OPTIONS.map((opt) => {
             const Icon = opt.icon;
             return (
-              <motion.div
+              <DashboardCard
                 key={opt.key}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.45, delay: 0.08 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                whileHover={{ y: -4 }}
-                className={`relative flex min-h-[328px] flex-col overflow-hidden rounded-[22px] border border-[var(--color-border)] bg-white p-8 text-left shadow-[0_22px_44px_rgba(15,23,42,0.12)] ring-1 ${opt.ring} transition hover:border-[var(--color-primary)]/25 hover:shadow-[0_28px_54px_rgba(15,23,42,0.16)] sm:p-10`}
+                className="flex flex-col p-6 transition hover:-translate-y-0.5 hover:border-[var(--dash-primary-600)]/45 hover:shadow-[var(--shadow-md)] sm:p-7"
               >
-                <div
-                  className={`relative mb-14 flex h-20 w-20 items-center justify-center rounded-[18px] bg-gradient-to-br text-white shadow-lg ${opt.accent}`}
-                >
-                  <Icon className="h-8 w-8" strokeWidth={2.25} aria-hidden />
+                <div className="mb-5 flex items-center justify-between gap-3">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--dash-active-bg)] text-[var(--dash-primary-700)]">
+                    <Icon className="h-6 w-6" strokeWidth={2} aria-hidden="true" />
+                  </div>
+                  {opt.key === "ai" ? (
+                    <span className="rounded-full bg-[var(--dash-completed-bg)] px-3 py-1 text-[11px] font-semibold text-[var(--dash-primary-800)]">
+                      Guided
+                    </span>
+                  ) : null}
                 </div>
-                <h2 className="relative mb-3 text-3xl font-medium text-[var(--color-text)] sm:text-[32px]">
-                  {opt.title}
-                </h2>
-                <p className="relative mb-4 text-xl font-medium text-[var(--color-text-muted)]">{opt.subtitle}</p>
-                <p className="relative mb-10 text-base font-medium leading-relaxed text-[var(--color-text-subtle)]">{opt.detail}</p>
-                <button
-                  type="button"
-                  onClick={() => navigate(opt.to)}
-                  className="group relative mt-auto inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#2677d7] px-8 py-4 text-base font-bold text-white shadow-[var(--shadow-sm)] transition hover:bg-[#1f68bf] active:scale-[0.98] sm:w-auto"
-                >
-                  {opt.cta}
-                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" strokeWidth={2.5} />
-                </button>
-              </motion.div>
+
+                <h2 className="dash-section-title text-[var(--dash-text)]">{opt.title}</h2>
+                <p className="mt-1 text-[13px] font-medium text-[var(--dash-primary-700)]">{opt.subtitle}</p>
+                <p className="dash-body mt-3 text-[var(--dash-text-secondary)]">{opt.detail}</p>
+
+                <ul className="mt-5 space-y-2 border-t border-[var(--dash-border)] pt-4">
+                  {opt.highlights.map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-[13px] text-[var(--dash-text-secondary)]">
+                      <CheckCircle2 className="h-4 w-4 shrink-0 text-[var(--dash-primary-700)]" aria-hidden="true" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-6 pt-2">
+                  {opt.primary ? (
+                    <PrimaryButton size="lg" onClick={() => navigate(opt.to)} className="w-full">
+                      <span>{opt.cta}</span>
+                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </PrimaryButton>
+                  ) : (
+                    <SecondaryButton size="lg" onClick={() => navigate(opt.to)} className="w-full">
+                      <span>{opt.cta}</span>
+                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </SecondaryButton>
+                  )}
+                </div>
+              </DashboardCard>
             );
           })}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.45, delay: 0.35 }}
-          className="mt-12 max-w-lg text-center sm:mt-16"
-        >
-          <p className="text-3xl font-medium text-[var(--color-text-muted)]">Not sure which to choose?</p>
-          <p className="mt-4 text-2xl font-medium leading-relaxed text-[var(--color-text-muted)]">
-            Use AI for quick posting, Manual for full customization.
-          </p>
-        </motion.div>
+        <p className="dash-secondary mt-8 text-center">
+          Not sure which to choose? Use <strong className="font-semibold text-[var(--dash-text)]">AI Assistant</strong> for a quick draft, or{" "}
+          <strong className="font-semibold text-[var(--dash-text)]">Manual</strong> for full customization.
+        </p>
       </main>
     </div>
   );

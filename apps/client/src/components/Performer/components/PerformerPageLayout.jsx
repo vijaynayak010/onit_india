@@ -38,26 +38,26 @@ export function PerformerSectionCard({
 
   return (
     <div
-      className={`rounded-2xl border border-slate-200/80 bg-white p-5 shadow-xs transition hover:border-slate-300/80 sm:p-6 ${className}`}
+      className={`rounded-2xl border border-[var(--dash-border)] bg-[var(--dash-surface)] p-5 shadow-[var(--shadow-sm)] transition hover:border-[var(--dash-primary-600)]/40 sm:p-6 ${className}`}
     >
       {hasHeader && (
         <div
-          className={`mb-4 flex items-start justify-between gap-4 border-b border-slate-100 pb-3.5 ${headerClassName}`}
+          className={`mb-4 flex items-start justify-between gap-4 border-b border-[var(--dash-border)] pb-3.5 ${headerClassName}`}
         >
           <div className="flex items-center gap-2.5 min-w-0">
             {Icon && (
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-[#EFFBFB] text-[#10605F]">
-                <Icon size={16} strokeWidth={2.2} />
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-[var(--dash-active-bg)] text-[var(--dash-primary-800)]">
+                <Icon size={16} strokeWidth={2.2} aria-hidden="true" />
               </div>
             )}
             <div className="min-w-0">
               {title && (
-                <h3 className="truncate text-[15px] font-medium text-slate-900">
+                <h3 className="truncate text-[15px] font-semibold text-[var(--dash-text)]">
                   {title}
                 </h3>
               )}
               {subtitle && (
-                <p className="text-[12px] font-medium text-slate-500">
+                <p className="text-[12px] font-medium text-[var(--dash-text-secondary)]">
                   {subtitle}
                 </p>
               )}
@@ -75,7 +75,7 @@ export function PerformerSectionCard({
  * PerformerPageLayout - Unified Page Layout for Performer Account Subsections.
  * Standardizes:
  * 1. Global top header + persistent single left sidebar (PerformerHeader, w-[220px], z-[90])
- * 2. Main content offset (pt-[93px], lg:ml-[220px], lg:w-[calc(100%-220px)])
+ * 2. Main content offset (pt-[93px], lg:ml-[240px], lg:w-[calc(100%-240px)])
  * 3. Sticky glassmorphism page header with back navigation (PerformerPageHeader)
  * 4. Responsive central container alignment and spacing
  */
@@ -102,7 +102,7 @@ export default function PerformerPageLayout({
       <PerformerHeader activePage={activePage} />
 
       {/* Main offset container */}
-      <main className="w-full px-4 py-6 sm:px-6 lg:ml-[220px] lg:w-[calc(100%-220px)] lg:px-8">
+      <main className="w-full px-4 py-6 sm:px-6 lg:ml-[240px] lg:w-[calc(100%-240px)] lg:px-8">
         <div className={`mx-auto w-full ${resolvedMaxWidth}`}>
           {shouldRenderHeader && (
             <PerformerPageHeader

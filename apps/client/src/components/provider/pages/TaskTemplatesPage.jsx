@@ -1,12 +1,12 @@
 import React, { useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import ProviderHeader from "../components/ProviderHeader";
 import BrowseCategoryGrid from "../components/BrowseCategoryGrid";
-import { Search, Mic, SlidersHorizontal, ArrowRight, X, Loader2 } from "lucide-react";
+import { Search, SlidersHorizontal, ArrowRight, X, Loader2 } from "lucide-react";
 import { useHomeContent } from "../../../services/homeContent";
 
-const normalize = (value = "") => String(value).trim().toLowerCase();
+const normalize = (value) => String(value ?? "").trim().toLowerCase();
 
 const mapCategoryTemplate = (template, category) => ({
   id: template.id || `${category.id || category.slug || category.title}-${template.title}`,
@@ -24,7 +24,7 @@ const mapCategoryTemplate = (template, category) => ({
 const TaskTemplatesPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { categories, loading: categoriesLoading } = useHomeContent();
+  const { categories, loading: categoriesLoading, error: categoriesError, retry: retryCategories } = useHomeContent();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState(location.state?.category || null);
 
@@ -77,7 +77,7 @@ const TaskTemplatesPage = () => {
       <ProviderHeader activePage="home" />
 
       <div className="shrink-0 border-b border-[var(--color-border)] bg-gradient-to-b from-[var(--color-surface-elevated)] to-[var(--color-surface)]/90 backdrop-blur-xl">
-        <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-[1440px] px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 sm:gap-4">
             <div className="relative min-w-0 flex-1">
               <Search
@@ -94,18 +94,13 @@ const TaskTemplatesPage = () => {
               <div className="absolute right-2 top-1/2 flex -translate-y-1/2 items-center gap-0.5">
                 <button
                   type="button"
-                  className="rounded-full p-2 text-[var(--color-text-subtle)] transition hover:bg-[var(--color-border-subtle)] hover:text-[var(--color-text)]"
-                >
-                  <Mic className="h-5 w-5" strokeWidth={2} />
-                </button>
-                <button
-                  type="button"
                   onClick={() => {
                     setSearchTerm("");
                     setSelectedCategory(null);
                   }}
                   className="rounded-full p-2 text-[var(--color-text-subtle)] transition hover:bg-[var(--color-border-subtle)] hover:text-[var(--color-text)]"
                   title="Clear filters"
+                  aria-label="Clear filters"
                 >
                   <SlidersHorizontal className="h-5 w-5" strokeWidth={2} />
                 </button>
@@ -116,11 +111,11 @@ const TaskTemplatesPage = () => {
       </div>
 
       <div className="custom-scrollbar min-h-0 flex-1 overflow-y-auto bg-[var(--color-surface)]">
-        <motion.main
+        <Motion.main
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35 }}
-          className="mx-auto w-full max-w-7xl px-4 py-8 pb-24 sm:px-6 lg:px-8"
+          className="mx-auto w-full max-w-[1440px] px-4 py-6 pb-16 sm:px-6 lg:px-8"
         >
           <BrowseCategoryGrid
             selectedCategory={selectedCategory}
@@ -157,6 +152,18 @@ const TaskTemplatesPage = () => {
             {categoriesLoading ? (
               <div className="flex h-40 items-center justify-center rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-white text-[var(--color-primary)]">
                 <Loader2 className="h-7 w-7 animate-spin" />
+              </div>
+            ) : categoriesError ? (
+              <div className="rounded-[var(--radius-2xl)] border border-red-200 bg-white py-12 text-center">
+                <p className="text-base font-bold text-[var(--color-text)]">Could not load task templates</p>
+                <p className="mt-1 text-sm font-medium text-[var(--color-text-muted)]">Please check your connection and try again.</p>
+                <button
+                  type="button"
+                  onClick={retryCategories}
+                  className="mt-4 inline-flex items-center gap-2 rounded-full bg-[var(--color-primary)] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[var(--color-primary-hover)]"
+                >
+                  Retry
+                </button>
               </div>
             ) : filteredTemplates.length === 0 ? (
               <div className="rounded-[var(--radius-2xl)] border border-dashed border-[var(--color-border)] bg-white py-14 text-center">
@@ -209,7 +216,7 @@ const TaskTemplatesPage = () => {
               </div>
             )}
           </section>
-        </motion.main>
+        </Motion.main>
       </div>
     </div>
   );

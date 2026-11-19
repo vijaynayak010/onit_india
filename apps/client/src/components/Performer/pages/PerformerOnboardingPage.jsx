@@ -30,7 +30,7 @@ const ROLES = [
     id: "student",
     label: "Student",
     sublabel: "Currently studying",
-    gradient: "from-sky-100 via-blue-50 to-indigo-100",
+    gradient: "from-[#EFFBFB] via-[#DFF7F6] to-[#E8F8F5]",
     Icon: GraduationCap,
   },
   {

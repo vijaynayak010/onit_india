@@ -91,7 +91,7 @@ const PerformerTaskSupportPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--color-surface)] pb-16 pt-[80px] font-sans text-[var(--color-text)] lg:pl-[220px]">
+    <div className="min-h-screen bg-[var(--color-surface)] pb-16 pt-[80px] font-sans text-[var(--color-text)] lg:pl-[240px]">
       <PerformerHeader activePage="my-tasks" />
 
       <main className="mx-auto w-full max-w-3xl px-4 py-6 sm:px-6 lg:px-8">

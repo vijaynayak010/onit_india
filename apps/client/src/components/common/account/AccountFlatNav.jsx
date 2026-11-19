@@ -1,41 +1,48 @@
 import React from "react";
 import { LogOut } from "lucide-react";
+import { ACCOUNT_SIDEBAR_WIDTH } from "./accountNavConstants";
 
-export const ACCOUNT_SIDEBAR_WIDTH = 240;
-
-export const AccountFlatNavItem = ({ icon: Icon, label, isActive, onClick }) => (
-  <button
-    type="button"
-    onClick={onClick}
-    className={`relative flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left transition ${
-      isActive
-        ? "bg-[#E8F5EE] text-[#2BA960] shadow-sm"
-        : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
-    }`}
-  >
-    {isActive ? (
-      <span className="absolute left-0 top-1/2 h-8 w-1 -translate-y-1/2 rounded-r-full bg-[#2BA960]" />
-    ) : null}
-    <Icon size={18} strokeWidth={isActive ? 2.5 : 2} className="shrink-0" />
-    <span className={`text-[14px] ${isActive ? "font-bold" : "font-semibold"}`}>{label}</span>
-  </button>
-);
+export const AccountFlatNavItem = ({ icon, label, isActive, onClick }) => {
+  const IconComponent = icon;
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`relative flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--dash-primary-700)] ${
+        isActive
+          ? "bg-[var(--dash-active-bg)] text-[var(--dash-primary-800)]"
+          : "text-[var(--dash-text-secondary)] hover:bg-[var(--dash-canvas)] hover:text-[var(--dash-text)]"
+      }`}
+    >
+      {isActive ? (
+        <span className="absolute left-0 top-1/2 h-8 w-1 -translate-y-1/2 rounded-r-full bg-[var(--dash-primary-700)]" />
+      ) : null}
+      <IconComponent
+        size={18}
+        strokeWidth={isActive ? 2.25 : 2}
+        className={`shrink-0 ${isActive ? "text-[var(--dash-primary-700)]" : "text-[var(--dash-text-secondary)]"}`}
+        aria-hidden="true"
+      />
+      <span className={`text-[14px] ${isActive ? "font-semibold" : "font-medium"}`}>{label}</span>
+    </button>
+  );
+};
 
 export const AccountFlatSidebarShell = ({ children, footer, onLogout, showLogout = true }) => (
   <aside
-    className="fixed left-0 top-[80px] z-40 hidden h-[calc(100vh-80px)] flex-col overflow-y-auto border-r border-gray-100 bg-[#F8FAFC] no-scrollbar lg:flex"
+    className="fixed left-0 top-[80px] z-40 hidden h-[calc(100vh-80px)] flex-col overflow-y-auto border-r border-[var(--dash-border)] bg-[var(--dash-surface)] no-scrollbar lg:flex"
     style={{ width: ACCOUNT_SIDEBAR_WIDTH }}
   >
     <nav className="flex flex-1 flex-col gap-1 px-4 py-6">{children}</nav>
 
     {showLogout && onLogout ? (
-      <div className="border-t border-gray-100 px-4 py-4">
+      <div className="border-t border-[var(--dash-border)] px-4 py-4">
         <button
           type="button"
           onClick={onLogout}
-          className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left font-semibold text-gray-500 transition hover:bg-red-50 hover:text-red-600"
+          className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left font-medium text-[var(--dash-text-secondary)] transition hover:bg-rose-50 hover:text-rose-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500"
         >
-          <LogOut size={18} strokeWidth={2} />
+          <LogOut size={18} strokeWidth={2} aria-hidden="true" />
           <span className="text-[14px]">Logout</span>
         </button>
       </div>
@@ -44,7 +51,3 @@ export const AccountFlatSidebarShell = ({ children, footer, onLogout, showLogout
     {footer ? <div className="px-4 pb-4">{footer}</div> : null}
   </aside>
 );
-
-export const accountMainClass = `min-h-[calc(100vh-80px)] flex-1 overflow-y-auto px-4 py-6 sm:px-6 lg:ml-[240px] lg:px-8 lg:py-8`;
-
-export const accountMainStyle = {};

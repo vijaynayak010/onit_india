@@ -12,12 +12,12 @@ const PayoutAccountCard = ({ method, onChange, showChange = true }) => {
           <Landmark size={20} strokeWidth={2.2} />
         </div>
         <div className="min-w-0 flex-1">
-          <p className="text-[15px] font-medium text-gray-900">{info.name}</p>
-          <p className="text-[13px] font-medium text-gray-500">{info.detail}</p>
+          <p className="truncate text-[15px] font-medium text-gray-900">{info.name}</p>
+          <p className="truncate text-[13px] font-normal text-gray-500">{info.detail}</p>
         </div>
         {info.verified && (
-          <span className="inline-flex shrink-0 items-center gap-1 text-[12px] font-bold text-blue-600">
-            <CheckCircle2 size={14} strokeWidth={2.5} />
+          <span className="inline-flex shrink-0 items-center gap-1 text-[12px] font-medium text-[#10605F]">
+            <CheckCircle2 size={14} strokeWidth={2.2} />
             Verified
           </span>
         )}
@@ -26,7 +26,7 @@ const PayoutAccountCard = ({ method, onChange, showChange = true }) => {
         <button
           type="button"
           onClick={onChange}
-          className="mt-3 text-[13px] font-bold text-[#10605F] hover:text-[#083B3A]"
+          className="mt-3 text-[13px] font-medium text-[#10605F] hover:text-[#083B3A]"
         >
           Change
         </button>

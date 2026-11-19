@@ -1,10 +1,7 @@
 import React, { useEffect, useState, useRef, useMemo } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import {
-    Home,
     ChevronRight,
-    LayoutGrid,
-    ListTodo,
     Calendar,
     IndianRupee,
     Tag,
@@ -23,8 +20,11 @@ import {
     PencilLine,
     Send,
     ShieldCheck,
+    AlertCircle,
 } from "lucide-react";
 import ProviderHeader from "../components/ProviderHeader";
+import { PrimaryButton, SecondaryButton, StatusBadge } from "../../shared/dashboard";
+import Toast from "../../shared/Toast";
 import { createTask, updateTask, attachTaskFiles, getPresignedUrl, confirmUpload, listTaskCatalogDomains, listTaskCatalogServices, updateUserMe, generateAITask } from "../services/api";
 import { useAuth } from "../../../contexts/AuthContext";
 import axios from "axios";
@@ -102,6 +102,9 @@ const PostTaskManualPage = () => {
     const [servicesLoading, setServicesLoading] = useState(true);
     const [servicesError, setServicesError] = useState("");
     const [budgetError, setBudgetError] = useState("");
+    const [formError, setFormError] = useState("");
+    const [toast, setToast] = useState(null);
+    const notify = (message, type = "warning") => setToast({ message, type });
 
     // Initial skills from AI or empty
     const [skills, setSkills] = useState(editTask?.skills || templateData?.skills || aiData?.required_skills || aiData?.skills || []);
@@ -123,7 +126,7 @@ const PostTaskManualPage = () => {
         const val = conditionInput.trim();
         if (val !== "" && !conditions.includes(val)) {
             if (conditions.length >= 20) {
-                alert("You can add up to 20 conditions.");
+                notify("You can add up to 20 rules.", "warning");
                 return;
             }
             setConditions([...conditions, val]);
@@ -139,7 +142,7 @@ const PostTaskManualPage = () => {
         const title = checklistInput.trim();
         if (!title) return;
         if (checklist.length >= 10) {
-            alert("A task journey can have up to 10 checkpoints.");
+            notify("A task journey can have up to 10 checkpoints.", "warning");
             return;
         }
         if (checklist.some((item) => item.title.toLowerCase() === title.toLowerCase())) {
@@ -149,6 +152,7 @@ const PostTaskManualPage = () => {
         setChecklist((items) => [...items, { title, note: "", order: items.length }]);
         setSelectedChecklistIndex(checklist.length);
         setChecklistInput("");
+        setFormError("");
     };
 
     const removeChecklistItem = (indexToRemove) => {
@@ -185,7 +189,7 @@ const PostTaskManualPage = () => {
 
     const handleGenerateChecklist = async () => {
         if (!formData.title.trim()) {
-            alert("Add a task title first — the AI uses it to generate relevant checkpoints.");
+            notify("Add a task title first — AI uses it to generate checkpoints.", "warning");
             return;
         }
         setIsGeneratingChecklist(true);
@@ -195,14 +199,16 @@ const PostTaskManualPage = () => {
             const task = res?.data || res;
             const generated = checklistFrom(task);
             if (!generated.length) {
-                alert("Couldn't generate checkpoints for this task. Try adding more detail to the title or description.");
+                notify("Couldn't generate checkpoints. Try adding more detail to the title or description.", "warning");
                 return;
             }
             setChecklist(generated);
             setSelectedChecklistIndex(0);
+            setFormError("");
+            notify("Checkpoints generated successfully.", "success");
         } catch (err) {
             console.error("AI checklist generation failed:", err);
-            alert("AI generation failed. Please try again.");
+            notify("AI generation failed. Please try again.", "error");
         } finally {
             setIsGeneratingChecklist(false);
         }
@@ -382,7 +388,7 @@ const PostTaskManualPage = () => {
     ), [formData.category]);
 
     const fieldBase =
-        "w-full rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-3 text-[15px] font-medium text-[var(--color-text)] outline-none transition placeholder:text-[var(--color-text-subtle)] focus:border-[var(--color-primary)]/50 focus:ring-2 focus:ring-[var(--color-primary)]/15 h-12";
+        "w-full rounded-xl border border-[var(--dash-border)] bg-[var(--dash-surface)] px-4 py-3 text-[14px] font-medium text-[var(--dash-text)] outline-none transition placeholder:text-[var(--dash-text-secondary)] focus:border-[var(--dash-primary-700)] focus:ring-2 focus:ring-[var(--dash-primary-700)]/15 h-11";
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -458,7 +464,7 @@ const PostTaskManualPage = () => {
             }
         } catch (err) {
             console.error("Task file upload failed:", err);
-            alert("Failed to upload one or more files. Please try again.");
+            notify("Failed to upload one or more files. Please try again.", "error");
         } finally {
             setIsUploading(false);
             if (fileInputRef.current) fileInputRef.current.value = "";
@@ -491,7 +497,9 @@ const PostTaskManualPage = () => {
             .map(([, label]) => label);
 
         if (missingFields.length > 0) {
-            alert(`Please fill in all required fields: ${missingFields.join(", ")}`);
+            const msg = `Please fill in all required fields: ${missingFields.join(", ")}`;
+            setFormError(msg);
+            notify(msg, "warning");
             return;
         }
 
@@ -502,16 +510,22 @@ const PostTaskManualPage = () => {
         }
 
         if (checklist.length === 0) {
-            alert("Please add at least one checklist item. Performers use it to track and submit their work.");
+            const msg = "Please add at least one work journey checkpoint. Performers use it to track and submit their work.";
+            setFormError(msg);
+            notify(msg, "warning");
             return;
         }
 
         if (checklist.some((item) => !item.title.trim())) {
-            alert("Every checkpoint needs a title before you continue.");
+            const msg = "Every checkpoint needs a title before you continue.";
+            setFormError(msg);
+            notify(msg, "warning");
             return;
         }
 
+        setFormError("");
         setIsPreview(true);
+        window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
     const handleConfirmPost = async (status = "PUBLISHED") => {
@@ -539,7 +553,7 @@ const PostTaskManualPage = () => {
 
             await doPublishTask("PUBLISHED");
         } catch {
-            alert("Failed to save phone number. Please try again.");
+            notify("Failed to save phone number. Please try again.", "error");
         } finally {
             setSavingPhone(false);
         }
@@ -626,7 +640,7 @@ const PostTaskManualPage = () => {
             if (/select an approved service before publishing/i.test(errorMessage)) {
                 setShowServiceRequiredModal(true);
             } else {
-                alert(errorMessage || "Failed to create task. Please try again.");
+                notify(errorMessage || "Failed to create task. Please try again.", "error");
             }
         } finally {
             setIsProcessing(false);
@@ -636,26 +650,26 @@ const PostTaskManualPage = () => {
 
     if (isPreview) {
         return (
-            <div className="relative min-h-[100dvh] overflow-x-hidden bg-[#f7f9f8] pb-16 pt-[80px] font-sans text-[var(--color-text)] antialiased">
+            <div className="relative min-h-[100dvh] overflow-x-hidden bg-[var(--dash-canvas)] pb-16 pt-[80px] font-sans text-[var(--dash-text)] antialiased">
                 <ProviderHeader activePage="my-tasks" />
-                <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
-                    <header className="mb-7 flex flex-col gap-5 border-b border-slate-200 pb-7 sm:flex-row sm:items-end sm:justify-between">
+                {toast ? (
+                    <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />
+                ) : null}
+
+                <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
+                    <header className="mb-7 flex flex-col gap-4 border-b border-[var(--dash-border)] pb-6 sm:flex-row sm:items-end sm:justify-between">
                         <div>
-                            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-[#EFFBFB] px-3 py-1.5 text-xs font-bold text-[#10605F]">
-                                <CheckCircle2 size={15} strokeWidth={2.4} />
-                                Ready to publish
-                            </div>
-                            <h1 className="text-3xl font-medium tracking-[-0.03em] text-slate-950 sm:text-4xl">Review your task</h1>
-                            <p className="mt-2 max-w-xl text-sm font-medium leading-6 text-slate-500">Check the brief, work journey, and payment before making the task visible to performers.</p>
+                            <StatusBadge variant="active" className="mb-3">
+                                <CheckCircle2 size={14} strokeWidth={2.2} aria-hidden="true" />
+                                <span>Step 2 of 2 · Ready to publish</span>
+                            </StatusBadge>
+                            <h1 className="dash-page-title text-[var(--dash-text)]">Review your task</h1>
+                            <p className="dash-body mt-1.5 max-w-xl text-[var(--dash-text-secondary)]">Check the brief, work journey, and budget before making the task visible to performers.</p>
                         </div>
-                        <button
-                            type="button"
-                            onClick={() => setIsPreview(false)}
-                            className="inline-flex h-11 items-center justify-center gap-2 self-start rounded-full border border-slate-200 bg-white px-5 text-sm font-bold text-slate-700 shadow-sm transition hover:border-[#29ADAC]/30 hover:text-[#083B3A] active:scale-[0.98] sm:self-auto"
-                        >
-                            <PencilLine size={16} strokeWidth={2.2} />
-                            Edit task
-                        </button>
+                        <SecondaryButton size="md" onClick={() => setIsPreview(false)} className="self-start sm:self-auto">
+                            <PencilLine size={16} strokeWidth={2} aria-hidden="true" />
+                            <span>Edit task</span>
+                        </SecondaryButton>
                     </header>
 
                     <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_360px]">
@@ -666,7 +680,7 @@ const PostTaskManualPage = () => {
                                     <span className="text-slate-300">/</span>
                                     <span className="text-slate-500">{selectedServiceLabel}</span>
                                 </div>
-                                <h2 className="mt-5 max-w-3xl text-2xl font-medium leading-tight tracking-[-0.025em] text-slate-950 sm:text-3xl">{formData.title}</h2>
+                                <h2 className="mt-4 max-w-3xl dash-section-title text-[var(--dash-text)]">{formData.title}</h2>
                                 <p className="mt-4 max-w-3xl whitespace-pre-wrap text-[15px] font-medium leading-7 text-slate-600">{formData.description}</p>
 
                                 {formData.additionalDetails ? (
@@ -869,39 +883,44 @@ const PostTaskManualPage = () => {
     }
 
     return (
-        <div className="relative min-h-screen overflow-x-hidden bg-[var(--color-surface)] pb-16 pt-[80px] font-sans text-[var(--color-text)] antialiased">
+        <div className="relative min-h-screen overflow-x-hidden bg-[var(--dash-canvas)] pb-16 pt-[80px] font-sans text-[var(--dash-text)] antialiased">
             <ProviderHeader activePage="my-tasks" />
-
-            <div
-                className="pointer-events-none fixed inset-0 -z-10 opacity-90"
-                aria-hidden
-                style={{
-                    background:
-                        "radial-gradient(ellipse 80% 50% at 50% -10%, rgba(5, 150, 105, 0.08), transparent 50%), radial-gradient(ellipse 60% 40% at 100% 20%, rgba(5, 150, 105, 0.05), transparent 45%)",
-                }}
-            />
+            {toast ? (
+                <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />
+            ) : null}
 
             <input type="file" ref={fileInputRef} onChange={handleFileChange} multiple className="hidden" />
-            <main className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
-                <div className="mb-8 text-center sm:text-left">
-                    <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-[var(--color-primary-subtle)] px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-[var(--color-primary)]">
-                        <Sparkles className="h-3.5 w-3.5" strokeWidth={2.5} />
-                        Manual posting
+            <main className="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
+                <header className="mb-7 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                    <div>
+                        <p className="dash-overline mb-1 text-[var(--dash-primary-700)]">Step 1 of 2 · Manual Posting</p>
+                        <h1 className="dash-page-title text-[var(--dash-text)]">Post a task in minutes</h1>
+                        <p className="dash-body mt-1.5 max-w-2xl text-[var(--dash-text-secondary)]">
+                            Complete the brief below. Fields marked with <span className="text-rose-600">*</span> are required before previewing.
+                        </p>
                     </div>
-                    <h1 className="text-2xl sm:text-3xl font-heading font-medium tracking-tight text-[var(--color-text)]">Post a task in minutes</h1>
-                    <p className="mt-2 max-w-2xl text-sm sm:text-[15px] font-medium text-[var(--color-text-muted)]">
-                        Add the details below so we can match you with the right performers.
-                    </p>
-                </div>
+                    <SecondaryButton size="sm" onClick={() => navigate("/provider/post-task-ai")} className="self-start sm:self-auto shrink-0">
+                        <Sparkles className="h-3.5 w-3.5 text-[var(--dash-primary-700)]" aria-hidden="true" />
+                        <span>Switch to AI</span>
+                    </SecondaryButton>
+                </header>
+
+                {formError ? (
+                    <div role="alert" className="mb-6 flex items-start gap-3 rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3.5 text-sm font-medium text-rose-800">
+                        <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-rose-600" aria-hidden="true" />
+                        <span>{formError}</span>
+                    </div>
+                ) : null}
 
                 <form
                     onSubmit={handleNext}
-                    className="overflow-hidden rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] shadow-[var(--shadow-md)] ring-1 ring-black/[0.04]"
+                    noValidate
+                    className="overflow-hidden rounded-2xl border border-[var(--dash-border)] bg-[var(--dash-surface)] shadow-[var(--shadow-sm)]"
                 >
-                    <div className="border-b border-[var(--color-border)] bg-[var(--color-border-subtle)]/50 px-6 py-5 sm:px-8">
-                        <h2 className="text-lg font-heading font-medium text-[var(--color-text)]">Task details</h2>
-                        <p className="mt-1 text-sm font-medium text-[var(--color-text-subtle)]">
-                            Required fields must be completed before you can continue.
+                    <div className="border-b border-[var(--dash-border)] bg-[var(--dash-canvas)]/70 px-6 py-4 sm:px-8">
+                        <h2 className="dash-section-title text-[var(--dash-text)]">Task details</h2>
+                        <p className="dash-secondary mt-0.5">
+                            Define the scope, category, budget, and performer work journey.
                         </p>
                     </div>
 
@@ -1344,14 +1363,22 @@ const PostTaskManualPage = () => {
                         </div>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[var(--color-border)] bg-[var(--color-border-subtle)]/30 px-6 py-5 sm:px-8 sm:py-6">
-                        <span className="text-xs font-medium text-[var(--color-text-subtle)]">Confirm details in next step</span>
-                        <button
-                            type="submit"
-                            className="w-full sm:w-auto rounded-full bg-[var(--color-primary)] px-8 sm:px-12 py-3.5 text-[15px] font-medium text-white shadow-[var(--shadow-glow)] transition hover:bg-[var(--color-primary-hover)] active:scale-[0.98]"
+                    <div className="flex flex-col-reverse sm:flex-row items-center justify-between gap-3 border-t border-[var(--dash-border)] bg-[var(--dash-canvas)]/70 px-6 py-5 sm:px-8">
+                        <SecondaryButton
+                            size="md"
+                            onClick={() => navigate("/provider/post-task-selection")}
+                            className="w-full sm:w-auto"
                         >
-                            Review & Preview
-                        </button>
+                            <span>Back to options</span>
+                        </SecondaryButton>
+                        <PrimaryButton
+                            type="submit"
+                            size="lg"
+                            className="w-full sm:w-auto"
+                        >
+                            <span>Review &amp; Preview</span>
+                            <ChevronRight className="h-4 w-4" aria-hidden="true" />
+                        </PrimaryButton>
                     </div>
                 </form>
             </main>

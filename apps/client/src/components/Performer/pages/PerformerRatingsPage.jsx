@@ -75,7 +75,7 @@ const PerformerRatingsPage = () => {
     <div className="min-h-screen bg-[var(--color-surface)] pt-[93px] font-sans text-[var(--color-text)]">
       <PerformerHeader activePage="account" />
 
-      <main className="w-full px-4 py-6 sm:px-6 lg:ml-[220px] lg:w-[calc(100%-220px)] lg:px-8">
+      <main className="w-full px-4 py-6 sm:px-6 lg:ml-[240px] lg:w-[calc(100%-240px)] lg:px-8">
         <div className="mx-auto w-full max-w-4xl">
             <PerformerPageHeader
               title="Ratings & Reviews"
@@ -98,7 +98,7 @@ const PerformerRatingsPage = () => {
                       <Star className="h-5 w-5 text-amber-500 fill-amber-500" />
                     </div>
                     <div className="mt-4 flex items-baseline gap-1">
-                      <span className="text-4xl font-medium text-gray-900">{ratingAvg > 0 ? ratingAvg.toFixed(1) : "0.0"}</span>
+                      <span className="text-2xl sm:text-[28px] font-medium text-gray-900">{ratingAvg > 0 ? ratingAvg.toFixed(1) : "0.0"}</span>
                       <span className="text-sm font-bold text-gray-400">/ 5.0</span>
                     </div>
                     <div className="mt-2 flex items-center gap-0.5">
@@ -120,7 +120,7 @@ const PerformerRatingsPage = () => {
                       <p className="text-sm font-bold text-gray-500">Completed Tasks</p>
                       <CheckCircle2 className="h-5 w-5 text-[#10605F]" />
                     </div>
-                    <p className="mt-4 text-4xl font-medium text-gray-900">{completedTasksCount}</p>
+                    <p className="mt-4 text-2xl sm:text-[28px] font-medium text-gray-900">{completedTasksCount}</p>
                     <p className="mt-2 text-xs font-bold text-[#10605F]">Verified completions</p>
                   </div>
 
@@ -129,7 +129,7 @@ const PerformerRatingsPage = () => {
                       <p className="text-sm font-bold text-gray-500">Reviews count</p>
                       <Award className="h-5 w-5 text-[#10605F]" />
                     </div>
-                    <p className="mt-4 text-4xl font-medium text-gray-900">{reviews.length}</p>
+                    <p className="mt-4 text-2xl sm:text-[28px] font-medium text-gray-900">{reviews.length}</p>
                     <p className="mt-2 text-xs font-bold text-[#10605F]">Written comments</p>
                   </div>
                 </div>
@@ -184,7 +184,7 @@ const PerformerRatingsPage = () => {
                           <div className="flex items-start justify-between gap-4">
                             <div>
                               <div className="flex items-center gap-2">
-                                <span className="text-sm font-extrabold text-gray-900">Client Partner</span>
+                                <span className="text-sm font-medium text-gray-900">Client Partner</span>
                                 <span className="text-xs font-semibold text-gray-400">•</span>
                                 <span className="text-xs font-semibold text-gray-400">
                                   {new Date(rev.createdAt).toLocaleDateString([], { day: 'numeric', month: 'short', year: 'numeric' })}
@@ -194,7 +194,7 @@ const PerformerRatingsPage = () => {
                                 <p className="mt-1 text-xs font-medium text-[#10605F]">{rev.task.title}</p>
                               )}
                             </div>
-                            <div className="flex items-center gap-0.5 rounded-lg bg-amber-50 px-2 py-1 text-xs font-extrabold text-amber-700 shadow-[var(--shadow-xs)]">
+                            <div className="flex items-center gap-0.5 rounded-lg bg-amber-50 px-2 py-1 text-xs font-medium text-amber-700 shadow-[var(--shadow-xs)]">
                               <Star className="h-3 w-3 fill-amber-600 text-amber-600" />
                               {rev.rating.toFixed(1)}
                             </div>

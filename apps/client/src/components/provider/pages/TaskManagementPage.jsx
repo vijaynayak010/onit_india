@@ -92,7 +92,7 @@ const TaskManagementPage = () => {
                 </span>
               )}
             </div>
-            <h1 className="text-2xl font-medium leading-tight text-[var(--color-text)] sm:text-3xl">
+            <h1 className="dash-page-title text-[var(--dash-text)]">
               {task.title || 'Untitled Task'}
             </h1>
             <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm font-semibold text-[var(--color-text-muted)]">

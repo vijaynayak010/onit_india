@@ -5,7 +5,7 @@
  */
 
 import { mockDb } from './mockDatabase';
-import { isTestModeEnabled, isSimulateSlowEnabled, getTestRole } from './testModeConfig';
+import { isSimulateSlowEnabled, getTestRole } from './testModeConfig';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -88,19 +88,26 @@ export async function handleMockApiRequest(method, url, body, params = {}) {
     }
   }
 
-  if (cleanUrl === '/providers/me/saved-taskers') {
-    return {
-      status: 200,
-      data: [
-        {
-          id: 'usr_performer_mock_2',
-          displayName: 'Rahul Sharma',
-          rating: 4.94,
-          skills: ['React', 'UI Design', 'Market Research'],
-          profilePicUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400',
-        },
-      ],
-    };
+  if (cleanUrl === '/providers/me/saved-taskers' || cleanUrl === '/providers/saved-taskers') {
+    const taskers = mockDb.getTaskers();
+    let savedIds = ['usr_performer_mock_2', 'usr_tasker_1'];
+    try {
+      const raw = localStorage.getItem('onit_provider_saved_performers');
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed) && parsed.length > 0) savedIds = parsed;
+      }
+    } catch {
+      // fallback to default savedIds
+    }
+    const saved = taskers
+      .filter((t) => savedIds.includes(t.id))
+      .map((t) => ({ ...t, user: { profilePicUrl: t.profilePicUrl, ratingAvg: t.ratingAvg } }));
+    return { status: 200, data: { data: saved } };
+  }
+
+  if (cleanUrl.startsWith('/providers/saved-taskers/')) {
+    return { status: 200, data: { success: true } };
   }
 
   // 3. Performer Endpoints
@@ -108,7 +115,7 @@ export async function handleMockApiRequest(method, url, body, params = {}) {
     return { status: 200, data: { onboardingComplete: true, step: 4 } };
   }
 
-  if (cleanUrl === '/taskers/me' || cleanUrl === '/taskers') {
+  if (cleanUrl === '/taskers/me' || (cleanUrl === '/taskers' && httpMethod !== 'GET')) {
     const user = mockDb.getCurrentUser();
     if (httpMethod === 'GET') {
       return { status: 200, data: user?.taskers || { id: 'tsk_usr_2', onboardingComplete: true } };
@@ -139,15 +146,25 @@ export async function handleMockApiRequest(method, url, body, params = {}) {
   }
 
   if (cleanUrl === '/taskers/rankings' || cleanUrl.includes('/taskers/rankings')) {
-    return {
-      status: 200,
-      data: [
-        { id: '1', rank: 1, displayName: 'Aarav Patel', rating: 4.98, completedTasks: 64, trustScore: 99, skills: ['Full Stack'] },
-        { id: '2', rank: 2, displayName: 'Rahul Sharma', rating: 4.94, completedTasks: 38, trustScore: 96, skills: ['React', 'UI Design'] },
-        { id: '3', rank: 3, displayName: 'Sneha Reddy', rating: 4.91, completedTasks: 29, trustScore: 93, skills: ['Content', 'Research'] },
-        { id: '4', rank: 4, displayName: 'Vikram Sengupta', rating: 4.88, completedTasks: 21, trustScore: 89, skills: ['Market Audits'] },
-      ],
-    };
+    const taskers = mockDb.getTaskers();
+    const order = ['usr_tasker_1', 'usr_performer_mock_2', 'usr_tasker_4', 'usr_tasker_3'];
+    const ranked = order
+      .map((id, idx) => {
+        const t = taskers.find((item) => item.id === id);
+        return t ? { ...t, rank: idx + 1, trustScore: 99 - idx * 3 } : null;
+      })
+      .filter(Boolean);
+    return { status: 200, data: ranked };
+  }
+
+  if (cleanUrl === '/taskers' || cleanUrl === '/taskers/search' || cleanUrl === '/taskers/suggested') {
+    const taskers = mockDb.getTaskers(params);
+    return { status: 200, data: { taskers, data: taskers, total: taskers.length } };
+  }
+
+  if (cleanUrl.startsWith('/taskers/') && !cleanUrl.includes('/me/')) {
+    const taskerId = cleanUrl.split('/').filter(Boolean)[1];
+    return { status: 200, data: mockDb.getTaskerById(taskerId) };
   }
 
   if (cleanUrl === '/taskers/me/bank-account') {
@@ -184,8 +201,28 @@ export async function handleMockApiRequest(method, url, body, params = {}) {
     return { status: 200, data: { success: true, status: 'APPROVED' } };
   }
 
+  if (cleanUrl === '/taskers/me/analytics/summary') {
+    const activeTaskerId = mockDb.getCurrentUser()?.id || 'usr_performer_mock_2';
+    const completed = mockDb.getTasks().filter((t) => {
+      const targetId = t.assignedTo || t.performer?.id || t.taskAssignments?.[0]?.taskerId;
+      return String(targetId || '') === String(activeTaskerId) && ['COMPLETED', 'DONE', 'FINISHED', 'CLOSED'].includes(String(t.status || '').toUpperCase());
+    });
+    const totalEarnings = completed.reduce((sum, t) => sum + Number(t.priceAmount ?? t.budget ?? 0), 0);
+    return { status: 200, data: { completedTasks: completed.length, totalEarnings } };
+  }
+
   if (cleanUrl === '/taskers/me/saved-tasks') {
-    return { status: 200, data: mockDb.getTasks().slice(0, 2) };
+    return { status: 200, data: mockDb.getSavedTasks() };
+  }
+
+  if (cleanUrl.startsWith('/taskers/me/saved-tasks/')) {
+    const savedTaskId = cleanUrl.split('/').filter(Boolean)[3];
+    if (httpMethod === 'POST') {
+      return { status: 201, data: mockDb.saveTask(savedTaskId) };
+    }
+    if (httpMethod === 'DELETE') {
+      return { status: 200, data: mockDb.unsaveTask(savedTaskId) };
+    }
   }
 
   // 4. Growth & Quiz Endpoints
@@ -228,12 +265,63 @@ export async function handleMockApiRequest(method, url, body, params = {}) {
   }
 
   // 5. Tasks & Applications
-  if (cleanUrl === '/tasks/my-tasks' || cleanUrl === '/providers/me/tasks') {
-    const tasks = mockDb.getTasks();
-    return { status: 200, data: { data: tasks, pagination: { total: tasks.length } } };
+  if (cleanUrl === '/tasks/my-tasks' || cleanUrl === '/tasks/my-posted-tasks' || cleanUrl === '/providers/me/tasks') {
+    const tasks = mockDb.getTasks(params);
+    return { status: 200, data: { data: tasks, tasks, pagination: { total: tasks.length } } };
   }
 
-  if (cleanUrl === '/tasks' || cleanUrl === '/tasks/browse' || cleanUrl === '/tasks/feed') {
+  if (cleanUrl === '/tasks/assigned-to-me' || cleanUrl === '/tasks/my-work' || cleanUrl === '/tasks/my-active-tasks' || cleanUrl === '/tasks/my-completed-tasks') {
+    const activeTaskerId = mockDb.getCurrentUser()?.id || 'usr_performer_mock_2';
+    const allTasks = mockDb.getTasks();
+    const assigned = allTasks.filter((t) => {
+      const targetId = t.assignedTo || t.performer?.id || t.taskAssignments?.[0]?.taskerId;
+      return String(targetId || '') === String(activeTaskerId);
+    });
+    const toAssignedRow = (t) => ({
+      id: t.taskAssignments?.[0]?.id || `assign-${String(t.id).replace(/^task-/, '')}`,
+      taskId: t.id,
+      status: t.status,
+      task: t,
+      assignment: t.taskAssignments?.[0] || {
+        id: `assign-${String(t.id).replace(/^task-/, '')}`,
+        taskId: t.id,
+        taskerId: activeTaskerId,
+        status: t.status,
+        createdAt: t.createdAt,
+      },
+      createdAt: t.createdAt,
+    });
+    if (cleanUrl === '/tasks/my-active-tasks') {
+      const rows = assigned.filter((t) => ['IN_PROGRESS', 'ASSIGNED', 'SUBMITTED', 'ACTIVE'].includes(String(t.status || '').toUpperCase())).map(toAssignedRow);
+      return { status: 200, data: rows };
+    }
+    if (cleanUrl === '/tasks/my-completed-tasks') {
+      const rows = assigned.filter((t) => ['COMPLETED', 'DONE', 'FINISHED', 'CLOSED'].includes(String(t.status || '').toUpperCase())).map(toAssignedRow);
+      return { status: 200, data: rows };
+    }
+    return { status: 200, data: assigned.map(toAssignedRow) };
+  }
+
+  if (cleanUrl === '/tasks/my-invitations') {
+    return { status: 200, data: mockDb.getMyInvitations() };
+  }
+
+  if (cleanUrl === '/tasks/my-interests') {
+    const activeTaskerId = mockDb.getCurrentUser()?.id || 'usr_performer_mock_2';
+    const apps = mockDb.getApplications().filter((a) => String(a.taskerId || '') === String(activeTaskerId));
+    const rows = apps
+      .map((a) => ({
+        ...a,
+        task: mockDb.getTaskById(a.taskId) || null,
+      }))
+      .filter((row) => {
+        const st = String(row.task?.status || '').toUpperCase();
+        return !['IN_PROGRESS', 'ASSIGNED', 'SUBMITTED', 'COMPLETED', 'DONE', 'CLOSED'].includes(st);
+      });
+    return { status: 200, data: rows };
+  }
+
+  if (cleanUrl === '/tasks' || cleanUrl === '/tasks/browse' || cleanUrl === '/tasks/feed' || cleanUrl === '/tasks/search') {
     if (httpMethod === 'POST') {
       const created = mockDb.createTask(body || {});
       return { status: 201, data: created };
@@ -244,6 +332,55 @@ export async function handleMockApiRequest(method, url, body, params = {}) {
 
   if (cleanUrl.startsWith('/tasks/')) {
     const parts = cleanUrl.split('/').filter(Boolean);
+
+    // /tasks/provider/:id
+    if (parts[1] === 'provider' && parts[2]) {
+      return { status: 200, data: mockDb.getTaskById(parts[2]) || mockDb.getTasks()[0] };
+    }
+
+    // /tasks/interests/:interestId/accept | reject
+    if (parts[1] === 'interests' && parts[2]) {
+      if (parts[3] === 'accept') {
+        return { status: 200, data: mockDb.acceptInterest(parts[2]) };
+      }
+      if (parts[3] === 'reject') {
+        return { status: 200, data: mockDb.rejectInterest(parts[2]) };
+      }
+    }
+
+    // /tasks/invitations/:invitationId/accept | decline
+    if (parts[1] === 'invitations' && parts[2]) {
+      if (parts[3] === 'accept') {
+        return { status: 200, data: mockDb.acceptInvitation(parts[2]) };
+      }
+      if (parts[3] === 'decline') {
+        return { status: 200, data: mockDb.declineInvitation(parts[2], body || {}) };
+      }
+    }
+
+    // /tasks/checklist/items/:itemId/tick | review
+    if (parts[1] === 'checklist' && parts[2] === 'items' && parts[3]) {
+      if (parts[4] === 'tick') {
+        return { status: 200, data: mockDb.tickChecklistItem(parts[3], body || {}) };
+      }
+      if (parts[4] === 'review') {
+        return { status: 200, data: mockDb.reviewChecklistItem(parts[3], body || {}) };
+      }
+    }
+
+    // /tasks/checklist/:checklistId/approve
+    if (parts[1] === 'checklist' && parts[2] && parts[3] === 'approve') {
+      return { status: 200, data: mockDb.approveChecklist(parts[2]) };
+    }
+
+    // /tasks/updates/:assignmentId
+    if (parts[1] === 'updates' && parts[2]) {
+      if (httpMethod === 'POST') {
+        return { status: 201, data: mockDb.addTaskUpdate(parts[2], body || {}) };
+      }
+      return { status: 200, data: mockDb.getTaskUpdates(parts[2]) };
+    }
+
     const taskId = parts[1];
 
     if (parts.length === 2) {
@@ -261,6 +398,49 @@ export async function handleMockApiRequest(method, url, body, params = {}) {
       }
     }
 
+    if (parts[2] === 'publish') {
+      const updated = mockDb.updateTask(taskId, { status: 'PUBLISHED' });
+      return { status: 200, data: updated || { success: true, status: 'PUBLISHED' } };
+    }
+
+    if (parts[2] === 'cancel') {
+      const updated = mockDb.updateTask(taskId, { status: 'CANCELLED' });
+      return { status: 200, data: updated || { success: true, status: 'CANCELLED' } };
+    }
+
+    if (parts[2] === 'interests') {
+      return { status: 200, data: mockDb.getTaskInterests(taskId) };
+    }
+
+    if (parts[2] === 'invitations') {
+      if (parts[3] && httpMethod === 'POST') {
+        const result = mockDb.sendTaskInvitation(taskId, parts[3]);
+        if (result.duplicate) {
+          return { status: 409, data: { message: 'An invitation has already been sent to this performer.' } };
+        }
+        return { status: 201, data: result.invitation };
+      }
+      return { status: 200, data: mockDb.getTaskInvitations(taskId) };
+    }
+
+    if (parts[2] === 'direct-hire') {
+      return { status: 200, data: mockDb.directHireTasker(taskId, body?.taskerId) };
+    }
+
+    if (parts[2] === 'checklist') {
+      if (httpMethod === 'POST') {
+        return { status: 201, data: mockDb.createChecklist(taskId, body || {}) };
+      }
+      return { status: 200, data: mockDb.getChecklist(taskId) };
+    }
+
+    if (parts[2] === 'reviews') {
+      if (httpMethod === 'POST') {
+        return { status: 201, data: mockDb.createTaskReview(taskId, body || {}) };
+      }
+      return { status: 200, data: mockDb.getTaskReviews(taskId) };
+    }
+
     if (parts[2] === 'applications') {
       if (httpMethod === 'GET') {
         const apps = mockDb.getApplications(taskId);
@@ -268,7 +448,7 @@ export async function handleMockApiRequest(method, url, body, params = {}) {
       }
     }
 
-    if (parts[2] === 'apply') {
+    if (parts[2] === 'apply' || parts[2] === 'interest') {
       const app = mockDb.createApplication(taskId, body || {});
       return { status: 201, data: app };
     }
@@ -282,22 +462,89 @@ export async function handleMockApiRequest(method, url, body, params = {}) {
       mockDb.updateTask(taskId, { status: 'COMPLETED' });
       return { status: 200, data: { success: true, status: 'COMPLETED' } };
     }
+
+    if (parts[2] === 'submit') {
+      return { status: 200, data: mockDb.submitAssignment(taskId, body || {}) };
+    }
+
+    if (parts[2] === 'complete' || parts[2] === 'approve') {
+      return { status: 200, data: mockDb.approveAssignment(taskId) };
+    }
+
+    if (parts[2] === 'reject') {
+      return { status: 200, data: mockDb.rejectAssignment(taskId, body || {}) };
+    }
   }
 
   if (cleanUrl === '/task-catalog/domains') {
     return {
       status: 200,
       data: [
-        { id: 'business', label: 'Business Operations & Research' },
-        { id: 'content', label: 'Content, Design & Marketing' },
-        { id: 'tech', label: 'Tech, Data & Admin' },
-        { id: 'academic', label: 'Academic & Knowledge Support' },
-        { id: 'onground', label: 'On-Ground & Local Assistance' },
+        { id: 'business', name: 'Business Operations & Research', label: 'Business Operations & Research', isActive: true, isLaunchVisible: true },
+        { id: 'content', name: 'Content, Design & Marketing', label: 'Content, Design & Marketing', isActive: true, isLaunchVisible: true },
+        { id: 'tech', name: 'Tech, Data & Admin', label: 'Tech, Data & Admin', isActive: true, isLaunchVisible: true },
+        { id: 'academic', name: 'Academic & Knowledge Support', label: 'Academic & Knowledge Support', isActive: true, isLaunchVisible: true },
+        { id: 'onground', name: 'On-Ground & Local Assistance', label: 'On-Ground & Local Assistance', isActive: true, isLaunchVisible: true },
       ],
     };
   }
 
+  if (cleanUrl === '/task-catalog/services') {
+    const services = [
+      { id: 'srv-market-research', name: 'Market Research', domainId: 'business', domainName: 'Business Operations & Research', minPrice: 500, isActive: true, isLaunchVisible: true },
+      { id: 'srv-retail-audit', name: 'Retail Audits', domainId: 'business', domainName: 'Business Operations & Research', minPrice: 800, isActive: true, isLaunchVisible: true },
+      { id: 'srv-video-editing', name: 'Video Editing', domainId: 'content', domainName: 'Content, Design & Marketing', minPrice: 1000, isActive: true, isLaunchVisible: true },
+      { id: 'srv-ui-design', name: 'UI/UX Design', domainId: 'content', domainName: 'Content, Design & Marketing', minPrice: 1200, isActive: true, isLaunchVisible: true },
+      { id: 'srv-web-dev', name: 'Web Development', domainId: 'tech', domainName: 'Tech, Data & Admin', minPrice: 1500, isActive: true, isLaunchVisible: true },
+      { id: 'srv-qa-testing', name: 'QA & Bug Testing', domainId: 'tech', domainName: 'Tech, Data & Admin', minPrice: 800, isActive: true, isLaunchVisible: true },
+      { id: 'srv-presentations', name: 'Presentations', domainId: 'academic', domainName: 'Academic & Knowledge Support', minPrice: 600, isActive: true, isLaunchVisible: true },
+      { id: 'srv-field-verify', name: 'Local Verification', domainId: 'onground', domainName: 'On-Ground & Local Assistance', minPrice: 700, isActive: true, isLaunchVisible: true },
+    ];
+    return { status: 200, data: services };
+  }
+
   // 6. Wallet & Payments
+  if (cleanUrl.startsWith('/payments/tasks/') && cleanUrl.endsWith('/preview')) {
+    const taskId = cleanUrl.split('/').filter(Boolean)[2];
+    return { status: 200, data: mockDb.previewPayment(taskId, body || {}) };
+  }
+
+  if (cleanUrl === '/payments/create-order') {
+    const breakdown = mockDb.previewPayment(body?.taskId, body || {});
+    if (body?.taskId) {
+      mockDb.fundAcceptedInvitation(body.taskId);
+    }
+    return {
+      status: 200,
+      data: {
+        id: `order_mock_${Date.now()}`,
+        amount: 0,
+        currency: 'INR',
+        paymentRequired: false,
+        breakdown,
+      },
+    };
+  }
+
+  if (cleanUrl === '/payments/verify-payment') {
+    return { status: 200, data: { success: true, verified: true } };
+  }
+
+  if (cleanUrl === '/coupons/my-vouchers') {
+    return {
+      status: 200,
+      data: [
+        { code: 'FIRST5', title: '5% off up to ₹250', discountType: 'PERCENT', discountValue: 5, maxDiscount: 250 },
+      ],
+    };
+  }
+
+  if (cleanUrl === '/coupons/validate') {
+    return {
+      status: 200,
+      data: { valid: true, code: body?.code || 'FIRST5', discountAmount: 175 },
+    };
+  }
   if (cleanUrl === '/wallet') {
     return { status: 200, data: mockDb.getWallet() };
   }
@@ -308,13 +555,23 @@ export async function handleMockApiRequest(method, url, body, params = {}) {
 
   if (cleanUrl.startsWith('/payout-methods')) {
     if (cleanUrl.includes('withdrawals')) {
-      return { status: 200, data: { success: true, withdrawalId: `wd-${Date.now()}`, status: 'PROCESSING' } };
+      if (httpMethod === 'POST') {
+        const result = mockDb.requestWithdrawal(body || {});
+        if (result?.error) {
+          return { status: result.status || 400, data: { message: result.message } };
+        }
+        return { status: 201, data: result };
+      }
+      return { status: 200, data: mockDb.getWithdrawals() };
     }
     return { status: 200, data: [{ id: 'pm-1', type: 'UPI', handle: 'rahulsharma@okhdfcbank', isDefault: true }] };
   }
 
   // 7. Conversations & Messages
   if (cleanUrl === '/conversations') {
+    if (httpMethod === 'POST') {
+      return { status: 201, data: mockDb.createConversation(body || {}) };
+    }
     return { status: 200, data: mockDb.getConversations() };
   }
 

@@ -56,6 +56,13 @@ export default function TestModeBadge() {
   const handleRoleSelect = (role) => {
     setTestRole(role);
     setActiveRole(role);
+    const nextUser = mockDb.getCurrentUser(role);
+    if (nextUser) {
+      localStorage.setItem('onit_user', JSON.stringify(nextUser));
+    } else {
+      localStorage.removeItem('onit_user');
+    }
+    window.dispatchEvent(new CustomEvent('onit-test-role-change', { detail: { role, user: nextUser } }));
   };
 
   const handleResetSession = () => {

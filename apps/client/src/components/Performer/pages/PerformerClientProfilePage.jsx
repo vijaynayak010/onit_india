@@ -65,7 +65,7 @@ function TrustIndicator({ icon: Icon, label, value, tone }) {
     const tones = {
         green: 'bg-[#EFFBFB] text-[#10605F] border-[#29ADAC]/20',
         blue: 'bg-sky-50 text-sky-600 border-sky-100',
-        purple: 'bg-violet-50 text-violet-600 border-violet-100',
+        purple: 'bg-[#EFFBFB] text-[#10605F] border-[#29ADAC]/25',
         amber: 'bg-amber-50 text-amber-600 border-amber-100',
     };
     return (
@@ -422,7 +422,7 @@ const PerformerClientProfilePage = () => {
     }
 
     return (
-        <div className="min-h-screen bg-[var(--color-bg)] pb-12 pt-[80px] font-sans text-[var(--color-text)] lg:pl-[220px]">
+        <div className="min-h-screen bg-[var(--color-bg)] pb-12 pt-[80px] font-sans text-[var(--color-text)] lg:pl-[240px]">
             <PerformerHeader activePage="home" />
 
             <main className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6">

@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  Bell,
   HelpCircle,
   FileText,
   Shield,
@@ -9,8 +8,9 @@ import {
   ChevronRight,
   Trash2,
   SwitchCamera,
-  LogIn,
+  LogOut,
 } from "lucide-react";
+import { useAuth } from "../../../../contexts/AuthContext";
 
 const SettingRowNav = ({ icon: Icon, label, onClick }) => (
   <button
@@ -55,26 +55,27 @@ const Section = ({ title, children }) => (
 
 const SettingsView = () => {
   const navigate = useNavigate();
+  const { logout } = useAuth();
 
-  const handleLogout = () => {
-    alert("Sign Out clicked!");
+  const handleLogout = async () => {
+    try {
+      await logout();
+    } finally {
+      navigate("/");
+    }
   };
 
   return (
     <div className="mx-auto w-full max-w-4xl space-y-8 pb-8">
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
         <div className="space-y-8">
-          <Section title="ACCOUNT">
-            <SettingRowNav icon={Bell} label="Notification Settings" onClick={() => {}} />
-          </Section>
-
           <Section title="ACCOUNT ACTIONS">
             <SettingRowNav
               icon={SwitchCamera}
               label="Switch to Performer Account"
               onClick={() => navigate("/provider/switch-to-performer")}
             />
-            <SettingRowDanger icon={LogIn} label="Sign Out" onClick={handleLogout} />
+            <SettingRowDanger icon={LogOut} label="Sign Out" onClick={handleLogout} />
             <SettingRowDanger
               icon={Trash2}
               label="Delete Account"
@@ -85,10 +86,10 @@ const SettingsView = () => {
 
         <div className="space-y-8">
           <Section title="SUPPORT">
-            <SettingRowNav icon={HelpCircle} label="Help Center" onClick={() => navigate("/provider/faq")} />
-            <SettingRowNav icon={Shield} label="Privacy Policy" onClick={() => navigate("/provider/about")} />
-            <SettingRowNav icon={FileText} label="Terms & Conditions" onClick={() => navigate("/provider/about")} />
-            <SettingRowNav icon={RotateCcw} label="Refund Policy" onClick={() => navigate("/provider/pricing")} />
+            <SettingRowNav icon={HelpCircle} label="Help Center" onClick={() => navigate("/help")} />
+            <SettingRowNav icon={Shield} label="Privacy Policy" onClick={() => navigate("/privacy-policy")} />
+            <SettingRowNav icon={FileText} label="Terms & Conditions" onClick={() => navigate("/terms-and-conditions")} />
+            <SettingRowNav icon={RotateCcw} label="Refund Policy" onClick={() => navigate("/refund-policy")} />
           </Section>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion as Motion, AnimatePresence } from "framer-motion";
 import {
   Lock,
   ShieldCheck,
@@ -33,17 +33,17 @@ const ChevronRight = ({ size, className }) => (
   </svg>
 );
 
-const SettingRow = ({ icon: Icon, label, sublabel, hasArrow, onClick }) => (
+const SettingRow = ({ icon, label, sublabel, hasArrow, onClick }) => (
   <div
     onClick={onClick}
     className="group flex cursor-pointer items-center justify-between border-b border-[var(--color-border)] px-4 py-4 last:border-0 hover:bg-[var(--color-primary-subtle)]/40 transition"
   >
     <div className="flex items-center gap-4 min-w-0 pr-3">
       <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[var(--color-primary-subtle)] text-[var(--color-primary)] transition group-hover:scale-105">
-        <Icon size={20} strokeWidth={2} />
+        {React.createElement(icon, { size: 20, strokeWidth: 2 })}
       </div>
       <div className="min-w-0">
-        <span className="text-[14.5px] font-bold text-[var(--color-text)] block truncate">{label}</span>
+        <span className="text-[14.5px] font-normal text-[var(--color-text)] block truncate">{label}</span>
         {sublabel && (
           <span className="text-[12px] font-medium text-[var(--color-text-subtle)] block truncate mt-0.5">
             {sublabel}
@@ -60,16 +60,16 @@ const SettingRow = ({ icon: Icon, label, sublabel, hasArrow, onClick }) => (
   </div>
 );
 
-const SettingRowDanger = ({ icon: Icon, label, onClick }) => (
+const SettingRowDanger = ({ icon, label, onClick }) => (
   <div
     onClick={onClick}
     className="group flex cursor-pointer items-center justify-between border-b border-[var(--color-border)] px-4 py-4 last:border-0 hover:bg-rose-50/50 transition"
   >
     <div className="flex items-center gap-4">
       <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-rose-50 text-rose-600 transition group-hover:bg-rose-100 group-hover:scale-105">
-        <Icon size={20} strokeWidth={2} />
+        {React.createElement(icon, { size: 20, strokeWidth: 2 })}
       </div>
-      <span className="text-[14.5px] font-bold text-rose-600">{label}</span>
+      <span className="text-[14.5px] font-normal text-rose-600">{label}</span>
     </div>
     <ChevronRight size={18} className="text-rose-300 transition group-hover:translate-x-0.5 group-hover:text-rose-500" />
   </div>
@@ -95,7 +95,7 @@ const PerformerSettingsPage = () => {
     <div className="min-h-screen bg-[var(--color-surface)] pt-[93px] font-sans text-[var(--color-text)]">
       <PerformerHeader activePage="account" />
 
-      <main className="w-full px-4 py-6 sm:px-6 lg:ml-[220px] lg:w-[calc(100%-220px)] lg:px-8">
+      <main className="w-full px-4 py-6 sm:px-6 lg:ml-[240px] lg:w-[calc(100%-240px)] lg:px-8">
         <div className="mx-auto w-full max-w-5xl">
           <PerformerPageHeader
             title="Settings"
@@ -105,7 +105,7 @@ const PerformerSettingsPage = () => {
           />
 
           <AnimatePresence mode="wait">
-            <motion.div
+            <Motion.div
               key="settings"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -131,7 +131,7 @@ const PerformerSettingsPage = () => {
                     <div className="min-w-0 flex-1">
                       <p className="truncate text-[16px] font-medium text-[var(--color-text)]">{displayName}</p>
                       <p className="truncate text-xs font-medium text-[var(--color-text-muted)]">{email}</p>
-                      <span className="mt-1 inline-flex items-center gap-1 rounded-full bg-[#EFFBFB] px-2.5 py-0.5 text-[11px] font-bold text-[#10605F]">
+                      <span className="mt-1 inline-flex items-center gap-1 rounded-full bg-[#EFFBFB] px-2.5 py-0.5 text-[11px] font-normal text-[#10605F]">
                         Active Performer
                       </span>
                     </div>
@@ -143,7 +143,7 @@ const PerformerSettingsPage = () => {
                         state: { from: "/performer/settings", fromLabel: "Back to Settings" },
                       })
                     }
-                    className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl border border-[var(--color-border)] bg-white py-2.5 text-xs font-bold text-[var(--color-text)] shadow-xs transition hover:bg-slate-50 hover:border-slate-300"
+                    className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl border border-[var(--color-border)] bg-white py-2.5 text-xs font-normal text-[var(--color-text)] shadow-xs transition hover:bg-slate-50 hover:border-slate-300"
                   >
                     <User size={15} className="text-[var(--color-primary)]" />
                     Edit Public Profile
@@ -160,7 +160,7 @@ const PerformerSettingsPage = () => {
                       </div>
                       <h3 className="text-base font-medium text-[var(--color-text)]">Verification Status</h3>
                       <p
-                        className={`mt-2 inline-flex items-center gap-1.5 rounded-full px-4 py-1 text-xs font-black uppercase tracking-wider ${
+                        className={`mt-2 inline-flex items-center gap-1.5 rounded-full px-4 py-1 text-xs font-normal uppercase tracking-wider ${
                           kycStatus === "VERIFIED"
                             ? "bg-[#EFFBFB] text-[#10605F] border border-[#29ADAC]/20"
                             : kycStatus === "PENDING"
@@ -184,7 +184,7 @@ const PerformerSettingsPage = () => {
                             state: { from: "/performer/settings", fromLabel: "Back to Settings" },
                           })
                         }
-                        className="w-full flex items-center justify-center gap-2 py-3 bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] active:scale-[0.99] transition-all text-white font-bold text-sm rounded-xl shadow-xs cursor-pointer"
+                        className="w-full flex items-center justify-center gap-2 py-3 bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] active:scale-[0.99] transition-all text-white font-normal text-sm rounded-xl shadow-xs cursor-pointer"
                       >
                         Manage Verification
                         <ChevronRight size={14} className="text-white/80" />
@@ -293,7 +293,7 @@ const PerformerSettingsPage = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </Motion.div>
           </AnimatePresence>
         </div>
       </main>

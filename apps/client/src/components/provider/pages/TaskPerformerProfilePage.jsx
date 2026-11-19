@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate, useParams, useLocation, useSearchParams } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion as Motion, AnimatePresence } from "framer-motion";
 import {
-    Home,
     ChevronRight,
     Star,
     Award,
@@ -21,6 +20,7 @@ import {
 import ProviderHeader from "../components/ProviderHeader";
 import { getTaskerProfile, listMyTasks, getTaskDetails, getTaskInterests, listTaskers, sendTaskInvitation, getTaskInvitations } from "../services/api";
 import { getTaskerReviewsList } from "../../Performer/services/api";
+import { getSavedPerformerIds, toggleSavedPerformer } from "../utils/savedPerformers";
 
 const TABS = ["About", "Portfolio", "Reviews", "Recent Activities"];
 
@@ -82,6 +82,18 @@ const TaskPerformerProfilePage = () => {
     const [activeTab, setActiveTab] = useState("About");
     const fallbackTasker = location.state?.tasker || null;
     const [tasker, setTasker] = useState(fallbackTasker);
+    const resolvedTaskerId = tasker?.id || taskerId;
+    const [isSaved, setIsSaved] = useState(() => getSavedPerformerIds().includes(resolvedTaskerId));
+    useEffect(() => {
+        if (resolvedTaskerId) {
+            setIsSaved(getSavedPerformerIds().includes(resolvedTaskerId));
+        }
+    }, [resolvedTaskerId]);
+    const handleToggleSave = () => {
+        if (!resolvedTaskerId) return;
+        const next = toggleSavedPerformer(resolvedTaskerId);
+        setIsSaved(next.includes(resolvedTaskerId));
+    };
     const [isLoading, setIsLoading] = useState(!fallbackTasker);
     const [error, setError] = useState(null);
     const [reviews, setReviews] = useState([]);
@@ -135,7 +147,7 @@ const TaskPerformerProfilePage = () => {
         fetchPerformerInterest();
     }, [contextTask, selectedTask, taskerId, tasker?.userId, location.state, searchParams, isInterestContext, initialInterestId, interestId]);
 
-    const fetchProfile = async () => {
+    const fetchProfile = useCallback(async () => {
         setIsLoading(true);
         setError(null);
         try {
@@ -160,9 +172,9 @@ const TaskPerformerProfilePage = () => {
         } finally {
             setIsLoading(false);
         }
-    };
+    }, [taskerId, fallbackTasker]);
 
-    const fetchReviews = async () => {
+    const fetchReviews = useCallback(async () => {
         setReviewsLoading(true);
         try {
             const res = await getTaskerReviewsList(taskerId, { limit: 50 });
@@ -174,7 +186,7 @@ const TaskPerformerProfilePage = () => {
         } finally {
             setReviewsLoading(false);
         }
-    };
+    }, [taskerId]);
 
     useEffect(() => {
         if (taskerId && taskerId !== "undefined" && taskerId !== "null") {
@@ -184,7 +196,7 @@ const TaskPerformerProfilePage = () => {
             setIsLoading(false);
             setError("Invalid or missing performer profile ID.");
         }
-    }, [taskerId]);
+    }, [taskerId, fetchProfile, fetchReviews]);
 
     useEffect(() => {
         const fetchContextTask = async () => {
@@ -205,7 +217,7 @@ const TaskPerformerProfilePage = () => {
             }
         };
         fetchContextTask();
-    }, [location.state, searchParams]);
+    }, [location.state, searchParams, contextTask]);
 
     const openHireModal = async () => {
         setShowHireModal(true);
@@ -276,9 +288,13 @@ const TaskPerformerProfilePage = () => {
             setInvitationFeedback(`${displayName} has been invited. You can pay after they accept the request.`);
         } catch (err) {
             const message = String(err?.message || "");
-            setInvitationFeedback(/already.*invited|duplicate/i.test(message)
-                ? "An invitation has already been sent to this performer for the selected task."
-                : message || "Could not send the invitation. Please try again.");
+            if (/already.*(invited|sent)|duplicate/i.test(message)) {
+                setShowHireModal(false);
+                setPendingInvitation({ task: targetTask, taskId });
+                setInvitationFeedback("An invitation has already been sent to this performer for the selected task.");
+            } else {
+                setInvitationFeedback(message || "Could not send the invitation. Please try again.");
+            }
         } finally {
             setIsSendingInvitation(false);
         }
@@ -314,7 +330,7 @@ const TaskPerformerProfilePage = () => {
                         rate: getRateLabel(tasker),
                         taskerId,
                         hireType: 'accepted_invitation',
-                        invitationId: invitation?.id,
+                        invitationId: invitation?.id || invitation?._id,
                     },
                     taskData: {
                         id: pendingInvitation.taskId,
@@ -400,32 +416,7 @@ const TaskPerformerProfilePage = () => {
                 }}
             />
 
-            <div className="border-b border-[var(--color-border)] bg-gradient-to-b from-[var(--color-surface-elevated)] to-[var(--color-surface)]/90">
-                <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-                    <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-sm">
-                        <button
-                            type="button"
-                            onClick={() => navigate("/provider/dashboard")}
-                            className="inline-flex items-center gap-2 font-medium text-[var(--color-text-subtle)] transition hover:text-[var(--color-primary)]"
-                        >
-                            <Home className="h-4 w-4" strokeWidth={2.25} />
-                            Home
-                        </button>
-                        <ChevronRight className="h-4 w-4 text-[var(--color-border)]" aria-hidden />
-                        <button
-                            type="button"
-                            onClick={() => navigate("/provider/task-performers")}
-                            className="font-medium text-[var(--color-text-subtle)] transition hover:text-[var(--color-primary)]"
-                        >
-                            Task performers
-                        </button>
-                        <ChevronRight className="h-4 w-4 text-[var(--color-border)]" aria-hidden />
-                        <span className="font-bold text-[var(--color-primary)] truncate max-w-[200px]">{displayName}</span>
-                    </nav>
-                </div>
-            </div>
-
-            <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
+            <main className="mx-auto max-w-[1440px] px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
                 {invitationFeedback && (
                     <div className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-[#29ADAC]/30 bg-[#EFFBFB] px-4 py-3 text-sm font-semibold text-[#083B3A]">
                         <span>{invitationFeedback}</span>
@@ -437,7 +428,7 @@ const TaskPerformerProfilePage = () => {
                 )}
                 <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-10">
                     <div className="min-w-0 flex-1 space-y-6">
-                        <motion.div
+                        <Motion.div
                             initial={{ opacity: 0, y: 12 }}
                             animate={{ opacity: 1, y: 0 }}
                             className="overflow-hidden rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] shadow-[var(--shadow-md)] ring-1 ring-black/[0.04]"
@@ -454,31 +445,31 @@ const TaskPerformerProfilePage = () => {
                                             />
                                         </div>
                                         <div>
-                                            <p className="mb-1 text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--color-primary)]">
+                                            <p className="mb-1 text-[11px] font-normal uppercase tracking-[0.2em] text-[var(--color-primary)]">
                                                 {tasker.kycStatus === "VERIFIED" ? "Verified Performer" : "Top rated"}
                                             </p>
-                                            <h1 className="text-2xl font-medium tracking-tight text-[var(--color-text)] sm:text-3xl">{displayName}</h1>
-                                            <p className="mt-1 text-[15px] font-medium text-[var(--color-text-muted)]">{tasker.profession || "Expert Tasker"}</p>
+                                            <h1 className="dash-page-title font-medium text-[var(--dash-text)]">{displayName}</h1>
+                                            <p className="mt-1 text-[15px] font-normal text-[var(--color-text-muted)]">{tasker.profession || "Expert Tasker"}</p>
                                             <div className="mt-3 flex flex-wrap items-center gap-2">
                                                 <div className="flex items-center gap-1 text-amber-500">
                                                     <Star className="h-5 w-5 fill-current" strokeWidth={0} />
                                                 </div>
-                                                <span className="text-sm font-bold text-[var(--color-text)]">{displayRatingAvg || "New"}</span>
-                                                <span className="text-sm font-medium text-[var(--color-text-subtle)]">/ 5 · {displayRatingCount} review{displayRatingCount !== 1 ? "s" : ""}</span>
+                                                <span className="text-sm font-medium text-[var(--color-text)]">{displayRatingAvg || "New"}</span>
+                                                <span className="text-sm font-normal text-[var(--color-text-subtle)]">/ 5 · {displayRatingCount} review{displayRatingCount !== 1 ? "s" : ""}</span>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="grid grid-cols-2 gap-3 sm:grid-cols-2 lg:max-w-md lg:grid-cols-2">
-                                        {stats.map(({ label, value, icon: Icon }) => (
+                                        {stats.map((stat) => (
                                             <div
-                                                key={label}
+                                                key={stat.label}
                                                 className="rounded-[var(--radius-xl)] border border-[var(--color-border)]/80 bg-white/90 px-4 py-3 shadow-[var(--shadow-xs)] backdrop-blur-sm"
                                             >
                                                 <div className="flex items-center gap-2 text-[var(--color-primary)]">
-                                                    <Icon className="h-4 w-4 shrink-0" strokeWidth={2.25} />
-                                                    <span className="text-lg font-medium text-[var(--color-text)] truncate">{value}</span>
+                                                    <stat.icon className="h-4 w-4 shrink-0" strokeWidth={2.25} />
+                                                    <span className="text-lg font-medium text-[var(--color-text)] truncate">{stat.value}</span>
                                                 </div>
-                                                <p className="mt-1 text-[11px] font-semibold uppercase tracking-wide text-[var(--color-text-subtle)]">{label}</p>
+                                                <p className="mt-1 text-[11px] font-normal uppercase tracking-wide text-[var(--color-text-subtle)]">{stat.label}</p>
                                             </div>
                                         ))}
                                     </div>
@@ -492,14 +483,14 @@ const TaskPerformerProfilePage = () => {
                                             key={tab}
                                             type="button"
                                             onClick={() => setActiveTab(tab)}
-                                            className={`relative shrink-0 whitespace-nowrap pb-3 pt-4 text-[14px] font-bold transition-colors sm:text-[15px] ${activeTab === tab
+                                            className={`relative shrink-0 whitespace-nowrap pb-3 pt-4 text-[14px] font-medium transition-colors sm:text-[15px] ${activeTab === tab
                                                 ? "text-[var(--color-text)]"
                                                 : "text-[var(--color-text-subtle)] hover:text-[var(--color-text-muted)]"
                                                 }`}
                                         >
                                             {tab}
                                             {activeTab === tab && (
-                                                <motion.div
+                                                <Motion.div
                                                     layoutId="performerProfileTab"
                                                     className="absolute bottom-0 left-0 right-0 h-[3px] rounded-full bg-[var(--color-primary)]"
                                                     transition={{ type: "spring", stiffness: 380, damping: 32 }}
@@ -509,11 +500,11 @@ const TaskPerformerProfilePage = () => {
                                     ))}
                                 </div>
                             </div>
-                        </motion.div>
+                        </Motion.div>
 
                         <AnimatePresence mode="wait">
                             {activeTab === "About" && (
-                                <motion.div
+                                <Motion.div
                                     key="about"
                                     initial={{ opacity: 0, y: 8 }}
                                     animate={{ opacity: 1, y: 0 }}
@@ -521,13 +512,13 @@ const TaskPerformerProfilePage = () => {
                                     className="space-y-6"
                                 >
                                     <div className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-white p-6 shadow-[var(--shadow-sm)] sm:p-8">
-                                        <h2 className="mb-4 text-xl font-medium text-[var(--color-text)]">Overview</h2>
+                                        <h2 className="mb-4 dash-section-title text-[var(--dash-text)]">Overview</h2>
                                         <p className="whitespace-pre-wrap text-[15px] font-medium leading-[1.75] text-[var(--color-text-muted)]">
                                             {tasker.bio || "This performer has not provided a bio yet. They are a dedicated member of the FirstDoer professional network, committed to high-quality work and client satisfaction."}
                                         </p>
                                     </div>
                                     <div className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-6 shadow-[var(--shadow-sm)] sm:p-8">
-                                        <h2 className="mb-5 text-xl font-medium text-[var(--color-text)]">Skills</h2>
+                                        <h2 className="mb-5 dash-section-title text-[var(--dash-text)]">Skills</h2>
                                         <div className="flex flex-wrap gap-2">
                                             {(tasker.skills?.length > 0 ? tasker.skills : ["Dedicated", "Professional", "Timely"]).map((skill) => (
                                                 <span
@@ -539,11 +530,11 @@ const TaskPerformerProfilePage = () => {
                                             ))}
                                         </div>
                                     </div>
-                                </motion.div>
+                                </Motion.div>
                             )}
 
                             {activeTab === "Portfolio" && (
-                                <motion.div
+                                <Motion.div
                                     key="portfolio"
                                     initial={{ opacity: 0, y: 8 }}
                                     animate={{ opacity: 1, y: 0 }}
@@ -577,11 +568,11 @@ const TaskPerformerProfilePage = () => {
                                             <p className="font-bold">No portfolio entries yet</p>
                                         </div>
                                     )}
-                                </motion.div>
+                                </Motion.div>
                             )}
 
                             {activeTab === "Reviews" && (
-                                <motion.div
+                                <Motion.div
                                     key="reviews"
                                     initial={{ opacity: 0, y: 8 }}
                                     animate={{ opacity: 1, y: 0 }}
@@ -644,11 +635,11 @@ const TaskPerformerProfilePage = () => {
                                             <p className="text-xs mt-1">Be the first to work with this performer!</p>
                                         </div>
                                     )}
-                                </motion.div>
+                                </Motion.div>
                             )}
 
                             {activeTab === "Recent Activities" && (
-                                <motion.div
+                                <Motion.div
                                     key="activities"
                                     initial={{ opacity: 0, y: 8 }}
                                     animate={{ opacity: 1, y: 0 }}
@@ -673,7 +664,7 @@ const TaskPerformerProfilePage = () => {
                                     </div>
                                     {reviews.length > 0 && (
                                         <div className="rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-white p-6 shadow-[var(--shadow-sm)]">
-                                            <h2 className="mb-4 text-xl font-medium text-[var(--color-text)]">Latest Feedback</h2>
+                                            <h2 className="mb-4 dash-section-title text-[var(--dash-text)]">Latest Feedback</h2>
                                             <div className="space-y-3">
                                                 {reviews.slice(0, 3).map(review => (
                                                     <div key={review.id} className="flex items-start gap-3 rounded-[var(--radius-xl)] border border-[var(--color-border)]/60 p-3">
@@ -701,7 +692,7 @@ const TaskPerformerProfilePage = () => {
                                             <p className="text-xs mt-1">This performer is new to the platform</p>
                                         </div>
                                     )}
-                                </motion.div>
+                                </Motion.div>
                             )}
                         </AnimatePresence>
                     </div>
@@ -711,11 +702,11 @@ const TaskPerformerProfilePage = () => {
                             <div className="border-b border-[var(--color-border)] bg-gradient-to-br from-[var(--color-primary-subtle)]/60 to-white p-6 text-center">
                                 {displayRate ? (
                                     <>
-                                        <p className="text-[11px] font-bold uppercase tracking-widest text-[var(--color-primary)]">Hiring rate</p>
+                                        <p className="text-[11px] font-normal uppercase tracking-widest text-[var(--color-primary)]">Hiring rate</p>
                                         <p className="mt-2 text-2xl font-medium text-[var(--color-text)]">{displayRate}</p>
                                     </>
                                 ) : null}
-                                <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1.5 text-[13px] font-bold text-[var(--color-primary)] shadow-[var(--shadow-xs)] ring-1 ring-[var(--color-primary)]/15 mx-auto">
+                                <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1.5 text-[13px] font-medium text-[var(--color-primary)] shadow-[var(--shadow-xs)] ring-1 ring-[var(--color-primary)]/15 mx-auto">
                                     <span className="relative flex h-2 w-2">
                                         <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--color-primary)] opacity-40" />
                                         <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--color-primary)]" />
@@ -730,18 +721,18 @@ const TaskPerformerProfilePage = () => {
                                 )}
                                 {contextTask && (
                                     <div className="mt-4 mx-auto max-w-[240px] rounded-2xl border border-[var(--color-primary)]/20 bg-[var(--color-primary-subtle)]/50 p-3.5 text-left shadow-[var(--shadow-sm)] backdrop-blur-md">
-                                        <p className="text-[10px] font-extrabold uppercase tracking-widest text-[var(--color-primary)]">{isInterestContext ? "Applied for task" : "Hiring for task"}</p>
+                                        <p className="text-[10px] font-medium uppercase tracking-widest text-[var(--color-primary)]">{isInterestContext ? "Applied for task" : "Hiring for task"}</p>
                                         <p className="mt-1 text-xs font-medium text-[var(--color-text)] truncate">{contextTask.title}</p>
                                         <div className="mt-2 flex items-center justify-between">
-                                            <span className="text-[11px] font-black text-[var(--color-primary)]">₹{contextTask.priceAmount || contextTask.budget || contextTask.price}</span>
-                                            <span className="rounded-full bg-[#10605F]/10 px-2 py-0.5 text-[9px] font-extrabold text-[var(--color-primary)] uppercase">Active</span>
+                                            <span className="text-[11px] font-medium text-[var(--color-primary)]">₹{contextTask.priceAmount || contextTask.budget || contextTask.price}</span>
+                                            <span className="rounded-full bg-[#10605F]/10 px-2 py-0.5 text-[9px] font-medium text-[var(--color-primary)] uppercase">Active</span>
                                         </div>
                                     </div>
                                 )}
                             </div>
                             <div className="space-y-3 p-6">
                                 {isInterestContext ? (
-                                    <motion.button
+                                    <Motion.button
                                         type="button"
                                         whileHover={interestId && contextTask ? { scale: 1.02 } : undefined}
                                         whileTap={interestId && contextTask ? { scale: 0.98 } : undefined}
@@ -756,10 +747,10 @@ const TaskPerformerProfilePage = () => {
                                             : interestId && contextTask
                                                 ? "Hire performer"
                                                 : "Application unavailable"}
-                                    </motion.button>
+                                    </Motion.button>
                                 ) : (
                                     <>
-                                        <motion.button
+                                        <Motion.button
                                             type="button"
                                             whileHover={{ scale: 1.02 }}
                                             whileTap={{ scale: 0.98 }}
@@ -769,14 +760,15 @@ const TaskPerformerProfilePage = () => {
                                             <span className="pointer-events-none absolute inset-0 bg-white/10 opacity-0 transition hover:opacity-100 rounded-full" />
                                             <Zap className="h-5 w-5 shrink-0" strokeWidth={2.5} fill="currentColor" />
                                             Assign task
-                                        </motion.button>
+                                        </Motion.button>
 
                                         <button
                                             type="button"
-                                            className="flex w-full items-center justify-center gap-2 rounded-full border border-[var(--color-border)] bg-white py-3 text-[14px] font-semibold text-[var(--color-text-subtle)] shadow-[var(--shadow-xs)] transition hover:border-[var(--color-border-subtle)] hover:text-[var(--color-text)]"
+                                            onClick={handleToggleSave}
+                                            className={`flex w-full items-center justify-center gap-2 rounded-full border py-3 text-[14px] font-semibold shadow-[var(--shadow-xs)] transition ${isSaved ? "border-[var(--color-primary)] bg-[var(--color-primary-subtle)] text-[var(--color-primary)]" : "border-[var(--color-border)] bg-white text-[var(--color-text-subtle)] hover:border-[var(--color-border-subtle)] hover:text-[var(--color-text)]"}`}
                                         >
-                                            <Bookmark className="h-4 w-4" strokeWidth={2.25} />
-                                            Save for later
+                                            <Bookmark className="h-4 w-4" strokeWidth={2.25} fill={isSaved ? "currentColor" : "none"} />
+                                            {isSaved ? "Saved" : "Save for later"}
                                         </button>
                                     </>
                                 )}
@@ -795,14 +787,14 @@ const TaskPerformerProfilePage = () => {
             {/* ── Task Picker Modal (same flow as TaskApplicantsPage) ── */}
             <AnimatePresence>
                 {showHireModal && (
-                    <motion.div
+                    <Motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         className="fixed inset-0 z-[200] flex items-end sm:items-center justify-center bg-black/50 backdrop-blur-sm p-4"
                         onClick={(e) => { if (e.target === e.currentTarget) setShowHireModal(false); }}
                     >
-                        <motion.div
+                        <Motion.div
                             initial={{ opacity: 0, y: 60 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: 60 }}
@@ -882,7 +874,7 @@ const TaskPerformerProfilePage = () => {
                                     >
                                         Cancel
                                     </button>
-                                    <motion.button
+                                    <Motion.button
                                         whileHover={{ scale: selectedTask ? 1.02 : 1 }}
                                         whileTap={{ scale: selectedTask ? 0.97 : 1 }}
                                         disabled={!selectedTask}
@@ -894,11 +886,11 @@ const TaskPerformerProfilePage = () => {
                                         }`}
                                     >
                                         {isSendingInvitation ? 'Sending request…' : selectedTask ? 'Send request →' : 'Select a task first'}
-                                    </motion.button>
+                                    </Motion.button>
                                 </div>
                             )}
-                        </motion.div>
-                    </motion.div>
+                        </Motion.div>
+                    </Motion.div>
                 )}
             </AnimatePresence>
         </div>

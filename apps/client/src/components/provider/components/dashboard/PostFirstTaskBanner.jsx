@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect, useMemo, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Plus, Search, Clock, ArrowRight, ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
+import { Plus, Search, Clock, ArrowRight, Sparkles } from "lucide-react";
 const MotionDiv = motion.div;
 const CDN = "https://onit-india-app-uploads.s3.ap-south-1.amazonaws.com/landing/docs";
 const hero530 = `${CDN}/image-530.webp`;
@@ -50,7 +50,7 @@ const PromoCard = ({ image, icon: Icon, title, description, href, overlay, onNav
   <button
     type="button"
     onClick={() => onNavigate(href)}
-    className="relative flex h-full min-h-[124px] w-full flex-col items-start justify-center overflow-hidden rounded-2xl px-12 py-4 text-left shadow-[var(--shadow-sm)] transition hover:brightness-[1.03] active:scale-[0.995] sm:min-h-[132px] sm:px-14 sm:py-5"
+    className="relative flex h-full min-h-[124px] w-full flex-col items-start justify-center overflow-hidden rounded-2xl px-6 py-5 text-left shadow-[var(--shadow-sm)] transition hover:brightness-[1.03] active:scale-[0.995] sm:min-h-[132px] sm:px-8 sm:py-6"
   >
     <img
       src={image}
@@ -137,20 +137,6 @@ const PostFirstTaskBanner = ({ dynamicSlides = [] }) => {
   return (
     <section className="w-full" aria-label="Promotions">
       <div className="relative w-full overflow-hidden rounded-2xl">
-        {count > 1 ? (
-          <button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              goTo(activeIndex - 1);
-            }}
-            className="absolute left-3 top-1/2 z-20 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-white/25 bg-[#032120]/50 text-white backdrop-blur-xs transition hover:bg-[#032120]/75"
-            aria-label="Previous slide"
-          >
-            <ChevronLeft size={17} />
-          </button>
-        ) : null}
-
         <div
           className="w-full overflow-hidden touch-pan-y"
           onMouseDown={onPointerDown}
@@ -193,20 +179,6 @@ const PostFirstTaskBanner = ({ dynamicSlides = [] }) => {
             ))}
           </MotionDiv>
         </div>
-
-        {count > 1 ? (
-          <button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              goTo(activeIndex + 1);
-            }}
-            className="absolute right-3 top-1/2 z-20 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-white/25 bg-[#032120]/50 text-white backdrop-blur-xs transition hover:bg-[#032120]/75"
-            aria-label="Next slide"
-          >
-            <ChevronRight size={17} />
-          </button>
-        ) : null}
 
         {count > 1 ? (
           <div className="pointer-events-auto absolute bottom-2.5 left-1/2 z-20 flex -translate-x-1/2 items-center gap-1.5">

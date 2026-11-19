@@ -285,7 +285,7 @@ const PerformerTaskInvitationPage = () => {
 
   if (accepted) {
     return (
-      <div className="min-h-screen bg-[var(--color-bg)] pb-16 pt-[80px] font-sans text-[var(--color-text)] lg:pl-[220px]">
+      <div className="min-h-screen bg-[var(--color-bg)] pb-16 pt-[80px] font-sans text-[var(--color-text)] lg:pl-[240px]">
         <PerformerHeader activePage="my-tasks" />
         <main className="mx-auto w-full max-w-lg px-4 py-10 sm:px-6">
           <motion.div
@@ -361,7 +361,7 @@ const PerformerTaskInvitationPage = () => {
     : view.description;
 
   return (
-    <div className="min-h-screen bg-[var(--color-bg)] pb-28 pt-[80px] font-sans text-[var(--color-text)] lg:pl-[220px]">
+    <div className="min-h-screen bg-[var(--color-bg)] pb-28 pt-[80px] font-sans text-[var(--color-text)] lg:pl-[240px]">
       <PerformerHeader activePage="my-tasks" />
 
       <main className="mx-auto w-full max-w-lg px-4 py-6 sm:px-6">
@@ -389,7 +389,7 @@ const PerformerTaskInvitationPage = () => {
           </div>
 
           <div className="mt-4 flex flex-wrap gap-2">
-            <span className="inline-flex rounded-full bg-violet-50 px-3 py-1.5 text-[12px] font-bold text-violet-600">
+            <span className="inline-flex rounded-full border border-[#29ADAC]/25 bg-[#EFFBFB] px-3 py-1.5 text-[12px] font-medium text-[#10605F]">
               {view.priceLabel}
             </span>
             <span className="inline-flex rounded-full bg-blue-50 px-3 py-1.5 text-[12px] font-bold text-blue-600">

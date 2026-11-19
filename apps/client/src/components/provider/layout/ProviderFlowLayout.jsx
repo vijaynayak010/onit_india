@@ -20,7 +20,7 @@ const ProviderFlowLayout = ({
   };
 
   return (
-    <div className="flex min-h-screen flex-col bg-[var(--color-surface)] pt-[80px] font-sans text-[var(--color-text)]">
+    <div className="flex min-h-screen flex-col bg-[var(--dash-canvas)] pt-[80px] font-sans text-[var(--dash-text)]">
       <ProviderHeader activePage="home" />
 
       <main className={`mx-auto w-full flex-1 ${maxWidth} px-4 py-8 sm:px-6 lg:px-10 lg:py-10`}>
@@ -29,16 +29,16 @@ const ProviderFlowLayout = ({
             <button
               type="button"
               onClick={handleBack}
-              className="mb-4 inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-text-muted)] transition hover:text-[var(--color-text)]"
+              className="mb-4 inline-flex items-center gap-2 rounded-lg text-sm font-semibold text-[var(--dash-text-secondary)] transition hover:text-[var(--dash-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--dash-primary-700)]"
             >
-              <ArrowLeft className="h-4 w-4" strokeWidth={2.5} />
+              <ArrowLeft className="h-4 w-4" strokeWidth={2.5} aria-hidden="true" />
               Back
             </button>
-            <h1 className="text-2xl font-medium tracking-tight text-[var(--color-text)] sm:text-3xl">
+            <h1 className="dash-page-title text-[var(--dash-text)]">
               {title}
             </h1>
             {subtitle ? (
-              <p className="mt-1.5 max-w-2xl text-sm font-medium text-[var(--color-text-muted)]">
+              <p className="mt-1.5 max-w-2xl text-sm font-medium text-[var(--dash-text-secondary)]">
                 {subtitle}
               </p>
             ) : null}

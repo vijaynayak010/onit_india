@@ -149,14 +149,14 @@ const ModalShell = ({ title, subtitle, children, onClose, onSave, saveLabel = "S
           <button
             type="button"
             onClick={onClose}
-            className="rounded-xl border border-slate-200 px-4 py-2 text-xs font-bold text-slate-600 transition hover:bg-slate-100"
+            className="rounded-xl border border-slate-200 px-4 py-2 text-xs font-normal text-slate-600 transition hover:bg-slate-100"
           >
             Cancel
           </button>
           <button
             type="button"
             onClick={onSave}
-            className="rounded-xl bg-[#10605F] px-5 py-2 text-xs font-bold text-white shadow-xs transition hover:bg-[#083B3A] active:scale-95"
+            className="rounded-xl bg-[#10605F] px-5 py-2 text-xs font-normal text-white shadow-xs transition hover:bg-[#083B3A] active:scale-95"
           >
             {saveLabel}
           </button>
@@ -562,7 +562,7 @@ const PerformerProfilePage = () => {
     <div className="min-h-screen bg-[var(--color-surface)] pt-[93px] font-sans text-[var(--color-text)]">
       <PerformerHeader activePage="account" />
 
-      <main className="w-full px-4 py-6 sm:px-6 lg:ml-[220px] lg:w-[calc(100%-220px)] lg:px-10 lg:py-8">
+      <main className="w-full px-4 py-6 sm:px-6 lg:ml-[240px] lg:w-[calc(100%-240px)] lg:px-10 lg:py-8">
         <div className="mx-auto w-full max-w-4xl space-y-6">
 
           {/* ── Page Header / Sticky Navigation Bar ── */}
@@ -574,7 +574,7 @@ const PerformerProfilePage = () => {
             actions={
               <>
                 {isDirty && (
-                  <span className="hidden items-center gap-1.5 rounded-full bg-amber-50 px-3 py-1 text-[11px] font-bold text-amber-600 sm:inline-flex">
+                  <span className="hidden items-center gap-1.5 rounded-full bg-amber-50 px-3 py-1 text-[11px] font-normal text-amber-600 sm:inline-flex">
                     <span className="h-1.5 w-1.5 rounded-full bg-amber-500 animate-pulse" />
                     Unsaved changes
                   </span>
@@ -594,7 +594,7 @@ const PerformerProfilePage = () => {
                   type="button"
                   disabled={saving || loading}
                   onClick={handleSave}
-                  className={`flex h-9 items-center gap-1.5 rounded-xl px-4 text-xs font-bold transition shadow-xs disabled:opacity-50 active:scale-95 ${
+                  className={`flex h-9 items-center gap-1.5 rounded-xl px-4 text-xs font-normal transition shadow-xs disabled:opacity-50 active:scale-95 ${
                     savedOk
                       ? "bg-[#EFFBFB] text-[#10605F] border border-[#29ADAC]/30"
                       : isDirty
@@ -624,7 +624,7 @@ const PerformerProfilePage = () => {
           />
 
           {validationError && (
-            <div className="flex items-center gap-2 rounded-xl bg-red-50 p-3 text-xs font-semibold text-red-600 border border-red-200">
+            <div className="flex items-center gap-2 rounded-xl bg-red-50 p-3 text-xs font-normal text-red-600 border border-red-200">
               <AlertCircle size={15} />
               <span>{validationError}</span>
             </div>
@@ -675,13 +675,13 @@ const PerformerProfilePage = () => {
                       {profile.fullName || "Performer"}
                     </h2>
                     {profile.phoneVerified && (
-                      <span className="flex items-center gap-0.5 rounded-full bg-[#DFF7F6] px-2 py-0.5 text-[10px] font-bold text-[#083B3A]">
+                      <span className="flex items-center gap-0.5 rounded-full bg-[#DFF7F6] px-2 py-0.5 text-[10px] font-normal text-[#083B3A]">
                         <ShieldCheck size={11} className="text-[#10605F]" />
                         Verified
                       </span>
                     )}
                   </div>
-                  <p className="mt-0.5 text-xs font-semibold text-[#10605F]">
+                  <p className="mt-0.5 text-xs font-normal text-[#10605F]">
                     {profile.role || "Professional Performer"}
                   </p>
                   <p className="mt-1 flex items-center gap-1 text-[11px] font-medium text-slate-400">
@@ -699,9 +699,9 @@ const PerformerProfilePage = () => {
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex items-center gap-1.5">
                     <Sparkles size={14} className="text-[#10605F]" />
-                    <span className="text-xs font-bold text-slate-800">Profile Readiness</span>
+                    <span className="text-xs font-normal text-slate-800">Profile Readiness</span>
                   </div>
-                  <span className="text-xs font-extrabold text-[#10605F]">{completionPct}%</span>
+                  <span className="text-xs font-normal text-[#10605F]">{completionPct}%</span>
                 </div>
                 <div className="h-2 w-full overflow-hidden rounded-full bg-slate-100">
                   <div
@@ -709,7 +709,7 @@ const PerformerProfilePage = () => {
                     style={{ width: `${completionPct}%` }}
                   />
                 </div>
-                <p className="text-[10px] font-semibold text-slate-400 hidden sm:block">
+                <p className="text-[10px] font-normal text-slate-400 hidden sm:block">
                   {workSectionsFilled} of 5 sections complete
                 </p>
               </div>
@@ -724,7 +724,7 @@ const PerformerProfilePage = () => {
               role="tab"
               aria-selected={activeTab === "personal"}
               onClick={() => setActiveTab("personal")}
-              className={`flex flex-1 items-center justify-center gap-2 rounded-xl py-2.5 text-xs font-bold transition duration-150 ${
+              className={`flex flex-1 items-center justify-center gap-2 rounded-xl py-2.5 text-xs font-normal transition duration-150 ${
                 activeTab === "personal"
                   ? "bg-[#10605F] text-white shadow-xs"
                   : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
@@ -738,7 +738,7 @@ const PerformerProfilePage = () => {
               role="tab"
               aria-selected={activeTab === "work"}
               onClick={() => setActiveTab("work")}
-              className={`flex flex-1 items-center justify-center gap-2 rounded-xl py-2.5 text-xs font-bold transition duration-150 ${
+              className={`flex flex-1 items-center justify-center gap-2 rounded-xl py-2.5 text-xs font-normal transition duration-150 ${
                 activeTab === "work"
                   ? "bg-[#10605F] text-white shadow-xs"
                   : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
@@ -767,7 +767,7 @@ const PerformerProfilePage = () => {
               >
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-slate-700">
+                    <label className="text-xs font-normal text-slate-700">
                       Full Name <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -775,12 +775,12 @@ const PerformerProfilePage = () => {
                       value={profile.fullName}
                       onChange={(e) => setProfile((p) => ({ ...p, fullName: e.target.value }))}
                       placeholder="e.g. Rahul Sharma"
-                      className="h-11 w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 text-sm font-semibold text-slate-900 outline-none transition focus:border-[#10605F] focus:bg-white focus:ring-2 focus:ring-emerald-500/10"
+                      className="h-11 w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 text-sm font-normal text-slate-900 outline-none transition focus:border-[#10605F] focus:bg-white focus:ring-2 focus:ring-emerald-500/10"
                     />
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="text-xs font-medium text-slate-700">
+                    <label className="text-xs font-normal text-slate-700">
                       Professional Title
                     </label>
                     <input
@@ -788,12 +788,12 @@ const PerformerProfilePage = () => {
                       value={profile.role}
                       onChange={(e) => setProfile((p) => ({ ...p, role: e.target.value }))}
                       placeholder="e.g. Full Stack Developer, Market Auditor"
-                      className="h-11 w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 text-sm font-semibold text-slate-900 outline-none transition focus:border-[#10605F] focus:bg-white focus:ring-2 focus:ring-emerald-500/10"
+                      className="h-11 w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 text-sm font-normal text-slate-900 outline-none transition focus:border-[#10605F] focus:bg-white focus:ring-2 focus:ring-emerald-500/10"
                     />
                   </div>
 
                   <div className="space-y-1.5 sm:col-span-2">
-                    <label className="text-xs font-bold text-slate-700">
+                    <label className="text-xs font-normal text-slate-700">
                       Location / City
                     </label>
                     <div className="relative">
@@ -803,7 +803,7 @@ const PerformerProfilePage = () => {
                         value={profile.location}
                         onChange={(e) => setProfile((p) => ({ ...p, location: e.target.value }))}
                         placeholder="e.g. Bengaluru, Karnataka, India"
-                        className="h-11 w-full rounded-xl border border-slate-200 bg-slate-50/50 pl-10 pr-3.5 text-sm font-semibold text-slate-900 outline-none transition focus:border-[#10605F] focus:bg-white focus:ring-2 focus:ring-emerald-500/10"
+                        className="h-11 w-full rounded-xl border border-slate-200 bg-slate-50/50 pl-10 pr-3.5 text-sm font-normal text-slate-900 outline-none transition focus:border-[#10605F] focus:bg-white focus:ring-2 focus:ring-emerald-500/10"
                       />
                     </div>
                   </div>
@@ -820,16 +820,16 @@ const PerformerProfilePage = () => {
                   {/* Phone Field */}
                   <div className="space-y-1.5">
                     <div className="flex items-center justify-between">
-                      <label className="text-xs font-bold text-slate-700">Phone Number</label>
+                      <label className="text-xs font-normal text-slate-700">Phone Number</label>
                       {profile.phoneVerified ? (
-                        <span className="inline-flex items-center gap-1 rounded-full bg-[#DFF7F6] px-2 py-0.5 text-[10px] font-bold text-[#083B3A]">
+                        <span className="inline-flex items-center gap-1 rounded-full bg-[#DFF7F6] px-2 py-0.5 text-[10px] font-normal text-[#083B3A]">
                           <Check size={10} strokeWidth={3} /> Verified
                         </span>
                       ) : (
                         <button
                           type="button"
                           onClick={handleTestVerifyPhone}
-                          className="rounded-full bg-amber-50 px-2.5 py-0.5 text-[10px] font-bold text-amber-600 hover:bg-amber-100 transition"
+                          className="rounded-full bg-amber-50 px-2.5 py-0.5 text-[10px] font-normal text-amber-600 hover:bg-amber-100 transition"
                         >
                           Verify Phone
                         </button>
@@ -841,7 +841,7 @@ const PerformerProfilePage = () => {
                         type="text"
                         value={profile.phone}
                         disabled
-                        className="h-11 w-full cursor-not-allowed rounded-xl border border-slate-200 bg-slate-100/70 pl-10 pr-3.5 text-sm font-semibold text-slate-500 outline-none"
+                        className="h-11 w-full cursor-not-allowed rounded-xl border border-slate-200 bg-slate-100/70 pl-10 pr-3.5 text-sm font-normal text-slate-500 outline-none"
                       />
                     </div>
                   </div>
@@ -849,9 +849,9 @@ const PerformerProfilePage = () => {
                   {/* Email Field */}
                   <div className="space-y-1.5">
                     <div className="flex items-center justify-between">
-                      <label className="text-xs font-bold text-slate-700">Email Address</label>
+                      <label className="text-xs font-normal text-slate-700">Email Address</label>
                       {profile.emailVerified && (
-                        <span className="inline-flex items-center gap-1 rounded-full bg-[#DFF7F6] px-2 py-0.5 text-[10px] font-bold text-[#083B3A]">
+                        <span className="inline-flex items-center gap-1 rounded-full bg-[#DFF7F6] px-2 py-0.5 text-[10px] font-normal text-[#083B3A]">
                           <Check size={10} strokeWidth={3} /> Verified
                         </span>
                       )}
@@ -863,7 +863,7 @@ const PerformerProfilePage = () => {
                           type="email"
                           value={profile.email}
                           disabled
-                          className="h-11 w-full cursor-not-allowed rounded-xl border border-slate-200 bg-slate-100/70 pl-10 pr-3.5 text-sm font-semibold text-slate-500 outline-none"
+                          className="h-11 w-full cursor-not-allowed rounded-xl border border-slate-200 bg-slate-100/70 pl-10 pr-3.5 text-sm font-normal text-slate-500 outline-none"
                         />
                       </div>
                     ) : emailStep === "otp" ? (
@@ -881,12 +881,12 @@ const PerformerProfilePage = () => {
                             type="button"
                             onClick={handleVerifyEmailOtp}
                             disabled={emailLoading || !emailOtp.trim()}
-                            className="h-11 rounded-xl bg-[#10605F] px-4 text-xs font-bold text-white transition hover:bg-[#083B3A] disabled:opacity-50"
+                            className="h-11 rounded-xl bg-[#10605F] px-4 text-xs font-normal text-white transition hover:bg-[#083B3A] disabled:opacity-50"
                           >
                             {emailLoading ? "..." : "Verify"}
                           </button>
                         </div>
-                        {emailError && <p className="text-[11px] font-semibold text-red-500">{emailError}</p>}
+                        {emailError && <p className="text-[11px] font-normal text-red-500">{emailError}</p>}
                       </div>
                     ) : (
                       <div className="space-y-2">
@@ -896,18 +896,18 @@ const PerformerProfilePage = () => {
                             value={emailInput}
                             onChange={(e) => setEmailInput(e.target.value)}
                             placeholder="name@example.com"
-                            className="h-11 flex-1 rounded-xl border border-slate-200 px-3.5 text-sm font-semibold outline-none focus:border-[#10605F]"
+                            className="h-11 flex-1 rounded-xl border border-slate-200 px-3.5 text-sm font-normal outline-none focus:border-[#10605F]"
                           />
                           <button
                             type="button"
                             onClick={handleSendEmailOtp}
                             disabled={emailLoading || !/\S+@\S+\.\S+/.test(emailInput)}
-                            className="h-11 rounded-xl bg-[#10605F] px-3.5 text-xs font-bold text-white transition hover:bg-[#083B3A] disabled:opacity-50"
+                            className="h-11 rounded-xl bg-[#10605F] px-3.5 text-xs font-normal text-white transition hover:bg-[#083B3A] disabled:opacity-50"
                           >
                             {emailLoading ? "..." : "Send OTP"}
                           </button>
                         </div>
-                        {emailError && <p className="text-[11px] font-semibold text-red-500">{emailError}</p>}
+                        {emailError && <p className="text-[11px] font-normal text-red-500">{emailError}</p>}
                       </div>
                     )}
                   </div>
@@ -923,7 +923,7 @@ const PerformerProfilePage = () => {
                 <div className="space-y-4">
                   <div className="space-y-1.5">
                     <div className="flex items-center justify-between">
-                      <label className="text-xs font-bold text-slate-700">Biography / Overview</label>
+                      <label className="text-xs font-normal text-slate-700">Biography / Overview</label>
                       <span className="text-[11px] font-medium text-slate-400">
                         {profile.aboutMe.length} / 500 characters
                       </span>
@@ -933,17 +933,17 @@ const PerformerProfilePage = () => {
                       onChange={(e) => setProfile((p) => ({ ...p, aboutMe: e.target.value.slice(0, 500) }))}
                       rows={4}
                       placeholder="Highlight your domain strengths, past work execution, and why clients should select you for micro-tasks..."
-                      className="w-full resize-none rounded-xl border border-slate-200 bg-slate-50/50 p-3.5 text-sm font-semibold text-slate-900 outline-none transition focus:border-[#10605F] focus:bg-white focus:ring-2 focus:ring-emerald-500/10 placeholder:text-slate-400"
+                      className="w-full resize-none rounded-xl border border-slate-200 bg-slate-50/50 p-3.5 text-sm font-normal text-slate-900 outline-none transition focus:border-[#10605F] focus:bg-white focus:ring-2 focus:ring-emerald-500/10 placeholder:text-slate-400"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-xs font-bold text-slate-700">Languages Known</label>
+                    <label className="text-xs font-normal text-slate-700">Languages Known</label>
                     <div className="flex flex-wrap gap-2">
                       {profile.languages.map((lang) => (
                         <span
                           key={lang}
-                          className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-100/80 px-3 py-1 text-xs font-bold text-slate-700"
+                          className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-100/80 px-3 py-1 text-xs font-normal text-slate-700"
                         >
                           {lang}
                           <button
@@ -964,7 +964,7 @@ const PerformerProfilePage = () => {
                         onChange={(e) => setLanguageInput(e.target.value)}
                         onKeyDown={addLanguage}
                         placeholder="Type a language and press Enter (e.g. Hindi, English, Tamil)"
-                        className="h-10 flex-1 rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 text-xs font-semibold text-slate-900 outline-none transition focus:border-[#10605F] focus:bg-white"
+                        className="h-10 flex-1 rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 text-xs font-normal text-slate-900 outline-none transition focus:border-[#10605F] focus:bg-white"
                       />
                       <button
                         type="button"
@@ -975,7 +975,7 @@ const PerformerProfilePage = () => {
                             setLanguageInput("");
                           }
                         }}
-                        className="h-10 rounded-xl border border-slate-200 px-3.5 text-xs font-bold text-slate-700 hover:bg-slate-100 transition"
+                        className="h-10 rounded-xl border border-slate-200 px-3.5 text-xs font-normal text-slate-700 hover:bg-slate-100 transition"
                       >
                         Add
                       </button>
@@ -1000,7 +1000,7 @@ const PerformerProfilePage = () => {
                   <button
                     type="button"
                     onClick={() => openModal("skills")}
-                    className="inline-flex items-center gap-1 rounded-xl border border-[#29ADAC]/30 bg-[#EFFBFB]/80 px-3 py-1.5 text-xs font-bold text-[#10605F] hover:bg-[#DFF7F6] transition active:scale-95"
+                    className="inline-flex items-center gap-1 rounded-xl border border-[#29ADAC]/30 bg-[#EFFBFB]/80 px-3 py-1.5 text-xs font-normal text-[#10605F] hover:bg-[#DFF7F6] transition active:scale-95"
                   >
                     <Plus size={13} strokeWidth={2.5} />
                     Browse Skills
@@ -1013,7 +1013,7 @@ const PerformerProfilePage = () => {
                       {profile.skills.map((skill) => (
                         <span
                           key={skill}
-                          className="inline-flex items-center gap-1.5 rounded-full border border-[#29ADAC]/30/80 bg-[#EFFBFB]/60 px-3 py-1 text-xs font-bold text-[#10605F]"
+                          className="inline-flex items-center gap-1.5 rounded-full border border-[#29ADAC]/30/80 bg-[#EFFBFB]/60 px-3 py-1 text-xs font-normal text-[#10605F]"
                         >
                           {skill}
                           <button
@@ -1038,7 +1038,7 @@ const PerformerProfilePage = () => {
                       onChange={(e) => setSkillInput(e.target.value)}
                       onKeyDown={addInlineSkill}
                       placeholder="Add a custom skill and press Enter"
-                      className="h-10 flex-1 rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 text-xs font-semibold text-slate-900 outline-none transition focus:border-[#10605F] focus:bg-white"
+                      className="h-10 flex-1 rounded-xl border border-slate-200 bg-slate-50/50 px-3.5 text-xs font-normal text-slate-900 outline-none transition focus:border-[#10605F] focus:bg-white"
                     />
                     <button
                       type="button"
@@ -1049,7 +1049,7 @@ const PerformerProfilePage = () => {
                           setSkillInput("");
                         }
                       }}
-                      className="h-10 rounded-xl border border-slate-200 px-3.5 text-xs font-bold text-slate-700 hover:bg-slate-100 transition"
+                      className="h-10 rounded-xl border border-slate-200 px-3.5 text-xs font-normal text-slate-700 hover:bg-slate-100 transition"
                     >
                       Add
                     </button>
@@ -1073,8 +1073,8 @@ const PerformerProfilePage = () => {
                         onClick={() => setProfile((p) => ({ ...p, experienceLevel: lvl }))}
                         className={`rounded-xl border p-3 text-center transition ${
                           isSelected
-                            ? "border-[#10605F] bg-[#EFFBFB]/80 font-bold text-[#10605F] shadow-xs"
-                            : "border-slate-200 bg-slate-50/50 font-semibold text-slate-600 hover:bg-white hover:border-slate-300"
+                            ? "border-[#10605F] bg-[#EFFBFB]/80 font-normal text-[#10605F] shadow-xs"
+                            : "border-slate-200 bg-slate-50/50 font-normal text-slate-600 hover:bg-white hover:border-slate-300"
                         }`}
                       >
                         <p className="text-xs">{lvl}</p>
@@ -1092,7 +1092,7 @@ const PerformerProfilePage = () => {
               >
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm font-bold text-slate-900">
+                    <p className="text-sm font-normal text-slate-900">
                       {profile.isAvailable ? "Available for Tasks" : "Currently Unavailable"}
                     </p>
                     <p className="text-xs font-medium text-slate-500">
@@ -1127,7 +1127,7 @@ const PerformerProfilePage = () => {
                   <button
                     type="button"
                     onClick={() => openModal("project")}
-                    className="inline-flex items-center gap-1 rounded-xl bg-[#10605F] px-3.5 py-1.5 text-xs font-bold text-white hover:bg-[#083B3A] transition active:scale-95 shadow-xs"
+                    className="inline-flex items-center gap-1 rounded-xl bg-[#10605F] px-3.5 py-1.5 text-xs font-normal text-white hover:bg-[#083B3A] transition active:scale-95 shadow-xs"
                   >
                     <Plus size={13} strokeWidth={2.5} />
                     Add Project
@@ -1144,7 +1144,7 @@ const PerformerProfilePage = () => {
                   <button
                     type="button"
                     onClick={() => openModal("project")}
-                    className="flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-dashed border-slate-200 py-6 text-xs font-bold text-slate-400 transition hover:border-[#10605F] hover:text-[#10605F] hover:bg-[#EFFBFB]/20"
+                    className="flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-dashed border-slate-200 py-6 text-xs font-normal text-slate-400 transition hover:border-[#10605F] hover:text-[#10605F] hover:bg-[#EFFBFB]/20"
                   >
                     <Plus size={16} strokeWidth={2.5} />
                     Add your first project link
@@ -1161,7 +1161,7 @@ const PerformerProfilePage = () => {
                   <button
                     type="button"
                     onClick={() => openModal("certification")}
-                    className="inline-flex items-center gap-1 rounded-xl bg-[#10605F] px-3.5 py-1.5 text-xs font-bold text-white hover:bg-[#083B3A] transition active:scale-95 shadow-xs"
+                    className="inline-flex items-center gap-1 rounded-xl bg-[#10605F] px-3.5 py-1.5 text-xs font-normal text-white hover:bg-[#083B3A] transition active:scale-95 shadow-xs"
                   >
                     <Plus size={13} strokeWidth={2.5} />
                     Add Certification
@@ -1178,7 +1178,7 @@ const PerformerProfilePage = () => {
                   <button
                     type="button"
                     onClick={() => openModal("certification")}
-                    className="flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-dashed border-slate-200 py-6 text-xs font-bold text-slate-400 transition hover:border-amber-400 hover:text-amber-600 hover:bg-amber-50/20"
+                    className="flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-dashed border-slate-200 py-6 text-xs font-normal text-slate-400 transition hover:border-amber-400 hover:text-amber-600 hover:bg-amber-50/20"
                   >
                     <Plus size={16} strokeWidth={2.5} />
                     Add a professional certification
@@ -1208,7 +1208,7 @@ const PerformerProfilePage = () => {
                   key={skill}
                   type="button"
                   onClick={() => toggleDraftSkill(skill)}
-                  className={`flex items-center justify-between rounded-xl px-3.5 py-2.5 text-left text-xs font-bold transition ${
+                  className={`flex items-center justify-between rounded-xl px-3.5 py-2.5 text-left text-xs font-normal transition ${
                     selected
                       ? "bg-[#EFFBFB] text-[#10605F] border border-[#29ADAC]/30"
                       : "text-slate-700 hover:bg-slate-100 border border-transparent"
@@ -1239,17 +1239,17 @@ const PerformerProfilePage = () => {
                 value={draftProject.title}
                 onChange={(e) => setDraftProject((p) => ({ ...p, title: e.target.value }))}
                 placeholder="e.g. E-Commerce Redesign, Market Audit Report"
-                className="h-11 w-full rounded-xl border border-slate-200 px-3.5 text-xs font-semibold outline-none focus:border-[#10605F]"
+                className="h-11 w-full rounded-xl border border-slate-200 px-3.5 text-xs font-normal outline-none focus:border-[#10605F]"
               />
             </div>
             <div className="space-y-1">
-              <label className="text-xs font-bold text-slate-700">Project Link (URL)</label>
+              <label className="text-xs font-normal text-slate-700">Project Link (URL)</label>
               <input
                 type="url"
                 value={draftProject.url}
                 onChange={(e) => setDraftProject((p) => ({ ...p, url: e.target.value }))}
                 placeholder="https://example.com/project"
-                className="h-11 w-full rounded-xl border border-slate-200 px-3.5 text-xs font-semibold outline-none focus:border-[#10605F]"
+                className="h-11 w-full rounded-xl border border-slate-200 px-3.5 text-xs font-normal outline-none focus:border-[#10605F]"
               />
             </div>
           </div>
@@ -1272,17 +1272,17 @@ const PerformerProfilePage = () => {
                 value={draftCertification.title}
                 onChange={(e) => setDraftCertification((p) => ({ ...p, title: e.target.value }))}
                 placeholder="e.g. Certified Scrum Master, Google Analytics"
-                className="h-11 w-full rounded-xl border border-slate-200 px-3.5 text-xs font-semibold outline-none focus:border-[#10605F]"
+                className="h-11 w-full rounded-xl border border-slate-200 px-3.5 text-xs font-normal outline-none focus:border-[#10605F]"
               />
             </div>
             <div className="space-y-1">
-              <label className="text-xs font-bold text-slate-700">Issuing Organization</label>
+              <label className="text-xs font-normal text-slate-700">Issuing Organization</label>
               <input
                 type="text"
                 value={draftCertification.issuer}
                 onChange={(e) => setDraftCertification((p) => ({ ...p, issuer: e.target.value }))}
                 placeholder="e.g. Google, Coursera, Meta"
-                className="h-11 w-full rounded-xl border border-slate-200 px-3.5 text-xs font-semibold outline-none focus:border-[#10605F]"
+                className="h-11 w-full rounded-xl border border-slate-200 px-3.5 text-xs font-normal outline-none focus:border-[#10605F]"
               />
             </div>
           </div>

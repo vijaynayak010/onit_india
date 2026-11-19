@@ -278,7 +278,7 @@ const TaskActivityPage = () => {
                   <span className="rounded-full border border-[#29ADAC]/30 bg-[#EFFBFB] px-3 py-1 text-[11px] font-black uppercase tracking-wider text-[#10605F]">{String(task.status || task.rawStatus || "Published").replaceAll("_", " ")}</span>
                   <span className="text-sm font-semibold text-[var(--color-text-muted)]">{task.category || "General"}</span>
                 </div>
-                <h2 className="mt-4 max-w-3xl text-2xl font-medium leading-tight text-[var(--color-text)] sm:text-3xl">{title}</h2>
+                <h2 className="mt-4 max-w-3xl dash-page-title text-[var(--dash-text)]">{title}</h2>
                 <div className="mt-5 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-[var(--color-text-muted)]">
                   <span className="inline-flex items-center gap-2"><CalendarDays className="h-4 w-4" />Deadline {formatDate(task.dueAt || task.deadline)}</span>
                   <span className="inline-flex items-center gap-2"><Users className="h-4 w-4" />{interestCount} application{interestCount === 1 ? "" : "s"}</span>

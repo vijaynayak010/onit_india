@@ -118,7 +118,7 @@ export const MOCK_TASKS = [
       rating: 4.88,
       verified: true,
     },
-    applicantsCount: 4,
+    applicantsCount: 2,
     createdAt: "2026-10-25T14:30:00.000Z",
   },
   {
@@ -213,6 +213,7 @@ export const MOCK_TASKS = [
       displayName: "Alex Morgan (Nexus Labs)",
       profilePicUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400",
     },
+    assignedTo: "usr_performer_mock_2",
     performer: {
       id: "usr_performer_mock_2",
       displayName: "Rahul Sharma",
@@ -384,6 +385,7 @@ export const MOCK_MESSAGES = {
       conversationId: "conv-1",
       senderId: "usr_provider_mock_1",
       text: "Hi Rahul! Looking forward to the reel cuts. Please emphasize our brand color in the captions.",
+      content: "Hi Rahul! Looking forward to the reel cuts. Please emphasize our brand color in the captions.",
       createdAt: "2026-10-22T09:00:00.000Z",
     },
     {
@@ -391,6 +393,7 @@ export const MOCK_MESSAGES = {
       conversationId: "conv-1",
       senderId: "usr_performer_mock_2",
       text: "Got it, Alex! Using the exact brand green for text callouts and subtitles.",
+      content: "Got it, Alex! Using the exact brand green for text callouts and subtitles.",
       createdAt: "2026-10-22T09:15:00.000Z",
     },
     {
@@ -398,6 +401,7 @@ export const MOCK_MESSAGES = {
       conversationId: "conv-1",
       senderId: "usr_performer_mock_2",
       text: "Uploaded draft cut for video #3. Please check the captions and sound sync!",
+      content: "Uploaded draft cut for video #3. Please check the captions and sound sync!",
       createdAt: "2026-10-27T18:20:00.000Z",
     },
   ],

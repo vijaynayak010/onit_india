@@ -23,13 +23,16 @@ const PerformerHeader = ({ activePage = "dashboard" }) => {
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileSearch, setMobileSearch] = useState("");
-  const displayName = user?.displayName || user?.name || user?.username || user?.email?.split("@")[0] || "User";
+  const displayName = user?.displayName || user?.name || user?.username || user?.email?.split("@")[0] || "Performer";
+  const avatarUrl = user?.profilePicUrl || user?.avatar || user?.profilePicture || null;
 
   const initials = useMemo(() => {
-    const parts = displayName.trim().split(/\s+/).filter(Boolean);
-    const value = parts.length > 1 ? `${parts[0][0]}${parts[1][0]}` : displayName.slice(0, 2);
-    return value.toUpperCase();
-  }, [displayName]);
+    const rawName = user?.displayName || user?.name || user?.username || user?.email?.split("@")[0] || "";
+    const parts = rawName.trim().split(/\s+/).filter(Boolean);
+    if (parts.length > 1) return `${parts[0][0]}${parts[1][0]}`.toUpperCase();
+    if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+    return "FD";
+  }, [user]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -78,7 +81,17 @@ const PerformerHeader = ({ activePage = "dashboard" }) => {
                 aria-expanded={showProfileDropdown}
                 aria-haspopup="true"
               >
-                <span className="h-6 w-6 rounded-full bg-[var(--color-primary)]" />
+                {avatarUrl ? (
+                  <img
+                    src={avatarUrl}
+                    alt={displayName}
+                    className="h-6 w-6 rounded-full object-cover"
+                  />
+                ) : (
+                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[var(--color-primary)] text-[10px] font-semibold text-white">
+                    {initials}
+                  </span>
+                )}
                 <span className="hidden sm:inline">{initials}</span>
                 <ChevronDown size={14} strokeWidth={2} className="text-slate-400" />
               </button>
@@ -194,12 +207,16 @@ const PerformerHeader = ({ activePage = "dashboard" }) => {
                 {/* User quick footer */}
                 <div className="flex items-center justify-between border-t border-slate-100 pt-3">
                   <div className="flex items-center gap-2.5">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--color-primary)] text-xs font-bold text-white">
-                      {initials}
-                    </div>
+                    {avatarUrl ? (
+                      <img src={avatarUrl} alt={displayName} className="h-8 w-8 rounded-full object-cover" />
+                    ) : (
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[var(--dash-primary-700)] text-xs font-semibold text-white">
+                        {initials}
+                      </div>
+                    )}
                     <div className="min-w-0">
-                      <p className="truncate text-xs font-heading font-medium text-slate-800">{displayName}</p>
-                      <p className="text-[10px] font-medium text-slate-400">Performer</p>
+                      <p className="truncate text-xs font-heading font-medium text-[var(--dash-text)]">{displayName}</p>
+                      <p className="text-[10px] font-medium text-[var(--dash-text-secondary)]">Performer</p>
                     </div>
                   </div>
                   <button
@@ -255,9 +272,13 @@ const PerformerHeader = ({ activePage = "dashboard" }) => {
         </nav>
         <div className="mt-auto border-t border-[var(--dash-border)] pt-3">
           <div className="flex items-center gap-2.5 px-2 py-2.5">
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--dash-primary-700)] text-[12px] font-medium text-white">
-              {initials}
-            </div>
+            {avatarUrl ? (
+              <img src={avatarUrl} alt={displayName} className="h-9 w-9 shrink-0 rounded-full object-cover" />
+            ) : (
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--dash-primary-700)] text-[12px] font-medium text-white">
+                {initials}
+              </div>
+            )}
             <div className="min-w-0">
               <p className="truncate text-[13px] font-medium text-[var(--dash-text)]">{displayName}</p>
               <p className="text-[11px] font-medium text-[var(--dash-text-secondary)]">Performer</p>

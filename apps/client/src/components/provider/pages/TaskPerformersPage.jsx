@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion as Motion, AnimatePresence } from "framer-motion";
 import {
-    Home,
     ChevronRight,
     LayoutGrid,
     ListTodo,
@@ -281,153 +280,145 @@ const TaskPerformersPage = () => {
                 }}
             />
 
-            <div className="border-b border-[var(--color-border)] bg-gradient-to-b from-[var(--color-surface-elevated)] to-[var(--color-surface)]/90">
-                <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-                    <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-sm">
-                        <button
-                            type="button"
-                            onClick={() => navigate("/provider/dashboard")}
-                            className="inline-flex items-center gap-2 font-medium text-[var(--color-text-subtle)] transition hover:text-[var(--color-primary)]"
-                        >
-                            <Home className="h-4 w-4" strokeWidth={2.25} />
-                            Home
-                        </button>
-                        <ChevronRight className="h-4 w-4 text-[var(--color-border)]" aria-hidden />
-                        <span className="font-bold text-[var(--color-primary)]">Task performers</span>
-                    </nav>
-                </div>
-            </div>
-
-            <div className="border-b border-[var(--color-border)] bg-[var(--color-surface-elevated)]/80 backdrop-blur-sm sticky top-[80px] z-20">
-                <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
-                    <div className="flex flex-wrap items-center justify-between gap-4">
-                        <div className="min-w-0 flex-1">
-                            <div className="mb-2 flex flex-wrap items-center gap-2">
-                                <span className="inline-flex items-center gap-1.5 rounded-full bg-[var(--color-primary-subtle)] px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-widest text-[var(--color-primary)]">
-                                    <Sparkles className="h-3 w-3" strokeWidth={2.5} />
-                                    Talent marketplace
-                                </span>
-                            </div>
-                            <h1 className="text-2xl font-medium tracking-tight text-[var(--color-text)] sm:text-3xl">Find the right performer</h1>
+            <div className="border-b border-[var(--color-border)] bg-white">
+                <div className="mx-auto max-w-[1440px] px-4 py-4 sm:px-6 lg:px-8">
+                    <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                        <div className="min-w-0">
+                            <span className="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-widest text-[var(--color-primary)]">
+                                <Sparkles className="h-3 w-3" strokeWidth={2.5} />
+                                Talent marketplace
+                            </span>
+                            <h1 className="dash-page-title text-[var(--dash-text)]">Find the right performer</h1>
                         </div>
-                        <button 
-                            onClick={() => setShowAdvancedFilters(!showAdvancedFilters)}
-                            className={`inline-flex items-center gap-2 rounded-full border-2 px-5 py-2.5 text-[13px] font-bold transition ${showAdvancedFilters ? "border-[var(--color-primary)] bg-[var(--color-primary-subtle)] text-[var(--color-primary)]" : "border-[var(--color-border)] bg-white text-[var(--color-text)] hover:border-[var(--color-primary)]/40"}`}
-                        >
-                            <Filter className="h-4 w-4" />
-                            Filters
-                            {(minRating > 0 || experienceFilter !== "All" || selectedSkill) && (
-                                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[var(--color-primary)] text-[10px] text-white">!</span>
-                            )}
-                        </button>
-                    </div>
-                    
-                    <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-                        <div className="relative min-w-0 flex-1">
-                            <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[var(--color-text-subtle)]" strokeWidth={2.25} />
-                            <input
-                                type="search"
-                                value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
-                                placeholder='Search performers, categories, or skills...'
-                                className="w-full rounded-2xl border-2 border-[var(--color-border)] bg-white py-4 pl-12 pr-14 text-[14px] font-semibold text-[var(--color-text)] outline-none transition placeholder:text-[var(--color-text-subtle)] focus:border-[var(--color-primary)]/40 focus:ring-4 focus:ring-[var(--color-primary)]/5 shadow-[var(--shadow-sm)]"
-                            />
+                        <div className="flex items-center gap-2.5 w-full md:w-auto">
+                            <div className="relative min-w-0 flex-1 md:w-72">
+                                <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--color-text-subtle)]" strokeWidth={2.25} />
+                                <input
+                                    type="search"
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                    placeholder='Search performers or skills...'
+                                    className="w-full rounded-full border border-[var(--color-border)] bg-[#F5FAFA] py-2 pl-10 pr-4 text-[13px] font-medium text-[var(--color-text)] outline-none transition placeholder:text-[var(--color-text-subtle)] focus:border-[var(--color-primary)] focus:bg-white"
+                                />
+                            </div>
+                            <button
+                                type="button"
+                                onClick={() => setShowAdvancedFilters(!showAdvancedFilters)}
+                                className={`inline-flex shrink-0 items-center gap-1.5 rounded-full border px-4 py-2 text-[13px] font-semibold transition ${showAdvancedFilters ? "border-[var(--color-primary)] bg-[var(--color-primary-subtle)] text-[var(--color-primary)]" : "border-[var(--color-border)] bg-white text-[var(--color-text)] hover:border-[var(--color-primary)]/40"}`}
+                            >
+                                <Filter className="h-3.5 w-3.5" />
+                                Filters
+                                {(minRating > 0 || experienceFilter !== "All" || selectedSkill) && (
+                                    <span className="flex h-4 w-4 items-center justify-center rounded-full bg-[var(--color-primary)] text-[10px] font-bold text-white">!</span>
+                                )}
+                            </button>
                         </div>
                     </div>
 
                     <AnimatePresence>
                         {showAdvancedFilters && (
-                            <motion.div 
+                            <Motion.div
                                 initial={{ height: 0, opacity: 0 }}
                                 animate={{ height: "auto", opacity: 1 }}
                                 exit={{ height: 0, opacity: 0 }}
                                 className="overflow-hidden"
                             >
-                                <div className="mt-6 flex flex-wrap gap-4 rounded-[var(--radius-xl)] bg-[#EFFBFB]/50 p-6 border border-[#29ADAC]/20/50">
-                                    <div className="space-y-2 flex-1 min-w-[150px]">
-                                        <label className="text-[11px] font-bold uppercase tracking-wider text-[var(--color-text-subtle)]">Experience Level</label>
-                                        <select 
-                                            value={experienceFilter}
-                                            onChange={(e) => setExperienceFilter(e.target.value)}
-                                            className="w-full rounded-xl border border-[var(--color-border)] bg-white px-3 py-2 text-[13px] font-bold outline-none focus:border-[var(--color-primary)]"
-                                        >
-                                            <option value="All">All Levels</option>
-                                            <option value="Beginner">Beginner</option>
-                                            <option value="Intermediate">Intermediate</option>
-                                            <option value="Expert">Expert</option>
-                                        </select>
-                                    </div>
-                                    <div className="space-y-2 flex-1 min-w-[150px]">
-                                        <label className="text-[11px] font-bold uppercase tracking-wider text-[var(--color-text-subtle)]">Minimum Rating</label>
-                                        <div className="flex items-center gap-3">
+                                <div className="mt-3 rounded-2xl bg-[#F5FAFA] p-3.5 border border-[#29ADAC]/25 space-y-3">
+                                    <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3">
+                                        <div className="flex items-center gap-2 min-w-[190px]">
+                                            <label className="text-[11px] font-bold uppercase tracking-wider text-[var(--color-text-subtle)] whitespace-nowrap">Experience</label>
+                                            <select
+                                                value={experienceFilter}
+                                                onChange={(e) => setExperienceFilter(e.target.value)}
+                                                className="flex-1 rounded-lg border border-[var(--color-border)] bg-white px-2.5 py-1.5 text-[12px] font-semibold outline-none focus:border-[var(--color-primary)]"
+                                            >
+                                                <option value="All">All Levels</option>
+                                                <option value="Beginner">Beginner</option>
+                                                <option value="Intermediate">Intermediate</option>
+                                                <option value="Expert">Expert</option>
+                                            </select>
+                                        </div>
+                                        <div className="flex flex-wrap items-center gap-1.5">
+                                            <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--color-text-subtle)] mr-1">Rating</span>
                                             {[0, 3, 4, 4.5].map(r => (
-                                                <button 
+                                                <button
                                                     key={r}
+                                                    type="button"
                                                     onClick={() => setMinRating(r)}
-                                                    className={`rounded-lg px-3 py-2 text-[12px] font-bold transition ${minRating === r ? "bg-[var(--color-primary)] text-white" : "bg-white border border-[var(--color-border)] text-[var(--color-text-muted)] hover:border-[var(--color-primary)]/30"}`}
+                                                    className={`whitespace-nowrap rounded-lg px-2.5 py-1 text-[12px] font-semibold transition ${minRating === r ? "bg-[var(--color-primary)] text-white" : "bg-white border border-[var(--color-border)] text-[var(--color-text-muted)] hover:border-[var(--color-primary)]/30"}`}
                                                 >
                                                     {r === 0 ? "Any" : `${r}+ ★`}
                                                 </button>
                                             ))}
                                         </div>
-                                    </div>
-                                    <div className="flex items-end">
-                                        <button 
+                                        <button
+                                            type="button"
                                             onClick={() => { setMinRating(0); setExperienceFilter("All"); setSelectedSkill(null); }}
-                                            className="text-[12px] font-bold text-red-500 hover:underline px-2 py-2"
+                                            className="whitespace-nowrap text-[12px] font-semibold text-red-600 hover:underline sm:ml-auto text-left"
                                         >
                                             Reset Filters
                                         </button>
                                     </div>
+                                    {allSkills.length > 0 && (
+                                        <div className="flex flex-wrap items-center gap-1.5 pt-2 border-t border-[var(--color-border)]">
+                                            <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--color-text-subtle)] mr-1">Skills</span>
+                                            {allSkills.map(skill => (
+                                                <button
+                                                    key={skill}
+                                                    type="button"
+                                                    onClick={() => setSelectedSkill(selectedSkill === skill ? null : skill)}
+                                                    className={`rounded-full px-2.5 py-0.5 text-[11px] font-semibold transition flex items-center gap-1 ${selectedSkill === skill ? "bg-[var(--color-primary)] text-white" : "bg-white border border-[var(--color-border)] text-[var(--color-text-muted)] hover:bg-[#EFFBFB]"}`}
+                                                >
+                                                    {skill}
+                                                    {selectedSkill === skill && <X className="h-2.5 w-2.5" />}
+                                                </button>
+                                            ))}
+                                        </div>
+                                    )}
                                 </div>
-                            </motion.div>
+                            </Motion.div>
                         )}
                     </AnimatePresence>
 
-                    <div className="mt-6 flex items-center gap-3 overflow-hidden">
-                        <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide flex-1">
-                            {categoryTabs.map((filter) => (
-                                <button
-                                    key={filter.name}
-                                    type="button"
-                                    onClick={() => setActiveFilter(filter.name)}
-                                    className={`shrink-0 rounded-xl border px-5 py-2.5 text-[13px] font-bold transition whitespace-nowrap ${
-                                        activeFilter === filter.name
-                                            ? "border-[var(--color-primary)] bg-[var(--color-primary)] text-white shadow-[var(--shadow-md)]"
-                                            : "border-[var(--color-border)] bg-white text-[var(--color-text-muted)] hover:border-[var(--color-primary)]/35"
-                                    }`}
-                                >
-                                    {filter.name} <span className={`ml-1 text-[10px] ${activeFilter === filter.name ? "text-[#EFFBFB]" : "text-[var(--color-text-subtle)]"}`}>({filter.count})</span>
-                                </button>
-                            ))}
-                        </div>
-                    </div>
-
-                    <div className="mt-4 flex flex-wrap gap-2">
-                        {allSkills.map(skill => (
+                    <div className="mt-3 flex items-center gap-2 overflow-x-auto pb-0.5 scrollbar-hide">
+                        {categoryTabs.map((filter) => (
                             <button
-                                key={skill}
-                                onClick={() => setSelectedSkill(selectedSkill === skill ? null : skill)}
-                                className={`rounded-full px-3 py-1 text-[10px] font-bold transition flex items-center gap-1.5 ${selectedSkill === skill ? "bg-[var(--color-primary)] text-white" : "bg-white border border-[var(--color-border)] text-[var(--color-text-muted)] hover:bg-[#EFFBFB]"}`}
+                                key={filter.name}
+                                type="button"
+                                onClick={() => setActiveFilter(filter.name)}
+                                className={`shrink-0 rounded-full border px-3.5 py-1.5 text-[12px] font-semibold transition whitespace-nowrap ${
+                                    activeFilter === filter.name
+                                        ? "border-[var(--color-primary)] bg-[var(--color-primary)] text-white"
+                                        : "border-[var(--color-border)] bg-white text-[var(--color-text-muted)] hover:border-[var(--color-primary)]/35"
+                                }`}
                             >
-                                {skill}
-                                {selectedSkill === skill && <X className="h-2.5 w-2.5" />}
+                                {filter.name} <span className={`ml-1 text-[10px] ${activeFilter === filter.name ? "text-[#EFFBFB]" : "text-[var(--color-text-subtle)]"}`}>({filter.count})</span>
                             </button>
                         ))}
+                        {selectedSkill && !showAdvancedFilters && (
+                            <button
+                                type="button"
+                                onClick={() => setSelectedSkill(null)}
+                                className="shrink-0 inline-flex items-center gap-1 rounded-full bg-[#EFFBFB] border border-[#29ADAC]/40 px-3 py-1.5 text-[12px] font-semibold text-[#10605F] whitespace-nowrap"
+                            >
+                                Skill: {selectedSkill}
+                                <X className="h-3 w-3" />
+                            </button>
+                        )}
                     </div>
                 </div>
             </div>
 
-            <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+            <main className="mx-auto max-w-[1440px] px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
                 {isLoading ? (
-                    <div className="space-y-10">
+                    <div className="space-y-8">
                         <div className="h-6 w-48 rounded bg-[var(--color-border-subtle)]" />
                         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
                             {[1, 2, 3, 4].map(i => <SkeletonCard key={i} />)}
                         </div>
                     </div>
                 ) : groupedSections.length === 0 ? (
-                    <div className="flex flex-col items-center justify-center py-24 text-center">
+                    <div className="flex flex-col items-center justify-center py-14 text-center">
                         <div className="h-24 w-24 rounded-[var(--radius-3xl)] bg-[#EFFBFB] flex items-center justify-center text-[var(--color-primary)] mb-6 shadow-inner ring-1 ring-emerald-100">
                             <Search className="h-10 w-10" />
                         </div>
@@ -437,7 +428,7 @@ const TaskPerformersPage = () => {
                     </div>
                 ) : (
                     groupedSections.map((section, sIdx) => (
-                        <motion.section
+                        <Motion.section
                             key={section.category}
                             initial={{ opacity: 0, y: 12 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -447,7 +438,7 @@ const TaskPerformersPage = () => {
                             <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
                                 <div>
                                     <div className="flex items-center gap-3">
-                                        <h2 className="text-xl font-medium text-[var(--color-text)] sm:text-2xl">{section.category}</h2>
+                                        <h2 className="dash-section-title text-[var(--dash-text)]">{section.category}</h2>
                                         <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-bold text-slate-500">{section.count}</span>
                                     </div>
                                     <p className="mt-1 text-[13px] font-medium text-[var(--color-text-subtle)]">Top professionals in this category</p>
@@ -466,10 +457,10 @@ const TaskPerformersPage = () => {
                                     <PerformerCard key={`${p.id}-${pIdx}`} p={p} />
                                 ))}
                             </div>
-                        </motion.section>
+                        </Motion.section>
                     ))
                 )}
-            </div>
+            </main>
         </div>
     );
 };

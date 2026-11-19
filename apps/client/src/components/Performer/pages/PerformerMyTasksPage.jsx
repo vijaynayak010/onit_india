@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { motion as Motion, AnimatePresence } from "framer-motion";
 import {
   Search,
@@ -145,7 +145,6 @@ const readCachedTaskTabs = () => TABS.reduce((cachedTabs, tab) => {
 
 const PerformerMyTasksPage = () => {
   const navigate = useNavigate();
-  const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const requestedTab = searchParams.get("tab");
   const initialTab = TABS.some((t) => t.id === requestedTab) ? requestedTab : "active";
@@ -180,6 +179,7 @@ const PerformerMyTasksPage = () => {
     const activeTasks = (tasksByTab.active || []).filter(t => t.status === 'active');
     const pendingTasks = (tasksByTab.pending || []).filter(t => t.status === 'pending');
     const completedTasks = (tasksByTab.completed || []).filter(t => t.status === 'completed');
+    const completedEarnings = completedTasks.reduce((sum, task) => sum + Number(task?.price || 0), 0);
     const totalQueue = activeTasks.length + pendingTasks.length + completedTasks.length;
 
     return {
@@ -196,7 +196,7 @@ const PerformerMyTasksPage = () => {
       ],
       completed: [
         { label: "Completed", value: completedTasks.length.toString(), icon: Award, tone: "emerald" },
-        { label: "Earnings total", value: "₹" + (completedTasks.length * 1000).toLocaleString(), icon: TrendingUp, tone: "primary" },
+        { label: "Earnings total", value: "₹" + completedEarnings.toLocaleString("en-IN"), icon: TrendingUp, tone: "primary" },
         { label: "Avg rating", value: "5.0", icon: Star, tone: "amber" },
         { label: "This month", value: completedTasks.length.toString(), icon: Calendar, tone: "violet" },
       ],
@@ -338,7 +338,7 @@ const PerformerMyTasksPage = () => {
   const toneRing = {
     primary: "bg-[var(--color-primary-subtle)] text-[var(--color-primary)] ring-[var(--color-primary)]/20",
     emerald: "bg-[#EFFBFB] text-[#10605F] ring-[#29ADAC]/30",
-    violet: "bg-violet-50 text-violet-700 ring-violet-200/60",
+    violet: "bg-[#EFFBFB] text-[#10605F] ring-[#29ADAC]/25",
     amber: "bg-amber-50 text-amber-800 ring-amber-200/60",
     rose: "bg-rose-50 text-rose-700 ring-rose-200/60",
     sky: "bg-sky-50 text-sky-800 ring-sky-200/60",
@@ -354,7 +354,7 @@ const PerformerMyTasksPage = () => {
     <div className="min-h-screen bg-[var(--color-surface)] pt-[93px] font-sans text-[var(--color-text)]">
       <PerformerHeader activePage="my-tasks" />
 
-      <main className="w-full px-4 py-6 sm:px-6 sm:pb-20 lg:ml-[220px] lg:w-[calc(100%-220px)] lg:px-8">
+      <main className="w-full px-4 py-6 sm:px-6 sm:pb-20 lg:ml-[240px] lg:w-[calc(100%-240px)] lg:px-8">
         <div className="mx-auto max-w-6xl">
           {/* Stats */}
         <section aria-label="Task summary" className="mb-8">
@@ -374,7 +374,7 @@ const PerformerMyTasksPage = () => {
                   className="flex items-center justify-between gap-3 rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-4 shadow-[var(--shadow-sm)]"
                 >
                   <div className="min-w-0">
-                    <p className="text-[11px] font-bold uppercase tracking-wide text-[var(--color-text-subtle)]">{stat.label}</p>
+                    <p className="text-[11px] font-normal uppercase tracking-wide text-[var(--color-text-subtle)]">{stat.label}</p>
                     <p className="mt-1 text-2xl font-medium tabular-nums tracking-tight text-[var(--color-text)]">{stat.value}</p>
                   </div>
                   <div
@@ -405,7 +405,7 @@ const PerformerMyTasksPage = () => {
                   role="tab"
                   aria-selected={activeTab === tab.id}
                   onClick={() => handleTabChange(tab.id)}
-                  className={`relative flex-1 rounded-lg px-3 py-2.5 text-center text-sm font-semibold transition-colors ${activeTab === tab.id ? "text-[var(--color-text)]" : "text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
+                  className={`relative flex-1 rounded-lg px-3 py-2.5 text-center text-sm font-medium transition-colors ${activeTab === tab.id ? "text-[var(--color-text)]" : "text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
                     }`}
                 >
                   {activeTab === tab.id && (
@@ -522,7 +522,7 @@ const PerformerMyTasksPage = () => {
                   {activeTab === "pending" && submittedTasks.length > 0 && (
                     <>
                       <div className="col-span-full mb-1 mt-2">
-                        <p className="text-xs font-bold uppercase tracking-widest text-amber-700">Submitted Work</p>
+                        <p className="text-xs font-medium uppercase tracking-widest text-amber-700">Submitted Work</p>
                         <p className="text-[11px] text-[var(--color-text-subtle)]">Awaiting provider review</p>
                       </div>
                       {submittedTasks.map((task, i) => (
@@ -536,8 +536,8 @@ const PerformerMyTasksPage = () => {
                         >
                           <div className="border-b border-amber-200/60 p-5">
                             <div className="mb-4 flex flex-wrap items-start justify-between gap-2">
-                              <span className="rounded-full border border-[var(--color-border)] bg-[var(--color-border-subtle)]/40 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-subtle)]">{task.category}</span>
-                              <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-800 ring-1 ring-amber-200/70">
+                              <span className="rounded-full border border-[var(--color-border)] bg-[var(--color-border-subtle)]/40 px-2.5 py-0.5 text-[10px] font-normal uppercase tracking-wider text-[var(--color-text-subtle)]">{task.category}</span>
+                              <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wide text-amber-800 ring-1 ring-amber-200/70">
                                 <TrendingUp className="h-3 w-3" strokeWidth={2.5} />
                                 Pending Review
                               </span>
@@ -549,15 +549,15 @@ const PerformerMyTasksPage = () => {
                               <img src={task.avatar} className="h-11 w-11 shrink-0 rounded-full object-cover ring-2 ring-[var(--color-border)]" alt={task.client} />
                               <div className="min-w-0">
                                 <p className="text-xs text-[var(--color-text-subtle)]">Client</p>
-                                <p className="truncate text-sm font-semibold text-[var(--color-text)]">{task.client}</p>
+                                <p className="truncate text-sm font-normal text-[var(--color-text)]">{task.client}</p>
                               </div>
                             </div>
                             <div className="mt-auto flex items-center justify-between border-t border-amber-200/60 pt-4">
-                              <div className="inline-flex items-center gap-2 rounded-lg bg-amber-50 px-3 py-1.5 text-xs font-bold text-amber-700 ring-1 ring-amber-200">
+                              <div className="inline-flex items-center gap-2 rounded-lg bg-amber-50 px-3 py-1.5 text-xs font-medium text-amber-700 ring-1 ring-amber-200">
                                 <Clock className="h-3 w-3 text-amber-600" strokeWidth={2.5} />
                                 Work Submitted
                               </div>
-                              <button type="button" onClick={() => navigate(`/performer/active-task/${task.id}`, { state: { task } })} className="inline-flex shrink-0 items-center gap-1 text-sm font-bold text-[var(--color-primary)] transition hover:gap-1.5">
+                              <button type="button" onClick={() => navigate(`/performer/active-task/${task.id}`, { state: { task } })} className="inline-flex shrink-0 items-center gap-1 text-sm font-medium text-[var(--color-primary)] transition hover:gap-1.5">
                                 View details
                                 <ChevronRight className="h-4 w-4" strokeWidth={2.5} />
                               </button>
@@ -567,7 +567,7 @@ const PerformerMyTasksPage = () => {
                       ))}
                       {filteredTasks.length > 0 && (
                         <div className="col-span-full mb-1 mt-4">
-                          <p className="text-xs font-bold uppercase tracking-widest text-sky-700">Interests Sent</p>
+                          <p className="text-xs font-medium uppercase tracking-widest text-sky-700">Interests Sent</p>
                           <p className="text-[11px] text-[var(--color-text-subtle)]">Waiting for provider to accept</p>
                         </div>
                       )}
@@ -585,11 +585,11 @@ const PerformerMyTasksPage = () => {
                     <div className="border-b border-[var(--color-border)]/80 p-5">
                       <div className="mb-4 flex flex-wrap items-start justify-between gap-2">
                         <div className="flex flex-wrap items-center gap-2">
-                          <span className="rounded-full border border-[var(--color-border)] bg-[var(--color-border-subtle)]/40 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-subtle)]">
+                          <span className="rounded-full border border-[var(--color-border)] bg-[var(--color-border-subtle)]/40 px-2.5 py-0.5 text-[10px] font-normal uppercase tracking-wider text-[var(--color-text-subtle)]">
                             {task.category}
                           </span>
                           <span
-                            className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide ${activeTab === "pending"
+                            className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wide ${activeTab === "pending"
                               ? (task.progress === 90 ? "bg-amber-50 text-amber-800 ring-1 ring-amber-200/70" : "bg-sky-50 text-sky-800 ring-1 ring-sky-200/70")
                               : activeTab === "completed"
                                 ? "bg-[#EFFBFB] text-[#083B3A] ring-1 ring-[#29ADAC]/30"
@@ -600,7 +600,7 @@ const PerformerMyTasksPage = () => {
                             {activeTab === "pending" ? (task.progress === 90 ? "Pending Review" : "Applied") : task.status}
                           </span>
                         </div>
-                        <span className="inline-flex items-center gap-1 rounded-full bg-rose-50 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-rose-700 ring-1 ring-rose-200/60">
+                        <span className="inline-flex items-center gap-1 rounded-full bg-rose-50 px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wide text-rose-700 ring-1 ring-rose-200/60">
                           <Zap className="h-3 w-3 fill-current" />
                           {task.priority}
                         </span>
@@ -616,8 +616,8 @@ const PerformerMyTasksPage = () => {
                           alt={task.client}
                         />
                         <div className="min-w-0">
-                          <p className="truncate text-sm font-semibold text-[var(--color-text)]">{task.client}</p>
-                          <p className="mt-0.5 flex items-center gap-1.5 text-xs font-medium text-[var(--color-text-muted)]">
+                          <p className="truncate text-sm font-normal text-[var(--color-text)]">{task.client}</p>
+                          <p className="mt-0.5 flex items-center gap-1.5 text-xs font-normal text-[var(--color-text-muted)]">
                             <Calendar className="h-3.5 w-3.5 shrink-0" strokeWidth={2} />
                             <span>Deadline {task.deadline}</span>
                           </p>
@@ -626,14 +626,14 @@ const PerformerMyTasksPage = () => {
 
                       <div className="mb-6 space-y-2">
                         <div className="flex items-end justify-between gap-2 text-xs">
-                          <span className="font-semibold text-[var(--color-text-subtle)]">
+                          <span className="font-normal text-[var(--color-text-subtle)]">
                             {task.milestones.current} of {task.milestones.total} milestone{task.milestones.total !== 1 ? 's' : ''}
                             {activeTab === "pending" && task.progress === 90 && (
                               <span className="ml-1.5 text-amber-600">(Awaiting review)</span>
                             )}
                           </span>
                           <span
-                            className={`font-bold tabular-nums ${activeTab === "pending"
+                            className={`font-medium tabular-nums ${activeTab === "pending"
                               ? (task.progress === 90 ? "text-amber-600" : "text-sky-600")
                               : activeTab === "completed"
                                 ? "text-[#10605F]"
@@ -658,7 +658,7 @@ const PerformerMyTasksPage = () => {
 
                       <div className="mt-auto flex items-center justify-between gap-3 border-t border-[var(--color-border)] pt-4">
                         <div
-                          className={`inline-flex min-h-[2.25rem] max-w-[60%] items-center gap-2 rounded-lg px-3 py-1.5 text-xs font-bold ${activeTab === "pending"
+                          className={`inline-flex min-h-[2.25rem] max-w-[60%] items-center gap-2 rounded-lg px-3 py-1.5 text-xs font-medium ${activeTab === "pending"
                             ? (task.progress === 90 ? "bg-amber-50 text-amber-700 ring-1 ring-amber-200" : "bg-sky-50 text-sky-700 ring-1 ring-sky-200")
                             : activeTab === "completed"
                               ? "bg-[#10605F] text-white"
@@ -698,7 +698,7 @@ const PerformerMyTasksPage = () => {
                         <button
                           type="button"
                           onClick={() => navigate(`/performer/active-task/${task.id}`, { state: { task } })}
-                          className={`inline-flex shrink-0 items-center gap-1 text-sm font-bold transition hover:gap-1.5 ${activeTab === "completed" ? "text-[#10605F]" : "text-[var(--color-primary)]"
+                          className={`inline-flex shrink-0 items-center gap-1 text-sm font-medium transition hover:gap-1.5 ${activeTab === "completed" ? "text-[#10605F]" : "text-[var(--color-primary)]"
                             }`}
                         >
                           View details
@@ -717,7 +717,7 @@ const PerformerMyTasksPage = () => {
                   className="col-span-full flex flex-col items-center justify-center rounded-[var(--radius-2xl)] border border-dashed border-[var(--color-border)] bg-[var(--color-surface-elevated)]/80 py-16 text-center"
                 >
                   <ListTodo className="mb-3 h-10 w-10 text-[var(--color-text-subtle)]" strokeWidth={1.5} />
-                  <p className="text-sm font-semibold text-[var(--color-text-muted)]">
+                  <p className="text-sm font-normal text-[var(--color-text-muted)]">
                     {searchQuery ? `No tasks found matching "${searchQuery}"` : "No tasks in this category."}
                   </p>
                   <p className="mt-1 text-xs text-[var(--color-text-subtle)]">

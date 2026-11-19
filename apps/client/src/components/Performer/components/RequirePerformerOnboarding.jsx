@@ -22,10 +22,7 @@ function markSessionComplete(userId) {
 }
 
 const RequirePerformerOnboarding = () => {
-  if (isTestModeEnabled()) {
-    return <Outlet />;
-  }
-
+  const testMode = isTestModeEnabled();
   const { user } = useAuth();
   const location = useLocation();
   const userId = user?.id || user?.sub;
@@ -36,6 +33,7 @@ const RequirePerformerOnboarding = () => {
   const isOnboarding = path === "/performer/onboarding" || path.startsWith("/performer/onboarding/");
 
   useEffect(() => {
+    if (testMode) return undefined;
     if (!userId || localComplete) {
       setProfileCheck(localComplete ? "complete" : "incomplete");
       return undefined;
@@ -60,7 +58,11 @@ const RequirePerformerOnboarding = () => {
     return () => {
       cancelled = true;
     };
-  }, [userId, localComplete]);
+  }, [testMode, userId, localComplete]);
+
+  if (testMode) {
+    return <Outlet />;
+  }
 
   if (profileCheck === "checking") {
     return (

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import {
   ShieldCheck,
   Upload,
@@ -66,7 +65,6 @@ const StatusBadge = ({ status }) => {
 };
 
 const PerformerKycPage = () => {
-  const navigate = useNavigate();
   const [kycData, setKycData] = useState({ kycStatus: "NOT_SUBMITTED", submissions: [] });
   const [loading, setLoading] = useState(true);
   const [uploading, setUploading] = useState(false);
@@ -175,7 +173,7 @@ const PerformerKycPage = () => {
     <div className="min-h-screen bg-[var(--color-surface)] pt-[93px] font-sans text-[var(--color-text)]">
       <PerformerHeader activePage="account" />
 
-      <main className="w-full px-4 py-6 sm:px-6 lg:ml-[220px] lg:w-[calc(100%-220px)] lg:px-8">
+      <main className="w-full px-4 py-6 sm:px-6 lg:ml-[240px] lg:w-[calc(100%-240px)] lg:px-8">
         <div className="mx-auto w-full max-w-4xl">
             <PerformerPageHeader
               title="KYC Verification"
@@ -202,8 +200,8 @@ const PerformerKycPage = () => {
                         </h2>
                         <p className="mt-1 text-xs font-medium text-[var(--color-text-muted)]">
                           {kycStep === 1
-                            ? "Upload Aadhaar, PAN, or Passport (POST /taskers/me/kyc/id)."
-                            : "Hold your ID next to your face (POST /taskers/me/kyc/selfie)."}
+                            ? "Upload a clear photo of your Aadhaar, PAN, or Passport."
+                            : "Hold your government ID clearly next to your face."}
                         </p>
                       </div>
 
@@ -217,7 +215,7 @@ const PerformerKycPage = () => {
                                   key={type}
                                   type="button"
                                   onClick={() => setDocType(type)}
-                                  className={`rounded-xl border-2 px-4 py-3 text-xs font-black transition-all ${docType === type
+                                  className={`rounded-xl border-2 px-4 py-3 text-xs font-medium transition-all ${docType === type
                                       ? "border-[var(--color-primary)] bg-[var(--color-primary-subtle)] text-[var(--color-primary)]"
                                       : "border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text-muted)] hover:border-[var(--color-border-hover)]"
                                     }`}
@@ -298,7 +296,7 @@ const PerformerKycPage = () => {
                           type="button"
                           disabled={(kycStep === 2 ? !selfieFile : !idFile) || uploading || (kycStep === 2 && !pendingSubmissionId)}
                           onClick={kycStep === 2 ? handleUploadSelfie : handleUploadId}
-                          className="mt-8 flex w-full items-center justify-center gap-2 rounded-2xl bg-[var(--color-primary)] py-4 text-sm font-black text-white shadow-[0_8px_20px_-4px_rgba(43,169,96,0.3)] transition-all hover:scale-[1.01] hover:shadow-[0_12px_24px_-4px_rgba(43,169,96,0.4)] disabled:opacity-50"
+                          className="mt-8 flex w-full items-center justify-center gap-2 rounded-2xl bg-[var(--color-primary)] py-4 text-sm font-medium text-white shadow-[0_8px_20px_-4px_rgba(43,169,96,0.3)] transition-all hover:scale-[1.01] hover:shadow-[0_12px_24px_-4px_rgba(43,169,96,0.4)] disabled:opacity-50"
                         >
                           {uploading ? (
                             <div className="h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent" />
@@ -369,7 +367,7 @@ const PerformerKycPage = () => {
                               <p className="text-xs text-[var(--color-text-muted)]">{new Date(sub.createdAt).toLocaleDateString()}</p>
                             </div>
                           </div>
-                          <div className={`rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-wider ${sub.status === 'APPROVED' ? 'bg-[#DFF7F6] text-[#10605F]' :
+                          <div className={`rounded-full px-3 py-1 text-[10px] font-medium uppercase tracking-wider ${sub.status === 'APPROVED' ? 'bg-[#DFF7F6] text-[#10605F]' :
                               sub.status === 'REJECTED' ? 'bg-rose-100 text-rose-700' :
                                 'bg-amber-100 text-amber-700'
                             }`}>

@@ -2,8 +2,6 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Star, TrendingUp, Zap, ShieldCheck } from "lucide-react";
 import ProviderHeader from "../components/ProviderHeader";
-import ProviderSettingsSidebar from "../components/ProviderSettingsSidebar";
-import { accountMainClass, accountMainStyle } from "../../common/account/AccountFlatNav";
 
 const PERFORMER_APP_PLAY_STORE_URL =
   "https://play.google.com/store/apps/details?id=com.onitconsumer.india&pcampaignid=web_share";
@@ -24,14 +22,11 @@ const SwitchToPerformerPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex min-h-screen flex-col bg-[var(--color-surface)] pt-[80px] font-sans text-[var(--color-text)]">
+    <div className="flex min-h-screen flex-col bg-[var(--dash-canvas)] pt-[80px] font-sans text-[var(--dash-text)]">
       <ProviderHeader activePage="home" />
 
-      <div className="relative flex flex-1">
-        <ProviderSettingsSidebar />
-
-        <main className={accountMainClass} style={accountMainStyle}>
-          <div className="mx-auto w-full max-w-xl">
+      <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
+        <div className="mx-auto w-full max-w-xl">
             <button
               type="button"
               onClick={() => navigate("/provider/settings?tab=settings")}
@@ -109,8 +104,7 @@ const SwitchToPerformerPage = () => {
               </p>
             </div>
           </div>
-        </main>
-      </div>
+      </main>
     </div>
   );
 };

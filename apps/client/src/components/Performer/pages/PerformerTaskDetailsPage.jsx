@@ -190,7 +190,7 @@ function StatRow({ label, value }) {
 
 function TaskDetailsSkeleton() {
     return (
-        <div className="min-h-screen bg-[var(--color-bg)] pb-12 pt-[80px] lg:pl-[220px]">
+        <div className="min-h-screen bg-[var(--color-bg)] pb-12 pt-[80px] lg:pl-[240px]">
             <PerformerHeader activePage="home" />
             <main className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
                 <div className="mb-6 h-5 w-28 animate-pulse rounded bg-[var(--color-border-subtle)]" />
@@ -482,7 +482,7 @@ const PerformerTaskDetailsPage = () => {
 
     if (invitationAccepted) {
         return (
-            <div className="min-h-screen bg-[var(--color-bg)] pb-16 pt-[80px] font-sans text-[var(--color-text)] lg:pl-[220px]">
+            <div className="min-h-screen bg-[var(--color-bg)] pb-16 pt-[80px] font-sans text-[var(--color-text)] lg:pl-[240px]">
                 <PerformerHeader activePage="home" />
                 <main className="mx-auto w-full max-w-lg px-4 py-10 sm:px-6">
                     <Motion.div
@@ -559,7 +559,7 @@ const PerformerTaskDetailsPage = () => {
                 : 'Confirm the payout, then share your interest with the provider.';
 
     return (
-        <div className="min-h-screen bg-[var(--color-bg)] pb-12 pt-[80px] font-sans text-[var(--color-text)] lg:pl-[220px]">
+        <div className="min-h-screen bg-[var(--color-bg)] pb-12 pt-[80px] font-sans text-[var(--color-text)] lg:pl-[240px]">
             <PerformerHeader activePage="home" />
             <InterestStatusModal
                 state={interestState}
@@ -612,7 +612,7 @@ const PerformerTaskDetailsPage = () => {
                                     </span>
                                 </div>
 
-                                <h1 className="mt-5 max-w-3xl text-2xl sm:text-3xl font-heading font-medium leading-tight tracking-tight text-[var(--color-text)]">
+                                <h1 className="mt-5 max-w-3xl dash-page-title text-[var(--color-text)]">
                                     {viewModel.title}
                                 </h1>
 
@@ -746,7 +746,7 @@ const PerformerTaskDetailsPage = () => {
                                         className="mt-0.5 h-4 w-4 rounded border-[var(--color-border)] text-[var(--color-primary)] focus:ring-[var(--color-primary)]"
                                     />
                                     <span className="text-[12px] font-medium leading-5 text-[var(--color-text-muted)]">
-                                        I accept the listed payout of <span className="font-extrabold text-[var(--color-text)]">₹{viewModel.grossAmount.toLocaleString('en-IN')}</span>.
+                                        I accept the listed payout of <span className="font-medium text-[var(--color-text)]">₹{viewModel.grossAmount.toLocaleString('en-IN')}</span>.
                                     </span>
                                 </label>
                             ) : null}

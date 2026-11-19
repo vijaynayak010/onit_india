@@ -103,26 +103,29 @@ const ActiveTaskChat = ({
           })
           .map(({ message }) => message);
         if (active) {
-          const formatted = list.map((m) => {
-            const senderId = String(m.senderUserId || m.senderId || "");
-            // Primary: if we know the other person's ID, anything NOT from them is from me
-            const isMe = otherUserId
-              ? senderId !== String(otherUserId)
-              : currentUserId
-                ? senderId === currentUserId
-                : false;
-            return {
-              id: m._id || m.id,
-              clientMessageId: m.clientMessageId,
-              text: m.content,
-              createdAt: m.createdAt,
-              time: new Date(m.createdAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-              type: (isMe || m.senderUserId === "me" || m.type === "sent") ? "sent" : "received",
-              deliveredAt: m.deliveredAt,
-              readAt: m.readAt,
-              status: m.readAt ? "read" : m.deliveredAt ? "delivered" : "sent",
-            };
-          });
+          const formatted = list
+            .map((m) => {
+              const senderId = String(m.senderUserId || m.senderId || "");
+              // Primary: if we know the other person's ID, anything NOT from them is from me
+              const isMe = otherUserId
+                ? senderId !== String(otherUserId)
+                : currentUserId
+                  ? senderId === currentUserId
+                  : false;
+              const text = String(m.content ?? m.text ?? "").trim();
+              return {
+                id: m._id || m.id,
+                clientMessageId: m.clientMessageId,
+                text,
+                createdAt: m.createdAt,
+                time: new Date(m.createdAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+                type: (isMe || m.senderUserId === "me" || m.type === "sent") ? "sent" : "received",
+                deliveredAt: m.deliveredAt,
+                readAt: m.readAt,
+                status: m.readAt ? "read" : m.deliveredAt ? "delivered" : "sent",
+              };
+            })
+            .filter((m) => m.text.length > 0);
 
           setMessages(prev => JSON.stringify(prev) === JSON.stringify(formatted) ? prev : formatted);
 

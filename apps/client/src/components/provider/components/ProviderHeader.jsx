@@ -245,13 +245,13 @@ const ProviderHeader = ({ activePage }) => {
                                             navigate(link.path);
                                             setMobileMenuOpen(false);
                                         }}
-                                        className={`flex items-center gap-3 px-3.5 py-3 rounded-xl text-sm transition-colors text-left min-h-[44px] ${
+                                        className={`flex items-center gap-3 px-3.5 py-3 rounded-xl text-sm transition-colors text-left min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--dash-primary-700)] ${
                                             isActive
-                                                ? "bg-[var(--color-primary-subtle)] text-[var(--color-primary)] font-semibold"
-                                                : "text-gray-700 hover:bg-gray-50 font-medium"
+                                                ? "bg-[var(--dash-active-bg)] text-[var(--dash-primary-800)] font-semibold"
+                                                : "text-[var(--dash-text-secondary)] hover:bg-[var(--dash-canvas)] hover:text-[var(--dash-text)] font-medium"
                                         }`}
                                     >
-                                        <Icon size={18} className={isActive ? "text-[var(--color-primary)]" : "text-gray-400"} />
+                                        <Icon size={18} className={isActive ? "text-[var(--dash-primary-700)]" : "text-[var(--dash-text-secondary)]"} aria-hidden="true" />
                                         <span>{link.name}</span>
                                     </button>
                                 );

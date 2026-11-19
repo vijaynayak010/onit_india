@@ -1,5 +1,4 @@
 import React from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
 import {
     User,
     Wallet,
@@ -17,8 +16,6 @@ import PerformerHeader from '../components/PerformerHeader';
 import PerformerPageHeader from '../components/PerformerPageHeader';
 
 const PerformerWalletTransactionDetailsPage = () => {
-    const navigate = useNavigate();
-    const { id } = useParams();
 
 
 
@@ -41,7 +38,7 @@ const PerformerWalletTransactionDetailsPage = () => {
             <PerformerHeader activePage="account" />
 
             {/* Main Content Area */}
-            <main className="w-full px-4 py-6 sm:px-6 lg:ml-[220px] lg:w-[calc(100%-220px)] lg:px-8 bg-[#FAFAFA] md:bg-white custom-scrollbar">
+            <main className="w-full px-4 py-6 sm:px-6 lg:ml-[240px] lg:w-[calc(100%-240px)] lg:px-8 bg-[#FAFAFA] md:bg-white custom-scrollbar">
                 <div className="mx-auto w-full max-w-4xl">
                         
                         <PerformerPageHeader
@@ -58,7 +55,7 @@ const PerformerWalletTransactionDetailsPage = () => {
                                     <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[#2BA960] shadow-sm">
                                         <Wallet size={16} strokeWidth={2.5} />
                                     </div>
-                                    <h2 className="text-[32px] font-medium text-[#2BA960] leading-none tracking-tight">₹{transaction.amount}</h2>
+                                    <h2 className="text-2xl sm:text-[28px] font-medium text-[#2BA960] leading-none tracking-tight">₹{transaction.amount}</h2>
                                 </div>
                                 <p className="text-[15px] font-medium text-[#4B5563] mb-6 pl-11">{transaction.type}</p>
 

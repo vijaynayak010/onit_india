@@ -72,15 +72,20 @@ const PerformerAgentSupportPage = () => {
   const [ticketId, setTicketId] = useState(null);
   const [loading, setLoading] = useState(true);
   const [sending, setSending] = useState(false);
-  const bottomRef = useRef(null);
+  const messagesContainerRef = useRef(null);
 
   const scrollToBottom = useCallback(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+    const el = messagesContainerRef.current;
+    if (el) {
+      el.scrollTop = el.scrollHeight;
+    }
   }, []);
 
   useEffect(() => {
-    scrollToBottom();
-  }, [messages, scrollToBottom]);
+    if (!loading) {
+      scrollToBottom();
+    }
+  }, [messages, loading, scrollToBottom]);
 
   useEffect(() => {
     let cancelled = false;
@@ -206,7 +211,7 @@ const PerformerAgentSupportPage = () => {
   };
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-[var(--color-surface)] pb-16 pt-[80px] font-sans text-[var(--color-text)] antialiased">
+    <div className="relative min-h-screen overflow-x-hidden bg-[var(--color-surface)] pb-16 pt-[80px] font-sans text-[var(--color-text)] antialiased lg:pl-[240px]">
       <PerformerHeader activePage="my-tasks" />
 
       <div
@@ -255,7 +260,7 @@ const PerformerAgentSupportPage = () => {
             <Headphones className="h-3.5 w-3.5" strokeWidth={2.5} />
             Support
           </div>
-          <h1 className="text-3xl font-medium tracking-tight text-[var(--color-text)] sm:text-[32px]">
+          <h1 className="dash-page-title text-[var(--color-text)]">
             {meta.title}
           </h1>
           <p className="mt-2 max-w-2xl text-[15px] font-medium text-[var(--color-text-muted)]">
@@ -281,7 +286,7 @@ const PerformerAgentSupportPage = () => {
 
           {/* Messages + input */}
           <div className="flex h-[min(520px,60vh)] flex-col">
-            <div className="min-h-0 flex-1 space-y-3 overflow-y-auto px-4 py-5 sm:px-6">
+            <div ref={messagesContainerRef} className="min-h-0 flex-1 space-y-3 overflow-y-auto px-4 py-5 sm:px-6">
               {loading ? (
                 <div className="flex flex-col items-center justify-center py-16 text-[var(--color-primary)]">
                   <Loader2 className="mb-3 h-7 w-7 animate-spin" />
@@ -316,7 +321,6 @@ const PerformerAgentSupportPage = () => {
                   </div>
                 ))
               )}
-              <div ref={bottomRef} />
             </div>
 
             <form

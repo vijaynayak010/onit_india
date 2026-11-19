@@ -170,7 +170,7 @@ const PerformerWalletWithdrawView = ({ paths = DEFAULT_PATHS }) => {
                 inputMode="numeric"
                 value={amount ? `₹ ${formatINR(amount)}` : "₹ 0"}
                 onChange={handleAmountChange}
-                className="w-full max-w-md bg-transparent text-[32px] font-medium text-gray-900 outline-none"
+                className="w-full max-w-md bg-transparent text-2xl sm:text-[28px] font-medium text-gray-900 outline-none"
               />
             </div>
             <div className="mt-4 flex flex-wrap gap-2">

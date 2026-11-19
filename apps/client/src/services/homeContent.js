@@ -96,8 +96,7 @@ export async function fetchHomeContent({ force = false } = {}) {
         headers: { Accept: "application/json" },
       });
       if (!res.ok) {
-        cachedHomeContent = { ...EMPTY_HOME_CONTENT };
-        return cachedHomeContent;
+        return { ...EMPTY_HOME_CONTENT, error: `HTTP ${res.status}` };
       }
       const data = await res.json();
       // Support both bare payload and `{ content: {...} }` wrappers.
@@ -106,9 +105,8 @@ export async function fetchHomeContent({ force = false } = {}) {
         : data;
       cachedHomeContent = normalizeHomeContent(payload);
       return cachedHomeContent;
-    } catch {
-      cachedHomeContent = { ...EMPTY_HOME_CONTENT };
-      return cachedHomeContent;
+    } catch (err) {
+      return { ...EMPTY_HOME_CONTENT, error: err?.message || "Failed to load content" };
     } finally {
       inflightHomeContent = null;
     }
@@ -125,21 +123,25 @@ export function useHomeContent() {
   const [categories, setCategories] = useState([]);
   const [updatedAt, setUpdatedAt] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [reloadKey, setReloadKey] = useState(0);
 
   useEffect(() => {
     let cancelled = false;
     setLoading(true);
-    fetchHomeContent().then((data) => {
+    setError(null);
+    fetchHomeContent({ force: reloadKey > 0 }).then((data) => {
       if (cancelled) return;
       setSlides(data.slides || []);
       setCategories(data.categories || []);
       setUpdatedAt(data.updatedAt || null);
+      setError(data.error || null);
       setLoading(false);
     });
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [reloadKey]);
 
-  return { slides, categories, updatedAt, loading };
+  return { slides, categories, updatedAt, loading, error, retry: () => setReloadKey((k) => k + 1) };
 }

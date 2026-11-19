@@ -11,10 +11,7 @@ import { isTestModeEnabled } from '../test-mode/testModeConfig';
  * Ensures the user has a valid session and the correct role.
  */
 const GatedRoute = ({ children }) => {
-    if (isTestModeEnabled()) {
-        return children;
-    }
-
+    const testMode = isTestModeEnabled();
     const { user, loading, isAuthenticated, refreshProfile } = useAuth();
     const { isAuthenticated: isAuth0Authenticated, isLoading: isAuth0Loading } = useAuth0();
     const location = useLocation();
@@ -51,6 +48,7 @@ const GatedRoute = ({ children }) => {
 
     // 0. One-time sync retry on role mismatch (Must be defined BEFORE early returns)
     React.useEffect(() => {
+        if (testMode) return;
         if (isReallyAuthenticated && isMismatch && !syncAttempted && !isSyncing) {
             console.warn("[GATE] Role mismatch detected while authenticated. Attempting background sync...");
             const triggerSync = async () => {
@@ -68,7 +66,11 @@ const GatedRoute = ({ children }) => {
             };
             triggerSync();
         }
-    }, [isReallyAuthenticated, isMismatch, syncAttempted, isSyncing, refreshProfile]);
+    }, [testMode, isReallyAuthenticated, isMismatch, syncAttempted, isSyncing, refreshProfile]);
+
+    if (testMode) {
+        return children;
+    }
 
     // 1. Exemption: ALWAYS let auth/login pages through — never block them with a loading screen
     const isLoginPage =

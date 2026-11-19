@@ -36,7 +36,7 @@ function StatChip({ label, value, icon: Icon }) {
     <div className="flex flex-1 min-w-0 flex-col items-center gap-0.5 rounded-2xl border border-[#29ADAC]/20 bg-white/70 py-3 px-2 transition hover:bg-white/90">
       {Icon && <Icon size={15} strokeWidth={2.2} className="shrink-0 text-[#10605F]" />}
       <p className="truncate text-[15px] font-medium text-gray-900">{value}</p>
-      <p className="truncate text-[10px] font-semibold text-gray-500 whitespace-nowrap">{label}</p>
+      <p className="truncate text-[10px] font-normal text-gray-500 whitespace-nowrap">{label}</p>
     </div>
   );
 }
@@ -57,7 +57,7 @@ function Section({ title, children }) {
 
 // ─── Menu row ──────────────────────────────────────────────────────────────
 function MenuRow({
-  icon: Icon,
+  icon,
   label,
   sublabel,
   badge,
@@ -76,10 +76,10 @@ function MenuRow({
         className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl transition duration-150 group-hover:scale-105"
         style={{ background: danger ? "#FEF2F2" : iconBg }}
       >
-        <Icon size={17} strokeWidth={2.1} style={{ color: danger ? "#EF4444" : iconColor }} />
+        {React.createElement(icon, { size: 17, strokeWidth: 2.1, style: { color: danger ? "#EF4444" : iconColor } })}
       </div>
       <div className="min-w-0 flex-1">
-        <p className={`text-[13.5px] font-bold tracking-tight ${danger ? "text-red-500" : "text-[var(--color-text)]"}`}>
+        <p className={`text-[13.5px] font-normal tracking-tight ${danger ? "text-red-500" : "text-[var(--color-text)]"}`}>
           {label}
         </p>
         {sublabel && (
@@ -89,7 +89,7 @@ function MenuRow({
         )}
       </div>
       {badge && (
-        <span className="shrink-0 rounded-full bg-[var(--color-primary)] px-2.5 py-0.5 text-[10px] font-black text-white shadow-xs">
+        <span className="shrink-0 rounded-full bg-[var(--color-primary)] px-2.5 py-0.5 text-[10px] font-normal text-white shadow-xs">
           {badge}
         </span>
       )}
@@ -116,14 +116,14 @@ function WalletCard({ balance, onClick }) {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Wallet size={16} strokeWidth={2.2} className="text-[#7EDEDD]" />
-            <p className="text-[11px] font-bold uppercase tracking-widest text-[#7EDEDD]">Wallet Balance</p>
+            <p className="text-[11px] font-normal uppercase tracking-widest text-[#7EDEDD]">Wallet Balance</p>
           </div>
           <ChevronRight size={16} className="text-[#7EDEDD] transition group-hover:translate-x-0.5" />
         </div>
-        <p className="mt-2 text-3xl font-medium text-white">
+        <p className="mt-2 text-2xl sm:text-[26px] font-medium text-white">
           ₹{(balance || 0).toLocaleString("en-IN")}
         </p>
-        <p className="mt-1 text-[11px] font-semibold text-[#7EDEDD]">Tap to view transactions & withdraw</p>
+        <p className="mt-1 text-[11px] font-normal text-[#7EDEDD]">Tap to view transactions & withdraw</p>
       </div>
     </button>
   );
@@ -145,7 +145,7 @@ function RatingBadge({ rating, total }) {
           }}
         />
       ))}
-      <span className="text-[12px] font-bold text-[var(--color-text-muted)]">
+      <span className="text-[12px] font-normal text-[var(--color-text-muted)]">
         {rating ? rating.toFixed(1) : "—"}
       </span>
       {total > 0 && <span className="text-[11px] font-medium text-[var(--color-text-subtle)]">({total})</span>}
@@ -208,7 +208,7 @@ const PerformerAccountHubPage = () => {
     <div className="min-h-screen bg-[var(--color-surface)] pt-[93px] font-sans text-[var(--color-text)] lg:h-screen lg:overflow-hidden">
       <PerformerHeader activePage="account" />
 
-      <main className="w-full px-4 py-4 sm:px-6 lg:ml-[220px] lg:w-[calc(100%-220px)] lg:h-[calc(100vh-93px)] lg:overflow-hidden lg:px-7 lg:py-6">
+      <main className="w-full px-4 py-4 sm:px-6 lg:ml-[240px] lg:w-[calc(100%-240px)] lg:h-[calc(100vh-93px)] lg:overflow-hidden lg:px-7 lg:py-6">
         <div className="mx-auto flex flex-col gap-5 lg:flex-row lg:items-start lg:gap-6 lg:h-full max-w-7xl">
           {/* ── Stationary Column: Hero Profile Card + Wallet Card ── */}
           <div className="w-full lg:w-[350px] xl:w-[380px] shrink-0 lg:h-full lg:overflow-y-auto lg:overflow-x-hidden [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden flex flex-col gap-4">
@@ -218,8 +218,8 @@ const PerformerAccountHubPage = () => {
               style={{ background: "linear-gradient(160deg, #F0FDF7 0%, #E6FAF2 60%, #D1FAE5 100%)" }}
             >
               {/* decorative ring blobs */}
-              <div className="pointer-events-none absolute -right-8 -top-8 h-40 w-40 rounded-full border-[20px] border-[#29ADAC]/20/60" />
-              <div className="pointer-events-none absolute -bottom-10 -left-6 h-32 w-32 rounded-full border-[16px] border-[#29ADAC]/20/40" />
+              <div className="pointer-events-none absolute -right-8 -top-8 h-40 w-40 rounded-full border-[20px] border-[#29ADAC]/15" />
+              <div className="pointer-events-none absolute -bottom-10 -left-6 h-32 w-32 rounded-full border-[16px] border-[#29ADAC]/10" />
 
               {/* avatar + name */}
               <div className="relative flex items-center gap-4">
@@ -246,7 +246,7 @@ const PerformerAccountHubPage = () => {
                   type="button"
                   onClick={() => navigateFromAccount("/performer/profile")}
                   aria-label="Edit Performer Profile"
-                  className="shrink-0 rounded-xl border border-[#29ADAC]/30 bg-white px-3 py-1.5 text-[11px] font-bold text-[#10605F] shadow-xs transition hover:bg-[#EFFBFB] hover:border-[#29ADAC]/40 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#29ADAC]"
+                  className="shrink-0 rounded-xl border border-[#29ADAC]/30 bg-white px-3 py-1.5 text-[11px] font-normal text-[#10605F] shadow-xs transition hover:bg-[#EFFBFB] hover:border-[#29ADAC]/40 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#29ADAC]"
                 >
                   Edit
                 </button>
@@ -274,10 +274,10 @@ const PerformerAccountHubPage = () => {
                 >
                   <div className="flex items-center gap-2">
                     <Gift size={14} className="text-[#10605F]" />
-                    <span className="text-[11px] font-semibold text-gray-600">Your referral code</span>
+                    <span className="text-[11px] font-normal text-gray-600">Your referral code</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <code className="font-mono text-[13px] font-black tracking-widest text-gray-900">{referralCode}</code>
+                    <code className="font-mono text-[13px] font-normal tracking-widest text-gray-900">{referralCode}</code>
                     <ChevronRight size={13} className="text-[#29ADAC]" />
                   </div>
                 </button>

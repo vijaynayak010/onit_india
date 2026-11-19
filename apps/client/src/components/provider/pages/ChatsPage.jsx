@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import ProviderHeader from "../components/ProviderHeader";
 import PerformerHeader from "../../Performer/components/PerformerHeader";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion as Motion, AnimatePresence } from "framer-motion";
 import {
   Search,
   Send,
@@ -48,8 +48,9 @@ import {
   markAsRead,
   listMyTasks,
 } from "../services/api";
-import { getAssignedTasks, submitRating } from "../../Performer/services/api";
+import { getAssignedTasks } from "../../Performer/services/api";
 import { useAuth } from "../../../contexts/AuthContext";
+import { isTestModeEnabled } from "../../../test-mode/testModeConfig";
 import {
   chatRealtime,
   createChatClientMessageId,
@@ -180,7 +181,7 @@ function Avatar({ src, name = "?", size = 56, showBadge = false }) {
               justifyContent: "center",
               background: `linear-gradient(135deg, ${BRAND}22, ${BRAND}44)`,
               fontSize: size * 0.35,
-              fontWeight: 700,
+              fontWeight: 500,
               color: BRAND,
             }}
           >
@@ -291,16 +292,16 @@ function ChatCard({
           </div>
         </div>
         {participantText && (
-          <div className="mb-0.5 truncate text-[12px] font-semibold text-gray-600">
+          <div className="mb-0.5 truncate text-[12px] font-normal text-gray-600">
             {participantText}
           </div>
         )}
         <div className="flex items-center justify-between gap-2">
-          <span className="truncate text-[12px] font-medium text-gray-400">
+          <span className="truncate text-[12px] font-normal text-gray-400">
             {lastMsgContent}
           </span>
           {chat.unreadCount > 0 && !isActive && (
-            <span className="flex h-5 min-w-[20px] shrink-0 items-center justify-center rounded-full bg-[var(--color-primary)] px-1.5 text-[10px] font-bold text-white">
+            <span className="flex h-5 min-w-[20px] shrink-0 items-center justify-center rounded-full bg-[var(--color-primary)] px-1.5 text-[10px] font-medium text-white">
               {String(chat.unreadCount).padStart(2, "0")}
             </span>
           )}
@@ -331,7 +332,7 @@ function MessageBubble({ msg, isMe }) {
   const time = formatBubbleTime(msg.createdAt || msg.time);
 
   return (
-    <motion.div
+    <Motion.div
       initial={{ opacity: 0, x: isMe ? 16 : -16 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.18 }}
@@ -383,7 +384,7 @@ function MessageBubble({ msg, isMe }) {
           />
         )}
       </div>
-    </motion.div>
+    </Motion.div>
   );
 }
 
@@ -392,7 +393,7 @@ function MessageBubble({ msg, isMe }) {
 ───────────────────────────────────────────── */
 function SupportBubble({ text, time }) {
   return (
-    <motion.div
+    <Motion.div
       initial={{ opacity: 0, x: -12 }}
       animate={{ opacity: 1, x: 0 }}
       style={{
@@ -447,13 +448,13 @@ function SupportBubble({ text, time }) {
           {time}
         </span>
       </div>
-    </motion.div>
+    </Motion.div>
   );
 }
 
 function UserSupportBubble({ text, time }) {
   return (
-    <motion.div
+    <Motion.div
       initial={{ opacity: 0, x: 12 }}
       animate={{ opacity: 1, x: 0 }}
       style={{
@@ -492,7 +493,7 @@ function UserSupportBubble({ text, time }) {
         </span>
         <CheckCheck size={13} style={{ color: BRAND }} />
       </div>
-    </motion.div>
+    </Motion.div>
   );
 }
 
@@ -604,7 +605,7 @@ function ChatConfirmModal({ type, onConfirm, onCancel }) {
   const Icon = cfg.icon;
   return (
     <div className="fixed inset-0 z-[300] flex items-center justify-center bg-black/40 p-4 backdrop-blur-sm">
-      <motion.div
+      <Motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         className="w-full max-w-sm rounded-2xl bg-white p-6 shadow-2xl"
@@ -630,7 +631,7 @@ function ChatConfirmModal({ type, onConfirm, onCancel }) {
             {cfg.confirm}
           </button>
         </div>
-      </motion.div>
+      </Motion.div>
     </div>
   );
 }
@@ -645,7 +646,7 @@ const ChatsPage = () => {
 
   const isPerformer = location.pathname.toLowerCase().startsWith("/performer");
 
-  const [activeTaskIds, setActiveTaskIds] = useState(null);
+  const [, setActiveTaskIds] = useState(null);
 
   /* Conversations list state */
   const [conversations, setConversations] = useState([]);
@@ -1525,9 +1526,13 @@ const ChatsPage = () => {
         display: "flex",
         flexDirection: "column",
         height: "100vh",
+        width: "100%",
+        maxWidth: "100%",
         overflow: "hidden",
+        overflowX: "hidden",
         background: "#f9fafb",
         paddingTop: isPerformer ? 93 : 80,
+        paddingBottom: isTestModeEnabled() ? 56 : 0,
         fontFamily: "var(--font-sans)",
       }}
     >
@@ -1537,8 +1542,9 @@ const ChatsPage = () => {
         <ProviderHeader activePage="chats" />
       )}
 
-      <div
+      <main
         style={{
+          position: "relative",
           display: "flex",
           flex: 1,
           minHeight: 0,
@@ -1569,7 +1575,7 @@ const ChatsPage = () => {
                     { icon: Pin, label: "Pin", onClick: handleSelectionPin },
                     { icon: Trash2, label: "Delete", onClick: handleSelectionDelete },
                     { icon: Archive, label: "Archive", onClick: handleSelectionArchive },
-                  ].map(({ icon: Icon, label, onClick }) => (
+                  ].map(({ icon, label, onClick }) => (
                     <button
                       key={label}
                       type="button"
@@ -1578,7 +1584,7 @@ const ChatsPage = () => {
                       className="flex h-10 w-10 items-center justify-center rounded-xl border border-gray-200 bg-white text-gray-700 shadow-sm transition hover:bg-gray-50 disabled:opacity-40"
                       aria-label={label}
                     >
-                      <Icon size={18} strokeWidth={2.25} />
+                      {React.createElement(icon, { size: 18, strokeWidth: 2.25 })}
                     </button>
                   ))}
                 </div>
@@ -1720,12 +1726,12 @@ const ChatsPage = () => {
 
         {/* ── RIGHT PANEL: Chat / Support ── */}
         <div
-          className={`chat-detail-panel ${showChatPane ? "flex" : "hidden md:flex"} flex-1 min-w-0 flex-col bg-[#f9fafb] overflow-hidden`}
+          className={`chat-detail-panel ${showChatPane ? "show flex" : "hidden md:flex"} flex-1 min-w-0 flex-col bg-[#f9fafb] overflow-hidden`}
         >
           <AnimatePresence mode="wait">
             {activeChat === null ? (
               /* Empty state */
-              <motion.div
+              <Motion.div
                 key="empty"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -1756,7 +1762,7 @@ const ChatsPage = () => {
                 <h3
                   style={{
                     fontSize: 20,
-                    fontWeight: 700,
+                    fontWeight: 500,
                     color: "#111827",
                     margin: 0,
                   }}
@@ -1776,11 +1782,11 @@ const ChatsPage = () => {
                   Select a conversation from the left to start chatting with
                   your task providers.
                 </p>
-              </motion.div>
+              </Motion.div>
             ) : activeChat === 0 ? (
               supportView === "dashboard" ? (
                 /* Support Dashboard */
-                <motion.div
+                <Motion.div
                   key="support-dashboard"
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -1820,7 +1826,7 @@ const ChatsPage = () => {
                     <div
                       style={{ textAlign: "center", marginBottom: 36 }}
                     >
-                      <motion.div
+                      <Motion.div
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
                         style={{
@@ -1835,7 +1841,7 @@ const ChatsPage = () => {
                         }}
                       >
                         <Bot size={40} style={{ color: BRAND }} strokeWidth={2} />
-                      </motion.div>
+                      </Motion.div>
                       <h2
                         style={{
                           fontSize: 22,
@@ -1894,7 +1900,7 @@ const ChatsPage = () => {
                       ].map((cat, i) => {
                         const Icon = cat.icon;
                         return (
-                          <motion.div
+                          <Motion.div
                             key={i}
                             whileHover={{ y: -3 }}
                             style={{
@@ -1939,7 +1945,7 @@ const ChatsPage = () => {
                             >
                               {cat.desc}
                             </div>
-                          </motion.div>
+                          </Motion.div>
                         );
                       })}
                     </div>
@@ -2013,7 +2019,7 @@ const ChatsPage = () => {
                             gap: 12,
                           }}
                         >
-                          <motion.button
+                          <Motion.button
                             whileHover={{ scale: 1.03 }}
                             whileTap={{ scale: 0.97 }}
                             onClick={() => setSupportView("chat")}
@@ -2030,7 +2036,7 @@ const ChatsPage = () => {
                             }}
                           >
                             Chat with Agent
-                          </motion.button>
+                          </Motion.button>
                           <div
                             style={{
                               display: "flex",
@@ -2061,10 +2067,10 @@ const ChatsPage = () => {
                       </div>
                     </div>
                   </div>
-                </motion.div>
+                </Motion.div>
               ) : (
                 /* Support Chat View */
-                <motion.div
+                <Motion.div
                   key="support-chat"
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -2130,7 +2136,7 @@ const ChatsPage = () => {
                       <div>
                         <div
                           style={{
-                            fontWeight: 700,
+                            fontWeight: 500,
                             fontSize: 15,
                             color: "#111827",
                           }}
@@ -2141,7 +2147,7 @@ const ChatsPage = () => {
                           style={{
                             fontSize: 11,
                             color: BRAND,
-                            fontWeight: 600,
+                            fontWeight: 400,
                             display: "flex",
                             alignItems: "center",
                             gap: 4,
@@ -2207,11 +2213,11 @@ const ChatsPage = () => {
                     onChange={setMessageInput}
                     onSend={handleSendMessage}
                   />
-                </motion.div>
+                </Motion.div>
               )
             ) : (
               /* Regular chat */
-              <motion.div
+              <Motion.div
                 key={`chat-${activeChat}`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -2242,6 +2248,7 @@ const ChatsPage = () => {
                       gap: 10,
                       minWidth: 0,
                       flex: 1,
+                      marginRight: 8,
                     }}
                   >
                     <button
@@ -2266,10 +2273,10 @@ const ChatsPage = () => {
                       name={activeChatData?.name}
                       size={44}
                     />
-                    <div style={{ minWidth: 0 }}>
+                    <div style={{ minWidth: 0, flex: 1 }}>
                       <div
                         style={{
-                          fontWeight: 800,
+                          fontWeight: 500,
                           fontSize: 17,
                           color: "#111827",
                           overflow: "hidden",
@@ -2284,10 +2291,8 @@ const ChatsPage = () => {
                         style={{
                           fontSize: 12,
                           color: "#6b7280",
-                          fontWeight: 600,
-                          display: "flex",
-                          alignItems: "center",
-                          gap: 4,
+                          fontWeight: 400,
+                          display: "block",
                           overflow: "hidden",
                           textOverflow: "ellipsis",
                           whiteSpace: "nowrap",
@@ -2299,7 +2304,7 @@ const ChatsPage = () => {
                       </div>
                     </div>
                   </div>
-                  <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 6, flexShrink: 0 }}>
                     <button
                       type="button"
                       onClick={toggleActiveChatPin}
@@ -2469,20 +2474,21 @@ const ChatsPage = () => {
                   onSend={handleSendMessage}
                   inputRef={inputRef}
                 />
-              </motion.div>
+              </Motion.div>
             )}
           </AnimatePresence>
         </div>
-      </div>
+      </main>
 
-      {/* FirstDoer Buddy FAB */}
+      {/* FirstDoer Buddy FAB (shown when no active chat pane is open so it never overlaps the Send button) */}
+      {!showChatPane && (
       <button
         type="button"
         onClick={() => {
           const support = conversations.find((c) => c._id === 0);
           if (support) openChat(support);
         }}
-        className="fixed bottom-6 right-6 z-30 flex flex-col items-center gap-1"
+        className={`fixed ${isTestModeEnabled() ? "bottom-16" : "bottom-6"} right-6 z-30 flex flex-col items-center gap-1`}
         aria-label="Open FirstDoer Buddy"
       >
         <div className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-white bg-[var(--color-primary)] shadow-lg shadow-emerald-500/30 transition hover:scale-105">
@@ -2490,6 +2496,7 @@ const ChatsPage = () => {
         </div>
         <span className="text-[10px] font-bold lowercase tracking-wide text-gray-500">onit buddy</span>
       </button>
+      )}
 
       <ChatActionsMenu
         chat={actionsMenu.chat}
@@ -2510,7 +2517,7 @@ const ChatsPage = () => {
       <style>{`
         @media (min-width: 1024px) {
           .performer-chat-shell {
-            padding-left: 220px;
+            padding-left: 240px;
           }
         }
 
@@ -2528,7 +2535,7 @@ const ChatsPage = () => {
             width: 100% !important;
             max-width: 100% !important;
             position: absolute;
-            top: 80px;
+            top: 0;
             bottom: 0;
             left: 0;
             right: 0;
@@ -2536,7 +2543,7 @@ const ChatsPage = () => {
           }
           .chat-detail-panel {
             position: absolute;
-            top: 80px;
+            top: 0;
             bottom: 0;
             left: 0;
             right: 0;
@@ -2549,7 +2556,18 @@ const ChatsPage = () => {
           }
         }
 
-        @media (min-width: 768px) {
+        @media (min-width: 768px) and (max-width: 1279px) {
+          .chat-list-panel {
+            width: 280px !important;
+            max-width: 280px !important;
+            display: flex !important;
+          }
+          .mobile-back-btn {
+            display: none;
+          }
+        }
+
+        @media (min-width: 1280px) {
           .chat-list-panel {
             width: 360px !important;
             max-width: 360px !important;
@@ -2615,7 +2633,7 @@ function ChatInput({ value, onChange, onSend, inputRef }) {
           }}
         />
       </div>
-      <motion.button
+      <Motion.button
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.93 }}
         onClick={onSend}
@@ -2636,7 +2654,7 @@ function ChatInput({ value, onChange, onSend, inputRef }) {
         }}
       >
         <Send size={18} color="#fff" strokeWidth={2.5} />
-      </motion.button>
+      </Motion.button>
     </div>
   );
 }

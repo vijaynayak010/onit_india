@@ -112,7 +112,7 @@ const ProviderInsightsView = () => {
             <div className="flex items-start justify-between gap-3">
               <div>
                 <p className="text-sm font-semibold text-gray-500">Total Spent · 2026</p>
-                <p className="mt-1 text-3xl font-medium text-gray-900">₹1,12,700</p>
+                <p className="mt-1 dash-kpi text-[var(--dash-text)]">₹1,12,700</p>
                 <p className="mt-1 text-xs font-medium text-gray-400">Across 37 tasks this year</p>
               </div>
               <span className="rounded-full bg-[#EFFBFB] px-3 py-1 text-xs font-bold text-[#10605F]">+22%</span>

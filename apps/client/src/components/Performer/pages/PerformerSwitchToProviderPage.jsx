@@ -7,7 +7,7 @@ import PerformerPageHeader from "../components/PerformerPageHeader";
 const FeatureCard = ({ icon: Icon, title, copy, tone }) => {
   const tones = {
     blue: "bg-blue-50 text-blue-600 border-blue-100",
-    violet: "bg-fuchsia-50 text-fuchsia-600 border-fuchsia-100",
+    violet: "bg-[#EFFBFB] text-[#10605F] border-[#29ADAC]/25",
     green: "bg-[#EFFBFB] text-[#10605F] border-[#29ADAC]/20",
   };
 
@@ -29,7 +29,7 @@ const PerformerSwitchToProviderPage = () => {
     <div className="min-h-screen bg-white pt-[93px] font-sans text-gray-900">
       <PerformerHeader activePage="account" />
 
-      <main className="w-full px-4 py-6 sm:px-6 lg:ml-[220px] lg:w-[calc(100%-220px)] lg:px-8">
+      <main className="w-full px-4 py-6 sm:px-6 lg:ml-[240px] lg:w-[calc(100%-240px)] lg:px-8">
         <div className="mx-auto w-full max-w-3xl pb-12">
           <PerformerPageHeader
             title="Switch Account"
@@ -41,7 +41,7 @@ const PerformerSwitchToProviderPage = () => {
                 <Users size={42} strokeWidth={2.4} />
               </div>
 
-              <h1 className="mt-7 text-2xl font-medium tracking-tight text-gray-900 sm:text-3xl">
+              <h1 className="mt-7 dash-page-title text-[var(--dash-text)]">
                 Start Posting Tasks
               </h1>
               <p className="mx-auto mt-3 max-w-xl text-sm font-medium leading-relaxed text-gray-500">
