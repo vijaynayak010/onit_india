@@ -21,7 +21,6 @@ export const ROUTE_CATALOG = [
   { id: 'pub-14', name: 'Careers', path: '/careers', sampleUrl: '/careers', module: 'Public', role: 'Public', backend: 'BFF: /api/submit-career' },
   { id: 'pub-15', name: 'Careers Thank You', path: '/careers/thank-you', sampleUrl: '/careers/thank-you', module: 'Public', role: 'Public', backend: 'None' },
   { id: 'pub-16', name: 'Partner With Us', path: '/partner-with-us', sampleUrl: '/partner-with-us', module: 'Public', role: 'Public', backend: 'Partner Lead Form' },
-  { id: 'pub-17', name: 'Campus Ambassador', path: '/campus-detail', sampleUrl: '/campus-detail', module: 'Public', role: 'Public', backend: 'Static Content' },
   { id: 'pub-18', name: 'Task Performers Showcase', path: '/task-performers', sampleUrl: '/task-performers', module: 'Public', role: 'Public', backend: 'Performer Highlights' },
   { id: 'pub-19', name: 'Performers Directory', path: '/performers-directory', sampleUrl: '/performers-directory', module: 'Public', role: 'Public', backend: '/taskers/rankings' },
   { id: 'pub-20', name: 'Task Categories Index', path: '/tasks', sampleUrl: '/tasks', module: 'Public', role: 'Public', backend: '/task-catalog/domains' },
@@ -80,7 +79,6 @@ export const ROUTE_CATALOG = [
   { id: 'pub-73', name: 'Blog Articles Directory', path: '/blog', sampleUrl: '/blog', module: 'Public', role: 'Public', backend: 'Static Data (blogs.js)' },
   { id: 'pub-74', name: 'Blog Post Reader (#18)', path: '/blog/:id', sampleUrl: '/blog/18', module: 'Public', role: 'Public', backend: 'Static Data (blogs.js)' },
   { id: 'pub-75', name: 'Public Task Share Card', path: '/s/:code', sampleUrl: '/s/TASK-10293', module: 'Public', role: 'Public', backend: 'GET /public/share/:code' },
-  { id: 'pub-76', name: 'Public Invoice Authenticator', path: '/verify-invoice', sampleUrl: '/verify-invoice?inv=ONIT-2026-9921', module: 'Public', role: 'Public', backend: 'GET /public/invoices/verify' },
 
   // ─── 2. AUTHENTICATION & ONBOARDING ──────────────────────────────────
   { id: 'auth-1', name: 'Unified Auth / Login', path: '/auth', sampleUrl: '/auth', module: 'Auth', role: 'Guest', backend: 'Auth0 / OTP API' },

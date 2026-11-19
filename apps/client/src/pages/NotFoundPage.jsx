@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Home, Mail, ArrowLeft } from "react-feather";
 import SEO from "../components/seo/SEO";
-import Footer from "../components/layout/Footer";
 
 const NotFoundPage = () => {
   return (
@@ -46,7 +45,6 @@ const NotFoundPage = () => {
           </Link>
         </div>
       </section>
-      <Footer />
     </div>
   );
 };

@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Briefcase, ArrowRight, Calendar, Clock, FileText, List, X, Upload, CheckCircle } from "react-feather";
 import SEO from "../../components/seo/SEO";
-import Footer from "../../components/layout/Footer";
 import { API_BASE } from "../../config";
 import { getApiUrl } from "../../config/apiBase";
 
@@ -201,7 +200,7 @@ const JobDetailModal = ({ role, onClose, onApply }) => {
           className="relative w-full max-w-2xl max-h-[90vh] flex flex-col rounded-2xl border border-[var(--color-border)] bg-white shadow-xl"
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="sticky top-0 z-10 h-1.5 flex-shrink-0 bg-gradient-to-r from-emerald-600 via-teal-400 to-cyan-500 rounded-t-2xl" />
+          <div className="sticky top-0 z-10 h-1.5 flex-shrink-0 bg-gradient-to-r from-[#10605F] via-[#29ADAC] to-[#7EDEDD] rounded-t-2xl" />
           <div className="flex-1 overflow-y-auto min-h-0">
             <div className="p-6 sm:p-8">
               <button
@@ -683,7 +682,7 @@ const Careers = () => {
       </div>
 
       {/* Extra space below fixed chrome (global pt-28 / md:pt-32) without stacking huge pt-* like before */}
-      <section className="relative z-10 pt-5 sm:pt-6 md:pt-7 pb-16 px-4 sm:px-6 md:px-12 lg:px-20">
+      <section className="relative z-10 pt-5 sm:pt-6 md:pt-7 pb-16 px-4 sm:px-6 lg:px-10">
         <div className="mx-auto w-full max-w-6xl">
           {/* Hero header */}
           <motion.header
@@ -694,8 +693,8 @@ const Careers = () => {
           >
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-medium leading-[1.1] tracking-tight text-[var(--color-text)]">
               Careers at{" "}
-              <span className="text-[var(--color-text)]">On</span>
-              <span className="text-[var(--color-primary)]">IT</span> INDIA
+              <span className="text-[var(--color-text)]">first</span>
+              <span className="text-[var(--color-primary)]">Doer</span>
             </h1>
             <p className="mx-auto mt-3 sm:mt-4 md:mt-6 max-w-2xl text-sm sm:text-base md:text-lg text-[var(--color-text-muted)] leading-relaxed px-2">
               We are building a hyperlocal task and opportunity platform that connects people who need help with those ready to help—instantly, locally, and with low commission.
@@ -760,7 +759,7 @@ const Careers = () => {
                     transition={{ delay: index * 0.08, duration: 0.4 }}
                     className="group overflow-hidden rounded-2xl border border-[var(--color-border)] bg-white shadow-[var(--shadow-lg)] ring-2 ring-transparent ring-offset-2 ring-offset-[var(--color-surface)] transition-all duration-300 hover:shadow-[0_20px_45px_-12px_rgba(0,0,0,0.1),0_0_60px_-16px_rgba(5,150,105,0.08)] hover:ring-[var(--color-primary)]/20"
                   >
-                    <div className="h-1.5 bg-gradient-to-r from-emerald-600 via-teal-400 to-cyan-500" />
+                    <div className="h-1.5 bg-gradient-to-r from-[#10605F] via-[#29ADAC] to-[#7EDEDD]" />
                     <div className="p-4 sm:p-6 md:p-8">
                       <div className="flex flex-wrap items-center gap-2 mb-3">
                         <span className="text-xs font-semibold uppercase tracking-wider text-[var(--color-primary)] bg-[var(--color-primary-muted)] px-2.5 py-1 rounded-lg">
@@ -833,7 +832,7 @@ const Careers = () => {
             viewport={{ once: true }}
             className="overflow-hidden rounded-2xl border border-[var(--color-border)] bg-white shadow-[var(--shadow-md)]"
           >
-            <div className="h-1 bg-gradient-to-r from-[var(--color-primary)] to-emerald-500" />
+            <div className="h-1 bg-gradient-to-r from-[#10605F] to-[#29ADAC]" />
             <div className="p-6 sm:p-8">
               <div className="flex items-center gap-3 mb-4">
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--color-primary-muted)]">
@@ -880,8 +879,6 @@ const Careers = () => {
           />
         )}
       </AnimatePresence>
-
-      <Footer />
     </div>
   );
 };

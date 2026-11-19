@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { ArrowLeft, Clock, Check, Copy } from "react-feather";
 import SEO from "../seo/SEO";
 import { blogs } from "../../data/blogs";
-import Footer from "../layout/Footer";
 
 /* -------------------------------------------------------------------------- */
 /*                         DESIGN SYSTEM COMPONENTS                           */
@@ -144,11 +143,11 @@ function BlogPost() {
         />
       )}
 
-      <main className="max-w-[1040px] mx-auto px-4 sm:px-6 md:px-12 lg:px-20 pt-5 sm:pt-6 md:pt-7 pb-12 sm:pb-16 lg:pb-20">
+      <main className="max-w-[1040px] mx-auto px-4 sm:px-6 lg:px-10 pt-5 sm:pt-6 md:pt-7 pb-12 sm:pb-16 lg:pb-20">
 
         {/* HEADER GRID */}
         <header className="mb-6 sm:mb-8 md:mb-16">
-          <div className="flex flex-col gap-3 sm:gap-4 md:gap-6 max-w-3xl">
+          <div className="flex flex-col gap-3 sm:gap-4 md:gap-6 max-w-5xl">
             <button
               type="button"
               onClick={() => navigate("/blog")}
@@ -344,8 +343,6 @@ function BlogPost() {
         </div>
 
       </main>
-
-      <Footer />
     </div>
   );
 }

@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "react-feather";
 import SEO from "../../components/seo/SEO";
-import Footer from "../../components/layout/Footer";
 import CategoryCrossLinks from "../../components/landing/CategoryCrossLinks";
 import { useCases } from "../../data/useCases";
 
@@ -23,8 +22,8 @@ const UseCasesIndexPage = () => {
         }}
       />
 
-      <section className="pt-24 sm:pt-28 pb-12 sm:pb-16 px-4 sm:px-6 md:px-12 lg:px-20">
-        <div className="max-w-4xl mx-auto text-center mb-10 sm:mb-14">
+      <section className="pt-6 sm:pt-10 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-10">
+        <div className="max-w-6xl mx-auto text-center mb-10 sm:mb-14">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-[var(--color-primary)] mb-3 sm:mb-4 leading-tight font-heading">
             Who uses FirstDoer
           </h1>
@@ -33,7 +32,7 @@ const UseCasesIndexPage = () => {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto mb-8 sm:mb-10">
+        <div className="max-w-6xl mx-auto mb-8 sm:mb-10">
           <CategoryCrossLinks
             title="Explore more"
             links={[
@@ -46,7 +45,7 @@ const UseCasesIndexPage = () => {
           />
         </div>
 
-        <div className="max-w-4xl mx-auto grid gap-3.5 sm:gap-4 sm:grid-cols-2">
+        <div className="max-w-6xl mx-auto grid gap-3.5 sm:gap-4 sm:grid-cols-2">
           {useCases.map((uc) => (
             <Link
               key={uc.slug}
@@ -74,7 +73,7 @@ const UseCasesIndexPage = () => {
           </Link>
         </p>
 
-        <div className="max-w-4xl mx-auto mt-10">
+        <div className="max-w-6xl mx-auto mt-10">
           <CategoryCrossLinks
             title="Explore more"
             links={[
@@ -87,8 +86,6 @@ const UseCasesIndexPage = () => {
           />
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

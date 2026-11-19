@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FileText, AlertCircle, CheckCircle } from "react-feather";
 import SEO from "../../components/seo/SEO";
-import Footer from "../../components/layout/Footer";
 
 const PROVIDER_RULES = [
   "Post lawful and safe tasks only.",
@@ -36,8 +35,8 @@ const TaskGuidelinesPage = () => (
       keywords="FirstDoer task guidelines, posting rules, prohibited tasks, task provider rules, task performer rules, acceptable use"
       canonical="https://www.firstdoer.com/task-guidelines"
     />
-    <section className="pt-24 pb-16 px-6 md:px-20">
-      <div className="max-w-3xl mx-auto">
+    <section className="pt-6 sm:pt-10 pb-16 px-4 sm:px-6 lg:px-10">
+      <div className="max-w-6xl mx-auto">
         <Link
           to="/help"
           className="inline-flex items-center text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] font-medium text-sm mb-8"
@@ -114,7 +113,6 @@ const TaskGuidelinesPage = () => (
         </div>
       </div>
     </section>
-    <Footer />
   </div>
 );
 

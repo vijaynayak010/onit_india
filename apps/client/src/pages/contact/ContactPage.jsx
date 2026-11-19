@@ -2,7 +2,6 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Mail, Phone, MapPin, ArrowRight } from "react-feather";
 import SEO from "../../components/seo/SEO";
-import Footer from "../../components/layout/Footer";
 
 const ContactPage = () => {
   const navigate = useNavigate();
@@ -41,7 +40,7 @@ const ContactPage = () => {
         schema={contactSchema}
       />
 
-      <section className="pt-24 sm:pt-28 pb-12 sm:pb-16 px-4 sm:px-6 md:px-12 lg:px-20">
+      <section className="pt-6 sm:pt-10 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-10">
         <div className="max-w-5xl mx-auto">
           <header className="border-b border-gray-200 pb-6 sm:pb-8 mb-8 sm:mb-10">
             <h1 className="text-3xl sm:text-4xl font-heading font-medium text-[var(--color-primary)] mb-3 tracking-tight">
@@ -248,8 +247,6 @@ const ContactPage = () => {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

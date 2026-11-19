@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "react-feather";
 import SEO from "../seo/SEO";
-import Footer from "../layout/Footer";
 
 // Example success stories / case studies. Replace with real data or API when available.
 const STORIES = [
@@ -48,8 +47,8 @@ const SuccessStoriesPage = () => (
       keywords="FirstDoer success stories, case studies, task provider stories, task performer stories, task marketplace India"
       canonical="https://www.firstdoer.com/community/success-stories"
     />
-    <section className="pt-24 pb-16 px-6 md:px-20">
-      <div className="max-w-3xl mx-auto">
+    <section className="pt-6 sm:pt-10 pb-16 px-4 sm:px-6 lg:px-10">
+      <div className="max-w-6xl mx-auto">
         <Link
           to="/community"
           className="inline-flex items-center gap-2 text-[var(--color-primary)] font-medium text-sm mb-8 hover:underline"
@@ -89,7 +88,6 @@ const SuccessStoriesPage = () => (
         </div>
       </div>
     </section>
-    <Footer />
   </div>
 );
 

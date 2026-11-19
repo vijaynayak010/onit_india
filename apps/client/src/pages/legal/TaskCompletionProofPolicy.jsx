@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SEO from "../../components/seo/SEO";
-import Footer from "../../components/layout/Footer";
 
 const TaskCompletionProofPolicy = () => (
   <div className="min-h-screen bg-white text-gray-800">
@@ -11,11 +10,8 @@ const TaskCompletionProofPolicy = () => (
       keywords="FirstDoer task completion, proof of work, deliverables, task approval, payment release, task marketplace India"
       canonical="https://www.firstdoer.com/task-completion-proof-policy"
     />
-    <section className="pt-24 pb-16 px-6 md:px-20">
-      <div className="max-w-3xl mx-auto">
-        <Link to="/" className="inline-flex items-center text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] font-medium text-sm mb-8">
-          ← Back to Home
-        </Link>
+    <section className="pt-6 sm:pt-10 pb-16 px-4 sm:px-6 lg:px-10">
+      <div className="max-w-5xl mx-auto">
         <header className="border-b border-gray-200 pb-8 mb-10">
           <h1 className="text-3xl md:text-4xl font-medium text-[var(--color-primary)] mb-4">
             Task Completion &amp; Proof Policy
@@ -71,7 +67,6 @@ const TaskCompletionProofPolicy = () => (
         </div>
       </div>
     </section>
-    <Footer />
   </div>
 );
 

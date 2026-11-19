@@ -18,8 +18,8 @@ const DomainDetail = () => {
         <div className="max-w-xl text-center">
           <h1 className="text-2xl font-medium mb-4">Domain not found</h1>
           <Link
-            to="/#domain"
-            className="inline-flex items-center text-green-600 hover:text-green-700 font-medium"
+            to="/#categories"
+            className="inline-flex items-center text-[#10605F] hover:text-[#083B3A] font-medium"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Explore Domains
@@ -42,7 +42,7 @@ const DomainDetail = () => {
   const canonicalPath = `/domains/${slug}`;
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] pt-24 sm:pt-28 pb-16 px-4 sm:px-6 md:px-12 lg:px-20 font-sans">
+    <div className="min-h-screen bg-[#f8fafc] pt-6 sm:pt-10 pb-16 px-4 sm:px-6 lg:px-10 font-sans">
       <SEO
         title={pageTitle}
         description={pageDescription}
@@ -134,7 +134,7 @@ const DomainDetail = () => {
             className="mt-10 sm:mt-12 md:mt-14"
           >
             <div className="bg-white rounded-3xl shadow-sm border border-slate-200 px-5 sm:px-7 md:px-10 py-6 sm:py-8 md:py-10">
-              <div className="max-w-3xl mb-6 sm:mb-8">
+              <div className="max-w-6xl mb-6 sm:mb-8">
                 <p className="text-xs uppercase tracking-widest text-[var(--color-primary)] font-semibold mb-1">
                   {subDomainConfig.label}
                 </p>

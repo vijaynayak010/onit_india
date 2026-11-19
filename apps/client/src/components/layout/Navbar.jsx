@@ -1,375 +1,827 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowRight, Plus, UserCheck } from "react-feather";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect, useRef } from "react";
+import { Menu, X, UserCheck, ChevronDown, ArrowRight } from "react-feather";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
+
+const CATEGORY_GROUPS = [
+  {
+    heading: "Business & Operations",
+    items: [
+      { label: "Business Operations", to: "/tasks/business" },
+      { label: "Admin Support", to: "/tasks/admin" },
+      { label: "Research", to: "/domains/business-operations-research" },
+    ],
+  },
+  {
+    heading: "Content, Design & Marketing",
+    items: [
+      { label: "Content", to: "/tasks/content" },
+      { label: "Design", to: "/services/instagram-post-design-services" },
+      { label: "Creative Services", to: "/tasks/creative" },
+      { label: "Marketing", to: "/domains/content-design-marketing" },
+      { label: "Events", to: "/tasks/events" },
+    ],
+  },
+  {
+    heading: "Technology & Academic Support",
+    items: [
+      { label: "Technology", to: "/domains/tech-data-admin" },
+      { label: "Data Support", to: "/tasks/tech" },
+      { label: "Academic Support", to: "/domains/academic-knowledge-support" },
+      { label: "Knowledge Services", to: "/services/market-research-assistance" },
+    ],
+  },
+  {
+    heading: "Local Tasks",
+    items: [
+      { label: "On-ground Assistance", to: "/domains/on-ground-local-assistance" },
+      { label: "Local Tasks", to: "/tasks" },
+      { label: "Nearby Performers", to: "/performers-directory" },
+    ],
+  },
+];
+
+const WHY_FIRSTDOER_GROUPS = [
+  {
+    heading: "For Providers",
+    items: [
+      { label: "Provider Overview", to: "/for-providers" },
+      { label: "Provider Benefits", to: "/why-choose-us" },
+      { label: "Post a Task", to: "/provider/post-task-selection" },
+      { label: "Posting Your First Task", to: "/help/posting-your-first-task" },
+    ],
+  },
+  {
+    heading: "For Performers",
+    items: [
+      { label: "Performer Overview", to: "/for-performers" },
+      { label: "Performer Benefits", to: "/task-performers" },
+      { label: "Find Tasks", to: "/tasks" },
+      { label: "Verification & Onboarding", to: "/performer-verification-onboarding" },
+    ],
+  },
+  {
+    heading: "Company & Trust",
+    items: [
+      { label: "About FirstDoer", to: "/about" },
+      { label: "Trust & Safety", to: "/trust-safety" },
+      { label: "Partnerships", to: "/partner-with-us" },
+      { label: "Contact Us", to: "/contact" },
+    ],
+  },
+];
+
+const RESOURCES_ITEMS = [
+  { label: "Blog & Insights", desc: "Articles on work & execution", to: "/blog" },
+  { label: "Help Center", desc: "Guides for providers & performers", to: "/help" },
+  { label: "FAQs", desc: "Answers to common questions", to: "/faqs" },
+  { label: "Community", desc: "Success stories & top performers", to: "/community" },
+  { label: "Use Cases", desc: "For startups, agencies & creators", to: "/use-cases" },
+  { label: "Services", desc: "Managed execution categories", to: "/services" },
+  { label: "Pricing & Fees", desc: "Transparent payment & fee guide", to: "/pricing" },
+];
+
+const COMPANY_ITEMS = [
+  { label: "About FirstDoer", desc: "Mission & execution infrastructure", to: "/about" },
+  { label: "Careers", desc: "Join our growing team", to: "/careers" },
+  { label: "Contact Us", desc: "Questions, support & feedback", to: "/contact" },
+  { label: "Partnerships", desc: "Collaborate with FirstDoer", to: "/partner-with-us" },
+  { label: "Trust & Safety", desc: "Verification & escrow protection", to: "/trust-safety" },
+];
 
 function Navbar() {
   const navigate = useNavigate();
+  const location = useLocation();
   const { isAuthenticated, user } = useAuth();
 
-  // Standard public links
-  const publicNavItems = [
-    { name: "About Us", target: "about" },
-    { name: "Careers", target: "careers" },
-    { name: "Blog", target: "blog" },
-    { name: "Contact", target: "contact" },
-    { name: "Why Choose Us", target: "why-choose-us" },
-    { name: "Partner with us", target: "partner-with-us" },
-  ];
-
-  const dynamicNavItems = React.useMemo(() => {
-    let items = [...publicNavItems];
-
-    if (!isAuthenticated || !user) {
-      items.push({ name: "Join as Performer", target: "join-performer" });
-      return items;
-    }
-
-    const role = String(user.role).toUpperCase();
-
-    if (role === "PROVIDER" || role === "ADMIN" || role === "SUPER_ADMIN") {
-      items.unshift({ name: "Post Task", target: "post-task" });
-      // If provider, they might still want to join as performer if they have dual role? 
-      // But for now, let's keep it simple.
-    }
-
-    if (role === "TASKER" || role === "PERFORMER" || role === "ADMIN" || role === "SUPER_ADMIN") {
-      items.unshift({ name: "Find Tasks", target: "find-tasks" });
-    }
-
-    return items;
-  }, [isAuthenticated, user]);
-
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
+  const [mobileSection, setMobileSection] = useState(null);
 
-  // Scroll effect (passive so browser can keep scrolling smooth)
+  const navRef = useRef(null);
+  const closeTimeoutRef = useRef(null);
+
+  const currentPath = location.pathname.toLowerCase();
+  const isHomePage = currentPath === "/" || currentPath === "/home";
+  const userRole = user?.role ? String(user.role).toUpperCase() : "";
+  const isProviderRole =
+    isAuthenticated && (userRole === "PROVIDER" || userRole === "ADMIN" || userRole === "SUPER_ADMIN");
+  const isPerformerRole =
+    isAuthenticated && (userRole === "TASKER" || userRole === "PERFORMER" || userRole === "ADMIN" || userRole === "SUPER_ADMIN");
+
+  const isCategoriesActive =
+    currentPath.startsWith("/domains") ||
+    currentPath.startsWith("/tasks") ||
+    currentPath === "/performers-directory";
+  const isWhyActive =
+    currentPath === "/for-providers" ||
+    currentPath === "/for-performers" ||
+    currentPath === "/task-performers" ||
+    currentPath === "/why-choose-us" ||
+    currentPath === "/performer-verification-onboarding";
+  const isHowItWorksActive = currentPath === "/how-it-works";
+  const isCareersActive = currentPath.startsWith("/careers");
+  const isResourcesActive =
+    currentPath.startsWith("/blog") ||
+    currentPath.startsWith("/help") ||
+    currentPath === "/faqs" ||
+    currentPath.startsWith("/community") ||
+    currentPath.startsWith("/use-cases") ||
+    currentPath.startsWith("/services") ||
+    currentPath === "/pricing";
+  const isCompanyActive =
+    currentPath === "/about" ||
+    currentPath.startsWith("/contact") ||
+    currentPath === "/partner-with-us" ||
+    currentPath === "/trust-safety";
+
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 30);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    setMenuOpen(false);
+    setOpenDropdown(null);
+    setMobileSection(null);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const handleOutside = (event) => {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setOpenDropdown(null);
+      }
+    };
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setOpenDropdown(null);
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleOutside);
+    document.addEventListener("touchstart", handleOutside);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", handleOutside);
+      document.removeEventListener("touchstart", handleOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+      if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
+    };
   }, []);
 
-  // Animation Variants
-  const containerVariants = {
-    hidden: {},
-    visible: { transition: { staggerChildren: 0.03 } },
+  const handleDropdownEnter = (key) => {
+    if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
+    setOpenDropdown(key);
   };
 
-  const letterVariants = {
-    hidden: { y: 4, opacity: 1 },
-    visible: { y: 0, opacity: 1, transition: { duration: 0.2, ease: "easeOut" } },
-  };
-
-  // Robust Scroll To Element Logic
-  const tryFindElement = (id) => {
-    if (!id) return null;
-    const candidates = [
-      id,
-      "Campus",
-      "OnitCampus",
-      "ONITCampus",
-      "onit-campus",
-      id.replace(/\s+/g, ""), // remove spaces
-      id.toLowerCase(),
-    ];
-    for (const c of candidates) {
-      const el = document.getElementById(c);
-      if (el) return el;
-    }
-    return document.querySelector(`[id*="${id.toLowerCase().replace(/\s/g, "")}"]`);
-  };
-
-  const handleScrollTo = (targetId) => {
-    setMenuOpen(false);
-
-    if (targetId === "about") {
-      navigate("/about");
-      return;
-    }
-
-    if (targetId === "why-choose-us") {
-      navigate("/why-choose-us");
-      return;
-    }
-
-    if (targetId === "what-is-onit-india") {
-      navigate("/what-is-onit-india");
-      return;
-    }
-
-    if (targetId === "how-it-works") {
-      navigate("/how-it-works");
-      return;
-    }
-
-    if (targetId === "tasks") {
-      navigate("/tasks");
-      return;
-    }
-
-    if (targetId === "careers") {
-      navigate("/careers");
-      return;
-    }
-
-    if (targetId === "blog") {
-      navigate("/blog");
-      return;
-    }
-
-    if (targetId === "contact") {
-      navigate("/contact");
-      return;
-    }
-
-    if (targetId === "partner-with-us") {
-      navigate("/partner-with-us");
-      return;
-    }
-
-    if (targetId === "join-performer") {
-      navigate("/task-performers");
-      return;
-    }
-
-    if (targetId === "post-task") {
-      if (window.location.pathname === "/") {
-        const el = document.getElementById("hero-post-task");
-        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-      } else {
-        navigate("/provider/post-task-selection");
-      }
-      return;
-    }
-
-    if (targetId === "find-tasks") {
-      navigate("/tasks");
-      return;
-    }
-
-    if (targetId === "OnitCampus") {
-      navigate("/campus-detail#campus");
-      return;
-    }
-
-    if (window.location.pathname !== "/") {
-      navigate("/");
-      setTimeout(() => {
-        const el = tryFindElement(targetId);
-        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 300);
-    } else {
-      const el = tryFindElement(targetId);
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
-
-  const handleTaskPerformer = () => {
-    navigate("/task-performers");
-    setMenuOpen(false);
+  const handleDropdownLeave = () => {
+    closeTimeoutRef.current = setTimeout(() => {
+      setOpenDropdown(null);
+    }, 120);
   };
 
   const handleLogin = (role = null) => {
     if (role) {
-      localStorage.setItem('onit_selected_role', role);
+      localStorage.setItem("onit_selected_role", role);
     } else {
-      localStorage.removeItem('onit_selected_role');
+      localStorage.removeItem("onit_selected_role");
     }
     setMenuOpen(false);
+    setOpenDropdown(null);
     navigate("/auth", { state: { authMode: "signin" } });
   };
 
-  const handleStartPosting = () => {
+  const handlePostTask = () => {
     setMenuOpen(false);
-    localStorage.setItem('onit_selected_role', 'provider');
-    if (window.location.pathname === "/") {
-      const el = document.getElementById("hero-post-task");
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-    } else {
-      navigate("/provider/post-task-selection");
+    setOpenDropdown(null);
+    localStorage.setItem("onit_selected_role", "provider");
+    if (isHomePage) {
+      if (!isAuthenticated) {
+        navigate("/auth", { state: { tab: "signup" } });
+      } else if (userRole === "PROVIDER") {
+        navigate("/provider/post-task-manual");
+      } else {
+        navigate("/auth");
+      }
+      return;
     }
+    navigate("/provider/post-task-selection");
   };
 
   const getDashboardLink = () => {
     if (!user) return "/auth";
-    const role = String(user.role).toUpperCase();
-    if (role === "ADMIN" || role === "SUPER_ADMIN") return "/auth";
-    if (role === "TASKER" || role === "PERFORMER") return "/performer/dashboard";
+    if (userRole === "ADMIN" || userRole === "SUPER_ADMIN") return "/auth";
+    if (userRole === "TASKER" || userRole === "PERFORMER") return "/performer/dashboard";
     return "/provider/dashboard";
   };
 
   const handleDashboard = () => {
     setMenuOpen(false);
+    setOpenDropdown(null);
     navigate(getDashboardLink());
   };
 
+  const pillLinkClass = (active) =>
+    `inline-flex items-center gap-1 whitespace-nowrap rounded-full px-2.5 2xl:px-3.5 py-2 text-[13.5px] 2xl:text-[14px] transition-colors duration-200 ${
+      active
+        ? "bg-[#F1F3F3] text-[#0D1210] font-medium"
+        : "text-[#3F4A47] hover:bg-[#0D1210]/5 hover:text-[#0D1210]"
+    }`;
+
   return (
-    <>
-      <header
-        className={`fixed top-10 left-0 right-0 w-full h-16 md:h-20 z-[9999] transition-all duration-300 ease-out ${scrolled
-          ? "bg-white/90 backdrop-blur-xl shadow-[0_4px 24px -4px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.04)]"
-          : "bg-white/70 backdrop-blur-xl shadow-[0_1px 3px_rgba(0,0,0,0.04)]"
-          }`}
-        style={{ fontFamily: "var(--font-sans)" }}
+    <header
+      ref={navRef}
+      style={{
+        position: isHomePage ? "sticky" : "fixed",
+        top: isHomePage ? "12px" : "48px",
+        left: 0,
+        right: 0,
+        zIndex: 9999,
+        height: isHomePage ? 0 : undefined,
+        padding: "0 clamp(16px, 3.5vw, 48px)",
+        width: "100%",
+        fontFamily: "'Poppins', ui-sans-serif, system-ui, sans-serif",
+      }}
+    >
+      <nav
+        aria-label="Main"
+        style={{
+          position: "relative",
+          margin: isHomePage ? "14px auto 0" : "0 auto",
+          maxWidth: "1480px",
+          width: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: "12px",
+          padding: "10px 14px 10px 24px",
+          borderRadius: "999px",
+          border: "1px solid #E4E7E6",
+          background: "rgba(255,255,255,0.92)",
+          WebkitBackdropFilter: "blur(16px)",
+          backdropFilter: "blur(16px)",
+          boxShadow: "0 4px 16px rgba(0,20,13,0.06)",
+        }}
       >
-        {/* Bottom accent line */}
-        <div className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-[var(--color-primary)]/50 to-transparent opacity-80" />
+        {/* ================= BRAND WORDMARK ================= */}
+        <Link
+          to="/"
+          aria-label="firstDoer home"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "10px",
+            color: "#0D1210",
+            textDecoration: "none",
+            flexShrink: 0,
+          }}
+        >
+          <span style={{ fontSize: "21px", fontWeight: 600, letterSpacing: "-0.04em" }}>
+            firstDoer
+          </span>
+        </Link>
 
-        {/* Inner container: full width so Login + Start posting sit at right edge */}
-        <div className="mx-auto h-full w-full px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-          {/* ================= BRAND WORDMARK ================= */}
+        {/* ================= DESKTOP CENTER NAV ================= */}
+        <div className="hidden xl:flex items-center gap-0.5 2xl:gap-1">
+          {/* 1. Categories Dropdown */}
           <div
-            className="flex h-full min-h-[52px] md:min-h-[64px] items-center shrink-0 cursor-pointer overflow-hidden transition-all duration-200 hover:opacity-90 active:scale-[0.98] py-1 ml-2 sm:ml-3 gap-2.5"
-            onClick={() => navigate("/")}
+            className="relative"
+            onMouseEnter={() => handleDropdownEnter("categories")}
+            onMouseLeave={handleDropdownLeave}
           >
-            <svg width="28" height="20" viewBox="0 0 30 22" fill="none" aria-hidden="true">
-              <path d="M11 2.5c-4.7 0-8.5 3.8-8.5 8.5s3.8 8.5 8.5 8.5c3.4 0 5.6-2.4 8-8.5 2.4-6.1 4.6-8.5 8-8.5" stroke="#29ADAC" strokeWidth="3" strokeLinecap="round" />
-              <path d="M19 19.5c4.7 0 8.5-3.8 8.5-8.5S23.7 2.5 19 2.5c-3.4 0-5.6 2.4-8 8.5" stroke="#4CCDCC" strokeWidth="3" strokeLinecap="round" />
-            </svg>
-            <span className="text-xl md:text-2xl font-medium tracking-tight text-[#0D1210]">firstDoer</span>
-          </div>
+            <button
+              type="button"
+              aria-expanded={openDropdown === "categories"}
+              aria-haspopup="true"
+              onClick={() => setOpenDropdown(openDropdown === "categories" ? null : "categories")}
+              className={pillLinkClass(isCategoriesActive || openDropdown === "categories")}
+            >
+              Categories
+              <ChevronDown
+                size={14}
+                className={`transition-transform duration-200 ${openDropdown === "categories" ? "rotate-180" : ""}`}
+                aria-hidden="true"
+              />
+            </button>
 
-          {/* ================= DESKTOP NAV ================= */}
-          <div className="hidden md:flex gap-4 lg:gap-6 absolute left-1/2 transform -translate-x-1/2 items-center">
-            {dynamicNavItems.map((item, index) => {
-              const isSpecial = item.target === "join-performer" || item.target === "post-task" || item.target === "find-tasks";
-              return (
-                <motion.div
-                  key={index}
-                  className="relative cursor-pointer flex flex-col items-center group"
-                  onClick={() => isSpecial ? handleScrollTo(item.target) : handleScrollTo(item.target)}
-                  variants={containerVariants}
-                  initial="hidden"
-                  whileHover="visible"
-                >
-                  <div className="relative">
-                    <div className="flex">
-                      {item.name.split("").map((char, idx) => (
-                        <motion.span
-                          key={idx}
-                          variants={letterVariants}
-                          className="inline-block text-[15px] font-medium text-[var(--color-text-muted)] group-hover:text-[var(--color-primary)] transition-colors duration-200"
-                        >
-                          {char === " " ? "\u00A0" : char}
-                        </motion.span>
-                      ))}
-                    </div>
-                    <span className="absolute -bottom-0.5 left-0 w-0 h-[1.5px] bg-[var(--color-primary)] rounded-full group-hover:w-full transition-all duration-300 origin-left" />
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-          {/* ================= DESKTOP BUTTONS ================= */}
-          <div className="hidden md:flex items-center gap-3 ml-auto">
-            {!isAuthenticated ? (
-              <div className="flex items-center gap-2 lg:gap-3">
-                {/* Unified Login */}
-                <button
-                  onClick={() => handleLogin()}
-                  className="text-[13px] font-medium text-slate-700 hover:text-white border border-slate-300 hover:bg-slate-800 px-5 py-2 rounded-full transition-all duration-200"
-                >
-                  Login / Sign up
-                </button>
-
-                <div className="w-[0.5px] h-4 bg-slate-200 mx-1" />
-
-                <button
-                  onClick={handleStartPosting}
-                  className="hidden lg:inline-flex items-center gap-2 text-[13px] font-medium text-white bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] px-5 py-2 rounded-full transition-all duration-200 shadow-[0_4px_12px_rgba(16,96,95,0.2)]"
-                >
-                  <Plus size={15} strokeWidth={2.5} aria-hidden />
-                  Start Posting
-                </button>
-              </div>
-            ) : (
-              <button
-                onClick={handleDashboard}
-                className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] px-5 py-2.5 rounded-full transition-all duration-200 shadow-[0_4px_15px_rgba(16,96,95,0.25)] hover:shadow-[0_6px_20px_rgba(16,96,95,0.35)] hover:-translate-y-0.5 active:scale-95"
+            {openDropdown === "categories" && (
+              <div
+                role="menu"
+                aria-label="Categories menu"
+                className="absolute left-0 top-full mt-3 w-[680px] rounded-2xl border border-[#E4E7E6] bg-white p-6 shadow-[0_20px_50px_-12px_rgba(0,20,13,0.14)] z-[10000]"
               >
-                <UserCheck size={16} strokeWidth={2.5} />
-                Dashboard
-              </button>
+                <div className="grid grid-cols-2 gap-6">
+                  {CATEGORY_GROUPS.map((group) => (
+                    <div key={group.heading}>
+                      <div className="mb-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#10605F]">
+                        {group.heading}
+                      </div>
+                      <ul className="space-y-1">
+                        {group.items.map((item) => (
+                          <li key={item.label}>
+                            <Link
+                              role="menuitem"
+                              to={item.to}
+                              onClick={() => setOpenDropdown(null)}
+                              className={`block rounded-lg px-3 py-1.5 text-[13.5px] font-medium transition-colors ${
+                                currentPath === item.to
+                                  ? "bg-[#EFFBFB] text-[#10605F]"
+                                  : "text-[#191F1D] hover:bg-[#EFFBFB] hover:text-[#10605F]"
+                              }`}
+                            >
+                              {item.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-5 flex items-center justify-between border-t border-[#DFF7F6] pt-4">
+                  <span className="text-xs text-[#56615E]">Explore task scopes across all FirstDoer domains</span>
+                  <Link
+                    to="/tasks"
+                    onClick={() => setOpenDropdown(null)}
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#10605F] hover:text-[#083B3A]"
+                  >
+                    Browse all categories
+                    <ArrowRight size={14} />
+                  </Link>
+                </div>
+              </div>
             )}
           </div>
-          {/* ================= MOBILE MENU BUTTON ================= */}
-          <div className="md:hidden z-[1000]">
+
+          {/* 2. Live Tracking */}
+          <Link to="/#how" className={pillLinkClass(false)}>
+            Live Tracking
+          </Link>
+
+          {/* 3. Why FirstDoer Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => handleDropdownEnter("why")}
+            onMouseLeave={handleDropdownLeave}
+          >
             <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="min-h-[44px] min-w-[44px] flex items-center justify-center p-2 rounded-lg hover:bg-[var(--color-border-subtle)] transition active:scale-95"
-              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              type="button"
+              aria-expanded={openDropdown === "why"}
+              aria-haspopup="true"
+              onClick={() => setOpenDropdown(openDropdown === "why" ? null : "why")}
+              className={pillLinkClass(isWhyActive || openDropdown === "why")}
             >
-              {menuOpen ? <X size={24} className="text-[var(--color-text)]" /> : <Menu size={24} className="text-[var(--color-text)]" />}
+              Why FirstDoer
+              <ChevronDown
+                size={14}
+                className={`transition-transform duration-200 ${openDropdown === "why" ? "rotate-180" : ""}`}
+                aria-hidden="true"
+              />
             </button>
+
+            {openDropdown === "why" && (
+              <div
+                role="menu"
+                aria-label="Why FirstDoer menu"
+                className="absolute left-1/2 top-full mt-3 w-[680px] -translate-x-1/2 rounded-2xl border border-[#E4E7E6] bg-white p-6 shadow-[0_20px_50px_-12px_rgba(0,20,13,0.14)] z-[10000]"
+              >
+                <div className="grid grid-cols-3 gap-5">
+                  {WHY_FIRSTDOER_GROUPS.map((group) => (
+                    <div key={group.heading}>
+                      <div className="mb-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#10605F]">
+                        {group.heading}
+                      </div>
+                      <ul className="space-y-1">
+                        {group.items.map((item) => (
+                          <li key={item.label}>
+                            <Link
+                              role="menuitem"
+                              to={item.to}
+                              onClick={() => setOpenDropdown(null)}
+                              className={`block rounded-lg px-2.5 py-1.5 text-[13.5px] font-medium transition-colors ${
+                                currentPath === item.to
+                                  ? "bg-[#EFFBFB] text-[#10605F]"
+                                  : "text-[#191F1D] hover:bg-[#EFFBFB] hover:text-[#10605F]"
+                              }`}
+                            >
+                              {item.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* 4. How It Works */}
+          <Link to="/how-it-works" className={pillLinkClass(isHowItWorksActive)}>
+            How It Works
+          </Link>
+
+          {/* 5. Careers */}
+          <Link to="/careers" className={pillLinkClass(isCareersActive)}>
+            Careers
+          </Link>
+
+          {/* 6. Resources Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => handleDropdownEnter("resources")}
+            onMouseLeave={handleDropdownLeave}
+          >
+            <button
+              type="button"
+              aria-expanded={openDropdown === "resources"}
+              aria-haspopup="true"
+              onClick={() => setOpenDropdown(openDropdown === "resources" ? null : "resources")}
+              className={pillLinkClass(isResourcesActive || openDropdown === "resources")}
+            >
+              Resources
+              <ChevronDown
+                size={14}
+                className={`transition-transform duration-200 ${openDropdown === "resources" ? "rotate-180" : ""}`}
+                aria-hidden="true"
+              />
+            </button>
+
+            {openDropdown === "resources" && (
+              <div
+                role="menu"
+                aria-label="Resources menu"
+                className="absolute right-0 top-full mt-3 w-72 rounded-2xl border border-[#E4E7E6] bg-white p-2.5 shadow-[0_20px_50px_-12px_rgba(0,20,13,0.14)] z-[10000]"
+              >
+                {RESOURCES_ITEMS.map((item) => (
+                  <Link
+                    key={item.to}
+                    role="menuitem"
+                    to={item.to}
+                    onClick={() => setOpenDropdown(null)}
+                    className={`block rounded-xl px-3.5 py-2 transition-colors ${
+                      currentPath === item.to
+                        ? "bg-[#EFFBFB] text-[#10605F]"
+                        : "hover:bg-[#EFFBFB]"
+                    }`}
+                  >
+                    <div className="text-[13.5px] font-semibold text-[#0D1210]">{item.label}</div>
+                    <div className="text-[11.5px] text-[#56615E]">{item.desc}</div>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* 7. Company Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => handleDropdownEnter("company")}
+            onMouseLeave={handleDropdownLeave}
+          >
+            <button
+              type="button"
+              aria-expanded={openDropdown === "company"}
+              aria-haspopup="true"
+              onClick={() => setOpenDropdown(openDropdown === "company" ? null : "company")}
+              className={pillLinkClass(isCompanyActive || openDropdown === "company")}
+            >
+              Company
+              <ChevronDown
+                size={14}
+                className={`transition-transform duration-200 ${openDropdown === "company" ? "rotate-180" : ""}`}
+                aria-hidden="true"
+              />
+            </button>
+
+            {openDropdown === "company" && (
+              <div
+                role="menu"
+                aria-label="Company menu"
+                className="absolute right-0 top-full mt-3 w-72 rounded-2xl border border-[#E4E7E6] bg-white p-2.5 shadow-[0_20px_50px_-12px_rgba(0,20,13,0.14)] z-[10000]"
+              >
+                {COMPANY_ITEMS.map((item) => (
+                  <Link
+                    key={item.to}
+                    role="menuitem"
+                    to={item.to}
+                    onClick={() => setOpenDropdown(null)}
+                    className={`block rounded-xl px-3.5 py-2 transition-colors ${
+                      currentPath === item.to
+                        ? "bg-[#EFFBFB] text-[#10605F]"
+                        : "hover:bg-[#EFFBFB]"
+                    }`}
+                  >
+                    <div className="text-[13.5px] font-semibold text-[#0D1210]">{item.label}</div>
+                    <div className="text-[11.5px] text-[#56615E]">{item.desc}</div>
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
         </div>
-        {/* ================= MOBILE DROPDOWN ================= */}
-        <AnimatePresence>
-          {menuOpen && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="absolute top-[4rem] sm:top-[4.5rem] left-0 w-full bg-white/95 backdrop-blur-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.12)] border-t border-[var(--color-border-subtle)] flex flex-col items-center py-6 space-y-3.5 md:hidden max-h-[calc(100vh-5.5rem)] overflow-y-auto"
-            >
-              {dynamicNavItems.map((item, index) => (
-                <button
-                  key={index}
-                  onClick={() => handleScrollTo(item.target)}
-                  className={`relative text-base font-medium transition-all ${item.target === "post-task" || item.target === "find-tasks"
-                    ? "text-[var(--color-primary)] font-bold bg-[var(--color-primary-subtle)] px-6 py-2 rounded-full"
-                    : "text-[var(--color-text-muted)] hover:text-[var(--color-text)] font-semibold"
-                    }`}
+
+        {/* ================= DESKTOP RIGHT ACTIONS ================= */}
+        <div className="hidden xl:flex items-center gap-1.5 shrink-0">
+          {!isAuthenticated ? (
+            <>
+              <button
+                type="button"
+                onClick={() => handleLogin()}
+                className="whitespace-nowrap rounded-full px-3.5 py-2 text-[14px] text-[#3F4A47] transition-colors hover:bg-[#0D1210]/5 hover:text-[#0D1210]"
+              >
+                Login
+              </button>
+              <button
+                type="button"
+                onClick={handlePostTask}
+                className="inline-flex whitespace-nowrap items-center rounded-full bg-[#0D1210] px-5 py-2.5 text-[14px] font-medium text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#191F1D]"
+              >
+                Post a Task
+              </button>
+            </>
+          ) : (
+            <>
+              {isPerformerRole && !isProviderRole ? (
+                <Link
+                  to="/tasks"
+                  className="whitespace-nowrap rounded-full px-3.5 py-2 text-[14px] font-medium text-[#3F4A47] transition-colors hover:bg-[#0D1210]/5 hover:text-[#0D1210]"
                 >
-                  {item.name}
-                </button>
-              ))}
-
-              {!isAuthenticated ? (
-                <div className="flex flex-col w-full px-6 gap-3 pt-2">
-                  <button
-                    onClick={() => handleLogin()}
-                    className="w-full text-base font-bold text-slate-700 border-2 border-slate-300 py-3 rounded-full transition"
-                  >
-                    Login / Sign up
-                  </button>
-
-                  <button
-                    onClick={handleStartPosting}
-                    className="inline-flex items-center justify-center gap-2 w-full text-base font-bold text-white bg-[var(--color-primary)] py-3.5 rounded-full transition shadow-md mt-2"
-                  >
-                    <Plus size={18} strokeWidth={2.5} aria-hidden />
-                    Start posting as Provider
-                  </button>
-                </div>
+                  Find Tasks
+                </Link>
               ) : (
                 <button
-                  onClick={handleDashboard}
-                  className="inline-flex items-center justify-center gap-2 w-full max-w-[220px] text-base font-bold text-white bg-[var(--color-primary)] px-6 py-3 rounded-full transition shadow-md"
+                  type="button"
+                  onClick={handlePostTask}
+                  className="whitespace-nowrap rounded-full px-3.5 py-2 text-[14px] font-medium text-[#3F4A47] transition-colors hover:bg-[#0D1210]/5 hover:text-[#0D1210]"
                 >
-                  <UserCheck size={18} strokeWidth={2.5} />
-                  Go to Dashboard
+                  Post a Task
                 </button>
               )}
-            </motion.div>
+              <button
+                type="button"
+                onClick={handleDashboard}
+                className="inline-flex whitespace-nowrap items-center gap-2 rounded-full bg-[#0D1210] px-5 py-2.5 text-[14px] font-medium text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#191F1D]"
+              >
+                <UserCheck size={15} strokeWidth={2.2} aria-hidden="true" />
+                Dashboard
+              </button>
+            </>
           )}
-        </AnimatePresence>
-      </header>
+        </div>
 
-      {/* Styles for slow pulse animation */}
-      <style>{`
-        @keyframes pulse-slow {
-          0%, 100% { opacity: 1; transform: scale(1); }
-          50% { opacity: 0.8; transform: scale(1.05); }
-        }
-        .animate-pulse-slow {
-          animation: pulse-slow 2s infinite ease-in-out;
-        }
-      `}</style>
-    </>
+        {/* ================= MOBILE / TABLET CONTROLS ================= */}
+        <div className="flex xl:hidden items-center gap-2 shrink-0">
+          {!isAuthenticated ? (
+            <button
+              type="button"
+              onClick={handlePostTask}
+              className="hidden sm:inline-flex whitespace-nowrap items-center rounded-full bg-[#0D1210] px-4 py-2 text-[13px] font-medium text-white"
+            >
+              Post a Task
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={handleDashboard}
+              className="hidden sm:inline-flex whitespace-nowrap items-center gap-1.5 rounded-full bg-[#0D1210] px-4 py-2 text-[13px] font-medium text-white"
+            >
+              <UserCheck size={14} strokeWidth={2.2} aria-hidden="true" />
+              Dashboard
+            </button>
+          )}
+          <button
+            type="button"
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="flex min-h-[40px] min-w-[40px] items-center justify-center rounded-full p-2 text-[#0D1210] transition hover:bg-[#0D1210]/5"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+          >
+            {menuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
+      </nav>
+
+      {/* ================= MOBILE / TABLET DRAWER ================= */}
+      {menuOpen && (
+        <div className="xl:hidden mx-auto mt-2 max-w-[1480px] rounded-2xl border border-[#E4E7E6] bg-white p-5 shadow-[0_20px_50px_-12px_rgba(0,20,13,0.16)] max-h-[calc(100vh-8rem)] overflow-y-auto">
+          <div className="flex flex-col space-y-1.5">
+            {/* Categories Accordion */}
+            <div>
+              <button
+                type="button"
+                aria-expanded={mobileSection === "categories"}
+                onClick={() => setMobileSection(mobileSection === "categories" ? null : "categories")}
+                className="flex w-full items-center justify-between rounded-xl px-3.5 py-2.5 text-[15px] font-medium text-[#0D1210] hover:bg-[#EFFBFB] hover:text-[#10605F]"
+              >
+                <span>Categories</span>
+                <ChevronDown
+                  size={18}
+                  className={`transition-transform duration-200 ${mobileSection === "categories" ? "rotate-180" : ""}`}
+                />
+              </button>
+              {mobileSection === "categories" && (
+                <div className="mt-1 space-y-3 rounded-xl bg-[#EFFBFB]/60 p-3.5">
+                  {CATEGORY_GROUPS.map((group) => (
+                    <div key={group.heading}>
+                      <div className="mb-1 text-[11px] font-semibold uppercase tracking-wider text-[#10605F]">
+                        {group.heading}
+                      </div>
+                      <div className="flex flex-col space-y-1">
+                        {group.items.map((item) => (
+                          <Link
+                            key={item.label}
+                            to={item.to}
+                            onClick={() => setMenuOpen(false)}
+                            className="rounded-lg px-2.5 py-1.5 text-[13.5px] font-medium text-[#191F1D] hover:bg-white hover:text-[#10605F]"
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <Link
+              to="/#how"
+              onClick={() => setMenuOpen(false)}
+              className="rounded-xl px-3.5 py-2.5 text-[15px] font-medium text-[#0D1210] hover:bg-[#EFFBFB] hover:text-[#10605F]"
+            >
+              Live Tracking
+            </Link>
+
+            {/* Why FirstDoer Accordion */}
+            <div>
+              <button
+                type="button"
+                aria-expanded={mobileSection === "why"}
+                onClick={() => setMobileSection(mobileSection === "why" ? null : "why")}
+                className="flex w-full items-center justify-between rounded-xl px-3.5 py-2.5 text-[15px] font-medium text-[#0D1210] hover:bg-[#EFFBFB] hover:text-[#10605F]"
+              >
+                <span>Why FirstDoer</span>
+                <ChevronDown
+                  size={18}
+                  className={`transition-transform duration-200 ${mobileSection === "why" ? "rotate-180" : ""}`}
+                />
+              </button>
+              {mobileSection === "why" && (
+                <div className="mt-1 space-y-3 rounded-xl bg-[#EFFBFB]/60 p-3.5">
+                  {WHY_FIRSTDOER_GROUPS.map((group) => (
+                    <div key={group.heading}>
+                      <div className="mb-1 text-[11px] font-semibold uppercase tracking-wider text-[#10605F]">
+                        {group.heading}
+                      </div>
+                      <div className="flex flex-col space-y-1">
+                        {group.items.map((item) => (
+                          <Link
+                            key={item.label}
+                            to={item.to}
+                            onClick={() => setMenuOpen(false)}
+                            className="rounded-lg px-2.5 py-1.5 text-[13.5px] font-medium text-[#191F1D] hover:bg-white hover:text-[#10605F]"
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <Link
+              to="/how-it-works"
+              onClick={() => setMenuOpen(false)}
+              className={`rounded-xl px-3.5 py-2.5 text-[15px] font-medium ${
+                isHowItWorksActive
+                  ? "bg-[#EFFBFB] text-[#10605F]"
+                  : "text-[#0D1210] hover:bg-[#EFFBFB] hover:text-[#10605F]"
+              }`}
+            >
+              How It Works
+            </Link>
+
+            <Link
+              to="/careers"
+              onClick={() => setMenuOpen(false)}
+              className={`rounded-xl px-3.5 py-2.5 text-[15px] font-medium ${
+                isCareersActive
+                  ? "bg-[#EFFBFB] text-[#10605F]"
+                  : "text-[#0D1210] hover:bg-[#EFFBFB] hover:text-[#10605F]"
+              }`}
+            >
+              Careers
+            </Link>
+
+            {/* Resources Accordion */}
+            <div>
+              <button
+                type="button"
+                aria-expanded={mobileSection === "resources"}
+                onClick={() => setMobileSection(mobileSection === "resources" ? null : "resources")}
+                className="flex w-full items-center justify-between rounded-xl px-3.5 py-2.5 text-[15px] font-medium text-[#0D1210] hover:bg-[#EFFBFB] hover:text-[#10605F]"
+              >
+                <span>Resources</span>
+                <ChevronDown
+                  size={18}
+                  className={`transition-transform duration-200 ${mobileSection === "resources" ? "rotate-180" : ""}`}
+                />
+              </button>
+              {mobileSection === "resources" && (
+                <div className="mt-1 flex flex-col space-y-1 rounded-xl bg-[#EFFBFB]/60 p-3">
+                  {RESOURCES_ITEMS.map((item) => (
+                    <Link
+                      key={item.to}
+                      to={item.to}
+                      onClick={() => setMenuOpen(false)}
+                      className="rounded-lg px-2.5 py-2 text-[14px] font-medium text-[#191F1D] hover:bg-white hover:text-[#10605F]"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Company Accordion */}
+            <div>
+              <button
+                type="button"
+                aria-expanded={mobileSection === "company"}
+                onClick={() => setMobileSection(mobileSection === "company" ? null : "company")}
+                className="flex w-full items-center justify-between rounded-xl px-3.5 py-2.5 text-[15px] font-medium text-[#0D1210] hover:bg-[#EFFBFB] hover:text-[#10605F]"
+              >
+                <span>Company</span>
+                <ChevronDown
+                  size={18}
+                  className={`transition-transform duration-200 ${mobileSection === "company" ? "rotate-180" : ""}`}
+                />
+              </button>
+              {mobileSection === "company" && (
+                <div className="mt-1 flex flex-col space-y-1 rounded-xl bg-[#EFFBFB]/60 p-3">
+                  {COMPANY_ITEMS.map((item) => (
+                    <Link
+                      key={item.to}
+                      to={item.to}
+                      onClick={() => setMenuOpen(false)}
+                      className="rounded-lg px-2.5 py-2 text-[14px] font-medium text-[#191F1D] hover:bg-white hover:text-[#10605F]"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div className="mt-4 flex flex-col gap-2.5 border-t border-[#E4E7E6] pt-4">
+            {!isAuthenticated ? (
+              <>
+                <button
+                  type="button"
+                  onClick={() => handleLogin()}
+                  className="w-full rounded-full border border-[#E4E7E6] bg-white py-2.5 text-[14px] font-medium text-[#0D1210]"
+                >
+                  Login
+                </button>
+                <button
+                  type="button"
+                  onClick={handlePostTask}
+                  className="w-full rounded-full bg-[#0D1210] py-2.5 text-[14px] font-medium text-white"
+                >
+                  Post a Task
+                </button>
+              </>
+            ) : (
+              <>
+                {isPerformerRole && !isProviderRole ? (
+                  <Link
+                    to="/tasks"
+                    onClick={() => setMenuOpen(false)}
+                    className="w-full rounded-full border border-[#E4E7E6] bg-white py-2.5 text-center text-[14px] font-medium text-[#0D1210]"
+                  >
+                    Find Tasks
+                  </Link>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={handlePostTask}
+                    className="w-full rounded-full border border-[#E4E7E6] bg-white py-2.5 text-[14px] font-medium text-[#0D1210]"
+                  >
+                    Post a Task
+                  </button>
+                )}
+                <button
+                  type="button"
+                  onClick={handleDashboard}
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#0D1210] py-2.5 text-[14px] font-medium text-white"
+                >
+                  <UserCheck size={16} strokeWidth={2.2} aria-hidden="true" />
+                  Dashboard
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+      )}
+    </header>
   );
 }
 

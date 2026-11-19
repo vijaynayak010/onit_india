@@ -2,7 +2,6 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowRight, Check, X, Zap, Users } from "react-feather";
 import SEO from "./seo/SEO";
-import Footer from "./layout/Footer";
 
 const TASK_CATEGORIES = [
   {
@@ -43,8 +42,8 @@ const ExecutionInfrastructurePage = () => {
       />
 
       {/* 1. Hero */}
-      <section className="pt-24 sm:pt-28 pb-14 sm:pb-20 px-4 sm:px-6 md:px-12 lg:px-20 bg-gradient-to-b from-[#10605F]/10 to-white">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="pt-6 sm:pt-10 pb-14 sm:pb-20 px-4 sm:px-6 lg:px-10 bg-gradient-to-b from-[#10605F]/10 to-white">
+        <div className="max-w-6xl mx-auto text-center">
           <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#10605F] mb-3 sm:mb-4">
             Execution Infrastructure
           </p>
@@ -67,8 +66,8 @@ const ExecutionInfrastructurePage = () => {
       </section>
 
       {/* 2. The Execution Gap */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-12 lg:px-20 border-t border-gray-100">
-        <div className="max-w-3xl mx-auto">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-10 border-t border-gray-100">
+        <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-heading font-medium text-[#10605F] mb-4 sm:mb-6 text-center">
             The Execution Gap
           </h2>
@@ -93,8 +92,8 @@ const ExecutionInfrastructurePage = () => {
       </section>
 
       {/* 3. Introducing Execution Infrastructure */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-12 lg:px-20 bg-[#10605F]/5">
-        <div className="max-w-3xl mx-auto">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-10 bg-[#10605F]/5">
+        <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-heading font-medium text-[#10605F] mb-4 sm:mb-6 text-center">
             Introducing Execution Infrastructure
           </h2>
@@ -116,8 +115,8 @@ const ExecutionInfrastructurePage = () => {
       </section>
 
       {/* 4. Task Categories */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-12 lg:px-20 border-t border-gray-100">
-        <div className="max-w-4xl mx-auto">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-10 border-t border-gray-100">
+        <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-heading font-medium text-[#10605F] mb-6 sm:mb-8 text-center">
             Task Domains
           </h2>
@@ -140,8 +139,8 @@ const ExecutionInfrastructurePage = () => {
       </section>
 
       {/* 5. Built for the Modern Work Economy */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-12 lg:px-20 bg-gray-50/50">
-        <div className="max-w-4xl mx-auto">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-10 bg-gray-50/50">
+        <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
             <div className="rounded-xl border border-[#10605F]/15 bg-white p-4 sm:p-6">
               <div className="flex items-center gap-2 mb-3 sm:mb-4">
@@ -178,8 +177,8 @@ const ExecutionInfrastructurePage = () => {
       </section>
 
       {/* 6. Final CTA */}
-      <section className="py-14 sm:py-20 px-4 sm:px-6 md:px-12 lg:px-20 border-t border-gray-100">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="py-14 sm:py-20 px-4 sm:px-6 lg:px-10 border-t border-gray-100">
+        <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl font-heading font-medium text-[#10605F] mb-3 sm:mb-4">
             Start Executing Work
           </h2>
@@ -203,8 +202,6 @@ const ExecutionInfrastructurePage = () => {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FileText, Users, Play, CreditCard } from "react-feather";
 import SEO from "./seo/SEO";
-import Footer from "./layout/Footer";
 
 const steps = [
   {
@@ -48,14 +47,8 @@ const HowItWorksPage = () => {
         }}
       />
 
-      <section className="pt-24 sm:pt-28 pb-12 sm:pb-16 px-4 sm:px-6 md:px-12 lg:px-20">
-        <div className="max-w-4xl mx-auto">
-          <Link
-            to="/"
-            className="inline-flex items-center text-[#10605F] hover:text-[#083B3A] font-medium text-sm mb-6 sm:mb-8 transition-colors"
-          >
-            ← Back to Home
-          </Link>
+      <section className="pt-6 sm:pt-10 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-10">
+        <div className="max-w-6xl mx-auto">
 
           <header className="border-b border-gray-200 pb-6 sm:pb-8 mb-8 sm:mb-12">
             <h1 className="text-3xl sm:text-4xl font-heading font-medium text-[#10605F] mb-2 tracking-tight">
@@ -127,17 +120,9 @@ const HowItWorksPage = () => {
           </p>
 
           <div className="mt-10 sm:mt-14 pt-6 sm:pt-8 border-t border-gray-200 text-center">
-            <Link
-              to="/"
-              className="inline-flex items-center gap-2 text-[#10605F] hover:text-[#083B3A] font-medium transition-colors"
-            >
-              ← Back to Home
-            </Link>
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

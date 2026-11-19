@@ -31,7 +31,7 @@ const DomainSubDomainPage = () => {
   ].join(", ");
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] pt-24 sm:pt-28 pb-16 px-4 sm:px-6 md:px-12 lg:px-20 font-sans">
+    <div className="min-h-screen bg-[#f8fafc] pt-6 sm:pt-10 pb-16 px-4 sm:px-6 lg:px-10 font-sans">
       <SEO
         title={title}
         description={description}
@@ -46,7 +46,7 @@ const DomainSubDomainPage = () => {
           "url": canonical,
         }}
       />
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <Link
           to={`/domains/${domainSlug}`}
           className="inline-flex items-center text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] font-medium mb-6 transition-colors"

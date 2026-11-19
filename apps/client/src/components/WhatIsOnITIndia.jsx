@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SEO from "./seo/SEO";
-import Footer from "./layout/Footer";
 
 const WhatIsOnITIndia = () => {
   return (
@@ -20,14 +19,8 @@ const WhatIsOnITIndia = () => {
         }}
       />
 
-      <section className="pt-24 sm:pt-28 pb-12 sm:pb-16 px-4 sm:px-6 md:px-12 lg:px-20">
-        <div className="max-w-4xl mx-auto">
-          <Link
-            to="/"
-            className="inline-flex items-center text-[#10605F] hover:text-[#083B3A] font-medium text-sm mb-6 sm:mb-8 transition-colors"
-          >
-            ← Back to Home
-          </Link>
+      <section className="pt-6 sm:pt-10 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-10">
+        <div className="max-w-6xl mx-auto">
 
           {/* Header */}
           <header className="border-b border-gray-200 pb-6 sm:pb-8 mb-8 sm:mb-10">
@@ -179,17 +172,9 @@ const WhatIsOnITIndia = () => {
             <p className="text-xs sm:text-sm text-gray-500">
               <Link to="/how-it-works" className="text-[#10605F] hover:text-[#083B3A] font-medium">How firstDoer works</Link> · <Link to="/task-performers" className="text-[#10605F] hover:text-[#083B3A] font-medium">Join as a performer</Link> · <Link to="/tasks" className="text-[#10605F] hover:text-[#083B3A] font-medium">Browse tasks</Link>
             </p>
-            <Link
-              to="/"
-              className="inline-flex items-center gap-2 text-[#10605F] hover:text-[#083B3A] font-medium transition-colors"
-            >
-              ← Back to Home
-            </Link>
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

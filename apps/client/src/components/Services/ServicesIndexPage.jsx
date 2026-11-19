@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Clipboard, MapPin, Edit3, Search, Share2, FileText, Image, Play, ArrowRight, ArrowRightCircle } from "react-feather";
 import SEO from "../seo/SEO";
-import Footer from "../layout/Footer";
 import { domains } from "../../pages/domains/Domains";
 
 // Add more services here. For each new service you also need to:
@@ -91,8 +90,8 @@ const ServicesIndexPage = () => (
       }}
     />
 
-    <section className="pt-24 sm:pt-28 pb-12 sm:pb-16 px-4 sm:px-6 md:px-12 lg:px-20 bg-gradient-to-b from-[var(--color-primary)]/5 to-white">
-      <div className="max-w-4xl mx-auto text-center">
+    <section className="pt-6 sm:pt-10 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-10 bg-gradient-to-b from-[var(--color-primary)]/5 to-white">
+      <div className="max-w-6xl mx-auto text-center">
         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-[var(--color-primary)] mb-3 sm:mb-4 leading-tight font-heading">
           Services
         </h1>
@@ -103,7 +102,7 @@ const ServicesIndexPage = () => (
       </div>
     </section>
 
-    <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-12 lg:px-20">
+    <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-10">
       <div className="max-w-5xl mx-auto">
         <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map((service) => (
@@ -132,7 +131,7 @@ const ServicesIndexPage = () => (
     </section>
 
     {/* Domains — explore by category */}
-    <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-12 lg:px-20 bg-[#f8fafc]">
+    <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-10 bg-[#f8fafc]">
       <div className="max-w-5xl mx-auto">
         <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-[var(--color-primary)] mb-2 text-center font-heading">
           Explore by domain
@@ -165,8 +164,6 @@ const ServicesIndexPage = () => (
         </div>
       </div>
     </section>
-
-    <Footer />
   </div>
 );
 

@@ -2,7 +2,6 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Zap, Briefcase, Shield, Clock, ArrowRight } from "react-feather";
 import SEO from "./seo/SEO";
-import Footer from "./layout/Footer";
 
 const BENEFITS = [
   {
@@ -48,8 +47,8 @@ const ForPerformersPage = () => {
       />
 
       {/* Hero */}
-      <section className="pt-24 pb-16 px-6 md:px-20 bg-gradient-to-b from-[#10605F]/5 to-white">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="pt-6 sm:pt-10 pb-16 px-4 sm:px-6 lg:px-10 bg-gradient-to-b from-[#10605F]/5 to-white">
+        <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-medium text-[#10605F] mb-4 leading-tight">
             Complete tasks. Get paid.
           </h1>
@@ -75,7 +74,7 @@ const ForPerformersPage = () => {
       </section>
 
       {/* Benefits */}
-      <section className="py-16 px-6 md:px-20 border-t border-gray-100">
+      <section className="py-16 px-4 sm:px-6 lg:px-10 border-t border-gray-100">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-medium text-[#10605F] mb-10 text-center">
             Why complete tasks on firstDoer
@@ -100,8 +99,8 @@ const ForPerformersPage = () => {
       </section>
 
       {/* How it works */}
-      <section className="py-16 px-6 md:px-20 bg-gray-50/50">
-        <div className="max-w-3xl mx-auto">
+      <section className="py-16 px-4 sm:px-6 lg:px-10 bg-gray-50/50">
+        <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-medium text-[#10605F] mb-4 text-center">
             How it works
           </h2>
@@ -125,8 +124,8 @@ const ForPerformersPage = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-16 px-6 md:px-20">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="py-16 px-4 sm:px-6 lg:px-10">
+        <div className="max-w-6xl mx-auto text-center">
           <div className="rounded-2xl bg-[#0D1210] text-white p-6 sm:p-8 md:p-10 border border-[#10605F]/30">
             <h2 className="text-xl md:text-2xl font-medium mb-3">
               Ready to start earning?
@@ -136,7 +135,7 @@ const ForPerformersPage = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
-                onClick={() => navigate("/auth", { state: { authMode: "signup" } })}
+                onClick={() => navigate("/auth", { state: { role: "TASKER", authMode: "signup" } })}
                 className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#7EDEDD] text-[#032120] font-semibold hover:bg-[#A2E7E7] transition-colors"
               >
                 Sign up
@@ -152,8 +151,6 @@ const ForPerformersPage = () => {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

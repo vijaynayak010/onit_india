@@ -14,7 +14,6 @@ import {
   ArrowRight,
   ChevronRight,
 } from "react-feather";
-import Footer from "../../components/layout/Footer";
 import SEO from "../../components/seo/SEO";
 import FindTaskersNearbyTeaser from "../../pages/performers/FindTaskersNearbyTeaser";
 
@@ -62,26 +61,7 @@ function Task_Performers() {
         }}
       />
 
-      {/* Breadcrumb */}
-      <nav className="bg-gray-50 border-b border-gray-100" aria-label="Breadcrumb">
-        <div className="max-w-4xl mx-auto px-6 md:px-20 py-3">
-          <ol className="flex items-center gap-2 text-sm text-gray-600">
-            <li>
-              <Link to="/" className="hover:text-[var(--color-primary)] transition-colors">
-                Home
-              </Link>
-            </li>
-            <li aria-hidden>
-              <ChevronRight size={16} className="text-gray-400" />
-            </li>
-            <li className="font-medium text-gray-900" aria-current="page">
-              For performers
-            </li>
-          </ol>
-        </div>
-      </nav>
-
-      <main className="max-w-4xl mx-auto px-6 md:px-20 py-10 md:py-14">
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 pt-8 pb-10 md:pt-10 md:pb-14">
         {/* Hero */}
         <header className="mb-12">
           <h1 className="text-3xl md:text-4xl lg:text-[2.25rem] font-medium text-[var(--color-primary)] mb-3 tracking-tight">
@@ -94,15 +74,14 @@ function Task_Performers() {
             FirstDoer connects people who are ready to execute tasks with businesses and individuals who need work done. From research and data work to design, content, and operations — join a growing network of performers and earn by delivering results.
           </p>
           <div className="flex flex-wrap items-center gap-3">
-              <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSdjLQSxhukM9y99iIDBT8p86_ZLZi3gYuxseIC1kK0FbL31ag/viewform"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white font-semibold px-5 py-3 rounded-full hover:bg-[#003d35] transition-colors shadow-md hover:shadow-lg"
+              <Link
+                to="/auth"
+                state={{ role: "TASKER", mode: "signup" }}
+                className="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white font-semibold px-5 py-3 rounded-full hover:bg-[var(--color-primary-hover)] transition-colors shadow-md hover:shadow-lg"
               >
                 <Plus size={18} strokeWidth={2.5} />
                 Join as a performer
-              </a>
+              </Link>
               <Link
                 to="/how-it-works"
                 className="inline-flex items-center gap-2 border-2 border-[var(--color-primary)] text-[var(--color-primary)] font-semibold px-5 py-3 rounded-full hover:bg-[var(--color-primary)]/5 transition-colors"
@@ -344,18 +323,16 @@ function Task_Performers() {
             <p className="text-white/90 mb-6">
               Join the growing network of performers helping businesses and individuals get work done faster.
             </p>
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSdjLQSxhukM9y99iIDBT8p86_ZLZi3gYuxseIC1kK0FbL31ag/viewform"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/auth"
+              state={{ role: "TASKER", mode: "signup" }}
               className="inline-flex items-center gap-2 bg-white text-[var(--color-primary)] font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition-colors"
             >
               Start completing tasks
               <ArrowRight size={18} strokeWidth={2.5} />
-            </a>
+            </Link>
         </section>
       </main>
-      <Footer />
     </div>
   );
 }

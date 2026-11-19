@@ -2,7 +2,6 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowRight } from "react-feather";
 import SEO from "../seo/SEO";
-import Footer from "../layout/Footer";
 
 /**
  * Reusable layout for service landing pages (hero, sections, CTA).
@@ -38,8 +37,8 @@ const ServiceLandingLayout = ({
       />
 
       {/* Hero */}
-      <section className="pt-24 sm:pt-28 pb-12 sm:pb-16 px-4 sm:px-6 md:px-12 lg:px-20 bg-gradient-to-b from-[var(--color-primary)]/5 to-white">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="pt-6 sm:pt-10 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-10 bg-gradient-to-b from-[var(--color-primary)]/5 to-white">
+        <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-[var(--color-primary)] mb-3 sm:mb-4 leading-tight font-heading">
             {heroTitle}
           </h1>
@@ -67,8 +66,8 @@ const ServiceLandingLayout = ({
       {children}
 
       {/* CTA */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-12 lg:px-20">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-10">
+        <div className="max-w-6xl mx-auto text-center">
           <div className="rounded-2xl bg-[var(--color-primary)] text-white p-6 sm:p-8 md:p-10 shadow-md">
             <h2 className="text-xl sm:text-2xl font-medium mb-3 font-heading">{ctaTitle}</h2>
             <p className="text-white/90 mb-6 text-sm sm:text-base leading-relaxed">{ctaSubtitle}</p>
@@ -90,8 +89,6 @@ const ServiceLandingLayout = ({
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

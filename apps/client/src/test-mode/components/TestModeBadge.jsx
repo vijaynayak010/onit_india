@@ -80,38 +80,39 @@ export default function TestModeBadge() {
   return (
     <aside
       aria-label="Frontend Test Mode Control Panel"
-      className="fixed bottom-4 right-4 z-[999999] font-sans transition-all duration-300"
+      className="fixed bottom-2 right-2 sm:bottom-4 sm:right-4 z-[999999] font-sans transition-all duration-300"
     >
       {/* Collapsed Pill Badge */}
       {!isExpanded ? (
-        <div className="flex items-center gap-2.5 rounded-full border border-emerald-500/40 bg-zinc-900/95 p-1.5 pl-3.5 shadow-2xl backdrop-blur-md text-white">
-          <div className="flex items-center gap-2">
-            <span className="relative flex h-2.5 w-2.5">
+        <div className="flex items-center gap-1.5 sm:gap-2.5 rounded-full border border-emerald-500/40 bg-zinc-950 p-1 pl-2.5 sm:p-1.5 sm:pl-3.5 shadow-2xl text-white">
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <span className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5">
               <span className={`absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 ${enabled ? 'bg-emerald-400' : 'bg-amber-400'}`} />
-              <span className={`relative inline-flex h-2.5 w-2.5 rounded-full ${enabled ? 'bg-emerald-500' : 'bg-amber-500'}`} />
+              <span className={`relative inline-flex h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full ${enabled ? 'bg-emerald-500' : 'bg-amber-500'}`} />
             </span>
-            <span className="text-[11px] font-black tracking-wider uppercase">
-              {enabled ? 'Frontend Test Mode' : 'Test Mode (OFF)'}
+            <span className="text-[10px] sm:text-[11px] font-black tracking-wider uppercase">
+              <span className="hidden sm:inline">{enabled ? 'Frontend Test Mode' : 'Test Mode (OFF)'}</span>
+              <span className="sm:hidden">{enabled ? 'Test Mode' : 'Test OFF'}</span>
             </span>
           </div>
 
           {enabled && (
-            <span className="rounded-full bg-zinc-800 px-2 py-0.5 text-[10px] font-bold text-emerald-400 uppercase tracking-wider border border-zinc-700">
+            <span className="rounded-full bg-zinc-800 px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[10px] font-bold text-emerald-400 uppercase tracking-wider border border-zinc-700">
               {activeRole}
             </span>
           )}
 
           <button
             onClick={() => setIsExpanded(true)}
-            className="flex h-7 w-7 items-center justify-center rounded-full bg-zinc-800 hover:bg-zinc-700 text-zinc-300 transition"
+            className="flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full bg-zinc-800 hover:bg-zinc-700 text-zinc-300 transition"
             title="Expand Test Controls"
           >
-            <ChevronUp className="h-4 w-4" />
+            <ChevronUp className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
           </button>
         </div>
       ) : (
         /* Expanded Floating Test Panel */
-        <div className="w-80 sm:w-96 rounded-2xl border border-zinc-700 bg-zinc-950/95 p-4 shadow-2xl backdrop-blur-xl text-white">
+        <div className="w-[calc(100vw-1rem)] max-w-sm sm:w-96 rounded-2xl border border-zinc-700 bg-zinc-950 p-4 shadow-2xl text-white">
           {/* Header */}
           <div className="flex items-center justify-between pb-3 border-b border-zinc-800">
             <div className="flex items-center gap-2">

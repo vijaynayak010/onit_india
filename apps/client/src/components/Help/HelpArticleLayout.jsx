@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "react-feather";
 import SEO from "../seo/SEO";
-import Footer from "../layout/Footer";
 
 /**
  * Wraps a help article with back link, SEO, and footer.
@@ -15,8 +14,8 @@ const HelpArticleLayout = ({ title, description, slug, children }) => (
       description={description}
       canonical={slug ? `https://www.firstdoer.com/help/${slug}` : undefined}
     />
-    <section className="pt-24 sm:pt-28 pb-8 px-4 sm:px-6 md:px-12 lg:px-20">
-      <div className="max-w-3xl mx-auto">
+    <section className="pt-6 sm:pt-10 pb-8 px-4 sm:px-6 lg:px-10">
+      <div className="max-w-6xl mx-auto">
         <Link
           to="/help"
           className="inline-flex items-center gap-2 text-[var(--color-primary)] font-medium text-sm mb-6 hover:underline min-h-[44px]"
@@ -27,7 +26,6 @@ const HelpArticleLayout = ({ title, description, slug, children }) => (
         {children}
       </div>
     </section>
-    <Footer />
   </div>
 );
 

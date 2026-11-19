@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { BookOpen, PlusCircle, CheckCircle, ArrowRight } from "react-feather";
 import SEO from "../seo/SEO";
-import Footer from "../layout/Footer";
 
 const HELP_ARTICLES = [
   {
@@ -41,8 +40,8 @@ const HelpIndexPage = () => (
       }}
     />
 
-    <section className="pt-24 sm:pt-28 pb-12 sm:pb-16 px-4 sm:px-6 md:px-12 lg:px-20 bg-gradient-to-b from-[var(--color-primary)]/5 to-white">
-      <div className="max-w-3xl mx-auto text-center">
+    <section className="pt-6 sm:pt-10 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-10 bg-gradient-to-b from-[var(--color-primary)]/5 to-white">
+      <div className="max-w-6xl mx-auto text-center">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-medium text-[var(--color-primary)] mb-3 sm:mb-4 leading-tight">
           Platform Help
         </h1>
@@ -52,8 +51,8 @@ const HelpIndexPage = () => (
       </div>
     </section>
 
-    <section className="py-8 sm:py-10 px-4 sm:px-6 md:px-12 lg:px-20 border-t border-gray-100">
-      <div className="max-w-3xl mx-auto">
+    <section className="py-8 sm:py-10 px-4 sm:px-6 lg:px-10 border-t border-gray-100">
+      <div className="max-w-6xl mx-auto">
         <h2 className="text-lg sm:text-xl font-heading font-medium text-[var(--color-primary)] mb-3 sm:mb-4">Platform overview</h2>
         <p className="text-gray-600 text-xs sm:text-sm mb-5 sm:mb-6 leading-relaxed">
           Key pages for task providers and performers: how to post tasks, how to complete tasks, how the platform works, pricing, and rules.
@@ -70,8 +69,8 @@ const HelpIndexPage = () => (
       </div>
     </section>
 
-    <section className="py-10 sm:py-16 px-4 sm:px-6 md:px-12 lg:px-20">
-      <div className="max-w-3xl mx-auto">
+    <section className="py-10 sm:py-16 px-4 sm:px-6 lg:px-10">
+      <div className="max-w-6xl mx-auto">
         <h2 className="text-lg sm:text-xl font-heading font-medium text-[var(--color-primary)] mb-4 sm:mb-6">Step-by-step guides</h2>
         <div className="space-y-4 sm:space-y-6">
           {HELP_ARTICLES.map((article) => (
@@ -99,8 +98,8 @@ const HelpIndexPage = () => (
       </div>
     </section>
 
-    <section className="py-8 px-6 md:px-20 border-t border-gray-100">
-      <div className="max-w-3xl mx-auto text-center text-gray-600 text-sm">
+    <section className="py-8 px-4 sm:px-6 lg:px-10 border-t border-gray-100">
+      <div className="max-w-6xl mx-auto text-center text-gray-600 text-sm">
         <p>
           Can&apos;t find what you need?{" "}
           <Link to="/contact" className="text-[var(--color-primary)] font-medium hover:underline">
@@ -114,8 +113,6 @@ const HelpIndexPage = () => (
         </p>
       </div>
     </section>
-
-    <Footer />
   </div>
 );
 

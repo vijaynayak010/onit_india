@@ -1,6 +1,5 @@
 import React from "react";
 import SEO from "./seo/SEO";
-import Footer from "./layout/Footer";
 import WhyChooseUs from "./landing/WhyChooseUs";
 
 export default function WhyChooseUsPage() {
@@ -23,7 +22,6 @@ export default function WhyChooseUsPage() {
       <main className="min-h-0">
         <WhyChooseUs />
       </main>
-      <Footer />
     </div>
   );
 }

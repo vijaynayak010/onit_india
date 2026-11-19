@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, CheckSquare, FileText, BarChart2, MapPin, Edit3 } from "react-feather";
 import SEO from "../seo/SEO";
-import Footer from "../layout/Footer";
 
 // Example completed tasks across categories. Replace with API or CMS when available.
 const CATEGORY_ICONS = { FileText, BarChart2, MapPin, Edit3 };
@@ -53,8 +52,8 @@ const CompletedTasksExamplesPage = () => (
       keywords="FirstDoer completed tasks, task examples, research tasks, design tasks, field tasks India"
       canonical="https://www.firstdoer.com/community/completed-tasks-examples"
     />
-    <section className="pt-24 pb-16 px-6 md:px-20">
-      <div className="max-w-4xl mx-auto">
+    <section className="pt-6 sm:pt-10 pb-16 px-4 sm:px-6 lg:px-10">
+      <div className="max-w-6xl mx-auto">
         <Link
           to="/community"
           className="inline-flex items-center gap-2 text-[var(--color-primary)] font-medium text-sm mb-8 hover:underline"
@@ -111,7 +110,6 @@ const CompletedTasksExamplesPage = () => (
         </div>
       </div>
     </section>
-    <Footer />
   </div>
 );
 

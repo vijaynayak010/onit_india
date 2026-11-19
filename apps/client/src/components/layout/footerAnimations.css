@@ -1,0 +1,39 @@
+/* Exact replica of Landingpage.jsx footer animations from firstdoer.css */
+.fd-footer-btn {
+  transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.fd-footer-btn:hover {
+  transform: translateY(-1px);
+}
+
+@supports (animation-timeline: view()) {
+  .fd-footer-px-x {
+    animation: fd-pxx linear both;
+    animation-timeline: view();
+    animation-range: cover 0% cover 100%;
+  }
+
+  @keyframes fd-pxx {
+    from {
+      translate: 12% 0;
+    }
+    to {
+      translate: -12% 0;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fd-footer-btn {
+    transition: none !important;
+  }
+
+  .fd-footer-btn:hover {
+    transform: none !important;
+  }
+
+  .fd-footer-px-x {
+    animation: none !important;
+  }
+}

@@ -2,7 +2,6 @@ import React from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { ArrowLeft } from "react-feather";
 import SEO from "../../components/seo/SEO";
-import Footer from "../../components/layout/Footer";
 import CategoryCrossLinks from "../../components/landing/CategoryCrossLinks";
 import { getTaskCategoryBySlug, taskCategories, getUniqueExamples } from "../../data/taskCategories";
 
@@ -43,47 +42,7 @@ const TaskCategoryDetailPage = () => {
         }}
       />
 
-      {/* Breadcrumb — high contrast, clear path */}
-      <nav
-        className="border-b border-gray-200 bg-white"
-        aria-label="Breadcrumb"
-      >
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20 py-3.5 sm:py-4">
-          <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs sm:text-sm md:text-[0.9375rem]">
-            <li>
-              <Link
-                to="/"
-                className="font-semibold text-gray-900 underline-offset-2 hover:text-[var(--color-primary)] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]/40 focus-visible:rounded"
-              >
-                Home
-              </Link>
-            </li>
-            <li className="text-gray-500 select-none font-medium" aria-hidden="true">
-              /
-            </li>
-            <li>
-              <Link
-                to="/tasks"
-                className="font-semibold text-gray-900 underline-offset-2 hover:text-[var(--color-primary)] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]/40 focus-visible:rounded"
-              >
-                Tasks
-              </Link>
-            </li>
-            <li className="text-gray-500 select-none font-medium" aria-hidden="true">
-              /
-            </li>
-            <li
-              className="font-medium text-[var(--color-primary)] min-w-0 break-words"
-              aria-current="page"
-              title={category.title}
-            >
-              {category.title}
-            </li>
-          </ol>
-        </div>
-      </nav>
-
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20 py-8 sm:py-10 md:py-14 font-sans">
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 py-8 sm:py-10 md:py-14 font-sans">
         {/* Back link */}
         <Link
           to="/tasks"
@@ -170,8 +129,6 @@ const TaskCategoryDetailPage = () => {
           />
         </section>
       </main>
-
-      <Footer />
     </div>
   );
 };

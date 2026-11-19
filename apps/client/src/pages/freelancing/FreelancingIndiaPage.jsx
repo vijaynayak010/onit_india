@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Briefcase, CheckCircle, DollarSign, Search, Shield, Users } from "react-feather";
 import SEO from "../../components/seo/SEO";
-import Footer from "../../components/layout/Footer";
 import { SITE_URL } from "../../config/seo";
 
 const benefits = [
@@ -116,7 +115,7 @@ export default function FreelancingIndiaPage() {
       />
 
       <main>
-        <section className="border-b border-[var(--color-border)] bg-[linear-gradient(135deg,#EFFBFB_0%,#ffffff_52%,#eff6ff_100%)] px-6 py-16 sm:py-24">
+        <section className="border-b border-[var(--color-border)] bg-[linear-gradient(135deg,#EFFBFB_0%,#ffffff_52%,#DFF7F6_100%)] px-4 sm:px-6 lg:px-10 pt-8 pb-12 sm:pt-12 sm:pb-16">
           <div className="mx-auto max-w-6xl">
             <nav aria-label="Breadcrumb" className="mb-8 text-sm text-slate-600">
               <Link to="/" className="hover:text-[var(--color-primary)]">Home</Link>
@@ -174,33 +173,33 @@ export default function FreelancingIndiaPage() {
         <section className="bg-slate-950 px-6 py-16 text-white sm:py-20">
           <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2">
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.18em] text-emerald-400">For freelancers and performers</p>
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#7EDEDD]">For freelancers and performers</p>
               <h2 className="mt-3 text-3xl font-medium tracking-tight sm:text-4xl">Turn useful skills into completed work</h2>
               <p className="mt-5 text-lg leading-8 text-slate-300">
                 Create an accurate profile, select the categories you can deliver confidently, and focus on clear communication and dependable execution. Each successful task can help you build experience, proof of work, and a stronger reputation.
               </p>
               <ul className="mt-6 space-y-3 text-slate-200">
                 {["Choose work aligned with your real skills", "Review scope and deadlines before accepting", "Keep progress and delivery evidence organized", "Use ratings and completed work to build credibility"].map((item) => (
-                  <li key={item} className="flex gap-3"><CheckCircle className="mt-0.5 shrink-0 text-emerald-400" size={20} />{item}</li>
+                  <li key={item} className="flex gap-3"><CheckCircle className="mt-0.5 shrink-0 text-[#7EDEDD]" size={20} />{item}</li>
                 ))}
               </ul>
-              <Link to="/task-performers" className="mt-8 inline-flex items-center gap-2 font-bold text-emerald-400 hover:text-emerald-300">
+              <Link to="/task-performers" className="mt-8 inline-flex items-center gap-2 font-bold text-[#7EDEDD] hover:text-[#A2E7E7]">
                 Learn how task performers work <ArrowRight size={18} />
               </Link>
             </div>
 
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.18em] text-blue-400">For clients and businesses</p>
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#7EDEDD]">For clients and businesses</p>
               <h2 className="mt-3 text-3xl font-medium tracking-tight sm:text-4xl">Hire for the outcome you need</h2>
               <p className="mt-5 text-lg leading-8 text-slate-300">
                 Use freelance talent when a task needs specialist attention, extra capacity, or fast execution. A good brief explains the result, context, format, deadline, and quality standard so performers can respond accurately.
               </p>
               <ul className="mt-6 space-y-3 text-slate-200">
                 {["Post one-off or recurring work", "Compare relevant performer profiles", "Coordinate against a defined deliverable", "Review completion before closing the task"].map((item) => (
-                  <li key={item} className="flex gap-3"><CheckCircle className="mt-0.5 shrink-0 text-blue-400" size={20} />{item}</li>
+                  <li key={item} className="flex gap-3"><CheckCircle className="mt-0.5 shrink-0 text-[#7EDEDD]" size={20} />{item}</li>
                 ))}
               </ul>
-              <Link to="/how-it-works" className="mt-8 inline-flex items-center gap-2 font-bold text-blue-400 hover:text-blue-300">
+              <Link to="/how-it-works" className="mt-8 inline-flex items-center gap-2 font-bold text-[#7EDEDD] hover:text-[#A2E7E7]">
                 See how FirstDoer works <ArrowRight size={18} />
               </Link>
             </div>
@@ -215,7 +214,7 @@ export default function FreelancingIndiaPage() {
             </p>
             <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {categories.map(([label, to]) => (
-                <Link key={label} to={to} className="group flex min-h-28 items-end justify-between rounded-2xl border border-slate-200 p-5 font-bold text-slate-900 transition hover:-translate-y-0.5 hover:border-emerald-500 hover:shadow-lg">
+                <Link key={label} to={to} className="group flex min-h-28 items-end justify-between rounded-2xl border border-slate-200 p-5 font-bold text-slate-900 transition hover:-translate-y-0.5 hover:border-[#29ADAC] hover:shadow-lg">
                   <span>{label}</span>
                   <ArrowRight className="shrink-0 text-[var(--color-primary)] transition group-hover:translate-x-1" size={19} />
                 </Link>
@@ -251,8 +250,6 @@ export default function FreelancingIndiaPage() {
           </div>
         </section>
       </main>
-
-      <Footer />
     </div>
   );
 }

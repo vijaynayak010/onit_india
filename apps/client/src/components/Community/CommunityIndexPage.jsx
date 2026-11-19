@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Award, BookOpen, CheckSquare, ArrowRight } from "react-feather";
 import SEO from "../seo/SEO";
-import Footer from "../layout/Footer";
 
 const COMMUNITY_LINKS = [
   {
@@ -41,8 +40,8 @@ const CommunityIndexPage = () => (
       }}
     />
 
-    <section className="pt-24 sm:pt-28 pb-12 sm:pb-16 px-4 sm:px-6 md:px-12 lg:px-20 bg-gradient-to-b from-[var(--color-primary)]/5 to-white">
-      <div className="max-w-3xl mx-auto text-center">
+    <section className="pt-6 sm:pt-10 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-10 bg-gradient-to-b from-[var(--color-primary)]/5 to-white">
+      <div className="max-w-6xl mx-auto text-center">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-medium text-[var(--color-primary)] mb-3 sm:mb-4 leading-tight">
           Community &amp; Growth
         </h1>
@@ -52,8 +51,8 @@ const CommunityIndexPage = () => (
       </div>
     </section>
 
-    <section className="py-10 sm:py-16 px-4 sm:px-6 md:px-12 lg:px-20">
-      <div className="max-w-4xl mx-auto">
+    <section className="py-10 sm:py-16 px-4 sm:px-6 lg:px-10">
+      <div className="max-w-6xl mx-auto">
         <div className="grid gap-4 sm:gap-6 md:grid-cols-1">
           {COMMUNITY_LINKS.map((item) => (
             <Link
@@ -79,8 +78,6 @@ const CommunityIndexPage = () => (
         </div>
       </div>
     </section>
-
-    <Footer />
   </div>
 );
 

@@ -8,7 +8,6 @@ import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
 import SEO from "../../components/seo/SEO";
-import Footer from "../../components/layout/Footer";
 import AnimatedSection from "../../components/ui/AnimatedSection";
 import Navbar from "../../components/layout/Navbar";
 import ScrollingInfo from "../../components/ui/ScrollingInfo";
@@ -260,7 +259,7 @@ const PerformerDirectory = () => {
           }}
         />
 
-        <main className="max-w-6xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20">
+        <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10">
         <header className="mb-8 sm:mb-10 rounded-3xl bg-white shadow-sm border border-slate-200/80 p-5 sm:p-6 md:p-7">
           <div className="flex flex-col gap-4">
             <div className="flex flex-wrap items-center justify-between gap-3">
@@ -579,7 +578,6 @@ const PerformerDirectory = () => {
         </main>
 
         <AnimatedSection id="footer" variant="up" delay={0.04}>
-          <Footer />
         </AnimatedSection>
       </div>
     </div>

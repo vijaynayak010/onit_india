@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { CheckCircle, ArrowLeft, Briefcase } from "react-feather";
 import SEO from "../../components/seo/SEO";
-import Footer from "../../components/layout/Footer";
 
 const CareersThankYouPage = () => {
   return (
@@ -14,7 +13,7 @@ const CareersThankYouPage = () => {
         canonical="https://www.firstdoer.com/careers/thank-you"
         noindex
       />
-      <section className="pt-24 sm:pt-28 pb-12 sm:pb-16 px-4 sm:px-6 md:px-12 lg:px-20 flex items-center justify-center min-h-[60vh]">
+      <section className="pt-6 sm:pt-10 pb-12 sm:pb-16 px-4 sm:px-6 md:px-12 lg:px-20 flex items-center justify-center min-h-[60vh]">
         <div className="max-w-lg mx-auto text-center">
           <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[var(--color-primary-subtle)] text-[var(--color-primary)] mb-5 sm:mb-6">
             <CheckCircle size={32} />
@@ -52,7 +51,6 @@ const CareersThankYouPage = () => {
           </div>
         </div>
       </section>
-      <Footer />
     </div>
   );
 };

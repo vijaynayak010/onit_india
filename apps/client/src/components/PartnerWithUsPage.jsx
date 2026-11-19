@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Users, Briefcase, BookOpen, ArrowRight } from "react-feather";
 import SEO from "./seo/SEO";
-import Footer from "./layout/Footer";
 
 const PARTNER_TYPES = [
   {
@@ -31,14 +30,8 @@ const PartnerWithUsPage = () => {
         keywords="firstDoer partners, enterprise tasks, firstDoer collaboration, task marketplace partners, partner with firstDoer"
         canonical="https://www.firstdoer.com/partner-with-us"
       />
-      <section className="pt-5 sm:pt-6 md:pt-7 pb-16 px-6 md:px-20">
-        <div className="max-w-4xl mx-auto">
-          <Link
-            to="/"
-            className="inline-flex items-center text-[#10605F] hover:text-[#083B3A] font-medium text-sm mb-8"
-          >
-            ← Back to Home
-          </Link>
+      <section className="pt-5 sm:pt-6 md:pt-7 pb-16 px-4 sm:px-6 lg:px-10">
+        <div className="max-w-6xl mx-auto">
           <header className="border-b border-gray-200 pb-8 mb-10">
             <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#10605F]/10 text-[#10605F] mb-4">
               <Users size={28} />
@@ -90,7 +83,6 @@ const PartnerWithUsPage = () => {
           </div>
         </div>
       </section>
-      <Footer />
     </div>
   );
 };

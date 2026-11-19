@@ -1,249 +1,306 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { FaInstagram, FaLinkedin, FaEnvelope, FaApple, FaGooglePlay, FaFacebookF, FaTwitter, FaYoutube } from "react-icons/fa";
+import "./footerAnimations.css";
 
-import { API_BASE } from "../../config";
-
-// App store links – replace with your live URLs when apps are published
-const APP_LINKS = {
-  taskProvider: {
-    android: "https://play.google.com/store/apps/details?id=com.onitapp.india&pcampaignid=web_share",
+const footCols = [
+  {
+    h: "Categories",
+    links: [
+      { label: "Growth & Marketing", to: "/domains/content-design-marketing" },
+      { label: "Design & Creative", to: "/domains/content-design-marketing" },
+      { label: "Build & Develop", to: "/domains/tech-data-admin" },
+      { label: "All Categories", to: "/tasks" },
+    ],
   },
-  taskPerformer: {
-    android: "https://play.google.com/store/apps/details?id=com.onitconsumer.india&pcampaignid=web_share",
+  {
+    h: "Platform",
+    links: [
+      { label: "How it Works", to: "/#steps" },
+      { label: "Live Tracking", to: "/#how" },
+      { label: "Why firstDoer", to: "/#why" },
+      { label: "Verified Performers", to: "/performers-directory" },
+    ],
   },
-};
+  {
+    h: "Company",
+    links: [
+      { label: "About Us", to: "/about" },
+      { label: "Blog", to: "/blog" },
+      { label: "Careers", to: "/careers" },
+      { label: "Contact Support", to: "/contact" },
+    ],
+  },
+  {
+    h: "Legal",
+    links: [
+      { label: "Terms & Conditions", to: "/terms-and-conditions" },
+      { label: "Privacy Policy", to: "/privacy-policy" },
+      { label: "Refund Policy", to: "/refund-policy" },
+      { label: "Trust & Safety", to: "/trust-safety" },
+    ],
+  },
+  {
+    h: "Support",
+    links: [
+      { label: "Help & FAQ", to: "/#faq" },
+      { label: "Dispute Resolution", to: "/dispute-resolution-policy" },
+      { label: "Pricing Overview", to: "/pricing" },
+    ],
+  },
+];
 
-function Footer({ onShowPrivacyPolicy }) {
-  const [email, setEmail] = useState("");
-
-  const handleSubmit = async () => {
-    if (!email.trim()) {
-      alert("Please enter an email");
-      return;
-    }
-
-    try {
-      const response = await fetch(`${API_BASE}/api/subscribe`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
-
-      const result = await response.json();
-      if (response.ok) {
-
-        setEmail("");
-      } else {
-
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
-
+function Footer() {
   return (
-    <footer className="w-full bg-[#0D1210] text-white pt-10 md:pt-20 pb-10 px-4 sm:px-6 md:px-12 lg:px-20 relative overflow-hidden rounded-t-[2.5rem] sm:rounded-t-[3rem] border-t border-[#10605F]/30 font-sans">
-      {/* Subtle overlay for depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/40 pointer-events-none"></div>
-
-      <div className="flex flex-col lg:flex-row justify-between items-start gap-8 md:gap-12 relative z-10">
-        {/* Left Section: Brand & Newsletter */}
-        <div className="w-full lg:w-5/12 space-y-6 sm:space-y-8">
-          {/* Brand Tagline */}
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <svg width="28" height="20" viewBox="0 0 30 22" fill="none" aria-hidden="true">
-                <path d="M11 2.5c-4.7 0-8.5 3.8-8.5 8.5s3.8 8.5 8.5 8.5c3.4 0 5.6-2.4 8-8.5 2.4-6.1 4.6-8.5 8-8.5" stroke="#29ADAC" strokeWidth="3" strokeLinecap="round" />
-                <path d="M19 19.5c4.7 0 8.5-3.8 8.5-8.5S23.7 2.5 19 2.5c-3.4 0-5.6 2.4-8 8.5" stroke="#4CCDCC" strokeWidth="3" strokeLinecap="round" />
+    <footer
+      style={{
+        position: "relative",
+        width: "calc(100% - 20px)",
+        margin: "0 10px 10px",
+        padding: 0,
+        boxSizing: "border-box",
+        fontFamily: "'Poppins', ui-sans-serif, system-ui, sans-serif",
+      }}
+    >
+      <div
+        style={{
+          width: "100%",
+          margin: 0,
+          borderRadius: "28px",
+          background: "#DFF7F6",
+          color: "#0D1210",
+          padding: "44px clamp(24px, 3vw, 52px) 24px",
+        }}
+      >
+        <div
+          style={{
+            width: "100%",
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "36px",
+            justifyContent: "space-between",
+          }}
+        >
+          <div style={{ flex: "1 1 240px", maxWidth: "300px" }}>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: "10px" }}>
+              <svg width="30" height="22" viewBox="0 0 30 22" fill="none" aria-hidden="true">
+                <path
+                  d="M11 2.5c-4.7 0-8.5 3.8-8.5 8.5s3.8 8.5 8.5 8.5c3.4 0 5.6-2.4 8-8.5 2.4-6.1 4.6-8.5 8-8.5"
+                  stroke="#29ADAC"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M19 19.5c4.7 0 8.5-3.8 8.5-8.5S23.7 2.5 19 2.5c-3.4 0-5.6 2.4-8 8.5"
+                  stroke="#4CCDCC"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                />
               </svg>
-              <span className="text-2xl font-medium tracking-tight text-white font-heading">firstDoer</span>
+              <span style={{ fontSize: "22px", fontWeight: 600, letterSpacing: "-0.04em" }}>
+                firstDoer
+              </span>
             </div>
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-medium tracking-tight mb-3 text-white">
+            <p style={{ margin: "12px 0 0", fontSize: "14px", color: "#3F4A47" }}>
               Post your task. Get it done.
-            </h2>
-            <p className="text-zinc-300 text-sm leading-relaxed max-w-md">
-              firstDoer connects businesses with verified performers ready to execute marketing, design, and development tasks quickly. Pay only when it’s done.
             </p>
-          </div>
-        </div>
+            <a
+              href="mailto:support@firstdoer.com"
+              style={{
+                display: "inline-block",
+                marginTop: "12px",
+                fontSize: "14px",
+                color: "#10605F",
+                fontWeight: 500,
+                textDecoration: "none",
+              }}
+            >
+              support@firstdoer.com
+            </a>
 
-        {/* Right Section: Link columns — structured for clarity */}
-        <div className="w-full lg:w-7/12 flex flex-col gap-8">
-          <div className="grid grid-cols-1 min-[420px]:grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8">
-            {/* 1. Platform */}
-            <div className="min-w-0">
-              <h3 className="text-xs font-medium text-[#7EDEDD] mb-3 uppercase tracking-widest">Platform</h3>
-              <ul className="space-y-2">
-                <li><Link to="/how-it-works" className="text-zinc-300 hover:text-white transition-colors text-sm">How it Works</Link></li>
-                <li><Link to="/what-is-onit-india" className="text-zinc-300 hover:text-white transition-colors text-sm">What is FirstDoer</Link></li>
-                <li><Link to="/execution-infrastructure" className="text-zinc-300 hover:text-white transition-colors text-sm">Execution Infrastructure</Link></li>
-                <li><Link to="/services" className="text-zinc-300 hover:text-white transition-colors text-sm">Services</Link></li>
-                <li><Link to="/tasks" className="text-zinc-300 hover:text-white transition-colors text-sm">Task categories</Link></li>
-                <li><Link to="/performers-directory" className="text-zinc-300 hover:text-white transition-colors text-sm">Performers directory</Link></li>
-                <li><Link to="/community" className="text-zinc-300 hover:text-white transition-colors text-sm">Community</Link></li>
-                <li><Link to="/pricing" className="text-zinc-300 hover:text-white transition-colors text-sm">Pricing</Link></li>
-                <li><Link to="/contact" className="text-zinc-300 hover:text-white transition-colors text-sm">Contact</Link></li>
-                <li><Link to="/partner-with-us" className="text-zinc-300 hover:text-white transition-colors text-sm">Partner with us</Link></li>
-              </ul>
-            </div>
-            {/* 2. Get Started */}
-            <div className="min-w-0">
-              <h3 className="text-xs font-medium text-[#7EDEDD] mb-3 uppercase tracking-widest">Get Started</h3>
-              <ul className="space-y-2">
-                <li><Link to="/for-providers" className="text-zinc-300 hover:text-white transition-colors text-sm">For task providers</Link></li>
-                <li><Link to="/for-performers" className="text-zinc-300 hover:text-white transition-colors text-sm">For task performers</Link></li>
-                <li><Link to="/freelancing" className="text-zinc-300 hover:text-white transition-colors text-sm">Freelancing in India</Link></li>
-                <li><Link to="/use-cases" className="text-zinc-300 hover:text-white transition-colors text-sm">Use cases</Link></li>
-              </ul>
-            </div>
-            {/* 3. Company */}
-            <div className="min-w-0">
-              <h3 className="text-xs font-medium text-[#7EDEDD] mb-3 uppercase tracking-widest">Company</h3>
-              <ul className="space-y-2">
-                <li><Link to="/about" className="text-zinc-300 hover:text-white transition-colors text-sm">About</Link></li>
-                <li><Link to="/blog" className="text-zinc-300 hover:text-white transition-colors text-sm">Blog</Link></li>
-                <li><Link to="/careers" className="text-zinc-300 hover:text-white transition-colors text-sm">Careers</Link></li>
-              </ul>
-            </div>
-            {/* 4. Legal & Policies */}
-            <div className="min-w-0">
-              <h3 className="text-xs font-medium text-[#7EDEDD] mb-3 uppercase tracking-widest">Legal & Policies</h3>
-              <ul className="space-y-2">
-                <li><Link to="/terms-and-conditions" className="text-zinc-300 hover:text-white transition-colors text-sm">Terms & Conditions</Link></li>
-                <li><Link to="/privacy-policy" className="text-zinc-300 hover:text-white transition-colors text-sm">Privacy Policy</Link></li>
-                <li><Link to="/cookie-policy" className="text-zinc-300 hover:text-white transition-colors text-sm">Cookie Policy</Link></li>
-                <li><Link to="/refund-policy" className="text-zinc-300 hover:text-white transition-colors text-sm">Refund & Cancellation</Link></li>
-                <li><Link to="/dispute-resolution-policy" className="text-zinc-300 hover:text-white transition-colors text-sm">Dispute Resolution</Link></li>
-                <li><Link to="/payment-payout-policy" className="text-zinc-300 hover:text-white transition-colors text-sm">Payment & Payout</Link></li>
-                <li><Link to="/prohibited-tasks-policy" className="text-zinc-300 hover:text-white transition-colors text-sm">Prohibited Tasks</Link></li>
-                <li><Link to="/task-completion-proof-policy" className="text-zinc-300 hover:text-white transition-colors text-sm">Task Completion & Proof</Link></li>
-                <li><Link to="/trust-safety" className="text-zinc-300 hover:text-white transition-colors text-sm">Trust & Safety</Link></li>
-                <li><Link to="/task-guidelines" className="text-zinc-300 hover:text-white transition-colors text-sm">Task Guidelines</Link></li>
-                <li><Link to="/performer-verification-onboarding" className="text-zinc-300 hover:text-white transition-colors text-sm">Performer Verification</Link></li>
-              </ul>
-            </div>
-            {/* 5. Support */}
-            <div className="min-w-0">
-              <h3 className="text-xs font-medium text-[#7EDEDD] mb-3 uppercase tracking-widest">Support</h3>
-              <ul className="space-y-2">
-                <li><Link to="/help" className="text-zinc-300 hover:text-white transition-colors text-sm">Help & Guides</Link></li>
-                <li><Link to="/faqs" className="text-zinc-300 hover:text-white transition-colors text-sm">FAQs</Link></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Three cards in a row: Connect | Task Provider | Task Performer */}
-      <div className="w-full mt-10 md:mt-14 pt-8 md:pt-10 border-t border-white/10 relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
-          {/* Connect card */}
-          <div className="rounded-xl bg-white/5 border border-white/10 p-4 sm:p-5">
-            <p className="text-white font-medium text-sm mb-3">Connect</p>
-            <p className="text-zinc-400 text-xs mb-4">Reach us or follow for updates.</p>
-            <div className="flex flex-wrap gap-2">
+            <div style={{ marginTop: "16px", display: "flex", gap: "8px" }}>
               <a
-                href="mailto:support@firstdoer.com"
-                className="inline-flex items-center gap-2 rounded-lg bg-white/10 border border-white/20 px-4 py-2.5 text-sm text-white hover:bg-white/20 transition-all min-w-[120px] justify-center"
-              >
-                <FaEnvelope className="text-lg shrink-0" />
-                <span className="truncate">Email us</span>
-              </a>
-              <a
-                href="https://www.linkedin.com/company/onitindia/?viewAsMember=true"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 border border-white/20 text-zinc-300 hover:text-white hover:bg-white/20 transition-all duration-300 shrink-0"
-              >
-                <FaLinkedin className="text-lg" />
-              </a>
-              <a
-                href="https://www.instagram.com/onitindia?igsh=MXA0emY2MzYybGY4aw=="
+                href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 border border-white/20 text-zinc-300 hover:text-white hover:bg-white/20 transition-all duration-300 shrink-0"
+                className="fd-footer-btn"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  width: "38px",
+                  height: "38px",
+                  borderRadius: "999px",
+                  border: "1px solid #A2E7E7",
+                  background: "#FFFFFF",
+                  color: "#0D1210",
+                }}
               >
-                <FaInstagram className="text-lg" />
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4.2" />
+                  <circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none" />
+                </svg>
               </a>
               <a
-                href="https://www.facebook.com/profile.php?id=61578441929542"
+                href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 border border-white/20 text-zinc-300 hover:text-white hover:bg-white/20 transition-all duration-300 shrink-0"
+                className="fd-footer-btn"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  width: "38px",
+                  height: "38px",
+                  borderRadius: "999px",
+                  border: "1px solid #A2E7E7",
+                  background: "#FFFFFF",
+                  color: "#0D1210",
+                }}
               >
-                <FaFacebookF className="text-lg" />
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M14 8.5V6.8c0-.8.2-1.3 1.4-1.3H17V2.2c-.3 0-1.3-.2-2.5-.2-2.5 0-4.2 1.5-4.2 4.3v2.2H7.5V12h2.8v10h3.7V12h2.8l.4-3.5z" />
+                </svg>
               </a>
               <a
-                href="https://x.com/OnITIndia"
+                href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Twitter"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 border border-white/20 text-zinc-300 hover:text-white hover:bg-white/20 transition-all duration-300 shrink-0"
+                aria-label="LinkedIn"
+                className="fd-footer-btn"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  width: "38px",
+                  height: "38px",
+                  borderRadius: "999px",
+                  border: "1px solid #A2E7E7",
+                  background: "#FFFFFF",
+                  color: "#0D1210",
+                }}
               >
-                <FaTwitter className="text-lg" />
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.2c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4z" />
+                </svg>
               </a>
               <a
-                href="https://www.youtube.com/@OnITIndia"
+                href="https://youtube.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 border border-white/20 text-zinc-300 hover:text-white hover:bg-white/20 transition-all duration-300 shrink-0"
+                className="fd-footer-btn"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  width: "38px",
+                  height: "38px",
+                  borderRadius: "999px",
+                  border: "1px solid #A2E7E7",
+                  background: "#FFFFFF",
+                  color: "#0D1210",
+                }}
               >
-                <FaYoutube className="text-lg" />
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1c.4-1.6.5-4.8.5-4.8s0-3.2-.5-4.8zM9.8 15.1V8.9l5.8 3.1z" />
+                </svg>
               </a>
             </div>
           </div>
-          {/* Task Provider card */}
-          <div className="rounded-xl bg-white/5 border border-white/10 p-4 sm:p-5">
-            <p className="text-white font-medium text-sm mb-3">Task Provider</p>
-            <p className="text-zinc-400 text-xs mb-4">Post tasks and get help from experts.</p>
-            <div className="flex flex-wrap gap-2">
-              
-              <a
-                href={APP_LINKS.taskProvider.android}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Task Provider on Google Play"
-                className="inline-flex items-center gap-2 rounded-lg bg-white/10 border border-white/20 px-4 py-2.5 text-sm text-white hover:bg-white/20 transition-all min-w-[120px] justify-center"
-              >
-                <FaGooglePlay className="text-lg shrink-0" />
-                <span>Google Play</span>
-              </a>
-            </div>
-          </div>
-          {/* Task Performer card */}
-          <div className="rounded-xl bg-white/5 border border-white/10 p-4 sm:p-5">
-            <p className="text-white font-medium text-sm mb-3">Task Performer</p>
-            <p className="text-zinc-400 text-xs mb-4">Find tasks and earn by completing them.</p>
-            <div className="flex flex-wrap gap-2">
-              
-              
-              <a
-                href={APP_LINKS.taskPerformer.android}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Task Performer on Google Play"
-                className="inline-flex items-center gap-2 rounded-lg bg-white/10 border border-white/20 px-4 py-2.5 text-sm text-white hover:bg-white/20 transition-all min-w-[120px] justify-center"
-              >
-                <FaGooglePlay className="text-lg shrink-0" />
-                <span>Google Play</span>
-              </a>
-            </div>
+
+          <div
+            style={{
+              flex: "3 1 560px",
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))",
+              gap: "24px 32px",
+            }}
+          >
+            {footCols.map((c) => (
+              <nav key={c.h} aria-label={c.h}>
+                <div
+                  style={{
+                    fontSize: "11px",
+                    letterSpacing: ".14em",
+                    textTransform: "uppercase",
+                    color: "#56615E",
+                    fontFeatureSettings: '"tnum" 1',
+                  }}
+                >
+                  {c.h}
+                </div>
+                <ul
+                  style={{
+                    listStyle: "none",
+                    margin: "12px 0 0",
+                    padding: 0,
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "8px",
+                    fontSize: "14px",
+                  }}
+                >
+                  {c.links.map((l) => (
+                    <li key={l.label}>
+                      {l.to ? (
+                        <Link to={l.to} style={{ color: "#191F1D", textDecoration: "none" }}>
+                          {l.label}
+                        </Link>
+                      ) : (
+                        <a href={l.href} style={{ color: "#191F1D", textDecoration: "none" }}>
+                          {l.label}
+                        </a>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            ))}
           </div>
         </div>
-      </div>
 
-      {/* Footer bottom */}
-      <div className="border-t border-white/10 mt-12 pt-8 relative z-10">
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-zinc-400">
-          <p className="order-2 sm:order-1">© {new Date().getFullYear()} firstDoer. All rights reserved.</p>
+        <div
+          style={{
+            width: "100%",
+            margin: "36px auto 0",
+            paddingTop: "20px",
+            borderTop: "1px solid #A2E7E7",
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "space-between",
+            gap: "12px",
+            fontSize: "13px",
+            color: "#3F4A47",
+          }}
+        >
+          <span>© 2026 firstDoer</span>
+          <span style={{ fontFeatureSettings: '"tnum" 1' }}>Verified performers only</span>
+        </div>
+
+        <div
+          aria-hidden="true"
+          className="fd-footer-px-x"
+          style={{
+            width: "100%",
+            margin: "16px auto 0",
+            fontSize: "clamp(52px, 12vw, 150px)",
+            lineHeight: 0.82,
+            fontWeight: 600,
+            letterSpacing: "-0.07em",
+            color: "rgba(16,96,95,.10)",
+            textAlign: "center",
+            whiteSpace: "nowrap",
+            overflow: "hidden",
+          }}
+        >
+          firstDoer
         </div>
       </div>
     </footer>
   );
 }
+
 export default Footer;

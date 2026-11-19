@@ -34,7 +34,6 @@ const AdminDashboard = lazyPage(() => import("./components/Blog/AdminDashboard.j
 const AddPost = lazyPage(() => import("./components/Blog/AddPost.jsx"));
 const BlogList = lazyPage(() => import("./components/Blog/BlogList.jsx"));
 const BlogPost = lazyPage(() => import("./components/Blog/BlogPost.jsx"));
-const CampusDetail = lazyPage(() => import("./pages/campus/CampusDetail.jsx"));
 const ProviderApp = lazyPage(() => import("./components/provider/ProviderApp.jsx"));
 const PerformerApp = lazyPage(() => import("./components/Performer/PerformerApp.jsx"));
 const AdminApp = lazyPage(() => import("./components/Admin/AdminApp.jsx"));
@@ -88,7 +87,6 @@ const AuthPage = lazyPage(() => import("./components/provider/pages/AuthPage.jsx
 const WelcomePage = lazyPage(() => import("./components/provider/pages/WelcomePage.jsx"));
 const AccessUnlockPage = lazyPage(() => import("./pages/access/AccessUnlockPage.jsx"));
 const PublicSharePage = lazyPage(() => import("./pages/public/PublicSharePage.jsx"));
-const InvoiceVerificationPage = lazyPage(() => import("./pages/public/InvoiceVerificationPage.jsx"));
 const ManualPageExplorer = lazyPage(() => import("./test-mode/components/ManualPageExplorer.jsx"));
 
 function Home({ onLandingTabChange }) {
@@ -123,7 +121,6 @@ const MainContent = () => {
 
   const isFullPagePath =
     lowerPath.startsWith('/s/') ||
-    lowerPath === '/verify-invoice' ||
     lowerPath === '/test-explorer' ||
     lowerPath.startsWith('/admin') ||
     lowerPath.startsWith('/provider/') ||
@@ -144,20 +141,44 @@ const MainContent = () => {
   // Portal paths and the custom homepage hero manage their own specialized chrome.
   const showGlobalChrome = !isHomePage && !isFullPagePath && !isPerformerDirectoryPage;
 
+  const isExcludedFooterPath =
+    isHomePage ||
+    isFullPagePath ||
+    lowerPath.startsWith('/dev') ||
+    lowerPath === '/admin-login' ||
+    lowerPath === '/admin-dashboard' ||
+    lowerPath === '/add-post' ||
+    lowerPath === '/otp' ||
+    lowerPath === '/provider/welcome';
+  const showPublicFooter = !isExcludedFooterPath;
+
+  const isExcludedNavbarPath =
+    isFullPagePath ||
+    isPerformerDirectoryPage ||
+    lowerPath.startsWith('/dev') ||
+    lowerPath === '/admin-login' ||
+    lowerPath === '/admin-dashboard' ||
+    lowerPath === '/add-post' ||
+    lowerPath === '/otp' ||
+    lowerPath === '/provider/welcome';
+  const showPublicNavbar = !isExcludedNavbarPath;
+
   const showDomainsNav = false;
 
   return (
-    <div className="min-h-screen w-full font-sans antialiased">
+    <div className={`min-h-screen w-full font-sans antialiased${showPublicFooter ? " flex flex-col" : ""}`}>
       {showGlobalChrome && <ScrollingInfo />}
-      {showGlobalChrome && <Navbar />}
+      {showPublicNavbar && <Navbar />}
       {showGlobalChrome && <SplashCursor />}
       <div
         className={
           isFullPagePath
             ? ""
             : showGlobalChrome
-              ? "pt-28 md:pt-32 min-h-screen"
-              : "min-h-screen"
+              ? "pt-28 md:pt-32 flex-1"
+              : showPublicFooter
+                ? "flex-1"
+                : "min-h-screen"
         }
       >
         {showDomainsNav && (
@@ -169,7 +190,6 @@ const MainContent = () => {
         <Routes>
           <Route path="/test-explorer" element={<ManualPageExplorer />} />
           <Route path="/s/:code" element={<PublicSharePage />} />
-          <Route path="/verify-invoice" element={<InvoiceVerificationPage />} />
           <Route path="/" element={<Home onLandingTabChange={setLandingActiveTab} />} />
           <Route path="/home" element={<Home onLandingTabChange={setLandingActiveTab} />} />
           <Route path="/freelancing" element={<FreelancingIndiaPage />} />
@@ -184,7 +204,6 @@ const MainContent = () => {
           <Route path="/performers-directory" element={<PerformerDirectory />} />
           <Route path="/domains/:slug/:subDomainSlug" element={<DomainSubDomainPage />} />
           <Route path="/domains/:slug" element={<DomainDetail />} />
-          <Route path="/campus-detail" element={<CampusDetail />} />
           <Route path="/blog" element={<BlogList />} />
           <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/admin-login" element={<AdminLogin />} />
@@ -251,6 +270,7 @@ const MainContent = () => {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
+      {showPublicFooter && <Footer />}
     </div>
   );
 };

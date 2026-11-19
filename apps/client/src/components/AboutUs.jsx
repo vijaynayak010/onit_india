@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SEO from "./seo/SEO";
-import Footer from "./layout/Footer";
 import TasksByDomain from "../pages/tasks/TasksByDomain";
 
 const AboutUs = () => {
@@ -21,8 +20,8 @@ const AboutUs = () => {
         }}
       />
 
-      <section className="pt-24 sm:pt-28 pb-12 sm:pb-16 px-4 sm:px-6 md:px-12 lg:px-20">
-        <div className="max-w-4xl mx-auto">
+      <section className="pt-6 sm:pt-10 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-10">
+        <div className="max-w-6xl mx-auto">
           {/* Header */}
           <header className="border-b border-gray-200 pb-6 sm:pb-8 mb-8 sm:mb-10">
             <h1 className="text-3xl sm:text-4xl font-heading font-medium text-[#10605F] mb-2 tracking-tight">
@@ -132,8 +131,6 @@ const AboutUs = () => {
       </section>
 
       <TasksByDomain />
-
-      <Footer />
     </div>
   );
 };

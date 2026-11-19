@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import Footer from "../layout/Footer";
 import SEO from "../seo/SEO";
 import { Trash2, Search, ArrowUpRight, Clock, ChevronRight, BookOpen } from "react-feather";
 import { blogs as staticBlogs } from "../../data/blogs";
@@ -316,7 +315,7 @@ function BlogList() {
       />
 
       {/* App shell already clears fixed marquee + nav — avoid stacking large pt-* here */}
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-12 lg:px-20 pt-5 sm:pt-6 md:pt-7 pb-16 sm:pb-20 md:pb-28">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 pt-5 sm:pt-6 md:pt-7 pb-16 sm:pb-20 md:pb-28">
 
         {/* Page masthead */}
         <header className="mb-10 sm:mb-12 md:mb-16">
@@ -497,8 +496,6 @@ function BlogList() {
         </section>
 
       </div>
-
-      <Footer />
     </div>
   );
 }

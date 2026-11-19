@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Plus, ArrowRight, ChevronRight } from "react-feather";
 import SEO from "../../components/seo/SEO";
-import Footer from "../../components/layout/Footer";
 import CategoryCrossLinks from "../../components/landing/CategoryCrossLinks";
 import { taskCategories } from "../../data/taskCategories";
 
@@ -23,38 +22,7 @@ const TaskCategories = () => {
         }}
       />
 
-      {/* Breadcrumb — high contrast so it stays readable below fixed nav */}
-      <nav
-        className="border-b border-gray-200 bg-white"
-        aria-label="Breadcrumb"
-      >
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20 py-3.5 sm:py-4">
-          <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs sm:text-sm md:text-[0.9375rem]">
-            <li>
-              <Link
-                to="/"
-                className="font-semibold text-gray-900 underline-offset-2 hover:text-[var(--color-primary)] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]/40 focus-visible:rounded"
-              >
-                Home
-              </Link>
-            </li>
-            <li
-              className="text-gray-500 select-none font-medium"
-              aria-hidden="true"
-            >
-              /
-            </li>
-            <li
-              className="font-semibold text-[var(--color-primary)]"
-              aria-current="page"
-            >
-              Tasks
-            </li>
-          </ol>
-        </div>
-      </nav>
-
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20 py-8 sm:py-10 md:py-14 font-sans">
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 py-8 sm:py-10 md:py-14 font-sans">
         {/* Hero */}
         <header className="mb-10 sm:mb-12">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.25rem] font-medium text-[var(--color-primary)] mb-3 tracking-tight font-heading leading-tight">
@@ -186,8 +154,6 @@ const TaskCategories = () => {
           />
         </section>
       </main>
-
-      <Footer />
     </div>
   );
 };

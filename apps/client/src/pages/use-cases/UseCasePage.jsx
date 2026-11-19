@@ -2,7 +2,6 @@ import React from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { ArrowRight, Check } from "react-feather";
 import SEO from "../../components/seo/SEO";
-import Footer from "../../components/layout/Footer";
 import CategoryCrossLinks from "../../components/landing/CategoryCrossLinks";
 import { getUseCaseBySlug, useCases } from "../../data/useCases";
 
@@ -53,8 +52,8 @@ const UseCasePage = ({ slug: slugProp }) => {
       />
 
       {/* Hero */}
-      <section className="pt-24 sm:pt-28 pb-12 sm:pb-16 px-4 sm:px-6 md:px-12 lg:px-20 bg-gradient-to-b from-[var(--color-primary)]/5 to-white">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="pt-6 sm:pt-10 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-10 bg-gradient-to-b from-[var(--color-primary)]/5 to-white">
+        <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-[var(--color-primary)] mb-4 leading-tight font-heading">
             {headline}
           </h1>
@@ -79,7 +78,7 @@ const UseCasePage = ({ slug: slugProp }) => {
         </div>
       </section>
 
-      <section className="px-4 sm:px-6 md:px-12 lg:px-20 -mt-4 mb-4 max-w-4xl mx-auto">
+      <section className="px-4 sm:px-6 lg:px-10 -mt-4 mb-4 max-w-6xl mx-auto">
         <CategoryCrossLinks
           title="Explore other use cases"
           links={useCases.filter((u) => u.slug !== slug).map((u) => ({ to: `/${u.slug}`, label: u.title }))}
@@ -90,7 +89,7 @@ const UseCasePage = ({ slug: slugProp }) => {
       </section>
 
       {/* Benefits */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-12 lg:px-20 border-t border-gray-100">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-10 border-t border-gray-100">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-[var(--color-primary)] mb-8 sm:mb-10 text-center font-heading">
             Why {title.toLowerCase()} use FirstDoer
@@ -112,8 +111,8 @@ const UseCasePage = ({ slug: slugProp }) => {
       </section>
 
       {/* Example tasks */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-12 lg:px-20 bg-gray-50/50">
-        <div className="max-w-3xl mx-auto">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-10 bg-gray-50/50">
+        <div className="max-w-6xl mx-auto">
           <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-[var(--color-primary)] mb-4 text-center font-heading">
             Example tasks you can post
           </h2>
@@ -138,8 +137,8 @@ const UseCasePage = ({ slug: slugProp }) => {
       </section>
 
       {/* How it works */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-12 lg:px-20 border-t border-gray-100">
-        <div className="max-w-3xl mx-auto">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-10 border-t border-gray-100">
+        <div className="max-w-6xl mx-auto">
           <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-[var(--color-primary)] mb-4 text-center font-heading">
             How it works
           </h2>
@@ -163,8 +162,8 @@ const UseCasePage = ({ slug: slugProp }) => {
       </section>
 
       {/* CTA */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-12 lg:px-20">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-10">
+        <div className="max-w-6xl mx-auto text-center">
           <div className="rounded-2xl bg-[var(--color-primary)] text-white p-6 sm:p-8 md:p-10 shadow-md">
             <h2 className="text-xl sm:text-2xl font-medium mb-3 font-heading">
               Ready to get work done?
@@ -191,7 +190,7 @@ const UseCasePage = ({ slug: slugProp }) => {
         </div>
       </section>
 
-      <section className="px-4 sm:px-6 md:px-12 lg:px-20 pb-16 max-w-4xl mx-auto">
+      <section className="px-4 sm:px-6 lg:px-10 pb-16 max-w-6xl mx-auto">
         <CategoryCrossLinks
           title="Explore other use cases"
           links={useCases.filter((u) => u.slug !== slug).map((u) => ({ to: `/${u.slug}`, label: u.title }))}
@@ -200,8 +199,6 @@ const UseCasePage = ({ slug: slugProp }) => {
           variant="teal"
         />
       </section>
-
-      <Footer />
     </div>
   );
 };

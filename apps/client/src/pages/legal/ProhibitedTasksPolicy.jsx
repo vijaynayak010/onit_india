@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SEO from "../../components/seo/SEO";
-import Footer from "../../components/layout/Footer";
 
 const PROHIBITED = [
   "Illegal or unlawful activities",
@@ -23,11 +22,8 @@ const ProhibitedTasksPolicy = () => (
       keywords="FirstDoer prohibited tasks, restricted tasks, task policy, acceptable use, platform rules, task marketplace India"
       canonical="https://www.firstdoer.com/prohibited-tasks-policy"
     />
-    <section className="pt-24 pb-16 px-6 md:px-20">
-      <div className="max-w-3xl mx-auto">
-        <Link to="/" className="inline-flex items-center text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] font-medium text-sm mb-8">
-          ← Back to Home
-        </Link>
+    <section className="pt-6 sm:pt-10 pb-16 px-4 sm:px-6 lg:px-10">
+      <div className="max-w-5xl mx-auto">
         <header className="border-b border-gray-200 pb-8 mb-10">
           <h1 className="text-3xl md:text-4xl font-medium text-[var(--color-primary)] mb-4">
             Prohibited Tasks Policy
@@ -74,7 +70,6 @@ const ProhibitedTasksPolicy = () => (
         </div>
       </div>
     </section>
-    <Footer />
   </div>
 );
 

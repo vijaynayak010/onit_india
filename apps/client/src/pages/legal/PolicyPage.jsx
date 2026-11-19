@@ -3,8 +3,6 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, Clock, Shield, Loader } from "react-feather";
 import { API_BASE } from "../../config";
 import SEO from "../../components/seo/SEO";
-import Footer from "../../components/layout/Footer";
-import Navbar from "../../components/layout/Navbar";
 
 // A premium lightweight custom markdown formatter for zero-dependency parsing
 const formatMarkdown = (text) => {
@@ -126,14 +124,12 @@ const PolicyPage = () => {
     if (loading) {
         return (
             <div className="min-h-screen bg-slate-50 flex flex-col justify-between">
-                <Navbar />
-                <div className="flex-grow flex items-center justify-center">
+                    <div className="flex-grow flex items-center justify-center">
                     <div className="flex flex-col items-center gap-3">
                         <Loader className="h-8 w-8 animate-spin text-[var(--color-primary)]" />
                         <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Loading Policy details...</p>
                     </div>
                 </div>
-                <Footer />
             </div>
         );
     }
@@ -141,8 +137,7 @@ const PolicyPage = () => {
     if (error || !pageData) {
         return (
             <div className="min-h-screen bg-slate-50 flex flex-col justify-between">
-                <Navbar />
-                <div className="flex-grow flex items-center justify-center p-6 text-center">
+                    <div className="flex-grow flex items-center justify-center p-6 text-center">
                     <div className="max-w-md space-y-4">
                         <h2 className="text-2xl font-medium text-slate-800">Policy Page Not Found</h2>
                         <p className="text-slate-500 text-sm">We couldn't retrieve the policy document you requested. It might have been relocated or updated.</p>
@@ -154,7 +149,6 @@ const PolicyPage = () => {
                         </Link>
                     </div>
                 </div>
-                <Footer />
             </div>
         );
     }
@@ -167,11 +161,10 @@ const PolicyPage = () => {
                 title={`${pageData.title} | FirstDoer`}
                 description={`Read the official ${pageData.title} document for the FirstDoer platform.`}
             />
-            <Navbar />
 
             {/* Content Body Container */}
-            <main className="flex-grow py-8 sm:py-12 px-4 sm:px-6 md:px-12 lg:px-20">
-                <div className="max-w-4xl mx-auto bg-white rounded-2xl sm:rounded-3xl border border-slate-100 shadow-sm overflow-hidden">
+            <main className="flex-grow py-8 sm:py-12 px-4 sm:px-6 lg:px-10">
+                <div className="max-w-5xl mx-auto bg-white rounded-2xl sm:rounded-3xl border border-slate-100 shadow-sm overflow-hidden">
                     {/* Page Header */}
                     <div className="p-4 sm:p-6 md:p-8 lg:p-10 border-b border-slate-100 bg-slate-50/50">
                         <div className="space-y-1.5">
@@ -197,8 +190,6 @@ const PolicyPage = () => {
                     </div>
                 </div>
             </main>
-
-            <Footer />
         </div>
     );
 };
