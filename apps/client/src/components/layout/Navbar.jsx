@@ -81,14 +81,6 @@ const RESOURCES_ITEMS = [
   { label: "Pricing & Fees", desc: "Transparent payment & fee guide", to: "/pricing" },
 ];
 
-const COMPANY_ITEMS = [
-  { label: "About FirstDoer", desc: "Mission & execution infrastructure", to: "/about" },
-  { label: "Careers", desc: "Join our growing team", to: "/careers" },
-  { label: "Contact Us", desc: "Questions, support & feedback", to: "/contact" },
-  { label: "Partnerships", desc: "Collaborate with FirstDoer", to: "/partner-with-us" },
-  { label: "Trust & Safety", desc: "Verification & escrow protection", to: "/trust-safety" },
-];
-
 function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -129,11 +121,6 @@ function Navbar() {
     currentPath.startsWith("/use-cases") ||
     currentPath.startsWith("/services") ||
     currentPath === "/pricing";
-  const isCompanyActive =
-    currentPath === "/about" ||
-    currentPath.startsWith("/contact") ||
-    currentPath === "/partner-with-us" ||
-    currentPath === "/trust-safety";
 
   useEffect(() => {
     setMenuOpen(false);
@@ -217,7 +204,7 @@ function Navbar() {
   };
 
   const pillLinkClass = (active) =>
-    `inline-flex items-center gap-1 whitespace-nowrap rounded-full px-2.5 2xl:px-3.5 py-2 text-[13.5px] 2xl:text-[14px] transition-colors duration-200 ${
+    `inline-flex items-center gap-1 whitespace-nowrap rounded-full px-3 2xl:px-3.5 py-2 text-[14px] transition-colors duration-200 ${
       active
         ? "bg-[#F1F3F3] text-[#0D1210] font-medium"
         : "text-[#3F4A47] hover:bg-[#0D1210]/5 hover:text-[#0D1210]"
@@ -277,7 +264,7 @@ function Navbar() {
         </Link>
 
         {/* ================= DESKTOP CENTER NAV ================= */}
-        <div className="hidden xl:flex items-center gap-0.5 2xl:gap-1">
+        <div className="hidden xl:flex items-center gap-1.5 2xl:gap-2">
           {/* 1. Categories Dropdown */}
           <div
             className="relative"
@@ -347,12 +334,7 @@ function Navbar() {
             )}
           </div>
 
-          {/* 2. Live Tracking */}
-          <Link to="/#how" className={pillLinkClass(false)}>
-            Live Tracking
-          </Link>
-
-          {/* 3. Why FirstDoer Dropdown */}
+          {/* 2. Why FirstDoer Dropdown */}
           <div
             className="relative"
             onMouseEnter={() => handleDropdownEnter("why")}
@@ -410,17 +392,17 @@ function Navbar() {
             )}
           </div>
 
-          {/* 4. How It Works */}
+          {/* 3. How It Works */}
           <Link to="/how-it-works" className={pillLinkClass(isHowItWorksActive)}>
             How It Works
           </Link>
 
-          {/* 5. Careers */}
+          {/* 4. Careers */}
           <Link to="/careers" className={pillLinkClass(isCareersActive)}>
             Careers
           </Link>
 
-          {/* 6. Resources Dropdown */}
+          {/* 5. Resources Dropdown */}
           <div
             className="relative"
             onMouseEnter={() => handleDropdownEnter("resources")}
@@ -448,53 +430,6 @@ function Navbar() {
                 className="absolute right-0 top-full mt-3 w-72 rounded-2xl border border-[#E4E7E6] bg-white p-2.5 shadow-[0_20px_50px_-12px_rgba(0,20,13,0.14)] z-[10000]"
               >
                 {RESOURCES_ITEMS.map((item) => (
-                  <Link
-                    key={item.to}
-                    role="menuitem"
-                    to={item.to}
-                    onClick={() => setOpenDropdown(null)}
-                    className={`block rounded-xl px-3.5 py-2 transition-colors ${
-                      currentPath === item.to
-                        ? "bg-[#EFFBFB] text-[#10605F]"
-                        : "hover:bg-[#EFFBFB]"
-                    }`}
-                  >
-                    <div className="text-[13.5px] font-semibold text-[#0D1210]">{item.label}</div>
-                    <div className="text-[11.5px] text-[#56615E]">{item.desc}</div>
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* 7. Company Dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={() => handleDropdownEnter("company")}
-            onMouseLeave={handleDropdownLeave}
-          >
-            <button
-              type="button"
-              aria-expanded={openDropdown === "company"}
-              aria-haspopup="true"
-              onClick={() => setOpenDropdown(openDropdown === "company" ? null : "company")}
-              className={pillLinkClass(isCompanyActive || openDropdown === "company")}
-            >
-              Company
-              <ChevronDown
-                size={14}
-                className={`transition-transform duration-200 ${openDropdown === "company" ? "rotate-180" : ""}`}
-                aria-hidden="true"
-              />
-            </button>
-
-            {openDropdown === "company" && (
-              <div
-                role="menu"
-                aria-label="Company menu"
-                className="absolute right-0 top-full mt-3 w-72 rounded-2xl border border-[#E4E7E6] bg-white p-2.5 shadow-[0_20px_50px_-12px_rgba(0,20,13,0.14)] z-[10000]"
-              >
-                {COMPANY_ITEMS.map((item) => (
                   <Link
                     key={item.to}
                     role="menuitem"
@@ -639,14 +574,6 @@ function Navbar() {
               )}
             </div>
 
-            <Link
-              to="/#how"
-              onClick={() => setMenuOpen(false)}
-              className="rounded-xl px-3.5 py-2.5 text-[15px] font-medium text-[#0D1210] hover:bg-[#EFFBFB] hover:text-[#10605F]"
-            >
-              Live Tracking
-            </Link>
-
             {/* Why FirstDoer Accordion */}
             <div>
               <button
@@ -727,36 +654,6 @@ function Navbar() {
               {mobileSection === "resources" && (
                 <div className="mt-1 flex flex-col space-y-1 rounded-xl bg-[#EFFBFB]/60 p-3">
                   {RESOURCES_ITEMS.map((item) => (
-                    <Link
-                      key={item.to}
-                      to={item.to}
-                      onClick={() => setMenuOpen(false)}
-                      className="rounded-lg px-2.5 py-2 text-[14px] font-medium text-[#191F1D] hover:bg-white hover:text-[#10605F]"
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* Company Accordion */}
-            <div>
-              <button
-                type="button"
-                aria-expanded={mobileSection === "company"}
-                onClick={() => setMobileSection(mobileSection === "company" ? null : "company")}
-                className="flex w-full items-center justify-between rounded-xl px-3.5 py-2.5 text-[15px] font-medium text-[#0D1210] hover:bg-[#EFFBFB] hover:text-[#10605F]"
-              >
-                <span>Company</span>
-                <ChevronDown
-                  size={18}
-                  className={`transition-transform duration-200 ${mobileSection === "company" ? "rotate-180" : ""}`}
-                />
-              </button>
-              {mobileSection === "company" && (
-                <div className="mt-1 flex flex-col space-y-1 rounded-xl bg-[#EFFBFB]/60 p-3">
-                  {COMPANY_ITEMS.map((item) => (
                     <Link
                       key={item.to}
                       to={item.to}
